@@ -31,7 +31,7 @@ v0.3
 - `guangdong_independent_practice.mod`
 - `guangdong_independent_practice`文件夹
 
-随后在Paradox启动器中启用MOD，并开始一个新的1444年游戏。
+随后在Paradox启动器中启用MOD，并开始一个新的1444年游戏。(只打开该mod和两个中文翻译包)
 
 ## 已知问题
 
