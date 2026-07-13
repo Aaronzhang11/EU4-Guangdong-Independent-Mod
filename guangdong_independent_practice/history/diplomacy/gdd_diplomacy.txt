@@ -1,0 +1,14 @@
+dependency = {
+    subject_type = gdd_invested_tributary
+    first = MNG
+    second = GDD
+    start_date = 1444.11.11
+    end_date = 1821.1.2
+}
+
+truce = {
+    first = MNG
+    second = GDD
+    start_date = 1444.11.11
+    end_date = 1454.11.12
+}

@@ -1,0 +1,211 @@
+namespace = gdd_startup
+
+country_event = {
+    id = gdd_startup.1
+    title = gdd_startup.1.t
+    desc = gdd_startup.1.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        start_date = 1444.11.11
+        NOT = { has_country_flag = gdd_v03_fix2_initialised }
+    }
+
+    immediate = {
+        set_country_flag = gdd_v03_fix2_initialised
+
+        every_owned_province = {
+            kill_units = { who = ROOT type = infantry amount = 100 }
+            kill_units = { who = ROOT type = cavalry amount = 100 }
+            kill_units = { who = ROOT type = artillery amount = 100 }
+            kill_units = { who = ROOT type = heavy_ship amount = 100 }
+            kill_units = { who = ROOT type = light_ship amount = 100 }
+            kill_units = { who = ROOT type = galley amount = 100 }
+            kill_units = { who = ROOT type = transport amount = 100 }
+        }
+
+        667 = {
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            infantry = ROOT
+            cavalry = ROOT
+            cavalry = ROOT
+
+            light_ship = ROOT
+            light_ship = ROOT
+            light_ship = ROOT
+            light_ship = ROOT
+            transport = ROOT
+            transport = ROOT
+            galley = ROOT
+            galley = ROOT
+        }
+
+        define_ruler_to_general = {
+            fire = 2
+            shock = 3
+            manuever = 3
+            siege = 0
+        }
+
+        define_advisor = {
+            type = theologian
+            name = "ØQpg"
+            skill = 2
+            age = 33
+            location = 667
+            culture = cantonese
+            religion = confucianism
+            cost_multiplier = 0.25
+        }
+
+        define_advisor = {
+            type = trader
+            name = "4Tlb"
+            skill = 2
+            age = 35
+            location = 667
+            culture = cantonese
+            religion = confucianism
+            cost_multiplier = 0.25
+        }
+
+        define_advisor = {
+            type = army_reformer
+            name = "ØQpg"
+            skill = 2
+            age = 32
+            location = 667
+            culture = cantonese
+            religion = confucianism
+            cost_multiplier = 0.25
+        }
+
+        country_event = {
+            id = gdd_startup.4
+            days = 1
+        }
+
+        country_event = {
+            id = gdd_startup.2
+            days = 1827
+        }
+
+        2156 = {
+            province_event = {
+                id = gdd_startup.3
+                days = 18263
+            }
+        }
+    }
+
+    option = { name = OK }
+}
+
+country_event = {
+    id = gdd_startup.4
+    title = gdd_startup.4.t
+    desc = gdd_startup.4.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = { tag = GDD }
+
+    immediate = {
+        if = {
+            limit = { has_heir = no }
+            define_heir = {
+                name = "àR≈k"
+                dynasty = "øÅh"
+                age = 40
+                claim = 70
+                adm = 2
+                dip = 3
+                mil = 5
+                fixed = yes
+                male = yes
+                culture = cantonese
+                religion = confucianism
+            }
+        }
+        country_event = {
+            id = gdd_startup.5
+            days = 1
+        }
+    }
+
+    option = { name = OK }
+}
+
+country_event = {
+    id = gdd_startup.5
+    title = gdd_startup.5.t
+    desc = gdd_startup.5.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        has_heir = yes
+    }
+
+    immediate = {
+        define_heir_to_general = {
+            fire = 3
+            shock = 5
+            manuever = 4
+            siege = 2
+        }
+    }
+
+    option = { name = OK }
+}
+
+country_event = {
+    id = gdd_startup.2
+    title = gdd_startup.2.t
+    desc = gdd_startup.2.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = { tag = GDD }
+
+    immediate = {
+        if = {
+            limit = { MNG = { exists = yes } }
+            add_truce_with = MNG
+        }
+    }
+
+    option = { name = OK }
+}
+
+province_event = {
+    id = gdd_startup.3
+    title = gdd_startup.3.t
+    desc = gdd_startup.3.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    immediate = {
+        if = {
+            limit = { NOT = { owned_by = GDD } }
+            remove_core = GDD
+        }
+    }
+
+    option = { name = OK }
+}

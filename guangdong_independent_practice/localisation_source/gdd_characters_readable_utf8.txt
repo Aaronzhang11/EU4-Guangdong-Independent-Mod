@@ -1,0 +1,13 @@
+﻿l_english:
+ gdd_trader_extra_efficiency:0 "广东通商专长"
+
+ gdd_startup.1.t:0 "广东开局初始化"
+ gdd_startup.1.d:0 "广东的开局军队、舰队、君主将领和顾问已经建立。"
+ gdd_startup.2.t:0 "广东与明朝停战延续"
+ gdd_startup.2.d:0 "双方停战继续维持至约1454年。"
+ gdd_startup.3.t:0 "潮州主张失效"
+ gdd_startup.3.d:0 "广东未能在五十年内收复潮州，相关核心主张已经失效。"
+ gdd_startup.4.t:0 "确立继承人"
+ gdd_startup.4.d:0 "梁守毅被正式确认为广东王位继承人。"
+ gdd_startup.5.t:0 "继承人统军"
+ gdd_startup.5.d:0 "梁守毅已接掌一支广东军队。"

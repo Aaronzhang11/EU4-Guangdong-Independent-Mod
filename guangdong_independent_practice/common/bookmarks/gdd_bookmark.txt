@@ -1,0 +1,7 @@
+bookmark = {
+    name = "GDD_BOOKMARK_NAME"
+    desc = "GDD_BOOKMARK_EMPTY"
+    date = 1444.11.11
+    center = 667
+    country = GDD
+}

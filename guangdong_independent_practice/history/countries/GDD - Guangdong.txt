@@ -1,0 +1,32 @@
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+
+mercantilism = 10
+primary_culture = cantonese
+religion = confucianism
+technology_group = chinese
+capital = 667
+fixed_capital = 667
+
+1444.11.11 = {
+    monarch = {
+        name = "àR&å"
+        dynasty = "øÅh"
+        birth_date = 1400.5.12
+        adm = 4
+        dip = 4
+        mil = 3
+    }
+
+    heir = {
+        name = "àR≈k"
+        monarch_name = "àR≈k"
+        dynasty = "øÅh"
+        birth_date = 1404.6.18
+        adm = 2
+        dip = 3
+        mil = 5
+        claim = 70
+    }
+}

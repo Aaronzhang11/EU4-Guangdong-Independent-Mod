@@ -1,0 +1,25 @@
+gdd_invested_tributary = {
+    copy_from = tributary_state
+    count = tributary_state
+
+    is_potential_overlord = {
+        is_emperor_of_china = yes
+    }
+
+    takes_diplo_slot = no
+    joins_overlords_wars = no
+
+    must_accept_cta_from_overlord = yes
+    favors_cost_to_join_offensive_wars = 20
+    favors_cost_to_join_defensive_wars = 10
+    opinion_cost_to_join_offensive_wars = 20
+    opinion_cost_to_join_defensive_wars = 10
+
+    pays_overlord = 1.0
+    base_liberty_desire = 10.0
+    max_government_rank = 2
+
+    can_be_annexed = no
+    should_quit_wars_on_activation = yes
+    trust_on_start = 50
+}

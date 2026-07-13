@@ -1,0 +1,1 @@
+# Disabled in v0.3 fix2. Starting advisors now use vanilla advisor types.

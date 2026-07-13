@@ -1,0 +1,1 @@
+# Deprecated in version 0.3. Character setup is now handled by gdd_startup_events.txt.
