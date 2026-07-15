@@ -1,9 +1,0 @@
-gdd_trader_extra_efficiency = {
-    potential = {
-        tag = GDD
-    }
-    trigger = {
-        trader = 1
-    }
-    trade_efficiency = 0.05
-}

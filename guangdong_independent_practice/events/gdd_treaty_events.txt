@@ -1,0 +1,185 @@
+namespace = gdd_treaty
+
+# Hidden checker. It is first scheduled five years after game start and is also
+# called by the monthly pulse, allowing it to recover from console date jumps.
+country_event = {
+    id = gdd_treaty.100
+    title = gdd_treaty.100.t
+    desc = gdd_treaty.100.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = { tag = GDD }
+
+    immediate = {
+        if = {
+            limit = {
+                MNG = { exists = yes }
+                NOT = { war_with = MNG }
+                NOT = { truce_with = MNG }
+                NOT = { has_country_flag = gdd_treaty_chain_started }
+            }
+            set_country_flag = gdd_treaty_chain_started
+            country_event = { id = gdd_treaty.1 }
+        }
+    }
+
+    option = { name = OK }
+}
+
+# The initial truce has expired: Guangdong decides whether to seek renewal.
+country_event = {
+    id = gdd_treaty.1
+    title = gdd_treaty.1.t
+    desc = gdd_treaty.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        MNG = { exists = yes }
+        NOT = { war_with = MNG }
+        NOT = { truce_with = MNG }
+    }
+
+    option = {
+        name = gdd_treaty.1.a
+        add_estate_loyalty = {
+            estate = all
+            loyalty = 10
+            short = yes
+        }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = gdd_envoys_to_ming_estate_influence
+            influence = 10
+            duration = 3650
+            short = yes
+        }
+        MNG = {
+            country_event = {
+                id = gdd_treaty.3
+                days = 1
+            }
+        }
+        ai_chance = { factor = 65 }
+    }
+
+    option = {
+        name = gdd_treaty.1.b
+        add_country_modifier = {
+            name = gdd_active_preparation_against_ming
+            duration = 7300
+        }
+        add_estate_loyalty = {
+            estate = all
+            loyalty = -10
+            short = yes
+        }
+        MNG = {
+            country_event = {
+                id = gdd_treaty.2
+                days = 1
+            }
+        }
+        ai_chance = { factor = 35 }
+    }
+}
+
+# Ming reacts to Guangdong openly preparing for war.
+country_event = {
+    id = gdd_treaty.2
+    title = gdd_treaty.2.t
+    desc = gdd_treaty.2.d
+    picture = BATTLE_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = MNG
+        GDD = { exists = yes }
+    }
+
+    option = {
+        name = gdd_treaty.2.a
+        add_casus_belli = {
+            target = GDD
+            type = gdd_cb_punish_defiant_enfeoffed_subject
+            months = 240
+        }
+    }
+}
+
+# Ming decides whether to accept Guangdong's gifts and renew the truce.
+country_event = {
+    id = gdd_treaty.3
+    title = gdd_treaty.3.t
+    desc = gdd_treaty.3.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = MNG
+        GDD = { exists = yes }
+    }
+
+    option = {
+        name = gdd_treaty.3.a
+        add_country_modifier = {
+            name = gdd_ming_preparing_southward
+            duration = 5475
+        }
+        GDD = {
+            country_event = {
+                id = gdd_treaty.4
+                days = 1
+            }
+        }
+        ai_chance = { factor = 35 }
+    }
+
+    option = {
+        name = gdd_treaty.3.b
+        add_treasury = 500
+        add_prestige = -10
+        if = {
+            limit = { has_estate = estate_nobles }
+            add_estate_loyalty = {
+                estate = estate_nobles
+                loyalty = -10
+            }
+        }
+        if = {
+            limit = { has_estate = estate_burghers }
+            add_estate_loyalty = {
+                estate = estate_burghers
+                loyalty = 10
+            }
+        }
+        add_truce_with = GDD
+        GDD = { add_truce_with = MNG }
+        ai_chance = { factor = 65 }
+    }
+}
+
+# Guangdong learns that Ming rejected the gifts.
+country_event = {
+    id = gdd_treaty.4
+    title = gdd_treaty.4.t
+    desc = gdd_treaty.4.d
+    picture = BATTLE_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        MNG = { exists = yes }
+    }
+
+    option = {
+        name = gdd_treaty.4.a
+        add_country_modifier = {
+            name = gdd_preparation_against_ming
+            duration = 7300
+        }
+    }
+}

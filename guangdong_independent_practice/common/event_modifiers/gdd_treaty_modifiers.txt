@@ -1,0 +1,16 @@
+gdd_active_preparation_against_ming = {
+    defensiveness = 0.30
+    hostile_attrition = 0.5
+    land_morale = 0.10
+}
+
+gdd_preparation_against_ming = {
+    defensiveness = 0.30
+    hostile_attrition = 0.5
+    land_morale = 0.10
+}
+
+gdd_ming_preparing_southward = {
+    discipline = 0.05
+    land_maintenance_modifier = -0.15
+}

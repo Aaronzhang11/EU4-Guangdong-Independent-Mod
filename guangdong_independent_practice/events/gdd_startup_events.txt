@@ -17,6 +17,18 @@ country_event = {
     immediate = {
         set_country_flag = gdd_v03_fix2_initialised
 
+        # Diplomatic history does not support a truce block. Establish the
+        # initial five-year truce by event and watch for its actual expiry.
+        if = {
+            limit = { MNG = { exists = yes } }
+            add_truce_with = MNG
+            MNG = { add_truce_with = GDD }
+            country_event = {
+                id = gdd_treaty.100
+                days = 1825
+            }
+        }
+
         every_owned_province = {
             kill_units = { who = ROOT type = infantry amount = 100 }
             kill_units = { who = ROOT type = cavalry amount = 100 }
@@ -57,6 +69,31 @@ country_event = {
             siege = 0
         }
 
+        if = {
+            limit = {
+                has_dlc = "Rights of Man"
+                NOT = { ruler_has_personality = gdd_liang_shouqian_unrest_personality }
+            }
+            add_ruler_personality = gdd_liang_shouqian_unrest_personality
+        }
+
+        if = {
+            limit = {
+                has_dlc = "Rights of Man"
+                NOT = { ruler_has_personality = gdd_liang_shouqian_corruption_personality }
+            }
+            add_ruler_personality = gdd_liang_shouqian_corruption_personality
+        }
+
+        if = {
+            limit = {
+                has_dlc = "Rights of Man"
+                has_heir = yes
+                NOT = { heir_has_personality = gdd_liang_shouyi_personality }
+            }
+            add_heir_personality = gdd_liang_shouyi_personality
+        }
+
         define_advisor = {
             type = theologian
             name = "¯Qpg"
@@ -81,7 +118,7 @@ country_event = {
 
         define_advisor = {
             type = army_reformer
-            name = "¯Qpg"
+            name = ".V‰R"
             skill = 2
             age = 32
             location = 667
@@ -93,11 +130,6 @@ country_event = {
         country_event = {
             id = gdd_startup.4
             days = 1
-        }
-
-        country_event = {
-            id = gdd_startup.2
-            days = 1827
         }
 
         2156 = {
@@ -132,11 +164,18 @@ country_event = {
                 adm = 2
                 dip = 3
                 mil = 5
-                fixed = yes
                 male = yes
                 culture = cantonese
                 religion = confucianism
             }
+        }
+        if = {
+            limit = {
+                has_dlc = "Rights of Man"
+                has_heir = yes
+                NOT = { heir_has_personality = gdd_liang_shouyi_personality }
+            }
+            add_heir_personality = gdd_liang_shouyi_personality
         }
         country_event = {
             id = gdd_startup.5
@@ -166,26 +205,6 @@ country_event = {
             shock = 5
             manuever = 4
             siege = 2
-        }
-    }
-
-    option = { name = OK }
-}
-
-country_event = {
-    id = gdd_startup.2
-    title = gdd_startup.2.t
-    desc = gdd_startup.2.d
-    picture = DIPLOMACY_eventPicture
-    hidden = yes
-    is_triggered_only = yes
-
-    trigger = { tag = GDD }
-
-    immediate = {
-        if = {
-            limit = { MNG = { exists = yes } }
-            add_truce_with = MNG
         }
     }
 

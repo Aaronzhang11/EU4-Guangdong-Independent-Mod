@@ -1,0 +1,23 @@
+gdd_liang_shouqian_unrest_personality = {
+    # Assigned only by the Guangdong startup event.
+    allow = { always = no }
+
+    global_unrest = -2
+    nation_designer_cost = 0
+}
+
+gdd_liang_shouqian_corruption_personality = {
+    # Assigned only by the Guangdong startup event.
+    allow = { always = no }
+
+    yearly_corruption = -0.15
+    nation_designer_cost = 0
+}
+
+gdd_liang_shouyi_personality = {
+    # Assigned only by the Guangdong startup event.
+    allow = { always = no }
+
+    land_morale = 0.10
+    nation_designer_cost = 0
+}

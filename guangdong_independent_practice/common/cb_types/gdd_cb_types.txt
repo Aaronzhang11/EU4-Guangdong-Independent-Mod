@@ -1,0 +1,7 @@
+gdd_cb_punish_defiant_enfeoffed_subject = {
+    # Triggered by subject/event content; it is not tied to any country tag.
+    valid_for_subject = no
+    is_triggered_only = yes
+    months = 240
+    war_goal = gdd_punish_defiant_enfeoffed_subject_wargoal
+}

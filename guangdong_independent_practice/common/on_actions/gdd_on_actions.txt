@@ -3,3 +3,10 @@ on_startup = {
         gdd_startup.1
     }
 }
+
+# Catch up the truce event after console date jumps or an unusually long truce.
+on_monthly_pulse = {
+    events = {
+        gdd_treaty.100
+    }
+}

@@ -1,0 +1,45 @@
+GDD_ideas = {
+    start = {
+        heir_chance = 0.50
+        legitimacy = 1
+    }
+
+    bonus = {
+        merchants = 1
+    }
+
+    trigger = {
+        tag = GDD
+    }
+
+    free = yes
+
+    gdd_south_seas = {
+        colonists = 1
+        colonist_placement_chance = 0.10
+    }
+
+    gdd_commercial_trade = {
+        trade_efficiency = 0.15
+    }
+
+    gdd_children_of_the_coast = {
+        global_sailors_modifier = 0.30
+    }
+
+    gdd_southern_wildlands = {
+        core_creation = -0.15
+    }
+
+    gdd_private_armies = {
+        discipline = 0.05
+    }
+
+    gdd_cantonese_language = {
+        culture_conversion_cost = -0.50
+    }
+
+    gdd_wild_flavours = {
+        production_efficiency = 0.10
+    }
+}
