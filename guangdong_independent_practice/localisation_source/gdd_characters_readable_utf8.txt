@@ -7,3 +7,5 @@
  gdd_startup.4.d:0 "梁守毅被正式确认为广东王位继承人。"
  gdd_startup.5.t:0 "继承人统军"
  gdd_startup.5.d:0 "梁守毅已接掌一支广东军队。"
+ gdd_startup.6.t:0 "岭南王称号检查"
+ gdd_startup.6.d:0 "梁守谦的个人称号已经随君主更替而结束。"

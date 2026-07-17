@@ -23,6 +23,7 @@ FILES = {
     "gdd_treaty_readable_utf8.txt": "gdd_treaty_l_english.yml",
     "gdd_characters_readable_utf8.txt": "gdd_characters_l_english.yml",
     "gdd_invested_tributary_readable_utf8.txt": "gdd_invested_tributary_l_english.yml",
+    "gdd_defiance_readable_utf8.txt": "gdd_defiance_l_english.yml",
 }
 
 # Bytes that the double-byte patch escapes inside either half of a UCS-2 code

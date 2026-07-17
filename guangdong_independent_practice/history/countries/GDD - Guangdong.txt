@@ -4,6 +4,7 @@ government_rank = 1
 
 mercantilism = 10
 primary_culture = cantonese
+add_accepted_culture = hakka
 religion = confucianism
 technology_group = chinese
 capital = 667
@@ -18,6 +19,10 @@ fixed_capital = 667
         dip = 4
         mil = 3
     }
+    clear_scripted_personalities = yes
+    add_ruler_personality = gdd_liang_shouqian_prestige_personality
+    add_ruler_personality = gdd_liang_shouqian_unrest_personality
+    add_ruler_personality = gdd_liang_shouqian_corruption_personality
 
     heir = {
         name = "ˆRÅk"
@@ -29,4 +34,5 @@ fixed_capital = 667
         mil = 5
         claim = 70
     }
+    add_heir_personality = gdd_liang_shouyi_personality
 }

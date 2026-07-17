@@ -1,0 +1,43 @@
+gdd_liang_shouqian_lingnan_title = {
+    rank = {
+        1 = DUCHY
+        2 = KINGDOM
+    }
+
+    ruler_male = {
+        1 = GDD_LINGNAN_KING
+        2 = GDD_LINGNAN_KING
+    }
+
+    ruler_female = {
+        1 = DUCHESS
+        2 = QUEEN
+    }
+
+    consort_male = {
+        1 = CONSORT
+        2 = PRINCE_CONSORT
+    }
+
+    consort_female = {
+        1 = CONSORT
+        2 = QUEEN_CONSORT
+    }
+
+    heir_male = {
+        1 = HEIR
+        2 = HEIR
+    }
+
+    heir_female = {
+        1 = HEIR_fem
+        2 = HEIR_fem
+    }
+
+    trigger = {
+        tag = GDD
+        government = monarchy
+        has_country_flag = gdd_liang_shouqian_reigning
+        NOT = { government_rank = 3 }
+    }
+}

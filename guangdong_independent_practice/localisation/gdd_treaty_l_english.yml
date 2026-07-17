@@ -32,12 +32,15 @@
  GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES:0 "MOŽN-NNS'YHS„vb¹e8hÃVwýN"
  GDD_PUNISH_DEFIANT_ENFEOFFED_SUBJECT_WAR_NAME:0 "$ORDER$$FIRST$¨‹O$SECOND$KNb"
 
- gdd_liang_shouqian_unrest_personality:0 "‰RƒX"
+ gdd_liang_shouqian_prestige_personality:0 "gO"
+ desc_gdd_liang_shouqian_prestige_personality:0 "ÙMOTINñm—Vãlåb4bÿvQZgNåeñOžX0"
+ gdd_liang_shouqian_prestige_personality_die_desc:0 "NMOñm—Vãlåb4b„vTIN»yV†NºNN0"
+ gdd_liang_shouqian_unrest_personality:0 "‰Rl"
  desc_gdd_liang_shouqian_unrest_personality:0 "ÙMOTIN„UŽN‰Ršb0W¹eÿOýV…Qéy^ôf R3zšR0"
- gdd_liang_shouqian_unrest_personality_die_desc:0 "‰Ršb0W¹e„vMeVrSçuíuqVÍT^N0"
+ gdd_liang_shouqian_unrest_personality_die_desc:0 "‰Ršb0W¹e„výwãòTÏu»yV†NºNN0"
  gdd_liang_shouqian_corruption_personality:0 "ƒw8"
  desc_gdd_liang_shouqian_corruption_personality:0 "ÙMOTINô›RŽNte˜T»lÿO6Rg÷^N0W¹e„v8P0"
- gdd_liang_shouqian_corruption_personality_die_desc:0 "te˜T»l„vMeVrSçuíuqVÍT^N0"
+ gdd_liang_shouqian_corruption_personality_die_desc:0 "te˜T»l„vTINòTÏu»yV†NºNN0"
 
  gdd_liang_shouyi_personality:0 "Ÿ‚›QÃV"
  desc_gdd_liang_shouyi_personality:0 "ÙMOçubºN„v›Q‹NðXgýwYŸ‚›Q–KYÇRjOb0"

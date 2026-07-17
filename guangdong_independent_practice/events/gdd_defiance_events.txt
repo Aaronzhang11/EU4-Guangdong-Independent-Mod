@@ -1,0 +1,130 @@
+namespace = gdd_defiance
+
+# An invested tributary whose political centre has moved beyond the China
+# superregion may renounce its investiture through the national decision.
+country_event = {
+    id = gdd_defiance.1
+    title = gdd_defiance.1.t
+    desc = gdd_defiance.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        is_subject_of_type = gdd_invested_tributary
+    }
+
+    immediate = {
+        hidden_effect = {
+            save_event_target_as = gdd_former_subject
+            overlord = {
+                save_event_target_as = gdd_former_overlord
+            }
+        }
+    }
+
+    option = {
+        name = gdd_defiance.1.a
+        remove_government_reform = gdd_local_fiefdom_reform
+        add_country_modifier = {
+            name = gdd_departed_from_china
+            duration = 3650
+        }
+        grant_independence = yes
+        event_target:gdd_former_overlord = {
+            country_event = { id = gdd_defiance.2 }
+        }
+        ai_chance = { factor = 1 }
+    }
+}
+
+# The former overlord chooses whether to punish the defiant fiefdom.
+country_event = {
+    id = gdd_defiance.2
+    title = gdd_defiance.2.t
+    desc = gdd_defiance.2.d
+    picture = BATTLE_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        event_target:gdd_former_subject = { exists = yes }
+    }
+
+    option = {
+        name = gdd_defiance.2.a
+        event_target:gdd_former_subject = {
+            every_owned_province = {
+                limit = { superregion = china_superregion }
+                add_core = ROOT
+            }
+        }
+        add_casus_belli = {
+            target = event_target:gdd_former_subject
+            type = gdd_cb_punish_defiant_enfeoffed_subject
+            months = 240
+        }
+        add_estate_loyalty = {
+            estate = all
+            loyalty = 20
+            short = yes
+        }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = gdd_defiant_fiefdom_estate_influence
+            influence = 10
+            duration = 3650
+            short = yes
+        }
+        ai_chance = {
+            factor = 70
+            modifier = {
+                factor = 0.25
+                is_at_war = yes
+            }
+            modifier = {
+                factor = 0.25
+                is_bankrupt = yes
+            }
+            modifier = {
+                factor = 0.5
+                is_in_deficit = yes
+            }
+            modifier = {
+                factor = 0.5
+                NOT = { manpower_percentage = 0.50 }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_defiance.2.b
+        add_estate_loyalty = {
+            estate = all
+            loyalty = -20
+            short = yes
+        }
+        add_country_modifier = {
+            name = gdd_overlord_backed_down
+            duration = 7300
+        }
+        add_prestige = -20
+        ai_chance = {
+            factor = 30
+            modifier = {
+                factor = 4
+                is_at_war = yes
+            }
+            modifier = {
+                factor = 4
+                is_bankrupt = yes
+            }
+            modifier = {
+                factor = 2
+                is_in_deficit = yes
+            }
+            modifier = {
+                factor = 2
+                NOT = { manpower_percentage = 0.50 }
+            }
+        }
+    }
+}

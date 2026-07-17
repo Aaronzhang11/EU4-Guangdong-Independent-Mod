@@ -1,6 +1,7 @@
 on_startup = {
     events = {
         gdd_startup.1
+        gdd_subject.100
     }
 }
 
@@ -8,5 +9,12 @@ on_startup = {
 on_monthly_pulse = {
     events = {
         gdd_treaty.100
+        gdd_subject.100
+    }
+}
+
+on_new_monarch = {
+    events = {
+        gdd_startup.6
     }
 }

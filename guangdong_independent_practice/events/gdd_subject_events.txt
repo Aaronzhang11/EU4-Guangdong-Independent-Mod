@@ -1,0 +1,38 @@
+namespace = gdd_subject
+
+# Generic safety net for both scripted conversions and future subject mechanics.
+# It applies the locked tier-one reform to every invested tributary and removes
+# it after the relationship ends, leaving the country free to choose a new one.
+country_event = {
+    id = gdd_subject.100
+    title = gdd_subject.100.t
+    desc = gdd_subject.100.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        OR = {
+            AND = {
+                is_subject_of_type = gdd_invested_tributary
+                NOT = { has_reform = gdd_local_fiefdom_reform }
+            }
+            AND = {
+                has_reform = gdd_local_fiefdom_reform
+                NOT = { is_subject_of_type = gdd_invested_tributary }
+            }
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = { is_subject_of_type = gdd_invested_tributary }
+            add_government_reform = gdd_local_fiefdom_reform
+        }
+        else = {
+            remove_government_reform = gdd_local_fiefdom_reform
+        }
+    }
+
+    option = { name = OK }
+}

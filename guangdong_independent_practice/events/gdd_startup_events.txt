@@ -16,6 +16,16 @@ country_event = {
 
     immediate = {
         set_country_flag = gdd_v03_fix2_initialised
+        set_country_flag = gdd_liang_shouqian_reigning
+
+        # Every invested tributary is locked into the Local Fiefdom tier-one reform.
+        if = {
+            limit = {
+                is_subject_of_type = gdd_invested_tributary
+                NOT = { has_reform = gdd_local_fiefdom_reform }
+            }
+            add_government_reform = gdd_local_fiefdom_reform
+        }
 
         # Diplomatic history does not support a truce block. Establish the
         # initial five-year truce by event and watch for its actual expiry.
@@ -67,6 +77,14 @@ country_event = {
             shock = 3
             manuever = 3
             siege = 0
+        }
+
+        if = {
+            limit = {
+                has_dlc = "Rights of Man"
+                NOT = { ruler_has_personality = gdd_liang_shouqian_prestige_personality }
+            }
+            add_ruler_personality = gdd_liang_shouqian_prestige_personality
         }
 
         if = {
@@ -224,6 +242,28 @@ province_event = {
             limit = { NOT = { owned_by = GDD } }
             remove_core = GDD
         }
+    }
+
+    option = { name = OK }
+}
+
+# Liang Shouqian alone may use the title King of Lingnan. Any succession,
+# including abdication, clears the flag used by the government-name trigger.
+country_event = {
+    id = gdd_startup.6
+    title = gdd_startup.6.t
+    desc = gdd_startup.6.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        has_country_flag = gdd_liang_shouqian_reigning
+    }
+
+    immediate = {
+        clr_country_flag = gdd_liang_shouqian_reigning
     }
 
     option = { name = OK }

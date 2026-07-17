@@ -32,12 +32,15 @@ l_english:
  GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES:0 "位于中华大区的我方核心省份"
  GDD_PUNISH_DEFIANT_ENFEOFFED_SUBJECT_WAR_NAME:0 "$ORDER$$FIRST$讨伐$SECOND$之战"
 
- gdd_liang_shouqian_unrest_personality:0 "安境"
+ gdd_liang_shouqian_prestige_personality:0 "服众"
+ desc_gdd_liang_shouqian_prestige_personality:0 "这位君主深得臣民拥戴，其威望与日俱增。"
+ gdd_liang_shouqian_prestige_personality_die_desc:0 "一位深得臣民拥戴的君主离开了人世。"
+ gdd_liang_shouqian_unrest_personality:0 "安民"
  desc_gdd_liang_shouqian_unrest_personality:0 "这位君主善于安抚地方，使国内秩序更加稳定。"
- gdd_liang_shouqian_unrest_personality_die_desc:0 "安抚地方的政策将继续影响广东。"
+ gdd_liang_shouqian_unrest_personality_die_desc:0 "安抚地方的能臣已经离开了人世。"
  gdd_liang_shouqian_corruption_personality:0 "肃贪"
  desc_gdd_liang_shouqian_corruption_personality:0 "这位君主致力于整顿吏治，遏制朝廷与地方的贪腐。"
- gdd_liang_shouqian_corruption_personality_die_desc:0 "整顿吏治的政策将继续影响广东。"
+ gdd_liang_shouqian_corruption_personality_die_desc:0 "整顿吏治的君主已经离开了人世。"
 
  gdd_liang_shouyi_personality:0 "鼓舞军心"
  desc_gdd_liang_shouyi_personality:0 "这位继承人的军事声望能够鼓舞军队奋勇作战。"
