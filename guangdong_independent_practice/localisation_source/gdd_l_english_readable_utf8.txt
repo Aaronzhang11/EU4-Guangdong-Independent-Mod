@@ -8,6 +8,16 @@
  GDD_BOOKMARK_NAME:0 "岭南自立"
  GDD_BOOKMARK_DESC:0 "梁氏兄弟已控制广东大部，并与明廷达成五年停战。这个新生的岭南政权必须整顿内部、发展海贸，同时准备面对明朝的下一次施压。"
 
+ gdd_guangzhou_trade_hub:0 "广州贸易枢纽"
+ desc_gdd_guangzhou_trade_hub:0 "广州扼守珠江口，汇聚岭南内陆、沿海与南洋商路。拥有这座城市的国家可以借助其成熟的商人网络，提高全国贸易效率。"
+
+ gdd_nanhai_temple:0 "南海神庙与扶胥古港"
+ gdd_nanhai_temple_desc:0 "始建于隋代的南海神庙，是历代王朝祭祀南海之神的官庙。庙外的扶胥古港曾迎送沿季风航线往来的海船；若能重修庙宇、恢复海祭并经营南洋港路，广州便可再现万舶朝宗之盛。"
+ gdd_nanhai_temple_culture_core_tt:0 "广州必须是拥有者的核心省份，且拥有者以§Y粤§!文化为主流文化或已接受§Y粤§!文化。"
+ gdd_nanhai_temple_controlled_tt:0 "广州必须由其拥有者控制，不能处于敌军或叛军占领之下。"
+ gdd_nanhai_temple_tier_2_upgrade_tt:0 "拥有者的稳定度至少为§Y+1§!。"
+ gdd_nanhai_temple_tier_3_upgrade_tt:0 "广州必须是§Y三级贸易中心§!，且拥有者须在§Y马来亚§!或§Y印度尼西亚§!地区拥有至少§Y3§!个沿海核心省份。"
+
  gdd_south_seas:0 "下南洋"
  gdd_south_seas_desc:0 "广东人自古便沿着季风航线驶向南海。商人、水手与移民从广州和潮州启航，在陌生港口建立商站、村落和宗族网络。对于广东而言，南洋不仅意味着遥远的土地，也意味着香料、金银和无限的贸易机会。"
 
