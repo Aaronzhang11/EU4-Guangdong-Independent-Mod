@@ -18,6 +18,15 @@ country_event = {
         set_country_flag = gdd_v03_fix2_initialised
         set_country_flag = gdd_liang_shouqian_reigning
 
+        # Country history should already assign the locked reform. Keep this
+        # startup fallback so a new game cannot begin with an empty tier 1.
+        if = {
+            limit = {
+                NOT = { has_reform = gdd_local_fiefdom_reform }
+            }
+            add_government_reform = gdd_local_fiefdom_reform
+        }
+
         every_owned_province = {
             kill_units = { who = ROOT type = infantry amount = 100 }
             kill_units = { who = ROOT type = cavalry amount = 100 }

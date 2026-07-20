@@ -1,6 +1,17 @@
 on_startup = {
     events = {
         gdd_startup.1
+        gdd_subject.108
+        gdd_subject.104
+    }
+}
+
+# The fixed calendar event handles normal 1444 starts. These monthly checks
+# are a fallback for old saves and console date jumps.
+on_monthly_pulse = {
+    events = {
+        gdd_subject.105
+        gdd_subject.106
     }
 }
 

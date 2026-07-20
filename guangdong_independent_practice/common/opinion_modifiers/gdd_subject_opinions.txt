@@ -1,0 +1,4 @@
+gdd_refused_annual_tribute = {
+    opinion = -50
+    yearly_decay = 5
+}

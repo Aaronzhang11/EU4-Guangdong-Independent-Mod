@@ -1,8 +1,8 @@
 l_english:
  GDD_LINGNAN_KING:0 "岭南王"
 
- gdd_local_fiefdom_reform:0 "地方藩国"
- gdd_local_fiefdom_reform_desc:0 "地方藩国改革接口已保留，具体机制将在后续版本重新设计。"
+ gdd_local_fiefdom_reform:0 "皇朝藩屏"
+ gdd_local_fiefdom_reform_desc:0 "我国受中华天子册封，奉其正朔，承担贡赋与拱卫皇朝的义务。作为交换，朝廷承认我国君主的统治地位，允许我们保留原有的官僚、军队与地方制度。依靠天子的名分与地方势力的支持，我们得以在维持高度自治的同时，协调境内不同文化与利益集团。然而，藩国的权利从来伴随着义务；每逢贡期，我们都必须向皇帝证明自己的忠诚。"
 
  gdd_leave_china_title:0 "脱离华夏"
  gdd_leave_china_desc:0 "“脱离华夏”决议接口已保留，具体机制将在后续版本重新设计。"

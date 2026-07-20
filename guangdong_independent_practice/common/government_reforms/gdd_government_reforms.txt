@@ -1,14 +1,16 @@
 gdd_local_fiefdom_reform = {
-    icon = "crown"
+    icon = "gdd_imperial_bulwark"
     allow_normal_conversion = no
     lock_level_when_selected = yes
     valid_for_new_country = no
     valid_for_nation_designer = no
     nation_designer_cost = 0
 
-    # Reserved interface. The invested-tributary system which selected and
-    # locked this reform has been removed, so it is not currently selectable.
-    potential = { always = no }
+    # Guangdong receives this reform from history. Other countries may still
+    # receive it later through a scripted effect.
+    potential = {
+        tag = GDD
+    }
 
     modifiers = {
         global_tax_modifier = 0.30
