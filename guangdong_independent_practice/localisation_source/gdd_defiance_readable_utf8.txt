@@ -2,25 +2,11 @@ l_english:
  GDD_LINGNAN_KING:0 "岭南王"
 
  gdd_local_fiefdom_reform:0 "地方藩国"
- gdd_local_fiefdom_reform_desc:0 "受中华天子册封的地方藩国保留原有政体和内政体系，同时凭借朝廷认可整合赋税、人才与对外事务。只要册封关系仍然存在，这项一级改革就不能被替换。"
+ gdd_local_fiefdom_reform_desc:0 "地方藩国改革接口已保留，具体机制将在后续版本重新设计。"
 
  gdd_leave_china_title:0 "脱离华夏"
- gdd_leave_china_desc:0 "我国的政治中心与重要领地已经移出中华大区，来自中华天子的册封不再是立国所必需。我们可以废除地方藩国改革，结束奉贡关系并宣布完全独立。"
+ gdd_leave_china_desc:0 "“脱离华夏”决议接口已保留，具体机制将在后续版本重新设计。"
 
  gdd_defiance.1.t:0 "脱离华夏"
- gdd_defiance.1.d:0 "我国的统治重心已经移出中华大区，旧有册封日渐成为束缚。朝廷与地方权贵一致认为，继续以奉贡藩国自居只会妨碍国家的发展。现在正是废除册封、另择国制并走向完全独立的时候。"
- gdd_defiance.1.a:0 "我们只是做了最正确的决定……"
-
- gdd_defiance.2.t:0 "大逆不道"
- gdd_defiance.2.d:0 "我们的藩国脱离了掌控，这被视为奇耻大辱。国内贵族空前团结，目标十分明确：出兵惩戒违制之国，维持我们作为宗主国的影响力。"
- gdd_defiance.2.a:0 "是可忍，孰不可忍！"
- gdd_defiance.2.b:0 "我们无能为力"
-
- gdd_departed_from_china:0 "脱离华夏"
- gdd_departed_from_china_desc:0 "废除旧有册封与重建国家制度在国内造成了持续动荡。"
- gdd_overlord_backed_down:0 "无力惩戒违制藩国"
- gdd_overlord_backed_down_desc:0 "朝廷面对藩国公然脱离却无力采取行动，军队士气因此受到打击。"
- gdd_defiant_fiefdom_estate_influence:0 "惩戒违制藩国：§Y$VAL$%§!"
-
- gdd_subject.100.t:0 "地方藩国改革检查"
- gdd_subject.100.d:0 "根据奉贡关系同步地方藩国改革。"
+ gdd_defiance.1.d:0 "“脱离华夏”事件接口已保留，具体机制将在后续版本重新设计。"
+ gdd_defiance.1.a:0 "暂且搁置"

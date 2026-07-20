@@ -6,9 +6,9 @@ gdd_local_fiefdom_reform = {
     valid_for_nation_designer = no
     nation_designer_cost = 0
 
-    potential = {
-        is_subject_of_type = gdd_invested_tributary
-    }
+    # Reserved interface. The invested-tributary system which selected and
+    # locked this reform has been removed, so it is not currently selectable.
+    potential = { always = no }
 
     modifiers = {
         global_tax_modifier = 0.30

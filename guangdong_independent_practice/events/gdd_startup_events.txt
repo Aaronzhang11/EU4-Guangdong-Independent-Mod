@@ -18,27 +18,6 @@ country_event = {
         set_country_flag = gdd_v03_fix2_initialised
         set_country_flag = gdd_liang_shouqian_reigning
 
-        # Every invested tributary is locked into the Local Fiefdom tier-one reform.
-        if = {
-            limit = {
-                is_subject_of_type = gdd_invested_tributary
-                NOT = { has_reform = gdd_local_fiefdom_reform }
-            }
-            add_government_reform = gdd_local_fiefdom_reform
-        }
-
-        # Diplomatic history does not support a truce block. Establish the
-        # initial five-year truce by event and watch for its actual expiry.
-        if = {
-            limit = { MNG = { exists = yes } }
-            add_truce_with = MNG
-            MNG = { add_truce_with = GDD }
-            country_event = {
-                id = gdd_treaty.100
-                days = 1825
-            }
-        }
-
         every_owned_province = {
             kill_units = { who = ROOT type = infantry amount = 100 }
             kill_units = { who = ROOT type = cavalry amount = 100 }

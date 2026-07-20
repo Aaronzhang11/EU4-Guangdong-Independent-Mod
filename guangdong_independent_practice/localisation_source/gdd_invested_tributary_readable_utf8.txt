@@ -1,9 +1,3 @@
-﻿l_english:
- gdd_invested_tributary:0 "奉贡藩国"
- gdd_invested_tributary_title:0 "奉贡藩国"
- gdd_invested_tributary_title_plural:0 "奉贡藩国"
- gdd_invested_tributary_overlord:0 "册封宗主"
- gdd_invested_tributary_subject:0 "奉贡藩国"
- gdd_invested_tributary_is_our:0 "$NAME|Y$是我国的奉贡藩国。"
- gdd_invested_tributary_desc:0 "由中华天子正式册封、保留高度自治权的藩国。"
- gdd_invested_tributary_long_desc:0 "奉贡藩国承认天命政权的宗主地位，保留年度朝贡义务并缴纳属国税。藩国保有自己的君主、军队、内政与外交体系，不会自动参加宗主国的全部战争，但宗主国可以征召其参战。宗主国不能通过普通外交手段吞并奉贡藩国。"
+l_english:
+ gdd_subject.110.t:0 "贡赋义务"
+ gdd_subject.110.d:0 "贡赋义务接口已保留，具体机制将在后续版本重新设计。"

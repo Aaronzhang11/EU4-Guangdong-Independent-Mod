@@ -26,7 +26,7 @@ l_english:
  gdd_envoys_to_ming_estate_influence:0 "维持对明和议"
 
  gdd_cb_punish_defiant_enfeoffed_subject:0 "讨伐违制藩国"
- gdd_cb_punish_defiant_enfeoffed_subject_desc:0 "该国违背了奉贡藩国应守的制度，朝廷可以发兵收回位于中华大区的核心省份，索取赔款并解除其外交关系。"
+ gdd_cb_punish_defiant_enfeoffed_subject_desc:0 "“讨伐违制藩国”宣战借口接口已保留，具体机制将在后续版本重新设计。"
  gdd_punish_defiant_enfeoffed_subject_wargoal:0 "收复中华核心"
  gdd_punish_defiant_enfeoffed_subject_wargoal_desc:0 "战争目标是占领违制藩国所持有的中华核心省份。"
  GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES:0 "位于中华大区的我方核心省份"

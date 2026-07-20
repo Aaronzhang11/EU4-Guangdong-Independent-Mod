@@ -1,1 +1,2 @@
-# Disabled in v0.3 fix2. Starting advisors now use vanilla advisor types.
+# No custom advisor types. Wu Yang uses the vanilla trader type, giving the
+# documented +10% trade efficiency and the standard Asian trader portrait.
