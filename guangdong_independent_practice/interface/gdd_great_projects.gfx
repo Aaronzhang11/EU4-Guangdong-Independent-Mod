@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_great_project_gdd_nanhai_temple"
+		texturefile = "gfx//interface//great_projects//great_project_gdd_nanhai_temple.dds"
+	}
+}

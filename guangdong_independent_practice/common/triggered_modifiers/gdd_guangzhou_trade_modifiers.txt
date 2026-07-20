@@ -1,0 +1,12 @@
+# Trade efficiency is country-scoped, so the province feature follows whoever owns Guangzhou.
+gdd_guangzhou_trade_hub = {
+    potential = {
+        owns = 667
+    }
+
+    trigger = {
+        owns = 667
+    }
+
+    trade_efficiency = 0.10
+}
