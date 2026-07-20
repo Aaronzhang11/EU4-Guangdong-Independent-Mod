@@ -2,32 +2,18 @@ country_decisions = {
     gdd_leave_china = {
         major = yes
 
-        potential = {
-            is_subject_of_type = gdd_invested_tributary
-        }
+        # Reserved interface. Re-enable this decision when the replacement
+        # relationship design is implemented.
+        potential = { always = no }
 
-        allow = {
-            is_subject_of_type = gdd_invested_tributary
-            is_at_war = no
-            is_bankrupt = no
-            NOT = { num_of_rebel_armies = 1 }
-            NOT = { num_of_rebel_controlled_provinces = 1 }
-            capital_scope = {
-                NOT = { superregion = china_superregion }
-            }
-            any_owned_province = {
-                development = 11
-                is_core = ROOT
-                NOT = { superregion = china_superregion }
-            }
-        }
+        allow = { always = no }
 
         effect = {
             country_event = { id = gdd_defiance.1 }
         }
 
         ai_will_do = {
-            factor = 0.02
+            factor = 0
         }
     }
 }
