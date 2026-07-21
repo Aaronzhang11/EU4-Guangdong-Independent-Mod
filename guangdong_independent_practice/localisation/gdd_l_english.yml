@@ -1,6 +1,7 @@
 ﻿l_english:
  GDD:0 "^N"
  GDD_ADJ:0 "^N"
+ estate_gdd_clans:0 "—RÏe"
  GDD_ideas:0 "^NtõV"
  GDD_ideas_start:0 "—RÏe—gËz"
  GDD_ideas_bonus:0 "FUºN–"
@@ -41,3 +42,14 @@
  GDD_BOOKMARK_EMPTY:0 ""
  string_start_title_gdd:0 "­SWSêËz"
  string_start_gdd:0 "ckßuRt^ÿ^NKz0wm2–N0W¹e»l‰RåeÊvOVkSNb0—RÏeŒTFUºNôuc01443t^+gÿg÷^teƒwkSNbv^ýågFUzNzzÿVÑS0W¹e¿R›RÍS9V0hˆR&Œ(WëXÅu0—RÏefkÅˆŒTàsml4l^=ecNµc6R^ÞTÿÈSåNÛbšbN›Q‹NG•‹Sv^(u„v¹eVÿOd–noÞTY„v^NTœ^HQTRVz˜0\n\nf÷^–sSLm›QWSVÿtS«ˆhˆRÅk)R(u­SWS0WbVN4l^O¿RûQ%0hlDQV‹†ÖS—V'YÜwÿtSñmåw^NàeÕl•gb×SfgcíuV¨‹ÿàVdkIN¨R®‹ŒT0ÖNìNLeVËzsSHYÖSnoÞTÿb²‹f^„v—RIN0WMOv^bHNf÷^„vD–¸^ýVÿf÷^R‚fjPWSVÿˆcˆNhˆR&Œ­SWS‹sðy÷SÿØž¸‹†NhlùR^NvQYO0WHS„vßu»l0\n\n‹†b‹NòTˆmÿFOf÷^ÍNÝOYuùR^N„vINCgðX0tÿ^NmN¡l	gLeVnoÞT0^‰0'YŠŒTWSmø‹ýVÿý(WÂ‰ßRÙ8N°eu„v­SWSMeCg0"
+
+ estate_nobles_gdd_clan_autonomy_charter:0 "—RÏeê»lyr¸‹"
+ estate_nobles_gdd_clan_autonomy_charter_desc:0 "hlDQVŒTSV0WT8N—RÏe„vØžQYag¦u0"
+ gdd_clan_autonomy_charter_locked_tt:0 "—‰HQŒRbùR”^ûN¡RÿMbýw²d•§Y—RÏeê»lyr¸‹§!0"
+ gdd_clan_autonomy_charter_province_effect_tt:0 "êS‰å‹yrCguHeÿNb	g§Y²s§!0§Y¢R§!b§Yý•§!‡eS„vôv^SwýNS·ƒ—V§G+50.0%§!,g0WºN›RîOckŒT§R+10.0%§!gNOê»l¦^0"
+ gdd_clan_autonomy_charter_province_modifier:0 "—RÏeê»lyr¸‹"
+ desc_gdd_clan_autonomy_charter_province_modifier:0 "SV0W—RÏeOncg÷^ˆcˆN„vê»lyr¸‹¡rtaNÌ‘ÿv^1VßRNôuc0W¹efkÅˆ0"
+
+ estate_burghers_gdd_southern_trade_charter:0 "WS²s„v8fyr¸‹"
+ estate_burghers_gdd_southern_trade_charter_desc:0 "hlDQVŒTFUºN„v¥YOSagLk0"
+ gdd_southern_trade_charter_locked_tt:0 "—‰HQŒRbùR”^ûN¡RÿMbýw²d•§YWS²s„v8fyr¸‹§!0"

@@ -15,6 +15,9 @@ country_event = {
         tag = GDD
         NOT = { has_reform = gdd_local_fiefdom_reform }
         NOT = { has_country_flag = gdd_left_china }
+        capital_scope = {
+            superregion = china_superregion
+        }
     }
 
     immediate = {
@@ -24,7 +27,8 @@ country_event = {
     option = { name = OK }
 }
 
-# Schedule the first fixed New Year's Day check from the 1444 bookmark.
+# Legacy scheduler retained only so old saves can resolve an already queued
+# event. New games use the January monthly pulse instead.
 country_event = {
     id = gdd_subject.104
     title = gdd_subject.104.t
@@ -41,20 +45,13 @@ country_event = {
         NOT = { has_country_flag = gdd_fixed_tribute_calendar_scheduled }
     }
 
-    immediate = {
-        set_country_flag = gdd_fixed_tribute_calendar_scheduled
-        1 = {
-            province_event = {
-                id = gdd_subject.107
-                days = 51
-            }
-        }
-    }
+    immediate = { set_country_flag = gdd_fixed_tribute_calendar_scheduled }
 
     option = { name = OK }
 }
 
-# This province calendar fires every 365 days, beginning on 1 January 1445.
+# Legacy calendar endpoint. It deliberately performs no effects and does not
+# schedule itself again; this safely retires queued copies in existing saves.
 province_event = {
     id = gdd_subject.107
     title = gdd_subject.107.t
@@ -63,35 +60,10 @@ province_event = {
     hidden = yes
     is_triggered_only = yes
 
-    immediate = {
-        if = {
-            limit = {
-                event_target:EmperorOfChina = {
-                    exists = yes
-                    is_emperor_of_china = yes
-                }
-            }
-            event_target:EmperorOfChina = {
-                every_subject_country = {
-                    limit = {
-                        has_reform = gdd_local_fiefdom_reform
-                        NOT = { has_country_flag = gdd_annual_tribute_due_processed }
-                    }
-                    set_country_flag = gdd_annual_tribute_due_processed
-                    country_event = { id = gdd_subject.110 }
-                }
-            }
-        }
-        province_event = {
-            id = gdd_subject.107
-            days = 365
-        }
-    }
-
     option = { name = OK }
 }
 
-# Fallback for old saves which do not contain the fixed province calendar.
+# January check for every country using the locked reform.
 country_event = {
     id = gdd_subject.105
     title = gdd_subject.105.t
@@ -102,8 +74,11 @@ country_event = {
 
     trigger = {
         has_reform = gdd_local_fiefdom_reform
-        is_subject = yes
-        overlord = { is_emperor_of_china = yes }
+        NOT = { is_emperor_of_china = yes }
+        event_target:EmperorOfChina = {
+            exists = yes
+            is_emperor_of_china = yes
+        }
         is_month = 0
         NOT = { is_month = 1 }
         NOT = { has_country_flag = gdd_annual_tribute_due_processed }
@@ -146,14 +121,17 @@ country_event = {
 
     trigger = {
         has_reform = gdd_local_fiefdom_reform
-        is_subject = yes
-        overlord = { is_emperor_of_china = yes }
+        NOT = { is_emperor_of_china = yes }
+        event_target:EmperorOfChina = {
+            exists = yes
+            is_emperor_of_china = yes
+        }
     }
 
     immediate = {
         hidden_effect = {
-            overlord = {
-                save_event_target_as = gdd_tribute_overlord
+            event_target:EmperorOfChina = {
+                save_event_target_as = gdd_tribute_emperor
             }
 
             export_to_variable = {
@@ -220,15 +198,28 @@ country_event = {
                     which = gdd_available_manpower
                 }
             }
+
+            # Localisation uses people rather than EU4's internal manpower units.
+            set_variable = {
+                which = gdd_annual_tribute_manpower_people
+                which = gdd_annual_tribute_manpower
+            }
+            multiply_variable = {
+                which = gdd_annual_tribute_manpower_people
+                value = 1000
+            }
         }
     }
 
     option = {
         name = gdd_subject.110.money
-        transfer_treasury = {
-            giver = ROOT
-            taker = event_target:gdd_tribute_overlord
-            variable = gdd_annual_tribute_money
+        custom_tooltip = gdd_subject.110.money_effect_tt
+        hidden_effect = {
+            transfer_treasury = {
+                giver = ROOT
+                taker = event_target:gdd_tribute_emperor
+                variable = gdd_annual_tribute_money
+            }
         }
         ai_chance = {
             factor = 100
@@ -241,60 +232,63 @@ country_event = {
 
     option = {
         name = gdd_subject.110.manpower
-        while = {
-            limit = {
-                check_variable = {
+        custom_tooltip = gdd_subject.110.manpower_effect_tt
+        hidden_effect = {
+            while = {
+                limit = {
+                    check_variable = {
+                        which = gdd_annual_tribute_manpower
+                        value = 1
+                    }
+                }
+                add_manpower = -1
+                event_target:gdd_tribute_emperor = { add_manpower = 1 }
+                subtract_variable = {
                     which = gdd_annual_tribute_manpower
                     value = 1
                 }
             }
-            add_manpower = -1
-            event_target:gdd_tribute_overlord = { add_manpower = 1 }
-            subtract_variable = {
-                which = gdd_annual_tribute_manpower
-                value = 1
-            }
-        }
-        while = {
-            limit = {
-                check_variable = {
+            while = {
+                limit = {
+                    check_variable = {
+                        which = gdd_annual_tribute_manpower
+                        value = 0.1
+                    }
+                }
+                add_manpower = -0.1
+                event_target:gdd_tribute_emperor = { add_manpower = 0.1 }
+                subtract_variable = {
                     which = gdd_annual_tribute_manpower
                     value = 0.1
                 }
             }
-            add_manpower = -0.1
-            event_target:gdd_tribute_overlord = { add_manpower = 0.1 }
-            subtract_variable = {
-                which = gdd_annual_tribute_manpower
-                value = 0.1
-            }
-        }
-        while = {
-            limit = {
-                check_variable = {
+            while = {
+                limit = {
+                    check_variable = {
+                        which = gdd_annual_tribute_manpower
+                        value = 0.01
+                    }
+                }
+                add_manpower = -0.01
+                event_target:gdd_tribute_emperor = { add_manpower = 0.01 }
+                subtract_variable = {
                     which = gdd_annual_tribute_manpower
                     value = 0.01
                 }
             }
-            add_manpower = -0.01
-            event_target:gdd_tribute_overlord = { add_manpower = 0.01 }
-            subtract_variable = {
-                which = gdd_annual_tribute_manpower
-                value = 0.01
-            }
-        }
-        while = {
-            limit = {
-                check_variable = {
+            while = {
+                limit = {
+                    check_variable = {
+                        which = gdd_annual_tribute_manpower
+                        value = 0.001
+                    }
+                }
+                add_manpower = -0.001
+                event_target:gdd_tribute_emperor = { add_manpower = 0.001 }
+                subtract_variable = {
                     which = gdd_annual_tribute_manpower
                     value = 0.001
                 }
-            }
-            add_manpower = -0.001
-            event_target:gdd_tribute_overlord = { add_manpower = 0.001 }
-            subtract_variable = {
-                which = gdd_annual_tribute_manpower
-                value = 0.001
             }
         }
         ai_chance = {
@@ -326,7 +320,7 @@ country_event = {
     option = {
         name = gdd_subject.110.adm
         add_adm_power = -50
-        event_target:gdd_tribute_overlord = { add_adm_power = 50 }
+        event_target:gdd_tribute_emperor = { add_adm_power = 50 }
         ai_chance = {
             factor = 1
             modifier = {
@@ -343,7 +337,7 @@ country_event = {
     option = {
         name = gdd_subject.110.dip
         add_dip_power = -50
-        event_target:gdd_tribute_overlord = { add_dip_power = 50 }
+        event_target:gdd_tribute_emperor = { add_dip_power = 50 }
         ai_chance = {
             factor = 1
             modifier = {
@@ -360,7 +354,7 @@ country_event = {
     option = {
         name = gdd_subject.110.mil
         add_mil_power = -50
-        event_target:gdd_tribute_overlord = { add_mil_power = 50 }
+        event_target:gdd_tribute_emperor = { add_mil_power = 50 }
         ai_chance = {
             factor = 1
             modifier = {
@@ -376,7 +370,7 @@ country_event = {
 
     option = {
         name = gdd_subject.110.refuse
-        event_target:gdd_tribute_overlord = {
+        event_target:gdd_tribute_emperor = {
             add_opinion = {
                 who = ROOT
                 modifier = gdd_refused_annual_tribute

@@ -2,18 +2,38 @@ country_decisions = {
     gdd_leave_china = {
         major = yes
 
-        # Reserved interface. Re-enable this decision when the replacement
-        # relationship design is implemented.
-        potential = { always = no }
+        potential = {
+            has_reform = gdd_local_fiefdom_reform
+            NOT = { has_country_flag = gdd_left_china }
+        }
 
-        allow = { always = no }
+        allow = {
+            custom_trigger_tooltip = {
+                tooltip = gdd_leave_china_province_requirement_tt
+                any_owned_province = {
+                    NOT = { superregion = china_superregion }
+                    development = 11
+                    is_core = ROOT
+                }
+            }
+            capital_scope = {
+                NOT = { superregion = china_superregion }
+            }
+            is_at_war = no
+            is_bankrupt = no
+            NOT = { num_of_rebel_armies = 1 }
+            NOT = { num_of_rebel_controlled_provinces = 1 }
+        }
 
         effect = {
-            country_event = { id = gdd_defiance.1 }
+            custom_tooltip = gdd_leave_china_war_warning_tt
+            hidden_effect = {
+                country_event = { id = gdd_defiance.1 }
+            }
         }
 
         ai_will_do = {
-            factor = 0
+            factor = 0.01
         }
     }
 }

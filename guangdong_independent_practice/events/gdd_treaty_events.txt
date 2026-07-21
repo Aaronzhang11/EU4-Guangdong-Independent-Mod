@@ -1,7 +1,7 @@
 namespace = gdd_treaty
 
-# Reserved checker for the former independent-Guangdong treaty chain. It is no
-# longer scheduled automatically now that Guangdong starts as Ming's vassal.
+# Hidden checker for the Guangdong-Ming opening truce. It is scheduled five
+# years after game start and also called by the monthly pulse as a fallback.
 country_event = {
     id = gdd_treaty.100
     title = gdd_treaty.100.t
@@ -12,7 +12,6 @@ country_event = {
 
     trigger = {
         tag = GDD
-        is_subject = no
     }
 
     immediate = {
@@ -31,7 +30,7 @@ country_event = {
     option = { name = OK }
 }
 
-# Guangdong decides whether to seek a renewed treaty after becoming independent.
+# The opening truce has expired: Guangdong decides whether to seek renewal.
 country_event = {
     id = gdd_treaty.1
     title = gdd_treaty.1.t
@@ -41,7 +40,6 @@ country_event = {
 
     trigger = {
         tag = GDD
-        is_subject = no
         MNG = { exists = yes }
         NOT = { war_with = MNG }
         NOT = { truce_with = MNG }

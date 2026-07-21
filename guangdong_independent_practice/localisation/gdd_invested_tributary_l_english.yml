@@ -7,12 +7,14 @@
  gdd_subject.106.t:0 "!Kt^¦^Í‘n"
  gdd_subject.106.d:0 "HNNNt^¦^!KIN¡Rnd–N!k'`h°‹0"
  gdd_subject.107.t:0 "CQæe!KÀhåg"
- gdd_subject.107.d:0 "(WCQæeTNb	gc	g‡vgé…OS9ei—„v^SýVÑSúQ,gt^¦^!K‰Bl0"
+ gdd_subject.107.d:0 "(WCQæeTNb	gc	g‡vgé…OS9ei—„výV¶RÑSúQ,gt^¦^!K‰Bl0"
  gdd_subject.110.t:0 "!KIN¡R"
  gdd_subject.110.d:0 "°e„vNt^ÿ‡v^LmegOwÿÐc’‘bìN”^å‹eSLˆ!IY„vIN¡R†N0"
- gdd_subject.110.money:0 "T‡v^Û!§Y[Root.gdd_annual_tribute_money.GetValue]§!jgaSyrÿN8Ng6eeQ	ÿ"
- gdd_subject.110.manpower:0 "T‡v^Lmc§Y[Root.gdd_annual_tribute_manpower.GetValue]§!CSºNÿ	N8NgºN›R	ÿ"
- gdd_subject.110.adm:0 "T‡v^Û!”NAS¹pLˆMe›RÏ‘"
- gdd_subject.110.dip:0 "T‡v^Û!”NAS¹pY²N›RÏ‘"
- gdd_subject.110.mil:0 "T‡v^Û!”NAS¹p›Q‹N›RÏ‘"
- gdd_subject.110.refuse:0 "bìN¡l	g±”†N"
+ gdd_subject.110.money:0 "T‡v^Û!0ir"
+ gdd_subject.110.money_effect_tt:0 "1Y»S§R[Root.gdd_annual_tribute_money.GetValue]§!jgaSyr0\n§Y[gdd_tribute_emperor.GetName]§!·ƒ—V§G[Root.gdd_annual_tribute_money.GetValue]§!jgaSyr0"
+ gdd_subject.110.manpower:0 "T‡v^Lmc­VyV"
+ gdd_subject.110.manpower_effect_tt:0 "1Y»S§R[Root.gdd_annual_tribute_manpower_people.GetValue]§!ºN›R0\n§Y[gdd_tribute_emperor.GetName]§!·ƒ—V§G[Root.gdd_annual_tribute_manpower_people.GetValue]§!ºN›R0"
+ gdd_subject.110.adm:0 "T‡v^Û!LˆMe›RÏ‘"
+ gdd_subject.110.dip:0 "T‡v^Û!Y²N›RÏ‘"
+ gdd_subject.110.mil:0 "T‡v^Û!›Q‹N›RÏ‘"
+ gdd_subject.110.refuse:0 "bìN8Ywz†N"

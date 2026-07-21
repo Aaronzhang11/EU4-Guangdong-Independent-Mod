@@ -1,0 +1,3 @@
+gdd_left_china_unrest = {
+    global_unrest = 2
+}

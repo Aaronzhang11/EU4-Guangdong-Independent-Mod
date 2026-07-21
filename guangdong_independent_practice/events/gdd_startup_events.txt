@@ -27,6 +27,19 @@ country_event = {
             add_government_reform = gdd_local_fiefdom_reform
         }
 
+        # Guangdong and Ming begin with the five-year truce described by the
+        # treaty event chain. Schedule the expiry checker as a precise primary
+        # trigger; the monthly pulse remains a fallback for date jumps.
+        if = {
+            limit = { MNG = { exists = yes } }
+            add_truce_with = MNG
+            MNG = { add_truce_with = GDD }
+            country_event = {
+                id = gdd_treaty.100
+                days = 1825
+            }
+        }
+
         every_owned_province = {
             kill_units = { who = ROOT type = infantry amount = 100 }
             kill_units = { who = ROOT type = cavalry amount = 100 }

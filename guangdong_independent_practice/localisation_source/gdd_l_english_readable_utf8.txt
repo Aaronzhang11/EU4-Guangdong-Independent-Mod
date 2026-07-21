@@ -1,6 +1,7 @@
 ﻿l_english:
  GDD:0 "广东"
  GDD_ADJ:0 "广东"
+ estate_gdd_clans:0 "宗族"
  GDD_ideas:0 "广东理念"
  GDD_ideas_start:0 "宗族林立"
  GDD_ideas_bonus:0 "商人队"
@@ -41,3 +42,14 @@
  GDD_BOOKMARK_EMPTY:0 ""
  string_start_title_gdd:0 "岭南自立"
  string_start_gdd:0 "正统初年，广东赋税、海防与地方治安日益依赖卫所、宗族和商人维持。1443年末，朝廷整肃卫所并追查商税亏空，引发地方势力反弹。梁守谦在士绅、宗族武装和珠江水师支持下控制广州，又以招抚与军事镇压并用的方式，使除潮州外的广东各府先后归顺。\n\n明廷随即派军南征，却被梁守毅利用岭南地形与水师优势击败。梁氏兄弟虽取得大胜，却深知广东无法长期承受明朝持续征讨，因此主动议和。他们放弃立即夺取潮州，承认明帝的宗主地位并成为明廷的附庸国；明廷则暂停南征，授予梁守谦岭南王称号，默许了梁氏对广东其余地区的统治。\n\n虽战事已消，但明廷仍保留对广东的主权声索，广东也没有放弃潮州。广西、大越和南洋诸国，都在观察这个新生的岭南政权。"
+
+ estate_nobles_gdd_clan_autonomy_charter:0 "宗族自治特许"
+ estate_nobles_gdd_clan_autonomy_charter_desc:0 "梁氏兄弟和当地各个宗族的默契条约。"
+ gdd_clan_autonomy_charter_locked_tt:0 "需要先完成对应任务，才能撤销§Y宗族自治特许§!。"
+ gdd_clan_autonomy_charter_province_effect_tt:0 "只要该特权生效，所有§Y粤§!、§Y客§!或§Y闽§!文化的直属省份将获得§G+50.0%§!本地人力修正和§R+10.0%§!最低自治度。"
+ gdd_clan_autonomy_charter_province_modifier:0 "宗族自治特许"
+ desc_gdd_clan_autonomy_charter_province_modifier:0 "当地宗族依据朝廷授予的自治特许管理乡里，并负责征募与维持地方武装。"
+
+ estate_burghers_gdd_southern_trade_charter:0 "南粤的贸易特许"
+ estate_burghers_gdd_southern_trade_charter_desc:0 "梁氏兄弟和商人的妥协条款。"
+ gdd_southern_trade_charter_locked_tt:0 "需要先完成对应任务，才能撤销§Y南粤的贸易特许§!。"

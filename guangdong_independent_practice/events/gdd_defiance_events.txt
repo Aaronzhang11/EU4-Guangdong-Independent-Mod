@@ -1,7 +1,8 @@
 namespace = gdd_defiance
 
-# Reserved interface for the future "Leave China" design.  The former
-# invested-tributary breakaway logic and the overlord response were removed.
+# Peaceful departure from the Chinese political order. This event deliberately
+# does not start a war; the warning in the decision describes only the risk of
+# a later imperial response.
 country_event = {
     id = gdd_defiance.1
     title = gdd_defiance.1.t
@@ -9,7 +10,23 @@ country_event = {
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
 
+    trigger = {
+        has_reform = gdd_local_fiefdom_reform
+        NOT = { has_country_flag = gdd_left_china }
+    }
+
     option = {
         name = gdd_defiance.1.a
+        set_country_flag = gdd_left_china
+        remove_government_reform = gdd_local_fiefdom_reform
+        change_government_reform_progress = 50
+        if = {
+            limit = { is_subject = yes }
+            grant_independence = yes
+        }
+        add_country_modifier = {
+            name = gdd_left_china_unrest
+            duration = 3650
+        }
     }
 }

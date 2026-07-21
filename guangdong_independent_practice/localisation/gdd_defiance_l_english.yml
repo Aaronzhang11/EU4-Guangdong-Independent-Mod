@@ -2,11 +2,16 @@
  GDD_LINGNAN_KING:0 "­SWS‹s"
 
  gdd_local_fiefdom_reform:0 "‡vgé…OS"
- gdd_local_fiefdom_reform_desc:0 "býV×S-NNS)YPRŒQSÿIYvQckgÿbÅb!KNñbkS‡vg„vIN¡R0jOHN²Nbcÿg÷^b²‹býVTIN„vßu»l0WMOÿAQ¸‹bìNÝOYuŸS	g„v˜RÚP0›Q–N0W¹e6R¦^0O`—)YPR„vTRN0W¹e¿R›R„v=ecÿbìN—VåN(WôucØš¦^ê»l„vTöeÿOSŒƒX…QNT‡eSN)RÊvÆ–âV06qwÿé…ýV„vCg)RÎNeg4O–NwIN¡RÿÏk0!gÿbìNýÅV‰˜T‡v^Á‹fêñT„vàVÚ‹0"
+ gdd_local_fiefdom_reform_desc:0 "býV×S-NNS)YPRŒQSÿIYvQckgÿbÅb!KNñbkS‡vg„vIN¡R0jOHN²Nbcÿg÷^b²‹býVTIN„vßu»l0WMOÿAQ¸‹bìNÝOYuŸS	g„v˜RÚP0›Q–N0W¹e6R¦^0O`—)YPR„vTRN0W¹e¿R›R„v=ecÿbìN—VåN(WôucØš¦^ê»l„vTöeÿOSŒƒX…QNT‡eSN)RÊvÆ–âV06qwÿé…ýV„vCg)RÎNeg4O–NwIN¡RÿÏk0!gÿbìNýÅV‰˜T‡v^Á‹fêñT„vàVÚ‹0\n\n§YÏkt^1g1åeSæ‰ÑS“!KIN¡R”‹NöN0§!"
 
  gdd_leave_china_title:0 "1»yNSY"
- gdd_leave_china_desc:0 "“1»yNSY”³Q®‹¥cãSòTÝOYuÿwQSOHg6RS(WTíuHr,gÍ‘°e¾‹¡‹0"
+ gdd_leave_china_desc:0 "bìNòTÏu(W-NNS'YHSKNYú^Ëz†N³åNêËz„v9húWÿmNS–™ýÁ»y†N)YPR„vôv¥cqVÍT0°s(WÿbìNïSåN‰V•^LeV‡vg„vŒQSÿåNìrËzýV¶R„v«ŽýN	éb°e„vSï0dkLNNOê¨RVÑSb‰NÿFOïSýwObìNåeTN-NNS‡v^uQbøvÁ‰0"
+ gdd_leave_china_province_requirement_tt:0 "óSåb	gN8NMOŽN§Y-NNS'YHSKNY§!0ÑSUS¦^'YŽN§Y10§!NHN,gýV8hÃV„vwýN"
+ gdd_leave_china_war_warning_tt:0 "§R1»yNSYïSýwüRôbìNåeTN-NNS‡v^ÑSub‰N0§!"
 
  gdd_defiance.1.t:0 "1»yNSY"
- gdd_defiance.1.d:0 "“1»yNSY”‹NöN¥cãSòTÝOYuÿwQSOHg6RS(WTíuHr,gÍ‘°e¾‹¡‹0"
- gdd_defiance.1.a:0 "‚fNdn"
+ gdd_defiance.1.d:0 "–™ýâeòTÁ»yNSYÿbìN¿ONÅVQO`—‡vg„vŒQSôuûsßu»l0çe	gTRS«ˆ‚Vÿ!KIN¡R1SdkÈubkÿÎNÊNŽVTÿÙ8NýV¶R„vSïS1ubìNêñT³QšR0-NNS‡v^b¸‹NOùRdkàe¨RŽNwˆÿFO±=fåeTMb—‰b—ùR„vî•˜˜0"
+ gdd_defiance.1.a:0 "bìNêS=fZPúQ†Ngcknx„v³QšR……"
+
+ gdd_left_china_unrest:0 "1»yNSYT„v¨Raƒ"
+ gdd_left_china_unrest_desc:0 "›bV‡vgŒQSNçe	gMe»léy^ÿOýV…QNTÆ–âVùRýV¶R„v°eSïµNu†NÀoÈp‰Nº‹0"

@@ -9,6 +9,7 @@ religion = confucianism
 technology_group = chinese
 capital = 667
 fixed_capital = 667
+add_truce_with = MNG
 
 1444.11.11 = {
     monarch = {
