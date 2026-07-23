@@ -624,9 +624,18 @@ lost_control_of_beijing = {
 	}
 
 	trigger = {
-		OR = {
-			NOT = { owns = 1816 }
-			NOT = { controls = 1816 }
+		NOT = {
+			1816 = {
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_subject_of = ROOT
+							is_subject_of_type = gdd_invested_tributary
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -644,9 +653,18 @@ lost_control_of_nanjing = {
 	}
 
 	trigger = {
-		OR = {
-			NOT = { owns = 1821 }
-			NOT = { controls = 1821 }
+		NOT = {
+			1821 = {
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_subject_of = ROOT
+							is_subject_of_type = gdd_invested_tributary
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -664,9 +682,18 @@ lost_control_of_canton = {
 	}
 
 	trigger = {
-		OR = {
-			NOT = { owns = 667 }
-			NOT = { controls = 667 }
+		NOT = {
+			667 = {
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_subject_of = ROOT
+							is_subject_of_type = gdd_invested_tributary
+						}
+					}
+				}
+			}
 		}
 	}
 

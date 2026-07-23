@@ -177,7 +177,7 @@ country_event = {
             limit = { has_heir = no }
             define_heir = {
                 name = "ˆRÅk"
-                dynasty = "¿h"
+                dynasty = "h"
                 age = 40
                 claim = 70
                 adm = 2

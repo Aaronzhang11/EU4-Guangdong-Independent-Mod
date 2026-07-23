@@ -1,0 +1,72 @@
+# Guangdong-only tax-building presentation.
+#
+# Do not redefine the vanilla temple or cathedral here. Their original
+# definitions, icons and localisation must remain untouched for every
+# non-Guangdong country.
+
+gdd_ancestral_hall = {
+	cost = 100
+	time = 12
+
+	build_trigger = {
+		owner = {
+			tag = GDD
+			adm_tech = 4
+		}
+	}
+	keep_trigger = {
+		owner = { tag = GDD }
+	}
+	government_specific = yes
+
+	modifier = {
+		local_tax_modifier = 0.4
+	}
+	on_built = {
+		gdd_tier_1_tax_building_built_effect = { BUILDING = gdd_ancestral_hall }
+	}
+	on_destroyed = {
+		gdd_tier_1_tax_building_destroyed_effect = { BUILDING = gdd_ancestral_hall }
+	}
+	on_obsolete = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+gdd_grand_ancestral_hall = {
+	make_obsolete = gdd_ancestral_hall
+
+	cost = 300
+	time = 12
+	build_trigger = {
+		owner = {
+			tag = GDD
+			adm_tech = 19
+		}
+	}
+	keep_trigger = {
+		owner = { tag = GDD }
+	}
+	government_specific = yes
+
+	modifier = {
+		local_missionary_strength = 0.03
+		local_tax_modifier = 0.6
+	}
+	on_built = {
+		gdd_tier_3_tax_building_built_effect = {
+			BUILDING = gdd_grand_ancestral_hall
+			OBSOLETE_BUILDING = gdd_ancestral_hall
+		}
+	}
+	on_destroyed = {
+		gdd_tier_3_tax_building_destroyed_effect = { BUILDING = gdd_grand_ancestral_hall }
+	}
+	on_obsolete = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}

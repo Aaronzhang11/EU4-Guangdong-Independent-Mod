@@ -1,0 +1,74 @@
+# Preserve the vanilla generic tax-building upgrade effect while directing
+# Guangdong to its visually distinct equivalents.
+add_or_upgrade_tax_building = {
+	custom_tooltip = add_or_upgrade_tax_building_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				owner = { tag = GDD }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_building = gdd_ancestral_hall
+						has_building = temple
+					}
+				}
+				if = {
+					limit = { has_building = temple }
+					remove_building = temple
+				}
+				add_building = gdd_grand_ancestral_hall
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_building = gdd_grand_ancestral_hall
+						has_building = cathedral
+					}
+				}
+				if = {
+					limit = { has_building = cathedral }
+					remove_building = cathedral
+					add_building = gdd_grand_ancestral_hall
+				}
+				add_base_tax = 2
+			}
+			else = {
+				add_building = gdd_ancestral_hall
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					OR = {
+						has_building = temple
+						has_building = gdd_ancestral_hall
+					}
+				}
+				if = {
+					limit = { has_building = gdd_ancestral_hall }
+					remove_building = gdd_ancestral_hall
+				}
+				add_building = cathedral
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_building = cathedral
+						has_building = gdd_grand_ancestral_hall
+					}
+				}
+				if = {
+					limit = { has_building = gdd_grand_ancestral_hall }
+					remove_building = gdd_grand_ancestral_hall
+					add_building = cathedral
+				}
+				add_base_tax = 2
+			}
+			else = {
+				add_building = temple
+			}
+		}
+	}
+}

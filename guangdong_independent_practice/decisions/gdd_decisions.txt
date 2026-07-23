@@ -3,11 +3,13 @@ country_decisions = {
         major = yes
 
         potential = {
+            is_subject_of_type = gdd_invested_tributary
             has_reform = gdd_local_fiefdom_reform
             NOT = { has_country_flag = gdd_left_china }
         }
 
         allow = {
+            is_subject_of_type = gdd_invested_tributary
             custom_trigger_tooltip = {
                 tooltip = gdd_leave_china_province_requirement_tt
                 any_owned_province = {

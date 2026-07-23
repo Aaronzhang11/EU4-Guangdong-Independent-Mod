@@ -1,0 +1,22 @@
+gdd_invested_tributary = {
+    copy_from = vassal
+    count = vassal
+
+    is_potential_overlord = {
+        is_emperor_of_china = yes
+    }
+
+    # The relationship otherwise inherits ordinary-vassal rules. These
+    # exceptions give invested tributaries limited diplomatic autonomy while
+    # preserving their overlord's protection against external attackers.
+    takes_diplo_slot = no
+    overlord_protects_external = yes
+    can_fight = {
+        independent_nations = yes
+        same_overlord = gdd_invested_tributary
+        other_overlord = all
+    }
+    can_ally = {
+        same_overlord = gdd_invested_tributary
+    }
+}

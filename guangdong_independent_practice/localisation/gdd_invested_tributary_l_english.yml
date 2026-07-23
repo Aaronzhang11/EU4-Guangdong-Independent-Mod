@@ -1,4 +1,28 @@
 ﻿l_english:
+ gdd_invested_tributary:0 "IY!é…ýV"
+ gdd_invested_tributary_title:0 "IY!é…ýV"
+ gdd_invested_tributary_title_plural:0 "IY!é…ýV"
+ gdd_invested_tributary_overlord:0 "-NNS‡v^"
+ gdd_invested_tributary_subject:0 "IY!é…ýV"
+ gdd_invested_tributary_is_our:0 "$NAME|Y$=fbýV„vIY!é…ýV0"
+ gdd_invested_tributary_desc:0 "1u-NNS‡v^ckVŒQS0	cnfD–¸^Ä‰Rôuûs„vé…ýV0"
+ gdd_invested_tributary_long_desc:0 "IY!é…ýVb²‹-NNS‡v^„v—RIN0WMOÿ	cgqnfD–¸^ýV„vÄ‰R4³u^SýVz0ÂS R—RINb‰Nv^ïSåN«ˆY²NTv^ÿFON`S(u—RINýV„vY²NsQûsT˜0TN-NNS‡v^»lN„vIY!é…ýVïSåNøv’N±RbbÓußvÿIY!é…ýVmNïSêINTìrËzýV¶RÊSvQÖN—RIN„v^SýV±RbÿFOm×SYèIeûQöeÍN×S—RINýVÝO²b0"
+ gdd_elevate_invested_tributary:0 "ŒQËzIY!é…ýV"
+ gdd_elevate_invested_tributary_title:0 "ŒQËzIY!é…ýV"
+ gdd_elevate_invested_tributary_desc:0 "ˆmw§Y10§!)Y‹TÿÐc®‹S§Y[From.GetName]§!ÎNnfg!ýVckVŒQËzHNIY!é…ýV0ùR¹e¥c×STMbOcbd–)Y‹T0"
+ gdd_elevate_invested_tributary_tooltip:0 "Ðc®‹SÙ8Ng!ýVŒQËzHNIY!é…ýV0"
+ gdd_elevate_invested_tributary_dialog:0 "§Y[This.GetName]§!åN-NNS‡v^„vTINÿÐc®‹SbýVckVŒQËzHNIY!é…ýV0¥c×STÿbìNS9e(unfD–¸^ýV„vÄ‰Rÿv^•šRNµuMeœ^9ei—“‡vgé…OS”0"
+ gdd_elevate_invested_tributary_alert_tooltip:0 "-NNS‡v^Ðc®‹SbýVŒQËzHNIY!é…ýV"
+ gdd_elevate_invested_tributary_mandate_tt:0 "åb	góS§Y10§!)Y‹T"
+ gdd_elevate_invested_tributary_base_reason:0 "ŒQS„vúWNxaMa"
+ gdd_elevate_invested_tributary_emperor_army_reason:0 "‡v^åb	gôfY›Q–"
+ gdd_elevate_invested_tributary_subject_army_reason:0 "býVåb	gôfY›Q–"
+ gdd_elevate_invested_tributary_emperor_strength_reason:0 "‡v^„vøvùR›Q‹NžR›RHV'Y"
+ gdd_elevate_invested_tributary_subject_strength_reason:0 "býV„vøvùR›Q‹NžR›RHV'Y"
+ gdd_downgrade_invested_tributary:0 "ã‰d–IY!é…ýV"
+ gdd_downgrade_invested_tributary_title:0 "ã‰d–IY!é…ýV"
+ gdd_downgrade_invested_tributary_desc:0 "²d•ùR§Y[From.GetName]§!„vckVŒQSÿSvQM–JhHNnfg!ýV0å‹ýV„vNµuMeœ^9ei—“‡vgé…OS”S–KNˆm1Y0"
+ gdd_downgrade_invested_tributary_tooltip:0 "SÙ8NIY!é…ýVM–JhHNnfg!ýVÿv^ûyd–vQ“‡vgé…OS”9ei—0"
  gdd_refused_annual_tribute:0 "ÒbÝueSLˆ!KIN¡R"
  gdd_subject.104.t:0 "ú^Ëz!K†SÕl"
  gdd_subject.104.d:0 "ú^ËzÏkt^CQæeæ‰ÑS„v!KIN¡Råez0"

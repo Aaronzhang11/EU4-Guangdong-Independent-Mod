@@ -1,0 +1,2 @@
+# Forward declaration allows the custom type to refer to itself in can_fight.
+gdd_invested_tributary = {}

@@ -1,3 +1,7 @@
 gdd_left_china_unrest = {
     global_unrest = 2
 }
+
+gdd_defiance_morale_penalty = {
+    land_morale = -0.05
+}

@@ -1,0 +1,13 @@
+# Preserve the vanilla generic "has a tax building" trigger for Guangdong's
+# presentation-only replacements.
+has_tax_building_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = has_tax_building_trigger_tt
+		OR = {
+			has_building = temple
+			has_building = cathedral
+			has_building = gdd_ancestral_hall
+			has_building = gdd_grand_ancestral_hall
+		}
+	}
+}

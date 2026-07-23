@@ -13,5 +13,13 @@ l_english:
  gdd_defiance.1.d:0 "首都既已迁离华夏，我们便不必再依靠皇朝的册封维系统治。旧有名分将被舍弃，贡赋义务就此终止；从今往后，这个国家的道路将由我们自己决定。中华皇帝或许不会对此无动于衷，但那是日后才需要面对的问题。"
  gdd_defiance.1.a:0 "我们只是做出了最正确的决定……"
 
+ gdd_defiance.2.t:0 "大逆不道"
+ gdd_defiance.2.d:0 "我们的藩国脱离了我们的掌控，这被视为奇耻大辱。国内的贵族空前团结，目标很明确：出兵，并维持我们作为宗主国的影响力。"
+ gdd_defiance.2.a:0 "是可忍孰不可忍"
+ gdd_defiance.2.b:0 "我们无能为力"
+ gdd_defiance_estates_united:0 "惩戒违制藩国"
+
  gdd_left_china_unrest:0 "脱离华夏后的动荡"
  gdd_left_china_unrest_desc:0 "抛弃皇朝册封与旧有政治秩序，使国内不同集团对国家的新道路产生了激烈争论。"
+ gdd_defiance_morale_penalty:0 "无力维持宗主权威"
+ gdd_defiance_morale_penalty_desc:0 "藩国公然脱离而朝廷无力应对，严重动摇了军队的信心。"

@@ -104,6 +104,10 @@ country_event = {
 
     option = {
         name = gdd_treaty.2.a
+        add_country_modifier = {
+            name = gdd_ming_preparing_southward
+            duration = 5475
+        }
         add_casus_belli = {
             target = GDD
             type = gdd_cb_punish_defiant_enfeoffed_subject
@@ -132,6 +136,7 @@ country_event = {
             duration = 5475
         }
         GDD = {
+            add_liberty_desire = 50
             country_event = {
                 id = gdd_treaty.4
                 days = 1

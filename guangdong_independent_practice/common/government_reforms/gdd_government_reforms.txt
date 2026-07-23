@@ -6,16 +6,10 @@ gdd_local_fiefdom_reform = {
     valid_for_nation_designer = no
     nation_designer_cost = 0
 
-    # Countries can only receive this reform while their capital is in the
-    # China superregion. Once granted, it remains valid after the capital is
-    # moved abroad until the dedicated "Leave China" event removes it.
+    # Capital location does not end investiture. The reform remains valid as
+    # long as the country is an invested tributary, even after moving abroad.
     potential = {
-        OR = {
-            has_reform = gdd_local_fiefdom_reform
-            capital_scope = {
-                superregion = china_superregion
-            }
-        }
+        is_subject_of_type = gdd_invested_tributary
     }
 
     modifiers = {

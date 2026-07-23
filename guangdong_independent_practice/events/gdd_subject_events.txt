@@ -1,8 +1,8 @@
 namespace = gdd_subject
 
-# Repair games created by the broken build in which Guangdong started with an
-# empty first reform tier. The future "Leave China" event must set the
-# gdd_left_china flag before removing the reform so this repair stays disabled.
+# Keep the locked reform synchronized with the actual subject relationship.
+# Capital location is intentionally irrelevant: moving outside China does not
+# end investiture. Re-entering the relationship clears the old departure flag.
 country_event = {
     id = gdd_subject.108
     title = gdd_subject.105.t
@@ -12,16 +12,35 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
-        tag = GDD
-        NOT = { has_reform = gdd_local_fiefdom_reform }
-        NOT = { has_country_flag = gdd_left_china }
-        capital_scope = {
-            superregion = china_superregion
+        OR = {
+            AND = {
+                is_subject_of_type = gdd_invested_tributary
+                OR = {
+                    NOT = { has_reform = gdd_local_fiefdom_reform }
+                    has_country_flag = gdd_left_china
+                }
+            }
+            AND = {
+                has_reform = gdd_local_fiefdom_reform
+                NOT = { is_subject_of_type = gdd_invested_tributary }
+            }
         }
     }
 
     immediate = {
-        add_government_reform = gdd_local_fiefdom_reform
+        if = {
+            limit = { is_subject_of_type = gdd_invested_tributary }
+            clr_country_flag = gdd_left_china
+            if = {
+                limit = {
+                    NOT = { has_reform = gdd_local_fiefdom_reform }
+                }
+                add_government_reform = gdd_local_fiefdom_reform
+            }
+        }
+        else = {
+            remove_government_reform = gdd_local_fiefdom_reform
+        }
     }
 
     option = { name = OK }
@@ -63,7 +82,7 @@ province_event = {
     option = { name = OK }
 }
 
-# January check for every country using the locked reform.
+# January check for every invested tributary using the locked reform.
 country_event = {
     id = gdd_subject.105
     title = gdd_subject.105.t
@@ -73,6 +92,7 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
+        is_subject_of_type = gdd_invested_tributary
         has_reform = gdd_local_fiefdom_reform
         NOT = { is_emperor_of_china = yes }
         event_target:EmperorOfChina = {
@@ -120,6 +140,7 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
+        is_subject_of_type = gdd_invested_tributary
         has_reform = gdd_local_fiefdom_reform
         NOT = { is_emperor_of_china = yes }
         event_target:EmperorOfChina = {
@@ -380,11 +401,6 @@ country_event = {
                 value = -5
                 mutual = no
             }
-        }
-        add_estate_loyalty = {
-            estate = all
-            loyalty = -10
-            short = yes
         }
         ai_chance = {
             factor = 1

@@ -1,0 +1,287 @@
+# Shared hooks for the vanilla tax buildings and Guangdong's visually distinct
+# equivalents. Keeping the original effects here makes the replacement a
+# presentation change rather than a mechanical rebalance.
+
+gdd_tier_1_tax_building_built_effect = {
+	on_built_tax_building_effect = yes
+	on_province_tax_building_built_estate_privileges_effect = yes
+	add_development_from_building = {
+		building = $BUILDING$
+		type = tax
+		value = 1
+	}
+	if = {
+		limit = {
+			FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+		}
+		FROM = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 2
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_government_attribute = temples_modifier }
+			owned_by = FROM
+		}
+		add_province_modifier = {
+			name = gov_expanded_temple_rights_mod
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_country_flag = mosque_local_unrest_flag }
+		}
+		add_province_modifier = {
+			name = turkoman_peaceful_worshipping
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_country_modifier = mam_mosque_great_mosque_generates_crown_land_modifier }
+		}
+		FROM = {
+			change_estate_land_share = {
+				estate = all
+				share = -0.25
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_government_mechanic = blood_gathering_mechanic }
+		}
+		FROM = {
+			add_government_power = {
+				mechanic_type = blood_gathering_mechanic
+				power_type = blood
+				value = 0.5
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_country_flag = azt_temples_buffs_flag }
+		}
+		add_province_modifier = {
+			name = azt_religious_classes
+			duration = -1
+			hidden = yes
+		}
+	}
+}
+
+gdd_tier_1_tax_building_destroyed_effect = {
+	on_province_tax_building_destroyed_estate_privileges_effect = yes
+	remove_development_from_building = {
+		building = $BUILDING$
+		type = tax
+		value = 1
+	}
+	if = {
+		limit = {
+			FROM = { has_country_flag = mosque_local_unrest_flag }
+		}
+		remove_province_modifier = turkoman_peaceful_worshipping
+	}
+	if = {
+		limit = {
+			FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+		}
+		FROM = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -2
+			}
+		}
+	}
+	remove_province_modifier = gov_expanded_temple_rights_mod
+	if = {
+		limit = {
+			FROM = { has_country_modifier = mam_mosque_great_mosque_generates_crown_land_modifier }
+		}
+		FROM = {
+			change_estate_land_share = {
+				estate = all
+				share = 0.25
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_government_mechanic = blood_gathering_mechanic }
+		}
+		FROM = {
+			add_government_power = {
+				mechanic_type = blood_gathering_mechanic
+				power_type = blood
+				value = -1
+			}
+		}
+	}
+	if = {
+		limit = { has_province_modifier = azt_religious_classes }
+		remove_province_modifier = azt_religious_classes
+	}
+}
+
+gdd_tier_3_tax_building_built_effect = {
+	on_built_tax_building_effect = yes
+	on_province_tax_building_built_estate_privileges_effect = yes
+	add_development_from_upgrading_or_building = {
+		building = $BUILDING$
+		obsolete_building = $OBSOLETE_BUILDING$
+		type = tax
+		value = 2
+		upgrade_value = 1
+	}
+	if = {
+		limit = {
+			FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+		}
+		FROM = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 5
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_government_attribute = temples_modifier }
+			owned_by = FROM
+		}
+		add_province_modifier = {
+			name = gov_expanded_temple_rights_mod
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_country_flag = mosque_local_unrest_flag }
+		}
+		add_province_modifier = {
+			name = turkoman_peaceful_worshipping
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_country_modifier = mam_mosque_great_mosque_generates_crown_land_modifier }
+		}
+		FROM = {
+			change_estate_land_share = {
+				estate = all
+				share = -0.25
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_government_mechanic = blood_gathering_mechanic }
+		}
+		FROM = {
+			add_government_power = {
+				mechanic_type = blood_gathering_mechanic
+				power_type = blood
+				value = 0.5
+			}
+		}
+	}
+	add_province_modifier = {
+		name = azt_religious_classes
+		duration = -1
+		hidden = yes
+	}
+}
+
+gdd_tier_3_tax_building_destroyed_effect = {
+	on_province_tax_building_destroyed_estate_privileges_effect = yes
+	remove_development_from_building = {
+		building = $BUILDING$
+		type = tax
+		value = 2
+	}
+	if = {
+		limit = {
+			FROM = { has_country_flag = mosque_local_unrest_flag }
+		}
+		remove_province_modifier = turkoman_peaceful_worshipping
+	}
+	if = {
+		limit = {
+			FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+		}
+		FROM = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -5
+			}
+		}
+	}
+	remove_province_modifier = gov_expanded_temple_rights_mod
+	if = {
+		limit = {
+			FROM = { has_country_modifier = mam_mosque_great_mosque_generates_crown_land_modifier }
+		}
+		FROM = {
+			change_estate_land_share = {
+				estate = all
+				share = 0.25
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = { has_government_mechanic = blood_gathering_mechanic }
+		}
+		FROM = {
+			add_government_power = {
+				mechanic_type = blood_gathering_mechanic
+				power_type = blood
+				value = -1
+			}
+		}
+	}
+	if = {
+		limit = { has_province_modifier = azt_religious_classes }
+		remove_province_modifier = azt_religious_classes
+	}
+}
+
+# Keep the tax-building presentation aligned with the current owner while
+# preserving its tier.  This is used at startup, during Guangdong's monthly
+# maintenance pass, and immediately after a province changes owner.
+gdd_sync_tax_building_presentation_effect = {
+	if = {
+		limit = {
+			owner = { tag = GDD }
+		}
+		if = {
+			limit = { has_building = cathedral }
+			remove_building = cathedral
+			add_building = gdd_grand_ancestral_hall
+		}
+		else_if = {
+			limit = { has_building = temple }
+			remove_building = temple
+			add_building = gdd_ancestral_hall
+		}
+	}
+	else = {
+		if = {
+			limit = { has_building = gdd_grand_ancestral_hall }
+			remove_building = gdd_grand_ancestral_hall
+			add_building = cathedral
+		}
+		else_if = {
+			limit = { has_building = gdd_ancestral_hall }
+			remove_building = gdd_ancestral_hall
+			add_building = temple
+		}
+	}
+}

@@ -11,6 +11,7 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
+        is_subject_of_type = gdd_invested_tributary
         has_reform = gdd_local_fiefdom_reform
         NOT = { has_country_flag = gdd_left_china }
     }
@@ -18,6 +19,10 @@ country_event = {
     option = {
         name = gdd_defiance.1.a
         set_country_flag = gdd_left_china
+        save_event_target_as = gdd_defiant_invested_tributary
+        overlord = {
+            save_event_target_as = gdd_defiance_former_overlord
+        }
         remove_government_reform = gdd_local_fiefdom_reform
         change_government_reform_progress = 50
         if = {
@@ -28,5 +33,64 @@ country_event = {
             name = gdd_left_china_unrest
             duration = 3650
         }
+        event_target:gdd_defiance_former_overlord = {
+            country_event = { id = gdd_defiance.2 }
+        }
+    }
+}
+
+# The former overlord decides how to respond after an invested tributary leaves
+# the Chinese political order and becomes independent.
+country_event = {
+    id = gdd_defiance.2
+    title = gdd_defiance.2.t
+    desc = gdd_defiance.2.d
+    picture = BATTLE_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        event_target:gdd_defiant_invested_tributary = { exists = yes }
+        event_target:gdd_defiance_former_overlord = { exists = yes }
+    }
+
+    option = {
+        name = gdd_defiance.2.a
+        event_target:gdd_defiant_invested_tributary = {
+            every_owned_province = {
+                limit = { superregion = china_superregion }
+                add_core = event_target:gdd_defiance_former_overlord
+            }
+        }
+        add_casus_belli = {
+            target = event_target:gdd_defiant_invested_tributary
+            type = gdd_cb_punish_defiant_enfeoffed_subject
+            months = 240
+        }
+        add_estate_loyalty = {
+            estate = all
+            loyalty = 20
+            short = yes
+        }
+        add_estate_influence_modifier = {
+            estate = all
+            desc = gdd_defiance_estates_united
+            influence = 10
+            duration = 3650
+            short = yes
+        }
+    }
+
+    option = {
+        name = gdd_defiance.2.b
+        add_estate_loyalty = {
+            estate = all
+            loyalty = -20
+            short = yes
+        }
+        add_country_modifier = {
+            name = gdd_defiance_morale_penalty
+            duration = 7300
+        }
+        add_prestige = -20
     }
 }

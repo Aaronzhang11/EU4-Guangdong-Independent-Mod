@@ -53,3 +53,12 @@
  estate_burghers_gdd_southern_trade_charter:0 "南粤的贸易特许"
  estate_burghers_gdd_southern_trade_charter_desc:0 "梁氏兄弟和商人的妥协条款。"
  gdd_southern_trade_charter_locked_tt:0 "需要先完成对应任务，才能撤销§Y南粤的贸易特许§!。"
+
+ gdd_ancestral_hall:0 "祠堂"
+ building_gdd_ancestral_hall:0 "祠堂"
+ gdd_ancestral_hall_short:0 "祠堂"
+ gdd_ancestral_hall_desc:0 "祠堂既是岭南宗族祭祀祖先、修谱议事之所，也是族产、乡约与地方事务的中心。"
+ gdd_grand_ancestral_hall:0 "大祠堂"
+ building_gdd_grand_ancestral_hall:0 "大祠堂"
+ gdd_grand_ancestral_hall_short:0 "大祠堂"
+ gdd_grand_ancestral_hall_desc:0 "规模宏大的大祠堂以重门深院与宽阔宗堂彰显宗族声望，汇聚族产，并进一步强化乡里的组织与教化。"

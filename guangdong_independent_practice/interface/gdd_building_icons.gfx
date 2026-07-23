@@ -1,0 +1,23 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_gdd_ancestral_hall"
+		texturefile = "gfx//interface//buildings//gdd_ancestral_hall.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_ancestral_hall_asiangfx"
+		texturefile = "gfx//interface//buildings//gdd_ancestral_hall.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_gdd_grand_ancestral_hall"
+		texturefile = "gfx//interface//buildings//gdd_grand_ancestral_hall.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_grand_ancestral_hall_asiangfx"
+		texturefile = "gfx//interface//buildings//gdd_grand_ancestral_hall.tga"
+		loadType = "INGAME"
+	}
+}
