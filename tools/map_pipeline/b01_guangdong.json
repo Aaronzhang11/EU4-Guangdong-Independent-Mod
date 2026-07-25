@@ -1,0 +1,167 @@
+{
+  "baseline_version": "EU4 1.37.5",
+  "baseline_file_sha256": {
+    "provinces.bmp": "40348545baf1886009eb46d8ffba0a76684061e44faa64ec788c756ce607e5c8",
+    "definition.csv": "ea6384a5b41f70bd179435e6626229e907c0d7b07a60d262c85776c74e1f2153",
+    "default.map": "70ed470492e6266d5ae809534ab56935e904fe2d3017451195001b8ba2a8cf0c",
+    "adjacencies.csv": "fb3ddf25320e9fa022d89e6b567b934b447314d0aad58db08d5bb0164553c0bd"
+  },
+  "coordinate_system": "provinces.bmp pixels, origin at top-left",
+  "review_crop": [4480, 970, 4650, 1080],
+  "review_scale": 10,
+  "maximum_snap_distance_pixels": 5,
+  "minimum_shared_parent_edges": 12,
+  "minimum_shared_sibling_edges": 4,
+  "minimum_solid_square_size": 3,
+  "required_special_adjacencies": [[2159, 666]],
+  "partitions": [
+    {
+      "parent_id": 667,
+      "retained_name_zh": "广州",
+      "retained_reference_points": [[4575, 1026], [4575, 1022], [4570, 1041]],
+      "retained_anchor_policy": "locked",
+      "retained_desired_coastal": true,
+      "expected_sibling_adjacencies": [],
+      "children": [
+        {
+          "design_key": "S-13",
+          "new_name_zh": "佛山",
+          "new_seed": [4572, 1026],
+          "geometry": {
+            "type": "global_polygon",
+            "vertices": [
+              [4566, 1020],
+              [4572, 1017],
+              [4574, 1021],
+              [4574, 1027],
+              [4573, 1030],
+              [4569, 1030],
+              [4566, 1026]
+            ]
+          },
+          "target_area_fraction": 0.13,
+          "area_tolerance": 0.02,
+          "desired_coastal": false,
+          "expected_neighbor_ids": [665, 667],
+          "notes": "佛山改为广州正西侧的紧凑内陆块，避免贯穿母省的机械长条；广州城市、港口、珠江口修正和南海神庙全部留在667。"
+        }
+      ]
+    },
+    {
+      "parent_id": 2157,
+      "retained_name_zh": "惠州",
+      "retained_reference_points": [[4605, 1012], [4605, 1020], [4611, 1026]],
+      "retained_anchor_policy": "relocate_in_production",
+      "retained_desired_coastal": true,
+      "expected_sibling_adjacencies": [["S-14", "S-19"]],
+      "children": [
+        {
+          "design_key": "S-14",
+          "new_name_zh": "东莞",
+          "new_seed": [4584, 1022],
+          "geometry": {
+            "type": "global_polygon",
+            "vertices": [
+              [4583, 1016],
+              [4591, 1011],
+              [4597, 1016],
+              [4597, 1021],
+              [4594, 1024],
+              [4594, 1031],
+              [4588, 1031],
+              [4583, 1024]
+            ]
+          },
+          "target_area_fraction": 0.16,
+          "area_tolerance": 0.02,
+          "desired_coastal": true,
+          "expected_neighbor_ids": [667, 1371, 2157, 4946],
+          "notes": "东莞改为惠州西南、广州以东的块状珠江口省份，不再向粤北延伸；保留独立海岸并与香港相邻。"
+        },
+        {
+          "design_key": "S-19",
+          "new_name_zh": "香港",
+          "new_seed": [4598, 1032],
+          "geometry": {
+            "type": "global_polygon",
+            "vertices": [
+              [4595, 1024],
+              [4608, 1024],
+              [4610, 1028],
+              [4608, 1031],
+              [4601, 1033],
+              [4596, 1033],
+              [4595, 1029]
+            ]
+          },
+          "target_area_fraction": 0.10,
+          "area_tolerance": 0.02,
+          "desired_coastal": true,
+          "expected_neighbor_ids": [1371, 2157, 4943],
+          "notes": "香港用东莞东南、惠州南缘的新界—九龙沿岸作可点击抽象；不把海水改成陆地，也不预设1444年已经成为现代都会。"
+        }
+      ]
+    },
+    {
+      "parent_id": 2156,
+      "retained_name_zh": "潮州",
+      "retained_reference_points": [[4625, 1013], [4625, 1008], [4629, 1019]],
+      "retained_anchor_policy": "locked",
+      "retained_desired_coastal": true,
+      "expected_sibling_adjacencies": [],
+      "children": [
+        {
+          "design_key": "S-15",
+          "new_name_zh": "梅州",
+          "new_seed": [4617, 1004],
+          "geometry": {
+            "type": "global_polygon",
+            "vertices": [
+              [4615, 990],
+              [4620, 991],
+              [4623, 996],
+              [4623, 1004],
+              [4620, 1010],
+              [4615, 1012],
+              [4612, 1008],
+              [4610, 994],
+              [4610, 993],
+              [4613, 991]
+            ]
+          },
+          "target_area_fraction": 0.325,
+          "area_tolerance": 0.02,
+          "desired_coastal": false,
+          "expected_neighbor_ids": [670, 2153, 2156, 2157],
+          "notes": "梅州改为潮州西北的紧凑内陆山地块，只连接赣州、汀州、惠州和保留潮州，不再碰到厦门或海区。"
+        }
+      ]
+    },
+    {
+      "parent_id": 2159,
+      "retained_name_zh": "雷州",
+      "retained_reference_points": [[4522, 1060], [4533, 1047], [4529, 1070]],
+      "retained_anchor_policy": "locked",
+      "retained_desired_coastal": true,
+      "expected_sibling_adjacencies": [],
+      "children": [
+        {
+          "design_key": "S-16",
+          "new_name_zh": "高州",
+          "new_seed": [4538, 1044],
+          "geometry": {
+            "type": "local_half_plane",
+            "a": -11,
+            "b": 3,
+            "threshold": -148
+          },
+          "target_area_fraction": 0.375,
+          "area_tolerance": 0.02,
+          "desired_coastal": true,
+          "expected_neighbor_ids": [665, 1370, 2159, 2162],
+          "notes": "高州取雷州东北与半岛根部；雷州保留半岛南部和海峡门户。"
+        }
+      ]
+    }
+  ]
+}

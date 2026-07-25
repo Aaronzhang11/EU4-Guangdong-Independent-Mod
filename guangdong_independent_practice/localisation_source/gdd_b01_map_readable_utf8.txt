@@ -1,0 +1,15 @@
+﻿l_english:
+ PROV4942:0 "佛山"
+ PROV_ADJ4942:0 "佛山"
+ PROV4943:0 "东莞"
+ PROV_ADJ4943:0 "东莞"
+ PROV4944:0 "梅州"
+ PROV_ADJ4944:0 "梅州"
+ PROV4945:0 "高州"
+ PROV_ADJ4945:0 "高州"
+ PROV4946:0 "香港"
+ PROV_ADJ4946:0 "香港"
+
+ pearl_river_delta_area:0 "珠江三角洲"
+ pearl_river_delta_area_name:0 "广州"
+ pearl_river_delta_area_adj:0 "珠江三角洲"
