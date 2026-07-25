@@ -27,7 +27,23 @@ DEFAULT_CONFIG = Path(__file__).with_name("b01_guangdong_manual.json")
 DEFAULT_REPORT = REPO_ROOT / "docs/map/previews/B01_mod_build_report.json"
 
 IMPLEMENTED_IDS = tuple(range(4942, 4950))
-GAME_MAX_PROVINCES = 4950
+PREPARED_DESIGN_KEYS = (
+    "S-04",
+    "S-05",
+    "S-11",
+    "S-12",
+    "S-17",
+    "S-18",
+    "S-23",
+    "S-24",
+    "S-25",
+    "S-26",
+    "S-27",
+    "S-28",
+)
+PREPARED_IDS = tuple(range(4950, 4962))
+ACTIVE_IDS = IMPLEMENTED_IDS + PREPARED_IDS
+GAME_MAX_PROVINCES = 4962
 NEW_DEFINITION_NAMES = {
     4942: "Foshan",
     4943: "Dongguan",
@@ -37,12 +53,80 @@ NEW_DEFINITION_NAMES = {
     4947: "Luoding",
     4948: "Nanxiong",
     4949: "Lufeng",
+    4950: "Huzhou",
+    4951: "Taizhou",
+    4952: "Putian",
+    4953: "Zhangzhou",
+    4954: "Xunzhou",
+    4955: "Zhuluo",
+    4956: "Quzhou",
+    4957: "Shaowu",
+    4958: "Xiamen",
+    4959: "Qingyuan",
+    4960: "Taiping",
+    4961: "Kavalan",
 }
 
 # Positions use Clausewitz coordinates, whose vertical axis is the inverse of
 # provinces.bmp.  Each tuple contains city, unit, text, port, two auxiliary
 # points, and the unused seventh point.
 POSITION_DATA = {
+    664: {
+        "comment": "Lingyun - positioned from painted Guangxi geometry",
+        "positions": (
+            4472, 1032, 4475, 1038, 4468, 1046, 4472, 1032,
+            4471, 1036, 4476, 1033, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    738: {
+        "comment": "Sakam - adjusted after Zhuluo split",
+        "positions": (
+            4690, 1013, 4691, 1013, 4691, 1010, 4687, 1013,
+            4690, 1011, 4692, 1012, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 1.745, 0, 0, 0),
+    },
+    2155: {
+        "comment": "Middag - port adjusted after Taiwan split",
+        "positions": (
+            4696, 1034, 4693, 1034, 4696, 1034, 4684, 1042,
+            4696, 1034, 4694, 1034, 4696, 1034,
+        ),
+        "rotation": (0, 0, 0, 2.356, 0, 0, 0),
+    },
+    1840: {
+        "comment": "Guilin - positioned from painted Guangxi geometry",
+        "positions": (
+            4531, 1053, 4538, 1049, 4543, 1048, 4531, 1053,
+            4537, 1053, 4534, 1049, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    2162: {
+        "comment": "Ngchow - positioned from painted Guangxi geometry",
+        "positions": (
+            4536, 1025, 4534, 1023, 4538, 1029, 4536, 1025,
+            4530, 1020, 4542, 1024, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    2163: {
+        "comment": "Liuzhou - positioned from painted Guangxi geometry",
+        "positions": (
+            4512, 1044, 4515, 1051, 4519, 1058, 4512, 1044,
+            4514, 1040, 4515, 1055, 0, 0,
+        ),
+        "rotation": (3.142, 0, 0, 0, 0, 0, 0),
+    },
+    2164: {
+        "comment": "Namning - positioned from painted Guangxi geometry",
+        "positions": (
+            4493, 1023, 4496, 1031, 4503, 1027, 4493, 1023,
+            4492, 1027, 4495, 1035, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
     665: {
         "comment": "Shiuhing",
         "positions": (
@@ -147,6 +231,102 @@ POSITION_DATA = {
         ),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
+    4950: {
+        "comment": "Huzhou - provisional anchor until hand drawing",
+        "positions": (
+            4669, 1157, 4670, 1157, 4668, 1158, 4669, 1157,
+            4668, 1156, 4670, 1158, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4951: {
+        "comment": "Taizhou - provisional anchor until hand drawing",
+        "positions": (
+            4693, 1125, 4692, 1125, 4694, 1126, 4702, 1129,
+            4693, 1124, 4694, 1125, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4952: {
+        "comment": "Putian - provisional anchor until hand drawing",
+        "positions": (
+            4659, 1062, 4658, 1062, 4660, 1063, 4662, 1062,
+            4659, 1061, 4660, 1062, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4953: {
+        "comment": "Zhangzhou - provisional anchor until hand drawing",
+        "positions": (
+            4638, 1038, 4637, 1038, 4639, 1039, 4638, 1037,
+            4638, 1039, 4639, 1038, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4954: {
+        "comment": "Xunzhou - positioned from painted province geometry",
+        "positions": (
+            4527, 1034, 4525, 1029, 4521, 1025, 4527, 1034,
+            4530, 1031, 4523, 1034, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4955: {
+        "comment": "Zhuluo - positioned from painted province geometry",
+        "positions": (
+            4688, 1020, 4687, 1021, 4686, 1022, 4681, 1020,
+            4686, 1023, 4685, 1022, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4956: {
+        "comment": "Quzhou - provisional anchor until hand drawing",
+        "positions": (
+            4658, 1120, 4657, 1120, 4659, 1121, 4658, 1120,
+            4658, 1119, 4659, 1120, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4957: {
+        "comment": "Shaowu - provisional anchor until hand drawing",
+        "positions": (
+            4638, 1095, 4637, 1095, 4639, 1096, 4638, 1095,
+            4638, 1094, 4639, 1095, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4958: {
+        "comment": "Xiamen - positioned from painted province geometry",
+        "positions": (
+            4647, 1051, 4646, 1051, 4647, 1050, 4649, 1051,
+            4646, 1052, 4648, 1051, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4959: {
+        "comment": "Qingyuan - positioned from painted province geometry",
+        "positions": (
+            4495, 1053, 4491, 1052, 4484, 1052, 4495, 1053,
+            4487, 1055, 4499, 1052, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4960: {
+        "comment": "Taiping - positioned from painted province geometry",
+        "positions": (
+            4480, 1015, 4479, 1013, 4483, 1021, 4480, 1015,
+            4481, 1017, 4475, 1014, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4961: {
+        "comment": "Kavalan - positioned from painted province geometry",
+        "positions": (
+            4707, 1055, 4706, 1055, 4707, 1054, 4708, 1055,
+            4706, 1054, 4707, 1055, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
 }
 
 
@@ -246,16 +426,17 @@ def write_text(path: Path, text: str) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="cp1252", newline="\n")
 
 
-def load_b01_registry(path: Path) -> list[dict[str, str]]:
+def load_active_registry(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         rows = [
             row for row in csv.DictReader(handle)
             if row["draw_batch"] == "B01"
+            or row["design_key"] in PREPARED_DESIGN_KEYS
         ]
     rows.sort(key=lambda row: int(row["game_id"]))
     ids = tuple(int(row["game_id"]) for row in rows)
-    if ids != IMPLEMENTED_IDS:
-        raise ValueError(f"B01 registry IDs must be {IMPLEMENTED_IDS}, found {ids}")
+    if ids != ACTIVE_IDS:
+        raise ValueError(f"Active registry IDs must be {ACTIVE_IDS}, found {ids}")
     return rows
 
 
@@ -406,8 +587,8 @@ def build_definition(
     _colors, existing_ids = load_definition_colors(
         vanilla_root / "map/definition.csv"
     )
-    if existing_ids & set(IMPLEMENTED_IDS):
-        raise ValueError("Vanilla definition unexpectedly contains a B01 ID")
+    if existing_ids & set(ACTIVE_IDS):
+        raise ValueError("Vanilla definition unexpectedly contains an active mod ID")
     additions = [
         f"{row['game_id']};{row['rgb_r']};{row['rgb_g']};{row['rgb_b']};"
         f"{NEW_DEFINITION_NAMES[int(row['game_id'])]};x"
@@ -445,6 +626,42 @@ guangdong_area = { #6
 \t665 666 2159 2160 2161 4945 4947
 }""",
     )
+    text = replace_named_block(
+        text,
+        "zhejiang_area",
+        """zhejiang_area = { #8
+\t684 1824 2148 2149 2150 4950 4951 4956
+}""",
+    )
+    text = replace_named_block(
+        text,
+        "fujian_area",
+        """fujian_area = { #5 (East Fujian)
+\t669 1829 4952 4953 4958
+}
+
+west_fujian_area = { #3
+\t2152 2153 4957
+}""",
+    )
+    text = replace_named_block(
+        text,
+        "taiwan_area",
+        """taiwan_area = { #5
+\t738 2154 2155 4955 4961
+}""",
+    )
+    text = replace_named_block(
+        text,
+        "guangxi_area",
+        """guangxi_area = { #4 (Zuojiang)
+\t2162 2164 4954 4960
+}
+
+youjiang_area = { #4
+\t664 1840 2163 4959
+}""",
+    )
     write_text(output, text)
 
 
@@ -452,11 +669,23 @@ def build_region(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/region.txt")
 
     def add_area(block: str) -> str:
-        return replace_once(
+        block = replace_once(
             block,
             "\t\tguangdong_area\n",
             "\t\tpearl_river_delta_area\n\t\tguangdong_area\n",
             "south_china_region areas",
+        )
+        block = replace_once(
+            block,
+            "\t\tfujian_area\n",
+            "\t\tfujian_area\n\t\twest_fujian_area\n",
+            "south_china_region Fujian areas",
+        )
+        return replace_once(
+            block,
+            "\t\tguangxi_area\n",
+            "\t\tguangxi_area\n\t\tyoujiang_area\n",
+            "south_china_region Guangxi areas",
         )
 
     write_text(
@@ -472,6 +701,12 @@ def build_continent(vanilla_root: Path, output: Path) -> None:
         "asia",
         "\t4942 4943 4944 4945 4946 4947 4948 4949 # B01 Guangdong",
     )
+    text = append_to_named_block(
+        text,
+        "asia",
+        "\t4950 4951 4952 4953 4954 4955 4956 4957 4958 4959 4960 4961"
+        " # P02 Southeast prepared",
+    )
     write_text(output, text)
 
 
@@ -484,8 +719,19 @@ def build_climate(vanilla_root: Path, output: Path) -> None:
     )
     text = append_to_named_block(
         text,
+        "tropical",
+        "\t4954 4955 4960 4961 # P02 southern subtropical frontier",
+    )
+    text = append_to_named_block(
+        text,
         "normal_monsoon",
         "\t4942 4943 4944 4945 4946 4947 4948 4949 # B01 Guangdong",
+    )
+    text = append_to_named_block(
+        text,
+        "normal_monsoon",
+        "\t4950 4951 4952 4953 4955 4956 4957 4958 4960 4961"
+        " # P02 monsoon provinces",
     )
     write_text(output, text)
 
@@ -495,15 +741,34 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
     text = replace_once(
         text,
         "\t\t\t665 667 2156 2157 2159 2163 700",
-        "\t\t\t665 667 2156 2157 2159 2163 700 4942 4943",
+        "\t\t\t665 667 2156 2157 2159 2163 700 4942 4943 4950 4954",
         "farmlands terrain override",
     )
     text = replace_once(
         text,
         "\t\t\t2146 2147 2152 2153 2158 2171 2173 2174 ",
         "\t\t\t2146 2147 2152 2153 2158 2171 2173 2174 "
-        "4944 4945 4946 4947 4948 4949 ",
+        "4944 4945 4946 4947 4948 4949 4951 4952 4953 "
+        "4956 4957 4958 4960 4961 ",
         "hills terrain override",
+    )
+    text = modify_nested_block(
+        text,
+        "grasslands",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t4955 # P02 Zhuluo western plain",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "highlands",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t4959 # P02 Qingyuan karst frontier",
+        ),
     )
     write_text(output, text)
 
@@ -529,7 +794,10 @@ def format_position_block(province_id: int, *, include_comment: bool = True) -> 
 
 def build_positions(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/positions.txt")
-    for province_id in (665, 667, 2157, 2158, 2159):
+    for province_id in (
+        664, 665, 667, 738, 1840, 2155, 2157, 2158, 2159,
+        2162, 2163, 2164,
+    ):
         text = replace_named_block(
             text,
             str(province_id),
@@ -537,7 +805,7 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
         )
     text = text.rstrip() + "\n\n"
     text += "\n\n".join(
-        format_position_block(province_id) for province_id in IMPLEMENTED_IDS
+        format_position_block(province_id) for province_id in ACTIVE_IDS
     )
     write_text(output, text + "\n")
 
@@ -546,6 +814,7 @@ def append_members_to_outer_block(
     text: str,
     outer_name: str,
     member_ids: tuple[int, ...],
+    comment: str,
 ) -> str:
     def modify_outer(block: str) -> str:
         member_start, member_end = find_named_block(block, "members")
@@ -554,7 +823,7 @@ def append_members_to_outer_block(
         insertion = (
             "\n\t\t"
             + " ".join(str(value) for value in member_ids)
-            + " # B01 Guangdong\n\t"
+            + f" # {comment}\n\t"
         )
         members = members[:closing].rstrip() + insertion + members[closing:]
         return block[:member_start] + members + block[member_end:]
@@ -564,35 +833,62 @@ def append_members_to_outer_block(
 
 def build_trade_nodes(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "common/tradenodes/00_tradenodes.txt")
+    text = append_members_to_outer_block(
+        text,
+        "hangzhou",
+        (4950, 4951, 4952, 4953, 4956, 4957, 4958),
+        "P02 Zhejiang and Fujian",
+    )
+    text = append_members_to_outer_block(
+        text,
+        "canton",
+        IMPLEMENTED_IDS + (4954, 4955, 4959, 4960, 4961),
+        "B01 Guangdong and P02 Guangxi/Taiwan",
+    )
     write_text(
         output,
-        append_members_to_outer_block(text, "canton", IMPLEMENTED_IDS),
+        text,
     )
 
 
 def build_trade_companies(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "common/trade_companies/00_trade_companies.txt")
 
-    def modify_company(block: str) -> str:
+    def add_company_provinces(
+        block: str,
+        province_ids: tuple[int, ...],
+        comment: str,
+    ) -> str:
         start, end = find_named_block(block, "provinces")
         provinces = block[start:end]
         closing = provinces.rfind("}")
         insertion = (
             "\n\t\t"
-            + " ".join(str(value) for value in IMPLEMENTED_IDS)
-            + " # B01 Guangdong\n\t"
+            + " ".join(str(value) for value in province_ids)
+            + f" # {comment}\n\t"
         )
         provinces = provinces[:closing].rstrip() + insertion + provinces[closing:]
         return block[:start] + provinces + block[end:]
 
-    write_text(
-        output,
-        modify_nested_block(
-            text,
-            "trade_company_south_china",
-            modify_company,
+    text = modify_nested_block(
+        text,
+        "trade_company_south_china",
+        lambda block: add_company_provinces(
+            block,
+            IMPLEMENTED_IDS + (4954, 4955, 4959, 4960, 4961),
+            "B01 Guangdong and P02 Guangxi/Taiwan",
         ),
     )
+    text = modify_nested_block(
+        text,
+        "trade_company_east_china",
+        lambda block: add_company_provinces(
+            block,
+            (4950, 4951, 4952, 4953, 4956, 4957, 4958),
+            "P02 Zhejiang and Fujian",
+        ),
+    )
+    write_text(output, text)
 
 
 def write_report(
@@ -602,8 +898,8 @@ def write_report(
     outputs: list[Path],
 ) -> None:
     report = {
-        "status": "FORMAL_B01_MANUAL_ASSETS_WRITTEN",
-        "scope": "B01 Guangdong hand-drawn playable map slice",
+        "status": "B01_FORMAL_AND_P02_ASSETS_PREPARED",
+        "scope": "B01 Guangdong formal geometry plus P02 pre-drawing assets",
         "baseline_version": geometry_report["baseline_version"],
         "baseline_verified_by_sha256": geometry_report[
             "baseline_verified_by_sha256"
@@ -613,6 +909,7 @@ def write_report(
         "canonical_geometry_preserved": True,
         "mod_root": mod_root.name,
         "implemented_ids": list(IMPLEMENTED_IDS),
+        "prepared_ids": list(PREPARED_IDS),
         "max_provinces": GAME_MAX_PROVINCES,
         "changed_pixels": geometry_report["changed_pixels"],
         "province_pixels": geometry_report["province_pixels"],
@@ -645,7 +942,7 @@ def main() -> None:
     if not (mod_root / "descriptor.mod").is_file():
         raise ValueError(f"Not an EU4 mod root: {mod_root}")
 
-    registry_rows = load_b01_registry(args.registry)
+    registry_rows = load_active_registry(args.registry)
     config = json.loads(args.config.read_text(encoding="utf-8"))
     provinces_output = mod_root / "map/provinces.bmp"
     geometry_report = audit_manual_geometry(
@@ -688,8 +985,8 @@ def main() -> None:
         outputs=outputs,
     )
     print(f"{provinces_output}: canonical hand-drawn geometry preserved")
-    print(f"{mod_root}: B01 companion assets written for IDs 4942-4949")
-    print(f"{args.report}: FORMAL_B01_MANUAL_ASSETS_WRITTEN")
+    print(f"{mod_root}: active assets written for IDs 4942-4961")
+    print(f"{args.report}: B01_FORMAL_AND_P02_ASSETS_PREPARED")
 
 
 if __name__ == "__main__":

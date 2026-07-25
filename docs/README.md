@@ -36,7 +36,10 @@
 
 1. [中华大区拆省总表](map/01_china_province_split_master.md)
 2. [中华大区分区绘制计划](map/02_regional_drawing_plan.md)
-3. [地图设计资产索引](map/README.md)
+3. [手绘拆省与正式实装标准流程](map/04_manual_map_implementation_workflow.md)
+4. [拆省批次实施与验收模板](map/templates/province_split_batch_template.md)
+5. [P02 浙江、福建、广西与台湾待手绘批次](map/05_p02_southeast_predrawing_assets.md)
+5. [地图设计资产索引](map/README.md)
 
 ### 研究依据
 

@@ -1,0 +1,20 @@
+# 4955 - Zhuluo
+
+culture = polynesian
+religion = animism
+capital = "Zhuluo"
+trade_goods = livestock
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 25
+native_ferocity = 1
+native_hostileness = 5
+discovered_by = chinese
+discovered_by = MCH
+discovered_by = KHA
+discovered_by = OIR
+discovered_by = QNG
+
+1521.1.1 = { discovered_by = SPA }

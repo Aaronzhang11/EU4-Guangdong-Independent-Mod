@@ -1,6 +1,6 @@
 {
-  "status": "FORMAL_B01_MANUAL_ASSETS_WRITTEN",
-  "scope": "B01 Guangdong hand-drawn playable map slice",
+  "status": "B01_FORMAL_AND_P02_ASSETS_PREPARED",
+  "scope": "B01 Guangdong formal geometry plus P02 pre-drawing assets",
   "baseline_version": "EU4 1.37.5",
   "baseline_verified_by_sha256": {
     "provinces.bmp": true,
@@ -22,7 +22,21 @@
     4948,
     4949
   ],
-  "max_provinces": 4950,
+  "prepared_ids": [
+    4950,
+    4951,
+    4952,
+    4953,
+    4954,
+    4955,
+    4956,
+    4957,
+    4958,
+    4959,
+    4960,
+    4961
+  ],
+  "max_provinces": 4962,
   "changed_pixels": 1627,
   "province_pixels": {
     "4942": 201,
@@ -40,44 +54,44 @@
       "sha256": "769a08e766e49a4b6c6411f82599d45b43bac36177b5fd6eb431f86012a0e71e"
     },
     "map/definition.csv": {
-      "bytes": 129890,
-      "sha256": "2a622d453347367dae0a23e5c8b332e671852e75e0e2dcebf3a93b6a11ad0586"
+      "bytes": 130199,
+      "sha256": "f5cfd37e3ae1171dd0d1f8f8d570cf99413e069f530aca5da38cf1c70a4f75fb"
     },
     "map/default.map": {
       "bytes": 10408,
-      "sha256": "fa0302416e1a148b7afeea86a73aafcf4f13688e1a7d92cf0a702e39e5adc93b"
+      "sha256": "08affaf955ba0de077aa9666ec2f42659c1388735ecaf498990e72f64eb8d246"
     },
     "map/area.txt": {
-      "bytes": 50716,
-      "sha256": "c7a24c87a48ed936bfbfabbc1fa6db4db0d87eb844c4a8ff1c4846d3d25444b1"
+      "bytes": 50776,
+      "sha256": "2e6a72ad51f7d0b1838e1ecf06821923e1b7b1cb08b227125a0061c1ca582785"
     },
     "map/region.txt": {
       "bytes": 27570,
       "sha256": "b931429b33330dc4f153f1b8c6167f28f2d7913265c63253ff1bb5a24f3c5704"
     },
     "map/continent.txt": {
-      "bytes": 19424,
-      "sha256": "1f22138df37c7c01fc4840768ff043d1b7b0c3601861d93c80b5ec11e40b48d2"
+      "bytes": 19513,
+      "sha256": "211d4daf15fb60dcbcf072c3d30e6537f59c5e77900f5cfd24c90568e318fa66"
     },
     "map/climate.txt": {
-      "bytes": 24667,
-      "sha256": "ee77739ff6858fa083c150e990ea761e9418aef4c249ba1a2294a8f64ba22169"
+      "bytes": 24805,
+      "sha256": "cf09b97a57b295c93a5332f4cf04408562b4dfaec0687f7d028fc46ff45b0473"
     },
     "map/terrain.txt": {
-      "bytes": 26777,
-      "sha256": "930b8b6b79e14b076d7198377ecb851ee3eafad00e92361dd99819b173db49e3"
+      "bytes": 26902,
+      "sha256": "9b9cf19d59a8c7e245d2837e0632670b7c5e7ba3217efd4e5227e2836869f013"
     },
     "map/positions.txt": {
-      "bytes": 1494112,
-      "sha256": "e06c5387e8a12216488d082263b90d2ea5d5a38d597c163901942b6f919c3b27"
+      "bytes": 1498286,
+      "sha256": "7e57d244871f4bcf0e92abaf44a0699f9a7ba74d2986683935a5044d953579ab"
     },
     "common/tradenodes/00_tradenodes.txt": {
-      "bytes": 62254,
-      "sha256": "314e0b9d4674826d7c232bd4bcc616d6c49e179bbd37fbc5b4931e1a4bd40d3c"
+      "bytes": 62371,
+      "sha256": "697a4081eb101d4a7052f1f4a99e2cbdb99ac41fed7cbd2b9d3a2451f42a2fa6"
     },
     "common/trade_companies/00_trade_companies.txt": {
-      "bytes": 36360,
-      "sha256": "ba5cfe60ad23d8849728d09187dddab484b141f303372acbe416631a71ee8199"
+      "bytes": 36477,
+      "sha256": "09e571dd238859a5a8da2b3eaf74056cf7a965cfa9e72bd70bde5f2017d722b3"
     }
   }
 }

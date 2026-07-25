@@ -17,15 +17,45 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = REPO_ROOT / "docs/map/china_province_split_registry.csv"
 EXPECTED_VANILLA_MAX_ID = 4941
-EXPECTED_REGISTRY_ROWS = 44
+EXPECTED_REGISTRY_ROWS = 50
 ALLOCATION_FIELDS = ("game_id", "rgb_r", "rgb_g", "rgb_b")
 COLOR_OVERRIDES = {
     "S-19": (20, 200, 220),
     "S-20": (106, 60, 226),
     "S-21": (190, 128, 45),
     "S-22": (67, 219, 198),
+    "S-23": (24, 170, 230),
+    "S-24": (230, 110, 35),
+    "S-25": (135, 45, 225),
+    "S-26": (55, 205, 120),
+    "S-27": (225, 65, 135),
+    "S-28": (160, 205, 45),
 }
-NON_SEQUENCE_COLOR_KEYS = {"S-20", "S-21", "S-22"}
+NON_SEQUENCE_COLOR_KEYS = {
+    "S-20",
+    "S-21",
+    "S-22",
+    "S-23",
+    "S-24",
+    "S-25",
+    "S-26",
+    "S-27",
+    "S-28",
+}
+EARLY_ACTIVATION_KEYS = (
+    "S-04",
+    "S-05",
+    "S-11",
+    "S-12",
+    "S-17",
+    "S-18",
+    "S-23",
+    "S-24",
+    "S-25",
+    "S-26",
+    "S-27",
+    "S-28",
+)
 
 
 def read_definition_colors(definition_path: Path) -> tuple[int, set[tuple[int, int, int]]]:
@@ -53,7 +83,7 @@ def candidate_color(index: int, attempt: int = 0) -> tuple[int, int, int]:
 
 
 def allocation_row_order(rows: list[dict[str, str]]) -> list[int]:
-    """Return registry row indexes in incremental deployment order."""
+    """Return registry row indexes in original drawing-batch order."""
 
     indexed_rows = list(enumerate(rows))
 
@@ -65,6 +95,36 @@ def allocation_row_order(rows: list[dict[str, str]]) -> list[int]:
 
     indexed_rows.sort(key=lambda item: (batch_number(item[1]), item[0]))
     return [index for index, _row in indexed_rows]
+
+
+def activation_row_order(rows: list[dict[str, str]]) -> list[int]:
+    """Return the contiguous in-game activation order.
+
+    B01 is already live.  The user selected Zhejiang, Fujian, Guangxi and
+    Taiwan as the next playable slice, even though their geometry belongs to
+    the later B06/B08 drawing batches.  Unimplemented IDs may therefore move,
+    while the design-key RGB allocation remains frozen.
+    """
+
+    original_order = allocation_row_order(rows)
+    indexes_by_key = {
+        row["design_key"]: index for index, row in enumerate(rows)
+    }
+    missing = [
+        key for key in EARLY_ACTIVATION_KEYS if key not in indexes_by_key
+    ]
+    if missing:
+        raise ValueError(f"Missing early activation design keys: {missing}")
+    b01 = [
+        index for index in original_order
+        if rows[index]["draw_batch"] == "B01"
+    ]
+    early = [indexes_by_key[key] for key in EARLY_ACTIVATION_KEYS]
+    already_selected = set(b01 + early)
+    remaining = [
+        index for index in original_order if index not in already_selected
+    ]
+    return b01 + early + remaining
 
 
 def validate_registry_design(rows: list[dict[str, str]]) -> None:
@@ -124,7 +184,8 @@ def build_allocations(
     allocations: list[tuple[int, tuple[int, int, int]] | None] = [None] * len(rows)
     used_colors = set(vanilla_colors)
     color_index = 0
-    for allocation_offset, row_index in enumerate(allocation_row_order(rows)):
+    frozen_colors: dict[int, tuple[int, int, int]] = {}
+    for row_index in allocation_row_order(rows):
         attempt = 0
         key = rows[row_index]["design_key"]
         color = COLOR_OVERRIDES.get(key, candidate_color(color_index, attempt))
@@ -134,12 +195,18 @@ def build_allocations(
             attempt += 1
             color = candidate_color(color_index, attempt)
         used_colors.add(color)
-        allocations[row_index] = (first_id + allocation_offset, color)
+        frozen_colors[row_index] = color
         # The three colors chosen by the user were inserted after the original
         # registry had been frozen.  They receive IDs, but do not perturb the
         # generated RGB sequence of the still-unimplemented batches.
         if key not in NON_SEQUENCE_COLOR_KEYS:
             color_index += 1
+
+    for allocation_offset, row_index in enumerate(activation_row_order(rows)):
+        allocations[row_index] = (
+            first_id + allocation_offset,
+            frozen_colors[row_index],
+        )
     return [allocation for allocation in allocations if allocation is not None]
 
 

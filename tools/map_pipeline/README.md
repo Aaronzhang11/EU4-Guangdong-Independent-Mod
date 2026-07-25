@@ -9,6 +9,11 @@
 `definition.csv`、`default.map`、点位、区域、气候、地形与贸易文件；它绝不
 生成、复制或覆盖 `provinces.bmp` 的像素。
 
+跨批次的完整实施顺序、联动文件、排错方法和实机验收标准见
+[`docs/map/04_manual_map_implementation_workflow.md`](../../docs/map/04_manual_map_implementation_workflow.md)；
+新批次可复制
+[`docs/map/templates/province_split_batch_template.md`](../../docs/map/templates/province_split_batch_template.md)。
+
 ## 环境
 
 - Python 3.11+
@@ -26,9 +31,10 @@ python3 -m pip install -r tools/map_pipeline/requirements.txt
 ## 省份 ID 与 RGB
 
 `allocate_registry.py` 以原版最高省份 ID `4941` 为基线，按 `draw_batch`
-顺序冻结总表中的新省 ID 与唯一 RGB。当前 B01 占用连续区间 `4942–4949`：
-佛山、东莞、梅州、高州、香港、罗定、南雄和陆丰。正式地图使用
-`max_provinces = 4950`，不会把尚未实现的预留省份作为空省暴露给游戏。
+顺序冻结总表中的新省 ID 与唯一 RGB。当前 B01 占用 `4942–4949`；优先准备的
+浙江、福建、广西与台湾十二省占用 `4950–4961`。正式地图使用
+`max_provinces = 4962`。十二省定义和联动资产已经就绪，但在用户把对应 RGB
+画入 `provinces.bmp` 之前仍属于待手绘状态。
 
 首次写入：
 
@@ -101,11 +107,11 @@ python3 tools/map_pipeline/build_b01_preview.py \
 
 该候选 BMP 不是当前可玩地图，不能替代用户手绘的 canonical BMP。
 
-## B01 正式配套资产
+## B01 正式配套资产与 P02 待手绘资产
 
 `build_b01_mod.py` 对 canonical BMP 执行只读几何审计，然后从锁定的 EU4
-1.37.5 基线生成配套文件。它会检查经典 BMP 头、变化像素、八省颜色与像素数，
-并在报告中确认正式图哈希保持不变。
+1.37.5 基线生成 B01 与 P02 配套文件。它会检查经典 BMP 头、广东八省颜色与
+像素数，并在报告中确认正式图哈希保持不变；不会要求尚未手绘的十二种颜色出现。
 
 ```sh
 python3 tools/map_pipeline/build_b01_mod.py \
@@ -123,8 +129,9 @@ python3 tools/encode_eu4_chinese_localisation.py --check
 
 校验覆盖 BMP 格式、定义颜色、变化范围、像素数、连通块、邻接、港口点、Area、
 Region、洲、气候、地形、贸易节点、贸易公司、省份历史、发展度与本地化。
-当前八省、`max_provinces = 4950`、罗定/南雄/陆丰的历史，以及南雄 1 级贸易
-中心、陆丰 15 世纪堡垒均已通过静态校验。
+当前广东八省、P02 十二省的非 BMP 资产、`max_provinces = 4962`、发展度守恒和
+双字节中文本地化均已通过静态校验。P02 几何状态明确标记为
+`awaiting_user_pixels`。
 
 发展度按母省组守恒；唯一有意例外是惠州—东莞—香港—陆丰组净增一点人力。
 

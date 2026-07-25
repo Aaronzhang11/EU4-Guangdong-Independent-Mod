@@ -21,6 +21,7 @@ MOD = ROOT / "guangdong_independent_practice"
 FILES = {
     "gdd_l_english_readable_utf8.txt": "gdd_l_english.yml",
     "gdd_b01_map_readable_utf8.txt": "gdd_b01_map_l_english.yml",
+    "gdd_p02_southeast_map_readable_utf8.txt": "gdd_p02_southeast_map_l_english.yml",
     "gdd_treaty_readable_utf8.txt": "gdd_treaty_l_english.yml",
     "gdd_characters_readable_utf8.txt": "gdd_characters_l_english.yml",
     "gdd_invested_tributary_readable_utf8.txt": "gdd_invested_tributary_l_english.yml",

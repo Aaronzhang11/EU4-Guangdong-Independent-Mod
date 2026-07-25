@@ -14,11 +14,14 @@ import numpy as np
 from PIL import Image
 
 from build_b01_mod import (
+    ACTIVE_IDS,
     DEFAULT_CONFIG,
     DEFAULT_MOD_ROOT,
     DEFAULT_REPORT,
     GAME_MAX_PROVINCES,
     IMPLEMENTED_IDS,
+    POSITION_DATA,
+    PREPARED_IDS,
     find_named_block,
     validate_classic_bmp_header,
 )
@@ -29,6 +32,15 @@ DEFAULT_VALIDATION_REPORT = (
     REPO_ROOT / "docs/map/previews/B01_mod_validation_report.json"
 )
 EXPECTED_AREAS = {
+    664: "youjiang_area",
+    669: "fujian_area",
+    1829: "fujian_area",
+    1840: "youjiang_area",
+    2152: "west_fujian_area",
+    2153: "west_fujian_area",
+    2162: "guangxi_area",
+    2163: "youjiang_area",
+    2164: "guangxi_area",
     4942: "pearl_river_delta_area",
     4943: "pearl_river_delta_area",
     4944: "guangdong_area",
@@ -37,6 +49,18 @@ EXPECTED_AREAS = {
     4947: "west_guangdong_area",
     4948: "guangdong_area",
     4949: "guangdong_area",
+    4950: "zhejiang_area",
+    4951: "zhejiang_area",
+    4952: "fujian_area",
+    4953: "fujian_area",
+    4954: "guangxi_area",
+    4955: "taiwan_area",
+    4956: "zhejiang_area",
+    4957: "west_fujian_area",
+    4958: "fujian_area",
+    4959: "youjiang_area",
+    4960: "guangxi_area",
+    4961: "taiwan_area",
 }
 EXPECTED_TERRAIN = {
     4942: "farmlands",
@@ -47,6 +71,55 @@ EXPECTED_TERRAIN = {
     4947: "hills",
     4948: "hills",
     4949: "hills",
+    4950: "farmlands",
+    4951: "hills",
+    4952: "hills",
+    4953: "hills",
+    4954: "farmlands",
+    4955: "grasslands",
+    4956: "hills",
+    4957: "hills",
+    4958: "hills",
+    4959: "highlands",
+    4960: "hills",
+    4961: "hills",
+}
+PREPARED_HISTORY = {
+    684: ("MNG", (8, 8, 2), "silk", "wu"),
+    1824: ("MNG", (2, 2, 1), "chinaware", "wu"),
+    669: ("MNG", (5, 5, 2), "tea", "chimin"),
+    1829: ("MNG", (4, 4, 1), "tea", "chimin"),
+    2163: ("MNG", (1, 1, 1), "salt", "zhuang"),
+    2150: ("MNG", (2, 2, 1), "grain", "wu"),
+    2152: ("MNG", (1, 1, 1), "tea", "chimin"),
+    1840: ("MNG", (1, 1, 1), "silk", "zhuang"),
+    2162: ("MNG", (1, 1, 1), "copper", "cantonese"),
+    738: (None, (3, 3, 1), "unknown", "polynesian"),
+    2155: (None, (1, 1, 2), "unknown", "polynesian"),
+    4950: ("MNG", (4, 4, 1), "silk", "wu"),
+    4951: ("MNG", (1, 1, 1), "fish", "wu"),
+    4952: ("MNG", (3, 3, 1), "fish", "chimin"),
+    4953: ("MNG", (3, 3, 1), "sugar", "chimin"),
+    4954: ("MNG", (1, 1, 1), "grain", "zhuang"),
+    4955: (None, (1, 1, 1), "livestock", "polynesian"),
+    4956: ("MNG", (1, 1, 1), "tea", "wu"),
+    4957: ("MNG", (1, 1, 1), "paper", "chimin"),
+    4958: ("MNG", (2, 3, 1), "fish", "chimin"),
+    4959: ("MNG", (1, 1, 1), "livestock", "zhuang"),
+    4960: ("MNG", (1, 1, 1), "grain", "zhuang"),
+    4961: (None, (1, 1, 1), "fish", "polynesian"),
+}
+PREPARED_DEV_PARTITIONS = {
+    684: ((4950,), (12, 12, 3)),
+    1824: ((4951,), (3, 3, 2)),
+    669: ((4952,), (8, 8, 3)),
+    1829: ((4953, 4958), (9, 10, 3)),
+    2163: ((4954, 4960), (3, 3, 3)),
+    2155: ((4955,), (2, 2, 3)),
+    2150: ((4956,), (3, 3, 2)),
+    2152: ((4957,), (2, 2, 2)),
+    1840: ((4959,), (2, 2, 2)),
+    738: ((4961,), (4, 4, 2)),
 }
 EXPECTED_HISTORY = {
     665: ("GDD", (3, 3, 2), "chinaware", "cantonese"),
@@ -103,7 +176,7 @@ def parse_definitions(
             if province_id in definitions:
                 raise ValueError(f"definition.csv: duplicate ID {province_id}")
             if color in colors and (
-                province_id in IMPLEMENTED_IDS or colors[color] in IMPLEMENTED_IDS
+                province_id in ACTIVE_IDS or colors[color] in ACTIVE_IDS
             ):
                 raise ValueError(
                     f"definition.csv: RGB {color} reused by "
@@ -312,9 +385,9 @@ def validate_map(
     exposed_new_ids = tuple(
         sorted(province_id for province_id in definitions if province_id >= 4942)
     )
-    if exposed_new_ids != IMPLEMENTED_IDS:
+    if exposed_new_ids != ACTIVE_IDS:
         raise ValueError(
-            f"definition.csv exposes {exposed_new_ids}; expected {IMPLEMENTED_IDS}"
+            f"definition.csv exposes {exposed_new_ids}; expected {ACTIVE_IDS}"
         )
 
     default_map = (map_dir / "default.map").read_text(encoding="cp1252")
@@ -384,6 +457,17 @@ def validate_map(
             "coastal": coastal,
         }
 
+    prepared_pixels: dict[int, int] = {}
+    for province_id in PREPARED_IDS:
+        color = np.array(definitions[province_id][0], dtype=np.uint8)
+        pixels = int(np.all(province_map == color, axis=2).sum())
+        if pixels != 0:
+            raise ValueError(
+                f"provinces.bmp: prepared province {province_id} unexpectedly "
+                f"has {pixels} pixels; this batch must not modify the BMP"
+            )
+        prepared_pixels[province_id] = pixels
+
     positions = (map_dir / "positions.txt").read_text(encoding="cp1252")
     port_seas = {
         int(province_id): int(sea_id)
@@ -450,9 +534,32 @@ def validate_map(
                 f"positions.txt: inland {province_id} port slot is in {port_id}"
             )
 
+    for province_id in PREPARED_IDS:
+        position_block_count = len(
+            re.findall(
+                rf"(?m)^[ \t]*{province_id}[ \t]*=[ \t]*\{{",
+                positions,
+            )
+        )
+        if position_block_count != 1:
+            raise ValueError(
+                f"positions.txt: prepared province {province_id} has "
+                f"{position_block_count} position blocks"
+            )
+        values = parse_positions(positions, province_id)
+        expected_city = tuple(
+            float(value) for value in POSITION_DATA[province_id]["positions"][:2]
+        )
+        if tuple(values[:2]) != expected_city:
+            raise ValueError(
+                f"positions.txt: prepared province {province_id} city anchor "
+                f"{tuple(values[:2])} differs from {expected_city}"
+            )
+
     return {
         "changed_pixels": changed_pixels,
         "province_stats": province_stats,
+        "prepared_pixels": prepared_pixels,
         "provinces_sha256": sha256_file(provinces_path),
     }
 
@@ -470,6 +577,10 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         "pearl_river_delta_area",
         "guangdong_area",
         "west_guangdong_area",
+        "fujian_area",
+        "west_fujian_area",
+        "guangxi_area",
+        "youjiang_area",
     }:
         if not re.search(rf"\b{re.escape(area_name)}\b", south_china):
             raise ValueError(f"region.txt: south_china_region lacks {area_name}")
@@ -483,7 +594,7 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
 
     continent_text = (mod_root / "map/continent.txt").read_text(encoding="cp1252")
     asia = block_text(continent_text, "asia")
-    for province_id in IMPLEMENTED_IDS:
+    for province_id in ACTIVE_IDS:
         assert_token_once(continent_text, province_id, "continent.txt")
         if province_id not in numeric_tokens(asia):
             raise ValueError(f"continent.txt: {province_id} is not in Asia")
@@ -491,13 +602,17 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     climate_text = (mod_root / "map/climate.txt").read_text(encoding="cp1252")
     normal_monsoon = set(numeric_tokens(block_text(climate_text, "normal_monsoon")))
     tropical = set(numeric_tokens(block_text(climate_text, "tropical")))
-    for province_id in IMPLEMENTED_IDS:
+    for province_id in IMPLEMENTED_IDS + (
+        4950, 4951, 4952, 4953, 4955,
+        4956, 4957, 4958, 4960, 4961,
+    ):
         if province_id not in normal_monsoon:
             raise ValueError(f"climate.txt: {province_id} lacks normal_monsoon")
-    if 4945 not in tropical:
-        raise ValueError("climate.txt: Gaozhou must inherit tropical")
-    if tropical & (set(IMPLEMENTED_IDS) - {4945}):
-        raise ValueError("climate.txt: an unintended B01 province is tropical")
+    expected_tropical = {4945, 4954, 4955, 4960, 4961}
+    if not expected_tropical <= tropical:
+        raise ValueError("climate.txt: a prepared tropical province is missing")
+    if tropical & (set(ACTIVE_IDS) - expected_tropical):
+        raise ValueError("climate.txt: an unintended active province is tropical")
 
     terrain_text = (mod_root / "map/terrain.txt").read_text(encoding="cp1252")
     for province_id, terrain_name in EXPECTED_TERRAIN.items():
@@ -512,20 +627,34 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     ).read_text(encoding="cp1252")
     canton = block_text(trade_nodes, "canton")
     canton_members = set(numeric_tokens(block_text(canton, "members")))
-    for province_id in IMPLEMENTED_IDS:
+    for province_id in IMPLEMENTED_IDS + (4954, 4955, 4959, 4960, 4961):
         assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
         if province_id not in canton_members:
             raise ValueError(f"Canton trade node lacks {province_id}")
+    hangzhou = block_text(trade_nodes, "hangzhou")
+    hangzhou_members = set(numeric_tokens(block_text(hangzhou, "members")))
+    for province_id in (4950, 4951, 4952, 4953, 4956, 4957, 4958):
+        assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
+        if province_id not in hangzhou_members:
+            raise ValueError(f"Hangzhou trade node lacks {province_id}")
 
     companies = (
         mod_root / "common/trade_companies/00_trade_companies.txt"
     ).read_text(encoding="cp1252")
     south_china = block_text(companies, "trade_company_south_china")
     company_provinces = set(numeric_tokens(block_text(south_china, "provinces")))
-    for province_id in IMPLEMENTED_IDS:
+    for province_id in IMPLEMENTED_IDS + (4954, 4955, 4959, 4960, 4961):
         assert_token_once(companies, province_id, "00_trade_companies.txt")
         if province_id not in company_provinces:
             raise ValueError(f"South China trade company lacks {province_id}")
+    east_china = block_text(companies, "trade_company_east_china")
+    east_company_provinces = set(
+        numeric_tokens(block_text(east_china, "provinces"))
+    )
+    for province_id in (4950, 4951, 4952, 4953, 4956, 4957, 4958):
+        assert_token_once(companies, province_id, "00_trade_companies.txt")
+        if province_id not in east_company_provinces:
+            raise ValueError(f"East China trade company lacks {province_id}")
 
 
 def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
@@ -577,6 +706,74 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
     lufeng = history_path(mod_root, 4949).read_text(encoding="cp1252")
     if initial_history_value(lufeng, "fort_15th") != "yes":
         raise ValueError("4949 Lufeng must have a 15th-century fort")
+    return development
+
+
+def validate_prepared_histories(
+    vanilla_root: Path,
+    mod_root: Path,
+) -> dict[int, tuple[int, int, int]]:
+    development: dict[int, tuple[int, int, int]] = {}
+    for province_id, (owner, expected_dev, goods, culture) in PREPARED_HISTORY.items():
+        path = history_path(mod_root, province_id)
+        validate_braces(path)
+        text = path.read_text(encoding="cp1252")
+        owner_match = re.search(r"(?m)^owner\s*=\s*([^\s#]+)", text)
+        actual_owner = owner_match.group(1).strip('"') if owner_match else None
+        actual_goods = initial_history_value(text, "trade_goods")
+        actual_culture = initial_history_value(text, "culture")
+        actual_dev = tuple(
+            int(initial_history_value(text, key))
+            for key in ("base_tax", "base_production", "base_manpower")
+        )
+        actual = (actual_owner, actual_dev, actual_goods, actual_culture)
+        expected = (owner, expected_dev, goods, culture)
+        if actual != expected:
+            raise ValueError(f"{path.name}: history {actual}, expected {expected}")
+        if province_id in PREPARED_IDS:
+            if initial_history_value(text, "religion") not in {
+                "confucianism",
+                "animism",
+            }:
+                raise ValueError(f"{path.name}: unexpected religion")
+            if owner is not None and initial_history_value(text, "is_city") != "yes":
+                raise ValueError(f"{path.name}: owned province must be a city")
+        development[province_id] = actual_dev
+
+    for parent_id, (child_ids, expected_total) in PREPARED_DEV_PARTITIONS.items():
+        recombined = tuple(
+            development[parent_id][index]
+            + sum(development[child_id][index] for child_id in child_ids)
+            for index in range(3)
+        )
+        if recombined != expected_total:
+            raise ValueError(
+                f"Prepared development partition {parent_id}+{child_ids} "
+                f"recombines to {recombined}, expected {expected_total}"
+            )
+
+    guangxi_ids = (664, 1840, 2162, 2163, 2164, 4954, 4959, 4960)
+    guangxi_total = [0, 0, 0]
+    for province_id in guangxi_ids:
+        if province_id not in development:
+            matches = list(
+                (vanilla_root / "history/provinces").glob(f"{province_id} - *.txt")
+            )
+            if len(matches) != 1:
+                raise ValueError(
+                    f"Vanilla history for Guangxi province {province_id} is ambiguous"
+                )
+            text = matches[0].read_text(encoding="cp1252")
+            development[province_id] = tuple(
+                int(initial_history_value(text, key))
+                for key in ("base_tax", "base_production", "base_manpower")
+            )
+        for index, value in enumerate(development[province_id]):
+            guangxi_total[index] += value
+    if tuple(guangxi_total) != (8, 8, 9):
+        raise ValueError(
+            f"Guangxi area recombines to {tuple(guangxi_total)}, expected (8, 8, 9)"
+        )
     return development
 
 
@@ -638,6 +835,38 @@ def validate_localisation(mod_root: Path) -> None:
     encoded = mod_root / "localisation/gdd_b01_map_l_english.yml"
     if not encoded.is_file() or not encoded.read_bytes().startswith(b"\xef\xbb\xbf"):
         raise ValueError("Encoded B01 localisation is missing or lacks a BOM")
+    prepared_source = (
+        mod_root
+        / "localisation_source/gdd_p02_southeast_map_readable_utf8.txt"
+    ).read_text(encoding="utf-8-sig")
+    for province_id in PREPARED_IDS:
+        for key in (f"PROV{province_id}", f"PROV_ADJ{province_id}"):
+            if not re.search(rf"(?m)^\s*{key}:0\s+\"", prepared_source):
+                raise ValueError(f"Prepared localisation source lacks {key}")
+    for key in (
+        "fujian_area",
+        "fujian_area_name",
+        "fujian_area_adj",
+        "west_fujian_area",
+        "west_fujian_area_name",
+        "west_fujian_area_adj",
+        "guangxi_area",
+        "guangxi_area_name",
+        "guangxi_area_adj",
+        "youjiang_area",
+        "youjiang_area_name",
+        "youjiang_area_adj",
+    ):
+        if not re.search(rf"(?m)^\s*{key}:0\s+\"", prepared_source):
+            raise ValueError(f"Prepared localisation source lacks {key}")
+    prepared_encoded = (
+        mod_root / "localisation/gdd_p02_southeast_map_l_english.yml"
+    )
+    if (
+        not prepared_encoded.is_file()
+        or not prepared_encoded.read_bytes().startswith(b"\xef\xbb\xbf")
+    ):
+        raise ValueError("Encoded P02 localisation is missing or lacks a BOM")
 
 
 def main() -> None:
@@ -670,12 +899,13 @@ def main() -> None:
     map_report = validate_map(vanilla_root, mod_root, config)
     validate_memberships(vanilla_root, mod_root)
     development = validate_histories(mod_root)
+    prepared_development = validate_prepared_histories(vanilla_root, mod_root)
     validate_locked_guangzhou_assets(vanilla_root, mod_root)
     validate_localisation(mod_root)
 
     build_report = json.loads(args.build_report.read_text(encoding="utf-8"))
-    if build_report.get("status") != "FORMAL_B01_MANUAL_ASSETS_WRITTEN":
-        raise ValueError("Formal hand-drawn B01 build report is not successful")
+    if build_report.get("status") != "B01_FORMAL_AND_P02_ASSETS_PREPARED":
+        raise ValueError("B01/P02 build report is not successful")
     if build_report.get("canonical_geometry_preserved") is not True:
         raise ValueError("Build report does not confirm preservation of manual geometry")
     for relative_path, metadata in build_report["outputs"].items():
@@ -684,20 +914,28 @@ def main() -> None:
             raise ValueError(f"{relative_path}: hash differs from the build report")
 
     result = {
-        "status": "FORMAL_B01_MANUAL_VALIDATION_PASS",
+        "status": "B01_FORMAL_AND_P02_STATIC_VALIDATION_PASS",
         "implemented_ids": list(IMPLEMENTED_IDS),
+        "prepared_ids": list(PREPARED_IDS),
+        "geometry_status": {
+            "B01": "hand_drawn_validated",
+            "P02": "awaiting_user_pixels",
+        },
         "max_provinces": GAME_MAX_PROVINCES,
         "map": map_report,
         "development": {
             str(province_id): list(values)
-            for province_id, values in development.items()
+            for province_id, values in {
+                **development,
+                **prepared_development,
+            }.items()
         },
     }
     rendered = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(rendered, encoding="utf-8")
     print(rendered, end="")
-    print(f"{args.report}: FORMAL_B01_MANUAL_VALIDATION_PASS")
+    print(f"{args.report}: B01_FORMAL_AND_P02_STATIC_VALIDATION_PASS")
 
 
 if __name__ == "__main__":

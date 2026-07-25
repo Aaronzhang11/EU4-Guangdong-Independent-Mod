@@ -2853,20 +2853,24 @@ south_anhui_area = { #3
     686 2146 2147
 }
 
-zhejiang_area = { #5
-    684 1824 2148 2149 2150
+zhejiang_area = { #8
+    684 1824 2148 2149 2150 4950 4951 4956
 }
 
 jiangxi_area = { #4
      670 683 1833 2151
 }
 
-fujian_area = { #4
-    669 1829 2152 2153
+fujian_area = { #5 (East Fujian)
+    669 1829 4952 4953 4958
 }
 
-taiwan_area = { #3
-    738 2154 2155
+west_fujian_area = { #3
+    2152 2153 4957
+}
+
+taiwan_area = { #5
+    738 2154 2155 4955 4961
 }
 
 pearl_river_delta_area = { #5
@@ -2881,8 +2885,12 @@ west_guangdong_area = { #7
     665 666 2159 2160 2161 4945 4947
 }
 
-guangxi_area = { #5
-    664 1840 2162 2163 2164
+guangxi_area = { #4 (Zuojiang)
+    2162 2164 4954 4960
+}
+
+youjiang_area = { #4
+    664 1840 2163 4959
 }
 
 yun_gui_area = { #5 (Yun-Gui Hinterland)
