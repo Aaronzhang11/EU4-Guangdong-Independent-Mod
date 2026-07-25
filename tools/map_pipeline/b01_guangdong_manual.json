@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "baseline_version": "EU4 1.37.5",
+  "baseline_file_sha256": {
+    "provinces.bmp": "40348545baf1886009eb46d8ffba0a76684061e44faa64ec788c756ce607e5c8",
+    "definition.csv": "ea6384a5b41f70bd179435e6626229e907c0d7b07a60d262c85776c74e1f2153",
+    "default.map": "70ed470492e6266d5ae809534ab56935e904fe2d3017451195001b8ba2a8cf0c",
+    "adjacencies.csv": "fb3ddf25320e9fa022d89e6b567b934b447314d0aad58db08d5bb0164553c0bd"
+  },
+  "source_policy": "hand_drawn_canonical_bmp",
+  "canonical_bmp": "guangdong_independent_practice/map/provinces.bmp",
+  "expected_size": [5632, 2048],
+  "expected_mode": "RGB",
+  "expected_changed_pixels": 1627,
+  "allowed_vanilla_source_ids": [665, 667, 2156, 2157, 2158, 2159],
+  "position_province_ids": [
+    665,
+    667,
+    2156,
+    2157,
+    2158,
+    2159,
+    4942,
+    4943,
+    4944,
+    4945,
+    4946,
+    4947,
+    4948,
+    4949
+  ],
+  "port_seas": {
+    "665": 1370,
+    "667": 1371,
+    "2156": 1371,
+    "2157": 1371,
+    "2159": 1370,
+    "4942": 1371,
+    "4943": 1371,
+    "4945": 1370,
+    "4946": 1371,
+    "4949": 1371
+  },
+  "provinces": [
+    {
+      "design_key": "S-13",
+      "game_id": 4942,
+      "name_en": "Foshan",
+      "rgb": [190, 91, 45],
+      "expected_pixels": 201,
+      "expected_component_sizes": [197, 4],
+      "expected_neighbor_ids": [665, 667, 668, 1370, 1371],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-14",
+      "game_id": 4943,
+      "name_en": "Dongguan",
+      "rgb": [67, 219, 159],
+      "expected_pixels": 71,
+      "expected_component_sizes": [71],
+      "expected_neighbor_ids": [667, 1371, 2157, 4946],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-15",
+      "game_id": 4944,
+      "name_en": "Meizhou",
+      "rgb": [187, 30, 204],
+      "expected_pixels": 166,
+      "expected_component_sizes": [166],
+      "expected_neighbor_ids": [670, 2153, 2156, 2157],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "S-16",
+      "game_id": 4945,
+      "name_en": "Gaozhou",
+      "rgb": [186, 212, 73],
+      "expected_pixels": 398,
+      "expected_component_sizes": [398],
+      "expected_neighbor_ids": [665, 1370, 2159, 2161, 2162, 4947],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-19",
+      "game_id": 4946,
+      "name_en": "Hong Kong",
+      "rgb": [20, 200, 220],
+      "expected_pixels": 28,
+      "expected_component_sizes": [25, 3],
+      "expected_neighbor_ids": [1371, 4943],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-20",
+      "game_id": 4947,
+      "name_en": "Luoding",
+      "rgb": [106, 60, 226],
+      "expected_pixels": 293,
+      "expected_component_sizes": [293],
+      "expected_neighbor_ids": [665, 1840, 2162, 4945],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "S-21",
+      "game_id": 4948,
+      "name_en": "Nanxiong",
+      "rgb": [190, 128, 45],
+      "expected_pixels": 265,
+      "expected_component_sizes": [265],
+      "expected_neighbor_ids": [670, 2157, 2158, 2174],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "S-22",
+      "game_id": 4949,
+      "name_en": "Lufeng",
+      "rgb": [67, 219, 198],
+      "expected_pixels": 155,
+      "expected_component_sizes": [155],
+      "expected_neighbor_ids": [1371, 2156, 2157],
+      "expected_coastal": true
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""Static validation for the loadable B01 Guangdong map slice."""
+"""Static validation for the hand-drawn B01 Guangdong map slice."""
 
 from __future__ import annotations
 
@@ -14,35 +14,29 @@ import numpy as np
 from PIL import Image
 
 from build_b01_mod import (
+    DEFAULT_CONFIG,
     DEFAULT_MOD_ROOT,
     DEFAULT_REPORT,
     GAME_MAX_PROVINCES,
     IMPLEMENTED_IDS,
     find_named_block,
+    validate_classic_bmp_header,
 )
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_CONFIG = Path(__file__).with_name("b01_guangdong.json")
 DEFAULT_VALIDATION_REPORT = (
     REPO_ROOT / "docs/map/previews/B01_mod_validation_report.json"
 )
-DEFAULT_LOCALISATION_SOURCE = (
-    DEFAULT_MOD_ROOT / "localisation_source/gdd_b01_map_readable_utf8.txt"
-)
-EXPECTED_DEFINITIONS = {
-    4942: ((190, 91, 45), "Foshan"),
-    4943: ((67, 219, 159), "Dongguan"),
-    4944: ((187, 30, 204), "Meizhou"),
-    4945: ((186, 212, 73), "Gaozhou"),
-    4946: ((20, 200, 220), "Hong Kong"),
-}
 EXPECTED_AREAS = {
     4942: "pearl_river_delta_area",
     4943: "pearl_river_delta_area",
     4944: "guangdong_area",
     4945: "west_guangdong_area",
     4946: "pearl_river_delta_area",
+    4947: "west_guangdong_area",
+    4948: "guangdong_area",
+    4949: "guangdong_area",
 }
 EXPECTED_TERRAIN = {
     4942: "farmlands",
@@ -50,30 +44,37 @@ EXPECTED_TERRAIN = {
     4944: "hills",
     4945: "hills",
     4946: "hills",
-}
-EXPECTED_PORT_SEAS = {
-    667: 1371,
-    2157: 1371,
-    4943: 1371,
-    4945: 1370,
-    4946: 1371,
+    4947: "hills",
+    4948: "hills",
+    4949: "hills",
 }
 EXPECTED_HISTORY = {
+    665: ("GDD", (3, 3, 2), "chinaware", "cantonese"),
     667: ("GDD", (8, 8, 2), "incense", "cantonese"),
     2156: ("MNG", (4, 4, 1), "chinaware", "chimin"),
-    2157: ("GDD", (3, 3, 1), "grain", "hakka"),
+    2157: ("GDD", (2, 2, 1), "grain", "hakka"),
+    2158: ("GDD", (2, 3, 1), "iron", "hakka"),
     2159: ("GDD", (2, 2, 1), "sugar", "chimin"),
     4942: ("GDD", (4, 4, 1), "chinaware", "cantonese"),
     4943: ("GDD", (3, 3, 1), "incense", "cantonese"),
     4944: ("GDD", (2, 2, 1), "tea", "hakka"),
     4945: ("GDD", (1, 1, 1), "grain", "cantonese"),
     4946: ("GDD", (1, 1, 1), "fish", "cantonese"),
+    4947: ("GDD", (1, 1, 1), "grain", "cantonese"),
+    4948: ("GDD", (2, 1, 1), "grain", "hakka"),
+    4949: ("GDD", (1, 1, 1), "salt", "chimin"),
 }
 EXPECTED_DEV_PARTITIONS = {
-    667: (4942,),
-    2157: (4943, 4946),
-    2156: (4944,),
-    2159: (4945,),
+    665: {"children": (4947,), "original": (4, 4, 3), "delta": (0, 0, 0)},
+    667: {"children": (4942,), "original": (12, 12, 3), "delta": (0, 0, 0)},
+    2156: {"children": (4944,), "original": (6, 6, 2), "delta": (0, 0, 0)},
+    2157: {
+        "children": (4943, 4946, 4949),
+        "original": (7, 7, 3),
+        "delta": (0, 0, 1),
+    },
+    2158: {"children": (4948,), "original": (4, 4, 2), "delta": (0, 0, 0)},
+    2159: {"children": (4945,), "original": (3, 3, 2), "delta": (0, 0, 0)},
 }
 
 
@@ -120,11 +121,15 @@ def block_text(text: str, name: str) -> str:
 
 def numeric_tokens(text: str) -> list[int]:
     without_comments = re.sub(r"#.*$", "", text, flags=re.MULTILINE)
-    return [int(value) for value in re.findall(r"(?<![\w.])\d+(?![\w.])", without_comments)]
+    return [
+        int(value)
+        for value in re.findall(r"(?<![\w.])\d+(?![\w.])", without_comments)
+    ]
 
 
 def assert_token_once(text: str, value: int, label: str) -> None:
-    matches = re.findall(rf"(?<![\w.]){value}(?![\w.])", re.sub(r"#.*$", "", text, flags=re.MULTILINE))
+    stripped = re.sub(r"#.*$", "", text, flags=re.MULTILINE)
+    matches = re.findall(rf"(?<![\w.]){value}(?![\w.])", stripped)
     if len(matches) != 1:
         raise ValueError(f"{label}: expected ID {value} once, found {len(matches)}")
 
@@ -133,16 +138,18 @@ def read_sea_ids(default_map: str) -> set[int]:
     return set(numeric_tokens(block_text(default_map, "sea_starts")))
 
 
-def component_count(mask: np.ndarray) -> int:
+def component_sizes(mask: np.ndarray) -> list[int]:
     remaining = mask.copy()
-    count = 0
+    sizes: list[int] = []
     height, width = remaining.shape
     while remaining.any():
         seed_y, seed_x = np.argwhere(remaining)[0]
         queue: deque[tuple[int, int]] = deque([(int(seed_x), int(seed_y))])
         remaining[seed_y, seed_x] = False
+        size = 0
         while queue:
             x, y = queue.popleft()
+            size += 1
             for next_x, next_y in (
                 (x + 1, y),
                 (x - 1, y),
@@ -155,8 +162,8 @@ def component_count(mask: np.ndarray) -> int:
                     continue
                 remaining[next_y, next_x] = False
                 queue.append((next_x, next_y))
-        count += 1
-    return count
+        sizes.append(size)
+    return sorted(sizes, reverse=True)
 
 
 def neighboring_ids(
@@ -186,21 +193,25 @@ def neighboring_ids(
 def parse_positions(text: str, province_id: int) -> list[float]:
     block = block_text(text, str(province_id))
     position = block_text(block, "position")
-    opening = position.find("{")
-    closing = position.rfind("}")
     values = [
         float(value)
-        for value in re.findall(r"-?\d+(?:\.\d+)?", position[opening + 1 : closing])
+        for value in re.findall(
+            r"-?\d+(?:\.\d+)?",
+            position[position.find("{") + 1 : position.rfind("}")],
+        )
     ]
     if len(values) != 14:
         raise ValueError(
-            f"positions.txt: {province_id} needs 14 position values, found {len(values)}"
+            f"positions.txt: {province_id} needs 14 position values, "
+            f"found {len(values)}"
         )
     for section in ("rotation", "height"):
         section_text = block_text(block, section)
         section_values = re.findall(
             r"-?\d+(?:\.\d+)?",
-            section_text[section_text.find("{") + 1 : section_text.rfind("}")],
+            section_text[
+                section_text.find("{") + 1 : section_text.rfind("}")
+            ],
         )
         if len(section_values) != 7:
             raise ValueError(
@@ -280,12 +291,31 @@ def validate_map(
 ) -> dict[str, object]:
     map_dir = mod_root / "map"
     definitions, color_to_id = parse_definitions(map_dir / "definition.csv")
-    for province_id, expected in EXPECTED_DEFINITIONS.items():
+    configured_ids = tuple(
+        int(province["game_id"]) for province in config["provinces"]
+    )
+    if configured_ids != IMPLEMENTED_IDS:
+        raise ValueError(
+            f"Manual config IDs must be {IMPLEMENTED_IDS}, found {configured_ids}"
+        )
+    for province in config["provinces"]:
+        province_id = int(province["game_id"])
+        expected = (
+            tuple(int(value) for value in province["rgb"]),
+            str(province["name_en"]),
+        )
         if definitions.get(province_id) != expected:
             raise ValueError(
                 f"definition.csv: {province_id} is {definitions.get(province_id)}, "
                 f"expected {expected}"
             )
+    exposed_new_ids = tuple(
+        sorted(province_id for province_id in definitions if province_id >= 4942)
+    )
+    if exposed_new_ids != IMPLEMENTED_IDS:
+        raise ValueError(
+            f"definition.csv exposes {exposed_new_ids}; expected {IMPLEMENTED_IDS}"
+        )
 
     default_map = (map_dir / "default.map").read_text(encoding="cp1252")
     max_match = re.search(r"(?m)^max_provinces\s*=\s*(\d+)", default_map)
@@ -293,63 +323,73 @@ def validate_map(
         raise ValueError(f"default.map: max_provinces must be {GAME_MAX_PROVINCES}")
     sea_ids = read_sea_ids(default_map)
 
-    with Image.open(map_dir / "provinces.bmp") as image:
-        if image.size != (5632, 2048) or image.mode != "RGB":
+    provinces_path = map_dir / "provinces.bmp"
+    validate_classic_bmp_header(provinces_path)
+    with Image.open(provinces_path) as image:
+        expected_size = tuple(int(value) for value in config["expected_size"])
+        if image.size != expected_size or image.mode != config["expected_mode"]:
             raise ValueError(
-                f"provinces.bmp must be 5632x2048 RGB, found {image.size} {image.mode}"
+                f"provinces.bmp must be {expected_size} {config['expected_mode']}, "
+                f"found {image.size} {image.mode}"
             )
-        province_map = np.array(image, dtype=np.uint8)
-
-    baseline_map = np.array(
-        Image.open(vanilla_root / "map/provinces.bmp"),
-        dtype=np.uint8,
-    )
-    changed_pixels = np.any(province_map != baseline_map, axis=2)
-    if int(changed_pixels.sum()) != 710:
+        province_map = np.asarray(image, dtype=np.uint8)
+    with Image.open(vanilla_root / "map/provinces.bmp") as image:
+        baseline_map = np.asarray(image, dtype=np.uint8)
+    changed_pixels = int(np.any(province_map != baseline_map, axis=2).sum())
+    if changed_pixels != int(config["expected_changed_pixels"]):
         raise ValueError(
-            f"provinces.bmp: expected 710 changed pixels, "
-            f"found {int(changed_pixels.sum())}"
+            f"provinces.bmp: expected {config['expected_changed_pixels']} "
+            f"changed pixels, found {changed_pixels}"
         )
 
-    expected_neighbors = {
-        child["design_key"]: set(int(value) for value in child["expected_neighbor_ids"])
-        for partition in config["partitions"]
-        for child in partition["children"]
-    }
-    # Config uses design keys, while definitions use English names.  The fixed
-    # B01 order makes the intended mapping explicit and resistant to labels.
-    key_to_id = {
-        "S-13": 4942,
-        "S-14": 4943,
-        "S-15": 4944,
-        "S-16": 4945,
-        "S-19": 4946,
-    }
     province_stats: dict[int, dict[str, object]] = {}
-    for design_key, province_id in key_to_id.items():
-        color = definitions[province_id][0]
-        mask = np.all(province_map == np.array(color, dtype=np.uint8), axis=2)
-        if not mask.any():
-            raise ValueError(f"provinces.bmp: {province_id} has no pixels")
-        components = component_count(mask)
-        if components != 1:
+    for province in config["provinces"]:
+        province_id = int(province["game_id"])
+        color = np.array(province["rgb"], dtype=np.uint8)
+        mask = np.all(province_map == color, axis=2)
+        pixels = int(mask.sum())
+        if pixels != int(province["expected_pixels"]):
             raise ValueError(
-                f"provinces.bmp: {province_id} has {components} components"
+                f"provinces.bmp: {province_id} has {pixels} pixels, "
+                f"expected {province['expected_pixels']}"
+            )
+        components = component_sizes(mask)
+        expected_components = [
+            int(value) for value in province["expected_component_sizes"]
+        ]
+        if components != expected_components:
+            raise ValueError(
+                f"provinces.bmp: {province_id} components {components}, "
+                f"expected {expected_components}"
             )
         neighbors = neighboring_ids(province_map, mask, color_to_id)
-        if neighbors != expected_neighbors[design_key]:
+        expected_neighbors = {
+            int(value) for value in province["expected_neighbor_ids"]
+        }
+        if neighbors != expected_neighbors:
             raise ValueError(
                 f"provinces.bmp: {province_id} neighbors {sorted(neighbors)}, "
-                f"expected {sorted(expected_neighbors[design_key])}"
+                f"expected {sorted(expected_neighbors)}"
+            )
+        coastal = bool(neighbors & sea_ids)
+        if coastal is not bool(province["expected_coastal"]):
+            raise ValueError(
+                f"provinces.bmp: {province_id} coastal={coastal}, "
+                f"expected {province['expected_coastal']}"
             )
         province_stats[province_id] = {
-            "pixels": int(mask.sum()),
+            "pixels": pixels,
+            "component_sizes": components,
             "neighbors": sorted(neighbors),
-            "coastal": bool(neighbors & sea_ids),
+            "coastal": coastal,
         }
 
     positions = (map_dir / "positions.txt").read_text(encoding="cp1252")
-    for province_id in (667, 2157, *IMPLEMENTED_IDS):
+    port_seas = {
+        int(province_id): int(sea_id)
+        for province_id, sea_id in config["port_seas"].items()
+    }
+    for province_id in (int(value) for value in config["position_province_ids"]):
         position_block_count = len(
             re.findall(
                 rf"(?m)^[ \t]*{province_id}[ \t]*=[ \t]*\{{",
@@ -381,15 +421,17 @@ def validate_map(
             pairs[3][0],
             pairs[3][1],
         )
-        if province_id in EXPECTED_PORT_SEAS:
-            expected_sea = EXPECTED_PORT_SEAS[province_id]
+        if province_id in port_seas:
+            expected_sea = port_seas[province_id]
             if port_id != expected_sea:
                 raise ValueError(
                     f"positions.txt: {province_id} port is in {port_id}, "
                     f"expected sea {expected_sea}"
                 )
-            adjacent_colors = [
-                tuple(int(channel) for channel in province_map[next_y, next_x])
+            adjacent_ids = {
+                color_to_id.get(
+                    tuple(int(channel) for channel in province_map[next_y, next_x])
+                )
                 for next_x, next_y in (
                     (port_x + 1, port_y),
                     (port_x - 1, port_y),
@@ -398,8 +440,7 @@ def validate_map(
                 )
                 if 0 <= next_x < province_map.shape[1]
                 and 0 <= next_y < province_map.shape[0]
-            ]
-            adjacent_ids = {color_to_id.get(color) for color in adjacent_colors}
+            }
             if province_id not in adjacent_ids:
                 raise ValueError(
                     f"positions.txt: {province_id} port does not touch the province"
@@ -410,9 +451,9 @@ def validate_map(
             )
 
     return {
-        "changed_pixels": int(changed_pixels.sum()),
+        "changed_pixels": changed_pixels,
         "province_stats": province_stats,
-        "provinces_sha256": sha256_file(map_dir / "provinces.bmp"),
+        "provinces_sha256": sha256_file(provinces_path),
     }
 
 
@@ -455,7 +496,7 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
             raise ValueError(f"climate.txt: {province_id} lacks normal_monsoon")
     if 4945 not in tropical:
         raise ValueError("climate.txt: Gaozhou must inherit tropical")
-    if tropical & {4942, 4943, 4944, 4946}:
+    if tropical & (set(IMPLEMENTED_IDS) - {4945}):
         raise ValueError("climate.txt: an unintended B01 province is tropical")
 
     terrain_text = (mod_root / "map/terrain.txt").read_text(encoding="cp1252")
@@ -491,6 +532,7 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
     development: dict[int, tuple[int, int, int]] = {}
     for province_id, (owner, expected_dev, goods, culture) in EXPECTED_HISTORY.items():
         path = history_path(mod_root, province_id)
+        validate_braces(path)
         text = path.read_text(encoding="cp1252")
         actual_owner = initial_history_value(text, "owner")
         actual_goods = initial_history_value(text, "trade_goods")
@@ -499,16 +541,10 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
             int(initial_history_value(text, key))
             for key in ("base_tax", "base_production", "base_manpower")
         )
-        if (actual_owner, actual_dev, actual_goods, actual_culture) != (
-            owner,
-            expected_dev,
-            goods,
-            culture,
-        ):
-            raise ValueError(
-                f"{path.name}: history mismatch "
-                f"{(actual_owner, actual_dev, actual_goods, actual_culture)}"
-            )
+        actual = (actual_owner, actual_dev, actual_goods, actual_culture)
+        expected = (owner, expected_dev, goods, culture)
+        if actual != expected:
+            raise ValueError(f"{path.name}: history {actual}, expected {expected}")
         if province_id in IMPLEMENTED_IDS:
             if "add_core = GDD" not in text:
                 raise ValueError(f"{path.name}: missing GDD core")
@@ -518,23 +554,29 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
                 raise ValueError(f"{path.name}: must be a city")
         development[province_id] = actual_dev
 
-    original_development = {
-        667: (12, 12, 3),
-        2157: (7, 7, 3),
-        2156: (6, 6, 2),
-        2159: (3, 3, 2),
-    }
-    for parent_id, child_ids in EXPECTED_DEV_PARTITIONS.items():
+    for parent_id, partition in EXPECTED_DEV_PARTITIONS.items():
+        child_ids = partition["children"]
         recombined = tuple(
             development[parent_id][index]
             + sum(development[child_id][index] for child_id in child_ids)
             for index in range(3)
         )
-        if recombined != original_development[parent_id]:
+        expected = tuple(
+            partition["original"][index] + partition["delta"][index]
+            for index in range(3)
+        )
+        if recombined != expected:
             raise ValueError(
                 f"Development partition {parent_id} recombines to {recombined}, "
-                f"expected {original_development[parent_id]}"
+                f"expected {expected}"
             )
+
+    nanxiong = history_path(mod_root, 4948).read_text(encoding="cp1252")
+    if initial_history_value(nanxiong, "center_of_trade") != "1":
+        raise ValueError("4948 Nanxiong must have a level-1 center of trade")
+    lufeng = history_path(mod_root, 4949).read_text(encoding="cp1252")
+    if initial_history_value(lufeng, "fort_15th") != "yes":
+        raise ValueError("4949 Lufeng must have a 15th-century fort")
     return development
 
 
@@ -632,15 +674,17 @@ def main() -> None:
     validate_localisation(mod_root)
 
     build_report = json.loads(args.build_report.read_text(encoding="utf-8"))
-    if build_report.get("status") != "FORMAL_B01_ASSETS_WRITTEN":
-        raise ValueError("Formal B01 build report is not successful")
+    if build_report.get("status") != "FORMAL_B01_MANUAL_ASSETS_WRITTEN":
+        raise ValueError("Formal hand-drawn B01 build report is not successful")
+    if build_report.get("canonical_geometry_preserved") is not True:
+        raise ValueError("Build report does not confirm preservation of manual geometry")
     for relative_path, metadata in build_report["outputs"].items():
         path = mod_root / relative_path
         if sha256_file(path) != metadata["sha256"]:
             raise ValueError(f"{relative_path}: hash differs from the build report")
 
     result = {
-        "status": "FORMAL_B01_VALIDATION_PASS",
+        "status": "FORMAL_B01_MANUAL_VALIDATION_PASS",
         "implemented_ids": list(IMPLEMENTED_IDS),
         "max_provinces": GAME_MAX_PROVINCES,
         "map": map_report,
@@ -653,7 +697,7 @@ def main() -> None:
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(rendered, encoding="utf-8")
     print(rendered, end="")
-    print(f"{args.report}: FORMAL_B01_VALIDATION_PASS")
+    print(f"{args.report}: FORMAL_B01_MANUAL_VALIDATION_PASS")
 
 
 if __name__ == "__main__":

@@ -17,11 +17,15 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = REPO_ROOT / "docs/map/china_province_split_registry.csv"
 EXPECTED_VANILLA_MAX_ID = 4941
-EXPECTED_REGISTRY_ROWS = 41
+EXPECTED_REGISTRY_ROWS = 44
 ALLOCATION_FIELDS = ("game_id", "rgb_r", "rgb_g", "rgb_b")
 COLOR_OVERRIDES = {
     "S-19": (20, 200, 220),
+    "S-20": (106, 60, 226),
+    "S-21": (190, 128, 45),
+    "S-22": (67, 219, 198),
 }
+NON_SEQUENCE_COLOR_KEYS = {"S-20", "S-21", "S-22"}
 
 
 def read_definition_colors(definition_path: Path) -> tuple[int, set[tuple[int, int, int]]]:
@@ -119,17 +123,23 @@ def build_allocations(
 ) -> list[tuple[int, tuple[int, int, int]]]:
     allocations: list[tuple[int, tuple[int, int, int]] | None] = [None] * len(rows)
     used_colors = set(vanilla_colors)
+    color_index = 0
     for allocation_offset, row_index in enumerate(allocation_row_order(rows)):
         attempt = 0
         key = rows[row_index]["design_key"]
-        color = COLOR_OVERRIDES.get(key, candidate_color(allocation_offset, attempt))
+        color = COLOR_OVERRIDES.get(key, candidate_color(color_index, attempt))
         while color in used_colors:
             if key in COLOR_OVERRIDES:
                 raise ValueError(f"{key}: configured RGB override {color} is not unique")
             attempt += 1
-            color = candidate_color(allocation_offset, attempt)
+            color = candidate_color(color_index, attempt)
         used_colors.add(color)
         allocations[row_index] = (first_id + allocation_offset, color)
+        # The three colors chosen by the user were inserted after the original
+        # registry had been frozen.  They receive IDs, but do not perturb the
+        # generated RGB sequence of the still-unimplemented batches.
+        if key not in NON_SEQUENCE_COLOR_KEYS:
+            color_index += 1
     return [allocation for allocation in allocations if allocation is not None]
 
 

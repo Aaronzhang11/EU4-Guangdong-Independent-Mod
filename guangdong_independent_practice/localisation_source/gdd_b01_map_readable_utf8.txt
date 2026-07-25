@@ -9,6 +9,12 @@
  PROV_ADJ4945:0 "高州"
  PROV4946:0 "香港"
  PROV_ADJ4946:0 "香港"
+ PROV4947:0 "罗定"
+ PROV_ADJ4947:0 "罗定"
+ PROV4948:0 "南雄"
+ PROV_ADJ4948:0 "南雄"
+ PROV4949:0 "陆丰"
+ PROV_ADJ4949:0 "陆丰"
 
  pearl_river_delta_area:0 "珠江三角洲"
  pearl_river_delta_area_name:0 "广州"

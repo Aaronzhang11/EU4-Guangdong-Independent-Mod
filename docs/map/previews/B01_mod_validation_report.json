@@ -1,26 +1,39 @@
 {
-  "status": "FORMAL_B01_VALIDATION_PASS",
+  "status": "FORMAL_B01_MANUAL_VALIDATION_PASS",
   "implemented_ids": [
     4942,
     4943,
     4944,
     4945,
-    4946
+    4946,
+    4947,
+    4948,
+    4949
   ],
-  "max_provinces": 4947,
+  "max_provinces": 4950,
   "map": {
-    "changed_pixels": 710,
+    "changed_pixels": 1627,
     "province_stats": {
       "4942": {
-        "pixels": 73,
+        "pixels": 201,
+        "component_sizes": [
+          197,
+          4
+        ],
         "neighbors": [
           665,
-          667
+          667,
+          668,
+          1370,
+          1371
         ],
-        "coastal": false
+        "coastal": true
       },
       "4943": {
-        "pixels": 151,
+        "pixels": 71,
+        "component_sizes": [
+          71
+        ],
         "neighbors": [
           667,
           1371,
@@ -31,6 +44,9 @@
       },
       "4944": {
         "pixels": 166,
+        "component_sizes": [
+          166
+        ],
         "neighbors": [
           670,
           2153,
@@ -40,28 +56,79 @@
         "coastal": false
       },
       "4945": {
-        "pixels": 228,
+        "pixels": 398,
+        "component_sizes": [
+          398
+        ],
         "neighbors": [
           665,
           1370,
           2159,
-          2162
+          2161,
+          2162,
+          4947
         ],
         "coastal": true
       },
       "4946": {
-        "pixels": 92,
+        "pixels": 28,
+        "component_sizes": [
+          25,
+          3
+        ],
         "neighbors": [
           1371,
-          2157,
           4943
+        ],
+        "coastal": true
+      },
+      "4947": {
+        "pixels": 293,
+        "component_sizes": [
+          293
+        ],
+        "neighbors": [
+          665,
+          1840,
+          2162,
+          4945
+        ],
+        "coastal": false
+      },
+      "4948": {
+        "pixels": 265,
+        "component_sizes": [
+          265
+        ],
+        "neighbors": [
+          670,
+          2157,
+          2158,
+          2174
+        ],
+        "coastal": false
+      },
+      "4949": {
+        "pixels": 155,
+        "component_sizes": [
+          155
+        ],
+        "neighbors": [
+          1371,
+          2156,
+          2157
         ],
         "coastal": true
       }
     },
-    "provinces_sha256": "dbb21ee73f66d33318403ce598b7a583157093d76560938069b0ac113f94b419"
+    "provinces_sha256": "769a08e766e49a4b6c6411f82599d45b43bac36177b5fd6eb431f86012a0e71e"
   },
   "development": {
+    "665": [
+      3,
+      3,
+      2
+    ],
     "667": [
       8,
       8,
@@ -73,7 +140,12 @@
       1
     ],
     "2157": [
-      3,
+      2,
+      2,
+      1
+    ],
+    "2158": [
+      2,
       3,
       1
     ],
@@ -103,6 +175,21 @@
       1
     ],
     "4946": [
+      1,
+      1,
+      1
+    ],
+    "4947": [
+      1,
+      1,
+      1
+    ],
+    "4948": [
+      2,
+      1,
+      1
+    ],
+    "4949": [
       1,
       1,
       1

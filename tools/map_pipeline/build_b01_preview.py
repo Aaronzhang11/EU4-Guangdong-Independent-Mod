@@ -1,9 +1,11 @@
-"""Build and validate the B01 Guangdong province-split review image.
+"""Build the legacy five-province B01 Guangdong review image.
 
-This script does not overwrite the installed game or the mod's production map.
-It reads EU4 1.37.5, applies five deterministic in-memory province splits, and
-writes review PNGs plus a machine-readable validation report.  An optional
-candidate ``provinces.bmp`` can be written to a disposable build directory.
+This superseded AI geometry is retained only for historical comparison.  It
+does not overwrite the installed game or the mod's hand-drawn production map.
+The script reads EU4 1.37.5, applies five deterministic in-memory province
+splits, and writes review PNGs plus a machine-readable validation report.  An
+optional candidate ``provinces.bmp`` can be written only to a disposable build
+directory.
 """
 
 from __future__ import annotations
