@@ -879,6 +879,7 @@ south_china_region = {
         guangdong_area
         west_guangdong_area
         fujian_area
+        west_fujian_area
         jiangxi_area
         huguang_area
         zhejiang_area
@@ -887,6 +888,7 @@ south_china_region = {
         south_jiangsu_area
         hunan_area
         guangxi_area
+        youjiang_area
     }
     monsoon = {
         00.05.01
