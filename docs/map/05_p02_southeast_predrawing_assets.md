@@ -1,4 +1,4 @@
-# P02 浙江、福建、广西与台湾待手绘批次
+# P02/B06 浙江、福建、广西与台湾地图资产
 
 ## 当前状态
 
@@ -24,6 +24,17 @@
 | 广西 | 4959 | 庆远 | Qingyuan | `55,205,120` | 1840 桂林西侧 |
 | 广西 | 4960 | 太平 | Taiping | `225,65,135` | 2164 南宁西南／2163 柳州数值组 |
 | 台湾 | 4961 | 噶玛兰 | Kavalan | `160,205,45` | 2154 淡水东北／738 赤崁数值组 |
+
+浙江扩展六省已经正式落图：
+
+| ID | 省份 | RGB | Area |
+|---:|---|---|---|
+| 5002 | 嘉兴 | `245,130,70` | `zhejiang_area` |
+| 5003 | 严州 | `75,175,235` | `zhejiang_area` |
+| 5004 | 昌国 | `40,210,180` | `east_zhejiang_area` |
+| 5005 | 宁海 | `210,80,160` | `east_zhejiang_area` |
+| 5006 | 义乌 | `175,210,60` | `jinqu_chuzhou_area` |
+| 5007 | 处州 | `110,75,225` | `jinqu_chuzhou_area` |
 
 颜色必须以精确 RGB、硬边铅笔和无抗锯齿方式绘制。不要使用透明度、羽化、
 颜色混合、调色板模式或自动缩放。
@@ -124,7 +135,8 @@
 ## 已完成资产
 
 - `map/definition.csv`：十二组 ID、RGB 和英文定义名；
-- `map/default.map`：`max_provinces = 4962`；
+- `map/default.map`：本批准备完成时为 `max_provinces = 4962`；赣湘 B07 接入后
+  当前正式值为 `5008`；
 - `map/area.txt`、`region.txt`、`continent.txt`；
 - `map/climate.txt`、`terrain.txt`；
 - `common/tradenodes/00_tradenodes.txt`；

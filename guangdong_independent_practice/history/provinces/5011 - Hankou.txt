@@ -1,0 +1,15 @@
+# 5011 - Hankou Free City
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = hubei
+religion = confucianism
+capital = "Hankou"
+trade_goods = cloth
+base_tax = 5
+base_production = 8
+base_manpower = 2
+is_city = yes
+center_of_trade = 2
+discovered_by = chinese
+discovered_by = nomad_group

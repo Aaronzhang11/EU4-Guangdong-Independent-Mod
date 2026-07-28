@@ -9,6 +9,9 @@
 `definition.csv`、`default.map`、点位、区域、气候、地形与贸易文件；它绝不
 生成、复制或覆盖 `provinces.bmp` 的像素。
 
+浙江昌国（5004）仅包含最外海两组舟山岛屿，近岸两组大岛归宁波；生成器会在
+`adjacencies.csv` 中加入宁波（2149）至昌国、经东海海区 1373 的海峡连接。
+
 跨批次的完整实施顺序、联动文件、排错方法和实机验收标准见
 [`docs/map/04_manual_map_implementation_workflow.md`](../../docs/map/04_manual_map_implementation_workflow.md)；
 新批次可复制
@@ -32,9 +35,12 @@ python3 -m pip install -r tools/map_pipeline/requirements.txt
 
 `allocate_registry.py` 以原版最高省份 ID `4941` 为基线，按 `draw_batch`
 顺序冻结总表中的新省 ID 与唯一 RGB。当前 B01 占用 `4942–4949`；优先准备的
-浙江、福建、广西与台湾十二省占用 `4950–4961`。正式地图使用
-`max_provinces = 4962`。十二省定义和联动资产已经就绪，但在用户把对应 RGB
-画入 `provinces.bmp` 之前仍属于待手绘状态。
+浙江、福建、广西与台湾十二省占用 `4950–4961`；江西 B07 使用
+`4979`、`4980` 与 `4992–4995`；湖南 B07 使用 `4982`、`4983` 与
+`4996–5001`；浙江扩展六省使用 `5002–5007`。正式地图使用
+`max_provinces = 5017`。东南批次、江西十省、湖南十二省、浙江十四省和湖北
+十五省均已
+写入正式 `provinces.bmp` 并纳入静态校验。
 
 首次写入：
 
@@ -129,9 +135,9 @@ python3 tools/encode_eu4_chinese_localisation.py --check
 
 校验覆盖 BMP 格式、定义颜色、变化范围、像素数、连通块、邻接、港口点、Area、
 Region、洲、气候、地形、贸易节点、贸易公司、省份历史、发展度与本地化。
-当前广东八省、P02 十二省的非 BMP 资产、`max_provinces = 4962`、发展度守恒和
-双字节中文本地化均已通过静态校验。P02 几何状态明确标记为
-`awaiting_user_pixels`。
+当前广东、东南、浙江、赣湘 B07、湖北 B10 及江苏 B11 的地图资产、
+`max_provinces = 5026`、双字节中文本地化、各省发展度与贸易中心均纳入静态校验。
+当前登记的东南各省均已有正式几何；后续批次仍按同一审图门槛扩展。
 
 发展度按母省组守恒；唯一有意例外是惠州—东莞—香港—陆丰组净增一点人力。
 

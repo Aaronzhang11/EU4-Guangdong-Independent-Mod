@@ -17,7 +17,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = REPO_ROOT / "docs/map/china_province_split_registry.csv"
 EXPECTED_VANILLA_MAX_ID = 4941
-EXPECTED_REGISTRY_ROWS = 50
+EXPECTED_REGISTRY_ROWS = 84
 ALLOCATION_FIELDS = ("game_id", "rgb_r", "rgb_g", "rgb_b")
 COLOR_OVERRIDES = {
     "S-19": (20, 200, 220),
@@ -30,6 +30,40 @@ COLOR_OVERRIDES = {
     "S-26": (55, 205, 120),
     "S-27": (225, 65, 135),
     "S-28": (160, 205, 45),
+    "S-29": (226, 100, 45),
+    "S-30": (45, 220, 130),
+    "S-31": (150, 60, 210),
+    "S-32": (210, 190, 45),
+    "S-33": (30, 170, 210),
+    "S-34": (220, 90, 150),
+    "S-35": (80, 200, 220),
+    "S-36": (200, 160, 50),
+    "S-37": (90, 50, 220),
+    "S-38": (220, 70, 70),
+    "S-39": (245, 130, 70),
+    "S-40": (75, 175, 235),
+    "S-41": (40, 210, 180),
+    "S-42": (210, 80, 160),
+    "S-43": (175, 210, 60),
+    "S-44": (110, 75, 225),
+    "S-45": (235, 115, 55),
+    "S-46": (55, 185, 95),
+    "S-47": (185, 70, 225),
+    "S-48": (235, 190, 55),
+    "S-49": (45, 150, 220),
+    "S-50": (205, 75, 105),
+    "S-51": (95, 210, 175),
+    "S-52": (140, 95, 230),
+    "S-53": (210, 145, 65),
+    "S-54": (235, 85, 145),
+    "S-55": (60, 200, 165),
+    "S-56": (155, 105, 230),
+    "S-57": (225, 155, 55),
+    "S-58": (70, 180, 230),
+    "S-59": (215, 80, 95),
+    "S-60": (105, 205, 80),
+    "S-61": (200, 120, 45),
+    "S-62": (55, 145, 215),
 }
 NON_SEQUENCE_COLOR_KEYS = {
     "S-20",
@@ -41,6 +75,40 @@ NON_SEQUENCE_COLOR_KEYS = {
     "S-26",
     "S-27",
     "S-28",
+    "S-29",
+    "S-30",
+    "S-31",
+    "S-32",
+    "S-33",
+    "S-34",
+    "S-35",
+    "S-36",
+    "S-37",
+    "S-38",
+    "S-39",
+    "S-40",
+    "S-41",
+    "S-42",
+    "S-43",
+    "S-44",
+    "S-45",
+    "S-46",
+    "S-47",
+    "S-48",
+    "S-49",
+    "S-50",
+    "S-51",
+    "S-52",
+    "S-53",
+    "S-54",
+    "S-55",
+    "S-56",
+    "S-57",
+    "S-58",
+    "S-59",
+    "S-60",
+    "S-61",
+    "S-62",
 }
 EARLY_ACTIVATION_KEYS = (
     "S-04",
@@ -55,6 +123,15 @@ EARLY_ACTIVATION_KEYS = (
     "S-26",
     "S-27",
     "S-28",
+)
+LATE_ACTIVATION_KEYS = (
+    "S-29", "S-30", "S-31", "S-32",
+    "S-33", "S-34", "S-35", "S-36", "S-37", "S-38",
+    "S-39", "S-40", "S-41", "S-42", "S-43", "S-44",
+    "S-45", "S-46", "S-47", "S-48", "S-49",
+    "S-50", "S-51", "S-52", "S-53",
+    "S-54", "S-55", "S-56", "S-57", "S-58",
+    "S-59", "S-60", "S-61", "S-62",
 )
 
 
@@ -113,6 +190,9 @@ def activation_row_order(rows: list[dict[str, str]]) -> list[int]:
     missing = [
         key for key in EARLY_ACTIVATION_KEYS if key not in indexes_by_key
     ]
+    missing.extend(
+        key for key in LATE_ACTIVATION_KEYS if key not in indexes_by_key
+    )
     if missing:
         raise ValueError(f"Missing early activation design keys: {missing}")
     b01 = [
@@ -120,11 +200,12 @@ def activation_row_order(rows: list[dict[str, str]]) -> list[int]:
         if rows[index]["draw_batch"] == "B01"
     ]
     early = [indexes_by_key[key] for key in EARLY_ACTIVATION_KEYS]
-    already_selected = set(b01 + early)
+    late = [indexes_by_key[key] for key in LATE_ACTIVATION_KEYS]
+    already_selected = set(b01 + early + late)
     remaining = [
         index for index in original_order if index not in already_selected
     ]
-    return b01 + early + remaining
+    return b01 + early + remaining + late
 
 
 def validate_registry_design(rows: list[dict[str, str]]) -> None:
