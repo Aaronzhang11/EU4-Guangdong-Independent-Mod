@@ -881,12 +881,20 @@ south_china_region = {
         fujian_area
         west_fujian_area
         jiangxi_area
-        huguang_area
+        south_jiangxi_area
+        hanjiang_xiangyun_area
+        jingyi_shinan_area
+        dean_qihuang_area
+        wuhan_enan_area
         zhejiang_area
+        east_zhejiang_area
+        jinqu_chuzhou_area
         south_anhui_area
         taiwan_area
-        south_jiangsu_area
+        jinling_wuhui_area
+        dongting_area
         hunan_area
+        southwest_hunan_area
         guangxi_area
         youjiang_area
     }
@@ -918,7 +926,8 @@ north_china_region = {
         shaanxi_area
         north_henan_area
         west_gansu_area
-        jiangsu_area
+        xuhuai_haizhou_area
+        huaiyang_tongtai_area
         anhui_area
     }
 }

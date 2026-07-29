@@ -19,15 +19,6 @@ on_startup = {
             set_estate_privilege = estate_burghers_gdd_southern_trade_charter
         }
     }
-
-    # Convert tax buildings in old saves before the player opens the building
-    # interface.  Their statistics and tier remain unchanged.
-    if = {
-        limit = { tag = GDD }
-        every_owned_province = {
-            gdd_sync_tax_building_presentation_effect = yes
-        }
-    }
 }
 
 # The scheduled five-year checker handles normal 1444 starts. The treaty check
@@ -39,15 +30,6 @@ on_monthly_pulse = {
         gdd_treaty.100
         gdd_subject.105
         gdd_subject.106
-    }
-
-    # Catch buildings granted by vanilla missions or third-party scripted
-    # effects which explicitly add temple/cathedral to Guangdong.
-    if = {
-        limit = { tag = GDD }
-        every_owned_province = {
-            gdd_sync_tax_building_presentation_effect = yes
-        }
     }
 }
 
@@ -64,11 +46,4 @@ on_heir_death = {
 
 on_heir_disinherited = {
     country_event = { id = gdd_heir.2 }
-}
-
-# Province scope.  A Guangdong province immediately receives the ancestral
-# hall presentation; a province leaving Guangdong returns to vanilla names and
-# icons.
-on_province_owner_change = {
-    gdd_sync_tax_building_presentation_effect = yes
 }
