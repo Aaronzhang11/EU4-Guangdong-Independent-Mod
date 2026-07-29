@@ -879,6 +879,13 @@
         "coastal": false
       }
     },
+    "taiwan_terrain_palette_counts": {
+      "0": 23,
+      "1": 54,
+      "3": 1,
+      "6": 75,
+      "16": 21
+    },
     "prepared_pixels": {},
     "provinces_sha256": "e3553fb97cbc56a8eec701f46d6bd108c16911c9c9eb76324fcc5ebc3825e25b"
   },

@@ -699,16 +699,35 @@ def validate_map(
                 f"found {image.size} {image.mode}"
             )
         terrain_map = np.asarray(image, dtype=np.uint8)
+        terrain_palette = image.getpalette()
     with Image.open(vanilla_root / "map/terrain.bmp") as image:
         baseline_terrain = np.asarray(image, dtype=np.uint8)
+        baseline_palette = image.getpalette()
+    if terrain_palette != baseline_palette:
+        raise ValueError("terrain.bmp: palette differs from the vanilla terrain palette")
     mountain_color = np.array((115, 75, 50), dtype=np.uint8)
     mountain_mask = np.all(province_map == mountain_color, axis=2)
-    if not np.all(terrain_map[mountain_mask] == 128):
-        raise ValueError("terrain.bmp: Taiwan Mountains must use palette index 128")
     if not np.array_equal(terrain_map[~mountain_mask], baseline_terrain[~mountain_mask]):
         raise ValueError(
             "terrain.bmp: pixels outside the Taiwan Mountains differ from vanilla"
         )
+    mountain_terrain = terrain_map[mountain_mask]
+    terrain_counts = {
+        int(index): int((mountain_terrain == index).sum())
+        for index in np.unique(mountain_terrain)
+    }
+    expected_terrain_counts = {0: 23, 1: 54, 3: 1, 6: 75, 16: 21}
+    if terrain_counts != expected_terrain_counts:
+        raise ValueError(
+            f"terrain.bmp: Taiwan ridge palette {terrain_counts}, "
+            f"expected {expected_terrain_counts}"
+        )
+    if tuple(terrain_palette[6 * 3:6 * 3 + 3]) != (65, 42, 17):
+        raise ValueError("terrain.bmp: palette index 6 is not the brown ridge color")
+    if tuple(terrain_palette[16 * 3:16 * 3 + 3]) != (255, 255, 255):
+        raise ValueError("terrain.bmp: palette index 16 is not the white summit color")
+    if np.any(mountain_terrain == 128):
+        raise ValueError("terrain.bmp: Taiwan ridge still contains the gray placeholder")
 
     prepared_pixels: dict[int, int] = {}
     for province_id in PREPARED_IDS:
@@ -812,6 +831,7 @@ def validate_map(
     return {
         "changed_pixels": changed_pixels,
         "province_stats": province_stats,
+        "taiwan_terrain_palette_counts": terrain_counts,
         "prepared_pixels": prepared_pixels,
         "provinces_sha256": sha256_file(provinces_path),
     }
