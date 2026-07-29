@@ -1,0 +1,17 @@
+# 5006 - Yiwu
+
+owner = MNG
+controller = MNG
+add_core = MNG
+add_core = WUU
+culture = wu
+religion = confucianism
+capital = "Yiwu"
+trade_goods = livestock
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group
