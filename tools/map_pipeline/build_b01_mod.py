@@ -38,13 +38,20 @@ HUNAN_IDS = (4982, 4983, 4996, 4997, 4998, 4999, 5000, 5001)
 ZHEJIANG_IDS = (5002, 5003, 5004, 5005, 5006, 5007)
 HUBEI_NEW_IDS = (4981, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016)
 HUBEI_ALL_IDS = (681, 682, 2171, 2172, 4197) + HUBEI_NEW_IDS
-JIANGSU_NEW_IDS = (4976, 4977, 5017, 5018, 5019, 5020, 5021, 5022, 5023, 5024, 5025)
-JIANGSU_ALL_IDS = (2141, 5017, 5018, 2142, 5019, 5020, 4196,
+JIANGSU_NEW_IDS = (4976, 4977, 5018, 5020, 5021, 5022, 5023, 5024, 5025)
+JIANGSU_ALL_IDS = (2141, 5018, 2142, 5020, 4196,
                    685, 5021, 4977, 5022, 5023,
                    1821, 2145, 5024, 5025, 1822, 4976)
+CHONGQING_NEW_IDS = (4987, 5026, 5027, 5028)
+CHONGQING_ALL_IDS = (680,) + CHONGQING_NEW_IDS
+TAIWAN_MOUNTAIN_ID = 5029
+TAIWAN_REVIEW_IDS = (738, 2154, 2155, 4955, 4961, TAIWAN_MOUNTAIN_ID)
+WANGJI_NEW_IDS = (4966, 5030, 5031)
+WANGJI_ALL_IDS = (688,) + WANGJI_NEW_IDS
 FORMAL_GEOMETRY_IDS = (
     IMPLEMENTED_IDS + DRAWN_P02_IDS + JIANGXI_IDS + HUNAN_IDS
-    + ZHEJIANG_IDS + HUBEI_NEW_IDS + JIANGSU_NEW_IDS
+    + ZHEJIANG_IDS + HUBEI_NEW_IDS + JIANGSU_NEW_IDS + CHONGQING_NEW_IDS
+    + (TAIWAN_MOUNTAIN_ID,) + WANGJI_NEW_IDS
 )
 PREPARED_DESIGN_KEYS = (
     "S-04",
@@ -70,16 +77,20 @@ HUBEI_DESIGN_KEYS = (
     "S-49", "S-50", "S-51", "S-52", "S-53",
 )
 JIANGSU_DESIGN_KEYS = (
-    "S-01", "S-02", "S-54", "S-55", "S-56", "S-57",
+    "S-01", "S-02", "S-55", "S-57",
     "S-58", "S-59", "S-60", "S-61", "S-62",
 )
+CHONGQING_DESIGN_KEYS = ("XN-04", "XN-09", "XN-10", "XN-11")
+TAIWAN_MOUNTAIN_DESIGN_KEYS = ("S-63",)
+WANGJI_DESIGN_KEYS = ("N-06", "N-15", "N-16")
 ACTIVE_IDS = tuple(
     sorted(
         IMPLEMENTED_IDS + P02_IDS + JIANGXI_IDS + HUNAN_IDS
         + ZHEJIANG_IDS + HUBEI_NEW_IDS + JIANGSU_NEW_IDS
+        + CHONGQING_NEW_IDS + (TAIWAN_MOUNTAIN_ID,) + WANGJI_NEW_IDS
     )
 )
-GAME_MAX_PROVINCES = 5026
+GAME_MAX_PROVINCES = 5032
 NEW_DEFINITION_NAMES = {
     4942: "Foshan",
     4943: "Dongguan",
@@ -133,15 +144,21 @@ NEW_DEFINITION_NAMES = {
     5016: "Xingguo",
     4976: "Songjiang",
     4977: "Taizhou (Jiangsu)",
-    5017: "Pizhou",
     5018: "Suqian",
-    5019: "Qinghe",
     5020: "Yancheng",
     5021: "Gaoyou",
     5022: "Tongzhou",
     5023: "Rugao",
     5024: "Changzhou",
     5025: "Wuxi",
+    4987: "Wanzhou",
+    5026: "Hezhou (Chongqing)",
+    5027: "Fuzhou (Chongqing)",
+    5028: "Kuizhou",
+    5029: "Taiwan Mountains",
+    4966: "Xingyang",
+    5030: "Zhengzhou",
+    5031: "Chenliu",
 }
 
 # Positions use Clausewitz coordinates, whose vertical axis is the inverse of
@@ -743,18 +760,63 @@ POSITION_DATA = {
         "positions": (4602,1147,4601,1147,4603,1147,4602,1148,4602,1146,4601,1148,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
+    680: {
+        "comment": "Chongqing - Jialing and Yangtze confluence",
+        "positions": (4468,1137,4469,1137,4467,1138,4468,1137,4467,1136,4469,1138,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4987: {
+        "comment": "Wanzhou - middle Xiajiang river port",
+        "positions": (4500,1151,4501,1151,4499,1152,4500,1151,4499,1150,4501,1152,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    5026: {
+        "comment": "Hezhou - upper Jialing gateway",
+        "positions": (4474,1149,4475,1149,4473,1150,4474,1149,4473,1148,4475,1150,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    5027: {
+        "comment": "Fuzhou - Wu River confluence",
+        "positions": (4491,1130,4492,1130,4490,1131,4491,1130,4490,1129,4492,1131,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    5028: {
+        "comment": "Kuizhou - Qutang Gorge gate",
+        "positions": (4517,1167,4518,1167,4516,1168,4517,1167,4516,1166,4518,1168,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    688: {
+        "comment": "Kaifeng - Zhou royal capital on the Bian corridor",
+        "positions": (4589,1230,4590,1230,4588,1231,4589,1230,4588,1229,4590,1231,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    4966: {
+        "comment": "Xingyang - Hulao western gate of the royal domain",
+        "positions": (4577,1228,4578,1228,4576,1229,4577,1228,4576,1227,4578,1229,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    5030: {
+        "comment": "Zhengzhou - southwestern hinterland of Kaifeng",
+        "positions": (4582,1217,4583,1217,4581,1218,4582,1217,4581,1216,4583,1218,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    5031: {
+        "comment": "Chenliu - eastern Bian River gate",
+        "positions": (4599,1232,4600,1232,4598,1233,4599,1232,4598,1231,4600,1233,0,0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
 }
 
 JIANGSU_POSITION_CENTERS = {
-    2141: (4627, 1226), 5017: (4637, 1223), 5018: (4649, 1220),
-    2142: (4671, 1216), 5019: (4662, 1213), 5020: (4681, 1213),
-    4196: (4663, 1227), 685: (4670, 1192), 5021: (4671, 1203),
+    2141: (4629, 1226), 5018: (4647, 1222),
+    2142: (4665, 1213), 5020: (4678, 1214),
+    4196: (4663, 1226), 685: (4670, 1192), 5021: (4671, 1203),
     4977: (4681, 1196), 5022: (4695, 1183), 5023: (4687, 1189),
-    1821: (4652, 1186), 2145: (4664, 1182), 5024: (4673, 1181),
+    1821: (4652, 1186), 2145: (4665, 1177), 5024: (4673, 1181),
     5025: (4685, 1176), 1822: (4692, 1170), 4976: (4700, 1164),
 }
 JIANGSU_PORT_POINTS = {
-    4976: (4702, 1159), 4977: (4689, 1202), 5020: (4685, 1216),
+    4976: (4702, 1159), 4977: (4689, 1202), 5020: (4684, 1218),
     5022: (4699, 1184), 5023: (4692, 1192), 5025: (4686, 1180),
 }
 for _province_id, (_x, _y) in JIANGSU_POSITION_CENTERS.items():
@@ -763,6 +825,31 @@ for _province_id, (_x, _y) in JIANGSU_POSITION_CENTERS.items():
         "comment": "Jiangsu refinement - compact historical seat",
         "positions": (_x, _y, _x, _y, _x, _y, _port_x, _port_y,
                       _x, _y, _x, _y, 0, 0),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    }
+
+TAIWAN_POSITION_CENTERS = {
+    738: (4687, 1018),
+    2154: (4703, 1057),
+    2155: (4689, 1040),
+    4955: (4686, 1030),
+    4961: (4703, 1048),
+}
+TAIWAN_PORT_POINTS = {
+    738: (4694, 1015),
+    2154: (4699, 1060),
+    2155: (4685, 1043),
+    4955: (4680, 1028),
+    4961: (4704, 1039),
+}
+for _province_id, (_x, _y) in TAIWAN_POSITION_CENTERS.items():
+    _port_x, _port_y = TAIWAN_PORT_POINTS[_province_id]
+    POSITION_DATA[_province_id] = {
+        "comment": "Taiwan coastal ring around the impassable central range",
+        "positions": (
+            _x, _y, _x, _y, _x, _y, _port_x, _port_y,
+            _x, _y, _x, _y, 0, 0,
+        ),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     }
 
@@ -874,6 +961,9 @@ def load_active_registry(path: Path) -> list[dict[str, str]]:
             or row["design_key"] in ZHEJIANG_DESIGN_KEYS
             or row["design_key"] in HUBEI_DESIGN_KEYS
             or row["design_key"] in JIANGSU_DESIGN_KEYS
+            or row["design_key"] in CHONGQING_DESIGN_KEYS
+            or row["design_key"] in TAIWAN_MOUNTAIN_DESIGN_KEYS
+            or row["design_key"] in WANGJI_DESIGN_KEYS
         ]
     rows.sort(key=lambda row: int(row["game_id"]))
     ids = tuple(int(row["game_id"]) for row in rows)
@@ -1160,8 +1250,8 @@ wuhan_enan_area = { #5 (Wuhan and southern Hubei)
     text = replace_named_block(
         text,
         "jiangsu_area",
-        """xuhuai_haizhou_area = { #7 (North Jiangsu)
-\t2141 5017 5018 2142 5019 5020 4196
+        """xuhuai_haizhou_area = { #5 (North Jiangsu)
+\t2141 5018 2142 5020 4196
 }
 
 huaiyang_tongtai_area = { #5 (Central Jiangsu)
@@ -1173,6 +1263,28 @@ huaiyang_tongtai_area = { #5 (Central Jiangsu)
         "south_jiangsu_area",
         """jinling_wuhui_area = { #6 (South Jiangsu)
 \t1821 2145 5024 5025 1822 4976
+}""",
+    )
+    text = replace_named_block(
+        text,
+        "sichuan_area",
+        """sichuan_area = { #2 (Chengdu basin west)
+\t679 4212
+}
+
+chongqing_area = { #5 (Ba and the upper Yangtze gorges)
+\t680 5026 5027 4987 5028
+}""",
+    )
+    text = replace_named_block(
+        text,
+        "north_henan_area",
+        """north_henan_area = { #2 (Western Henan outside the royal domain)
+\t692 1836
+}
+
+wangji_area = { #4 (Kaifeng royal domain)
+\t688 4966 5030 5031
 }""",
     )
     write_text(output, text)
@@ -1243,6 +1355,26 @@ def build_region(vanilla_root: Path, output: Path) -> None:
             "north_china_region North and Central Jiangsu areas",
         ),
     )
+    text = modify_nested_block(
+        text,
+        "xinan_region",
+        lambda block: replace_once(
+            block,
+            "\t\tsichuan_area\n",
+            "\t\tsichuan_area\n\t\tchongqing_area\n",
+            "xinan_region Chongqing area",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "north_china_region",
+        lambda block: replace_once(
+            block,
+            "\t\tnorth_henan_area\n",
+            "\t\tnorth_henan_area\n\t\twangji_area\n",
+            "north_china_region royal domain area",
+        ),
+    )
     write_text(output, text)
 
 
@@ -1284,6 +1416,21 @@ def build_continent(vanilla_root: Path, output: Path) -> None:
         "asia",
         "\t4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025"
         " # B11 Jiangsu",
+    )
+    text = append_to_named_block(
+        text,
+        "asia",
+        "\t4987 5026 5027 5028 # B09 Chongqing five-way split",
+    )
+    text = append_to_named_block(
+        text,
+        "asia",
+        "\t5029 # B08 impassable Taiwan central range",
+    )
+    text = append_to_named_block(
+        text,
+        "asia",
+        "\t4966 5030 5031 # B03 Kaifeng royal domain",
     )
     write_text(output, text)
 
@@ -1337,6 +1484,21 @@ def build_climate(vanilla_root: Path, output: Path) -> None:
         "\t4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025"
         " # B11 Jiangsu",
     )
+    text = append_to_named_block(
+        text,
+        "normal_monsoon",
+        "\t4987 5026 5027 5028 # B09 Chongqing",
+    )
+    text = append_to_named_block(
+        text,
+        "impassable",
+        "\t5029 # B08 Taiwan central range",
+    )
+    text = append_to_named_block(
+        text,
+        "normal_monsoon",
+        "\t4966 5030 5031 # B03 Kaifeng royal domain",
+    )
     write_text(output, text)
 
 
@@ -1346,6 +1508,7 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
         684, 1824, 2148, 2149, 2150,
         681, 682, 2172, 4197,
         685, 1821, 1822, 2141, 2142, 2145, 4196,
+        680, 688,
     ):
         text = re.sub(rf"(?<!\d){province_id}(?!\d)", "", text)
     text = replace_once(
@@ -1421,6 +1584,42 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
             "\t\t\t5008 5013 # B10 Yunyang and Shizhou highlands",
         ),
     )
+    text = modify_nested_block(
+        text,
+        "hills",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t680 4987 5026 5027 # B09 Chongqing and Xiajiang hills",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "highlands",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t5028 # B09 Kuizhou gorge highlands",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "farmlands",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t688 5030 5031 # B03 Kaifeng, Zhengzhou and Chenliu plains",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "hills",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t4966 # B03 Xingyang and the Hulao approach",
+        ),
+    )
     write_text(output, text)
 
 
@@ -1446,11 +1645,12 @@ def format_position_block(province_id: int, *, include_comment: bool = True) -> 
 def build_positions(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/positions.txt")
     for province_id in (
-        664, 665, 667, 738, 1840, 2155, 2157, 2158, 2159,
+        664, 665, 667, 738, 1840, 2154, 2155, 2157, 2158, 2159,
         2162, 2163, 2164, 670, 671, 672, 683, 1833, 2151, 2173, 2174,
         684, 1824, 2148, 2149, 2150,
         681, 682, 2171, 2172, 4197,
         685, 1821, 1822, 2141, 2142, 2145, 4196,
+        680, 688,
     ):
         text = replace_named_block(
             text,
@@ -1459,7 +1659,9 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
         )
     text = text.rstrip() + "\n\n"
     text += "\n\n".join(
-        format_position_block(province_id) for province_id in ACTIVE_IDS
+        format_position_block(province_id)
+        for province_id in ACTIVE_IDS
+        if province_id != TAIWAN_MOUNTAIN_ID
     )
     write_text(output, text + "\n")
 
@@ -1526,6 +1728,18 @@ def build_trade_nodes(vanilla_root: Path, output: Path) -> None:
         JIANGSU_NEW_IDS,
         "B11 Jiangsu refinement",
     )
+    text = append_members_to_outer_block(
+        text,
+        "chengdu",
+        CHONGQING_NEW_IDS,
+        "B09 Chongqing five-way split",
+    )
+    text = append_members_to_outer_block(
+        text,
+        "xian",
+        WANGJI_NEW_IDS,
+        "B03 Kaifeng royal domain",
+    )
     write_text(
         output,
         text,
@@ -1589,6 +1803,24 @@ def build_trade_companies(vanilla_root: Path, output: Path) -> None:
             "B10 Hubei refinement",
         ),
     )
+    text = modify_nested_block(
+        text,
+        "trade_company_chengdu",
+        lambda block: add_company_provinces(
+            block,
+            CHONGQING_NEW_IDS,
+            "B09 Chongqing five-way split",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "trade_company_xian",
+        lambda block: add_company_provinces(
+            block,
+            WANGJI_NEW_IDS,
+            "B03 Kaifeng royal domain",
+        ),
+    )
     write_text(output, text)
 
 
@@ -1599,8 +1831,8 @@ def write_report(
     outputs: list[Path],
 ) -> None:
     report = {
-        "status": "B01_P02_B06_B07_B10_AND_B11_ASSETS_PREPARED",
-        "scope": "Southeast through B11 Jiangsu implementation",
+        "status": "B01_P02_B03_B06_B07_B09_B10_AND_B11_ASSETS_PREPARED",
+        "scope": "Southeast including Taiwan, Kaifeng royal domain, Chongqing, Hubei, and Jiangsu implementation",
         "baseline_version": geometry_report["baseline_version"],
         "baseline_verified_by_sha256": geometry_report[
             "baseline_verified_by_sha256"
@@ -1616,6 +1848,9 @@ def write_report(
         "zhejiang_ids": list(ZHEJIANG_IDS),
         "hubei_ids": list(HUBEI_ALL_IDS),
         "jiangsu_ids": list(JIANGSU_ALL_IDS),
+        "taiwan_ids": list(TAIWAN_REVIEW_IDS),
+        "chongqing_ids": list(CHONGQING_ALL_IDS),
+        "wangji_ids": list(WANGJI_ALL_IDS),
         "max_provinces": GAME_MAX_PROVINCES,
         "changed_pixels": geometry_report["changed_pixels"],
         "province_pixels": geometry_report["province_pixels"],
@@ -1677,7 +1912,10 @@ def main() -> None:
             mod_root / "common/trade_companies/00_trade_companies.txt",
         ),
     ]
-    outputs = [provinces_output]
+    terrain_bitmap = mod_root / "map/terrain.bmp"
+    if not terrain_bitmap.is_file():
+        raise ValueError("map/terrain.bmp is required for the Taiwan central range")
+    outputs = [provinces_output, terrain_bitmap]
     for builder, output in builders:
         if builder is build_definition:
             builder(vanilla_root, output, registry_rows)
@@ -1692,8 +1930,8 @@ def main() -> None:
         outputs=outputs,
     )
     print(f"{provinces_output}: canonical hand-drawn geometry preserved")
-    print(f"{mod_root}: active assets written through province ID 5025")
-    print(f"{args.report}: B01_P02_B06_B07_B10_AND_B11_ASSETS_PREPARED")
+    print(f"{mod_root}: active assets written through province ID 5031")
+    print(f"{args.report}: B01_P02_B03_B06_B07_B09_B10_AND_B11_ASSETS_PREPARED")
 
 
 if __name__ == "__main__":

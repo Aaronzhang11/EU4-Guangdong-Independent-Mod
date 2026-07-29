@@ -1,0 +1,15 @@
+﻿l_english:
+ PROV680:0 "重庆"
+ PROV_ADJ680:0 "重庆"
+ PROV4987:0 "万州"
+ PROV_ADJ4987:0 "万州"
+ PROV5026:0 "合州"
+ PROV_ADJ5026:0 "合州"
+ PROV5027:0 "涪州"
+ PROV_ADJ5027:0 "涪州"
+ PROV5028:0 "夔州"
+ PROV_ADJ5028:0 "夔州"
+
+ chongqing_area:0 "巴渝"
+ chongqing_area_name:0 "重庆"
+ chongqing_area_adj:0 "巴渝"

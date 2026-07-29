@@ -27,6 +27,12 @@ from build_b01_mod import (
     HUBEI_ALL_IDS,
     JIANGSU_ALL_IDS,
     JIANGSU_NEW_IDS,
+    CHONGQING_ALL_IDS,
+    CHONGQING_NEW_IDS,
+    WANGJI_ALL_IDS,
+    WANGJI_NEW_IDS,
+    TAIWAN_MOUNTAIN_ID,
+    TAIWAN_REVIEW_IDS,
     POSITION_DATA,
     PREPARED_IDS,
     find_named_block,
@@ -117,10 +123,8 @@ EXPECTED_AREAS = {
     5015: "wuhan_enan_area",
     5016: "wuhan_enan_area",
     2141: "xuhuai_haizhou_area",
-    5017: "xuhuai_haizhou_area",
     5018: "xuhuai_haizhou_area",
     2142: "xuhuai_haizhou_area",
-    5019: "xuhuai_haizhou_area",
     5020: "xuhuai_haizhou_area",
     4196: "xuhuai_haizhou_area",
     685: "huaiyang_tongtai_area",
@@ -134,6 +138,17 @@ EXPECTED_AREAS = {
     5025: "jinling_wuhui_area",
     1822: "jinling_wuhui_area",
     4976: "jinling_wuhui_area",
+    680: "chongqing_area",
+    4987: "chongqing_area",
+    5026: "chongqing_area",
+    5027: "chongqing_area",
+    5028: "chongqing_area",
+    688: "wangji_area",
+    4966: "wangji_area",
+    5030: "wangji_area",
+    5031: "wangji_area",
+    692: "north_henan_area",
+    1836: "north_henan_area",
 }
 EXPECTED_TERRAIN = {
     4942: "farmlands",
@@ -200,6 +215,15 @@ EXPECTED_TERRAIN = {
     682: "farmlands",
     5015: "hills",
     5016: "hills",
+    680: "hills",
+    4987: "hills",
+    5026: "hills",
+    5027: "hills",
+    5028: "highlands",
+    688: "farmlands",
+    4966: "hills",
+    5030: "farmlands",
+    5031: "farmlands",
     **{province_id: "farmlands" for province_id in JIANGSU_ALL_IDS},
 }
 PREPARED_HISTORY = {
@@ -245,6 +269,15 @@ EXPECTED_HISTORY = {
     4947: ("GDD", (1, 1, 1), "grain", "cantonese"),
     4948: ("GDD", (2, 1, 1), "grain", "hakka"),
     4949: ("GDD", (1, 1, 1), "salt", "chimin"),
+    680: ("MNG", (4, 4, 1), "spices", "sichuanese"),
+    4987: ("MNG", (1, 1, 1), "tea", "sichuanese"),
+    5026: ("MNG", (1, 1, 1), "grain", "sichuanese"),
+    5027: ("MNG", (1, 1, 1), "paper", "sichuanese"),
+    5028: ("MNG", (1, 1, 1), "naval_supplies", "sichuanese"),
+    688: ("MNG", (4, 4, 1), "chinaware", "zhongyuan"),
+    4966: ("MNG", (1, 1, 1), "grain", "zhongyuan"),
+    5030: ("MNG", (2, 2, 1), "cloth", "zhongyuan"),
+    5031: ("MNG", (1, 1, 1), "grain", "zhongyuan"),
 }
 EXPECTED_DEV_PARTITIONS = {
     665: {"children": (4947,), "original": (4, 4, 3), "delta": (0, 0, 0)},
@@ -257,6 +290,16 @@ EXPECTED_DEV_PARTITIONS = {
     },
     2158: {"children": (4948,), "original": (4, 4, 2), "delta": (0, 0, 0)},
     2159: {"children": (4945,), "original": (3, 3, 2), "delta": (0, 0, 0)},
+    680: {
+        "children": (4987, 5026, 5027, 5028),
+        "original": (8, 8, 4),
+        "delta": (0, 0, 1),
+    },
+    688: {
+        "children": (4966, 5030, 5031),
+        "original": (8, 8, 4),
+        "delta": (0, 0, 0),
+    },
 }
 JIANGXI_HISTORY = {
     670: ("MNG", (4, 4, 3), "grain", "hakka"),
@@ -318,11 +361,9 @@ HUBEI_HISTORY = {
     5016: ("MNG", (3, 3, 2), "copper", "hubei", "confucianism"),
 }
 JIANGSU_HISTORY = {
-    2141: ("MNG", (5, 5, 2), "iron", "zhongyuan", "confucianism"),
-    5017: ("MNG", (2, 3, 2), "grain", "zhongyuan", "confucianism"),
+    2141: ("MNG", (7, 8, 4), "iron", "zhongyuan", "confucianism"),
     5018: ("MNG", (3, 2, 2), "livestock", "jianghuai", "confucianism"),
-    2142: ("MNG", (4, 5, 2), "grain", "jianghuai", "confucianism"),
-    5019: ("MNG", (2, 3, 2), "grain", "jianghuai", "confucianism"),
+    2142: ("MNG", (6, 8, 4), "grain", "jianghuai", "confucianism"),
     5020: ("MNG", (2, 4, 2), "salt", "jianghuai", "confucianism"),
     4196: ("MNG", (2, 3, 2), "fish", "jianghuai", "confucianism"),
     685: ("MNG", (6, 8, 3), "salt", "jianghuai", "confucianism"),
@@ -558,6 +599,7 @@ def validate_map(
     audited_ids = (
         IMPLEMENTED_IDS + JIANGXI_IDS + HUNAN_IDS
         + ZHEJIANG_IDS + HUBEI_NEW_IDS + JIANGSU_NEW_IDS
+        + CHONGQING_NEW_IDS + TAIWAN_REVIEW_IDS + WANGJI_NEW_IDS
     )
     if configured_ids != audited_ids:
         raise ValueError(
@@ -648,6 +690,25 @@ def validate_map(
             "neighbors": sorted(neighbors),
             "coastal": coastal,
         }
+
+    terrain_path = map_dir / "terrain.bmp"
+    with Image.open(terrain_path) as image:
+        if image.size != province_map.shape[1::-1] or image.mode != "P":
+            raise ValueError(
+                f"terrain.bmp must be {province_map.shape[1::-1]} paletted, "
+                f"found {image.size} {image.mode}"
+            )
+        terrain_map = np.asarray(image, dtype=np.uint8)
+    with Image.open(vanilla_root / "map/terrain.bmp") as image:
+        baseline_terrain = np.asarray(image, dtype=np.uint8)
+    mountain_color = np.array((115, 75, 50), dtype=np.uint8)
+    mountain_mask = np.all(province_map == mountain_color, axis=2)
+    if not np.all(terrain_map[mountain_mask] == 128):
+        raise ValueError("terrain.bmp: Taiwan Mountains must use palette index 128")
+    if not np.array_equal(terrain_map[~mountain_mask], baseline_terrain[~mountain_mask]):
+        raise ValueError(
+            "terrain.bmp: pixels outside the Taiwan Mountains differ from vanilla"
+        )
 
     prepared_pixels: dict[int, int] = {}
     for province_id in PREPARED_IDS:
@@ -788,6 +849,14 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         if not re.search(rf"\b{re.escape(area_name)}\b", south_china):
             raise ValueError(f"region.txt: south_china_region lacks {area_name}")
 
+    xinan = block_text(region_text, "xinan_region")
+    if not re.search(r"\bchongqing_area\b", xinan):
+        raise ValueError("region.txt: xinan_region lacks chongqing_area")
+
+    north_china = block_text(region_text, "north_china_region")
+    if not re.search(r"\bwangji_area\b", north_china):
+        raise ValueError("region.txt: north_china_region lacks wangji_area")
+
     superregion_text = (vanilla_root / "map/superregion.txt").read_text(
         encoding="cp1252"
     )
@@ -805,6 +874,7 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     climate_text = (mod_root / "map/climate.txt").read_text(encoding="cp1252")
     normal_monsoon = set(numeric_tokens(block_text(climate_text, "normal_monsoon")))
     tropical = set(numeric_tokens(block_text(climate_text, "tropical")))
+    impassable = set(numeric_tokens(block_text(climate_text, "impassable")))
     for province_id in IMPLEMENTED_IDS + (
         4950, 4951, 4952, 4953, 4955,
         4956, 4957, 4958, 4960, 4961,
@@ -813,6 +883,8 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         684, 1824, 2148, 2149, 2150,
         5002, 5003, 5004, 5005, 5006, 5007,
         4981, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016,
+        4987, 5026, 5027, 5028,
+        4966, 5030, 5031,
     ):
         if province_id not in normal_monsoon:
             raise ValueError(f"climate.txt: {province_id} lacks normal_monsoon")
@@ -821,6 +893,8 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         raise ValueError("climate.txt: a prepared tropical province is missing")
     if tropical & (set(ACTIVE_IDS) - expected_tropical):
         raise ValueError("climate.txt: an unintended active province is tropical")
+    if TAIWAN_MOUNTAIN_ID not in impassable:
+        raise ValueError("climate.txt: Taiwan Mountains is not impassable")
 
     terrain_text = (mod_root / "map/terrain.txt").read_text(encoding="cp1252")
     for province_id, terrain_name in EXPECTED_TERRAIN.items():
@@ -855,10 +929,16 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
             raise ValueError(f"Hangzhou trade node lacks {province_id}")
     xian = block_text(trade_nodes, "xian")
     xian_members = set(numeric_tokens(block_text(xian, "members")))
-    for province_id in HUBEI_NEW_IDS:
+    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS:
         assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
         if province_id not in xian_members:
             raise ValueError(f"Xi'an trade node lacks {province_id}")
+    chengdu = block_text(trade_nodes, "chengdu")
+    chengdu_members = set(numeric_tokens(block_text(chengdu, "members")))
+    for province_id in CHONGQING_NEW_IDS:
+        assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
+        if province_id not in chengdu_members:
+            raise ValueError(f"Chengdu trade node lacks {province_id}")
 
     companies = (
         mod_root / "common/trade_companies/00_trade_companies.txt"
@@ -889,10 +969,18 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     xian_company_provinces = set(
         numeric_tokens(block_text(xian_company, "provinces"))
     )
-    for province_id in HUBEI_NEW_IDS:
+    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS:
         assert_token_once(companies, province_id, "00_trade_companies.txt")
         if province_id not in xian_company_provinces:
             raise ValueError(f"Xi'an trade company lacks {province_id}")
+    chengdu_company = block_text(companies, "trade_company_chengdu")
+    chengdu_company_provinces = set(
+        numeric_tokens(block_text(chengdu_company, "provinces"))
+    )
+    for province_id in CHONGQING_NEW_IDS:
+        assert_token_once(companies, province_id, "00_trade_companies.txt")
+        if province_id not in chengdu_company_provinces:
+            raise ValueError(f"Chengdu trade company lacks {province_id}")
 
 
 def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
@@ -945,6 +1033,22 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
     if initial_history_value(lufeng, "fort_15th") != "yes":
         raise ValueError("4949 Lufeng must have a 15th-century fort")
     return development
+
+
+def validate_taiwan_mountain_history(mod_root: Path) -> None:
+    path = history_path(mod_root, TAIWAN_MOUNTAIN_ID)
+    validate_braces(path)
+    text = path.read_text(encoding="cp1252")
+    for forbidden in (
+        "owner", "controller", "base_tax", "base_production",
+        "base_manpower", "trade_goods", "culture", "religion", "is_city",
+    ):
+        if re.search(rf"(?m)^\s*{forbidden}\s*=", text):
+            raise ValueError(
+                f"{path.name}: impassable mountain must not define {forbidden}"
+            )
+    if not re.search(r"(?m)^\s*discovered_by\s*=", text):
+        raise ValueError(f"{path.name}: missing discovery groups")
 
 
 def validate_prepared_histories(
@@ -1331,6 +1435,9 @@ def validate_localisation(mod_root: Path) -> None:
         for key in (f"PROV{province_id}", f"PROV_ADJ{province_id}"):
             if not re.search(rf"(?m)^\s*{key}:0\s+\"", prepared_source):
                 raise ValueError(f"Prepared localisation source lacks {key}")
+    for key in (f"PROV{TAIWAN_MOUNTAIN_ID}", f"PROV_ADJ{TAIWAN_MOUNTAIN_ID}"):
+        if not re.search(rf"(?m)^\s*{key}:0\s+\"", prepared_source):
+            raise ValueError(f"Taiwan localisation source lacks {key}")
     for key in (
         "fujian_area",
         "fujian_area_name",
@@ -1518,6 +1625,7 @@ def main() -> None:
     map_report = validate_map(vanilla_root, mod_root, config)
     validate_memberships(vanilla_root, mod_root)
     development = validate_histories(mod_root)
+    validate_taiwan_mountain_history(mod_root)
     prepared_development = validate_prepared_histories(vanilla_root, mod_root)
     jiangxi_development = validate_jiangxi_histories(mod_root)
     hunan_development = validate_hunan_histories(mod_root)
@@ -1528,7 +1636,7 @@ def main() -> None:
     validate_localisation(mod_root)
 
     build_report = json.loads(args.build_report.read_text(encoding="utf-8"))
-    if build_report.get("status") != "B01_P02_B06_B07_B10_AND_B11_ASSETS_PREPARED":
+    if build_report.get("status") != "B01_P02_B03_B06_B07_B09_B10_AND_B11_ASSETS_PREPARED":
         raise ValueError("B01 through B11 build report is not successful")
     if build_report.get("canonical_geometry_preserved") is not True:
         raise ValueError("Build report does not confirm preservation of manual geometry")
@@ -1538,15 +1646,18 @@ def main() -> None:
             raise ValueError(f"{relative_path}: hash differs from the build report")
 
     result = {
-        "status": "B01_P02_B06_B07_B10_B11_STATIC_VALIDATION_PASS",
+        "status": "B01_P02_B03_B06_B07_B09_B10_B11_STATIC_VALIDATION_PASS",
         "implemented_ids": list(IMPLEMENTED_IDS),
         "prepared_ids": list(PREPARED_IDS),
         "geometry_status": {
             "B01": "hand_drawn_validated",
             "P02": "hand_drawn_validated",
+            "B03_Wangji": "hand_drawn_validated",
+            "B08_Taiwan": "central_mountain_and_coastal_ring_validated",
             "B06_Zhejiang": "hand_drawn_validated",
             "B07_Jiangxi": "hand_drawn_validated",
             "B07_Hunan": "hand_drawn_validated",
+            "B09_Chongqing": "hand_drawn_validated",
             "B10_Hubei": "hand_drawn_validated",
             "B11_Jiangsu": "hand_drawn_validated",
         },
@@ -1569,7 +1680,7 @@ def main() -> None:
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(rendered, encoding="utf-8")
     print(rendered, end="")
-    print(f"{args.report}: B01_P02_B06_B07_B10_B11_STATIC_VALIDATION_PASS")
+    print(f"{args.report}: B01_P02_B03_B06_B07_B09_B10_B11_STATIC_VALIDATION_PASS")
 
 
 if __name__ == "__main__":

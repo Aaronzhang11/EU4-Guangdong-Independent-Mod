@@ -1,5 +1,5 @@
 {
-  "status": "B01_P02_B06_B07_B10_B11_STATIC_VALIDATION_PASS",
+  "status": "B01_P02_B03_B06_B07_B09_B10_B11_STATIC_VALIDATION_PASS",
   "implemented_ids": [
     4942,
     4943,
@@ -14,15 +14,18 @@
   "geometry_status": {
     "B01": "hand_drawn_validated",
     "P02": "hand_drawn_validated",
+    "B03_Wangji": "hand_drawn_validated",
+    "B08_Taiwan": "central_mountain_and_coastal_ring_validated",
     "B06_Zhejiang": "hand_drawn_validated",
     "B07_Jiangxi": "hand_drawn_validated",
     "B07_Hunan": "hand_drawn_validated",
+    "B09_Chongqing": "hand_drawn_validated",
     "B10_Hubei": "hand_drawn_validated",
     "B11_Jiangsu": "hand_drawn_validated"
   },
-  "max_provinces": 5026,
+  "max_provinces": 5032,
   "map": {
-    "changed_pixels": 15535,
+    "changed_pixels": 17403,
     "province_stats": {
       "4942": {
         "pixels": 201,
@@ -258,14 +261,14 @@
         ],
         "neighbors": [
           672,
-          680,
           681,
           1897,
           2172,
           2173,
           4982,
           5013,
-          5014
+          5014,
+          5027
         ],
         "coastal": false
       },
@@ -519,9 +522,11 @@
           216
         ],
         "neighbors": [
-          680,
           681,
-          4996
+          4987,
+          4996,
+          5027,
+          5028
         ],
         "coastal": false
       },
@@ -579,9 +584,9 @@
         "coastal": true
       },
       "4977": {
-        "pixels": 151,
+        "pixels": 152,
         "component_sizes": [
-          151
+          152
         ],
         "neighbors": [
           685,
@@ -595,55 +600,28 @@
         ],
         "coastal": true
       },
-      "5017": {
-        "pixels": 164,
+      "5018": {
+        "pixels": 226,
         "component_sizes": [
-          164
+          226
         ],
         "neighbors": [
           2140,
           2141,
-          2143,
-          4196,
-          5018
-        ],
-        "coastal": false
-      },
-      "5018": {
-        "pixels": 165,
-        "component_sizes": [
-          165
-        ],
-        "neighbors": [
           2142,
           2143,
-          4196,
-          5017,
-          5019
-        ],
-        "coastal": false
-      },
-      "5019": {
-        "pixels": 165,
-        "component_sizes": [
-          165
-        ],
-        "neighbors": [
-          1896,
-          2142,
-          2143,
-          5018,
-          5021
+          4196
         ],
         "coastal": false
       },
       "5020": {
-        "pixels": 165,
+        "pixels": 236,
         "component_sizes": [
-          165
+          236
         ],
         "neighbors": [
           2142,
+          4196,
           4234,
           4977,
           5021
@@ -651,16 +629,15 @@
         "coastal": true
       },
       "5021": {
-        "pixels": 138,
+        "pixels": 137,
         "component_sizes": [
-          138
+          137
         ],
         "neighbors": [
           685,
           2142,
           2143,
           4977,
-          5019,
           5020
         ],
         "coastal": false
@@ -677,9 +654,9 @@
         "coastal": true
       },
       "5023": {
-        "pixels": 145,
+        "pixels": 146,
         "component_sizes": [
-          145
+          146
         ],
         "neighbors": [
           1373,
@@ -690,39 +667,220 @@
         "coastal": true
       },
       "5024": {
-        "pixels": 155,
+        "pixels": 72,
         "component_sizes": [
-          155
+          72
         ],
         "neighbors": [
           685,
-          1838,
           2145,
-          2146,
           4977,
           5025
         ],
         "coastal": false
       },
       "5025": {
-        "pixels": 154,
+        "pixels": 153,
         "component_sizes": [
-          154
+          153
         ],
         "neighbors": [
           1373,
           1822,
           1895,
+          2145,
           2146,
           4977,
           5023,
           5024
         ],
         "coastal": true
+      },
+      "4987": {
+        "pixels": 352,
+        "component_sizes": [
+          352
+        ],
+        "neighbors": [
+          4211,
+          5013,
+          5026,
+          5027,
+          5028
+        ],
+        "coastal": false
+      },
+      "5026": {
+        "pixels": 234,
+        "component_sizes": [
+          234
+        ],
+        "neighbors": [
+          679,
+          680,
+          2169,
+          4211,
+          4987,
+          5027
+        ],
+        "coastal": false
+      },
+      "5027": {
+        "pixels": 490,
+        "component_sizes": [
+          490
+        ],
+        "neighbors": [
+          680,
+          2168,
+          2173,
+          4199,
+          4987,
+          4996,
+          5013,
+          5026
+        ],
+        "coastal": false
+      },
+      "5028": {
+        "pixels": 281,
+        "component_sizes": [
+          281
+        ],
+        "neighbors": [
+          681,
+          4211,
+          4987,
+          5013
+        ],
+        "coastal": false
+      },
+      "738": {
+        "pixels": 152,
+        "component_sizes": [
+          152
+        ],
+        "neighbors": [
+          1372,
+          1393,
+          4955,
+          4961,
+          5029
+        ],
+        "coastal": true
+      },
+      "2154": {
+        "pixels": 127,
+        "component_sizes": [
+          127
+        ],
+        "neighbors": [
+          1372,
+          1392,
+          1393,
+          2155,
+          4961,
+          5029
+        ],
+        "coastal": true
+      },
+      "2155": {
+        "pixels": 132,
+        "component_sizes": [
+          132
+        ],
+        "neighbors": [
+          1372,
+          2154,
+          4955,
+          5029
+        ],
+        "coastal": true
+      },
+      "4955": {
+        "pixels": 139,
+        "component_sizes": [
+          139
+        ],
+        "neighbors": [
+          738,
+          1372,
+          2155,
+          5029
+        ],
+        "coastal": true
+      },
+      "4961": {
+        "pixels": 139,
+        "component_sizes": [
+          139
+        ],
+        "neighbors": [
+          738,
+          1393,
+          2154,
+          5029
+        ],
+        "coastal": true
+      },
+      "5029": {
+        "pixels": 174,
+        "component_sizes": [
+          174
+        ],
+        "neighbors": [
+          738,
+          2154,
+          2155,
+          4955,
+          4961
+        ],
+        "coastal": false
+      },
+      "4966": {
+        "pixels": 117,
+        "component_sizes": [
+          117
+        ],
+        "neighbors": [
+          688,
+          692,
+          1836,
+          5030
+        ],
+        "coastal": false
+      },
+      "5030": {
+        "pixels": 161,
+        "component_sizes": [
+          161
+        ],
+        "neighbors": [
+          687,
+          688,
+          1836,
+          2175,
+          2176,
+          4966
+        ],
+        "coastal": false
+      },
+      "5031": {
+        "pixels": 103,
+        "component_sizes": [
+          103
+        ],
+        "neighbors": [
+          688,
+          2137,
+          2140,
+          2176
+        ],
+        "coastal": false
       }
     },
     "prepared_pixels": {},
-    "provinces_sha256": "deeab6e72d24e97bc4462739b264b6bed3edf999c0cd5406ad8a91e475d299f2"
+    "provinces_sha256": "e3553fb97cbc56a8eec701f46d6bd108c16911c9c9eb76324fcc5ebc3825e25b"
   },
   "development": {
     "665": [
@@ -791,6 +949,51 @@
       1
     ],
     "4949": [
+      1,
+      1,
+      1
+    ],
+    "680": [
+      4,
+      4,
+      1
+    ],
+    "4987": [
+      1,
+      1,
+      1
+    ],
+    "5026": [
+      1,
+      1,
+      1
+    ],
+    "5027": [
+      1,
+      1,
+      1
+    ],
+    "5028": [
+      1,
+      1,
+      1
+    ],
+    "688": [
+      4,
+      4,
+      1
+    ],
+    "4966": [
+      1,
+      1,
+      1
+    ],
+    "5030": [
+      2,
+      2,
+      1
+    ],
+    "5031": [
       1,
       1,
       1
@@ -1146,14 +1349,9 @@
       2
     ],
     "2141": [
-      5,
-      5,
-      2
-    ],
-    "5017": [
-      2,
-      3,
-      2
+      7,
+      8,
+      4
     ],
     "5018": [
       3,
@@ -1161,14 +1359,9 @@
       2
     ],
     "2142": [
-      4,
-      5,
-      2
-    ],
-    "5019": [
-      2,
-      3,
-      2
+      6,
+      8,
+      4
     ],
     "5020": [
       2,

@@ -1,6 +1,6 @@
 {
-  "status": "B01_P02_B06_B07_B10_AND_B11_ASSETS_PREPARED",
-  "scope": "Southeast through B11 Jiangsu implementation",
+  "status": "B01_P02_B03_B06_B07_B09_B10_AND_B11_ASSETS_PREPARED",
+  "scope": "Southeast including Taiwan, Kaifeng royal domain, Chongqing, Hubei, and Jiangsu implementation",
   "baseline_version": "EU4 1.37.5",
   "baseline_verified_by_sha256": {
     "provinces.bmp": true,
@@ -68,10 +68,8 @@
   ],
   "jiangsu_ids": [
     2141,
-    5017,
     5018,
     2142,
-    5019,
     5020,
     4196,
     685,
@@ -86,8 +84,29 @@
     1822,
     4976
   ],
-  "max_provinces": 5026,
-  "changed_pixels": 15535,
+  "taiwan_ids": [
+    738,
+    2154,
+    2155,
+    4955,
+    4961,
+    5029
+  ],
+  "chongqing_ids": [
+    680,
+    4987,
+    5026,
+    5027,
+    5028
+  ],
+  "wangji_ids": [
+    688,
+    4966,
+    5030,
+    5031
+  ],
+  "max_provinces": 5032,
+  "changed_pixels": 17403,
   "province_pixels": {
     "4942": 201,
     "4943": 71,
@@ -128,65 +147,80 @@
     "5015": 134,
     "5016": 59,
     "4976": 162,
-    "4977": 151,
-    "5017": 164,
-    "5018": 165,
-    "5019": 165,
-    "5020": 165,
-    "5021": 138,
+    "4977": 152,
+    "5018": 226,
+    "5020": 236,
+    "5021": 137,
     "5022": 145,
-    "5023": 145,
-    "5024": 155,
-    "5025": 154
+    "5023": 146,
+    "5024": 72,
+    "5025": 153,
+    "4987": 352,
+    "5026": 234,
+    "5027": 490,
+    "5028": 281,
+    "738": 152,
+    "2154": 127,
+    "2155": 132,
+    "4955": 139,
+    "4961": 139,
+    "5029": 174,
+    "4966": 117,
+    "5030": 161,
+    "5031": 103
   },
   "outputs": {
     "map/provinces.bmp": {
       "bytes": 34603062,
-      "sha256": "deeab6e72d24e97bc4462739b264b6bed3edf999c0cd5406ad8a91e475d299f2"
+      "sha256": "e3553fb97cbc56a8eec701f46d6bd108c16911c9c9eb76324fcc5ebc3825e25b"
+    },
+    "map/terrain.bmp": {
+      "bytes": 11535410,
+      "sha256": "baa46b876dc5151aa2c66146a7aac11da983d59b7c2e581fc2f19277ef88ecbd"
     },
     "map/definition.csv": {
-      "bytes": 131295,
-      "sha256": "f12deb00480229b2e645d785a514e0f193a9aafa701bb85fcb3f9ddc32c45337"
+      "bytes": 131485,
+      "sha256": "f2fd2d985116bff9702d79bef70d618dfadafd121a357038c5acd7c8be455a3e"
     },
     "map/default.map": {
       "bytes": 10408,
-      "sha256": "5c76d4c60e0527a7de312c1ccef88da970196873c14932f92ba26cefd034e428"
+      "sha256": "a101d3adf4cbc841e73adb542de593e2888611ea28fbbbdeae6c045208da87a5"
     },
     "map/area.txt": {
-      "bytes": 51626,
-      "sha256": "adbfb0e7bb03001bc76ef1c60505f214bb57e0ea00ec0291c108ea0e22451b4f"
+      "bytes": 51825,
+      "sha256": "5755c412a8aeca77476c86ffb44cf2f75d51e3f097665620c7b79c32ce0fdcc0"
     },
     "map/region.txt": {
-      "bytes": 27873,
-      "sha256": "2f66d78a6b7132ce5b56de60a39dc0ed84754279f192b647a836e88881ac9a36"
+      "bytes": 27916,
+      "sha256": "ebbebff93fd760921e8fa6d34d76d56d4d25d07c2cf33f75525a82d134325668"
     },
     "map/continent.txt": {
-      "bytes": 19815,
-      "sha256": "9c750dbbd791396c4d0796831d0f32c211735ebb78a2b9f35422ef163c391f99"
+      "bytes": 19963,
+      "sha256": "fd0f7263ccb9f2f57d73864be951dcd72f2307245c44248737be832e473ece4c"
     },
     "map/climate.txt": {
-      "bytes": 25107,
-      "sha256": "f3d355248bed0a746c9e11b02fa3d12c67b485b393a8de728c9660ea10a29326"
+      "bytes": 25229,
+      "sha256": "5d18af3deb58126b3cf5ccffbd46ab05396561110416ac0a1733d223c9ac09ec"
     },
     "map/terrain.txt": {
-      "bytes": 27313,
-      "sha256": "7736d72084a6c36da6648b35bba1e0781ff0ae48b6a57370c7da1cf01f17e0bc"
+      "bytes": 27529,
+      "sha256": "db0b4f3cbc2151b8b52a21af21523074c5c268557366c4106e41e058e3e66ab1"
     },
     "map/positions.txt": {
-      "bytes": 1511592,
-      "sha256": "be2e795e02e584f0023c504998d0d08bfab0f376884ef5482fdcf5c7ca7f9a71"
+      "bytes": 1513253,
+      "sha256": "ad1f5ca5ddfda978aa3343fc23f64cf7669ff1760ebe05c2de98de9a5a893545"
     },
     "map/adjacencies.csv": {
       "bytes": 5586,
       "sha256": "6e4e226ea42d90a259436f96d5e913d66c46fd9cbbfeb953414f559d22376f05"
     },
     "common/tradenodes/00_tradenodes.txt": {
-      "bytes": 62672,
-      "sha256": "86fbda3944425aea6d077f4e42792c1f5572167e7dfda7c406afe2fa87202d58"
+      "bytes": 62771,
+      "sha256": "fed578f1e9543bb1bbf81c7761690e6e08cd0fea70a99304f5ee78273e0636fd"
     },
     "common/trade_companies/00_trade_companies.txt": {
-      "bytes": 36778,
-      "sha256": "060f998618c5b1a3d34328be68422fec48b687663024d6d7519187d3eeb27235"
+      "bytes": 36877,
+      "sha256": "ac3f43b0b8d7a377610e4fb778616a01f2eaf25d6a3ed50adeb8eb1e3489876f"
     }
   }
 }

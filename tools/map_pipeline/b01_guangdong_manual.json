@@ -11,12 +11,12 @@
   "canonical_bmp": "guangdong_independent_practice/map/provinces.bmp",
   "expected_size": [5632, 2048],
   "expected_mode": "RGB",
-  "expected_changed_pixels": 15535,
+  "expected_changed_pixels": 17403,
   "allowed_vanilla_source_ids": [
     665, 667, 669, 670, 671, 672, 683, 684, 738, 1822, 1824, 1829,
     1833, 1840, 2148, 2149, 2150, 2151, 2152, 2154, 2156, 2157, 2158, 2159,
     2155, 2162, 2163, 2164, 2171, 2172, 2173, 2174, 4197,
-    681, 682, 685, 1821, 2141, 2142, 2145, 4196
+    680, 681, 682, 685, 688, 1821, 2141, 2142, 2145, 4196
   ],
   "position_province_ids": [
     665,
@@ -84,9 +84,12 @@
     5014,
     5015,
     5016,
-    2141, 5017, 5018, 2142, 5019, 5020, 4196,
+    2141, 5018, 2142, 5020, 4196,
     685, 5021, 4977, 5022, 5023,
-    1821, 2145, 5024, 5025, 1822, 4976
+    1821, 2145, 5024, 5025, 1822, 4976,
+    680, 4987, 5026, 5027, 5028,
+    738, 2154, 2155, 4955, 4961,
+    688, 4966, 5030, 5031
   ],
   "port_seas": {
     "665": 1370,
@@ -112,7 +115,12 @@
     "5020": 4234,
     "5022": 1373,
     "5023": 1373,
-    "5025": 1373
+    "5025": 1373,
+    "738": 1393,
+    "2154": 1372,
+    "2155": 1372,
+    "4955": 1372,
+    "4961": 1393
   },
   "provinces": [
     {
@@ -282,7 +290,7 @@
       "rgb": [30, 170, 210],
       "expected_pixels": 798,
       "expected_component_sizes": [798],
-      "expected_neighbor_ids": [672, 680, 681, 1897, 2172, 2173, 4982, 5013, 5014],
+      "expected_neighbor_ids": [672, 681, 1897, 2172, 2173, 4982, 5013, 5014, 5027],
       "expected_coastal": false
     },
     {
@@ -462,7 +470,7 @@
       "rgb": [205, 75, 105],
       "expected_pixels": 216,
       "expected_component_sizes": [216],
-      "expected_neighbor_ids": [680, 681, 4996],
+      "expected_neighbor_ids": [681, 4987, 4996, 5027, 5028],
       "expected_coastal": false
     },
     {
@@ -510,39 +518,19 @@
       "game_id": 4977,
       "name_en": "Taizhou (Jiangsu)",
       "rgb": [57, 30, 204],
-      "expected_pixels": 151,
-      "expected_component_sizes": [151],
+      "expected_pixels": 152,
+      "expected_component_sizes": [152],
       "expected_neighbor_ids": [685, 1373, 4234, 5020, 5021, 5023, 5024, 5025],
       "expected_coastal": true
-    },
-    {
-      "design_key": "S-54",
-      "game_id": 5017,
-      "name_en": "Pizhou",
-      "rgb": [235, 85, 145],
-      "expected_pixels": 164,
-      "expected_component_sizes": [164],
-      "expected_neighbor_ids": [2140, 2141, 2143, 4196, 5018],
-      "expected_coastal": false
     },
     {
       "design_key": "S-55",
       "game_id": 5018,
       "name_en": "Suqian",
       "rgb": [60, 200, 165],
-      "expected_pixels": 165,
-      "expected_component_sizes": [165],
-      "expected_neighbor_ids": [2142, 2143, 4196, 5017, 5019],
-      "expected_coastal": false
-    },
-    {
-      "design_key": "S-56",
-      "game_id": 5019,
-      "name_en": "Qinghe",
-      "rgb": [155, 105, 230],
-      "expected_pixels": 165,
-      "expected_component_sizes": [165],
-      "expected_neighbor_ids": [1896, 2142, 2143, 5018, 5021],
+      "expected_pixels": 226,
+      "expected_component_sizes": [226],
+      "expected_neighbor_ids": [2140, 2141, 2142, 2143, 4196],
       "expected_coastal": false
     },
     {
@@ -550,9 +538,9 @@
       "game_id": 5020,
       "name_en": "Yancheng",
       "rgb": [225, 155, 55],
-      "expected_pixels": 165,
-      "expected_component_sizes": [165],
-      "expected_neighbor_ids": [2142, 4234, 4977, 5021],
+      "expected_pixels": 236,
+      "expected_component_sizes": [236],
+      "expected_neighbor_ids": [2142, 4196, 4234, 4977, 5021],
       "expected_coastal": true
     },
     {
@@ -560,9 +548,9 @@
       "game_id": 5021,
       "name_en": "Gaoyou",
       "rgb": [70, 180, 230],
-      "expected_pixels": 138,
-      "expected_component_sizes": [138],
-      "expected_neighbor_ids": [685, 2142, 2143, 4977, 5019, 5020],
+      "expected_pixels": 137,
+      "expected_component_sizes": [137],
+      "expected_neighbor_ids": [685, 2142, 2143, 4977, 5020],
       "expected_coastal": false
     },
     {
@@ -580,8 +568,8 @@
       "game_id": 5023,
       "name_en": "Rugao",
       "rgb": [105, 205, 80],
-      "expected_pixels": 145,
-      "expected_component_sizes": [145],
+      "expected_pixels": 146,
+      "expected_component_sizes": [146],
       "expected_neighbor_ids": [1373, 4977, 5022, 5025],
       "expected_coastal": true
     },
@@ -590,9 +578,9 @@
       "game_id": 5024,
       "name_en": "Changzhou",
       "rgb": [200, 120, 45],
-      "expected_pixels": 155,
-      "expected_component_sizes": [155],
-      "expected_neighbor_ids": [685, 1838, 2145, 2146, 4977, 5025],
+      "expected_pixels": 72,
+      "expected_component_sizes": [72],
+      "expected_neighbor_ids": [685, 2145, 4977, 5025],
       "expected_coastal": false
     },
     {
@@ -600,10 +588,140 @@
       "game_id": 5025,
       "name_en": "Wuxi",
       "rgb": [55, 145, 215],
-      "expected_pixels": 154,
-      "expected_component_sizes": [154],
-      "expected_neighbor_ids": [1373, 1822, 1895, 2146, 4977, 5023, 5024],
+      "expected_pixels": 153,
+      "expected_component_sizes": [153],
+      "expected_neighbor_ids": [1373, 1822, 1895, 2145, 2146, 4977, 5023, 5024],
       "expected_coastal": true
+    },
+    {
+      "design_key": "XN-04",
+      "game_id": 4987,
+      "name_en": "Wanzhou",
+      "rgb": [164, 45, 190],
+      "expected_pixels": 352,
+      "expected_component_sizes": [352],
+      "expected_neighbor_ids": [4211, 5013, 5026, 5027, 5028],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "XN-09",
+      "game_id": 5026,
+      "name_en": "Hezhou (Chongqing)",
+      "rgb": [225, 90, 40],
+      "expected_pixels": 234,
+      "expected_component_sizes": [234],
+      "expected_neighbor_ids": [679, 680, 2169, 4211, 4987, 5027],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "XN-10",
+      "game_id": 5027,
+      "name_en": "Fuzhou (Chongqing)",
+      "rgb": [70, 190, 155],
+      "expected_pixels": 490,
+      "expected_component_sizes": [490],
+      "expected_neighbor_ids": [680, 2168, 2173, 4199, 4987, 4996, 5013, 5026],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "XN-11",
+      "game_id": 5028,
+      "name_en": "Kuizhou",
+      "rgb": [150, 70, 230],
+      "expected_pixels": 281,
+      "expected_component_sizes": [281],
+      "expected_neighbor_ids": [681, 4211, 4987, 5013],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "P02-TW-SAKAM",
+      "game_id": 738,
+      "name_en": "Taiwan",
+      "rgb": [105, 100, 192],
+      "expected_pixels": 152,
+      "expected_component_sizes": [152],
+      "expected_neighbor_ids": [1372, 1393, 4955, 4961, 5029],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "P02-TW-KELANG",
+      "game_id": 2154,
+      "name_en": "Kelang",
+      "rgb": [233, 216, 92],
+      "expected_pixels": 127,
+      "expected_component_sizes": [127],
+      "expected_neighbor_ids": [1372, 1392, 1393, 2155, 4961, 5029],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "P02-TW-MIDDAG",
+      "game_id": 2155,
+      "name_en": "Middag",
+      "rgb": [97, 44, 96],
+      "expected_pixels": 132,
+      "expected_component_sizes": [132],
+      "expected_neighbor_ids": [1372, 2154, 4955, 5029],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-18",
+      "game_id": 4955,
+      "name_en": "Zhuluo",
+      "rgb": [91, 204, 30],
+      "expected_pixels": 139,
+      "expected_component_sizes": [139],
+      "expected_neighbor_ids": [738, 1372, 2155, 5029],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-28",
+      "game_id": 4961,
+      "name_en": "Kavalan",
+      "rgb": [160, 205, 45],
+      "expected_pixels": 139,
+      "expected_component_sizes": [139],
+      "expected_neighbor_ids": [738, 1393, 2154, 5029],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "S-63",
+      "game_id": 5029,
+      "name_en": "Taiwan Mountains",
+      "rgb": [115, 75, 50],
+      "expected_pixels": 174,
+      "expected_component_sizes": [174],
+      "expected_neighbor_ids": [738, 2154, 2155, 4955, 4961],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "N-06",
+      "game_id": 4966,
+      "name_en": "Xingyang",
+      "rgb": [73, 212, 204],
+      "expected_pixels": 117,
+      "expected_component_sizes": [117],
+      "expected_neighbor_ids": [688, 692, 1836, 5030],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "N-15",
+      "game_id": 5030,
+      "name_en": "Zhengzhou",
+      "rgb": [238, 145, 35],
+      "expected_pixels": 161,
+      "expected_component_sizes": [161],
+      "expected_neighbor_ids": [687, 688, 1836, 2175, 2176, 4966],
+      "expected_coastal": false
+    },
+    {
+      "design_key": "N-16",
+      "game_id": 5031,
+      "name_en": "Chenliu",
+      "rgb": [115, 205, 175],
+      "expected_pixels": 103,
+      "expected_component_sizes": [103],
+      "expected_neighbor_ids": [688, 2137, 2140, 2176],
+      "expected_coastal": false
     }
   ]
 }

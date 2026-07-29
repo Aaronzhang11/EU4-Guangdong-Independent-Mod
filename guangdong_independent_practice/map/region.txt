@@ -907,6 +907,7 @@ south_china_region = {
 xinan_region = {
     areas = {
         sichuan_area
+        chongqing_area
         yun_gui_area
         chuannan_area
         yun_gui_borderland_area
@@ -925,6 +926,7 @@ north_china_region = {
         gansu_area
         shaanxi_area
         north_henan_area
+        wangji_area
         west_gansu_area
         xuhuai_haizhou_area
         huaiyang_tongtai_area

@@ -2837,8 +2837,8 @@ shandong_area = { #5
     690 691 2138 2139 2140
 }
 
-xuhuai_haizhou_area = { #7 (North Jiangsu)
-    2141 5017 5018 2142 5019 5020 4196
+xuhuai_haizhou_area = { #5 (North Jiangsu)
+    2141 5018 2142 5020 4196
 }
 
 huaiyang_tongtai_area = { #5 (Central Jiangsu)
@@ -2917,8 +2917,12 @@ yun_gui_borderland_area = { #5
     660 661 2165 2166 2167
 }
 
-sichuan_area = { #3
-    679 680 4212
+sichuan_area = { #2 (Chengdu basin west)
+    679 4212
+}
+
+chongqing_area = { #5 (Ba and the upper Yangtze gorges)
+    680 5026 5027 4987 5028
 }
 
 chuannan_area = { #4
@@ -2961,8 +2965,12 @@ henan_area = { #3 (South Henan)
     687 2175 2176
 }
 
-north_henan_area = { #3
-    688 692 1836
+north_henan_area = { #2 (Western Henan outside the royal domain)
+    692 1836
+}
+
+wangji_area = { #4 (Kaifeng royal domain)
+    688 4966 5030 5031
 }
 
 shanxi_area = { #5
