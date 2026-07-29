@@ -2837,12 +2837,16 @@ shandong_area = { #5
     690 691 2138 2139 2140
 }
 
-jiangsu_area = { #3
-    2141 2142 4196
+xuhuai_haizhou_area = { #7 (North Jiangsu)
+    2141 5017 5018 2142 5019 5020 4196
 }
 
-south_jiangsu_area = { #4
-    685 1821 1822 2145
+huaiyang_tongtai_area = { #5 (Central Jiangsu)
+    685 5021 4977 5022 5023
+}
+
+jinling_wuhui_area = { #6 (South Jiangsu)
+    1821 2145 5024 5025 1822 4976
 }
 
 anhui_area = { #3 (North Anhui)
@@ -2853,12 +2857,24 @@ south_anhui_area = { #3
     686 2146 2147
 }
 
-zhejiang_area = { #8
-    684 1824 2148 2149 2150 4950 4951 4956
+zhejiang_area = { #5 (Taihu and Qiantang)
+    4950 5002 684 5003 2148
 }
 
-jiangxi_area = { #4
-     670 683 1833 2151
+east_zhejiang_area = { #5 (Eastern Maritime Zhejiang)
+    2149 5004 5005 4951 1824
+}
+
+jinqu_chuzhou_area = { #4 (Jinhua, Quzhou and Chuzhou)
+    2150 5006 4956 5007
+}
+
+jiangxi_area = { #5 (North Jiangxi)
+    683 2151 4979 4992 4993
+}
+
+south_jiangxi_area = { #5
+    670 1833 4980 4994 4995
 }
 
 fujian_area = { #5 (East Fujian)
@@ -2913,12 +2929,32 @@ chuanbei_area = { #3
     2169 2170 4211
 }
 
-huguang_area = { #5 (Hubei)
-    681 682 2171 2172 4197
+hanjiang_xiangyun_area = { #3 (Han River and Xiang-Yun)
+    5008 2171 5010
 }
 
-hunan_area = { #4
-    671 672 2173 2174
+jingyi_shinan_area = { #4 (Jingzhou, Yiling, and Shinan)
+    681 2172 5013 5014
+}
+
+dean_qihuang_area = { #3 (Eastern Hubei)
+    5009 4197 5012
+}
+
+wuhan_enan_area = { #5 (Wuhan and southern Hubei)
+    4981 682 5011 5015 5016
+}
+
+dongting_area = { #4
+    672 4982 4996 4997
+}
+
+hunan_area = { #4 (Central Hunan)
+    671 2174 4983 4998
+}
+
+southwest_hunan_area = { #4
+    2173 4999 5000 5001
 }
 
 henan_area = { #3 (South Henan)

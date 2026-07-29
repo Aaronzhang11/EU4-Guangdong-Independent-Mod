@@ -1,0 +1,192 @@
+{
+  "status": "B01_P02_B06_B07_B10_AND_B11_ASSETS_PREPARED",
+  "scope": "Southeast through B11 Jiangsu implementation",
+  "baseline_version": "EU4 1.37.5",
+  "baseline_verified_by_sha256": {
+    "provinces.bmp": true,
+    "definition.csv": true,
+    "default.map": true,
+    "adjacencies.csv": true
+  },
+  "baseline_source": "EU4_INSTALL_ROOT",
+  "geometry_source": "hand_drawn_canonical_bmp",
+  "canonical_geometry_preserved": true,
+  "mod_root": "guangdong_independent_practice",
+  "implemented_ids": [
+    4942,
+    4943,
+    4944,
+    4945,
+    4946,
+    4947,
+    4948,
+    4949
+  ],
+  "prepared_ids": [],
+  "jiangxi_ids": [
+    4979,
+    4980,
+    4992,
+    4993,
+    4994,
+    4995
+  ],
+  "hunan_ids": [
+    4982,
+    4983,
+    4996,
+    4997,
+    4998,
+    4999,
+    5000,
+    5001
+  ],
+  "zhejiang_ids": [
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007
+  ],
+  "hubei_ids": [
+    681,
+    682,
+    2171,
+    2172,
+    4197,
+    4981,
+    5008,
+    5009,
+    5010,
+    5011,
+    5012,
+    5013,
+    5014,
+    5015,
+    5016
+  ],
+  "jiangsu_ids": [
+    2141,
+    5017,
+    5018,
+    2142,
+    5019,
+    5020,
+    4196,
+    685,
+    5021,
+    4977,
+    5022,
+    5023,
+    1821,
+    2145,
+    5024,
+    5025,
+    1822,
+    4976
+  ],
+  "max_provinces": 5026,
+  "changed_pixels": 15535,
+  "province_pixels": {
+    "4942": 201,
+    "4943": 71,
+    "4944": 166,
+    "4945": 398,
+    "4946": 28,
+    "4947": 293,
+    "4948": 265,
+    "4949": 155,
+    "4979": 355,
+    "4980": 277,
+    "4992": 330,
+    "4993": 329,
+    "4994": 404,
+    "4995": 233,
+    "4982": 214,
+    "4983": 232,
+    "4996": 798,
+    "4997": 373,
+    "4998": 172,
+    "4999": 428,
+    "5000": 351,
+    "5001": 255,
+    "5002": 193,
+    "5003": 296,
+    "5004": 14,
+    "5005": 98,
+    "5006": 124,
+    "5007": 226,
+    "4981": 125,
+    "5008": 165,
+    "5009": 496,
+    "5010": 990,
+    "5011": 46,
+    "5012": 181,
+    "5013": 216,
+    "5014": 187,
+    "5015": 134,
+    "5016": 59,
+    "4976": 162,
+    "4977": 151,
+    "5017": 164,
+    "5018": 165,
+    "5019": 165,
+    "5020": 165,
+    "5021": 138,
+    "5022": 145,
+    "5023": 145,
+    "5024": 155,
+    "5025": 154
+  },
+  "outputs": {
+    "map/provinces.bmp": {
+      "bytes": 34603062,
+      "sha256": "deeab6e72d24e97bc4462739b264b6bed3edf999c0cd5406ad8a91e475d299f2"
+    },
+    "map/definition.csv": {
+      "bytes": 131295,
+      "sha256": "f12deb00480229b2e645d785a514e0f193a9aafa701bb85fcb3f9ddc32c45337"
+    },
+    "map/default.map": {
+      "bytes": 10408,
+      "sha256": "5c76d4c60e0527a7de312c1ccef88da970196873c14932f92ba26cefd034e428"
+    },
+    "map/area.txt": {
+      "bytes": 51626,
+      "sha256": "adbfb0e7bb03001bc76ef1c60505f214bb57e0ea00ec0291c108ea0e22451b4f"
+    },
+    "map/region.txt": {
+      "bytes": 27873,
+      "sha256": "2f66d78a6b7132ce5b56de60a39dc0ed84754279f192b647a836e88881ac9a36"
+    },
+    "map/continent.txt": {
+      "bytes": 19815,
+      "sha256": "9c750dbbd791396c4d0796831d0f32c211735ebb78a2b9f35422ef163c391f99"
+    },
+    "map/climate.txt": {
+      "bytes": 25107,
+      "sha256": "f3d355248bed0a746c9e11b02fa3d12c67b485b393a8de728c9660ea10a29326"
+    },
+    "map/terrain.txt": {
+      "bytes": 27313,
+      "sha256": "7736d72084a6c36da6648b35bba1e0781ff0ae48b6a57370c7da1cf01f17e0bc"
+    },
+    "map/positions.txt": {
+      "bytes": 1511592,
+      "sha256": "be2e795e02e584f0023c504998d0d08bfab0f376884ef5482fdcf5c7ca7f9a71"
+    },
+    "map/adjacencies.csv": {
+      "bytes": 5586,
+      "sha256": "6e4e226ea42d90a259436f96d5e913d66c46fd9cbbfeb953414f559d22376f05"
+    },
+    "common/tradenodes/00_tradenodes.txt": {
+      "bytes": 62672,
+      "sha256": "86fbda3944425aea6d077f4e42792c1f5572167e7dfda7c406afe2fa87202d58"
+    },
+    "common/trade_companies/00_trade_companies.txt": {
+      "bytes": 36778,
+      "sha256": "060f998618c5b1a3d34328be68422fec48b687663024d6d7519187d3eeb27235"
+    }
+  }
+}

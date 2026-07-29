@@ -1,0 +1,841 @@
+{
+  "status": "PREVIEW_GEOMETRY_PASS",
+  "scope": "B01 geometry preview only; not a loadable EU4 map",
+  "baseline_version": "EU4 1.37.5",
+  "baseline_verified_by_sha256": true,
+  "baseline_file_sha256": {
+    "provinces.bmp": "40348545baf1886009eb46d8ffba0a76684061e44faa64ec788c756ce607e5c8",
+    "definition.csv": "ea6384a5b41f70bd179435e6626229e907c0d7b07a60d262c85776c74e1f2153",
+    "default.map": "70ed470492e6266d5ae809534ab56935e904fe2d3017451195001b8ba2a8cf0c",
+    "adjacencies.csv": "fb3ddf25320e9fa022d89e6b567b934b447314d0aad58db08d5bb0164553c0bd"
+  },
+  "image_size": [
+    5632,
+    2048
+  ],
+  "image_mode": "RGB",
+  "review_crop": [
+    4480,
+    970,
+    4650,
+    1080
+  ],
+  "changed_pixels": 710,
+  "partitions": [
+    {
+      "parent_id": 667,
+      "retained_name_zh": "广州",
+      "retained_anchor_policy": "locked",
+      "original_pixels": 596,
+      "retained_pixels": 523,
+      "child_design_keys": [
+        "S-13"
+      ],
+      "sibling_edges": [],
+      "original_external_neighbor_ids": [
+        665,
+        668,
+        1370,
+        1371,
+        2157,
+        2158
+      ],
+      "collapsed_final_external_neighbor_ids": [
+        665,
+        668,
+        1370,
+        1371,
+        2157,
+        2158
+      ],
+      "retained_coastal": true
+    },
+    {
+      "parent_id": 2157,
+      "retained_name_zh": "惠州",
+      "retained_anchor_policy": "relocate_in_production",
+      "original_pixels": 947,
+      "retained_pixels": 704,
+      "child_design_keys": [
+        "S-14",
+        "S-19"
+      ],
+      "sibling_edges": [
+        {
+          "design_keys": [
+            "S-14",
+            "S-19"
+          ],
+          "shared_edges": 6
+        }
+      ],
+      "original_external_neighbor_ids": [
+        667,
+        670,
+        1371,
+        2156,
+        2158
+      ],
+      "collapsed_final_external_neighbor_ids": [
+        667,
+        670,
+        1371,
+        2156,
+        2158
+      ],
+      "retained_coastal": true
+    },
+    {
+      "parent_id": 2156,
+      "retained_name_zh": "潮州",
+      "retained_anchor_policy": "locked",
+      "original_pixels": 512,
+      "retained_pixels": 346,
+      "child_design_keys": [
+        "S-15"
+      ],
+      "sibling_edges": [],
+      "original_external_neighbor_ids": [
+        670,
+        1371,
+        1829,
+        2153,
+        2157
+      ],
+      "collapsed_final_external_neighbor_ids": [
+        670,
+        1371,
+        1829,
+        2153,
+        2157
+      ],
+      "retained_coastal": true
+    },
+    {
+      "parent_id": 2159,
+      "retained_name_zh": "雷州",
+      "retained_anchor_policy": "locked",
+      "original_pixels": 607,
+      "retained_pixels": 379,
+      "child_design_keys": [
+        "S-16"
+      ],
+      "sibling_edges": [],
+      "original_external_neighbor_ids": [
+        665,
+        1370,
+        2161,
+        2162
+      ],
+      "collapsed_final_external_neighbor_ids": [
+        665,
+        1370,
+        2161,
+        2162
+      ],
+      "retained_coastal": true
+    }
+  ],
+  "splits": [
+    {
+      "design_key": "S-13",
+      "game_id": 4942,
+      "rgb": [
+        190,
+        91,
+        45
+      ],
+      "parent_id": 667,
+      "parent_definition_name": "Guangzhou",
+      "retained_name_zh": "广州",
+      "retained_anchor_policy": "locked",
+      "new_name_zh": "佛山",
+      "parent_pixels": 596,
+      "new_pixels": 73,
+      "retained_pixels": 523,
+      "target_fraction": 0.13,
+      "actual_fraction": 0.12248322147651007,
+      "geometry": {
+        "type": "global_polygon",
+        "vertices": [
+          [
+            4566,
+            1020
+          ],
+          [
+            4572,
+            1017
+          ],
+          [
+            4574,
+            1021
+          ],
+          [
+            4574,
+            1027
+          ],
+          [
+            4573,
+            1030
+          ],
+          [
+            4569,
+            1030
+          ],
+          [
+            4566,
+            1026
+          ]
+        ]
+      },
+      "original_components": [
+        589,
+        4,
+        3
+      ],
+      "new_components": [
+        73
+      ],
+      "retained_components": [
+        516,
+        4,
+        3
+      ],
+      "retained_mainland_components": [
+        516
+      ],
+      "solid_square_size": 3,
+      "configured_new_seed": [
+        4572,
+        1026
+      ],
+      "snapped_new_seed": [
+        4572,
+        1026
+      ],
+      "new_seed_snap_distance": 0.0,
+      "configured_retained_reference_points": [
+        [
+          4575,
+          1026
+        ],
+        [
+          4575,
+          1022
+        ],
+        [
+          4570,
+          1041
+        ]
+      ],
+      "snapped_retained_seeds": [
+        [
+          4575,
+          1026
+        ],
+        [
+          4575,
+          1022
+        ],
+        [
+          4569,
+          1041
+        ]
+      ],
+      "retained_snap_distances": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "neighbor_ids": [
+        665,
+        667
+      ],
+      "coastal": false,
+      "notes": "佛山改为广州正西侧的紧凑内陆块，避免贯穿母省的机械长条；广州城市、港口、珠江口修正和南海神庙全部留在667。",
+      "shared_parent_edges": 26,
+      "original_parent_neighbor_ids": [
+        665,
+        668,
+        1370,
+        1371,
+        2157,
+        2158
+      ],
+      "retained_parent_neighbor_ids": [
+        665,
+        668,
+        1370,
+        1371,
+        2157,
+        2158,
+        4942,
+        4943
+      ],
+      "retained_parent_lost_neighbor_ids": [],
+      "retained_parent_gained_neighbor_ids": [
+        4942,
+        4943
+      ],
+      "original_parent_coastal": true,
+      "retained_parent_coastal": true
+    },
+    {
+      "design_key": "S-14",
+      "game_id": 4943,
+      "rgb": [
+        67,
+        219,
+        159
+      ],
+      "parent_id": 2157,
+      "parent_definition_name": "Waichow",
+      "retained_name_zh": "惠州",
+      "retained_anchor_policy": "relocate_in_production",
+      "new_name_zh": "东莞",
+      "parent_pixels": 947,
+      "new_pixels": 151,
+      "retained_pixels": 704,
+      "target_fraction": 0.16,
+      "actual_fraction": 0.15945089757127773,
+      "geometry": {
+        "type": "global_polygon",
+        "vertices": [
+          [
+            4583,
+            1016
+          ],
+          [
+            4591,
+            1011
+          ],
+          [
+            4597,
+            1016
+          ],
+          [
+            4597,
+            1021
+          ],
+          [
+            4594,
+            1024
+          ],
+          [
+            4594,
+            1031
+          ],
+          [
+            4588,
+            1031
+          ],
+          [
+            4583,
+            1024
+          ]
+        ]
+      },
+      "original_components": [
+        947
+      ],
+      "new_components": [
+        151
+      ],
+      "retained_components": [
+        704
+      ],
+      "retained_mainland_components": [
+        704
+      ],
+      "solid_square_size": 3,
+      "configured_new_seed": [
+        4584,
+        1022
+      ],
+      "snapped_new_seed": [
+        4584,
+        1022
+      ],
+      "new_seed_snap_distance": 0.0,
+      "configured_retained_reference_points": [
+        [
+          4605,
+          1012
+        ],
+        [
+          4605,
+          1020
+        ],
+        [
+          4611,
+          1026
+        ]
+      ],
+      "snapped_retained_seeds": [
+        [
+          4605,
+          1012
+        ],
+        [
+          4605,
+          1020
+        ],
+        [
+          4611,
+          1026
+        ]
+      ],
+      "retained_snap_distances": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "neighbor_ids": [
+        667,
+        1371,
+        2157,
+        4946
+      ],
+      "coastal": true,
+      "notes": "东莞改为惠州西南、广州以东的块状珠江口省份，不再向粤北延伸；保留独立海岸并与香港相邻。",
+      "shared_parent_edges": 20,
+      "original_parent_neighbor_ids": [
+        667,
+        670,
+        1371,
+        2156,
+        2158
+      ],
+      "retained_parent_neighbor_ids": [
+        667,
+        670,
+        1371,
+        2156,
+        2158,
+        4943,
+        4944,
+        4946
+      ],
+      "retained_parent_lost_neighbor_ids": [],
+      "retained_parent_gained_neighbor_ids": [
+        4943,
+        4944,
+        4946
+      ],
+      "original_parent_coastal": true,
+      "retained_parent_coastal": true
+    },
+    {
+      "design_key": "S-19",
+      "game_id": 4946,
+      "rgb": [
+        20,
+        200,
+        220
+      ],
+      "parent_id": 2157,
+      "parent_definition_name": "Waichow",
+      "retained_name_zh": "惠州",
+      "retained_anchor_policy": "relocate_in_production",
+      "new_name_zh": "香港",
+      "parent_pixels": 947,
+      "new_pixels": 92,
+      "retained_pixels": 704,
+      "target_fraction": 0.1,
+      "actual_fraction": 0.09714889123548047,
+      "geometry": {
+        "type": "global_polygon",
+        "vertices": [
+          [
+            4595,
+            1024
+          ],
+          [
+            4608,
+            1024
+          ],
+          [
+            4610,
+            1028
+          ],
+          [
+            4608,
+            1031
+          ],
+          [
+            4601,
+            1033
+          ],
+          [
+            4596,
+            1033
+          ],
+          [
+            4595,
+            1029
+          ]
+        ]
+      },
+      "original_components": [
+        947
+      ],
+      "new_components": [
+        92
+      ],
+      "retained_components": [
+        704
+      ],
+      "retained_mainland_components": [
+        704
+      ],
+      "solid_square_size": 3,
+      "configured_new_seed": [
+        4598,
+        1032
+      ],
+      "snapped_new_seed": [
+        4598,
+        1032
+      ],
+      "new_seed_snap_distance": 0.0,
+      "configured_retained_reference_points": [
+        [
+          4605,
+          1012
+        ],
+        [
+          4605,
+          1020
+        ],
+        [
+          4611,
+          1026
+        ]
+      ],
+      "snapped_retained_seeds": [
+        [
+          4605,
+          1012
+        ],
+        [
+          4605,
+          1020
+        ],
+        [
+          4611,
+          1026
+        ]
+      ],
+      "retained_snap_distances": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "neighbor_ids": [
+        1371,
+        2157,
+        4943
+      ],
+      "coastal": true,
+      "notes": "香港用东莞东南、惠州南缘的新界—九龙沿岸作可点击抽象；不把海水改成陆地，也不预设1444年已经成为现代都会。",
+      "shared_parent_edges": 18,
+      "original_parent_neighbor_ids": [
+        667,
+        670,
+        1371,
+        2156,
+        2158
+      ],
+      "retained_parent_neighbor_ids": [
+        667,
+        670,
+        1371,
+        2156,
+        2158,
+        4943,
+        4944,
+        4946
+      ],
+      "retained_parent_lost_neighbor_ids": [],
+      "retained_parent_gained_neighbor_ids": [
+        4943,
+        4944,
+        4946
+      ],
+      "original_parent_coastal": true,
+      "retained_parent_coastal": true
+    },
+    {
+      "design_key": "S-15",
+      "game_id": 4944,
+      "rgb": [
+        187,
+        30,
+        204
+      ],
+      "parent_id": 2156,
+      "parent_definition_name": "Chaochow",
+      "retained_name_zh": "潮州",
+      "retained_anchor_policy": "locked",
+      "new_name_zh": "梅州",
+      "parent_pixels": 512,
+      "new_pixels": 166,
+      "retained_pixels": 346,
+      "target_fraction": 0.325,
+      "actual_fraction": 0.32421875,
+      "geometry": {
+        "type": "global_polygon",
+        "vertices": [
+          [
+            4615,
+            990
+          ],
+          [
+            4620,
+            991
+          ],
+          [
+            4623,
+            996
+          ],
+          [
+            4623,
+            1004
+          ],
+          [
+            4620,
+            1010
+          ],
+          [
+            4615,
+            1012
+          ],
+          [
+            4612,
+            1008
+          ],
+          [
+            4610,
+            994
+          ],
+          [
+            4610,
+            993
+          ],
+          [
+            4613,
+            991
+          ]
+        ]
+      },
+      "original_components": [
+        509,
+        3
+      ],
+      "new_components": [
+        166
+      ],
+      "retained_components": [
+        343,
+        3
+      ],
+      "retained_mainland_components": [
+        343
+      ],
+      "solid_square_size": 3,
+      "configured_new_seed": [
+        4617,
+        1004
+      ],
+      "snapped_new_seed": [
+        4617,
+        1004
+      ],
+      "new_seed_snap_distance": 0.0,
+      "configured_retained_reference_points": [
+        [
+          4625,
+          1013
+        ],
+        [
+          4625,
+          1008
+        ],
+        [
+          4629,
+          1019
+        ]
+      ],
+      "snapped_retained_seeds": [
+        [
+          4625,
+          1013
+        ],
+        [
+          4625,
+          1008
+        ],
+        [
+          4629,
+          1018
+        ]
+      ],
+      "retained_snap_distances": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "neighbor_ids": [
+        670,
+        2153,
+        2156,
+        2157
+      ],
+      "coastal": false,
+      "notes": "梅州改为潮州西北的紧凑内陆山地块，只连接赣州、汀州、惠州和保留潮州，不再碰到厦门或海区。",
+      "shared_parent_edges": 30,
+      "original_parent_neighbor_ids": [
+        670,
+        1371,
+        1829,
+        2153,
+        2157
+      ],
+      "retained_parent_neighbor_ids": [
+        1371,
+        1829,
+        2153,
+        2157,
+        4944
+      ],
+      "retained_parent_lost_neighbor_ids": [
+        670
+      ],
+      "retained_parent_gained_neighbor_ids": [
+        4944
+      ],
+      "original_parent_coastal": true,
+      "retained_parent_coastal": true
+    },
+    {
+      "design_key": "S-16",
+      "game_id": 4945,
+      "rgb": [
+        186,
+        212,
+        73
+      ],
+      "parent_id": 2159,
+      "parent_definition_name": "Leichow",
+      "retained_name_zh": "雷州",
+      "retained_anchor_policy": "locked",
+      "new_name_zh": "高州",
+      "parent_pixels": 607,
+      "new_pixels": 228,
+      "retained_pixels": 379,
+      "target_fraction": 0.375,
+      "actual_fraction": 0.3756177924217463,
+      "geometry": {
+        "type": "local_half_plane",
+        "a": -11,
+        "b": 3,
+        "threshold": -148
+      },
+      "original_components": [
+        604,
+        3
+      ],
+      "new_components": [
+        228
+      ],
+      "retained_components": [
+        376,
+        3
+      ],
+      "retained_mainland_components": [
+        376
+      ],
+      "solid_square_size": 3,
+      "configured_new_seed": [
+        4538,
+        1044
+      ],
+      "snapped_new_seed": [
+        4538,
+        1044
+      ],
+      "new_seed_snap_distance": 0.0,
+      "configured_retained_reference_points": [
+        [
+          4522,
+          1060
+        ],
+        [
+          4533,
+          1047
+        ],
+        [
+          4529,
+          1070
+        ]
+      ],
+      "snapped_retained_seeds": [
+        [
+          4522,
+          1060
+        ],
+        [
+          4533,
+          1047
+        ],
+        [
+          4529,
+          1070
+        ]
+      ],
+      "retained_snap_distances": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "neighbor_ids": [
+        665,
+        1370,
+        2159,
+        2162
+      ],
+      "coastal": true,
+      "notes": "高州取雷州东北与半岛根部；雷州保留半岛南部和海峡门户。",
+      "shared_parent_edges": 17,
+      "original_parent_neighbor_ids": [
+        665,
+        1370,
+        2161,
+        2162
+      ],
+      "retained_parent_neighbor_ids": [
+        1370,
+        2161,
+        2162,
+        4945
+      ],
+      "retained_parent_lost_neighbor_ids": [
+        665
+      ],
+      "retained_parent_gained_neighbor_ids": [
+        4945
+      ],
+      "original_parent_coastal": true,
+      "retained_parent_coastal": true
+    }
+  ],
+  "checks": [
+    "S-13: 73px, 12.2%, shared_parent_edges=26, neighbors=[665, 667]",
+    "S-14: 151px, 15.9%, shared_parent_edges=20, neighbors=[667, 1371, 2157, 4946]",
+    "S-19: 92px, 9.7%, shared_parent_edges=18, neighbors=[1371, 2157, 4943]",
+    "S-15: 166px, 32.4%, shared_parent_edges=30, neighbors=[670, 2153, 2156, 2157]",
+    "S-16: 228px, 37.6%, shared_parent_edges=17, neighbors=[665, 1370, 2159, 2162]"
+  ],
+  "candidate_bmp_written": true,
+  "production_map_written": false
+}
