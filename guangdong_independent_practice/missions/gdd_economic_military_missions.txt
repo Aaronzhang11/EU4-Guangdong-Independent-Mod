@@ -1,0 +1,419 @@
+gdd_military_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+
+	potential = {
+		tag = GDD
+		NOT = { map_setup = map_setup_random }
+	}
+
+	gdd_mass_conscription = {
+		icon = mission_assemble_an_army
+		required_missions = { }
+		position = 1
+
+		trigger = {
+			army_size_percentage = 0.9
+			manpower_percentage = 0.6
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = gdd_large_scale_recruitment_modifier
+				duration = 5475
+			}
+		}
+
+		ai_weight = {
+			factor = 10
+		}
+	}
+
+	gdd_solidify_power_base = {
+		icon = mission_tumu_crisis
+		required_missions = { gdd_mass_conscription }
+		position = 2
+
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+			devastation = 1
+		}
+
+		trigger = {
+			capital_scope = {
+				NOT = { devastation = 1 }
+			}
+			prestige = 25
+			if = {
+				limit = { has_estate = estate_nobles }
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 60
+				}
+			}
+		}
+
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 25
+			}
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 20
+			}
+			custom_tooltip = gdd_adjacent_claims_tt
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						limit = {
+							NOT = { owned_by = ROOT }
+							NOT = { is_claim = ROOT }
+							NOT = { is_core = ROOT }
+						}
+						add_claim = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+gdd_military_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+
+	potential = {
+		tag = GDD
+		NOT = { map_setup = map_setup_random }
+	}
+
+	gdd_forge_alliances = {
+		icon = mission_alliances
+		required_missions = { }
+		position = 1
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = gdd_forge_alliances_trigger_tt
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = gdd_diplomatic_connections_modifier
+				duration = 5475
+			}
+		}
+	}
+
+	gdd_expand_territory = {
+		icon = mission_conquer_50_development
+		required_missions = {
+			gdd_forge_alliances
+			gdd_solidify_power_base
+		}
+		position = 3
+
+		trigger = {
+			num_of_cities = 30
+			total_development = 300
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = gdd_local_hegemon_modifier
+				duration = 7300
+			}
+		}
+	}
+}
+
+gdd_economic_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+
+	potential = {
+		tag = GDD
+		NOT = { map_setup = map_setup_random }
+	}
+
+	gdd_issue_trade_policy = {
+		icon = dominant_economy
+		required_missions = { gdd_renovate_capital }
+		position = 3
+
+		trigger = {
+			trader = 3
+			if = {
+				limit = { has_estate = estate_burghers }
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 60
+				}
+				estate_influence = {
+					estate = estate_burghers
+					influence = 60
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Rights of Man"
+					NOT = {
+						num_of_ruler_traits = {
+							amount = 3
+						}
+					}
+				}
+				add_ruler_personality = entrepreneur_personality
+			}
+			else = {
+				add_mercantilism = 3
+			}
+
+			custom_tooltip = gdd_issue_trade_policy_reward_tt
+			hidden_effect = {
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+				random_owned_province = { add_base_production = 1 }
+			}
+		}
+	}
+}
+
+gdd_economic_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+
+	potential = {
+		tag = GDD
+		NOT = { map_setup = map_setup_random }
+	}
+
+	gdd_stable_court = {
+		icon = balance_the_estates
+		required_missions = { }
+		position = 1
+
+		trigger = {
+			if = {
+				limit = { has_estate = estate_burghers }
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 55
+				}
+			}
+			if = {
+				limit = { has_estate = estate_nobles }
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 55
+				}
+			}
+			if = {
+				limit = { has_estate = estate_church }
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 55
+				}
+			}
+			if = {
+				limit = { has_estate = estate_eunuchs }
+				estate_loyalty = {
+					estate = estate_eunuchs
+					loyalty = 55
+				}
+			}
+			NOT = { num_of_loans = 1 }
+			stability = 1
+		}
+
+		effect = {
+			if = {
+				limit = { is_emperor_of_china = yes }
+				add_country_modifier = {
+					name = gdd_stable_court_meritocracy_modifier
+					duration = 9125
+				}
+			}
+			else_if = {
+				limit = { government = republic }
+				add_country_modifier = {
+					name = gdd_stable_court_republic_modifier
+					duration = 9125
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = gdd_stable_court_monarchy_modifier
+					duration = 9125
+				}
+			}
+		}
+	}
+
+	gdd_renovate_capital = {
+		icon = mission_pol_develop_countryside
+		required_missions = { gdd_stable_court }
+		position = 2
+
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+		}
+
+		trigger = {
+			capital_scope = {
+				development = 25
+				has_tax_building_trigger = yes
+				has_trade_building_trigger = yes
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { is_emperor_of_china = yes }
+				add_meritocracy = 10
+				add_mandate = 15
+			}
+			else = {
+				add_legitimacy = 25
+			}
+			capital_scope = {
+				add_next_institution_embracement = 25
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" }
+					add_prosperity = 100
+				}
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				add_splendor = 200
+			}
+			else = {
+				add_adm_power = 100
+			}
+		}
+	}
+
+	gdd_issue_currency_policy = {
+		icon = mission_have_manufactories
+		required_missions = { gdd_renovate_capital }
+		position = 3
+
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				trade_goods = gold
+				trade_goods = copper
+			}
+			NOT = { development = 20 }
+		}
+
+		trigger = {
+			NOT = { inflation = 1.01 }
+			custom_trigger_tooltip = {
+				tooltip = gdd_currency_resource_development_tt
+				num_of_owned_provinces_with = {
+					OR = {
+						trade_goods = gold
+						trade_goods = copper
+					}
+					development = 20
+					value = 1
+				}
+			}
+			NOT = { average_autonomy_above_min = 5 }
+		}
+
+		effect = {
+			if = {
+				limit = {
+					any_owned_province = {
+						trade_goods = gold
+					}
+				}
+				add_country_modifier = {
+					name = gdd_healthy_fiscal_system_modifier
+					duration = 9125
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = gdd_healthy_fiscal_system_modifier
+					duration = 7300
+				}
+			}
+		}
+	}
+
+	gdd_foster_market = {
+		icon = mission_growth_of_surat
+		required_missions = {
+			gdd_issue_trade_policy
+			gdd_issue_currency_policy
+		}
+		position = 4
+
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			OR = {
+				has_trade_building_trigger = no
+				NOT = { base_production = 15 }
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				has_trade_building_trigger = yes
+				base_production = 15
+				province_has_center_of_trade_of_level = 3
+				value = 1
+			}
+		}
+
+		effect = {
+			add_mercantilism = 10
+			add_dip_power = 200
+			add_country_modifier = {
+				name = gdd_prosperous_trade_market_modifier
+				duration = 10950
+			}
+			custom_tooltip = gdd_foster_market_reward_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						province_has_center_of_trade_of_level = 1
+					}
+					add_province_modifier = {
+						name = gdd_center_of_trade_boom_modifier
+						duration = 10950
+					}
+				}
+			}
+		}
+	}
+}

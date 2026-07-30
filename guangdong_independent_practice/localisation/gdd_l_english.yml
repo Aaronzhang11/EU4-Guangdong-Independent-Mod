@@ -1,8 +1,8 @@
 ﻿l_english:
- GDD:0 "²|"
- GDD_ADJ:0 "²|"
+ GDD:0 "²s"
+ GDD_ADJ:0 "²s"
  estate_gdd_clans:0 "—RÏe"
- GDD_ideas:0 "²|tõV"
+ GDD_ideas:0 "²stõV"
  GDD_ideas_start:0 "—RÏe—gËz"
  GDD_ideas_bonus:0 "FUºN–"
 
@@ -53,3 +53,39 @@
  estate_burghers_gdd_southern_trade_charter:0 "WS²s„v8fyr¸‹"
  estate_burghers_gdd_southern_trade_charter_desc:0 "hlDQVŒTFUºN„v¥YOSagLk0"
  gdd_southern_trade_charter_locked_tt:0 "—‰HQŒRbùR”^ûN¡RÿMbýw²d•§YWS²s„v8fyr¸‹§!0"
+
+ gdd_mass_conscription_title:0 "'YÄ‰!jVuQ"
+ gdd_mass_conscription_desc:0 "°eu„v^NMeCgÅV‰˜ÅibEQ8^Y›Qÿv^ú^Ëz³åN=e‘d•gjOb„vºN›R¨PY0"
+ gdd_solidify_power_base_title:0 "Qrbr9húW¿R›R"
+ gdd_solidify_power_base_desc:0 "êS	g‰RšR–™œ^0âVÓu—RÏev^hËzg÷^ZgÿbìNMbýwŠb­SWS„v0W¹e›RÏ‘wckteT0RýV¶RKN-N0"
+ gdd_forge_alliances_title:0 "^Óuo‚"
+ gdd_forge_alliances_desc:0 "^N‚föeàe›RìrêùR—bNb	gHVLe03zúVw²NÆR„vßvËSSHNbìN‰NÖSR5„vY²Nzzô•0"
+ gdd_expand_territory_title:0 "ibUS†˜W"
+ gdd_expand_territory_desc:0 "SV^Nåb	g³Y„vºNãS0W0WŒTßvËSKNTÿbìN¿OýwåN0W¹e8—IN„vÿY`Í‘QXNSWSéy^0"
+
+ gdd_stable_court_title:0 "g÷^‰Rðl"
+ gdd_stable_court_desc:0 "0Me06–BSNMeNSýÅV‰˜b`Y3zšR0êS	g…Qè‰Rðlÿg÷^MbýwÆ–-N¾s›RYtôf•Ü„v‹N¡R0"
+ gdd_renovate_capital_title:0 "îO.–™œ^"
+ gdd_renovate_capital_desc:0 "^ÞT=f^N„vMe»lN8f-NÃV0ibú^ÎW^0te˜^6‚Nz6e¾‹ËeÿSOvQwckM‘—VN­SWS–™œ^KNT0"
+ gdd_issue_trade_policy_title:0 "ÑS^8fMeVr"
+ gdd_issue_trade_policy_desc:0 "g÷^”^SVP©RFUºN„vDÑ‘ŒTQÜuÿnxËzßuN„v8fMeVrÿv^vbcT0WÑSUSýwYÛeQ^HW„vFUÁT0"
+ gdd_issue_currency_policy_title:0 "ÑS^'^MeVr"
+ gdd_issue_currency_policy_desc:0 "3zšR„v'^N0Me6R¦^=fFUNAucƒ„vúWNx0µc6RÀw0te˜ÿwµN6eeQv^‹SNO0W¹eê»lÿMbýwú^ËzeP·^„v0MeSOûs0"
+ gdd_foster_market_title:0 "ùW²w^HW"
+ gdd_foster_market_desc:0 "åN'Y‹W8fÎW^HN¢gËuÿS^NT0W„v^HWÞ¥cwegÿ¿Oýw8TVôfYFUºNN'irGlZwŽNbìN„v=nãS0"
+
+ gdd_large_scale_recruitment_modifier:0 "'YÄ‰!jVuQ"
+ gdd_diplomatic_connections_modifier:0 "^Óuo‚"
+ gdd_local_hegemon_modifier:0 "0W¹e8—IN"
+ gdd_stable_court_meritocracy_modifier:0 "3zšRg÷^"
+ gdd_stable_court_republic_modifier:0 "3zšRg÷^"
+ gdd_stable_court_monarchy_modifier:0 "3zšRg÷^"
+ gdd_healthy_fiscal_system_modifier:0 "eP·^0MeSOûs"
+ gdd_prosperous_trade_market_modifier:0 "Aucƒ„v8f^HW"
+ gdd_center_of_trade_boom_modifier:0 "Aucƒ„v8f-NÃV"
+
+ gdd_adjacent_claims_tt:0 "·ƒ—VNb	gøv»YýVwýN„v§Y±Rðy§!0"
+ gdd_forge_alliances_trigger_tt:0 "óSåb	g§Y2§!8NùRbýV‹Ya¦^¾0R§Y150§!„vßvËS0"
+ gdd_issue_trade_policy_reward_tt:0 "(WbýVåb	g„vwýN-N–HgRM‘§G10§!¹púWNxuµN0"
+ gdd_currency_resource_development_tt:0 "óSåb	gN8NuµN§YÑ‘§!b§YÜ”§!NI`ÑSUS¦^¾0R§Y20§!„vwýN0"
+ gdd_foster_market_reward_tt:0 "býVNb	gåb	g8f-NÃV„vwýN·ƒ—Vcíu§Y30t^§!„v§G+10.0%§!wýN8f›RÏ‘0"
