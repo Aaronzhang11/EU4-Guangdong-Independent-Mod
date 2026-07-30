@@ -13,7 +13,7 @@ historical_score = 10
 # These are given names. EU4 displays them together with the current dynasty.
 monarch_names = {
     "ˆRÁN #0" = 10
-    "ˆRJy #0" = 10
+    "ˆR<y #0" = 10
     "ˆRáO #0" = 10
     "ˆRck #0" = 10
     "bi` #0" = 10
@@ -70,4 +70,10 @@ ship_names = {
     "West River"
     "East River"
     "Lingding Sea"
+}
+
+army_names = {
+    "²|¯OkS–"
+    "NPRkS–"
+    "$PROVINCE$›Q"
 }
