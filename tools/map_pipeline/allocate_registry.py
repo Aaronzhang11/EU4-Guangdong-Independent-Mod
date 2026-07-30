@@ -17,9 +17,14 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = REPO_ROOT / "docs/map/china_province_split_registry.csv"
 EXPECTED_VANILLA_MAX_ID = 4941
-EXPECTED_REGISTRY_ROWS = 84
+EXPECTED_REGISTRY_ROWS = 90
 ALLOCATION_FIELDS = ("game_id", "rgb_r", "rgb_g", "rgb_b")
 COLOR_OVERRIDES = {
+    "N-15": (238, 145, 35),
+    "N-16": (115, 205, 175),
+    "XN-09": (225, 90, 40),
+    "XN-10": (70, 190, 155),
+    "XN-11": (150, 70, 230),
     "S-19": (20, 200, 220),
     "S-20": (106, 60, 226),
     "S-21": (190, 128, 45),
@@ -64,8 +69,14 @@ COLOR_OVERRIDES = {
     "S-60": (105, 205, 80),
     "S-61": (200, 120, 45),
     "S-62": (55, 145, 215),
+    "S-63": (115, 75, 50),
 }
 NON_SEQUENCE_COLOR_KEYS = {
+    "N-15",
+    "N-16",
+    "XN-09",
+    "XN-10",
+    "XN-11",
     "S-20",
     "S-21",
     "S-22",
@@ -109,6 +120,7 @@ NON_SEQUENCE_COLOR_KEYS = {
     "S-60",
     "S-61",
     "S-62",
+    "S-63",
 }
 EARLY_ACTIVATION_KEYS = (
     "S-04",
@@ -132,6 +144,9 @@ LATE_ACTIVATION_KEYS = (
     "S-50", "S-51", "S-52", "S-53",
     "S-54", "S-55", "S-56", "S-57", "S-58",
     "S-59", "S-60", "S-61", "S-62",
+    "XN-09", "XN-10", "XN-11",
+    "S-63",
+    "N-15", "N-16",
 )
 
 

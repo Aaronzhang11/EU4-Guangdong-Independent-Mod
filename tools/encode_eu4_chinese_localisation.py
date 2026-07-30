@@ -27,6 +27,8 @@ FILES = {
     "gdd_b06_zhejiang_map_readable_utf8.txt": "gdd_b06_zhejiang_map_l_english.yml",
     "gdd_b10_hubei_map_readable_utf8.txt": "gdd_b10_hubei_map_l_english.yml",
     "gdd_b11_jiangsu_map_readable_utf8.txt": "gdd_b11_jiangsu_map_l_english.yml",
+    "gdd_b09_chongqing_map_readable_utf8.txt": "gdd_b09_chongqing_map_l_english.yml",
+    "gdd_b03_wangji_map_readable_utf8.txt": "gdd_b03_wangji_map_l_english.yml",
     "gdd_treaty_readable_utf8.txt": "gdd_treaty_l_english.yml",
     "gdd_characters_readable_utf8.txt": "gdd_characters_l_english.yml",
     "gdd_invested_tributary_readable_utf8.txt": "gdd_invested_tributary_l_english.yml",

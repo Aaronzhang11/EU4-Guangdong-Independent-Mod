@@ -1,14 +1,14 @@
-# 5012 - Qizhou
+# 5009 - Suizhou
 owner = MNG
 controller = MNG
 add_core = MNG
 add_core = CHC
 culture = hubei
 religion = confucianism
-capital = "Qizhou"
-trade_goods = tea
+capital = "Suizhou"
+trade_goods = cotton
 base_tax = 3
-base_production = 3
+base_production = 2
 base_manpower = 2
 is_city = yes
 discovered_by = chinese

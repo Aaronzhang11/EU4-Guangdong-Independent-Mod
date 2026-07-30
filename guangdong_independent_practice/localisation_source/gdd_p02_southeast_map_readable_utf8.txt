@@ -21,8 +21,10 @@
  PROV_ADJ4959:0 "庆远"
  PROV4960:0 "太平"
  PROV_ADJ4960:0 "太平"
- PROV4961:0 "噶玛兰"
- PROV_ADJ4961:0 "噶玛兰"
+PROV4961:0 "噶玛兰"
+PROV_ADJ4961:0 "噶玛兰"
+PROV5029:0 "台湾山脉"
+PROV_ADJ5029:0 "台湾山脉"
 
  fujian_area:0 "福建东部"
  fujian_area_name:0 "福州"

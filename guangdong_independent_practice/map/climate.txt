@@ -393,6 +393,7 @@ impassable = {
     4657
     4807 4808 4843 4844
     4924 4925 4926 4927 4928 4929 4930 4931 4932 4933
+    5029 # B08 Taiwan central range
 }
 
 mild_monsoon = {
@@ -580,6 +581,8 @@ normal_monsoon = {
     5002 5003 5004 5005 5006 5007 # B06 Zhejiang expansion
     4981 5008 5009 5010 5011 5012 5013 5014 5015 5016 # B10 Hubei
     4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025 # B11 Jiangsu
+    4987 5026 5027 5028 # B09 Chongqing
+    4966 5030 5031 # B03 Kaifeng royal domain
 }
 
 severe_monsoon = {
