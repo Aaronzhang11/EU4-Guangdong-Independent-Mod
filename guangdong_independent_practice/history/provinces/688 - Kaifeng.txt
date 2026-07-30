@@ -1,0 +1,20 @@
+#688 - Kaifeng (can't change file name)
+
+owner = CZH
+controller = CZH
+add_core = CZH
+culture = zhongyuan
+religion = confucianism
+capital = "Kaifeng"
+trade_goods = chinaware
+hre = no
+base_tax = 11
+base_production = 10
+base_manpower = 9
+is_city = yes
+
+
+
+discovered_by = chinese
+discovered_by = nomad_group
+
