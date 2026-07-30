@@ -87,6 +87,10 @@ java_sea_area = { #3
     1355 1358 1360
 }
 
+yangtze_river_area = { #9
+    5032 5033 5034 5035 5036 5037 5038 1655 1897
+}
+
 east_china_sea_area = { #8
     1372 1373 1374 1375 1389 1392 4233 4234
 }
@@ -2937,16 +2941,16 @@ hanjiang_xiangyun_area = { #3 (Han River and Xiang-Yun)
     5008 2171 5010
 }
 
-jingyi_shinan_area = { #4 (Jingzhou, Yiling, and Shinan)
-    681 2172 5013 5014
+jingyi_shinan_area = { #5 (Jingzhou, Yiling, Shinan, and Mianyang)
+    681 2172 5013 5014 5015
 }
 
 dean_qihuang_area = { #3 (Eastern Hubei)
     5009 4197 5012
 }
 
-wuhan_enan_area = { #5 (Wuhan and southern Hubei)
-    4981 682 5011 5015 5016
+wuhan_enan_area = { #4 (Wuhan Three Towns and Xingguo)
+    4981 682 5011 5016
 }
 
 dongting_area = { #4

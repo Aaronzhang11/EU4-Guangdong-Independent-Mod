@@ -1487,7 +1487,8 @@ east_china_sea_region = {
         philipine_sea_area
         sea_of_japan_area
         sea_of_okhotsk_area
-    }
+        yangtze_river_area
+}
 }
 
 north_west_pacific_region = {

@@ -48,6 +48,16 @@ TAIWAN_MOUNTAIN_ID = 5029
 TAIWAN_REVIEW_IDS = (738, 2154, 2155, 4955, 4961, TAIWAN_MOUNTAIN_ID)
 WANGJI_NEW_IDS = (4966, 5030, 5031)
 WANGJI_ALL_IDS = (688,) + WANGJI_NEW_IDS
+YANGTZE_SEA_IDS = (5032, 5033, 5034, 5035, 5036, 5037, 5038)
+YANGTZE_DEFINITIONS = {
+    5032: ((230, 223, 132), "Yangtze Estuary"),
+    5033: ((230, 200, 135), "Lower Yangtze"),
+    5034: ((230, 142, 111), "Anqing Reach"),
+    5035: ((225, 171, 16), "Wuhan Reach"),
+    5036: ((230, 199, 86), "Jingzhou Reach"),
+    5037: ((230, 157, 30), "Yichang Reach"),
+    5038: ((230, 200, 85), "Jiujiang Reach"),
+}
 FORMAL_GEOMETRY_IDS = (
     IMPLEMENTED_IDS + DRAWN_P02_IDS + JIANGXI_IDS + HUNAN_IDS
     + ZHEJIANG_IDS + HUBEI_NEW_IDS + JIANGSU_NEW_IDS + CHONGQING_NEW_IDS
@@ -90,7 +100,7 @@ ACTIVE_IDS = tuple(
         + CHONGQING_NEW_IDS + (TAIWAN_MOUNTAIN_ID,) + WANGJI_NEW_IDS
     )
 )
-GAME_MAX_PROVINCES = 5032
+GAME_MAX_PROVINCES = 5039
 NEW_DEFINITION_NAMES = {
     4942: "Foshan",
     4943: "Dongguan",
@@ -134,13 +144,13 @@ NEW_DEFINITION_NAMES = {
     5007: "Chuzhou (Zhejiang)",
     4981: "Hanyang",
     5008: "Yunyang",
-    5009: "De'an",
+    5009: "Suizhou",
     5010: "Chengtian",
     5011: "Hankou",
-    5012: "Qizhou",
+    5012: "Huangzhou",
     5013: "Shizhou",
     5014: "Gongan",
-    5015: "Puqi",
+    5015: "Mianyang",
     5016: "Xingguo",
     4976: "Songjiang",
     4977: "Taizhou (Jiangsu)",
@@ -706,7 +716,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     4197: {
-        "comment": "Huangzhou - Dabie foothills",
+        "comment": "De'an - Dabie foothills",
         "positions": (4598,1167,4597,1167,4599,1167,4598,1168,4598,1166,4597,1168,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -721,7 +731,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     5009: {
-        "comment": "De'an - Suizao corridor",
+        "comment": "Suizhou - Suizao corridor",
         "positions": (4582,1171,4581,1171,4583,1171,4582,1172,4582,1170,4581,1172,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -736,7 +746,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     5012: {
-        "comment": "Qizhou - eastern Hubei tea market",
+        "comment": "Huangzhou - eastern Hubei tea market",
         "positions": (4605,1159,4604,1159,4606,1159,4605,1160,4605,1158,4604,1160,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -751,7 +761,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     5015: {
-        "comment": "Puqi - southern Hubei tea hills",
+        "comment": "Mianyang - southern Hubei river plain",
         "positions": (4595,1140,4594,1140,4596,1140,4595,1141,4595,1139,4594,1141,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -852,6 +862,132 @@ for _province_id, (_x, _y) in TAIWAN_POSITION_CENTERS.items():
         ),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     }
+
+HUBEI_POSITION_CENTERS = {
+    681: (4533, 1172),
+    682: (4593, 1153),
+    2171: (4542, 1188),
+    2172: (4546, 1165),
+    4197: (4584, 1172),
+    4981: (4581, 1150),
+    5008: (4525, 1185),
+    5009: (4570, 1181),
+    5010: (4561, 1166),
+    5011: (4583, 1158),
+    5012: (4600, 1166),
+    5013: (4510, 1148),
+    5014: (4546, 1151),
+    5015: (4563, 1148),
+    5016: (4608, 1150),
+}
+for _province_id, (_x, _y) in HUBEI_POSITION_CENTERS.items():
+    POSITION_DATA[_province_id] = {
+        "comment": "Hubei river-defined refinement - compact historical seat",
+        "positions": (
+            _x, _y, _x, _y, _x, _y, _x, _y,
+            _x, _y, _x, _y, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    }
+
+POSITION_DATA.update({
+    686: {
+        "comment": "Anqing - adjusted for navigable Yangtze",
+        "positions": (
+            4631, 1151, 4631, 1158, 4651, 1174, 4656, 1179,
+            4651, 1167, 4630, 1152, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    1838: {
+        "comment": "Hefei - adjusted for navigable Yangtze",
+        "positions": (
+            4641, 1178, 4647, 1172, 4633, 1215, 4638, 1220,
+            4633, 1215, 4641, 1173, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    2143: {
+        "comment": "Fengyang - adjusted for navigable Yangtze",
+        "positions": (
+            4646, 1197, 4639, 1197, 4639, 1199, 4644, 1204,
+            4639, 1199, 4640, 1196, 4639, 1199,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    2146: {
+        "comment": "Ningguo - adjusted for navigable Yangtze",
+        "positions": (
+            4662, 1159, 4668, 1161, 4661, 1157, 4666, 1162,
+            4661, 1157, 4662, 1157, 4661, 1157,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+    2147: {
+        "comment": "Huizhou - adjusted for navigable Yangtze",
+        "positions": (
+            4653, 1142, 4648, 1141, 4647, 1140, 4652, 1145,
+            4647, 1140, 4653, 1140, 4647, 1140,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    },
+})
+
+YANGTZE_PORT_POINTS = {
+    683: (1655, 4621, 1125),
+    2151: (1655, 4625, 1125),
+    4979: (5038, 4612, 1141),
+    671: (1897, 4568, 1124),
+    672: (1897, 4553, 1131),
+    4982: (5036, 4576, 1139),
+    4996: (1897, 4553, 1132),
+    4997: (1897, 4555, 1124),
+    681: (5037, 4531, 1164),
+    682: (5035, 4593, 1155),
+    2172: (5037, 4542, 1159),
+    4981: (5035, 4582, 1146),
+    5011: (5035, 4587, 1155),
+    5012: (5035, 4598, 1157),
+    5013: (5037, 4526, 1162),
+    5014: (5036, 4545, 1151),
+    5015: (5036, 4560, 1146),
+    5016: (5038, 4605, 1146),
+    685: (5033, 4670, 1188),
+    4977: (5032, 4681, 1186),
+    5022: (5032, 4695, 1180),
+    5023: (5032, 4684, 1185),
+    1821: (5033, 4654, 1185),
+    2145: (5033, 4667, 1184),
+    5024: (5033, 4674, 1183),
+    5025: (5032, 4687, 1178),
+    1822: (5032, 4695, 1174),
+    4976: (5032, 4703, 1169),
+    4987: (5037, 4496, 1153),
+    5028: (5037, 4517, 1164),
+    1838: (5033, 4652, 1178),
+    2146: (5034, 4654, 1168),
+    2147: (5034, 4644, 1158),
+    686: (5034, 4630, 1151),
+}
+for _province_id, (_sea_id, _port_x, _port_y) in YANGTZE_PORT_POINTS.items():
+    _data = POSITION_DATA[_province_id]
+    _positions = list(_data["positions"])
+    _positions[6:8] = (_port_x, _port_y)
+    _data["positions"] = tuple(_positions)
+
+YANGTZE_RELOCATED_CENTERS = {
+    5014: (4539, 1152),
+    5016: (4595, 1142),
+    685: (4664, 1192),
+    1838: (4638, 1175),
+    686: (4621, 1156),
+}
+for _province_id, (_x, _y) in YANGTZE_RELOCATED_CENTERS.items():
+    _data = POSITION_DATA[_province_id]
+    _positions = list(_data["positions"])
+    for _slot in (0, 1, 2, 4, 5):
+        _positions[_slot * 2:_slot * 2 + 2] = (_x, _y)
+    _data["positions"] = tuple(_positions)
 
 
 def sha256_file(path: Path) -> str:
@@ -1078,6 +1214,7 @@ def audit_manual_geometry(
         defined_colors.add(
             (int(row["rgb_r"]), int(row["rgb_g"]), int(row["rgb_b"]))
         )
+    defined_colors.update(rgb for rgb, _name in YANGTZE_DEFINITIONS.values())
     unknown_colors = [
         tuple(int(channel) for channel in color)
         for color in np.unique(province_map.reshape(-1, 3), axis=0)
@@ -1116,6 +1253,13 @@ def build_definition(
     registry_rows: list[dict[str, str]],
 ) -> None:
     source = read_text(vanilla_root / "map/definition.csv").rstrip("\r\n")
+    source, renamed = re.subn(
+        r"(?m)^4197;148;197;227;Huangzhou;x$",
+        "4197;148;197;227;De'an;x",
+        source,
+    )
+    if renamed != 1:
+        raise ValueError("definition.csv: could not rename province 4197 to De'an")
     _colors, existing_ids = load_definition_colors(
         vanilla_root / "map/definition.csv"
     )
@@ -1126,6 +1270,10 @@ def build_definition(
         f"{NEW_DEFINITION_NAMES[int(row['game_id'])]};x"
         for row in registry_rows
     ]
+    additions.extend(
+        f"{province_id};{rgb[0]};{rgb[1]};{rgb[2]};{name};x"
+        for province_id, (rgb, name) in YANGTZE_DEFINITIONS.items()
+    )
     write_text(output, source + "\n" + "\n".join(additions) + "\n")
 
 
@@ -1138,6 +1286,20 @@ def build_default_map(vanilla_root: Path, output: Path) -> None:
     )
     if count != 1:
         raise ValueError(f"default.map: expected one max_provinces, found {count}")
+    sea_ids = " ".join(str(value) for value in YANGTZE_SEA_IDS)
+    text = append_to_named_block(
+        text,
+        "sea_starts",
+        f"\t{sea_ids} 1655 1897 # Navigable Yangtze, Dongting and Poyang",
+    )
+    for lake_id in (1655, 1897):
+        text = modify_nested_block(
+            text,
+            "lakes",
+            lambda block, value=lake_id: re.sub(
+                rf"(?<!\d){value}(?!\d)", "", block
+            ),
+        )
     write_text(output, text)
 
 
@@ -1235,16 +1397,16 @@ southwest_hunan_area = { #4
 \t5008 2171 5010
 }
 
-jingyi_shinan_area = { #4 (Jingzhou, Yiling, and Shinan)
-\t681 2172 5013 5014
+jingyi_shinan_area = { #5 (Jingzhou, Yiling, Shinan, and Mianyang)
+\t681 2172 5013 5014 5015
 }
 
 dean_qihuang_area = { #3 (Eastern Hubei)
 \t5009 4197 5012
 }
 
-wuhan_enan_area = { #5 (Wuhan and southern Hubei)
-\t4981 682 5011 5015 5016
+wuhan_enan_area = { #4 (Wuhan Three Towns and Xingguo)
+\t4981 682 5011 5016
 }""",
     )
     text = replace_named_block(
@@ -1286,6 +1448,17 @@ chongqing_area = { #5 (Ba and the upper Yangtze gorges)
 wangji_area = { #4 (Kaifeng royal domain)
 \t688 4966 5030 5031
 }""",
+    )
+    yangtze_area = """yangtze_river_area = { #9
+\t5032 5033 5034 5035 5036 5037 5038 1655 1897
+}
+
+"""
+    text = replace_once(
+        text,
+        "east_china_sea_area = {",
+        yangtze_area + "east_china_sea_area = {",
+        "Yangtze sea area insertion",
     )
     write_text(output, text)
 
@@ -1373,6 +1546,15 @@ def build_region(vanilla_root: Path, output: Path) -> None:
             "\t\tnorth_henan_area\n",
             "\t\tnorth_henan_area\n\t\twangji_area\n",
             "north_china_region royal domain area",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "east_china_sea_region",
+        lambda block: append_to_named_block(
+            block,
+            "areas",
+            "\t\tyangtze_river_area",
         ),
     )
     write_text(output, text)
@@ -1620,6 +1802,16 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
             "\t\t\t4966 # B03 Xingyang and the Hulao approach",
         ),
     )
+    text = modify_nested_block(
+        text,
+        "inland_ocean",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t5032 5033 5034 5035 5036 5037 5038 1655 1897"
+            " # Navigable Yangtze",
+        ),
+    )
     write_text(output, text)
 
 
@@ -1650,6 +1842,7 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
         684, 1824, 2148, 2149, 2150,
         681, 682, 2171, 2172, 4197,
         685, 1821, 1822, 2141, 2142, 2145, 4196,
+        686, 1838, 2143, 2146, 2147,
         680, 688,
     ):
         text = replace_named_block(
@@ -1669,14 +1862,43 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
 def build_adjacencies(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/adjacencies.csv")
     sentinel = "-1;-1;;-1;-1;-1;-1;-1;-1;"
-    strait = "2149;5004;sea;1373;-1;-1;-1;-1;Ningbo-Changguo (Zhoushan) Strait"
+    straits = (
+        "2149;5004;sea;1373;-1;-1;-1;-1;Ningbo-Changguo (Zhoushan) Strait",
+        "2145;685;sea;5033;-1;-1;-1;-1;Zhenjiang-Yangzhou crossing",
+        "1821;2143;sea;5033;-1;-1;-1;-1;Nanjing-Fengyang crossing",
+        "1821;1838;sea;5033;-1;-1;-1;-1;Nanjing-Hefei crossing",
+        "2146;686;sea;5034;-1;-1;-1;-1;Ningguo-Anqing crossing",
+        "4979;686;sea;5038;-1;-1;-1;-1;Jiujiang-Anqing crossing",
+        "5011;682;sea;5035;-1;-1;-1;-1;Hankou-Wuchang crossing",
+        "4981;682;sea;5035;-1;-1;-1;-1;Hanyang-Wuchang crossing",
+        "5012;682;sea;5035;-1;-1;-1;-1;Huangzhou-Wuchang crossing",
+        "2172;681;sea;5037;-1;-1;-1;-1;Jingzhou-Yichang crossing",
+    )
     text = replace_once(
         text,
         sentinel,
-        f"{strait}\n{sentinel}",
-        "Ningbo-Changguo strait adjacency",
+        "\n".join(straits) + "\n" + sentinel,
+        "Zhoushan and Yangtze strait adjacencies",
     )
     write_text(output, text)
+
+
+def build_trade_winds(vanilla_root: Path, output: Path) -> None:
+    text = read_text(vanilla_root / "map/trade_winds.txt").rstrip()
+    directions = {
+        5032: -5,
+        5033: 0,
+        5034: 45,
+        5035: 10,
+        5036: 0,
+        5037: -15,
+        5038: 0,
+    }
+    additions = "\n".join(
+        f"{province_id} = {direction}"
+        for province_id, direction in directions.items()
+    )
+    write_text(output, text + "\n" + additions + "\n")
 
 
 def append_members_to_outer_block(
@@ -1831,7 +2053,9 @@ def write_report(
     outputs: list[Path],
 ) -> None:
     report = {
-        "status": "B01_P02_B03_B06_B07_B09_B10_AND_B11_ASSETS_PREPARED",
+        "status": (
+            "B01_P02_B03_B06_B07_B09_B10_B11_AND_YANGTZE_ASSETS_PREPARED"
+        ),
         "scope": "Southeast including Taiwan, Kaifeng royal domain, Chongqing, Hubei, and Jiangsu implementation",
         "baseline_version": geometry_report["baseline_version"],
         "baseline_verified_by_sha256": geometry_report[
@@ -1903,6 +2127,7 @@ def main() -> None:
         (build_terrain, mod_root / "map/terrain.txt"),
         (build_positions, mod_root / "map/positions.txt"),
         (build_adjacencies, mod_root / "map/adjacencies.csv"),
+        (build_trade_winds, mod_root / "map/trade_winds.txt"),
         (
             build_trade_nodes,
             mod_root / "common/tradenodes/00_tradenodes.txt",
@@ -1915,7 +2140,19 @@ def main() -> None:
     terrain_bitmap = mod_root / "map/terrain.bmp"
     if not terrain_bitmap.is_file():
         raise ValueError("map/terrain.bmp is required for the Taiwan central range")
-    outputs = [provinces_output, terrain_bitmap]
+    heightmap_bitmap = mod_root / "map/heightmap.bmp"
+    rivers_bitmap = mod_root / "map/rivers.bmp"
+    if not heightmap_bitmap.is_file() or not rivers_bitmap.is_file():
+        raise ValueError(
+            "map/heightmap.bmp and map/rivers.bmp are required for the "
+            "navigable Yangtze"
+        )
+    outputs = [
+        provinces_output,
+        terrain_bitmap,
+        heightmap_bitmap,
+        rivers_bitmap,
+    ]
     for builder, output in builders:
         if builder is build_definition:
             builder(vanilla_root, output, registry_rows)
@@ -1930,8 +2167,11 @@ def main() -> None:
         outputs=outputs,
     )
     print(f"{provinces_output}: canonical hand-drawn geometry preserved")
-    print(f"{mod_root}: active assets written through province ID 5031")
-    print(f"{args.report}: B01_P02_B03_B06_B07_B09_B10_AND_B11_ASSETS_PREPARED")
+    print(f"{mod_root}: active assets written through province ID 5038")
+    print(
+        f"{args.report}: "
+        "B01_P02_B03_B06_B07_B09_B10_B11_AND_YANGTZE_ASSETS_PREPARED"
+    )
 
 
 if __name__ == "__main__":

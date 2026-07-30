@@ -4195,7 +4195,7 @@ province;red;green;blue;x;x
 4194;94;52;48;Yongping;x
 4195;151;185;125;Zhending;x
 4196;104;143;106;Haizhou;x
-4197;148;197;227;Huangzhou;x
+4197;148;197;227;De'an;x
 4198;56;144;141;Fengxiang;x
 4199;45;117;59;Tongren;x
 4200;29;161;216;Hulan;x
@@ -4986,13 +4986,13 @@ province;red;green;blue;x;x
 5006;175;210;60;Yiwu;x
 5007;110;75;225;Chuzhou (Zhejiang);x
 5008;235;115;55;Yunyang;x
-5009;55;185;95;De'an;x
+5009;55;185;95;Suizhou;x
 5010;185;70;225;Chengtian;x
 5011;235;190;55;Hankou;x
-5012;45;150;220;Qizhou;x
+5012;45;150;220;Huangzhou;x
 5013;205;75;105;Shizhou;x
 5014;95;210;175;Gongan;x
-5015;140;95;230;Puqi;x
+5015;140;95;230;Mianyang;x
 5016;210;145;65;Xingguo;x
 5018;60;200;165;Suqian;x
 5020;225;155;55;Yancheng;x
@@ -5007,3 +5007,10 @@ province;red;green;blue;x;x
 5029;115;75;50;Taiwan Mountains;x
 5030;238;145;35;Zhengzhou;x
 5031;115;205;175;Chenliu;x
+5032;230;223;132;Yangtze Estuary;x
+5033;230;200;135;Lower Yangtze;x
+5034;230;142;111;Anqing Reach;x
+5035;225;171;16;Wuhan Reach;x
+5036;230;199;86;Jingzhou Reach;x
+5037;230;157;30;Yichang Reach;x
+5038;230;200;85;Jiujiang Reach;x
