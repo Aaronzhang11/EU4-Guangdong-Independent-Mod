@@ -1,8 +1,8 @@
 ﻿l_english:
- GDD:0 "广东"
- GDD_ADJ:0 "广东"
+ GDD:0 "粤"
+ GDD_ADJ:0 "粤"
  estate_gdd_clans:0 "宗族"
- GDD_ideas:0 "广东理念"
+ GDD_ideas:0 "粤理念"
  GDD_ideas_start:0 "宗族林立"
  GDD_ideas_bonus:0 "商人队"
 
