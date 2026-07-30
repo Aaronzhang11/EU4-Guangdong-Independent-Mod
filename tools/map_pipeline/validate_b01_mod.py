@@ -838,6 +838,70 @@ def validate_map(
                 f"positions.txt: inland {province_id} port slot is in {port_id}"
             )
 
+    navigable_water_positions: dict[int, list[int]] = {}
+    for province_id in (1655, 1897) + YANGTZE_SEA_IDS:
+        position_block_count = len(
+            re.findall(
+                rf"(?m)^[ \t]*{province_id}[ \t]*=[ \t]*\{{",
+                positions,
+            )
+        )
+        if position_block_count != 1:
+            raise ValueError(
+                f"positions.txt: navigable water {province_id} has "
+                f"{position_block_count} position blocks"
+            )
+        values = parse_positions(positions, province_id)
+        pairs = list(zip(values[0::2], values[1::2], strict=True))
+        expected_anchor = tuple(
+            float(value)
+            for value in POSITION_DATA[province_id]["positions"][:2]
+        )
+        for index in range(6):
+            sampled_id, _x, _y = point_id(
+                province_map,
+                color_to_id,
+                pairs[index][0],
+                pairs[index][1],
+            )
+            if sampled_id != province_id:
+                raise ValueError(
+                    f"positions.txt: navigable water {province_id} "
+                    f"slot {index + 1} lands in {sampled_id}"
+                )
+            if pairs[index] != expected_anchor:
+                raise ValueError(
+                    f"positions.txt: navigable water {province_id} "
+                    f"slot {index + 1} is {pairs[index]}, "
+                    f"expected {expected_anchor}"
+                )
+        navigable_water_positions[province_id] = [
+            int(expected_anchor[0]),
+            int(expected_anchor[1]),
+        ]
+
+    lower_yangtze_x, lower_yangtze_clausewitz_y = (
+        navigable_water_positions[5033]
+    )
+    lower_yangtze_y = province_map.shape[0] - lower_yangtze_clausewitz_y
+    lower_yangtze_color = np.array(definitions[5033][0], dtype=np.uint8)
+    lower_yangtze_berth = province_map[
+        lower_yangtze_y - 2:lower_yangtze_y + 3,
+        lower_yangtze_x - 2:lower_yangtze_x + 3,
+    ]
+    if (
+        lower_yangtze_berth.shape != (5, 5, 3)
+        or not np.all(lower_yangtze_berth == lower_yangtze_color)
+    ):
+        raise ValueError(
+            "positions.txt: Lower Yangtze fleet anchor lacks "
+            "a 5x5 water-pixel berth"
+        )
+    if int(heightmap[lower_yangtze_y, lower_yangtze_x]) > 93:
+        raise ValueError(
+            "heightmap.bmp: Lower Yangtze fleet anchor is above water level"
+        )
+
     for province_id in PREPARED_IDS:
         position_block_count = len(
             re.findall(
@@ -925,6 +989,7 @@ def validate_map(
             "Hankou": list(hankou_seat),
             "Wuchang": list(wuchang_seat),
         },
+        "navigable_water_positions": navigable_water_positions,
         "taiwan_terrain_palette_counts": terrain_counts,
         "prepared_pixels": prepared_pixels,
         "provinces_sha256": sha256_file(provinces_path),

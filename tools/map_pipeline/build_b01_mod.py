@@ -989,6 +989,27 @@ for _province_id, (_x, _y) in YANGTZE_RELOCATED_CENTERS.items():
         _positions[_slot * 2:_slot * 2 + 2] = (_x, _y)
     _data["positions"] = tuple(_positions)
 
+NAVIGABLE_WATER_POSITION_CENTERS = {
+    1655: (4622, 1128),  # Poyang Lake
+    1897: (4565, 1130),  # Dongting Lake
+    5032: (4683, 1182),  # Yangtze Estuary
+    5033: (4677, 1184),  # Lower Yangtze, widest local fleet berth
+    5034: (4653, 1171),  # Anqing Reach
+    5035: (4589, 1155),  # Wuhan Reach
+    5036: (4555, 1151),  # Jingzhou Reach
+    5037: (4520, 1164),  # Yichang Reach
+    5038: (4602, 1153),  # Jiujiang Reach
+}
+for _province_id, (_x, _y) in NAVIGABLE_WATER_POSITION_CENTERS.items():
+    POSITION_DATA[_province_id] = {
+        "comment": f"Navigable waterway {_province_id} - fleet anchor",
+        "positions": (
+            _x, _y, _x, _y, _x, _y, _x, _y,
+            _x, _y, _x, _y, 0, 0,
+        ),
+        "rotation": (0, 0, 0, 0, 0, 0, 0),
+    }
+
 
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
@@ -1690,7 +1711,7 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
         684, 1824, 2148, 2149, 2150,
         681, 682, 2172, 4197,
         685, 1821, 1822, 2141, 2142, 2145, 4196,
-        680, 688,
+        680, 688, 1655, 1897,
     ):
         text = re.sub(rf"(?<!\d){province_id}(?!\d)", "", text)
     text = replace_once(
@@ -1843,7 +1864,7 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
         681, 682, 2171, 2172, 4197,
         685, 1821, 1822, 2141, 2142, 2145, 4196,
         686, 1838, 2143, 2146, 2147,
-        680, 688,
+        680, 688, 1655, 1897,
     ):
         text = replace_named_block(
             text,
@@ -1853,7 +1874,7 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
     text = text.rstrip() + "\n\n"
     text += "\n\n".join(
         format_position_block(province_id)
-        for province_id in ACTIVE_IDS
+        for province_id in ACTIVE_IDS + YANGTZE_SEA_IDS
         if province_id != TAIWAN_MOUNTAIN_ID
     )
     write_text(output, text + "\n")
