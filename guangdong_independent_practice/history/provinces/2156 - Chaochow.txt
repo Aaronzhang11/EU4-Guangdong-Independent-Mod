@@ -1,9 +1,8 @@
 # 2156 - Chaochow
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = GDD
+owner = CZC
+controller = CZC
+add_core = CZC
 culture = chimin
 religion = confucianism
 capital = "Chaochow"
@@ -13,7 +12,7 @@ base_tax = 4
 base_production = 4
 base_manpower = 1
 is_city = yes
-add_core = MIN
+
 
 
 
