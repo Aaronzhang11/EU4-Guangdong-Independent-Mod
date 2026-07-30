@@ -27,7 +27,7 @@ capital = 613	# Hanoi
 
 1444.11.11 = {
 	monarch = {
-		name = "ÎžCQw" 
+		name = "CQw" 
 		dynasty = "Îž "
 		adm = 0
 		dip = 0
@@ -43,8 +43,7 @@ capital = 613	# Hanoi
 		mil = 3
 	}
 	heir = {
-		name = "Îž×V^" 
-		monarch_name = "Îž×V^"
+		name = "×V^" 
 		dynasty = "Îž"
 		birth_date = 1441.1.1
 		death_date = 1459.10.29
