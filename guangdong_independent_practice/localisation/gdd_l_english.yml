@@ -1,8 +1,8 @@
 ﻿l_english:
- GDD:0 "^N"
- GDD_ADJ:0 "^N"
+ GDD:0 "²|"
+ GDD_ADJ:0 "²|"
  estate_gdd_clans:0 "—RÏe"
- GDD_ideas:0 "^NtõV"
+ GDD_ideas:0 "²|tõV"
  GDD_ideas_start:0 "—RÏe—gËz"
  GDD_ideas_bonus:0 "FUºN–"
 
