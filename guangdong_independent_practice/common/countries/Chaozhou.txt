@@ -1,0 +1,75 @@
+graphical_culture = asiangfx
+
+color = { 13 148 146 }
+
+revolutionary_colors = {
+    13 148 146
+    160 0 0
+    255 255 255
+}
+
+# These are given names. EU4 displays them together with the current dynasty.
+monarch_names = {
+    "'Wm #0" = 10
+    "'W<y #0" = 10
+    "'Wg‘ #0" = 10
+    "'Wck #0" = 10
+    "bi` #0" = 10
+    "bN #0" = 10
+    "bj‹ #0" = 10
+    "b8z #0" = 10
+    "NV2Ž #0" = 10
+    "NV-f #0" = 10
+    "NVÓŽ #0" = 10
+    "off #0" = 10
+    "of7™ #0" = 10
+    "NUX #0" = 10
+    "Nf #0" = 10
+    "N›sv #0" = 10
+    "N›bh #0" = 10
+    "V‚ #0" = 10
+    "VS?#0" = 10
+    "”2?#0" = 10
+    "”|h #0" = 10
+    "=Tf #0" = 10
+    "=TCQ #0" = 10
+    "gapQ #0" = -1
+    "îˆ?#0" = -1
+    "‰XÛ™ #0" = -1
+    "IZÚ• #0" = -1
+}
+
+leader_names = {
+    "PRi"
+    "ZS‡e"
+    "'Yµ”"
+    "mN"
+    "UO"
+    "W"
+    "Id"
+    "0?
+    ".‰"
+    "4T"
+    "hT"
+    "1g"
+}
+
+ship_names = {
+    "Pearl River"
+    "South Sea"
+    "Canton Trader"
+    "Xiangshan"
+    "Lingnan"
+    "Macau"
+    "Kingchow"
+    "Five Rams"
+    "White Cloud"
+    "West River"
+    "East River"
+    "Lingding Sea"
+}
+
+army_names = {
+    "noÞTkS–"
+    "$PROVINCE$›Q"
+}
