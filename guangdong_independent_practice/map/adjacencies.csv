@@ -119,4 +119,10 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 4981;682;sea;5035;-1;-1;-1;-1;Hanyang-Wuchang crossing
 5012;682;sea;5035;-1;-1;-1;-1;Huangzhou-Wuchang crossing
 2172;681;sea;5037;-1;-1;-1;-1;Jingzhou-Yichang crossing
+687;2175;sea;5039;-1;-1;-1;-1;Running-Runing Huai crossing
+2175;2144;sea;5040;-1;-1;-1;-1;Runing-Fuyang Huai crossing
+2144;2143;sea;5041;-1;-1;-1;-1;Fuyang-Fengyang Huai crossing
+2143;2142;sea;1896;-1;-1;-1;-1;Fengyang-Huai'an Hongze crossing
+2142;4196;sea;5043;-1;-1;-1;-1;Huai'an-Haizhou Huai crossing
+4196;5020;sea;5044;-1;-1;-1;-1;Haizhou-Yancheng estuary crossing
 -1;-1;;-1;-1;-1;-1;-1;-1;

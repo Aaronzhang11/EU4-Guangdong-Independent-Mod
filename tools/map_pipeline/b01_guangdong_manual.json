@@ -14,7 +14,7 @@
     2048
   ],
   "expected_mode": "RGB",
-  "expected_changed_pixels": 19086,
+  "expected_changed_pixels": 19376,
   "allowed_vanilla_source_ids": [
     665,
     667,
@@ -29,6 +29,7 @@
     684,
     685,
     686,
+    687,
     688,
     738,
     1373,
@@ -39,9 +40,11 @@
     1833,
     1838,
     1840,
+    1896,
     2141,
     2142,
     2143,
+    2144,
     2145,
     2148,
     2149,
@@ -61,8 +64,10 @@
     2172,
     2173,
     2174,
+    2175,
     4196,
-    4197
+    4197,
+    4234
   ],
   "position_province_ids": [
     665,
@@ -164,7 +169,10 @@
     1838,
     2143,
     2146,
-    2147
+    2147,
+    687,
+    2175,
+    2144
   ],
   "port_seas": {
     "665": 1370,
@@ -187,7 +195,7 @@
     "5005": 1373,
     "4976": 5032,
     "4977": 5032,
-    "5020": 4234,
+    "5020": 5044,
     "5022": 5032,
     "5023": 5032,
     "5025": 5032,
@@ -224,7 +232,14 @@
     "1838": 5033,
     "2146": 5034,
     "2147": 5034,
-    "686": 5034
+    "686": 5034,
+    "687": 5039,
+    "2175": 5039,
+    "5009": 5039,
+    "2144": 5040,
+    "2143": 5042,
+    "2142": 5043,
+    "4196": 5044
   },
   "provinces": [
     {
@@ -899,17 +914,18 @@
         185,
         95
       ],
-      "expected_pixels": 257,
+      "expected_pixels": 256,
       "expected_component_sizes": [
-        257
+        256
       ],
       "expected_neighbor_ids": [
         687,
         2171,
         4197,
-        5010
+        5010,
+        5039
       ],
-      "expected_coastal": false
+      "expected_coastal": true
     },
     {
       "design_key": "S-47",
@@ -1261,16 +1277,18 @@
         155,
         55
       ],
-      "expected_pixels": 236,
+      "expected_pixels": 233,
       "expected_component_sizes": [
-        236
+        233
       ],
       "expected_neighbor_ids": [
         2142,
         4196,
         4234,
         4977,
-        5021
+        5021,
+        5043,
+        5044
       ],
       "expected_coastal": true
     },
@@ -1844,6 +1862,133 @@
         5016,
         5034,
         5035
+      ],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "B13-SEA-5039",
+      "game_id": 5039,
+      "name_en": "Upper Huai",
+      "rgb": [
+        164,
+        203,
+        202
+      ],
+      "expected_pixels": 70,
+      "expected_component_sizes": [
+        70
+      ],
+      "expected_neighbor_ids": [
+        687,
+        2175,
+        5009,
+        5040
+      ],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "B13-SEA-5040",
+      "game_id": 5040,
+      "name_en": "Middle Huai",
+      "rgb": [
+        30,
+        137,
+        5
+      ],
+      "expected_pixels": 66,
+      "expected_component_sizes": [
+        66
+      ],
+      "expected_neighbor_ids": [
+        2143,
+        2144,
+        2175,
+        5039,
+        5041
+      ],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "B13-SEA-5041",
+      "game_id": 5041,
+      "name_en": "Yingshou Reach",
+      "rgb": [
+        92,
+        138,
+        44
+      ],
+      "expected_pixels": 37,
+      "expected_component_sizes": [
+        37
+      ],
+      "expected_neighbor_ids": [
+        2143,
+        2144,
+        5040,
+        5042
+      ],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "B13-SEA-5042",
+      "game_id": 5042,
+      "name_en": "Fengsi Reach",
+      "rgb": [
+        245,
+        231,
+        89
+      ],
+      "expected_pixels": 47,
+      "expected_component_sizes": [
+        47
+      ],
+      "expected_neighbor_ids": [
+        1896,
+        2143,
+        5041
+      ],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "B13-SEA-5043",
+      "game_id": 5043,
+      "name_en": "Huai'an Reach",
+      "rgb": [
+        146,
+        89,
+        54
+      ],
+      "expected_pixels": 28,
+      "expected_component_sizes": [
+        28
+      ],
+      "expected_neighbor_ids": [
+        1896,
+        2142,
+        4196,
+        5020,
+        5044
+      ],
+      "expected_coastal": true
+    },
+    {
+      "design_key": "B13-SEA-5044",
+      "game_id": 5044,
+      "name_en": "Huai Estuary",
+      "rgb": [
+        88,
+        69,
+        100
+      ],
+      "expected_pixels": 40,
+      "expected_component_sizes": [
+        40
+      ],
+      "expected_neighbor_ids": [
+        4196,
+        4234,
+        5020,
+        5043
       ],
       "expected_coastal": true
     }
