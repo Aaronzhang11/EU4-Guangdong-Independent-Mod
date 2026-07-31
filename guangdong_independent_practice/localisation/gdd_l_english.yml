@@ -1,78 +1,94 @@
 ﻿l_english:
- GDD:0 "²s"
- GDD_ADJ:0 "²s"
+ GDD:0 "WSwm"
+ GDD_ADJ:0 "WSwm"
  estate_gdd_clans:0 "—RÏe"
- GDD_ideas:0 "²stõV"
+ GDD_ideas:0 "WSwmtõV"
  GDD_ideas_start:0 "—RÏe—gËz"
  GDD_ideas_bonus:0 "FUºN–"
 
- GDD_BOOKMARK_NAME:0 "­SWSêËz"
- GDD_BOOKMARK_DESC:0 "hlDQVòTµc6R^N'Yèÿv^Nf÷^¾b”Nt^jPb0Ù8N°eu„v­SWSMeCgÅV‰˜te˜…Qè0ÑSUSwm8ÿTöeÆQYb—ùRfg„vNN!kËe‹S0"
+ CZC:0 "no"
+ CZC_ADJ:0 "no"
+ CZC_ideas:0 "notõV"
+
+ BRH:0 "ôT"
+ BRH_ADJ:0 "ôT"
+ BRH_ideas:0 "ôTtõV"
+
+ CHS:0 "•™l"
+ CHS_ADJ:0 "•™l"
+ CHS_ideas:0 "•™ltõV"
+
+ QIN:0 "æy"
+ QIN_ADJ:0 "æy"
+ QIN_ideasÿ0 "æytõV"
+
+ GDD_BOOKMARK_NAME:0 "'YhT)YN"
+ GDD_BOOKMARK_DESC:0 "2NCSt^åNeghT)YNNïs^3z*‚Lˆÿ‘—O†„veQµONÇ=f¬rb„vQo01gè•R‘‰wíÿï	g»Q‰k¨šÿNÇpeASt^ÿhT‹suÌ‘ÿ¾˜R5ÏeìNòTÏuØVtS†Ncˆ QWS!n„vß‚Nÿw(WäQ3–ÎW-NÿýVÓY7rìYCQ‹t„vTãNìN0ˆ0ˆ2k¨Rÿ„YþV¾bHQVy*gýwŒRbKN‹N"
 
  gdd_guangzhou_trade_hub:0 "^ÞT8f¢gËu"
- desc_gdd_guangzhou_trade_hub:0 "^ÞTŠbˆRàsmlãSÿGlZw­SWS…QF–0¿lwmNWSmFUï0åb	gÙµ^ÎW^„výV¶RïSåNP©RvQbŸq„vFUºNQÜuÿÐcØšhQýV8fHe‡s0"
+ desc_gdd_guangzhou_trade_hub:0 "^ÞT|bˆRàsmlãSÿGlZw­SWS…QF–0¿lwmNWSmFUï0åb	gÙµ^ÎW^„výV¶RïSåNP©RvQbŸq„vFUºNQÜuÿÐcØšhQýV8fHe‡s0"
 
  gdd_nanhai_temple:0 "WSwm^y™^NvbåwäS=n"
- gdd_nanhai_temple_desc:0 "ËYú^ŽN‹–ãN„vWSwm^y™^ÿ=f†SãN‹sgmyNyWSwmKN^y„v˜R™^0™^Y„vvbåwäS=nþfÎ¿lcRÎ˜8‚¿uŽVeg„vwm9‚ÿå‚ýwÍ‘îO™^‡R0b`Ywmmyv^Ïu%„WSm=nïÿ^ÞT¿OïSQ°sN6‚g—RKNÛv0"
- gdd_nanhai_temple_culture_core_tt:0 "^ÞTÅV‰˜=fåb	gw„v8hÃVwýNÿNåb	gwåN§Y²s§!‡eSHNINAm‡eSbòT¥c×S§Y²s§!‡eS0"
+ gdd_nanhai_temple_desc:0 "ËYú^ŽN‹–ãN„vWSwm^y™^ÿ=f†SãN‹sgmyNyWSwmKN^y„v˜R™^0™^Y„vvbåwäS=nþfÎ¿lcRÎ˜*‚¿uŽVeg„vwm9‚ÿå‚ýwÍ‘îO™^‡R0b`Ywmmyv^Ïu%„WSm=nïÿ^ÞT¿OïSQ°sN6‚g—RKNÛv0"
+ gdd_nanhai_temple_culture_core_tt:0 "^ÞTÅV‰˜=fåb	gw„v8hÃVwýNÿNåb	gwåN§Y²|§!‡eS:NINAm‡eSbòT¥c×S§Y²|§!‡eS0"
  gdd_nanhai_temple_controlled_tt:0 "^ÞTÅV‰˜1uvQåb	gwµc6RÿNýwYŽNLe›QbÛS›Q`S†˜KNN0"
- gdd_nanhai_temple_tier_2_upgrade_tt:0 "åb	gw„v3zšR¦^óSHN§Y+1§!0"
- gdd_nanhai_temple_tier_3_upgrade_tt:0 "^ÞTÅV‰˜=f§Y	Nµu8f-NÃV§!ÿNåb	gw‰˜(W§YlšegšN§!b§YpS¦^JS‰šN§!0WHSåb	góS§Y3§!8N¿lwm8hÃVwýN0"
+ gdd_nanhai_temple_tier_2_upgrade_tt:0 "åb	gw„v3zšR¦^óS:N§Y+1§!0"
+ gdd_nanhai_temple_tier_3_upgrade_tt:0 "^ÞTÅV‰˜=f§Y	Nµu8f-NÃV§!ÿNåb	gw‰˜(W§YlšegšN§!b§YpS¦^<S‰šN§!0W:Såb	góS§Y3§!*N¿lwm8hÃVwýN0"
 
  gdd_south_seas:0 "NWSm"
- gdd_south_seas_desc:0 "^NºNêäS¿O¿lNwcRÎ˜8‚¿uvšTWSwm0FUºN04lKbNûylÎN^ÞTŒTnoÞT=T8‚ÿ(WL–u=nãSú^ËzFUÙz0QgK„ŒT—RÏeQÜu0ùRŽN^NwŠÿWSmNÅNasTNweÜ„vW0WÿmNasTNw™™™e0Ñ‘ö”ŒTàeP–„v8fHgO0"
+ gdd_south_seas_desc:0 "^NºNêäS¿O¿lNwcRÎ˜*‚¿uvšTWSwm0FUºN04lKbNûylÎN^ÞTŒTnoÞT=T*‚ÿ(WL–u=nãSú^ËzFUÙz0QgK„ŒT—RÏeQÜu0ùRŽN^NwŠÿWSmNÅNasTNweÜ„vW0WÿmNasTNw™™™e0Ñ‘ö”ŒTàeP–„v8f:gO0"
 
  gdd_commercial_trade:0 "FU8f"
- gdd_commercial_trade_desc:0 "àsmlãSGlZw†Negê…QF–0¿lwmŒTWSm„v'ir0^NFUºNŸq‰`÷NJh08‚ï0áO(uN-NËNsQûsÿýwY(WNT^HWKNô•ŒM‘'ir0g÷^å‚ýwÝO²bFUïv^Ä‰ƒzsQÿ8f&^eg„v6eeQSÜÜwUS¯uO`—0uK0"
+ gdd_commercial_trade_desc:0 "àsmlãSGlZw†Negê…QF–0¿lwmŒTWSm„v'ir0^NFUºNŸq‰`÷N<h0*‚ï0áO(uN-NËNsQû|ÿýwY(WNT^:WKNô•ŒM‘'ir0g÷^å‚ýwÝO²bFUïv^Ä‰ƒzsQÿ8f&^eg„v6eeQSÜÜwUS¯uO`—0uK0"
 
  gdd_children_of_the_coast:0 "4NwmKNPR"
- gdd_children_of_the_coast_desc:0 "ÎNàsml	NÒ‰2m0R÷–ÞTJS›SÿQ0RwmWSø‹=nÿ'YÏ‘^NŒvÓYåN8‚wm0UcŠœŒT¿l¸SÐ“HNu0ùRÖNìNwŠÿwmmN=fI–”–ÿw=fSï0ž^'Y„v¿lwmºNãSO^NýwYôfëV0WHNFU9‚ŒT›Q0‚eˆEQŸqÃu4lKb0"
+ gdd_children_of_the_coast_desc:0 "ÎNàsml	NÒ‰2m0R÷–ÞTJS›SÿQ0RwmWSø‹=nÿ'YÏ‘^NŒvÓYåN*‚wm0Uc|œŒT¿l¸SÐ“:Nu0ùRÖNìNwŠÿwmmN=fI–”–ÿw=fSï0ž^'Y„v¿lwmºNãSO^NýwYôfëV0W:NFU9‚ŒT›Q0‚eˆEQŸqÃu4lKb0"
 
  gdd_southern_wildlands:0 "WSî†Rƒ0W"
- gdd_southern_wildlands_desc:0 "(W¸‹YS¹eºN„v°‹‹-Nÿ­SWSþf«ˆÏcðHN4v uM^„vWSî†Rƒ0W06qw^NºNŸq‰`ÙÌ‘„vqS­S0³lAm0lPŒTÏe²sQûs0íQP0W¹e—RÏe0aN¦uNFUïQÜuÿ^NýwY(uôfNO„vLˆMeãN÷NteTNSWSŒTWSm„v°e†˜W0"
+ gdd_southern_wildlands_desc:0 "(W¸‹YS¹eºN„v°‹‹-Nÿ­SWSþf«ˆÏcð:N4v uM^„vWSî†Rƒ0W06qw^NºNŸq‰`ÙÌ‘„vqS­S0³lAm0lPŒTÏe²sQû|0íQP0W¹e—RÏe0aN¦uNFUïQÜuÿ^NýwY(uôfNO„vLˆ?eãN÷NteTNSWSŒTWSm„v°e†˜W0"
 
  gdd_private_armies:0 "Áy›Q"
- gdd_private_armies_desc:0 "^NT0W—RÏeŒTjŒHV•gôucNwêñT„vaNÇR0²bkSŒTfkÅˆ9‚–0Ù›NÁy›QŸS,g(uŽNÝO²bQgK„0'irŒTW0Wÿ‚YÊN«ˆg÷^³ueQßuN6R00W¹efkÅˆKNô•„vÞz‰NŒT•gžRbÏuŒšÿO^N›Q–åb	g%NJh„v­‹ÃuNªu‹V0"
+ gdd_private_armies_desc:0 "^NT0W—RÏeŒTjŒ:V•gôucNwêñT„vaNÇR0²bkSŒTfkÅˆ9‚–0Ù›NÁy›QŸS,g(uŽNÝO²bQgK„0'irŒTW0Wÿ‚YÊN«ˆg÷^³ueQßuN6R00W¹efkÅˆKNô•„vÞz‰NŒT•gžRbÏuŒšÿO^N›Q–åb	g%N<h„v­‹ÃuNªu‹V0"
 
- gdd_cantonese_language:0 "²sí‹"
- gdd_cantonese_language_desc:0 "²sí‹NÅN=fNÍy0W¹eí‹ŠÿmN=fàsmlAmßWFUN0—RÏeŒTÎW^uIm„vÍ‘‰Ëu&^0–Nw^NFUºN0ûylŒT˜RXTÛeQ°e„vW0Wÿí‹Š0Î˜×OŒTaNÏeÄuÇumN–KN.O­dÿO°eVg0WHSýwYôfëV‡eQ^N„vLyOSOûs0"
+ gdd_cantonese_language:0 "²|í‹"
+ gdd_cantonese_language_desc:0 "²|í‹NÅN=fNÍy0W¹eí‹ŠÿmN=fàsmlAmßWFUN0—RÏeŒTÎW^uIm„vÍ‘‰Ëu&^0–Nw^NFUºN0ûylŒT˜RXTÛeQ°e„vW0Wÿí‹Š0Î˜×OŒTaNÏeÄuÇumN–KN.O­dÿO°eVg0W:SýwYôfëV‡eQ^N„v>yOSOû|0"
 
  gdd_wild_flavours:0 "`OmNœU0kÎ‘sTT"
- gdd_wild_flavours_desc:0 "­SWSåb	g0NÌR„vqS—g0³lAmNwmmDnÿ^NºNmN„UŽN)R(uT‰s0W¹eirµN06ƒöS0™™™e0ŠœÐv0oƒPg0v–÷tåNÊSqSwmµNÁTN­eÛeQ^ÞT„v^HW0Y7hS„vuµNŒTImÃ„vAmSOûsÿHN^N&^eg†N3zšRw0NšS„v0ÌR0"
+ gdd_wild_flavours_desc:0 "­SWSåb	g0NÌR„vqS—g0³lAmNwmmDnÿ^NºNmN„UŽN)R(uT‰|0W¹eirµN06ƒöS0™™™e0|œÐv0oƒPg0v–÷tåNÊSqSwmµNÁTN­eÛeQ^ÞT„v^:W0Y7hS„vuµNŒTImÃ„vAmSOû|ÿ:N^N&^eg†N3zšRw0NšS„v0ÌR0"
  GDD_BOOKMARK_EMPTY:0 ""
  string_start_title_gdd:0 "­SWSêËz"
- string_start_gdd:0 "ckßuRt^ÿ^NKz0wm2–N0W¹e»l‰RåeÊvOVkSNb0—RÏeŒTFUºNôuc01443t^+gÿg÷^teƒwkSNbv^ýågFUzNzzÿVÑS0W¹e¿R›RÍS9V0hˆR&Œ(WëXÅu0—RÏefkÅˆŒTàsml4l^=ecNµc6R^ÞTÿÈSåNÛbšbN›Q‹NG•‹Sv^(u„v¹eVÿOd–noÞTY„v^NTœ^HQTRVz˜0\n\nf÷^–sSLm›QWSVÿtS«ˆhˆRÅk)R(u­SWS0WbVN4l^O¿RûQ%0hlDQV‹†ÖS—V'YÜwÿtSñmåw^NàeÕl•gb×SfgcíuV¨‹ÿàVdkIN¨R®‹ŒT0ÖNìNLeVËzsSHYÖSnoÞTÿb²‹f^„v—RIN0WMOv^bHNf÷^„vD–¸^ýVÿf÷^R‚fjPWSVÿˆcˆNhˆR&Œ­SWS‹sðy÷SÿØž¸‹†NhlùR^NvQYO0WHS„vßu»l0\n\n‹†b‹NòTˆmÿFOf÷^ÍNÝOYuùR^N„vINCgðX0tÿ^NmN¡l	gLeVnoÞT0^‰0'YŠŒTWSmø‹ýVÿý(WÂ‰ßRÙ8N°eu„v­SWSMeCg0"
+ string_start_gdd:0 "ckßuRt^ÿ^NKz0wm2–N0W¹e»l‰RåeÊvOVkSNb0—RÏeŒTFUºNôuc01443t^+gÿg÷^teƒwkSNbv^ýågFUzNzzÿVÑS0W¹e¿R›RÍS9V0hˆR&Œ(WëXÅu0—RÏefkÅˆŒTàsml4l^=ecNµc6R^ÞTÿÈSåNÛbšbN›Q‹NG•‹Sv^(u„v¹eVÿOd–noÞTY„v^NTœ^HQTRVz˜0\n\nf÷^–sS>m›QWSVÿtS«ˆhˆRÅk)R(u­SWS0WbVN4l^O¿RûQ%0hlDQV‹†ÖS—V'YÜwÿtSñmåw^NàeÕl•gb×SfgcíuV¨‹ÿàVdkIN¨R®‹ŒT0ÖNìN>eVËzsS:YÖSnoÞTÿb²‹f^„v—RIN0WMOv^b:Nf÷^„vD–¸^ýVÿf÷^R‚fjPWSVÿˆcˆNhˆR&Œ­SWS‹sðy÷SÿØž¸‹†NhlùR^NvQYO0W:S„vßu»l0\n\n‹†b‹NòTˆmÿFOf÷^ÍNÝOYuùR^N„vINCgðX0tÿ^NmN¡l	g>eVnoÞT0^‰0'YŠŒTWSmø‹ýVÿý(WÂ‰ßRÙ*N°eu„v­SWS?eCg0"
 
  estate_nobles_gdd_clan_autonomy_charter:0 "—RÏeê»lyr¸‹"
- estate_nobles_gdd_clan_autonomy_charter_desc:0 "hlDQVŒTSV0WT8N—RÏe„vØžQYag¦u0"
+ estate_nobles_gdd_clan_autonomy_charter_desc:0 "hlDQVŒTSV0WT*N—RÏe„vØžQYag¦u0"
  gdd_clan_autonomy_charter_locked_tt:0 "—‰HQŒRbùR”^ûN¡RÿMbýw²d•§Y—RÏeê»lyr¸‹§!0"
- gdd_clan_autonomy_charter_province_effect_tt:0 "êS‰å‹yrCguHeÿNb	g§Y²s§!0§Y¢R§!b§Yý•§!‡eS„vôv^SwýNS·ƒ—V§G+50.0%§!,g0WºN›RîOckŒT§R+10.0%§!gNOê»l¦^0"
+ gdd_clan_autonomy_charter_province_effect_tt:0 "êS‰å‹yrCguHeÿNb	g§Y²|§!0§Y¢R§!b§Yý•§!‡eS„vôv^SwýNS·ƒ—V§G+50.0%§!,g0WºN›RîOckŒT§R+10.0%§!gNOê»l¦^0"
  gdd_clan_autonomy_charter_province_modifier:0 "—RÏeê»lyr¸‹"
  desc_gdd_clan_autonomy_charter_province_modifier:0 "SV0W—RÏeOncg÷^ˆcˆN„vê»lyr¸‹¡rtaNÌ‘ÿv^1VßRNôuc0W¹efkÅˆ0"
 
- estate_burghers_gdd_southern_trade_charter:0 "WS²s„v8fyr¸‹"
- estate_burghers_gdd_southern_trade_charter_desc:0 "hlDQVŒTFUºN„v¥YOSagLk0"
- gdd_southern_trade_charter_locked_tt:0 "—‰HQŒRbùR”^ûN¡RÿMbýw²d•§YWS²s„v8fyr¸‹§!0"
+ estate_burghers_gdd_southern_trade_charter:0 "WS²|„v8fyr¸‹"
+ estate_burghers_gdd_southern_trade_charter_desc:0 "hlDQVŒTFUºN„v¥YOSag>k0"
+ gdd_southern_trade_charter_locked_tt:0 "—‰HQŒRbùR”^ûN¡RÿMbýw²d•§YWS²|„v8fyr¸‹§!0"
 
  gdd_mass_conscription_title:0 "'YÄ‰!jVuQ"
- gdd_mass_conscription_desc:0 "°eu„v^NMeCgÅV‰˜ÅibEQ8^Y›Qÿv^ú^Ëz³åN=e‘d•gjOb„vºN›R¨PY0"
+ gdd_mass_conscription_desc:0 "°eu„v^N?eCgÅV‰˜ÅibEQ8^Y›Qÿv^ú^Ëz³åN=e‘d•gjOb„vºN›R¨PY0"
  gdd_solidify_power_base_title:0 "Qrbr9húW¿R›R"
  gdd_solidify_power_base_desc:0 "êS	g‰RšR–™œ^0âVÓu—RÏev^hËzg÷^ZgÿbìNMbýwŠb­SWS„v0W¹e›RÏ‘wckteT0RýV¶RKN-N0"
  gdd_forge_alliances_title:0 "^Óuo‚"
- gdd_forge_alliances_desc:0 "^N‚föeàe›RìrêùR—bNb	gHVLe03zúVw²NÆR„vßvËSSHNbìN‰NÖSR5„vY²Nzzô•0"
+ gdd_forge_alliances_desc:0 "^N‚föeàe›RìrêùR—bNb	g:VLe03zúVw²NÆR„vßvËSS:NbìN‰NÖSR5„vY²Nzzô•0"
  gdd_expand_territory_title:0 "ibUS†˜W"
  gdd_expand_territory_desc:0 "SV^Nåb	g³Y„vºNãS0W0WŒTßvËSKNTÿbìN¿OýwåN0W¹e8—IN„vÿY`Í‘QXNSWSéy^0"
 
  gdd_stable_court_title:0 "g÷^‰Rðl"
- gdd_stable_court_desc:0 "0Me06–BSNMeNSýÅV‰˜b`Y3zšR0êS	g…Qè‰Rðlÿg÷^MbýwÆ–-N¾s›RYtôf•Ü„v‹N¡R0"
+ gdd_stable_court_desc:0 "0?e06–BSN?eNSýÅV‰˜b`Y3zšR0êS	g…Qè‰Rðlÿg÷^MbýwÆ–-N¾|›RYtôf•Ü„v‹N¡R0"
  gdd_renovate_capital_title:0 "îO.–™œ^"
- gdd_renovate_capital_desc:0 "^ÞT=f^N„vMe»lN8f-NÃV0ibú^ÎW^0te˜^6‚Nz6e¾‹ËeÿSOvQwckM‘—VN­SWS–™œ^KNT0"
- gdd_issue_trade_policy_title:0 "ÑS^8fMeVr"
- gdd_issue_trade_policy_desc:0 "g÷^”^SVP©RFUºN„vDÑ‘ŒTQÜuÿnxËzßuN„v8fMeVrÿv^vbcT0WÑSUSýwYÛeQ^HW„vFUÁT0"
- gdd_issue_currency_policy_title:0 "ÑS^'^MeVr"
- gdd_issue_currency_policy_desc:0 "3zšR„v'^N0Me6R¦^=fFUNAucƒ„vúWNx0µc6RÀw0te˜ÿwµN6eeQv^‹SNO0W¹eê»lÿMbýwú^ËzeP·^„v0MeSOûs0"
- gdd_foster_market_title:0 "ùW²w^HW"
- gdd_foster_market_desc:0 "åN'Y‹W8fÎW^HN¢gËuÿS^NT0W„v^HWÞ¥cwegÿ¿Oýw8TVôfYFUºNN'irGlZwŽNbìN„v=nãS0"
+ gdd_renovate_capital_desc:0 "^ÞT=f^N„v?e»lN8f-NÃV0ibú^ÎW^0te˜^6‚Nz6e¾‹ËeÿSOvQwckM‘—VN­SWS–™œ^KNT0"
+ gdd_issue_trade_policy_title:0 "ÑS^8f?eVr"
+ gdd_issue_trade_policy_desc:0 "g÷^”^SVP©RFUºN„vDÑ‘ŒTQÜuÿnxËzßuN„v8f?eVrÿv^vbcT0WÑSUSýwYÛeQ^:W„vFUÁT0"
+ gdd_issue_currency_policy_title:0 "ÑS^'^?eVr"
+ gdd_issue_currency_policy_desc:0 "3zšR„v'^N0?e6R¦^=fFUNAucƒ„vúWNx0µc6RÀw0te˜ÿwµN6eeQv^‹SNO0W¹eê»lÿMbýwú^ËzeP·^„v0?eSOû|0"
+ gdd_foster_market_title:0 "ùW²w^:W"
+ gdd_foster_market_desc:0 "åN'Y‹W8fÎW^:N¢gËuÿS^NT0W„v^:WÞ¥cwegÿ¿Oýw8TVôfYFUºNN'irGlZwŽNbìN„v=nãS0"
 
  gdd_large_scale_recruitment_modifier:0 "'YÄ‰!jVuQ"
  gdd_diplomatic_connections_modifier:0 "^Óuo‚"
@@ -80,12 +96,12 @@
  gdd_stable_court_meritocracy_modifier:0 "3zšRg÷^"
  gdd_stable_court_republic_modifier:0 "3zšRg÷^"
  gdd_stable_court_monarchy_modifier:0 "3zšRg÷^"
- gdd_healthy_fiscal_system_modifier:0 "eP·^0MeSOûs"
- gdd_prosperous_trade_market_modifier:0 "Aucƒ„v8f^HW"
+ gdd_healthy_fiscal_system_modifier:0 "eP·^0?eSOû|"
+ gdd_prosperous_trade_market_modifier:0 "Aucƒ„v8f^:W"
  gdd_center_of_trade_boom_modifier:0 "Aucƒ„v8f-NÃV"
 
  gdd_adjacent_claims_tt:0 "·ƒ—VNb	gøv»YýVwýN„v§Y±Rðy§!0"
- gdd_forge_alliances_trigger_tt:0 "óSåb	g§Y2§!8NùRbýV‹Ya¦^¾0R§Y150§!„vßvËS0"
- gdd_issue_trade_policy_reward_tt:0 "(WbýVåb	g„vwýN-N–HgRM‘§G10§!¹púWNxuµN0"
- gdd_currency_resource_development_tt:0 "óSåb	gN8NuµN§YÑ‘§!b§YÜ”§!NI`ÑSUS¦^¾0R§Y20§!„vwýN0"
+ gdd_forge_alliances_trigger_tt:0 "óSåb	g§Y2§!*NùRbýV‹Ya¦^¾0R§Y150§!„vßvËS0"
+ gdd_issue_trade_policy_reward_tt:0 "(WbýVåb	g„vwýN-N–:gRM‘§G10§!¹púWNxuµN0"
+ gdd_currency_resource_development_tt:0 "óSåb	gN*NuµN§YÑ‘§!b§YÜ”§!NI`ÑSUS¦^¾0R§Y20§!„vwýN0"
  gdd_foster_market_reward_tt:0 "býVNb	gåb	g8f-NÃV„vwýN·ƒ—Vcíu§Y30t^§!„v§G+10.0%§!wýN8f›RÏ‘0"
