@@ -13,7 +13,7 @@ fixed_capital = 667
 
 1444.11.11 = {
     monarch = {
-        name = "ˆR&?
+        name = "ˆR&Œ"
         dynasty = "h"
         birth_date = 1400.5.12
         adm = 5
