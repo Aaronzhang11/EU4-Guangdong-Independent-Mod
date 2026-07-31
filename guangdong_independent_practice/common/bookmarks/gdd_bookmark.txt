@@ -4,4 +4,5 @@ bookmark = {
     date = 1444.11.11
     center = 667
     country = GDD
+    country = CZH
 }
