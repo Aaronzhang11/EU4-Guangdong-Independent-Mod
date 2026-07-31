@@ -34,6 +34,7 @@ from build_b01_mod import (
     TAIWAN_MOUNTAIN_ID,
     TAIWAN_REVIEW_IDS,
     YANGTZE_SEA_IDS,
+    HUAI_SEA_IDS,
     POSITION_DATA,
     PREPARED_IDS,
     find_named_block,
@@ -601,7 +602,7 @@ def validate_map(
         IMPLEMENTED_IDS + JIANGXI_IDS + HUNAN_IDS
         + ZHEJIANG_IDS + HUBEI_NEW_IDS + HUBEI_ALL_IDS[:5] + JIANGSU_NEW_IDS
         + CHONGQING_NEW_IDS + TAIWAN_REVIEW_IDS + WANGJI_NEW_IDS
-        + YANGTZE_SEA_IDS
+        + YANGTZE_SEA_IDS + HUAI_SEA_IDS
     )
     if configured_ids != audited_ids:
         raise ValueError(
@@ -621,7 +622,9 @@ def validate_map(
     exposed_new_ids = tuple(
         sorted(province_id for province_id in definitions if province_id >= 4942)
     )
-    expected_exposed_ids = tuple(sorted(ACTIVE_IDS + YANGTZE_SEA_IDS))
+    expected_exposed_ids = tuple(
+        sorted(ACTIVE_IDS + YANGTZE_SEA_IDS + HUAI_SEA_IDS)
+    )
     if exposed_new_ids != expected_exposed_ids:
         raise ValueError(
             f"definition.csv exposes {exposed_new_ids}; expected {expected_exposed_ids}"
@@ -632,11 +635,15 @@ def validate_map(
     if not max_match or int(max_match.group(1)) != GAME_MAX_PROVINCES:
         raise ValueError(f"default.map: max_provinces must be {GAME_MAX_PROVINCES}")
     sea_ids = read_sea_ids(default_map)
-    if not set(YANGTZE_SEA_IDS + (1655, 1897)) <= sea_ids:
-        raise ValueError("default.map: navigable Yangtze or lake sea IDs are missing")
+    if not set(
+        YANGTZE_SEA_IDS + HUAI_SEA_IDS + (1655, 1897, 1896)
+    ) <= sea_ids:
+        raise ValueError("default.map: navigable Yangtze or Huai sea IDs are missing")
     lakes = set(numeric_tokens(block_text(default_map, "lakes")))
-    if lakes & {1655, 1897}:
-        raise ValueError("default.map: Dongting or Poyang remains classified as a lake")
+    if lakes & {1655, 1897, 1896}:
+        raise ValueError(
+            "default.map: Dongting, Poyang or Hongze remains classified as a lake"
+        )
 
     provinces_path = map_dir / "provinces.bmp"
     validate_classic_bmp_header(provinces_path)
@@ -744,8 +751,8 @@ def validate_map(
         heightmap = np.asarray(image)
     with Image.open(vanilla_root / "map/heightmap.bmp") as image:
         baseline_heightmap = np.asarray(image)
-    if int((heightmap != baseline_heightmap).sum()) != 1356:
-        raise ValueError("heightmap.bmp: Yangtze transplant pixel count changed")
+    if int((heightmap != baseline_heightmap).sum()) != 1699:
+        raise ValueError("heightmap.bmp: Yangtze/Huai transplant pixel count changed")
 
     rivers_path = map_dir / "rivers.bmp"
     with Image.open(rivers_path) as image:
@@ -758,8 +765,8 @@ def validate_map(
         baseline_river_palette = image.getpalette()
     if river_palette != baseline_river_palette:
         raise ValueError("rivers.bmp: palette differs from vanilla")
-    if int((river_map != baseline_rivers).sum()) != 248:
-        raise ValueError("rivers.bmp: Yangtze transplant pixel count changed")
+    if int((river_map != baseline_rivers).sum()) != 530:
+        raise ValueError("rivers.bmp: Yangtze/Huai transplant pixel count changed")
 
     prepared_pixels: dict[int, int] = {}
     for province_id in PREPARED_IDS:
@@ -839,7 +846,7 @@ def validate_map(
             )
 
     navigable_water_positions: dict[int, list[int]] = {}
-    for province_id in (1655, 1897) + YANGTZE_SEA_IDS:
+    for province_id in (1655, 1897, 1896) + YANGTZE_SEA_IDS + HUAI_SEA_IDS:
         position_block_count = len(
             re.findall(
                 rf"(?m)^[ \t]*{province_id}[ \t]*=[ \t]*\{{",
@@ -901,6 +908,55 @@ def validate_map(
         raise ValueError(
             "heightmap.bmp: Lower Yangtze fleet anchor is above water level"
         )
+
+    huai_route = (5039, 5040, 5041, 5042, 1896, 5043, 5044)
+    for left_id, right_id in zip(huai_route[:-1], huai_route[1:], strict=True):
+        if right_id not in province_stats.get(left_id, {}).get("neighbors", []):
+            # Hongze is an existing province and therefore is not part of the
+            # manual config stats; test that contact directly below instead.
+            if left_id != 1896 and right_id != 1896:
+                raise ValueError(
+                    f"provinces.bmp: Huai route breaks between {left_id} and {right_id}"
+                )
+    for province_id in (1896,) + HUAI_SEA_IDS:
+        anchor_x, anchor_clausewitz_y = navigable_water_positions[province_id]
+        anchor_y = province_map.shape[0] - anchor_clausewitz_y
+        if int(heightmap[anchor_y, anchor_x]) > 93:
+            raise ValueError(
+                f"heightmap.bmp: Huai fleet anchor {province_id} is above water level"
+            )
+        if int(river_map[anchor_y, anchor_x]) != 254:
+            raise ValueError(
+                f"rivers.bmp: Huai fleet anchor {province_id} is not water background"
+            )
+    huai_color_masks = {
+        province_id: np.all(
+            province_map == np.array(definitions[province_id][0], dtype=np.uint8),
+            axis=2,
+        )
+        for province_id in HUAI_SEA_IDS
+    }
+    hongze_mask = np.all(
+        province_map == np.array(definitions[1896][0], dtype=np.uint8), axis=2
+    )
+    route_masks = [huai_color_masks[value] for value in HUAI_SEA_IDS[:4]]
+    route_masks += [hongze_mask]
+    route_masks += [huai_color_masks[value] for value in HUAI_SEA_IDS[4:]]
+    for left_id, right_id, left_mask, right_mask in zip(
+        huai_route[:-1], huai_route[1:],
+        route_masks[:-1], route_masks[1:], strict=True
+    ):
+        adjacent = (
+            np.any(left_mask[1:] & right_mask[:-1])
+            or np.any(left_mask[:-1] & right_mask[1:])
+            or np.any(left_mask[:, 1:] & right_mask[:, :-1])
+            or np.any(left_mask[:, :-1] & right_mask[:, 1:])
+        )
+        if not adjacent:
+            raise ValueError(
+                f"provinces.bmp: Huai route lacks orthogonal contact "
+                f"between {left_id} and {right_id}"
+            )
 
     for province_id in PREPARED_IDS:
         position_block_count = len(
@@ -1005,6 +1061,9 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     yangtze_area = set(numeric_tokens(block_text(area_text, "yangtze_river_area")))
     if yangtze_area != set(YANGTZE_SEA_IDS + (1655, 1897)):
         raise ValueError(f"area.txt: unexpected Yangtze sea membership {yangtze_area}")
+    huai_area = set(numeric_tokens(block_text(area_text, "huai_river_area")))
+    if huai_area != set(HUAI_SEA_IDS + (1896,)):
+        raise ValueError(f"area.txt: unexpected Huai sea membership {huai_area}")
 
     region_text = (mod_root / "map/region.txt").read_text(encoding="cp1252")
     south_china = block_text(region_text, "south_china_region")
@@ -1041,6 +1100,8 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     east_china_sea = block_text(region_text, "east_china_sea_region")
     if not re.search(r"\byangtze_river_area\b", east_china_sea):
         raise ValueError("region.txt: east_china_sea_region lacks yangtze_river_area")
+    if not re.search(r"\bhuai_river_area\b", east_china_sea):
+        raise ValueError("region.txt: east_china_sea_region lacks huai_river_area")
 
     superregion_text = (vanilla_root / "map/superregion.txt").read_text(
         encoding="cp1252"
@@ -1089,8 +1150,10 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
                 f"terrain.txt: {province_id} is not overridden to {terrain_name}"
             )
     ocean_ids = set(numeric_tokens(block_text(terrain_text, "inland_ocean")))
-    if not set(YANGTZE_SEA_IDS + (1655, 1897)) <= ocean_ids:
-        raise ValueError("terrain.txt: navigable Yangtze is not ocean terrain")
+    if not set(
+        YANGTZE_SEA_IDS + HUAI_SEA_IDS + (1655, 1897, 1896)
+    ) <= ocean_ids:
+        raise ValueError("terrain.txt: navigable Yangtze or Huai is not ocean terrain")
 
     trade_nodes = (
         mod_root / "common/tradenodes/00_tradenodes.txt"
@@ -1781,6 +1844,26 @@ def validate_localisation(mod_root: Path) -> None:
     ):
         raise ValueError("Encoded Jiangsu localisation is missing or lacks a BOM")
 
+    huai_source = (
+        mod_root / "localisation_source/gdd_huai_navigation_readable_utf8.txt"
+    ).read_text(encoding="utf-8-sig")
+    for province_id in (1896,) + HUAI_SEA_IDS:
+        for key in (f"PROV{province_id}", f"PROV_ADJ{province_id}"):
+            if not re.search(rf"(?m)^\s*{key}:0\s+\"", huai_source):
+                raise ValueError(f"Huai localisation source lacks {key}")
+    for key in (
+        "huai_river_area", "huai_river_area_name",
+        "huai_river_area_adj", "huai_river_engagement",
+    ):
+        if not re.search(rf"(?m)^\s*{key}:0\s+\"", huai_source):
+            raise ValueError(f"Huai localisation source lacks {key}")
+    huai_encoded = mod_root / "localisation/gdd_huai_navigation_l_english.yml"
+    if (
+        not huai_encoded.is_file()
+        or not huai_encoded.read_bytes().startswith(b"\xef\xbb\xbf")
+    ):
+        raise ValueError("Encoded Huai localisation is missing or lacks a BOM")
+
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -1824,16 +1907,25 @@ def main() -> None:
     validate_locked_guangzhou_assets(vanilla_root, mod_root)
     validate_localisation(mod_root)
 
+    for province_id in (1896,) + HUAI_SEA_IDS:
+        water_history = history_path(mod_root, province_id).read_text(
+            encoding="cp1252"
+        )
+        if "name = huai_river_engagement" not in water_history:
+            raise ValueError(
+                f"history/provinces: Huai water {province_id} lacks engagement modifier"
+            )
+
     trade_winds = (mod_root / "map/trade_winds.txt").read_text(encoding="cp1252")
-    for province_id in YANGTZE_SEA_IDS:
+    for province_id in YANGTZE_SEA_IDS + HUAI_SEA_IDS:
         if len(re.findall(rf"(?m)^\s*{province_id}\s*=", trade_winds)) != 1:
-            raise ValueError(f"trade_winds.txt: missing Yangtze sea {province_id}")
+            raise ValueError(f"trade_winds.txt: missing navigable water {province_id}")
 
     build_report = json.loads(args.build_report.read_text(encoding="utf-8"))
     if build_report.get("status") != (
-        "B01_P02_B03_B06_B07_B09_B10_B11_AND_YANGTZE_ASSETS_PREPARED"
+        "B01_P02_B03_B06_B07_B09_B10_B11_YANGTZE_HUAI_ASSETS_PREPARED"
     ):
-        raise ValueError("B01 through B11 and Yangtze build report is not successful")
+        raise ValueError("B01 through B11 and navigable-river build is not successful")
     if build_report.get("canonical_geometry_preserved") is not True:
         raise ValueError("Build report does not confirm preservation of manual geometry")
     for relative_path, metadata in build_report["outputs"].items():
@@ -1844,7 +1936,7 @@ def main() -> None:
     result = {
         "status": (
             "B01_P02_B03_B06_B07_B09_B10_B11_"
-            "YANGTZE_STATIC_VALIDATION_PASS"
+            "YANGTZE_HUAI_STATIC_VALIDATION_PASS"
         ),
         "implemented_ids": list(IMPLEMENTED_IDS),
         "prepared_ids": list(PREPARED_IDS),
@@ -1860,6 +1952,7 @@ def main() -> None:
             "B10_Hubei": "hand_drawn_validated",
             "B11_Jiangsu": "hand_drawn_validated",
             "B12_Yangtze": "navigable_waterway_validated",
+            "B13_Huai": "workshop_geometry_navigable_waterway_validated",
         },
         "max_provinces": GAME_MAX_PROVINCES,
         "map": map_report,
@@ -1883,7 +1976,7 @@ def main() -> None:
     print(
         f"{args.report}: "
         "B01_P02_B03_B06_B07_B09_B10_B11_"
-        "YANGTZE_STATIC_VALIDATION_PASS"
+        "YANGTZE_HUAI_STATIC_VALIDATION_PASS"
     )
 
 

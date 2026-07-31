@@ -1,5 +1,5 @@
 {
-  "status": "B01_P02_B03_B06_B07_B09_B10_B11_YANGTZE_STATIC_VALIDATION_PASS",
+  "status": "B01_P02_B03_B06_B07_B09_B10_B11_YANGTZE_HUAI_STATIC_VALIDATION_PASS",
   "implemented_ids": [
     4942,
     4943,
@@ -22,11 +22,12 @@
     "B09_Chongqing": "hand_drawn_validated",
     "B10_Hubei": "hand_drawn_validated",
     "B11_Jiangsu": "hand_drawn_validated",
-    "B12_Yangtze": "navigable_waterway_validated"
+    "B12_Yangtze": "navigable_waterway_validated",
+    "B13_Huai": "workshop_geometry_navigable_waterway_validated"
   },
-  "max_provinces": 5039,
+  "max_provinces": 5045,
   "map": {
-    "changed_pixels": 19086,
+    "changed_pixels": 19376,
     "province_stats": {
       "4942": {
         "pixels": 201,
@@ -452,17 +453,18 @@
         "coastal": false
       },
       "5009": {
-        "pixels": 257,
+        "pixels": 256,
         "component_sizes": [
-          257
+          256
         ],
         "neighbors": [
           687,
           2171,
           4197,
-          5010
+          5010,
+          5039
         ],
-        "coastal": false
+        "coastal": true
       },
       "5010": {
         "pixels": 561,
@@ -686,16 +688,18 @@
         "coastal": false
       },
       "5020": {
-        "pixels": 236,
+        "pixels": 233,
         "component_sizes": [
-          236
+          233
         ],
         "neighbors": [
           2142,
           4196,
           4234,
           4977,
-          5021
+          5021,
+          5043,
+          5044
         ],
         "coastal": true
       },
@@ -1071,6 +1075,85 @@
           5035
         ],
         "coastal": true
+      },
+      "5039": {
+        "pixels": 70,
+        "component_sizes": [
+          70
+        ],
+        "neighbors": [
+          687,
+          2175,
+          5009,
+          5040
+        ],
+        "coastal": true
+      },
+      "5040": {
+        "pixels": 66,
+        "component_sizes": [
+          66
+        ],
+        "neighbors": [
+          2143,
+          2144,
+          2175,
+          5039,
+          5041
+        ],
+        "coastal": true
+      },
+      "5041": {
+        "pixels": 37,
+        "component_sizes": [
+          37
+        ],
+        "neighbors": [
+          2143,
+          2144,
+          5040,
+          5042
+        ],
+        "coastal": true
+      },
+      "5042": {
+        "pixels": 47,
+        "component_sizes": [
+          47
+        ],
+        "neighbors": [
+          1896,
+          2143,
+          5041
+        ],
+        "coastal": true
+      },
+      "5043": {
+        "pixels": 28,
+        "component_sizes": [
+          28
+        ],
+        "neighbors": [
+          1896,
+          2142,
+          4196,
+          5020,
+          5044
+        ],
+        "coastal": true
+      },
+      "5044": {
+        "pixels": 40,
+        "component_sizes": [
+          40
+        ],
+        "neighbors": [
+          4196,
+          4234,
+          5020,
+          5043
+        ],
+        "coastal": true
       }
     },
     "wuhan_seats_bitmap": {
@@ -1095,6 +1178,10 @@
       "1897": [
         4565,
         1130
+      ],
+      "1896": [
+        4654,
+        1209
       ],
       "5032": [
         4683,
@@ -1123,6 +1210,30 @@
       "5038": [
         4602,
         1153
+      ],
+      "5039": [
+        4586,
+        1189
+      ],
+      "5040": [
+        4611,
+        1194
+      ],
+      "5041": [
+        4626,
+        1198
+      ],
+      "5042": [
+        4648,
+        1206
+      ],
+      "5043": [
+        4666,
+        1217
+      ],
+      "5044": [
+        4673,
+        1222
       ]
     },
     "taiwan_terrain_palette_counts": {
@@ -1133,7 +1244,7 @@
       "16": 21
     },
     "prepared_pixels": {},
-    "provinces_sha256": "7117ca001b5fa82734ca711d39603a3f4620bf992b9d28dfbe568f275bc99680"
+    "provinces_sha256": "88c467d78b4140d4eb28c550bc4e90fc1b8cbee841257c08e02f79f0a9c50e3d"
   },
   "development": {
     "665": [

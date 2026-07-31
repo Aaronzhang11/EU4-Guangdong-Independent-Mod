@@ -1,0 +1,3 @@
+huai_river_engagement = {
+	local_naval_engagement_modifier = -0.5
+}
