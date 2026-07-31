@@ -1,14 +1,15 @@
-# 5015 - Puqi
+# 4197 - De'an
+latent_trade_goods = { coal }
 owner = MNG
 controller = MNG
 add_core = MNG
 add_core = CHC
 culture = hubei
 religion = confucianism
-capital = "Puqi"
-trade_goods = tea
-base_tax = 2
-base_production = 2
+capital = "De'an"
+trade_goods = grain
+base_tax = 3
+base_production = 3
 base_manpower = 2
 is_city = yes
 discovered_by = chinese

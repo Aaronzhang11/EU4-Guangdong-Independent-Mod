@@ -1,0 +1,46 @@
+gdd_large_scale_recruitment_modifier = {
+	land_maintenance_modifier = -0.15
+	army_tradition = 0.5
+}
+
+gdd_diplomatic_connections_modifier = {
+	improve_relation_modifier = 0.2
+}
+
+gdd_local_hegemon_modifier = {
+	core_creation = -0.2
+	land_morale = 0.1
+}
+
+gdd_stable_court_meritocracy_modifier = {
+	advisor_cost = -0.2
+	development_cost = -0.1
+	meritocracy = 0.2
+}
+
+gdd_stable_court_republic_modifier = {
+	advisor_cost = -0.2
+	development_cost = -0.1
+	republican_tradition = 0.2
+}
+
+gdd_stable_court_monarchy_modifier = {
+	advisor_cost = -0.2
+	development_cost = -0.1
+	legitimacy = 1
+}
+
+gdd_healthy_fiscal_system_modifier = {
+	prestige = 1
+	trade_efficiency = 0.1
+	production_efficiency = 0.1
+	global_tax_modifier = 0.2
+}
+
+gdd_prosperous_trade_market_modifier = {
+	mercantilism_cost = -0.2
+}
+
+gdd_center_of_trade_boom_modifier = {
+	province_trade_power_modifier = 0.1
+}

@@ -1,0 +1,13 @@
+﻿l_english:
+ PROV688:0 "开封"
+ PROV_ADJ688:0 "开封"
+ PROV4966:0 "荥阳"
+ PROV_ADJ4966:0 "荥阳"
+ PROV5030:0 "郑州"
+ PROV_ADJ5030:0 "郑州"
+ PROV5031:0 "陈留"
+ PROV_ADJ5031:0 "陈留"
+
+ wangji_area:0 "王畿"
+ wangji_area_name:0 "开封"
+ wangji_area_adj:0 "王畿"

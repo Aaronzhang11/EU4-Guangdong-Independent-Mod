@@ -229,6 +229,9 @@ asia = {
     5002 5003 5004 5005 5006 5007 # B06 Zhejiang expansion
     4981 5008 5009 5010 5011 5012 5013 5014 5015 5016 # B10 Hubei
     4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025 # B11 Jiangsu
+    4987 5026 5027 5028 # B09 Chongqing five-way split
+    5029 # B08 impassable Taiwan central range
+    4966 5030 5031 # B03 Kaifeng royal domain
 }
 
 africa = {
