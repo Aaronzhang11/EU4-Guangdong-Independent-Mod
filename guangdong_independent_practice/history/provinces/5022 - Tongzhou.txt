@@ -1,7 +1,7 @@
 # 5022 - Tongzhou
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = XU2
+controller = XU2
+add_core = XU2
 culture = jianghuai
 religion = confucianism
 capital = "Tongzhou"
