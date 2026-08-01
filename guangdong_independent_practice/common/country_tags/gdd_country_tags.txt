@@ -1,1 +1,2 @@
 GDD = "countries/Guangdong.txt"
+XU2  = "countries/Xu2.txt"
