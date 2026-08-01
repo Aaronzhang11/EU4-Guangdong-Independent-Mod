@@ -1,0 +1,15 @@
+dependency = {
+    subject_type = gdd_invested_tributary
+    first = CZH
+    second = YAN
+    start_date = 1444.11.11
+    end_date = 1821.1.2
+}
+
+dependency = {
+    subject_type = gdd_invested_tributary
+    first = CZH
+    second = XU2
+    start_date = 1444.11.11
+    end_date = 1821.1.2
+}
