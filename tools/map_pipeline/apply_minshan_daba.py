@@ -6,6 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 import re
 import shutil
+import sys
 
 import numpy as np
 from PIL import Image
@@ -67,6 +68,9 @@ def update_localisation():
     for pid, (_, chinese, _) in sorted(MOUNTAINS.items()):
         lines += [f' PROV{pid}:0 "{chinese}"', f' PROV_ADJ{pid}:0 "{chinese}"']
     path.write_text("\n".join(lines) + "\n")
+    sys.path.insert(0, str(ROOT / "tools"))
+    from encode_eu4_chinese_localisation import encode_file
+    encode_file(path, MOD / "localisation/gdd_b26_qinshu_mountains_l_english.yml")
 
 
 def main():
