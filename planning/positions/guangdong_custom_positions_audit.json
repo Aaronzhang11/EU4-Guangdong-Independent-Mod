@@ -1,0 +1,20 @@
+{
+  "mod_root": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice",
+  "targets": [
+    2156,
+    2157,
+    2158,
+    4943,
+    4946,
+    5214,
+    5215,
+    5216,
+    5217
+  ],
+  "findings": [],
+  "summary": {
+    "targets": 9,
+    "errors": 0,
+    "warnings": 0
+  }
+}
