@@ -3880,8 +3880,8 @@ bei_shaanxi_area = {
 nan_shaanxi_area = { # B31 Han land-contiguous area reorganisation
     689 5275 5274 5273
 }
-xi_shaanxi_area = { # B31 Han land-contiguous area reorganisation
-    2181 5276 5277 5291
+xi_shaanxi_area = { # B34 Longyou refinement
+    2181 5277 5278 2180
 }
 
 yanmen_area = { # Shanxi 20-province refinement
@@ -3902,8 +3902,8 @@ hedong_area = { # Shanxi 20-province refinement
 ningxia_area = { # B26 Gansu-Ningxia 23-province refinement
     698 5286 5287 5288
 }
-longnan_area = { # B31 Han land-contiguous area reorganisation
-    2180 2183 5289 5290 5278
+longnan_area = { # B34 Longyou refinement
+    2183 5289 5290
 }
 hexi_area = { # B26 Gansu-Ningxia 23-province refinement
     708 2182 5295 5296 5297
@@ -3924,4 +3924,7 @@ dongjiang_area = { # B30 Yuebei-Chaoshan refinement
 
 chaoshan_area = { # B30 Yuebei-Chaoshan refinement
     2156 5217 4949
+}
+longyou_area = { # B34 Longyou refinement
+    5305 5276 5291 5306
 }
