@@ -1,7 +1,7 @@
 namespace = gdd_treaty
 
-# Hidden checker. It is first scheduled five years after game start and is also
-# called by the monthly pulse, allowing it to recover from console date jumps.
+# Hidden checker for the Guangdong-Ming opening truce. It is scheduled five
+# years after game start and also called by the monthly pulse as a fallback.
 country_event = {
     id = gdd_treaty.100
     title = gdd_treaty.100.t
@@ -10,7 +10,9 @@ country_event = {
     hidden = yes
     is_triggered_only = yes
 
-    trigger = { tag = GDD }
+    trigger = {
+        tag = GDD
+    }
 
     immediate = {
         if = {
@@ -28,7 +30,7 @@ country_event = {
     option = { name = OK }
 }
 
-# The initial truce has expired: Guangdong decides whether to seek renewal.
+# The opening truce has expired: Guangdong decides whether to seek renewal.
 country_event = {
     id = gdd_treaty.1
     title = gdd_treaty.1.t
@@ -102,6 +104,10 @@ country_event = {
 
     option = {
         name = gdd_treaty.2.a
+        add_country_modifier = {
+            name = gdd_ming_preparing_southward
+            duration = 5475
+        }
         add_casus_belli = {
             target = GDD
             type = gdd_cb_punish_defiant_enfeoffed_subject
@@ -130,6 +136,7 @@ country_event = {
             duration = 5475
         }
         GDD = {
+            add_liberty_desire = 50
             country_event = {
                 id = gdd_treaty.4
                 days = 1

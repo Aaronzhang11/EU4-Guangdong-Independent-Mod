@@ -1,0 +1,141 @@
+estate_nobles_gdd_clan_autonomy_charter = {
+	icon = gdd_privilege_clan_autonomy_charter
+
+	max_absolutism = -20
+	loyalty = 0.20
+	influence = 0.10
+	land_share = 0
+	cooldown_years = 20
+
+	is_valid = {
+		tag = GDD
+	}
+
+	can_select = {
+		tag = GDD
+	}
+
+	can_revoke = {
+		custom_trigger_tooltip = {
+			tooltip = gdd_clan_autonomy_charter_locked_tt
+			has_country_flag = gdd_clan_autonomy_charter_unlocked
+		}
+	}
+
+	on_granted = {
+		custom_tooltip = gdd_clan_autonomy_charter_province_effect_tt
+	}
+
+	on_granted_province = {
+		if = {
+			limit = {
+				OR = {
+					culture = cantonese
+					culture = hakka
+					culture = chimin
+				}
+			}
+			add_province_modifier = {
+				name = gdd_clan_autonomy_charter_province_modifier
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = gdd_clan_autonomy_charter_province_modifier
+			}
+			remove_province_modifier = gdd_clan_autonomy_charter_province_modifier
+		}
+	}
+
+	on_revoked = {
+	}
+
+	on_revoked_province = {
+		if = {
+			limit = {
+				has_province_modifier = gdd_clan_autonomy_charter_province_modifier
+			}
+			remove_province_modifier = gdd_clan_autonomy_charter_province_modifier
+		}
+	}
+
+	on_invalid = {
+	}
+
+	on_invalid_province = {
+		if = {
+			limit = {
+				has_province_modifier = gdd_clan_autonomy_charter_province_modifier
+			}
+			remove_province_modifier = gdd_clan_autonomy_charter_province_modifier
+		}
+	}
+
+	penalties = {
+	}
+
+	benefits = {
+		manpower_recovery_speed = 0.10
+	}
+
+	mechanics = {
+		exempt_from_seize_land
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_burghers_gdd_southern_trade_charter = {
+	icon = gdd_privilege_southern_trade_charter
+
+	max_absolutism = -20
+	loyalty = 0.10
+	influence = 0.10
+	land_share = 0
+	cooldown_years = 10
+
+	is_valid = {
+		tag = GDD
+		num_of_ports = 1
+	}
+
+	can_select = {
+		tag = GDD
+		num_of_ports = 1
+	}
+
+	can_revoke = {
+		custom_trigger_tooltip = {
+			tooltip = gdd_southern_trade_charter_locked_tt
+			has_country_flag = gdd_southern_trade_charter_unlocked
+		}
+	}
+
+	on_granted = {
+	}
+
+	on_revoked = {
+	}
+
+	on_invalid = {
+	}
+
+	penalties = {
+		mercantilism_cost = 1.00
+		global_monthly_devastation = 0.02
+	}
+
+	benefits = {
+		global_trade_power = 0.10
+		naval_maintenance_modifier = -0.10
+		merchants = 1
+		trade_range_modifier = 0.50
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}

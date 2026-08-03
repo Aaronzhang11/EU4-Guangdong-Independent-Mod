@@ -1,7 +1,8 @@
 namespace = gdd_defiance
 
-# An invested tributary whose political centre has moved beyond the China
-# superregion may renounce its investiture through the national decision.
+# Peaceful departure from the Chinese political order. This event deliberately
+# does not start a war; the warning in the decision describes only the risk of
+# a later imperial response.
 country_event = {
     id = gdd_defiance.1
     title = gdd_defiance.1.t
@@ -11,33 +12,35 @@ country_event = {
 
     trigger = {
         is_subject_of_type = gdd_invested_tributary
-    }
-
-    immediate = {
-        hidden_effect = {
-            save_event_target_as = gdd_former_subject
-            overlord = {
-                save_event_target_as = gdd_former_overlord
-            }
-        }
+        has_reform = gdd_local_fiefdom_reform
+        NOT = { has_country_flag = gdd_left_china }
     }
 
     option = {
         name = gdd_defiance.1.a
+        set_country_flag = gdd_left_china
+        save_event_target_as = gdd_defiant_invested_tributary
+        overlord = {
+            save_event_target_as = gdd_defiance_former_overlord
+        }
         remove_government_reform = gdd_local_fiefdom_reform
+        change_government_reform_progress = 50
+        if = {
+            limit = { is_subject = yes }
+            grant_independence = yes
+        }
         add_country_modifier = {
-            name = gdd_departed_from_china
+            name = gdd_left_china_unrest
             duration = 3650
         }
-        grant_independence = yes
-        event_target:gdd_former_overlord = {
+        event_target:gdd_defiance_former_overlord = {
             country_event = { id = gdd_defiance.2 }
         }
-        ai_chance = { factor = 1 }
     }
 }
 
-# The former overlord chooses whether to punish the defiant fiefdom.
+# The former overlord decides how to respond after an invested tributary leaves
+# the Chinese political order and becomes independent.
 country_event = {
     id = gdd_defiance.2
     title = gdd_defiance.2.t
@@ -46,19 +49,20 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
-        event_target:gdd_former_subject = { exists = yes }
+        event_target:gdd_defiant_invested_tributary = { exists = yes }
+        event_target:gdd_defiance_former_overlord = { exists = yes }
     }
 
     option = {
         name = gdd_defiance.2.a
-        event_target:gdd_former_subject = {
+        event_target:gdd_defiant_invested_tributary = {
             every_owned_province = {
                 limit = { superregion = china_superregion }
-                add_core = ROOT
+                add_core = event_target:gdd_defiance_former_overlord
             }
         }
         add_casus_belli = {
-            target = event_target:gdd_former_subject
+            target = event_target:gdd_defiant_invested_tributary
             type = gdd_cb_punish_defiant_enfeoffed_subject
             months = 240
         }
@@ -69,29 +73,10 @@ country_event = {
         }
         add_estate_influence_modifier = {
             estate = all
-            desc = gdd_defiant_fiefdom_estate_influence
+            desc = gdd_defiance_estates_united
             influence = 10
             duration = 3650
             short = yes
-        }
-        ai_chance = {
-            factor = 70
-            modifier = {
-                factor = 0.25
-                is_at_war = yes
-            }
-            modifier = {
-                factor = 0.25
-                is_bankrupt = yes
-            }
-            modifier = {
-                factor = 0.5
-                is_in_deficit = yes
-            }
-            modifier = {
-                factor = 0.5
-                NOT = { manpower_percentage = 0.50 }
-            }
         }
     }
 
@@ -103,28 +88,9 @@ country_event = {
             short = yes
         }
         add_country_modifier = {
-            name = gdd_overlord_backed_down
+            name = gdd_defiance_morale_penalty
             duration = 7300
         }
         add_prestige = -20
-        ai_chance = {
-            factor = 30
-            modifier = {
-                factor = 4
-                is_at_war = yes
-            }
-            modifier = {
-                factor = 4
-                is_bankrupt = yes
-            }
-            modifier = {
-                factor = 2
-                is_in_deficit = yes
-            }
-            modifier = {
-                factor = 2
-                NOT = { manpower_percentage = 0.50 }
-            }
-        }
     }
 }

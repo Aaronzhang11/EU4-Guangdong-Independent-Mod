@@ -1,0 +1,6 @@
+spriteTypes = {
+    spriteType = {
+        name = "government_reform_gdd_imperial_bulwark"
+        texturefile = "gfx//interface//government_reform_icons//gdd_imperial_bulwark.dds"
+    }
+}

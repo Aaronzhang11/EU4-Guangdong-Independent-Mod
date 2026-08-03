@@ -10,14 +10,35 @@ revolutionary_colors = {
 
 historical_score = 10
 
+# These are given names. EU4 displays them together with the current dynasty.
 monarch_names = {
-    "1g #0" = 20
-    "H– #0" = 20
-    "Ng #0" = 20
-    "Ä #0" = 20
-    "—g #0" = 20
-    "h #0" = 10
-    "UO #0" = 10
+    "ˆRÁN #0" = 10
+    "ˆR<y #0" = 10
+    "ˆRáO #0" = 10
+    "ˆRck #0" = 10
+    "bi` #0" = 10
+    "bN #0" = 10
+    "b×V #0" = 10
+    "b·V #0" = 10
+    "‡eÛv #0" = 10
+    "‡e-f #0" = 10
+    "‡eÜ #0" = 10
+    "off #0" = 10
+    "ofğl #0" = 10
+    "N‰R #0" = 10
+    "Nf #0" = 10
+    "ôu°e #0" = 10
+    "ôubh #0" = 10
+    "VÅk #0" = 10
+    "VS #0" = 10
+    "çu2 #0" = 10
+    "çu—R #0" = 10
+    "=Tf #0" = 10
+    "=TCQ #0" = 10
+    "gapQ #0" = -1
+    "Ñm #0" = -1
+    "‰sñ‚ #0" = -1
+    "IZêN #0" = -1
 }
 
 leader_names = {
@@ -49,4 +70,10 @@ ship_names = {
     "West River"
     "East River"
     "Lingding Sea"
+}
+
+army_names = {
+    "²|¯OkS–"
+    "NPRkS–"
+    "$PROVINCE$›Q"
 }

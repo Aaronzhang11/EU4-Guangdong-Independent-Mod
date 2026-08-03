@@ -1,0 +1,55 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+primary_culture = vietnamese
+religion = confucianism
+technology_group = chinese
+capital = 613	# Hanoi
+
+# Tran Dynasty, Later Le Dynasty, Mac Dynasty and Tay Son Dynasty
+
+1390.1.1 = {
+	set_estate_privilege = estate_nobles_command_of_the_military
+}
+
+1427.1.1 = {
+	leader = {
+		name = "ÎžCQ*m" #ÎžCQ*m
+		type = general
+		fire = 2
+		shock = 3
+		manuever = 5
+		siege = 1
+		death_date = 1451.1.1
+		personality = inspirational_leader_general_personality
+	}
+}
+
+1444.11.11 = {
+	monarch = {
+		name = "CQw"
+		dynasty = "Îž "
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+	monarch_consort = {
+		name = ".–lñ‚"
+		monarch_name = ".–lñ‚"
+		regent = yes
+		female = yes
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "×V^"
+		dynasty = "Îž"
+		birth_date = 1441.1.1
+		death_date = 1459.10.29
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}

@@ -1,0 +1,3 @@
+# Compatibility tombstone for an obsolete standalone definition of
+# lost_control_of_canton. The active definition is in 00_triggered_modifiers.txt.
+# Keep this file so merge-copy installations overwrite the obsolete script.

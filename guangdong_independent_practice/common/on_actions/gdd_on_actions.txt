@@ -1,20 +1,49 @@
 on_startup = {
     events = {
         gdd_startup.1
-        gdd_subject.100
+        gdd_heir.1
+        gdd_subject.108
+    }
+
+    # Grant Guangdong's two founding estate privileges exactly once per campaign.
+    # The flag prevents an invalidated privilege from returning after a later reload.
+    if = {
+        limit = {
+            tag = GDD
+            NOT = { has_country_flag = gdd_estate_privileges_initialised }
+        }
+        set_country_flag = gdd_estate_privileges_initialised
+        set_estate_privilege = estate_nobles_gdd_clan_autonomy_charter
+        if = {
+            limit = { num_of_ports = 1 }
+            set_estate_privilege = estate_burghers_gdd_southern_trade_charter
+        }
     }
 }
 
-# Catch up the truce event after console date jumps or an unusually long truce.
+# The scheduled five-year checker handles normal 1444 starts. The treaty check
+# is also called monthly for old saves and console date jumps. Tribute is
+# checked here in January so its date cannot drift across leap years.
 on_monthly_pulse = {
     events = {
+        gdd_subject.108
         gdd_treaty.100
-        gdd_subject.100
+        gdd_subject.105
+        gdd_subject.106
     }
 }
 
 on_new_monarch = {
     events = {
+        gdd_heir.2
         gdd_startup.6
     }
+}
+
+on_heir_death = {
+    country_event = { id = gdd_heir.2 }
+}
+
+on_heir_disinherited = {
+    country_event = { id = gdd_heir.2 }
 }

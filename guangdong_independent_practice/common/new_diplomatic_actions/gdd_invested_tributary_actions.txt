@@ -1,0 +1,209 @@
+# ROOT is the Emperor of China sending the proposal; FROM is the tributary.
+gdd_elevate_invested_tributary = {
+    category = influence
+
+    alert_index = 40
+    alert_tooltip = gdd_elevate_invested_tributary_alert_tooltip
+
+    require_acceptance = yes
+
+    is_visible = {
+        is_emperor_of_china = yes
+        FROM = {
+            is_subject_of = ROOT
+            is_subject_of_type = tributary_state
+            capital_scope = {
+                superregion = china_superregion
+            }
+        }
+    }
+
+    is_allowed = {
+        custom_trigger_tooltip = {
+            tooltip = gdd_elevate_invested_tributary_mandate_tt
+            imperial_mandate = 10
+        }
+        FROM = {
+            capital_scope = {
+                superregion = china_superregion
+            }
+        }
+    }
+
+    on_accept = {
+        create_subject = {
+            subject_type = gdd_invested_tributary
+            subject = FROM
+            keep_liberty_desire = yes
+        }
+        add_mandate = -10
+        FROM = {
+            country_event = { id = gdd_subject.108 }
+        }
+    }
+
+    # The Mandate cost deliberately exists only in on_accept. A refusal is
+    # therefore free for the Emperor.
+    on_decline = {
+    }
+
+    ai_will_do = {
+        always = yes
+    }
+
+    ai_acceptance = {
+        add_entry = {
+            name = gdd_elevate_invested_tributary_base_reason
+            export_to_variable = {
+                variable_name = ai_value
+                value = 1
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 10
+            }
+        }
+        add_entry = {
+            name = DIPLO_OPPINION
+            export_to_variable = {
+                variable_name = ai_value
+                value = opinion
+                who = FROM
+                with = ROOT
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 0.2
+            }
+        }
+        add_entry = {
+            name = AI_TRUST_TOWARDS_ROOT
+            export_to_variable = {
+                variable_name = ai_value
+                value = trust
+                who = FROM
+                with = ROOT
+            }
+            subtract_variable = {
+                which = ai_value
+                value = 50
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 0.4
+            }
+        }
+        add_entry = {
+            name = gdd_elevate_invested_tributary_emperor_army_reason
+            limit = { army_size = FROM }
+            export_to_variable = {
+                variable_name = ai_value
+                value = 1
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 15
+            }
+        }
+        add_entry = {
+            name = gdd_elevate_invested_tributary_subject_army_reason
+            limit = { FROM = { army_size = ROOT } }
+            export_to_variable = {
+                variable_name = ai_value
+                value = 1
+            }
+            multiply_variable = {
+                which = ai_value
+                value = -15
+            }
+        }
+        add_entry = {
+            name = gdd_elevate_invested_tributary_emperor_strength_reason
+            limit = {
+                military_strength = {
+                    who = FROM
+                    value = 1.5
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = 1
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 25
+            }
+        }
+        add_entry = {
+            name = gdd_elevate_invested_tributary_subject_strength_reason
+            limit = {
+                FROM = {
+                    military_strength = {
+                        who = ROOT
+                        value = 1
+                    }
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = 1
+            }
+            multiply_variable = {
+                which = ai_value
+                value = -35
+            }
+        }
+        add_entry = {
+            name = AI_LIBERTY_DESIRE
+            export_to_variable = {
+                variable_name = ai_value
+                value = liberty_desire
+                who = FROM
+            }
+            multiply_variable = {
+                which = ai_value
+                value = -0.5
+            }
+        }
+    }
+}
+
+# ROOT is the Emperor of China revoking FROM's formal investiture. The country
+# remains a subject, but is downgraded to an ordinary tributary state.
+gdd_downgrade_invested_tributary = {
+    category = influence
+
+    require_acceptance = no
+
+    is_visible = {
+        is_emperor_of_china = yes
+        FROM = {
+            is_subject_of = ROOT
+            is_subject_of_type = gdd_invested_tributary
+        }
+    }
+
+    is_allowed = {
+    }
+
+    on_accept = {
+        create_subject = {
+            subject_type = tributary_state
+            subject = FROM
+            keep_liberty_desire = yes
+        }
+        FROM = {
+            if = {
+                limit = { has_reform = gdd_local_fiefdom_reform }
+                remove_government_reform = gdd_local_fiefdom_reform
+            }
+        }
+    }
+
+    on_decline = {
+    }
+
+    ai_will_do = {
+        always = no
+    }
+}

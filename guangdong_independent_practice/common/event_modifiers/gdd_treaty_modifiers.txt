@@ -2,23 +2,16 @@ gdd_active_preparation_against_ming = {
     defensiveness = 0.30
     hostile_attrition = 0.5
     land_morale = 0.10
+    liberty_desire = 100
 }
 
 gdd_preparation_against_ming = {
-    defensiveness = 0.30
+    defensiveness = 0.50
     hostile_attrition = 0.5
-    land_morale = 0.10
+    land_morale = 0.20
 }
 
 gdd_ming_preparing_southward = {
     discipline = 0.05
     land_maintenance_modifier = -0.15
-}
-
-gdd_departed_from_china = {
-    global_unrest = 2
-}
-
-gdd_overlord_backed_down = {
-    land_morale = -0.05
 }

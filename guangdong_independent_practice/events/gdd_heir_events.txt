@@ -1,0 +1,91 @@
+namespace = gdd_heir
+
+# Mark the historical heir and repair starts in which another mod removed him.
+country_event = {
+    id = gdd_heir.1
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        NOT = { has_country_flag = gdd_heir_system_initialised }
+    }
+
+    immediate = {
+        set_country_flag = gdd_heir_system_initialised
+        set_country_flag = gdd_liang_shouyi_designated_heir
+
+        if = {
+            limit = { has_heir = no }
+            define_heir = {
+                name = "àR≈k"
+                monarch_name = "àR≈k"
+                dynasty = "Åh"
+                birth_date = 1404.6.18
+                adm = 2
+                dip = 3
+                mil = 5
+                claim = 70
+            }
+        }
+    }
+}
+
+# If Shouyi succeeds Shouqian, dies first, or is disinherited first, Chengzuo
+# becomes the next heir. This event is called before gdd_startup.6 clears the
+# Shouqian-reigning flag on succession.
+country_event = {
+    id = gdd_heir.2
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = GDD
+        has_country_flag = gdd_liang_shouqian_reigning
+        has_country_flag = gdd_liang_shouyi_designated_heir
+        NOT = { has_country_flag = gdd_liang_chengzuo_created }
+    }
+
+    immediate = {
+        clr_country_flag = gdd_liang_shouyi_designated_heir
+        set_country_flag = gdd_liang_chengzuo_created
+
+        # Normally these on-actions leave the heir slot empty. If another mod
+        # filled it immediately, replace that placeholder with the named heir.
+        if = {
+            limit = { has_heir = yes }
+            kill_heir = { allow_new_heir = no }
+        }
+
+        define_heir = {
+            name = "bZy"
+            monarch_name = "bZy"
+            dynasty = "Åh"
+            birth_date = 1430.7.6
+            adm = 4
+            dip = 2
+            mil = 3
+            claim = 90
+            female = no
+            culture = cantonese
+            religion = confucianism
+        }
+
+        # Independent rolls produce the requested 4-6 / 2-4 / 3-5 ranges.
+        random_list = {
+            1 = { }
+            1 = { change_heir_adm = 1 }
+            1 = { change_heir_adm = 2 }
+        }
+        random_list = {
+            1 = { }
+            1 = { change_heir_dip = 1 }
+            1 = { change_heir_dip = 2 }
+        }
+        random_list = {
+            1 = { }
+            1 = { change_heir_mil = 1 }
+            1 = { change_heir_mil = 2 }
+        }
+    }
+}

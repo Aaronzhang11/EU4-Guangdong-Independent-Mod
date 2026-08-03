@@ -1,0 +1,5 @@
+# Compatibility tombstone.
+#
+# Older deployed copies of this mod contained gdd_trader_extra_efficiency
+# here. Keeping the same empty file path ensures that copying a new build over
+# an old installation removes that obsolete triggered modifier.

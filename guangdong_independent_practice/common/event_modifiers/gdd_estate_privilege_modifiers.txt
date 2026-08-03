@@ -1,0 +1,4 @@
+gdd_clan_autonomy_charter_province_modifier = {
+	local_manpower_modifier = 0.50
+	min_local_autonomy = 10
+}

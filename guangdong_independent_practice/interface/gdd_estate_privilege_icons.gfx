@@ -1,0 +1,11 @@
+spriteTypes = {
+	spriteType = {
+		name = "gdd_privilege_clan_autonomy_charter"
+		texturefile = "gfx//interface//privileges//gdd_clan_autonomy_charter.dds"
+	}
+
+	spriteType = {
+		name = "gdd_privilege_southern_trade_charter"
+		texturefile = "gfx//interface//privileges//gdd_southern_trade_charter.dds"
+	}
+}
