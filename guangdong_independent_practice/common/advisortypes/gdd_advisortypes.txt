@@ -1,2 +1,123 @@
-# No custom advisor types. Wu Yang uses the vanilla trader type, giving the
-# documented +10% trade efficiency and the standard Asian trader portrait.
+# These advisor types are available to every country. No custom portrait is
+# assigned: EU4 therefore draws their portraits from the vanilla advisor pool
+# appropriate to the advisor's power category, culture, religion, and gender.
+
+######################################################
+# Administrative Advisors
+######################################################
+
+gdd_government_reformer = {
+	monarch_power = ADM
+
+	administrative_efficiency = 0.025
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+gdd_administrative_organizer = {
+	monarch_power = ADM
+
+	governing_capacity_modifier = 0.10
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+# Diplomatic Advisors
+######################################################
+
+gdd_socialite = {
+	monarch_power = DIP
+
+	diplomatic_upkeep = 1
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+gdd_naval_architect = {
+	monarch_power = DIP
+
+	ship_durability = 0.10
+
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_port = no
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+gdd_colonial_propagandist = {
+	monarch_power = DIP
+
+	colonist_placement_chance = 0.025
+
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = {
+				NOT = { has_idea_group = exploration_ideas }
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+# Military Advisors
+######################################################
+
+gdd_march_staff_officer = {
+	monarch_power = MIL
+
+	movement_speed = 0.05
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+gdd_tactician = {
+	monarch_power = MIL
+
+	military_tactics = 0.1
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
