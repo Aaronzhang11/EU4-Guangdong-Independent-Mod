@@ -17,7 +17,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = REPO_ROOT / "docs/map/china_province_split_registry.csv"
 EXPECTED_VANILLA_MAX_ID = 4941
-EXPECTED_REGISTRY_ROWS = 90
+EXPECTED_REGISTRY_ROWS = 119
+RESERVED_PROVINCE_IDS = set(range(5032, 5045))
 ALLOCATION_FIELDS = ("game_id", "rgb_r", "rgb_g", "rgb_b")
 COLOR_OVERRIDES = {
     "N-15": (238, 145, 35),
@@ -25,6 +26,12 @@ COLOR_OVERRIDES = {
     "XN-09": (225, 90, 40),
     "XN-10": (70, 190, 155),
     "XN-11": (150, 70, 230),
+    "XN-12": (126, 83, 54),
+    "XN-13": (196, 140, 54),
+    "XN-14": (62, 166, 210),
+    "XN-15": (226, 116, 42),
+    "XN-16": (71, 132, 198),
+    "XN-17": (141, 82, 190),
     "S-19": (20, 200, 220),
     "S-20": (106, 60, 226),
     "S-21": (190, 128, 45),
@@ -70,6 +77,8 @@ COLOR_OVERRIDES = {
     "S-61": (200, 120, 45),
     "S-62": (55, 145, 215),
     "S-63": (115, 75, 50),
+    "S-64": (130, 104, 198),
+    "S-65": (146, 158, 175),
 }
 NON_SEQUENCE_COLOR_KEYS = {
     "N-15",
@@ -77,6 +86,12 @@ NON_SEQUENCE_COLOR_KEYS = {
     "XN-09",
     "XN-10",
     "XN-11",
+    "XN-12",
+    "XN-13",
+    "XN-14",
+    "XN-15",
+    "XN-16",
+    "XN-17",
     "S-20",
     "S-21",
     "S-22",
@@ -121,6 +136,8 @@ NON_SEQUENCE_COLOR_KEYS = {
     "S-61",
     "S-62",
     "S-63",
+    "S-64",
+    "S-65",
 }
 EARLY_ACTIVATION_KEYS = (
     "S-04",
@@ -147,6 +164,10 @@ LATE_ACTIVATION_KEYS = (
     "XN-09", "XN-10", "XN-11",
     "S-63",
     "N-15", "N-16",
+    "N-17", "N-18", "N-19", "N-20", "N-21", "N-22",
+    "N-23", "N-24", "N-25", "N-26", "N-27",
+    "S-64", "S-65",
+    "XN-12", "XN-13", "XN-14", "XN-15", "XN-16", "XN-17",
 )
 
 
@@ -277,6 +298,23 @@ def build_allocations(
     first_id: int,
     vanilla_colors: set[tuple[int, int, int]],
 ) -> list[tuple[int, tuple[int, int, int]]]:
+    # Once a registry is fully frozen, preserve its row-level allocations.
+    # Later batches reserve navigable-water IDs and may be appended in a
+    # different design order, so recomputing every historical row would move
+    # already-live province IDs.
+    try:
+        frozen = [
+            (
+                int(row["game_id"]),
+                (int(row["rgb_r"]), int(row["rgb_g"]), int(row["rgb_b"])),
+            )
+            for row in rows
+        ]
+    except (KeyError, TypeError, ValueError):
+        frozen = []
+    if len(frozen) == len(rows):
+        return frozen
+
     allocations: list[tuple[int, tuple[int, int, int]] | None] = [None] * len(rows)
     used_colors = set(vanilla_colors)
     color_index = 0
@@ -298,9 +336,18 @@ def build_allocations(
         if key not in NON_SEQUENCE_COLOR_KEYS:
             color_index += 1
 
-    for allocation_offset, row_index in enumerate(activation_row_order(rows)):
+    available_ids = (
+        province_id
+        for province_id in range(
+            first_id, first_id + len(rows) + len(RESERVED_PROVINCE_IDS)
+        )
+        if province_id not in RESERVED_PROVINCE_IDS
+    )
+    for province_id, row_index in zip(
+        available_ids, activation_row_order(rows), strict=True
+    ):
         allocations[row_index] = (
-            first_id + allocation_offset,
+            province_id,
             frozen_colors[row_index],
         )
     return [allocation for allocation in allocations if allocation is not None]

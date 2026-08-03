@@ -111,17 +111,23 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 631;627;sea;1354;-1;-1;-1;-1;Bali-Blambangan
 2149;5004;sea;1373;-1;-1;-1;-1;Ningbo-Changguo (Zhoushan) Strait
 2145;685;sea;5033;-1;-1;-1;-1;Zhenjiang-Yangzhou crossing
-1821;2143;sea;5033;-1;-1;-1;-1;Nanjing-Fengyang crossing
-1821;1838;sea;5033;-1;-1;-1;-1;Nanjing-Hefei crossing
-2146;686;sea;5034;-1;-1;-1;-1;Ningguo-Anqing crossing
+5056;1821;sea;5033;-1;-1;-1;-1;Jiangning-Liuhe crossing
+686;5067;sea;5038;-1;-1;-1;-1;Anqing-Taiping crossing
+5065;5062;sea;5034;-1;-1;-1;-1;Chizhou-Wuwei crossing
+5066;5061;sea;5033;-1;-1;-1;-1;Wuhu-Chaohu crossing
 4979;686;sea;5038;-1;-1;-1;-1;Jiujiang-Anqing crossing
 5011;682;sea;5035;-1;-1;-1;-1;Hankou-Wuchang crossing
 4981;682;sea;5035;-1;-1;-1;-1;Hanyang-Wuchang crossing
 5012;682;sea;5035;-1;-1;-1;-1;Huangzhou-Wuchang crossing
 2172;681;sea;5037;-1;-1;-1;-1;Jingzhou-Yichang crossing
-687;2175;sea;5039;-1;-1;-1;-1;Running-Runing Huai crossing
-2175;2144;sea;5040;-1;-1;-1;-1;Runing-Fuyang Huai crossing
-2144;2143;sea;5041;-1;-1;-1;-1;Fuyang-Fengyang Huai crossing
+5055;2175;sea;5039;-1;-1;-1;-1;Dengzhou-Xinyang Huai crossing
+5053;2175;sea;5039;-1;-1;-1;-1;Ruzhou-Xinyang Huai crossing
+5054;2175;sea;5040;-1;-1;-1;-1;Runing-Xinyang Huai crossing
+5054;2144;sea;5040;-1;-1;-1;-1;Runing-Fuyang Huai crossing
+2175;2144;sea;5040;-1;-1;-1;-1;Xinyang-Fuyang Huai crossing
+2144;5059;sea;5041;-1;-1;-1;-1;Yingzhou-Shouzhou Huai crossing
+2143;5064;sea;5041;-1;-1;-1;-1;Fengyang-Hezhou Huai crossing
+2143;5063;sea;5042;-1;-1;-1;-1;Fengyang-Chuzhou Huai crossing
 2143;2142;sea;1896;-1;-1;-1;-1;Fengyang-Huai'an Hongze crossing
 2142;4196;sea;5043;-1;-1;-1;-1;Huai'an-Haizhou Huai crossing
 4196;5020;sea;5044;-1;-1;-1;-1;Haizhou-Yancheng estuary crossing

@@ -1,0 +1,15 @@
+# 2162 - Wuzhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = cantonese
+religion = confucianism
+capital = "Wuzhou"
+trade_goods = copper
+base_tax = 3
+base_production = 4
+base_manpower = 2
+is_city = yes
+center_of_trade = 1
+discovered_by = chinese

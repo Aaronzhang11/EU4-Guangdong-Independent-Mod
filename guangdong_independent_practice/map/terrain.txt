@@ -37,7 +37,7 @@ categories =  {
             1348 1347 1345
             1402 4357 1397 4358
             1358 1353 1352 1351 1350 1354
-            5032 5033 5034 5035 5036 5037 5038 1655 1897 5039 5040 5041 5042 1896 5043 5044 # Navigable Yangtze and Huai
+            5032 5033 5034 5035 5036 5037 5038 1655 1897 5039 5040 5041 5042 1896 5043 5044 5117 # Navigable Yangtze, Huai and Hangou
 }
     }
 
@@ -99,9 +99,9 @@ categories =  {
 
             186 90 92 88 182 12 14 6 289 2407 290 279 4538
 
-            695 696 1816 2137 690 691 2138 2139 2140       1838 2143 2144
-                687  692 1836 2175 2176 671 672  683 2151  679
-            665 667 2156 2157 2159 2163 700 4942 4943 4950 4954 4979 4982 684 2148 2149 5002 682 2171 2172 4981 5011 685 1821 1822 2141 2142 2145 4196 4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025
+            695 696 1816 2137 690 691 2138 2139 2140
+                      671 672  683 2151  679
+            665 667 2156 2157 2159 2163 700 4942 4943 4950 4954 4979 4982 684 2148 2149 5002 682 2171 2172 4981 5011 685 1821 1822 2141 2142 2145 4196 5056 4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025 1836 5045 5046 692 5047 5049 2176 5050 5051 5052 687 5054
 
              2312 257 2033 148
             64 2955 2957 267 2979 2980 2981
@@ -132,7 +132,12 @@ categories =  {
             4831 4832 # Mandala
 
             2774 2775 2794 2796 #South Somalia
+            2144 5058 5059 2143 1838 5061 5064 5066 5062 # B16 Anhui plains and river ports
             688 5030 5031 # B03 Kaifeng, Zhengzhou and Chenliu plains
+    5243 5245 5248 5249 5250 5253 5254 # B23 Shanxi 20-province refinement farmlands
+    5287 5291 5296 # B26 Gansu-Ningxia 23-province refinement farmlands
+    5204 # B27 Liaoning 10-province refinement farmlands
+    5217 # B30 Yuebei-Chaoshan refinement farmlands
 }
     }
 
@@ -199,8 +204,8 @@ categories =  {
             140 1828
             123 1934 116 119 1848
 
-            669 670  686  1829 1833 1840
-            2146 2147 2152 2153 2158 2174 4944 4945 4946 4947 4948 4949 4951 4952 4953 4956 4957 4958 4960 4961 4980 4983 4992 4993 4994 4996 4997 4998 5000 1824 2150 5003 5004 5005 5006 681 5012 5015 5016
+            669 670    1829 1833 1840
+            2152 2153 2158 2174 4944 4945 4946 4947 4948 4949 4951 4952 4953 4956 4957 4958 4960 4961 4980 4983 4992 4993 4994 4996 4997 4998 5000 1824 2150 5003 5004 5005 5006 681 5012 5015 5016
             652 657 658 2697 2698 2701
 
             2965 2976 2977 2978 2983 2984 2991 3002
@@ -230,8 +235,16 @@ categories =  {
             4840 # Mandala
 
             4856
+            5057 # B15 Lishui hills
+            5060 5063 686 5065 2146 2147 5067 5068 # B16 Anhui western and southern uplands
+            4967 5048 5053 2175 # B14 Henan gates and uplands
+            2168 5071 674 673 4199 # B17 Guizhou hills and basins
             680 4987 5026 5027 # B09 Chongqing and Xiajiang hills
             4966 # B03 Xingyang and the Hulao approach
+    5289 5290 5294 # B26 Gansu-Ningxia 23-province refinement hills
+    5200 5202 5208 # B28 Guangxi 14-province refinement hills
+    5214 5215 # B29 Huizhou 3-province refinement hills
+    5216 # B30 Yuebei-Chaoshan refinement hills
 }
     }
 
@@ -374,7 +387,8 @@ categories =  {
 
             #1.37
             2838 #tarija
-        }
+    5304 # B27 Hainan five-province refinement mountain
+}
     }
 
     impassable_mountains = {
@@ -446,6 +460,9 @@ categories =  {
 
             4858 4857 2735 1090
             4955 4197 5009 5010 5014 # P02 Zhuluo and B10 Hubei plains
+            5055 # B14 Dengzhou basin pasture
+    5286 5292 5295 # B26 Gansu-Ningxia 23-province refinement grasslands
+    5205 5206 5207 5209 # B27 Liaoning 10-province refinement grasslands
 }
     }
 
@@ -488,7 +505,9 @@ categories =  {
             4804 4799 2709 4817 # Mandala
 
             1085 4869 2730
-        }
+        5239 5240 # B22 Yunnan 26-province refinement jungle
+    5301 5302 5303 # B27 Hainan five-province refinement jungle
+}
     }
 
     marsh = {
@@ -550,7 +569,8 @@ categories =  {
             860 2618
 
             1093
-        }
+    5298 5299 5300 # B26 Gansu-Ningxia 23-province refinement desert
+}
     }
 
     coastal_desert = {
@@ -663,7 +683,8 @@ categories =  {
             4628 4630 # new provinces Mesoamerica 1.28
 
             2736 4863 4861 4855 1094 2733
-        }
+    5288 5293 5297 # B26 Gansu-Ningxia 23-province refinement drylands
+}
     }
 
     highlands = {
@@ -694,10 +715,10 @@ categories =  {
             1766
             319 2298
             371 163 321
-            661 662 673 674 675 678 705
-            2131 2132 2133 2134 2135 2165 2167 2168 2170 2748 2183
+            661 662   675 678 705
+            2131 2132 2133 2134 2135 2165 2167  2170 2748 2183
             3001 4176 #Balkans
-            4199 #Greater China
+             #Greater China
             145 365 378 2209 2235 2313 4293 4294 4295 4298 4313 #Middle East
             2734 4860 4859 #Australia & New Zeeland
             460 1968 #Central Asia
@@ -719,7 +740,11 @@ categories =  {
             2173 4999 5001 # B07 Xiangxi and Nanling highlands
             5007 # B06 Chuzhou Kuocang highlands
             5008 5013 # B10 Yunyang and Shizhou highlands
+            5069 5070 5072 5073 5074 # B17 Guizhou karst highlands
             5028 # B09 Kuizhou gorge highlands
+        5224 5225 5226 5227 5228 5229 5231 5232 5233 5234 5235 5236 5237 5238 5241 # B22 Yunnan 26-province refinement highlands
+    5242 5244 5246 5247 5251 5252 5255 5256 # B23 Shanxi 20-province refinement highlands
+    5201 5203 5210 # B28 Guangxi 14-province refinement highlands
 }
     }
 

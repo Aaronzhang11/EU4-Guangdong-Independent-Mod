@@ -1,4 +1,4 @@
-# 2152 - Jianning (retained after Shaowu split)
+# 2152 - Jianning
 
 owner = MNG
 controller = MNG
@@ -8,28 +8,15 @@ add_core = NNG
 culture = chimin
 religion = confucianism
 capital = "Jianning"
-trade_goods = tea
-hre = no
-base_tax = 1
-base_production = 1
-base_manpower = 1
+trade_goods = paper
+base_tax = 3
+base_production = 3
+base_manpower = 2
 is_city = yes
 discovered_by = chinese
 discovered_by = nomad_group
 
-1595.1.1 = { discovered_by = SPA }
-1646.8.28 = {
-	owner = QNG
-	controller = QNG
-	add_core = QNG
-}
-1662.4.1 = {
-	owner = CZH
-	controller = CZH
-	add_core = CZH
-}
-1681.10.1 = {
-	owner = QNG
-	controller = QNG
-	add_core = QNG
-}
+1519.1.1 = { discovered_by = POR }
+1646.10.1 = { owner = QNG controller = QNG add_core = QNG }
+1662.4.1 = { owner = CZH controller = CZH add_core = CZH }
+1681.10.1 = { owner = QNG controller = QNG add_core = QNG }

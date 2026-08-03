@@ -1,0 +1,15 @@
+# 5286 - Zhongwei
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = mongol
+religion = confucianism
+capital = "Zhongwei"
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

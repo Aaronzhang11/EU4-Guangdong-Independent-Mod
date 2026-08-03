@@ -1,0 +1,15 @@
+# 690 - Dengzhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = shandong
+religion = confucianism
+capital = "Dengzhou"
+trade_goods = fish
+base_tax = 4
+base_production = 4
+base_manpower = 3
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

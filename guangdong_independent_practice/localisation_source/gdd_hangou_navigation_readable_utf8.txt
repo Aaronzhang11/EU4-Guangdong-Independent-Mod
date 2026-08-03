@@ -1,0 +1,6 @@
+l_english:
+ PROV5117:0 "邗沟"
+ PROV_ADJ5117:0 "邗沟"
+ hangou_waterway_area:0 "邗沟水道"
+ hangou_waterway_area_name:0 "邗沟"
+ hangou_waterway_area_adj:0 "邗沟水道"

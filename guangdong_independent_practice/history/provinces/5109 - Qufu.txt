@@ -1,0 +1,15 @@
+# 5109 - Qufu
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = shandong
+religion = confucianism
+capital = "Qufu"
+trade_goods = paper
+base_tax = 5
+base_production = 4
+base_manpower = 3
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

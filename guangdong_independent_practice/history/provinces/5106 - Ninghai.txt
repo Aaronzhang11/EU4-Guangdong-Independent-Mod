@@ -1,0 +1,15 @@
+# 5106 - Ninghai
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = shandong
+religion = confucianism
+capital = "Ninghai"
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

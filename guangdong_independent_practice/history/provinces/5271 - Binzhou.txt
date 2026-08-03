@@ -1,0 +1,15 @@
+# 5271 - Binzhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Binzhou"
+trade_goods = grain
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

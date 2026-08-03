@@ -1,0 +1,16 @@
+# 5300 - Shazhou
+
+owner = HMI
+controller = HMI
+add_core = HMI
+add_core = MNG
+culture = oirats
+religion = vajrayana
+capital = "Shazhou"
+trade_goods = silk
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

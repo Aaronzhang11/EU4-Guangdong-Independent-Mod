@@ -1,0 +1,15 @@
+# 5246 - Pingding
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Pingding"
+trade_goods = iron
+base_tax = 3
+base_production = 5
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

@@ -1,0 +1,16 @@
+# 5298 - Guazhou
+
+owner = HMI
+controller = HMI
+add_core = HMI
+add_core = MNG
+culture = oirats
+religion = vajrayana
+capital = "Guazhou"
+trade_goods = wool
+base_tax = 1
+base_production = 2
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

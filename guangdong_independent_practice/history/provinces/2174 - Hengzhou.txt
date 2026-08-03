@@ -10,9 +10,9 @@ religion = confucianism
 capital = "Hengyang"
 trade_goods = gold
 hre = no
-base_tax = 3
-base_production = 3
-base_manpower = 3
+base_tax = 4
+base_production = 4
+base_manpower = 5
 is_city = yes
 center_of_trade = 1
 
