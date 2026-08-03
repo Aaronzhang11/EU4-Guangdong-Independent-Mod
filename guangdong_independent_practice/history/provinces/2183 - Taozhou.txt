@@ -1,0 +1,15 @@
+# 2183 - Taozhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = tibetan
+religion = vajrayana
+capital = "Taozhou"
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

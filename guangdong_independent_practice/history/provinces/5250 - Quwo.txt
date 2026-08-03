@@ -1,0 +1,15 @@
+# 5250 - Quwo
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Quwo"
+trade_goods = cloth
+base_tax = 4
+base_production = 3
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

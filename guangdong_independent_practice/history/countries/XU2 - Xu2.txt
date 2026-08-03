@@ -10,7 +10,7 @@ fixed_capital = 1816
 
 1444.11.11 = {
     monarch = {
-        name = "AQÜp"        
+        name = "AQÜp"
         dynasty = "ÏY"
         birth_date = 1397.1.1
         adm = 1

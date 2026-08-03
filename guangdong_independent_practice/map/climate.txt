@@ -74,6 +74,11 @@ tropical = {
     4840 4841 4842 4843 4844 4845
     4945 # B01 Gaozhou inherits the Leichow tropical climate
     4954 4955 4960 4961 # P02 southern subtropical frontier
+        5235 5236 5237 5238 5239 5240 5241 # B22 Yunnan 26-province refinement tropical south
+    5301 5302 5303 5304 # B27 Hainan five-province refinement
+    5200 5201 5202 5203 5208 5210 # B28 Guangxi 14-province refinement tropical
+    5214 5215 # B29 Huizhou 3-province refinement tropical
+    5216 5217 # B30 Yuebei-Chaoshan refinement tropical
 }
 
 arid = {
@@ -148,6 +153,7 @@ arid = {
 
     #New North America
     2496
+    5298 5299 5300 # B26 Gansu-Ningxia 23-province refinement
 }
 
 arctic = {
@@ -251,6 +257,8 @@ mild_winter = {
     4703 4704 4719 4750 4751 4752 4753 4754 4755 4756 4757 4776 4777
     #New North America
     4877 4878 4879 4886 4887 4888 4908 4913 4914 4921 4923
+    5286 5287 5288 5289 5290 5291 5292 5293 5294 5295 5296 5297 # B26 Gansu-Ningxia 23-province refinement
+    5204 5205 5206 5207 5209 # B27 Liaoning 10-province refinement
 }
 
 #Example: Inland Europe & Scandinavia
@@ -394,6 +402,9 @@ impassable = {
     4807 4808 4843 4844
     4924 4925 4926 4927 4928 4929 4930 4931 4932 4933
     5029 # B08 Taiwan central range
+    5175 5176 5183 5187 # Qin-Shu mountain barriers
+    5257 5258 5259 5260 5261 # B23 Shanxi 20-province refinement impassable
+    5304 # B27 Hainan five-province refinement impassable
 }
 
 mild_monsoon = {
@@ -583,6 +594,18 @@ normal_monsoon = {
     4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025 # B11 Jiangsu
     4987 5026 5027 5028 # B09 Chongqing
     4966 5030 5031 # B03 Kaifeng royal domain
+    4967 5045 5046 5047 5048 5049 5050 5051 5052 5053 5054 5055 # B14 Henan refinement
+    5056 5057 # B15 Yingtian refinement
+    5058 5059 5060 5061 5062 5063 5064 5065 5066 5067 5068 # B16 Anhui refinement
+    5069 5070 5071 5072 5073 5074 # B17 Guizhou refinement
+        5075 5076 5077 5078 5079 5080 5081 5082 5083 5084 5085 5086 5087 5088 5089 5090 5091 5092 5093 5094 5095 # B18 Sichuan 36-province refinement
+        5096 5097 5098 5099 5100 # B19 Fujian 13-province refinement
+        5224 5225 5226 5227 5228 5229 5230 5231 5232 5233 5234 5235 5236 5237 5238 5239 5240 5241 # B22 Yunnan 26-province refinement
+    5242 5243 5244 5245 5246 5247 5248 5251 5252 5249 5250 5255 5256 5253 5254 # B23 Shanxi 20-province refinement
+    5200 5201 5202 5203 5208 5210 # B28 Guangxi 14-province refinement monsoon
+    5214 5215 # B29 Huizhou 3-province refinement monsoon
+    5216 5217 # B30 Yuebei-Chaoshan refinement monsoon
+    5301 5302 5303 5304 # B27 Hainan five-province refinement
 }
 
 severe_monsoon = {

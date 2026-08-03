@@ -39,7 +39,11 @@
 3. [手绘拆省与正式实装标准流程](map/04_manual_map_implementation_workflow.md)
 4. [拆省批次实施与验收模板](map/templates/province_split_batch_template.md)
 5. [P02 浙江、福建、广西与台湾待手绘批次](map/05_p02_southeast_predrawing_assets.md)
-5. [地图设计资产索引](map/README.md)
+6. [河南二十一省与周王双京](map/07_b14_henan_detail.md)
+7. [安徽十七省细化](map/08_b16_anhui_detail.md)
+8. [四川三十六省细化](map/09_b18_sichuan_detail.md)
+9. [福建十三省细化](map/10_b19_fujian_detail.md)
+10. [地图设计资产索引](map/README.md)
 
 ### 研究依据
 

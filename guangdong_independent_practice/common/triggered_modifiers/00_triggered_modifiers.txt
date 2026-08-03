@@ -19,7 +19,7 @@ east_indian_trade_route = {
 				continent = oceania
 			}
 		}
-		
+
 	}
 
 	trigger = {
@@ -296,7 +296,7 @@ papal_subjugation = {
 		NOT = { tag = PAP }
 	}
 
-	trigger = {	
+	trigger = {
 		overlord_of = PAP
 		NOT = { tag = ITA }
 		NOT = { tag = HLR }
@@ -326,7 +326,7 @@ papal_subjugation = {
 		}
 		custom_trigger_tooltip = {
 			tooltip = no_dip_malus_reward_tt
-			NOT = { has_country_flag = general_flag_Rome_flag }			
+			NOT = { has_country_flag = general_flag_Rome_flag }
 		}
 	}
 
@@ -345,7 +345,7 @@ rapid_collapse_of_society = {
 				continent = new_world
 			}
 		}
-		
+
 	}
 	trigger = {
 		NOT = { has_institution = feudalism }
@@ -360,11 +360,11 @@ rapid_collapse_of_society = {
 			}
 		}
 	}
-	
+
 	all_power_cost = 0.33
 	discipline = -0.1
 	land_morale = -0.2
-	
+
 }
 
 ######################################
@@ -427,7 +427,7 @@ counter_revolution = {
 			}
 			revolution_target = {
 				truce_with = ROOT
-			} 
+			}
 		}
 		government = monarchy
 	}
@@ -461,7 +461,7 @@ reaction = {
 		government = monarchy
 		revolution_target = {
 			war_with = ROOT
-		}  
+		}
 
 	}
 
@@ -479,17 +479,17 @@ crusader = {
 		crusade_target = {
 			exists = yes
 		}
-		
+
 	}
 
 	trigger = {
-		
+
 		crusade_target = {
 			war_with = ROOT
 			any_province = {
 				controlled_by = root
 			}
-		}  
+		}
 		land_maintenance = 1.0
 	}
 
@@ -507,12 +507,12 @@ crusader = {
 ######################################
 excommunication = {
 	potential = {
-		religion = catholic	
+		religion = catholic
 	}
 
 	trigger = {
 		is_excommunicated = yes
-		
+
 	}
 
 	prestige = -2
@@ -550,7 +550,7 @@ pentarchy_mod = {
 		379 = { religion = orthodox }
 		358 = { religion = orthodox }
 	}
-	
+
 	prestige = 0.5
 	missionaries = 1
 }
@@ -563,8 +563,8 @@ the_mandate_of_heaven = {
 		has_reform = celestial_empire
 		NOT = { has_dlc = "Mandate of Heaven" }
 	}
-	
-	trigger = {	
+
+	trigger = {
 		stability = 0
 		legitimacy = 60
 		num_of_cities = 20
@@ -584,7 +584,7 @@ the_mandate_of_heaven_lost = {
 		OR = {
 			NOT = { stability = 0 }
 			NOT = { legitimacy = 60 }
-			NOT = { num_of_cities = 20 }	
+			NOT = { num_of_cities = 20 }
 		}
 	}
 
@@ -716,7 +716,7 @@ waging_war_for_china = {
 			casus_belli = cb_chinese_unification
 		}
 	}
-	
+
 	imperial_mandate = 0.05
 }
 
@@ -740,7 +740,7 @@ hre_dominant_catholic = {
 		hre_religion = catholic
 		hre_religion_locked = yes
 	}
-	
+
 	legitimacy = 0.25
 	tolerance_own = 1
 	global_missionary_strength = 0.01
@@ -764,7 +764,7 @@ hre_dominant_protestant = {
 		hre_religion = protestant
 		hre_religion_locked = yes
 	}
-	
+
 	legitimacy = 0.25
 	tolerance_own = 1
 	global_missionary_strength = 0.01
@@ -788,7 +788,7 @@ hre_dominant_reformed = {
 		hre_religion = reformed
 		hre_religion_locked = yes
 	}
-	
+
 	legitimacy = 0.25
 	tolerance_own = 1
 	global_missionary_strength = 0.01
@@ -813,7 +813,7 @@ hre_dominant_hussite = {
 		hre_religion = hussite
 		hre_religion_locked = yes
 	}
-	
+
 	legitimacy = 0.25
 	tolerance_own = 1
 	global_missionary_strength = 0.01

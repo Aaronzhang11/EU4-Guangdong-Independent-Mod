@@ -1,0 +1,5 @@
+l_english:
+ PROV5175:0 "大巴山"
+ PROV_ADJ5175:0 "大巴山"
+ PROV5176:0 "岷山"
+ PROV_ADJ5176:0 "岷山"

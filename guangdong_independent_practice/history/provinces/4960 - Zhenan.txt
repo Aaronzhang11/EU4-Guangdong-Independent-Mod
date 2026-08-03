@@ -1,0 +1,14 @@
+# 4960 - Zhenan
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhuang
+religion = confucianism
+capital = "Zhenan"
+trade_goods = sugar
+base_tax = 1
+base_production = 2
+base_manpower = 2
+is_city = yes
+discovered_by = chinese

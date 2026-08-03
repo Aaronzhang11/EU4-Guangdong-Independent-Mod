@@ -1,0 +1,15 @@
+# 5212 - Luanzhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Luanzhou"
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

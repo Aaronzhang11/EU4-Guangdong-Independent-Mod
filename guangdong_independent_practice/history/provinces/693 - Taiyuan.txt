@@ -1,0 +1,17 @@
+# 693 - Taiyuan
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Taiyuan"
+trade_goods = cloth
+base_tax = 8
+base_production = 8
+base_manpower = 4
+is_city = yes
+center_of_trade = 2
+fort_15th = yes
+discovered_by = chinese
+discovered_by = nomad_group

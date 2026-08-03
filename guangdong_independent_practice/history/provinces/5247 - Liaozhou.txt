@@ -1,0 +1,15 @@
+# 5247 - Liaozhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Liaozhou"
+trade_goods = iron
+base_tax = 2
+base_production = 4
+base_manpower = 2
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

@@ -1,0 +1,15 @@
+# 5219 - Jizhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = zhili
+religion = confucianism
+capital = "Jizhou"
+trade_goods = grain
+base_tax = 4
+base_production = 3
+base_manpower = 4
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

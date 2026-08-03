@@ -669,6 +669,7 @@ manchuria_region = {
         central_jilin_area
         ilan_hala_area
         liaoning_area
+        xi_liaoning_area
         ningguta_area
         central_heilongjiang_area
         sakhalin_area
@@ -877,8 +878,12 @@ south_china_region = {
     areas = {
         pearl_river_delta_area
         guangdong_area
+        dongjiang_area
+        chaoshan_area
         west_guangdong_area
+        hainan_area
         fujian_area
+        minnan_area
         west_fujian_area
         jiangxi_area
         south_jiangxi_area
@@ -889,13 +894,16 @@ south_china_region = {
         zhejiang_area
         east_zhejiang_area
         jinqu_chuzhou_area
-        south_anhui_area
+        wanjiang_area
+        huining_area
         taiwan_area
+        yingtian_area
         jinling_wuhui_area
         dongting_area
         hunan_area
         southwest_hunan_area
         guangxi_area
+        guidong_area
         youjiang_area
     }
     monsoon = {
@@ -908,10 +916,21 @@ xinan_region = {
     areas = {
         sichuan_area
         chongqing_area
-        yun_gui_area
+        yunnan_area
+        diannan_area
+        dianxinan_area
+        diandong_area
+        dianxi_area
+        dianxibei_area
+        qianxi_area
+        qiandong_area
         chuannan_area
-        yun_gui_borderland_area
         chuanbei_area
+        liangshan_area
+        ganzi_area
+        aba_area
+        songmao_area
+        jiaya_area
     }
 }
 
@@ -919,18 +938,37 @@ north_china_region = {
 
     areas = {
         hebei_area
+        zhong_hebei_area
+        dong_hebei_area
+        yandu_area
         south_hebei_area
-        shandong_area
-        henan_area
+        luxi_area
+        qizhou_area
+        denglai_area
+        lunan_area
+        guide_xuchen_area
+        runing_nanyang_area
         shanxi_area
+        hedong_area
+        shangdang_area
+        yanmen_area
         gansu_area
+        hexi_area
+        longnan_area
+        ningxia_area
         shaanxi_area
-        north_henan_area
+        xi_shaanxi_area
+        nan_shaanxi_area
+        bei_shaanxi_area
+        changan_area
+        chengzhou_area
+        hebei_zhangwei_area
         wangji_area
         west_gansu_area
         xuhuai_haizhou_area
         huaiyang_tongtai_area
-        anhui_area
+        huaiying_area
+        jianghuai_area
     }
 }
 
@@ -1489,6 +1527,7 @@ east_china_sea_region = {
         sea_of_okhotsk_area
         yangtze_river_area
         huai_river_area
+        hangou_waterway_area
 }
 }
 

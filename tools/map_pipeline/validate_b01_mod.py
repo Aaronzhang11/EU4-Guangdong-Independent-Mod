@@ -27,10 +27,18 @@ from build_b01_mod import (
     HUBEI_ALL_IDS,
     JIANGSU_ALL_IDS,
     JIANGSU_NEW_IDS,
+    YINGTIAN_ALL_IDS,
+    YINGTIAN_NEW_IDS,
+    ANHUI_ALL_IDS,
+    ANHUI_NEW_IDS,
+    ANHUI_RETAINED_IDS,
     CHONGQING_ALL_IDS,
     CHONGQING_NEW_IDS,
     WANGJI_ALL_IDS,
     WANGJI_NEW_IDS,
+    HENAN_ALL_IDS,
+    HENAN_NEW_IDS,
+    HENAN_RETAINED_IDS,
     TAIWAN_MOUNTAIN_ID,
     TAIWAN_REVIEW_IDS,
     YANGTZE_SEA_IDS,
@@ -134,7 +142,9 @@ EXPECTED_AREAS = {
     4977: "huaiyang_tongtai_area",
     5022: "huaiyang_tongtai_area",
     5023: "huaiyang_tongtai_area",
-    1821: "jinling_wuhui_area",
+    1821: "yingtian_area",
+    5056: "yingtian_area",
+    5057: "yingtian_area",
     2145: "jinling_wuhui_area",
     5024: "jinling_wuhui_area",
     5025: "jinling_wuhui_area",
@@ -149,8 +159,40 @@ EXPECTED_AREAS = {
     4966: "wangji_area",
     5030: "wangji_area",
     5031: "wangji_area",
-    692: "north_henan_area",
-    1836: "north_henan_area",
+    1836: "chengzhou_area",
+    5045: "chengzhou_area",
+    5046: "chengzhou_area",
+    4967: "chengzhou_area",
+    692: "hebei_zhangwei_area",
+    5047: "hebei_zhangwei_area",
+    5048: "hebei_zhangwei_area",
+    5049: "hebei_zhangwei_area",
+    2176: "guide_xuchen_area",
+    5050: "guide_xuchen_area",
+    5051: "guide_xuchen_area",
+    5052: "guide_xuchen_area",
+    687: "runing_nanyang_area",
+    5053: "runing_nanyang_area",
+    5054: "runing_nanyang_area",
+    2175: "runing_nanyang_area",
+    5055: "runing_nanyang_area",
+    5058: "huaiying_area",
+    2144: "huaiying_area",
+    5059: "huaiying_area",
+    2143: "huaiying_area",
+    5060: "jianghuai_area",
+    1838: "jianghuai_area",
+    5061: "jianghuai_area",
+    5063: "jianghuai_area",
+    5064: "jianghuai_area",
+    686: "wanjiang_area",
+    5065: "wanjiang_area",
+    5066: "wanjiang_area",
+    5062: "wanjiang_area",
+    2147: "huining_area",
+    2146: "huining_area",
+    5067: "huining_area",
+    5068: "huining_area",
 }
 EXPECTED_TERRAIN = {
     4942: "farmlands",
@@ -226,7 +268,46 @@ EXPECTED_TERRAIN = {
     4966: "hills",
     5030: "farmlands",
     5031: "farmlands",
-    **{province_id: "farmlands" for province_id in JIANGSU_ALL_IDS},
+    1836: "farmlands",
+    5045: "farmlands",
+    5046: "farmlands",
+    4967: "hills",
+    692: "farmlands",
+    5047: "farmlands",
+    5048: "hills",
+    5049: "farmlands",
+    2176: "farmlands",
+    5050: "farmlands",
+    5051: "farmlands",
+    5052: "farmlands",
+    687: "farmlands",
+    5053: "hills",
+    5054: "farmlands",
+    2175: "hills",
+    5055: "grasslands",
+    **{
+        province_id: "farmlands"
+        for province_id in JIANGSU_ALL_IDS
+        if province_id != 5057
+    },
+    5057: "hills",
+    2144: "farmlands",
+    5058: "farmlands",
+    5059: "farmlands",
+    2143: "farmlands",
+    1838: "farmlands",
+    5061: "farmlands",
+    5064: "farmlands",
+    5066: "farmlands",
+    5062: "farmlands",
+    5060: "hills",
+    5063: "hills",
+    686: "hills",
+    5065: "hills",
+    2146: "hills",
+    2147: "hills",
+    5067: "hills",
+    5068: "hills",
 }
 PREPARED_HISTORY = {
     669: ("MNG", (5, 5, 2), "tea", "chimin"),
@@ -276,10 +357,44 @@ EXPECTED_HISTORY = {
     5026: ("MNG", (1, 1, 1), "grain", "sichuanese"),
     5027: ("MNG", (1, 1, 1), "paper", "sichuanese"),
     5028: ("MNG", (1, 1, 1), "naval_supplies", "sichuanese"),
-    688: ("MNG", (4, 4, 1), "chinaware", "zhongyuan"),
-    4966: ("MNG", (1, 1, 1), "grain", "zhongyuan"),
-    5030: ("MNG", (2, 2, 1), "cloth", "zhongyuan"),
-    5031: ("MNG", (1, 1, 1), "grain", "zhongyuan"),
+    688: ("MNG", (7, 9, 3), "chinaware", "zhongyuan"),
+    4966: ("MNG", (3, 3, 2), "grain", "zhongyuan"),
+    5030: ("MNG", (5, 6, 2), "cloth", "zhongyuan"),
+    5031: ("MNG", (4, 5, 1), "grain", "zhongyuan"),
+    1836: ("MNG", (7, 7, 4), "cloth", "zhongyuan"),
+    5045: ("MNG", (3, 4, 2), "grain", "zhongyuan"),
+    5046: ("MNG", (3, 3, 2), "chinaware", "zhongyuan"),
+    4967: ("MNG", (3, 3, 2), "iron", "zhongyuan"),
+    692: ("MNG", (4, 4, 2), "grain", "zhongyuan"),
+    5047: ("MNG", (4, 4, 2), "grain", "zhongyuan"),
+    5048: ("MNG", (5, 5, 2), "iron", "zhongyuan"),
+    5049: ("MNG", (3, 4, 1), "livestock", "zhongyuan"),
+    2176: ("MNG", (5, 6, 2), "cloth", "zhongyuan"),
+    5050: ("MNG", (3, 3, 1), "livestock", "zhongyuan"),
+    5051: ("MNG", (4, 4, 2), "grain", "zhongyuan"),
+    5052: ("MNG", (5, 5, 2), "cloth", "zhongyuan"),
+    687: ("MNG", (6, 6, 3), "cloth", "zhongyuan"),
+    5053: ("MNG", (3, 3, 2), "iron", "zhongyuan"),
+    5054: ("MNG", (5, 5, 2), "grain", "zhongyuan"),
+    2175: ("MNG", (3, 4, 2), "tea", "zhongyuan"),
+    5055: ("MNG", (4, 4, 2), "livestock", "zhongyuan"),
+    5058: ("MNG", (3, 3, 2), "livestock", "zhongyuan"),
+    2144: ("MNG", (4, 4, 2), "grain", "zhongyuan"),
+    5059: ("MNG", (4, 4, 3), "grain", "zhongyuan"),
+    2143: ("MNG", (3, 3, 2), "grain", "zhongyuan"),
+    5060: ("MNG", (3, 3, 3), "tea", "jianghuai"),
+    1838: ("MNG", (4, 5, 2), "cloth", "jianghuai"),
+    5061: ("MNG", (3, 4, 2), "fish", "jianghuai"),
+    5063: ("MNG", (3, 3, 2), "livestock", "jianghuai"),
+    5064: ("MNG", (3, 3, 2), "grain", "jianghuai"),
+    686: ("MNG", (5, 5, 3), "cloth", "jianghuai"),
+    5065: ("MNG", (3, 4, 2), "copper", "jianghuai"),
+    5066: ("MNG", (4, 6, 2), "iron", "jianghuai"),
+    5062: ("MNG", (3, 3, 2), "grain", "jianghuai"),
+    2147: ("MNG", (4, 5, 2), "paper", "wu"),
+    2146: ("MNG", (3, 4, 2), "paper", "wu"),
+    5067: ("MNG", (3, 3, 2), "tea", "wu"),
+    5068: ("MNG", (3, 3, 2), "naval_supplies", "wu"),
 }
 EXPECTED_DEV_PARTITIONS = {
     665: {"children": (4947,), "original": (4, 4, 3), "delta": (0, 0, 0)},
@@ -300,34 +415,34 @@ EXPECTED_DEV_PARTITIONS = {
     688: {
         "children": (4966, 5030, 5031),
         "original": (8, 8, 4),
-        "delta": (0, 0, 0),
+        "delta": (11, 15, 4),
     },
 }
 JIANGXI_HISTORY = {
-    670: ("MNG", (4, 4, 3), "grain", "hakka"),
-    683: ("MNG", (6, 6, 4), "paper", "gan"),
-    1833: ("MNG", (4, 4, 3), "cloth", "gan"),
-    2151: ("MNG", (4, 5, 2), "chinaware", "gan"),
-    4979: ("MNG", (4, 5, 3), "tea", "gan"),
-    4980: ("MNG", (3, 4, 2), "paper", "gan"),
-    4992: ("MNG", (3, 3, 2), "grain", "gan"),
-    4993: ("MNG", (3, 3, 2), "copper", "gan"),
-    4994: ("MNG", (3, 3, 2), "grain", "gan"),
-    4995: ("MNG", (2, 2, 2), "iron", "hakka"),
+    670: ("MNG", (6, 7, 5), "grain", "hakka"),
+    683: ("MNG", (9, 10, 6), "paper", "gan"),
+    1833: ("MNG", (7, 7, 5), "cloth", "gan"),
+    2151: ("MNG", (7, 9, 4), "chinaware", "gan"),
+    4979: ("MNG", (7, 8, 5), "tea", "gan"),
+    4980: ("MNG", (6, 7, 4), "paper", "gan"),
+    4992: ("MNG", (5, 5, 4), "grain", "gan"),
+    4993: ("MNG", (5, 6, 3), "copper", "gan"),
+    4994: ("MNG", (3, 4, 3), "grain", "gan"),
+    4995: ("MNG", (3, 3, 2), "iron", "hakka"),
 }
 HUNAN_HISTORY = {
-    671: ("MNG", (5, 6, 3), "grain", "xiang", "confucianism"),
-    672: ("MNG", (4, 4, 2), "cotton", "xiang", "confucianism"),
-    2173: ("MNG", (2, 3, 4), "tea", "miao", "animism"),
-    2174: ("MNG", (3, 3, 3), "gold", "xiang", "confucianism"),
-    4982: ("MNG", (4, 5, 2), "tea", "xiang", "confucianism"),
-    4983: ("MNG", (2, 2, 2), "livestock", "xiang", "confucianism"),
-    4996: ("MNG", (2, 3, 2), "grain", "xiang", "confucianism"),
-    4997: ("MNG", (3, 3, 2), "naval_supplies", "xiang", "confucianism"),
-    4998: ("MNG", (2, 3, 2), "chinaware", "xiang", "confucianism"),
-    4999: ("MNG", (2, 2, 3), "livestock", "miao", "animism"),
-    5000: ("MNG", (3, 3, 3), "iron", "xiang", "confucianism"),
-    5001: ("MNG", (3, 5, 3), "copper", "xiang", "confucianism"),
+    671: ("MNG", (8, 9, 4), "grain", "xiang", "confucianism"),
+    672: ("MNG", (5, 6, 4), "cotton", "xiang", "confucianism"),
+    2173: ("MNG", (3, 4, 6), "tea", "miao", "animism"),
+    2174: ("MNG", (4, 4, 5), "gold", "xiang", "confucianism"),
+    4982: ("MNG", (7, 8, 4), "tea", "xiang", "confucianism"),
+    4983: ("MNG", (3, 3, 4), "livestock", "xiang", "confucianism"),
+    4996: ("MNG", (2, 4, 4), "grain", "xiang", "confucianism"),
+    4997: ("MNG", (4, 4, 4), "naval_supplies", "xiang", "confucianism"),
+    4998: ("MNG", (4, 5, 3), "chinaware", "xiang", "confucianism"),
+    4999: ("MNG", (3, 3, 5), "livestock", "miao", "animism"),
+    5000: ("MNG", (3, 3, 4), "iron", "xiang", "confucianism"),
+    5001: ("MNG", (4, 6, 4), "copper", "xiang", "confucianism"),
 }
 ZHEJIANG_HISTORY = {
     684: ("MNG", (7, 9, 3), "silk", "wu", "confucianism"),
@@ -346,21 +461,21 @@ ZHEJIANG_HISTORY = {
     5007: ("MNG", (2, 3, 2), "chinaware", "wu", "confucianism"),
 }
 HUBEI_HISTORY = {
-    681: ("MNG", (3, 3, 2), "tea", "hubei", "confucianism"),
-    682: ("MNG", (5, 6, 3), "salt", "hubei", "confucianism"),
-    2171: ("MNG", (5, 5, 3), "grain", "hubei", "confucianism"),
-    2172: ("MNG", (4, 4, 3), "grain", "hubei", "confucianism"),
+    681: ("MNG", (4, 4, 3), "tea", "hubei", "confucianism"),
+    682: ("MNG", (6, 7, 4), "salt", "hubei", "confucianism"),
+    2171: ("MNG", (6, 6, 5), "grain", "hubei", "confucianism"),
+    2172: ("MNG", (5, 5, 4), "grain", "hubei", "confucianism"),
     4197: ("MNG", (3, 3, 2), "grain", "hubei", "confucianism"),
-    4981: ("MNG", (3, 3, 2), "naval_supplies", "hubei", "confucianism"),
-    5008: ("MNG", (2, 3, 2), "iron", "hubei", "confucianism"),
-    5009: ("MNG", (3, 2, 2), "cotton", "hubei", "confucianism"),
+    4981: ("MNG", (4, 3, 2), "naval_supplies", "hubei", "confucianism"),
+    5008: ("MNG", (2, 3, 3), "iron", "hubei", "confucianism"),
+    5009: ("MNG", (3, 2, 3), "cotton", "hubei", "confucianism"),
     5010: ("MNG", (3, 3, 2), "paper", "hubei", "confucianism"),
-    5011: ("MNG", (5, 8, 2), "cloth", "hubei", "confucianism"),
-    5012: ("MNG", (3, 3, 2), "tea", "hubei", "confucianism"),
+    5011: ("MNG", (6, 10, 3), "cloth", "hubei", "confucianism"),
+    5012: ("MNG", (4, 4, 2), "tea", "hubei", "confucianism"),
     5013: ("MNG", (2, 2, 2), "livestock", "miao", "animism"),
-    5014: ("MNG", (2, 3, 2), "grain", "hubei", "confucianism"),
+    5014: ("MNG", (2, 4, 3), "grain", "hubei", "confucianism"),
     5015: ("MNG", (2, 2, 2), "tea", "hubei", "confucianism"),
-    5016: ("MNG", (3, 3, 2), "copper", "hubei", "confucianism"),
+    5016: ("MNG", (3, 4, 3), "copper", "hubei", "confucianism"),
 }
 JIANGSU_HISTORY = {
     2141: ("MNG", (7, 8, 4), "iron", "zhongyuan", "confucianism"),
@@ -373,7 +488,9 @@ JIANGSU_HISTORY = {
     4977: ("MNG", (3, 5, 2), "salt", "jianghuai", "confucianism"),
     5022: ("MNG", (3, 4, 2), "cloth", "jianghuai", "confucianism"),
     5023: ("MNG", (3, 3, 2), "grain", "jianghuai", "confucianism"),
-    1821: ("MNG", (7, 8, 4), "silk", "jianghuai", "confucianism"),
+    1821: ("MNG", (2, 2, 1), "grain", "jianghuai", "confucianism"),
+    5056: ("MNG", (7, 8, 4), "silk", "jianghuai", "confucianism"),
+    5057: ("MNG", (2, 2, 1), "tea", "jianghuai", "confucianism"),
     2145: ("MNG", (4, 4, 2), "naval_supplies", "jianghuai", "confucianism"),
     5024: ("MNG", (4, 5, 2), "cloth", "wu", "confucianism"),
     5025: ("MNG", (3, 4, 2), "silk", "wu", "confucianism"),
@@ -602,6 +719,9 @@ def validate_map(
         IMPLEMENTED_IDS + JIANGXI_IDS + HUNAN_IDS
         + ZHEJIANG_IDS + HUBEI_NEW_IDS + HUBEI_ALL_IDS[:5] + JIANGSU_NEW_IDS
         + CHONGQING_NEW_IDS + TAIWAN_REVIEW_IDS + WANGJI_NEW_IDS
+        + HENAN_RETAINED_IDS + HENAN_NEW_IDS
+        + YINGTIAN_NEW_IDS
+        + ANHUI_ALL_IDS
         + YANGTZE_SEA_IDS + HUAI_SEA_IDS
     )
     if configured_ids != audited_ids:
@@ -1086,6 +1206,10 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         "jingyi_shinan_area",
         "dean_qihuang_area",
         "wuhan_enan_area",
+        "yingtian_area",
+        "jinling_wuhui_area",
+        "wanjiang_area",
+        "huining_area",
     }:
         if not re.search(rf"\b{re.escape(area_name)}\b", south_china):
             raise ValueError(f"region.txt: south_china_region lacks {area_name}")
@@ -1095,8 +1219,15 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         raise ValueError("region.txt: xinan_region lacks chongqing_area")
 
     north_china = block_text(region_text, "north_china_region")
-    if not re.search(r"\bwangji_area\b", north_china):
-        raise ValueError("region.txt: north_china_region lacks wangji_area")
+    for area_name in {
+        "wangji_area", "chengzhou_area", "hebei_zhangwei_area",
+        "guide_xuchen_area", "runing_nanyang_area",
+        "huaiying_area", "jianghuai_area",
+    }:
+        if not re.search(rf"\b{re.escape(area_name)}\b", north_china):
+            raise ValueError(
+                f"region.txt: north_china_region lacks {area_name}"
+            )
     east_china_sea = block_text(region_text, "east_china_sea_region")
     if not re.search(r"\byangtze_river_area\b", east_china_sea):
         raise ValueError("region.txt: east_china_sea_region lacks yangtze_river_area")
@@ -1131,6 +1262,10 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         4981, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016,
         4987, 5026, 5027, 5028,
         4966, 5030, 5031,
+        4967, 5045, 5046, 5047, 5048, 5049,
+        5050, 5051, 5052, 5053, 5054, 5055,
+        5056, 5057,
+        5058, 5059, 5060, 5061, 5062, 5063, 5064, 5065, 5066, 5067, 5068,
     ):
         if province_id not in normal_monsoon:
             raise ValueError(f"climate.txt: {province_id} lacks normal_monsoon")
@@ -1174,13 +1309,15 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         4950, 4951, 4952, 4953, 4956, 4957, 4958,
         4979, 4980, 4992, 4993, 4994, 4995,
         5002, 5003, 5004, 5005, 5006, 5007,
+        5056, 5057,
+        5058, 5059, 5060, 5061, 5062, 5063, 5064, 5065, 5066, 5067, 5068,
     ):
         assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
         if province_id not in hangzhou_members:
             raise ValueError(f"Hangzhou trade node lacks {province_id}")
     xian = block_text(trade_nodes, "xian")
     xian_members = set(numeric_tokens(block_text(xian, "members")))
-    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS:
+    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS + HENAN_NEW_IDS:
         assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
         if province_id not in xian_members:
             raise ValueError(f"Xi'an trade node lacks {province_id}")
@@ -1212,6 +1349,8 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
         4950, 4951, 4952, 4953, 4956, 4957, 4958,
         4979, 4980, 4992, 4993, 4994, 4995,
         5002, 5003, 5004, 5005, 5006, 5007,
+        5056, 5057,
+        5058, 5059, 5060, 5061, 5062, 5063, 5064, 5065, 5066, 5067, 5068,
     ):
         assert_token_once(companies, province_id, "00_trade_companies.txt")
         if province_id not in east_company_provinces:
@@ -1220,7 +1359,7 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     xian_company_provinces = set(
         numeric_tokens(block_text(xian_company, "provinces"))
     )
-    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS:
+    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS + HENAN_NEW_IDS:
         assert_token_once(companies, province_id, "00_trade_companies.txt")
         if province_id not in xian_company_provinces:
             raise ValueError(f"Xi'an trade company lacks {province_id}")
@@ -1283,6 +1422,54 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
     lufeng = history_path(mod_root, 4949).read_text(encoding="cp1252")
     if initial_history_value(lufeng, "fort_15th") != "yes":
         raise ValueError("4949 Lufeng must have a 15th-century fort")
+    for province_id in HENAN_ALL_IDS:
+        text = history_path(mod_root, province_id).read_text(encoding="cp1252")
+        if initial_history_value(text, "religion") != "confucianism":
+            raise ValueError(f"{province_id} Henan religion must be confucianism")
+        if initial_history_value(text, "is_city") != "yes":
+            raise ValueError(f"{province_id} Henan province must be a city")
+    henan_totals = tuple(
+        sum(development[province_id][index] for province_id in HENAN_ALL_IDS)
+        for index in range(3)
+    )
+    if henan_totals != (89, 97, 43):
+        raise ValueError(
+            f"Henan development is {henan_totals}, expected (89, 97, 43)"
+        )
+    centers = {}
+    for province_id in HENAN_ALL_IDS:
+        text = history_path(mod_root, province_id).read_text(encoding="cp1252")
+        match = re.search(r"(?m)^center_of_trade\s*=\s*(\d+)", text)
+        if match:
+            centers[province_id] = int(match.group(1))
+    if centers != {688: 2, 1836: 2}:
+        raise ValueError(
+            f"Henan centers of trade are {centers}, expected Tokyo and Chengzhou"
+        )
+    for province_id in ANHUI_ALL_IDS:
+        text = history_path(mod_root, province_id).read_text(encoding="cp1252")
+        if initial_history_value(text, "religion") != "confucianism":
+            raise ValueError(f"{province_id} Anhui religion must be confucianism")
+        if initial_history_value(text, "is_city") != "yes":
+            raise ValueError(f"{province_id} Anhui province must be a city")
+    anhui_totals = tuple(
+        sum(development[province_id][index] for province_id in ANHUI_ALL_IDS)
+        for index in range(3)
+    )
+    if anhui_totals != (58, 65, 37):
+        raise ValueError(
+            f"Anhui development is {anhui_totals}, expected (58, 65, 37)"
+        )
+    anhui_centers = {}
+    for province_id in ANHUI_ALL_IDS:
+        text = history_path(mod_root, province_id).read_text(encoding="cp1252")
+        match = re.search(r"(?m)^center_of_trade\s*=\s*(\d+)", text)
+        if match:
+            anhui_centers[province_id] = int(match.group(1))
+    if anhui_centers != {5059: 1, 5066: 2}:
+        raise ValueError(
+            f"Anhui centers of trade are {anhui_centers}, expected Shouzhou 1/Wuhu 2"
+        )
     return development
 
 
@@ -1404,10 +1591,10 @@ def validate_jiangxi_histories(mod_root: Path) -> dict[int, tuple[int, int, int]
         sum(values[index] for values in development.values())
         for index in range(3)
     )
-    if totals != (36, 39, 25):
-        raise ValueError(f"Jiangxi development is {totals}, expected (36, 39, 25)")
-    if sum(sum(values) for values in development.values()) != 100:
-        raise ValueError("Jiangxi total development must be exactly 100")
+    if totals != (58, 66, 41):
+        raise ValueError(f"Jiangxi development is {totals}, expected (58, 66, 41)")
+    if sum(sum(values) for values in development.values()) != 165:
+        raise ValueError("Jiangxi total development must be exactly 165")
     if center_of_trade_ids != {670, 4979}:
         raise ValueError(
             f"Jiangxi centers of trade are {sorted(center_of_trade_ids)}, "
@@ -1456,10 +1643,10 @@ def validate_hunan_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         sum(values[index] for values in development.values())
         for index in range(3)
     )
-    if totals != (35, 42, 31):
-        raise ValueError(f"Hunan development is {totals}, expected (35, 42, 31)")
-    if sum(sum(values) for values in development.values()) != 108:
-        raise ValueError("Hunan total development must be exactly 108")
+    if totals != (50, 59, 51):
+        raise ValueError(f"Hunan development is {totals}, expected (50, 59, 51)")
+    if sum(sum(values) for values in development.values()) != 160:
+        raise ValueError("Hunan total development must be exactly 160")
     if center_of_trade_ids != {2174, 4982}:
         raise ValueError(
             f"Hunan centers of trade are {sorted(center_of_trade_ids)}, "
@@ -1548,8 +1735,8 @@ def validate_hubei_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         sum(values[index] for values in development.values())
         for index in range(3)
     )
-    if totals != (48, 53, 33):
-        raise ValueError(f"Hubei development is {totals}, expected (48, 53, 33)")
+    if totals != (55, 62, 43):
+        raise ValueError(f"Hubei development is {totals}, expected (55, 62, 43)")
     if centers != {2172: 1, 5011: 2}:
         raise ValueError(
             f"Hubei centers of trade are {centers}, expected Jingzhou 1/Hankou 2"
@@ -1594,14 +1781,14 @@ def validate_jiangsu_histories(mod_root: Path) -> dict[int, tuple[int, int, int]
         sum(values[index] for values in development.values())
         for index in range(3)
     )
-    if totals != (65, 80, 39):
-        raise ValueError(f"Jiangsu development is {totals}, expected (65, 80, 39)")
+    if totals != (69, 84, 41):
+        raise ValueError(f"Jiangsu development is {totals}, expected (69, 84, 41)")
     if centers != {2142: 1, 685: 2, 1822: 2}:
         raise ValueError(
             f"Jiangsu centers of trade are {centers}, "
             "expected Huai'an 1/Yangzhou 2/Suzhou 2"
         )
-    for province_id in (2141, 1821):
+    for province_id in (2141, 5056):
         text = history_path(mod_root, province_id).read_text(encoding="cp1252")
         if initial_history_value(text, "fort_15th") != "yes":
             raise ValueError(f"{province_id} must have a 15th-century fort")
@@ -1834,6 +2021,7 @@ def validate_localisation(mod_root: Path) -> None:
         "huaiyang_tongtai_area_name", "huaiyang_tongtai_area_adj",
         "jinling_wuhui_area", "jinling_wuhui_area_name",
         "jinling_wuhui_area_adj",
+        "yingtian_area", "yingtian_area_name", "yingtian_area_adj",
     ):
         if not re.search(rf"(?m)^\s*{key}:0\s+\"", jiangsu_source):
             raise ValueError(f"Jiangsu localisation source lacks {key}")
@@ -1843,6 +2031,52 @@ def validate_localisation(mod_root: Path) -> None:
         or not jiangsu_encoded.read_bytes().startswith(b"\xef\xbb\xbf")
     ):
         raise ValueError("Encoded Jiangsu localisation is missing or lacks a BOM")
+
+    henan_source = (
+        mod_root / "localisation_source/gdd_b14_henan_map_readable_utf8.txt"
+    ).read_text(encoding="utf-8-sig")
+    for province_id in HENAN_RETAINED_IDS + HENAN_NEW_IDS:
+        for key in (f"PROV{province_id}", f"PROV_ADJ{province_id}"):
+            if not re.search(rf"(?m)^\s*{key}:0\s+\"", henan_source):
+                raise ValueError(f"Henan localisation source lacks {key}")
+    for key in (
+        "chengzhou_area", "chengzhou_area_name", "chengzhou_area_adj",
+        "hebei_zhangwei_area", "hebei_zhangwei_area_name",
+        "hebei_zhangwei_area_adj", "guide_xuchen_area",
+        "guide_xuchen_area_name", "guide_xuchen_area_adj",
+        "runing_nanyang_area", "runing_nanyang_area_name",
+        "runing_nanyang_area_adj",
+    ):
+        if not re.search(rf"(?m)^\s*{key}:0\s+\"", henan_source):
+            raise ValueError(f"Henan localisation source lacks {key}")
+    henan_encoded = mod_root / "localisation/gdd_b14_henan_map_l_english.yml"
+    if (
+        not henan_encoded.is_file()
+        or not henan_encoded.read_bytes().startswith(b"\xef\xbb\xbf")
+    ):
+        raise ValueError("Encoded Henan localisation is missing or lacks a BOM")
+
+    anhui_source = (
+        mod_root / "localisation_source/gdd_b16_anhui_map_readable_utf8.txt"
+    ).read_text(encoding="utf-8-sig")
+    for province_id in ANHUI_ALL_IDS:
+        for key in (f"PROV{province_id}", f"PROV_ADJ{province_id}"):
+            if not re.search(rf"(?m)^\s*{key}:0\s+\"", anhui_source):
+                raise ValueError(f"Anhui localisation source lacks {key}")
+    for key in (
+        "huaiying_area", "huaiying_area_name", "huaiying_area_adj",
+        "jianghuai_area", "jianghuai_area_name", "jianghuai_area_adj",
+        "wanjiang_area", "wanjiang_area_name", "wanjiang_area_adj",
+        "huining_area", "huining_area_name", "huining_area_adj",
+    ):
+        if not re.search(rf"(?m)^\s*{key}:0\s+\"", anhui_source):
+            raise ValueError(f"Anhui localisation source lacks {key}")
+    anhui_encoded = mod_root / "localisation/gdd_b16_anhui_map_l_english.yml"
+    if (
+        not anhui_encoded.is_file()
+        or not anhui_encoded.read_bytes().startswith(b"\xef\xbb\xbf")
+    ):
+        raise ValueError("Encoded Anhui localisation is missing or lacks a BOM")
 
     huai_source = (
         mod_root / "localisation_source/gdd_huai_navigation_readable_utf8.txt"
@@ -1923,7 +2157,7 @@ def main() -> None:
 
     build_report = json.loads(args.build_report.read_text(encoding="utf-8"))
     if build_report.get("status") != (
-        "B01_P02_B03_B06_B07_B09_B10_B11_YANGTZE_HUAI_ASSETS_PREPARED"
+        "B01_P02_B03_B06_B07_B09_B10_B11_B14_B15_B16_YANGTZE_HUAI_ASSETS_PREPARED"
     ):
         raise ValueError("B01 through B11 and navigable-river build is not successful")
     if build_report.get("canonical_geometry_preserved") is not True:
@@ -1935,7 +2169,7 @@ def main() -> None:
 
     result = {
         "status": (
-            "B01_P02_B03_B06_B07_B09_B10_B11_"
+            "B01_P02_B03_B06_B07_B09_B10_B11_B14_B15_B16_"
             "YANGTZE_HUAI_STATIC_VALIDATION_PASS"
         ),
         "implemented_ids": list(IMPLEMENTED_IDS),
@@ -1953,6 +2187,9 @@ def main() -> None:
             "B11_Jiangsu": "hand_drawn_validated",
             "B12_Yangtze": "navigable_waterway_validated",
             "B13_Huai": "workshop_geometry_navigable_waterway_validated",
+            "B14_Henan": "twenty_one_provinces_five_areas_validated",
+            "B15_Yingtian": "liuhe_jiangning_lishui_validated",
+            "B16_Anhui": "seventeen_provinces_four_areas_validated",
         },
         "max_provinces": GAME_MAX_PROVINCES,
         "map": map_report,
@@ -1975,7 +2212,7 @@ def main() -> None:
     print(rendered, end="")
     print(
         f"{args.report}: "
-        "B01_P02_B03_B06_B07_B09_B10_B11_"
+        "B01_P02_B03_B06_B07_B09_B10_B11_B14_B15_B16_"
         "YANGTZE_HUAI_STATIC_VALIDATION_PASS"
     )
 

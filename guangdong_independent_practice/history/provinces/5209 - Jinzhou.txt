@@ -1,0 +1,15 @@
+# 5209 - Jinzhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = chihan
+religion = confucianism
+capital = "Jinzhou"
+trade_goods = salt
+base_tax = 3
+base_production = 4
+base_manpower = 3
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

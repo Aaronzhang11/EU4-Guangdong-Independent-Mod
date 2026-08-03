@@ -232,6 +232,25 @@ asia = {
     4987 5026 5027 5028 # B09 Chongqing five-way split
     5029 # B08 impassable Taiwan central range
     4966 5030 5031 # B03 Kaifeng royal domain
+    4967 5045 5046 5047 5048 5049 5050 5051 5052 5053 5054 5055 # B14 Henan refinement
+    5056 5057 # B15 Yingtian refinement
+    5058 5059 5060 5061 5062 5063 5064 5065 5066 5067 5068 # B16 Anhui refinement
+    5069 5070 5071 5072 5073 5074 # B17 Guizhou refinement
+        5075 5076 5077 5078 5079 5080 5081 5082 5083 5084 5085 5086 5087 5088 5089 5090 5091 5092 5093 5094 5095 # B18 Sichuan 36-province refinement
+        5096 5097 5098 5099 5100 # B19 Fujian 13-province refinement
+        5101 5102 5103 5104 5105 5106 5107 5108 5109 5110 5111 5112 # B20 Shandong refinement
+        5113 5114 5115 5116 # B21 Yandu refinement
+        5211 5212 5213 5218 5219 5220 5221 5222 5223 # Workshop North Zhili
+        5265 5266 5267 5268 5269 5270 5271 5272 5273 5274 5275 5276 5277 5278 5283 5284 5285 # Shaanxi refinement
+        5175 5176 5183 5187 # Qin-Shu impassables
+        5224 5225 5226 5227 5228 5229 5230 5231 5232 5233 5234 5235 5236 5237 5238 5239 5240 5241 # B22 Yunnan 26-province refinement
+    5242 5243 5244 5245 5246 5247 5248 5251 5252 5249 5250 5255 5256 5253 5254 5257 5258 5259 5260 5261 # B23 Shanxi 20-province refinement
+    5286 5287 5288 5289 5290 5291 5292 5293 5294 5295 5296 5297 5298 5299 5300 # B26 Gansu-Ningxia 23-province refinement
+    5204 5205 5206 5207 5209 # B27 Liaoning 10-province refinement
+    5200 5201 5202 5203 5208 5210 # B28 Guangxi 14-province refinement
+    5214 5215 # B29 Huizhou 3-province refinement
+    5216 5217 # B30 Yuebei-Chaoshan refinement
+    5301 5302 5303 5304 # B27 Hainan five-province refinement
 }
 
 africa = {

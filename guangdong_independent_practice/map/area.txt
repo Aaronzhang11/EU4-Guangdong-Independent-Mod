@@ -95,6 +95,10 @@ huai_river_area = { #7
     5039 5040 5041 5042 1896 5043 5044
 }
 
+hangou_waterway_area = { #1
+    5117
+}
+
 east_china_sea_area = { #8
     1372 1373 1374 1375 1389 1392 4233 4234
 }
@@ -2737,9 +2741,8 @@ furdan_area = {
 jilin_area = { #4 (South Jilin Area)
     730 2110 2188 4201 2111
 }
-
-liaoning_area = { #5
-    704 726 2112 2113 4652
+liaoning_area = { # B27 Liaoning 10-province refinement
+    726 5204 5205 2112 4652 2113
 }
 
 ordos_area = { #4 (Western Inner Mongolia)
@@ -2822,8 +2825,7 @@ north_zungaria = { #3
 }
 
 kham_area = { #5
-    678 2131 2132 2133 2135
-}
+    2131 2132 }
 
 utsang_area = { #4
     676 4514 4515 4518
@@ -2832,18 +2834,13 @@ utsang_area = { #4
 ngari_area = { #3
     2128 4516 4520
 } #new!!
-
-hebei_area = { #4 (North Hebei)
-    703 1816 2136 4194
+hebei_area = {
+    703 2136
+}
+south_hebei_area = {
+    2137 4195 5221 5220 5218
 }
 
-south_hebei_area = { #4
-    695 696 2137 4195
-}
-
-shandong_area = { #5
-    690 691 2138 2139 2140
-}
 
 xuhuai_haizhou_area = { #5 (North Jiangsu)
     2141 5018 2142 5020 4196
@@ -2853,16 +2850,28 @@ huaiyang_tongtai_area = { #5 (Central Jiangsu)
     685 5021 4977 5022 5023
 }
 
-jinling_wuhui_area = { #6 (South Jiangsu)
-    1821 2145 5024 5025 1822 4976
+yingtian_area = { #3 (Yingtian prefecture)
+    1821 5056 5057
 }
 
-anhui_area = { #3 (North Anhui)
-    1838 2143 2144
+jinling_wuhui_area = { #5 (Wu heartland)
+    2145 5024 5025 1822 4976
 }
 
-south_anhui_area = { #3
-    686 2146 2147
+huaiying_area = { #4 (Huai and Ying river plains)
+    5058 2144 5059 2143
+}
+
+jianghuai_area = { #5 (Luzhou and the Jianghuai corridor)
+    5060 1838 5061 5063 5064
+}
+
+wanjiang_area = { #4 (Anhui Yangtze ports)
+    686 5065 5066 5062
+}
+
+huining_area = { #4 (Huizhou and Ningguo highlands)
+    2147 2146 5067 5068
 }
 
 zhejiang_area = { #5 (Taihu and Qiantang)
@@ -2885,12 +2894,12 @@ south_jiangxi_area = { #5
     670 1833 4980 4994 4995
 }
 
-fujian_area = { #5 (East Fujian)
-    669 1829 4952 4953 4958
+fujian_area = { # Fujian 13-province refinement
+    669 5096 5097 4952
 }
 
-west_fujian_area = { #3
-    2152 2153 4957
+west_fujian_area = { # Fujian 13-province refinement
+    2152 4957 5099 2153 5100
 }
 
 taiwan_area = { #5
@@ -2900,45 +2909,41 @@ taiwan_area = { #5
 pearl_river_delta_area = { #5
     667 668 4942 4943 4946
 }
-
-guangdong_area = { #6
-    2156 2157 2158 4944 4948 4949
+guangdong_area = { # B30 Yuebei-Chaoshan refinement
+    2158 5216 4948
+}
+west_guangdong_area = {
+    665 2159 2161 4945 4947
+}
+guangxi_area = { # B28 Guangxi 14-province refinement
+    1840 2163 5200 5208
+}
+youjiang_area = { # B28 Guangxi 14-province refinement
+    2164 664 4960 5203 5210
 }
 
-west_guangdong_area = { #7
-    665 666 2159 2160 2161 4945 4947
+qianxi_area = { #5 (Western Guizhou plateau)
+    5069 5070 5071 674 5072
 }
 
-guangxi_area = { #4 (Zuojiang)
-    2162 2164 4954 4960
+qiandong_area = { #5 (Eastern Guizhou and the Miao corridors)
+    2168 4199 5073 5074 673
 }
 
-youjiang_area = { #4
-    664 1840 2163 4959
+sichuan_area = { # Sichuan 36-province refinement
+    679 5075 5076 5077
 }
 
-yun_gui_area = { #5 (Yun-Gui Hinterland)
-    662 663 673 674 4199
-}
-
-yun_gui_borderland_area = { #5
-    660 661 2165 2166 2167
-}
-
-sichuan_area = { #2 (Chengdu basin west)
-    679 4212
-}
-
-chongqing_area = { #5 (Ba and the upper Yangtze gorges)
+chongqing_area = { # Sichuan 36-province refinement
     680 5026 5027 4987 5028
 }
 
-chuannan_area = { #4
-    675 2168 2748 4213
+chuannan_area = { # Sichuan 36-province refinement
+    5083 5084 5085 4213
 }
 
-chuanbei_area = { #3
-    2169 2170 4211
+chuanbei_area = { # Sichuan 36-province refinement
+    5080 5081 2169 5082 4211
 }
 
 hanjiang_xiangyun_area = { #3 (Han River and Xiang-Yun)
@@ -2969,32 +2974,33 @@ southwest_hunan_area = { #4
     2173 4999 5000 5001
 }
 
-henan_area = { #3 (South Henan)
-    687 2175 2176
+guide_xuchen_area = { #4 (Eastern Henan and Shang-Song)
+    2176 5050 5051 5052
 }
 
-north_henan_area = { #2 (Western Henan outside the royal domain)
-    692 1836
+runing_nanyang_area = { #5 (Southern Henan and the upper Huai)
+    687 5053 5054 2175 5055
 }
 
-wangji_area = { #4 (Kaifeng royal domain)
+chengzhou_area = { #4 (Chengzhou and the Heluo basin)
+    1836 5045 5046 4967
+}
+
+hebei_zhangwei_area = { #4 (Henan north of the Yellow River)
+    692 5047 5048 5049
+}
+
+wangji_area = { #4 (Dongjing royal domain)
     688 4966 5030 5031
 }
-
-shanxi_area = { #5
-    693 694 697 2177 2178
+shaanxi_area = {
+    4198 5271 5269 5270
 }
-
-shaanxi_area = { #4
-    689 700 2179 4198
+gansu_area = { # B26 Gansu-Ningxia 23-province refinement
+    2184 699 5292 5293 5294
 }
-
-gansu_area = { #5 (East Gansu)
-    698 699 2180 2181 2183
-}
-
-west_gansu_area = { #4
-    707 708 2182 2184
+west_gansu_area = { # B26 Gansu-Ningxia 23-province refinement
+    707 5298 5299 5300
 }
 
 ########################################
@@ -3811,3 +3817,130 @@ indonesian_islands_area = {  }
 iceland_area = { }
 
 south_laos_area = { }
+
+jiaya_area = { # Sichuan 36-province refinement
+    4212 5078 5079
+}
+
+songmao_area = { # Sichuan 36-province refinement
+    2170 5086 5087 5088
+}
+
+aba_area = { # Sichuan 36-province refinement
+    5089 5090 5091 5092
+}
+
+ganzi_area = { # Sichuan 36-province refinement
+    678 2133 2135 5093
+}
+
+liangshan_area = { # Sichuan 36-province refinement
+    2748 5094 5095
+}
+
+minnan_area = { # Fujian 13-province refinement
+    1829 5098 4958 4953
+}
+
+luxi_area = {
+    5101 5102 5103 5111
+}
+
+qizhou_area = {
+    2138 691 5104 5105
+}
+
+denglai_area = {
+    2139 690 5106 5107
+}
+
+lunan_area = {
+    5108 2140 5109 5110 5112
+}
+yandu_area = {
+    5113 5114 1816 5115 5116
+}
+dong_hebei_area = {
+    4194 5211 5212 5213
+}
+zhong_hebei_area = {
+    695 696 5222 5223 5219
+}
+
+dianxibei_area = { # Yunnan 26-province refinement
+    5224 5225 2167 5226
+}
+
+dianxi_area = { # Yunnan 26-province refinement
+    5227 661 5228 2166
+}
+
+yunnan_area = { # Yunnan 26-province refinement
+    5229 662 5230 5231
+}
+
+diandong_area = { # Yunnan 26-province refinement
+    5232 5233 5234 675
+}
+
+dianxinan_area = { # Yunnan 26-province refinement
+    5235 5236 2165 5237 5238
+}
+
+diannan_area = { # Yunnan 26-province refinement
+    660 5239 5240 5241 663
+}
+changan_area = {
+    700 5283 5284 5285
+}
+bei_shaanxi_area = {
+    2179 5268 5267 5266 5265
+}
+nan_shaanxi_area = {
+    689 5275 5274 5273 5272
+}
+xi_shaanxi_area = {
+    2181 5276 5277 5278
+}
+
+yanmen_area = { # Shanxi 20-province refinement
+    697 5242 5243 2177 5244
+}
+
+shanxi_area = { # Shanxi 20-province refinement
+    693 5245 5246 5247 5248
+}
+
+shangdang_area = { # Shanxi 20-province refinement
+    2178 5251 5252 5249 5250
+}
+
+hedong_area = { # Shanxi 20-province refinement
+    5255 5256 694 5253 5254
+}
+ningxia_area = { # B26 Gansu-Ningxia 23-province refinement
+    698 5286 5287 5288
+}
+longnan_area = { # B26 Gansu-Ningxia 23-province refinement
+    2180 2183 5289 5290 5291
+}
+hexi_area = { # B26 Gansu-Ningxia 23-province refinement
+    708 2182 5295 5296 5297
+}
+
+xi_liaoning_area = { # B27 Liaoning 10-province refinement
+    5206 704 5207 5209
+}
+hainan_area = { # B27 Hainan five-province refinement
+    666 5301 5302 2160 5303
+}
+guidong_area = { # B28 Guangxi 14-province refinement
+    4959 5201 2162 4954 5202
+}
+dongjiang_area = { # B30 Yuebei-Chaoshan refinement
+    2157 5214 5215 4944
+}
+
+chaoshan_area = { # B30 Yuebei-Chaoshan refinement
+    2156 5217 4949
+}
