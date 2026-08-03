@@ -57,6 +57,6 @@ l_english:
  hexi_area:0 "河西"
  hexi_area_name:0 "张掖"
  hexi_area_adj:0 "河西"
- west_gansu_area:0 "玉沙"
+ west_gansu_area:0 "瓜沙"
  west_gansu_area_name:0 "沙州"
- west_gansu_area_adj:0 "玉沙"
+ west_gansu_area_adj:0 "瓜沙"

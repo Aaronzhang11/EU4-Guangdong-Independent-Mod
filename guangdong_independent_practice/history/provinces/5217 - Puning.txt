@@ -1,9 +1,9 @@
 # 5217 - Puning
 
-owner = MNG
-controller = MNG
+owner = CZC
+controller = CZC
 add_core = MNG
-add_core = GDD
+add_core = CZC
 add_core = MIN
 culture = chimin
 religion = confucianism

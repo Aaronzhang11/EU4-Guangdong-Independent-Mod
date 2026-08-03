@@ -1,4 +1,4 @@
-# 2158 - Shaoguan
+# 2158 - Shaoguan (vanilla filename retained for VFS override)
 
 owner = GDD
 controller = GDD

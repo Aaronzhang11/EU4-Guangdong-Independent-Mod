@@ -2837,35 +2837,41 @@ ngari_area = { #3
 hebei_area = {
     703 2136
 }
-south_hebei_area = { # B31 Han land-contiguous area reorganisation
-    2137 4195 5221 5220 5218 696
+south_hebei_area = {
+    2137 4195 5221 5220 5218
 }
 
 
 xuhuai_haizhou_area = { #5 (North Jiangsu)
     2141 5018 2142 5020 4196
 }
-huaiyang_tongtai_area = { # B31 Han land-contiguous area reorganisation
-    685 5021 4977 5022 5023 1821
+
+huaiyang_tongtai_area = { #5 (Central Jiangsu)
+    685 5021 4977 5022 5023
 }
-yingtian_area = { # B31 Han land-contiguous area reorganisation
-    5056 5057
+
+yingtian_area = { #3 (Yingtian prefecture)
+    1821 5056 5057
 }
 
 jinling_wuhui_area = { #5 (Wu heartland)
     2145 5024 5025 1822 4976
 }
-huaiying_area = { # B31 Han land-contiguous area reorganisation
-    5058 2144 2143
+
+huaiying_area = { #4 (Huai and Ying river plains)
+    5058 2144 5059 2143
 }
-jianghuai_area = { # B31 Han land-contiguous area reorganisation
-    5060 1838 5061 5063 5064 5059
+
+jianghuai_area = { #5 (Luzhou and the Jianghuai corridor)
+    5060 1838 5061 5063 5064
 }
-wanjiang_area = { # B31 Han land-contiguous area reorganisation
-    686 5065 5062
+
+wanjiang_area = { #4 (Anhui Yangtze ports)
+    686 5065 5066 5062
 }
-huining_area = { # B31 Han land-contiguous area reorganisation
-    2147 2146 5067 5068 5066
+
+huining_area = { #4 (Huizhou and Ningguo highlands)
+    2147 2146 5067 5068
 }
 
 zhejiang_area = { #5 (Taihu and Qiantang)
@@ -2927,8 +2933,9 @@ qiandong_area = { #5 (Eastern Guizhou and the Miao corridors)
 sichuan_area = { # Sichuan 36-province refinement
     679 5075 5076 5077
 }
-chongqing_area = { # B31 Han land-contiguous area reorganisation
-    680 5026 5027 4987 5013
+
+chongqing_area = { # Sichuan 36-province refinement
+    680 5026 5027 4987 5028
 }
 
 chuannan_area = { # Sichuan 36-province refinement
@@ -2938,41 +2945,49 @@ chuannan_area = { # Sichuan 36-province refinement
 chuanbei_area = { # Sichuan 36-province refinement
     5080 5081 2169 5082 4211
 }
-hanjiang_xiangyun_area = { # B31 Han land-contiguous area reorganisation
-    5008 2171 681
+
+hanjiang_xiangyun_area = { #3 (Han River and Xiang-Yun)
+    5008 2171 5010
 }
-jingyi_shinan_area = { # B31 Han land-contiguous area reorganisation
-    2172 5015 5010 5028
+
+jingyi_shinan_area = { #5 (Jingzhou, Yiling, Shinan, and Mianyang)
+    681 2172 5013 5014 5015
 }
-dean_qihuang_area = { # B31 Han land-contiguous area reorganisation
-    5009 4197 5012 2175
+
+dean_qihuang_area = { #3 (Eastern Hubei)
+    5009 4197 5012
 }
 
 wuhan_enan_area = { #4 (Wuhan Three Towns and Xingguo)
     4981 682 5011 5016
 }
-dongting_area = { # B31 Han land-contiguous area reorganisation
-    672 4996 4997 2173 5014
+
+dongting_area = { #4
+    672 4982 4996 4997
 }
-hunan_area = { # B31 Han land-contiguous area reorganisation
-    671 2174 4998 4982
+
+hunan_area = { #4 (Central Hunan)
+    671 2174 4983 4998
 }
-southwest_hunan_area = { # B31 Han land-contiguous area reorganisation
-    4999 5000 5001 4983
+
+southwest_hunan_area = { #4
+    2173 4999 5000 5001
 }
 
 guide_xuchen_area = { #4 (Eastern Henan and Shang-Song)
     2176 5050 5051 5052
 }
-runing_nanyang_area = { # B31 Han land-contiguous area reorganisation
-    687 5053 5054 5055
+
+runing_nanyang_area = { #5 (Southern Henan and the upper Huai)
+    687 5053 5054 2175 5055
 }
 
 chengzhou_area = { #4 (Chengzhou and the Heluo basin)
     1836 5045 5046 4967
 }
-hebei_zhangwei_area = { # B31 Han land-contiguous area reorganisation
-    5047 5048 5049
+
+hebei_zhangwei_area = { #4 (Henan north of the Yellow River)
+    692 5047 5048 5049
 }
 
 wangji_area = { #4 (Dongjing royal domain)
@@ -2984,8 +2999,8 @@ shaanxi_area = {
 gansu_area = { # B26 Gansu-Ningxia 23-province refinement
     2184 699 5292 5293 5294
 }
-west_gansu_area = { # B31 Han land-contiguous area reorganisation
-    707 5299 5300
+west_gansu_area = { # B26 Gansu-Ningxia 23-province refinement
+    707 5298 5299 5300
 }
 
 ########################################
@@ -3806,11 +3821,13 @@ south_laos_area = { }
 jiaya_area = { # Sichuan 36-province refinement
     4212 5078 5079
 }
-songmao_area = { # B31 Han land-contiguous area reorganisation
-    2170 5086 5088 5092
+
+songmao_area = { # Sichuan 36-province refinement
+    2170 5086 5087 5088
 }
-aba_area = { # B31 Han land-contiguous area reorganisation
-    5089 5090 5091 5087
+
+aba_area = { # Sichuan 36-province refinement
+    5089 5090 5091 5092
 }
 
 ganzi_area = { # Sichuan 36-province refinement
@@ -3846,8 +3863,8 @@ yandu_area = {
 dong_hebei_area = {
     4194 5211 5212 5213
 }
-zhong_hebei_area = { # B31 Han land-contiguous area reorganisation
-    695 5222 5223 5219
+zhong_hebei_area = {
+    695 696 5222 5223 5219
 }
 
 dianxibei_area = { # Yunnan 26-province refinement
@@ -3865,23 +3882,25 @@ yunnan_area = { # Yunnan 26-province refinement
 diandong_area = { # Yunnan 26-province refinement
     5232 5233 5234 675
 }
-dianxinan_area = { # B31 Han land-contiguous area reorganisation
-    5235 5236 5238 660 5239
+
+dianxinan_area = { # Yunnan 26-province refinement
+    5235 5236 2165 5237 5238
 }
-diannan_area = { # B31 Han land-contiguous area reorganisation
-    5240 5241 663 2165 5237
+
+diannan_area = { # Yunnan 26-province refinement
+    660 5239 5240 5241 663
 }
-changan_area = { # B31 Han land-contiguous area reorganisation
-    700 5283 5284 5285 5272
+changan_area = {
+    700 5283 5284 5285
 }
 bei_shaanxi_area = {
     2179 5268 5267 5266 5265
 }
-nan_shaanxi_area = { # B31 Han land-contiguous area reorganisation
-    689 5275 5274 5273
+nan_shaanxi_area = {
+    689 5275 5274 5273 5272
 }
-xi_shaanxi_area = { # B31 Han land-contiguous area reorganisation
-    2181 5276 5277 5291
+xi_shaanxi_area = {
+    2181 5276 5277 5278
 }
 
 yanmen_area = { # Shanxi 20-province refinement
@@ -3902,8 +3921,8 @@ hedong_area = { # Shanxi 20-province refinement
 ningxia_area = { # B26 Gansu-Ningxia 23-province refinement
     698 5286 5287 5288
 }
-longnan_area = { # B31 Han land-contiguous area reorganisation
-    2180 2183 5289 5290 5278
+longnan_area = { # B26 Gansu-Ningxia 23-province refinement
+    2180 2183 5289 5290 5291
 }
 hexi_area = { # B26 Gansu-Ningxia 23-province refinement
     708 2182 5295 5296 5297
