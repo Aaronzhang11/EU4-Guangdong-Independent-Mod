@@ -245,6 +245,7 @@ categories =  {
     5200 5202 5208 # B28 Guangxi 14-province refinement hills
     5214 5215 # B29 Huizhou 3-province refinement hills
     5216 # B30 Yuebei-Chaoshan refinement hills
+    5305 5306 # B34 Longyou refinement hills
 }
     }
 

@@ -1,9 +1,9 @@
 # 5212 - Luanzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = zhili
+owner = YAN
+controller = YAN
+add_core = YAN
+culture = yan
 religion = confucianism
 capital = "Luanzhou"
 trade_goods = fish

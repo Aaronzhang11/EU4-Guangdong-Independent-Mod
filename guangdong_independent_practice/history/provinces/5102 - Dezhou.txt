@@ -1,8 +1,8 @@
 # 5102 - Dezhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QIC
+controller = QIC
+add_core = QIC
 culture = shandong
 religion = confucianism
 capital = "Dezhou"

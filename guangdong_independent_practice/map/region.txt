@@ -955,6 +955,7 @@ north_china_region = {
         gansu_area
         hexi_area
         longnan_area
+        longyou_area
         ningxia_area
         shaanxi_area
         xi_shaanxi_area

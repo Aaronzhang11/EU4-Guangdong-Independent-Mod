@@ -1,9 +1,9 @@
 # 5115 - Tongzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = zhili
+owner = YAN
+controller = YAN
+add_core = YAN
+culture = yan
 religion = confucianism
 capital = "Tongzhou"
 trade_goods = grain
