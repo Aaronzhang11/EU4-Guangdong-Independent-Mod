@@ -1,0 +1,22 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 2
+
+technology_group = chinese
+religion = confucianism
+primary_culture = chihan
+capital = 5104	#Linzi
+fixed_capital = 5104
+
+1444.11.11 = {
+    monarch = {
+        name = "n"
+        dynasty = "ÜY"
+        birth_date = 1414.5.14
+        adm = 4
+        dip = 5
+        mil = 3
+    }
+
+
+}
