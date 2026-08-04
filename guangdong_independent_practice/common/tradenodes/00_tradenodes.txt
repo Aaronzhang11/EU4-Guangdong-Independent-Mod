@@ -737,6 +737,7 @@ xian={
         5265 5266 5267 5268 5269 5270 5271 5272 5273 5274 5275 5276 5277 5278 5283 5284 5285 # Shaanxi and Changan refinement
     5286 5287 5288 5289 5290 5291 5293 5294 # B26 Gansu-Ningxia 23-province refinement Xian
     5305 5306 # B34 Longyou refinement Xian
+    5307 5308 5309 # B37 Tianshui user refinement Xian
 }
 }
 beijing={

@@ -3880,8 +3880,8 @@ bei_shaanxi_area = {
 nan_shaanxi_area = { # B31 Han land-contiguous area reorganisation
     689 5275 5274 5273
 }
-xi_shaanxi_area = { # B36 area and trade-company consistency
-    2180 5277 5291 5306
+xi_shaanxi_area = { # B37 Tianshui user refinement
+    2181 5276 5277 5278 5305 5306
 }
 
 yanmen_area = { # Shanxi 20-province refinement
@@ -3925,6 +3925,6 @@ dongjiang_area = { # B30 Yuebei-Chaoshan refinement
 chaoshan_area = { # B30 Yuebei-Chaoshan refinement
     2156 5217 4949
 }
-longyou_area = { # B36 area and trade-company consistency
-    2181 5276 5278 5305
+longyou_area = { # B37 Tianshui user refinement
+    2180 5291 5307 5308 5309
 }

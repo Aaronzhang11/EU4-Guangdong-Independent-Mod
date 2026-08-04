@@ -246,6 +246,7 @@ categories =  {
     5214 5215 # B29 Huizhou 3-province refinement hills
     5216 # B30 Yuebei-Chaoshan refinement hills
     5305 5306 # B34 Longyou refinement hills
+    5307 5308 5309 # B37 Tianshui user refinement hills
 }
     }
 
