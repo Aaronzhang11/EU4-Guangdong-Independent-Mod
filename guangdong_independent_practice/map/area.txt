@@ -2846,10 +2846,10 @@ xuhuai_haizhou_area = { #5 (North Jiangsu)
     2141 5018 2142 5020 4196
 }
 huaiyang_tongtai_area = { # B31 Han land-contiguous area reorganisation
-    685 5021 4977 5022 5023 1821
+    685 5021 4977 5022 5023 
 }
 yingtian_area = { # B31 Han land-contiguous area reorganisation
-    5056 5057
+    5056 5057 1821
 }
 
 jinling_wuhui_area = { #5 (Wu heartland)

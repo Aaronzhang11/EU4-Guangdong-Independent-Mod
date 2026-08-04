@@ -1,23 +1,25 @@
 # Area connectivity audit
 
-- Total areas: 927
-- Strict bitmap-disconnected: 70
-- Still disconnected after explicit adjacencies: 41
+- Total areas: 928
+- Strict bitmap-disconnected: 73
+- Still disconnected after explicit adjacencies: 43
 - Areas containing empty province references: 0
-- Han-region areas checked: 78
+- Han-region areas checked: 79
 
 ## Han areas requiring reassignment
 
 | Area | Localised | Strict components | Gameplay components | Components |
 |---|---|---:|---:|---|
-| — | — | 0 | 0 | No issues |
+| `longyou_area` | 天水 | 3 | 3 | 巩昌(5291)、通渭(5306) ｜ 秦安(5276) ｜ 清水(5305) |
+| `xi_shaanxi_area` | 西垂 | 2 | 2 | 秦州(2180)、静宁(5278) ｜ 平凉(2181)、固原(5277) |
 
 ## Han areas separated only by a navigable river or defined crossing
 
 | Area | Localised | Bitmap components | Components before crossing |
 |---|---|---:|---|
-| `east_zhejiang_area` | 浙东海疆 | 2 | 温州(1824)、宁波(2149)、台州(4951)、宁海(5005) ｜ 昌国(5004) |
-| `wuhan_enan_area` | 三镇 | 2 | 武昌(682)、兴国(5016) ｜ 汉阳(4981)、汉口(5011) |
+| `east_zhejiang_area` | 会稽 | 2 | 温州(1824)、宁波(2149)、台州(4951)、宁海(5005) ｜ 昌国(5004) |
+| `wuhan_enan_area` | 江夏 | 2 | 武昌(682)、兴国(5016) ｜ 汉阳(4981)、汉口(5011) |
+| `yingtian_area` | 金陵 | 2 | 六合(1821)、溧水(5057) ｜ 江宁(5056) |
 
 ## Han areas containing province IDs with no bitmap pixels
 
@@ -48,6 +50,7 @@ These include intentional archipelagos and vanilla layouts; review before changi
 | `kyushu_area` | kyushu_area | 2 | 1012(1012)、4180(4180)、4181(4181) ｜ 1015(1015) |
 | `leeward_islands_area` | leeward_islands_area | 3 | 494(494)、495(495)、496(496) ｜ 493(493) ｜ 1881(1881) |
 | `lesser_sunda_islands_area` | lesser_sunda_islands_area | 2 | 631(631)、632(632)、2693(2693) ｜ 634(634) |
+| `longyou_area` | 天水 | 3 | 巩昌(5291)、通渭(5306) ｜ 秦安(5276) ｜ 清水(5305) |
 | `lucayan_area` | lucayan_area | 2 | 482(482) ｜ 483(483) |
 | `macaronesia_area` | macaronesia_area | 3 | 366(366)、4565(4565) ｜ 367(367) ｜ 368(368) |
 | `mahra_area` | mahra_area | 2 | 402(402)、4284(4284) ｜ 1099(1099) |
@@ -72,3 +75,4 @@ These include intentional archipelagos and vanilla layouts; review before changi
 | `upper_acadia_area` | upper_acadia_area | 2 | 985(985)、2572(2572) ｜ 983(983) |
 | `west_micronesia_area` | west_micronesia_area | 3 | 1235(1235) ｜ 1995(1995) ｜ 1996(1996) |
 | `windward_islands_area` | windward_islands_area | 2 | 497(497)、498(498)、499(499)、500(500) ｜ 501(501) |
+| `xi_shaanxi_area` | 西垂 | 2 | 秦州(2180)、静宁(5278) ｜ 平凉(2181)、固原(5277) |

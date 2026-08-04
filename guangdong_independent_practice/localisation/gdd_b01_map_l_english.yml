@@ -13,6 +13,11 @@
  PROV_ADJ4947:0 "WšR"
  PROV4948:0 "WSÄ–"
  PROV_ADJ4948:0 "WSÄ–"
- pearl_river_delta_area:0 "àsml	NÒ‰2m"
- pearl_river_delta_area_name:0 "^ÞT"
- pearl_river_delta_area_adj:0 "àsml	NÒ‰2m"
+ pearl_river_delta_area:0 "WSwm"
+ pearl_river_delta_area_name:0 "WSwm"
+ pearl_river_delta_area_adj:0 "WSwm"
+
+ # CHUNQIU_AREA_NAMES: generated missing area family keys
+ west_guangdong_area:0 "ØšÉQ"
+ west_guangdong_area_name:0 "ØšÉQ"
+ west_guangdong_area_adj:0 "ØšÉQ"

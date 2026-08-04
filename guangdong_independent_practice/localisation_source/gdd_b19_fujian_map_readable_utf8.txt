@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  PROV669:0 "闽侯"
  PROV_ADJ669:0 "闽侯"
  PROV5096:0 "福宁"
@@ -26,12 +26,12 @@ l_english:
  PROV5100:0 "龙岩"
  PROV_ADJ5100:0 "龙岩"
 
- fujian_area:0 "闽东"
- fujian_area_name:0 "闽侯"
- fujian_area_adj:0 "闽东"
- minnan_area:0 "闽南"
- minnan_area_name:0 "泉州"
- minnan_area_adj:0 "闽南"
- west_fujian_area:0 "闽西"
- west_fujian_area_name:0 "汀州"
- west_fujian_area_adj:0 "闽西"
+ fujian_area:0 "东冶"
+ fujian_area_name:0 "东冶"
+ fujian_area_adj:0 "东冶"
+ minnan_area:0 "南安"
+ minnan_area_name:0 "南安"
+ minnan_area_adj:0 "南安"
+ west_fujian_area:0 "建安"
+ west_fujian_area_name:0 "建安"
+ west_fujian_area_adj:0 "建安"

@@ -37,9 +37,17 @@
  PROV_ADJ5222:0 ")Y%m"
  PROV5223:0 "µlÞT"
  PROV_ADJ5223:0 "µlÞT"
- dong_hebei_area:0 "ŽQN"
- dong_hebei_area_name:0 "ŽQN"
- zhong_hebei_area:0 "ŽQ-N"
- zhong_hebei_area_name:0 "ŽQ-N"
- south_hebei_area:0 "ŽQWS"
- south_hebei_area_name:0 "ŽQWS"
+ dong_hebei_area:0 "dRùz"
+ dong_hebei_area_name:0 "dRùz"
+ zhong_hebei_area:0 "³lô•"
+ zhong_hebei_area_name:0 "³lô•"
+ south_hebei_area:0 "u0W"
+ south_hebei_area_name:0 "u0W"
+
+ # CHUNQIU_AREA_NAMES: generated missing area family keys
+ hebei_area:0 "N7Œ"
+ hebei_area_name:0 "N7Œ"
+ hebei_area_adj:0 "N7Œ"
+ zhong_hebei_area_adj:0 "³lô•"
+ dong_hebei_area_adj:0 "dRùz"
+ south_hebei_area_adj:0 "u0W"

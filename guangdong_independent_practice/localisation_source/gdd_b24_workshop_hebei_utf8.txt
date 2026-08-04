@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  PROV695:0 "河间"
  PROV_ADJ695:0 "河间"
  PROV696:0 "保定"
@@ -37,9 +37,17 @@ l_english:
  PROV_ADJ5222:0 "天津"
  PROV5223:0 "沧州"
  PROV_ADJ5223:0 "沧州"
- dong_hebei_area:0 "冀东"
- dong_hebei_area_name:0 "冀东"
- zhong_hebei_area:0 "冀中"
- zhong_hebei_area_name:0 "冀中"
- south_hebei_area:0 "冀南"
- south_hebei_area_name:0 "冀南"
+ dong_hebei_area:0 "孤竹"
+ dong_hebei_area_name:0 "孤竹"
+ zhong_hebei_area:0 "河间"
+ zhong_hebei_area_name:0 "河间"
+ south_hebei_area:0 "赵地"
+ south_hebei_area_name:0 "赵地"
+
+ # CHUNQIU_AREA_NAMES: generated missing area family keys
+ hebei_area:0 "上谷"
+ hebei_area_name:0 "上谷"
+ hebei_area_adj:0 "上谷"
+ zhong_hebei_area_adj:0 "河间"
+ dong_hebei_area_adj:0 "孤竹"
+ south_hebei_area_adj:0 "赵地"

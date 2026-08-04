@@ -1,8 +1,8 @@
-l_english:
+﻿l_english:
  PROV5305:0 "清水"
  PROV_ADJ5305:0 "清水"
  PROV5306:0 "通渭"
  PROV_ADJ5306:0 "通渭"
- longyou_area:0 "陇右"
- longyou_area_name:0 "巩昌"
- longyou_area_adj:0 "陇右"
+ longyou_area:0 "天水"
+ longyou_area_name:0 "天水"
+ longyou_area_adj:0 "天水"
