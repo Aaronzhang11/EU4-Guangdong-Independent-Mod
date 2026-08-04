@@ -1,9 +1,9 @@
 # 695 - Hejian
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = zhili
+owner = QIC
+controller = QIC
+add_core = QIC
+culture = shandong
 religion = confucianism
 capital = "Hejian"
 trade_goods = grain
