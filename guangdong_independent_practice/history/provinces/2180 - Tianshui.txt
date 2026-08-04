@@ -1,11 +1,11 @@
-# 2180 - Qinzhou Gansu
+# 2180 - Tianshui
 
 owner = MNG
 controller = MNG
 add_core = MNG
 culture = xibei
 religion = confucianism
-capital = "Qinzhou Gansu"
+capital = "Tianshui"
 trade_goods = grain
 base_tax = 3
 base_production = 3
