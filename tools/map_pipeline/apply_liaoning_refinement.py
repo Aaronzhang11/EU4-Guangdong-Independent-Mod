@@ -6,6 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 import re
 import shutil
+import sys
 
 import numpy as np
 from PIL import Image
@@ -218,6 +219,9 @@ def update_localisation():
         ' xi_liaoning_area:0 "辽西"', ' xi_liaoning_area_name:0 "广宁"', ' xi_liaoning_area_adj:0 "辽西"',
     ]
     path.write_text("\n".join(lines) + "\n")
+    sys.path.insert(0, str(ROOT / "tools"))
+    from encode_eu4_chinese_localisation import encode_file
+    encode_file(path, MOD / "localisation/gdd_b27_liaoning_refinement_l_english.yml")
 
 
 def main():

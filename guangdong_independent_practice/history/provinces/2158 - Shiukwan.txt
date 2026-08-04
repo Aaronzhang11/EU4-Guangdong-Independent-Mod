@@ -1,0 +1,20 @@
+# 2158 - Shaoguan
+
+owner = GDD
+controller = GDD
+add_core = GDD
+add_core = HUA
+culture = hakka
+religion = confucianism
+capital = "Shaoguan"
+trade_goods = iron
+hre = no
+base_tax = 2
+base_production = 3
+base_manpower = 1
+is_city = yes
+
+discovered_by = chinese
+discovered_by = nomad_group
+
+1595.1.1 = { discovered_by = SPA }

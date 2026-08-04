@@ -13,9 +13,6 @@
  PROV_ADJ4947:0 "罗定"
  PROV4948:0 "南雄"
  PROV_ADJ4948:0 "南雄"
- PROV4949:0 "陆丰"
- PROV_ADJ4949:0 "陆丰"
-
  pearl_river_delta_area:0 "珠江三角洲"
  pearl_river_delta_area_name:0 "广州"
  pearl_river_delta_area_adj:0 "珠江三角洲"

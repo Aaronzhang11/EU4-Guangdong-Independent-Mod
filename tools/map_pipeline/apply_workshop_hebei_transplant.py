@@ -7,6 +7,7 @@ from collections import deque
 from pathlib import Path
 import re
 import shutil
+import sys
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -397,6 +398,9 @@ def update_localisation():
         ' south_hebei_area:0 "冀南"', ' south_hebei_area_name:0 "冀南"',
     ]
     path.write_text("\n".join(lines) + "\n")
+    sys.path.insert(0, str(ROOT / "tools"))
+    from encode_eu4_chinese_localisation import encode_file
+    encode_file(path, MOD / "localisation/gdd_b24_workshop_hebei_l_english.yml")
 
 
 def render_preview(bitmap, source_mask, target_colours):
