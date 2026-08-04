@@ -1,8 +1,8 @@
 # 5116 - Zhuozhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YAN
+controller = YAN
+add_core = YAN
 culture = zhili
 religion = confucianism
 capital = "Zhuozhou"
