@@ -1,9 +1,9 @@
 # 5213 - Zunhua
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = zhili
+owner = YAN
+controller = YAN
+add_core = YAN
+culture = yan
 religion = confucianism
 capital = "Zunhua"
 trade_goods = iron

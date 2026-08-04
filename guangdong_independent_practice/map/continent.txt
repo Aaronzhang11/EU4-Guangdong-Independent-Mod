@@ -251,6 +251,7 @@ asia = {
     5214 5215 # B29 Huizhou 3-province refinement
     5216 5217 # B30 Yuebei-Chaoshan refinement
     5301 5302 5303 5304 # B27 Hainan five-province refinement
+    5305 5306 # B34 Longyou refinement
 }
 
 africa = {

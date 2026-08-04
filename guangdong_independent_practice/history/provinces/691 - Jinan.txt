@@ -1,15 +1,23 @@
-# 691 - Jinan
+#691 - Jinan
 
 owner = QIC
 controller = QIC
 add_core = QIC
-culture = shandong
+culture = shandong_culture
 religion = confucianism
 capital = "Jinan"
-trade_goods = paper
-base_tax = 6
-base_production = 6
+trade_goods = cloth
+hre = no
+base_tax = 5
+base_production = 5
 base_manpower = 3
 is_city = yes
+
+
+
+
 discovered_by = chinese
 discovered_by = nomad_group
+
+1608.1.1 = { discovered_by = SPA }
+
