@@ -1,8 +1,8 @@
 # 5103 - Dongchang
 
-owner = QIC
-controller = QIC
-add_core = QIC
+owner = MNG
+controller = MNG
+add_core = MNG
 culture = shandong
 religion = confucianism
 capital = "Dongchang"

@@ -1,8 +1,9 @@
 # 5217 - Puning
 
-owner = GDD
-controller = GDD
-add_core = GDD
+owner = CZC
+controller = CZC
+add_core = MNG
+add_core = CZC
 add_core = MIN
 culture = chimin
 religion = confucianism
@@ -25,8 +26,8 @@ discovered_by = nomad_group
 	add_core = QNG
 }
 1648.4.15 = {
- 	controller = GDD 
-	owner = GDD
+ 	controller = MNG 
+	owner = MNG
 }
 1650.11.11 = {
 	owner = QNG

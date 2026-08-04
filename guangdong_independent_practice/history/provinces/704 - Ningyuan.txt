@@ -1,9 +1,9 @@
 # 704 - Ningyuan
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = chihan
+owner = YAN
+controller = YAN
+add_core = YAN
+culture = yan
 religion = confucianism
 capital = "Ningyuan"
 trade_goods = salt
