@@ -1,0 +1,46 @@
+{
+  "formal_map_changed": false,
+  "new_provinces": {
+    "5305": {
+      "name": "清水",
+      "rgb": [
+        47,
+        187,
+        209
+      ],
+      "pixels": 230
+    },
+    "5306": {
+      "name": "通渭",
+      "rgb": [
+        207,
+        109,
+        43
+      ],
+      "pixels": 328
+    }
+  },
+  "retained_pixels": {
+    "2180": 671,
+    "5291": 410
+  },
+  "area_plan": {
+    "longyou_area": [
+      5305,
+      5276,
+      5291,
+      5306
+    ],
+    "xi_shaanxi_area": [
+      2181,
+      5277,
+      5278,
+      2180
+    ],
+    "longnan_area": [
+      2183,
+      5289,
+      5290
+    ]
+  }
+}

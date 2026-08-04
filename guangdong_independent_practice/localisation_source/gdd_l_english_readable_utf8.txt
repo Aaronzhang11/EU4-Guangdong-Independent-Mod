@@ -1,10 +1,14 @@
 ﻿l_english:
- GDD:0 "粤"
- GDD_ADJ:0 "粤"
+ GDD:0 "南海"
+ GDD_ADJ:0 "南海"
  estate_gdd_clans:0 "宗族"
- GDD_ideas:0 "粤理念"
+ GDD_ideas:0 "南海理念"
  GDD_ideas_start:0 "宗族林立"
  GDD_ideas_bonus:0 "商人队"
+
+ XU2:0 "徐"
+ XU2_ADJ:0 "徐"
+ XU2_ideas:0 "徐理念"
 
  GDD_BOOKMARK_NAME:0 "岭南自立"
  GDD_BOOKMARK_DESC:0 "梁氏兄弟已控制广东大部，并与明廷达成五年停战。这个新生的岭南政权必须整顿内部、发展海贸，同时准备面对明朝的下一次施压。"

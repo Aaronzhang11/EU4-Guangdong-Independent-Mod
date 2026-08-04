@@ -1,0 +1,13 @@
+{
+  "batch": "B33_guangdong_area_ownership",
+  "purpose": "Apply reviewed country ownership for Yuebei, Dongjiang, and Puning",
+  "ownership": {
+    "yuebei_GDD": [2158, 5216, 4948],
+    "dongjiang_GDD": [2157, 5214, 5215, 4944],
+    "chaoshan_CZC": [2156, 5217],
+    "haifeng_GDD_unchanged": [4949]
+  },
+  "history_policy": "Change only initial owner/controller and add the owner's core when absent; preserve dated history",
+  "geometry_policy": "No map, area, or adjacency changes",
+  "validation_policy": "Skipped at user request"
+}
