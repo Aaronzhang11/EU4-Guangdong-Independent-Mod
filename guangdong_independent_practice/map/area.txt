@@ -2927,8 +2927,8 @@ qiandong_area = { #5 (Eastern Guizhou and the Miao corridors)
 sichuan_area = { # Sichuan 36-province refinement
     679 5075 5076 5077
 }
-chongqing_area = { # B31 Han land-contiguous area reorganisation
-    680 5026 5027 4987 5013
+chongqing_area = { # B36 area and trade-company consistency
+    680 5026 5027 4987 5028
 }
 
 chuannan_area = { # Sichuan 36-province refinement
@@ -2941,8 +2941,8 @@ chuanbei_area = { # Sichuan 36-province refinement
 hanjiang_xiangyun_area = { # B31 Han land-contiguous area reorganisation
     5008 2171 681
 }
-jingyi_shinan_area = { # B31 Han land-contiguous area reorganisation
-    2172 5015 5010 5028
+jingyi_shinan_area = { # B36 area and trade-company consistency
+    2172 5015 5010 5013
 }
 dean_qihuang_area = { # B31 Han land-contiguous area reorganisation
     5009 4197 5012 2175
@@ -3880,8 +3880,8 @@ bei_shaanxi_area = {
 nan_shaanxi_area = { # B31 Han land-contiguous area reorganisation
     689 5275 5274 5273
 }
-xi_shaanxi_area = { # B34 Longyou refinement
-    2181 5277 5278 2180
+xi_shaanxi_area = { # B36 area and trade-company consistency
+    2180 5277 5291 5306
 }
 
 yanmen_area = { # Shanxi 20-province refinement
@@ -3925,6 +3925,6 @@ dongjiang_area = { # B30 Yuebei-Chaoshan refinement
 chaoshan_area = { # B30 Yuebei-Chaoshan refinement
     2156 5217 4949
 }
-longyou_area = { # B34 Longyou refinement
-    5305 5276 5291 5306
+longyou_area = { # B36 area and trade-company consistency
+    2181 5276 5278 5305
 }

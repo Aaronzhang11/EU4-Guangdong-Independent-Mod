@@ -380,8 +380,13 @@ def update_memberships() -> None:
     add_to_top_level_block(node_path, "canton", "members", canton_ids, marker + " Canton node")
 
     company_path = MOD / "common/trade_companies/00_trade_companies.txt"
-    add_to_top_level_block(company_path, "trade_company_chengdu", "provinces", chengdu_ids, marker + " Chengdu company")
-    add_to_top_level_block(company_path, "trade_company_south_china", "provinces", canton_ids, marker + " South China company")
+    add_to_top_level_block(
+        company_path,
+        "trade_company_chengdu",
+        "provinces",
+        chengdu_ids + canton_ids,
+        marker + " Chengdu company",
+    )
 
     default = MAP / "default.map"
     text = default.read_text(encoding="cp1252")
