@@ -47,6 +47,7 @@ FILES = {
     "gdd_b28_guangxi_refinement_utf8.txt": "gdd_b28_guangxi_map_l_english.yml",
     "gdd_b29_huizhou_map_readable_utf8.txt": "gdd_b29_huizhou_map_l_english.yml",
     "gdd_b30_yuebei_chaoshan_map_readable_utf8.txt": "gdd_b30_yuebei_chaoshan_map_l_english.yml",
+    "gdd_b34_longyou_map_readable_utf8.txt": "gdd_b34_longyou_map_l_english.yml",
     "gdd_yangtze_navigation_readable_utf8.txt": "gdd_yangtze_navigation_l_english.yml",
     "gdd_huai_navigation_readable_utf8.txt": "gdd_huai_navigation_l_english.yml",
     "gdd_hangou_navigation_readable_utf8.txt": "gdd_hangou_navigation_l_english.yml",
