@@ -2178,7 +2178,7 @@ province;red;green;blue;x;x
 2177;89;162;208;Ningwu;x
 2178;90;172;96;Luan;x
 2179;91;188;224;Yan'an;x
-2180;138;152;194;Qinzhou Gansu;x
+2180;138;152;194;Tianshui;x
 2181;93;216;64;Pingliang;x
 2182;67;183;81;Jingyuan;x
 2183;221;43;139;Taozhou;x
@@ -5166,8 +5166,8 @@ province;red;green;blue;x;x
 5287;218;124;58;Lingzhou;x
 5288;55;15;249;Songshan;x
 5289;58;180;84;Jiezhou Gansu;x
-5290;141;71;29;Minzhou;x
-5291;224;208;220;Gongchang;x
+5290;141;71;29;Dangchang;x
+5291;224;208;220;Minzhou;x
 5292;227;127;55;Nianbo;x
 5293;64;18;246;Hezhou Gansu;x
 5294;147;155;191;Didao;x
@@ -5198,3 +5198,6 @@ province;red;green;blue;x;x
 5217;213;91;149;Puning;x
 5305;47;187;209;Qingshui Gansu;x
 5306;207;109;43;Tongwei;x
+5307;171;163;193;Lintao;x
+5308;219;0;220;Gongchang;x
+5309;0;211;220;Wudu;x

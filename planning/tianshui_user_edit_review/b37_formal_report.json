@@ -1,0 +1,30 @@
+{
+  "marker": "B37 Tianshui user refinement",
+  "bitmap_unchanged": true,
+  "pixels": {
+    "2180": 234,
+    "5291": 288,
+    "5307": 111,
+    "5308": 190,
+    "5309": 248
+  },
+  "areas": {
+    "longyou_area": [
+      2180,
+      5291,
+      5307,
+      5308,
+      5309
+    ],
+    "xi_shaanxi_area": [
+      2181,
+      5276,
+      5277,
+      5278,
+      5305,
+      5306
+    ]
+  },
+  "new_development": 9,
+  "trade_centers_added": 0
+}

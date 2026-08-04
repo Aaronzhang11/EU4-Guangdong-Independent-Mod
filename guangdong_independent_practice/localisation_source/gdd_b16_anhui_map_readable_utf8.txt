@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  PROV2144:0 "颍州"
  PROV_ADJ2144:0 "颍州"
  PROV5058:0 "亳州"
@@ -42,6 +42,6 @@ l_english:
  wanjiang_area:0 "皖江"
  wanjiang_area_name:0 "皖江"
  wanjiang_area_adj:0 "皖江"
- huining_area:0 "徽宁"
- huining_area_name:0 "徽宁"
- huining_area_adj:0 "徽宁"
+ huining_area:0 "丹阳"
+ huining_area_name:0 "丹阳"
+ huining_area_adj:0 "丹阳"

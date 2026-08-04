@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  PROV5113:0 "昌平"
  PROV_ADJ5113:0 "昌平"
  PROV5114:0 "密云"
@@ -12,5 +12,5 @@ l_english:
  PROV695:0 "河间"
  PROV_ADJ695:0 "河间"
  yandu_area:0 "燕都"
- yandu_area_name:0 "燕"
+ yandu_area_name:0 "燕都"
  yandu_area_adj:0 "燕都"

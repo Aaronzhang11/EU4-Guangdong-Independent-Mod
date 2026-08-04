@@ -1,0 +1,16 @@
+{
+  "batch": "B33_guangdong_area_ownership",
+  "policy": {
+    "2158": "GDD",
+    "5216": "GDD",
+    "4948": "GDD",
+    "2157": "GDD",
+    "5214": "GDD",
+    "5215": "GDD",
+    "4944": "GDD",
+    "2156": "CZC",
+    "5217": "CZC"
+  },
+  "changed_ids": [],
+  "validation": "skipped_by_user_request"
+}
