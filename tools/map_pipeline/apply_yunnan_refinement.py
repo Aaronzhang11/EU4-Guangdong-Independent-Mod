@@ -373,18 +373,21 @@ def update_memberships() -> None:
         text = append_ids(text, "tropical", [5235,5236,5237,5238,5239,5240,5241], tropical_marker)
         climate.write_text(text, encoding="cp1252")
 
-    chengdu_ids = [5224,5225,5226,5227,5228,5229,5235,5236,5237,5238,5239]
-    canton_ids = [5230,5231,5232,5233,5234,5240,5241]
+    # All modern-Yunnan provinces belong to the Chengdu trade node.  Keep the
+    # company and node semantics aligned when this historical builder is rerun.
+    chengdu_ids = [
+        5224,5225,5226,5227,5228,5229,
+        5230,5231,5232,5233,5234,5235,5236,5237,5238,5239,5240,5241,
+    ]
     node_path = MOD / "common/tradenodes/00_tradenodes.txt"
     add_to_top_level_block(node_path, "chengdu", "members", chengdu_ids, marker + " Chengdu node")
-    add_to_top_level_block(node_path, "canton", "members", canton_ids, marker + " Canton node")
 
     company_path = MOD / "common/trade_companies/00_trade_companies.txt"
     add_to_top_level_block(
         company_path,
         "trade_company_chengdu",
         "provinces",
-        chengdu_ids + canton_ids,
+        chengdu_ids,
         marker + " Chengdu company",
     )
 
