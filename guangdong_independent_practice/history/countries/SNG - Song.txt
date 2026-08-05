@@ -1,0 +1,30 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+
+technology_group = chinese
+religion = confucianism
+primary_culture = chihan
+capital = 1816	#Beijing
+fixed_capital = 1816
+
+1444.11.11 = {
+    monarch = {
+        name = "ик"
+        dynasty = "вс"
+        birth_date = 1417.5.12
+        adm = 3
+        dip = 4
+        mil = 2
+    }
+
+    heir = {
+        name = "╥Б"
+        dynasty = "вс"
+        birth_date = 1438.6.18
+        adm = 4
+        dip = 5
+        mil = 3
+        claim = 70
+    }
+}
