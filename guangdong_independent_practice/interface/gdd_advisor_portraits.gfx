@@ -1,0 +1,245 @@
+spriteTypes = {
+
+	# The advisor UI builds portrait sprite names from the advisor type key.
+	# These aliases let the seven GDD types reuse vanilla portraits instead of
+	# falling back to the missing-texture icon. Generic portraits cover the
+	# default graphical cultures; asiangfx portraits cover East Asian countries.
+
+	# Administrative: government reformer -> statesman
+	spriteType = {
+		name = "GFX_advisor_gdd_government_reformer"
+		texturefile = "gfx//interface//advisors//statesman.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_government_reformer_female"
+		texturefile = "gfx//interface//advisors//statesman_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_government_reformer"
+		texturefile = "gfx//interface//advisors//asian_statesman.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_government_reformer_female"
+		texturefile = "gfx//interface//advisors//asian_statesman_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	# Administrative: administrative organizer -> treasurer
+	spriteType = {
+		name = "GFX_advisor_gdd_administrative_organizer"
+		texturefile = "gfx//interface//advisors//treasurer.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_administrative_organizer_female"
+		texturefile = "gfx//interface//advisors//treasurer_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_administrative_organizer"
+		texturefile = "gfx//interface//advisors//asian_treasurer.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_administrative_organizer_female"
+		texturefile = "gfx//interface//advisors//asian_treasurer_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	# Diplomatic: socialite -> diplomat
+	spriteType = {
+		name = "GFX_advisor_gdd_socialite"
+		texturefile = "gfx//interface//advisors//diplomat.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_socialite_female"
+		texturefile = "gfx//interface//advisors//diplomat_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_socialite"
+		texturefile = "gfx//interface//advisors//asian_diplomat.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_socialite_female"
+		texturefile = "gfx//interface//advisors//asian_diplomat_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	# Diplomatic: naval architect -> naval reformer
+	spriteType = {
+		name = "GFX_advisor_gdd_naval_architect"
+		texturefile = "gfx//interface//advisors//naval_reformer.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_naval_architect_female"
+		texturefile = "gfx//interface//advisors//naval_reformer_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_naval_architect"
+		texturefile = "gfx//interface//advisors//asian_naval_reformer.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_naval_architect_female"
+		texturefile = "gfx//interface//advisors//asian_naval_reformer_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	# Diplomatic: colonial propagandist -> colonial governor
+	spriteType = {
+		name = "GFX_advisor_gdd_colonial_propagandist"
+		texturefile = "gfx//interface//advisors//colonial_governor.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_colonial_propagandist_female"
+		texturefile = "gfx//interface//advisors//colonial_governor_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_colonial_propagandist"
+		texturefile = "gfx//interface//advisors//asian_colonial_governor.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_colonial_propagandist_female"
+		texturefile = "gfx//interface//advisors//asian_colonial_governor_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	# Military: march staff officer -> quartermaster
+	spriteType = {
+		name = "GFX_advisor_gdd_march_staff_officer"
+		texturefile = "gfx//interface//advisors//quartermaster.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_march_staff_officer_female"
+		texturefile = "gfx//interface//advisors//quartermaster_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_march_staff_officer"
+		texturefile = "gfx//interface//advisors//asian_quartermaster.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_march_staff_officer_female"
+		texturefile = "gfx//interface//advisors//asian_quartermaster_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	# Military: tactician -> commandant
+	spriteType = {
+		name = "GFX_advisor_gdd_tactician"
+		texturefile = "gfx//interface//advisors//commandant.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_gdd_tactician_female"
+		texturefile = "gfx//interface//advisors//commandant_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_tactician"
+		texturefile = "gfx//interface//advisors//asian_commandant.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_advisor_asiangfx_gdd_tactician_female"
+		texturefile = "gfx//interface//advisors//asian_commandant_female.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+}

@@ -9,6 +9,8 @@
  XU2:0 "V"
  XU2_ADJ:0 "V"
  XU2_ideas:0 "VtõV"
+ CZC:0 "noÞT"
+ CZC_ADJ:0 "noÞT"
 
  GDD_BOOKMARK_NAME:0 "­SWSêËz"
  GDD_BOOKMARK_DESC:0 "hlDQVòTµc6R^N'Yèÿv^Nf÷^¾b”Nt^jPb0Ù8N°eu„v­SWSMeCgÅV‰˜te˜…Qè0ÑSUSwm8ÿTöeÆQYb—ùRfg„vNN!kËe‹S0"
@@ -46,6 +48,21 @@
  GDD_BOOKMARK_EMPTY:0 ""
  string_start_title_gdd:0 "­SWSêËz"
  string_start_gdd:0 "ckßuRt^ÿ^NKz0wm2–N0W¹e»l‰RåeÊvOVkSNb0—RÏeŒTFUºNôuc01443t^+gÿg÷^teƒwkSNbv^ýågFUzNzzÿVÑS0W¹e¿R›RÍS9V0hˆR&Œ(WëXÅu0—RÏefkÅˆŒTàsml4l^=ecNµc6R^ÞTÿÈSåNÛbšbN›Q‹NG•‹Sv^(u„v¹eVÿOd–noÞTY„v^NTœ^HQTRVz˜0\n\nf÷^–sSLm›QWSVÿtS«ˆhˆRÅk)R(u­SWS0WbVN4l^O¿RûQ%0hlDQV‹†ÖS—V'YÜwÿtSñmåw^NàeÕl•gb×SfgcíuV¨‹ÿàVdkIN¨R®‹ŒT0ÖNìNLeVËzsSHYÖSnoÞTÿb²‹f^„v—RIN0WMOv^bHNf÷^„vD–¸^ýVÿf÷^R‚fjPWSVÿˆcˆNhˆR&Œ­SWS‹sðy÷SÿØž¸‹†NhlùR^NvQYO0WHS„vßu»l0\n\n‹†b‹NòTˆmÿFOf÷^ÍNÝOYuùR^N„vINCgðX0tÿ^NmN¡l	gLeVnoÞT0^‰0'YŠŒTWSmø‹ýVÿý(WÂ‰ßRÙ8N°eu„v­SWSMeCg0"
+
+ gdd_government_reformer:0 "Me¡R9ei—¶R"
+ gdd_government_reformer_desc:0 "Ÿq‰`Me¡RÐjON6R¦^¿li—ÿýwYOS©Rg÷^tel™T»lv^ÐcØšLˆMeHe‡s0"
+ gdd_administrative_organizer:0 "LˆMeÄuÇu¶R"
+ gdd_administrative_organizer_desc:0 "Åd•ú^ËzBSµuRf„vLˆMeHg„gÿOýV¶RýwYôf	gHe0W»ltË–†ußW0"
+ gdd_socialite:0 "²NE–±‚"
+ gdd_socialite_desc:0 "íQP^Ûl„vºN	N4ZŸq„v²NŽVKbUÿHN«R÷^ôuûsôfYY²NsQûs0"
+ gdd_naval_architect:0 "0‚–ú^.˜R"
+ gdd_naval_architect_desc:0 "¾s9‚SOÓu„g0	PgN.0‚åTz‚ÿýwYú^.ôf RZWúVw(u„vb9‚0"
+ gdd_colonial_propagandist:0 "Ób–k±R.O¶R"
+ gdd_colonial_propagandist_desc:0 "åN0ÌR0W0WŒT°euIm„v¸‹ú‹8TVlOMRŽVeÜ„v–kl0W0"
+ gdd_march_staff_officer:0 "Lˆ›QÂSŒ"
+ gdd_march_staff_officer_desc:0 "„UŽNÄ‰RLˆ›Qï¿uNÄuÇu›Q—Ð“ÿOF–›QýwYôfÅ0Wµb¾bHW0"
+ gdd_tactician:0 "b=g¶R"
+ gdd_tactician_desc:0 "Åd•Rg0WbV05–bVNLe›Q¨RTÿýwYLfW„9e„UF–›Q„v4N5–b=g0"
 
  estate_nobles_gdd_clan_autonomy_charter:0 "—RÏeê»lyr¸‹"
  estate_nobles_gdd_clan_autonomy_charter_desc:0 "hlDQVŒTSV0WT8N—RÏe„vØžQYag¦u0"
