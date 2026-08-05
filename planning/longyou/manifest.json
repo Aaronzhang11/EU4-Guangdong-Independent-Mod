@@ -1,0 +1,18 @@
+{
+  "batch": "B34_longyou_tianshui_gongchang_draft",
+  "purpose": "Review-only refinement of Qinzhou/Tianshui and Gongchang using Ming institutions and modern county GeoJSON",
+  "parent_ids": [2180, 5291],
+  "new_ids": {
+    "5305": {"name": "Qingshui", "rgb": [47, 187, 209], "parent": 2180},
+    "5306": {"name": "Tongwei", "rgb": [207, 109, 43], "parent": 5291}
+  },
+  "outer_boundary_policy": "Lock the current provinces.bmp; change only pixels owned by 2180 or 5291 in the preview",
+  "area_plan": {
+    "longyou_area": [5305, 5276, 5291, 5306],
+    "xi_shaanxi_area": [2181, 5277, 5278, 2180],
+    "longnan_area": [2183, 5289, 5290]
+  },
+  "history_policy": "Ming ownership; xibei culture; Confucian; split parent development conservatively at implementation time",
+  "geojson_source": "https://geo.datav.aliyun.com/areas_v3/bound/620000_full_district.json",
+  "formal_write": false
+}

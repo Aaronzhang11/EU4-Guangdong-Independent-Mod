@@ -1,0 +1,36 @@
+{
+  "status": "preview_only",
+  "source_bitmap": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/provinces.bmp",
+  "full_draft": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/tianshui_five_province/tianshui_five_province_full_draft.bmp",
+  "crop_draft": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/tianshui_five_province/tianshui_five_province_crop.bmp",
+  "annotated": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/tianshui_five_province/tianshui_five_province_annotated.png",
+  "editable_source_id": 2180,
+  "province_pixels": {
+    "临洮": 164,
+    "岷州": 399,
+    "天水": 365,
+    "巩昌": 203,
+    "武都": 103
+  },
+  "changed_pixels": 306,
+  "changed_outside_editable_mask": 0,
+  "components": {
+    "临洮": 1,
+    "岷州": 1,
+    "天水": 1,
+    "巩昌": 1,
+    "武都": 1
+  },
+  "preview_rgb": {
+    "巩昌": [
+      236,
+      149,
+      48
+    ],
+    "武都": [
+      111,
+      76,
+      190
+    ]
+  }
+}

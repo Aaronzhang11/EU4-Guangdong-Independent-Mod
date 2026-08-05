@@ -8,6 +8,6 @@
  PROV5031:0 "陈留"
  PROV_ADJ5031:0 "陈留"
 
- wangji_area:0 "东京王畿"
- wangji_area_name:0 "东京"
- wangji_area_adj:0 "东京王畿"
+ wangji_area:0 "大梁"
+ wangji_area_name:0 "大梁"
+ wangji_area_adj:0 "大梁"

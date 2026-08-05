@@ -260,6 +260,7 @@ mild_winter = {
     5286 5287 5288 5289 5290 5291 5292 5293 5294 5295 5296 5297 # B26 Gansu-Ningxia 23-province refinement
     5204 5205 5206 5207 5209 # B27 Liaoning 10-province refinement
     5305 5306 # B34 Longyou refinement
+    5307 5308 5309 # B37 Tianshui user refinement
 }
 
 #Example: Inland Europe & Scandinavia

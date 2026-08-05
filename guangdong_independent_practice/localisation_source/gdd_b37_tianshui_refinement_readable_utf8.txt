@@ -1,0 +1,7 @@
+l_english:
+ PROV5307:0 "临洮"
+ PROV_ADJ5307:0 "临洮"
+ PROV5308:0 "巩昌"
+ PROV_ADJ5308:0 "巩昌"
+ PROV5309:0 "武都"
+ PROV_ADJ5309:0 "武都"

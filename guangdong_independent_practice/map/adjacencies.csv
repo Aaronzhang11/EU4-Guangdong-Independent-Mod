@@ -131,4 +131,5 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 2143;2142;sea;1896;-1;-1;-1;-1;Fengyang-Huai'an Hongze crossing
 2142;4196;sea;5043;-1;-1;-1;-1;Huai'an-Haizhou Huai crossing
 4196;5020;sea;5044;-1;-1;-1;-1;Haizhou-Yancheng estuary crossing
+2172;5013;sea;5037;-1;-1;-1;-1;Jingzhou-Shizhou Yichang crossing
 -1;-1;;-1;-1;-1;-1;-1;-1;

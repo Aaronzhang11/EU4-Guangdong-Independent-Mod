@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  PROV2168:0 "播州"
  PROV_ADJ2168:0 "播州"
  PROV5069:0 "乌撒"
@@ -20,12 +20,12 @@ l_english:
  PROV4199:0 "思南"
  PROV_ADJ4199:0 "思南"
 
- qianxi_area:0 "黔西"
- qianxi_area_name:0 "贵竹"
- qianxi_area_adj:0 "黔西"
- qiandong_area:0 "黔东"
- qiandong_area_name:0 "思南"
- qiandong_area_adj:0 "黔东"
- yunnan_area:0 "云南"
- yunnan_area_name:0 "昆明"
- yunnan_area_adj:0 "云南"
+ qianxi_area:0 "夜郎"
+ qianxi_area_name:0 "夜郎"
+ qianxi_area_adj:0 "夜郎"
+ qiandong_area:0 "牂牁"
+ qiandong_area_name:0 "牂牁"
+ qiandong_area_adj:0 "牂牁"
+ yunnan_area:0 "滇池"
+ yunnan_area_name:0 "滇池"
+ yunnan_area_adj:0 "滇池"
