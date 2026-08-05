@@ -1,9 +1,9 @@
 # 5105 - Qingzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = shandong
+owner = QIC
+controller = QIC
+add_core = QIC
+culture = shandong_culture
 religion = confucianism
 capital = "Qingzhou"
 trade_goods = grain

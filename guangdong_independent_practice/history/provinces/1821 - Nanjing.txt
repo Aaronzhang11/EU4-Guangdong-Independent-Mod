@@ -1,10 +1,11 @@
-# 1821 - Liuhe
+#1821 - Jiangling
+
 owner = MNG
 controller = MNG
 add_core = MNG
 culture = jianghuai
 religion = confucianism
-capital = "Liuhe"
+capital = "Jiangling"
 trade_goods = grain
 hre = no
 base_tax = 2

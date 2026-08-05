@@ -1,9 +1,9 @@
 # 5222 - Tianjin
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = zhili
+owner = QIC
+controller = QIC
+add_core = QIC
+culture = shandong
 religion = confucianism
 capital = "Tianjin"
 trade_goods = salt
