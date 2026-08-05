@@ -1,0 +1,725 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "燕山西段",
+        "group": "燕赵晋秦",
+        "status": "新增候选",
+        "source": "风云世纪两千年 5238",
+        "candidate_rgb": [
+          103,
+          145,
+          189
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4631.06,
+            682.69
+          ],
+          [
+            4618.84,
+            700.88
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "燕山东段",
+        "group": "燕赵晋秦",
+        "status": "新增候选",
+        "source": "风云世纪两千年 5237",
+        "candidate_rgb": [
+          174,
+          51,
+          139
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4700.58,
+            690.39
+          ],
+          [
+            4678.4,
+            705.52
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "恒山",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5257",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4588.92,
+            729.7
+          ],
+          [
+            4569.41,
+            743.58
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "太行山北段",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5258",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4592.41,
+            736.92
+          ],
+          [
+            4576.97,
+            756.18
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "太行山南段",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5259",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4589.21,
+            765.54
+          ],
+          [
+            4580.39,
+            817.74
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "吕梁山",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5260",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4549.46,
+            751.23
+          ],
+          [
+            4544.91,
+            777.99
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "中条山",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5261",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4563.46,
+            809.44
+          ],
+          [
+            4538.33,
+            830.75
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "伏牛山",
+        "group": "燕赵晋秦",
+        "status": "新增候选",
+        "source": "大明日不落 5182",
+        "candidate_rgb": [
+          38,
+          164,
+          89
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4571.05,
+            844.81
+          ],
+          [
+            4529.77,
+            838.76
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "秦岭",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5183",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4460.79,
+            842.09
+          ],
+          [
+            4491.94,
+            834.75
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "陇山",
+        "group": "燕赵晋秦",
+        "status": "现有锚点",
+        "source": "当前省份 5187",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4452.33,
+            791.52
+          ],
+          [
+            4464.5,
+            810.69
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "桐柏山",
+        "group": "江汉屏障",
+        "status": "新增候选",
+        "source": "大明日不落 5173",
+        "candidate_rgb": [
+          109,
+          70,
+          39
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4595.74,
+            874.72
+          ],
+          [
+            4584.34,
+            885.29
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "大别山",
+        "group": "江汉屏障",
+        "status": "新增候选",
+        "source": "大明日不落 5237",
+        "candidate_rgb": [
+          180,
+          183,
+          196
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4608.48,
+            874.71
+          ],
+          [
+            4624.08,
+            900.54
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "巫山",
+        "group": "江汉屏障",
+        "status": "新增候选",
+        "source": "大明日不落 5172",
+        "candidate_rgb": [
+          44,
+          89,
+          146
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4564.34,
+            981.86
+          ],
+          [
+            4565.57,
+            1012.06
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "大巴山",
+        "group": "江汉屏障",
+        "status": "现有锚点",
+        "source": "当前省份 5175",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4487.56,
+            860.8
+          ],
+          [
+            4521.51,
+            873.67
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "武夷山",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5158",
+        "candidate_rgb": [
+          115,
+          202,
+          96
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4639.42,
+            962.69
+          ],
+          [
+            4621.47,
+            996.25
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "罗霄山",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5161",
+        "candidate_rgb": [
+          186,
+          108,
+          46
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4629.15,
+            954.08
+          ],
+          [
+            4612.7,
+            985.84
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "大庾岭",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5163",
+        "candidate_rgb": [
+          50,
+          221,
+          203
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4592.79,
+            1003.71
+          ],
+          [
+            4579.47,
+            1007.61
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "九连山",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5164",
+        "candidate_rgb": [
+          121,
+          127,
+          153
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4596.12,
+            1010.04
+          ],
+          [
+            4582.78,
+            1022.85
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "雪峰山",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5165",
+        "candidate_rgb": [
+          192,
+          33,
+          103
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4535.17,
+            947.04
+          ],
+          [
+            4515.04,
+            946.16
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "越城岭",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5170",
+        "candidate_rgb": [
+          56,
+          146,
+          53
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4506.78,
+            997.23
+          ],
+          [
+            4552.93,
+            991.43
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "十万大山",
+        "group": "东南脊梁",
+        "status": "新增候选",
+        "source": "大明日不落 5167",
+        "candidate_rgb": [
+          127,
+          52,
+          210
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4464.26,
+            1057.53
+          ],
+          [
+            4458.9,
+            1065.94
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "大凉山",
+        "group": "西南高地",
+        "status": "新增候选",
+        "source": "大明日不落 5147",
+        "candidate_rgb": [
+          198,
+          165,
+          160
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4392.94,
+            955.23
+          ],
+          [
+            4389.07,
+            988.47
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "哀牢山",
+        "group": "西南高地",
+        "status": "新增候选",
+        "source": "大明日不落 5168",
+        "candidate_rgb": [
+          62,
+          71,
+          110
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4378.15,
+            1022.88
+          ],
+          [
+            4355.11,
+            1024.09
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "苗岭",
+        "group": "西南高地",
+        "status": "新增候选",
+        "source": "大明日不落 5169",
+        "candidate_rgb": [
+          133,
+          184,
+          60
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4453.36,
+            980.9
+          ],
+          [
+            4449.24,
+            1006.88
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "大娄山",
+        "group": "西南高地",
+        "status": "新增候选",
+        "source": "大明日不落 5171",
+        "candidate_rgb": [
+          204,
+          90,
+          217
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4540.96,
+            900.06
+          ],
+          [
+            4512.75,
+            901.28
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "岷山",
+        "group": "西南高地",
+        "status": "现有锚点",
+        "source": "当前省份 5176",
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4451.29,
+            841.67
+          ],
+          [
+            4440.42,
+            863.24
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "泰山",
+        "group": "齐鲁山地",
+        "status": "新增候选",
+        "source": "大明日不落 5152",
+        "candidate_rgb": [
+          68,
+          203,
+          167
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4649.52,
+            777.36
+          ],
+          [
+            4661.37,
+            806.63
+          ]
+        ]
+      }
+    }
+  ]
+}
