@@ -34,9 +34,9 @@ MOVES = {
     4983: "southwest_hunan_area",     # Baoqing
     681: "hanjiang_xiangyun_area",    # Yiling
     5010: "jingyi_shinan_area",       # Chengtian
-    5013: "chongqing_area",           # Shizhou
+    5013: "jingyi_shinan_area",       # Shizhou
     5014: "dongting_area",            # Gongan
-    5028: "jingyi_shinan_area",       # Kuizhou
+    5028: "chongqing_area",           # Kuizhou
     5272: "changan_area",             # Shangzhou
     696: "south_hebei_area",          # Baoding: connects Yizhou to Zhending
     5066: "huining_area",             # Wuhu

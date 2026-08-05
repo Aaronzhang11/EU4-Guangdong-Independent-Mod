@@ -1,0 +1,71 @@
+{
+  "status": "review_only",
+  "source": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/provinces.bmp",
+  "crop": [
+    4402,
+    788,
+    4478,
+    858
+  ],
+  "targets": [
+    {
+      "name": "临洮",
+      "rgb": [
+        171,
+        163,
+        193
+      ],
+      "pixels": 111,
+      "status": "新色，待分配正式 ID"
+    },
+    {
+      "name": "岷州",
+      "rgb": [
+        224,
+        208,
+        220
+      ],
+      "pixels": 288,
+      "status": "现 ID 5291，游戏名仍为巩昌"
+    },
+    {
+      "name": "天水",
+      "rgb": [
+        138,
+        152,
+        194
+      ],
+      "pixels": 234,
+      "status": "现 ID 2180，游戏名仍为秦州"
+    },
+    {
+      "name": "巩昌",
+      "rgb": [
+        219,
+        0,
+        220
+      ],
+      "pixels": 190,
+      "status": "新色，待分配正式 ID"
+    },
+    {
+      "name": "武都",
+      "rgb": [
+        0,
+        211,
+        220
+      ],
+      "pixels": 248,
+      "status": "新色，待分配正式 ID"
+    }
+  ],
+  "known_pixel_provenance_issue": {
+    "name": "武都",
+    "pixels_from_head_ningqiang": 1
+  },
+  "outputs": {
+    "annotated_bmp": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/tianshui_user_edit_review/tianshui_user_edit_named_review.bmp",
+    "annotated_png": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/tianshui_user_edit_review/tianshui_user_edit_named_review.png",
+    "raw_crop_bmp": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/tianshui_user_edit_review/tianshui_user_edit_raw_crop.bmp"
+  }
+}

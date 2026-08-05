@@ -1,9 +1,9 @@
 # 5106 - Ninghai
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = shandong
+owner = QIC
+controller = QIC
+add_core = QIC
+culture = shandong_culture
 religion = confucianism
 capital = "Ninghai"
 trade_goods = fish

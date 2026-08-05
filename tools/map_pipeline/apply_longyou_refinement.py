@@ -29,8 +29,8 @@ PROVINCES = {
 }
 NEW_IDS = (5305, 5306)
 AREAS = {
-    "longyou_area": (5305, 5276, 5291, 5306),
-    "xi_shaanxi_area": (2181, 5277, 5278, 2180),
+    "longyou_area": (2181, 5276, 5278, 5305),
+    "xi_shaanxi_area": (2180, 5277, 5291, 5306),
     "longnan_area": (2183, 5289, 5290),
 }
 

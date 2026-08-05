@@ -252,6 +252,7 @@ asia = {
     5216 5217 # B30 Yuebei-Chaoshan refinement
     5301 5302 5303 5304 # B27 Hainan five-province refinement
     5305 5306 # B34 Longyou refinement
+    5307 5308 5309 # B37 Tianshui user refinement
 }
 
 africa = {

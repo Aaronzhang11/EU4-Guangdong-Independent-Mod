@@ -3,7 +3,7 @@
 owner = YAN
 controller = YAN
 add_core = YAN
-culture = zhili
+culture = yan
 religion = confucianism
 capital = "Changping"
 trade_goods = grain

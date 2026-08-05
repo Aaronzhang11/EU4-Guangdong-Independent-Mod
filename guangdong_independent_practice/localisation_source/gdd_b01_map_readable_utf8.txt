@@ -13,6 +13,11 @@
  PROV_ADJ4947:0 "罗定"
  PROV4948:0 "南雄"
  PROV_ADJ4948:0 "南雄"
- pearl_river_delta_area:0 "珠江三角洲"
- pearl_river_delta_area_name:0 "广州"
- pearl_river_delta_area_adj:0 "珠江三角洲"
+ pearl_river_delta_area:0 "南海"
+ pearl_river_delta_area_name:0 "南海"
+ pearl_river_delta_area_adj:0 "南海"
+
+ # CHUNQIU_AREA_NAMES: generated missing area family keys
+ west_guangdong_area:0 "高凉"
+ west_guangdong_area_name:0 "高凉"
+ west_guangdong_area_adj:0 "高凉"
