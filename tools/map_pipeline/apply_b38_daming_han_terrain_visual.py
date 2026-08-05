@@ -26,12 +26,17 @@ SOURCE = Path(
 )
 OUT = ROOT / "planning/terrain_transplant/daming_han_v1"
 BACKUP = OUT / "pre_b38/map/terrain.bmp"
+PLATEAU_BACKUP = OUT / "pre_b40_white_tibet/map/terrain.bmp"
 SOURCE_OFFSET = (438, 9)
 LEGACY_WINDOW = (4300, 680, 4730, 1060)
 TRANSITION_RADIUS = 120
 NOISE_SCALE = 18
 NOISE_SEED = 1728520255
 LOCKED_TERRAIN_INDICES = (15, 17, 35)  # ocean, inland ocean, coastline
+PLATEAU_MOUNTAIN_INDICES = (1, 2, 6, 7, 8, 16, 23, 24)
+PLATEAU_CLOSE_RADIUS = 6
+PLATEAU_MIN_HEIGHT = 80
+PLATEAU_FILL_INDEX = 6
 
 CORE_REGIONS = (
     "mongolia_region", "manchuria_region", "korea_region", "japan_region",
@@ -137,7 +142,7 @@ def modal_indices(
     return {province_id: value[0] for province_id, value in best.items()}
 
 
-def region_core_ids() -> set[int]:
+def region_ids(regions: tuple[str, ...]) -> set[int]:
     region_blocks = named_blocks(
         (MAP / "region.txt").read_text(encoding="cp1252", errors="replace"),
         "_region",
@@ -148,13 +153,57 @@ def region_core_ids() -> set[int]:
     )
     area_keys = {
         key
-        for region in CORE_REGIONS
+        for region in regions
         for key in re.findall(r"\b[A-Za-z0-9_]+_area\b", re.sub(r"#.*", "", region_blocks.get(region, "")))
     }
     missing = sorted(area_keys - area_blocks.keys())
     if missing:
         raise ValueError(f"Core regions reference missing areas: {missing}")
     return {province_id for key in area_keys for province_id in area_ids(area_blocks[key])}
+
+
+def region_core_ids() -> set[int]:
+    return region_ids(CORE_REGIONS)
+
+
+def plateau_continuity(
+    terrain: np.ndarray,
+    reference_terrain: np.ndarray,
+    province_pixels: np.ndarray,
+    defs: dict[int, tuple[int, int, int]],
+) -> tuple[np.ndarray, np.ndarray]:
+    plateau_ids = region_ids(("tibet_region",))
+    plateau_values = np.array([
+        (defs[province_id][0] << 16) | (defs[province_id][1] << 8) | defs[province_id][2]
+        for province_id in plateau_ids if province_id in defs
+    ], dtype=np.uint32)
+    plateau = np.isin(province_pixels, plateau_values)
+    ys, xs = np.where(plateau)
+    if not len(xs):
+        raise ValueError("Qinghai-Tibet plateau mask is empty")
+    x0, y0, x1, y1 = int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1
+    local_plateau = plateau[y0:y1, x0:x1]
+    local_terrain = terrain[y0:y1, x0:x1]
+    local_reference = reference_terrain[y0:y1, x0:x1]
+    local_height = np.asarray(Image.open(MAP / "heightmap.bmp"))[y0:y1, x0:x1]
+    family = np.isin(local_reference, PLATEAU_MOUNTAIN_INDICES) & local_plateau
+    family_image = Image.fromarray(family.astype(np.uint8) * 255, mode="L")
+    size = PLATEAU_CLOSE_RADIUS * 2 + 1
+    closed = np.asarray(
+        family_image.filter(ImageFilter.MaxFilter(size)).filter(ImageFilter.MinFilter(size))
+    ) > 0
+    fill_local = (
+        closed
+        & local_plateau
+        & (local_height >= PLATEAU_MIN_HEIGHT)
+        & ~np.isin(local_reference, LOCKED_TERRAIN_INDICES)
+        & ~family
+    )
+    result = terrain.copy()
+    result[y0:y1, x0:x1][fill_local] = PLATEAU_FILL_INDEX
+    fill = np.zeros(terrain.shape, dtype=bool)
+    fill[y0:y1, x0:x1] = fill_local
+    return result, fill
 
 
 def coherent_transition(core: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -180,6 +229,9 @@ def build_transaction() -> dict[str, object]:
     if not BACKUP.exists():
         BACKUP.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(canonical, BACKUP)
+    if not PLATEAU_BACKUP.exists():
+        PLATEAU_BACKUP.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(canonical, PLATEAU_BACKUP)
 
     current_image = Image.open(canonical)
     baseline_image = Image.open(BACKUP)
@@ -241,9 +293,13 @@ def build_transaction() -> dict[str, object]:
     legacy = np.zeros(baseline.shape, dtype=bool)
     lx0, ly0, lx1, ly1 = LEGACY_WINDOW
     legacy[ly0:ly1, lx0:lx1] = True
-    owned = editable | legacy
     result[legacy] = baseline[legacy]
     result[editable] = draft[editable]
+    plateau_reference = np.asarray(Image.open(PLATEAU_BACKUP))
+    result, plateau_fill = plateau_continuity(
+        result, plateau_reference, province_pixels, defs
+    )
+    owned = editable | legacy | plateau_fill
     changed_this_run = current != result
     if (changed_this_run & ~owned).any():
         raise ValueError("Terrain transaction changed pixels outside its owned mask")
@@ -284,6 +340,7 @@ def build_transaction() -> dict[str, object]:
         "affected_ids": affected_ids,
         "unprotected_changes": unprotected_changes,
         "blocked_cross_category_pixels": int((adoption & safe_land & ~override_pixels & ~same_category).sum()),
+        "plateau_fill": plateau_fill,
     }
 
 
@@ -327,6 +384,34 @@ def write_preview(
     return path, crop_box
 
 
+def write_plateau_preview(
+    before: np.ndarray,
+    result: np.ndarray,
+    fill: np.ndarray,
+    palette: list[int],
+) -> Path:
+    x0, y0, x1, y1 = mask_bbox(fill, margin=60)
+    panels = []
+    for values in (before, result):
+        image = Image.fromarray(values[y0:y1, x0:x1].astype(np.uint8), mode="P")
+        image.putpalette(palette)
+        panels.append(image.convert("RGB").resize(
+            ((x1 - x0) * 3, (y1 - y0) * 3), Image.Resampling.NEAREST
+        ))
+    titles = ("青藏连续化前", "青藏山地闭合后")
+    top = 48
+    canvas = Image.new("RGB", (panels[0].width * 2, panels[0].height + top), (244, 242, 236))
+    draw = ImageDraw.Draw(canvas)
+    font = ImageFont.truetype("/System/Library/Fonts/STHeiti Medium.ttc", 23)
+    for index, (image, title) in enumerate(zip(panels, titles)):
+        x = index * image.width
+        canvas.paste(image, (x, top))
+        draw.text((x + 18, 8), title, font=font, fill=(25, 25, 25))
+    path = OUT / "tibet_terrain_continuity_preview.png"
+    canvas.save(path)
+    return path
+
+
 def main() -> None:
     canonical = MAP / "terrain.bmp"
     tx = build_transaction()
@@ -351,6 +436,10 @@ def main() -> None:
     preview, crop_box = write_preview(
         baseline, tx["source"], result, tx["transition_extent"], palette
     )
+    plateau_before = np.asarray(Image.open(PLATEAU_BACKUP))
+    plateau_preview = write_plateau_preview(
+        plateau_before, result, tx["plateau_fill"], palette
+    )
     report = {
         "batch": "B38 Daming East and Southeast Asia blended terrain transplant",
         "source": str(SOURCE / "map/terrain.bmp"),
@@ -358,6 +447,10 @@ def main() -> None:
         "core_regions": list(CORE_REGIONS),
         "transition_radius": TRANSITION_RADIUS,
         "transition_noise_scale": NOISE_SCALE,
+        "plateau_close_radius": PLATEAU_CLOSE_RADIUS,
+        "plateau_min_height": PLATEAU_MIN_HEIGHT,
+        "plateau_fill_index": PLATEAU_FILL_INDEX,
+        "plateau_fill_pixels": int(tx["plateau_fill"].sum()),
         "preview_crop": list(crop_box),
         "core_land_pixels": int(tx["core"].sum()),
         "transition_extent_pixels": int(tx["transition_extent"].sum()),
@@ -372,7 +465,9 @@ def main() -> None:
         "heightmap_sha256": sha256(MAP / "heightmap.bmp"),
         "rivers_sha256": sha256(MAP / "rivers.bmp"),
         "preview": str(preview),
+        "plateau_preview": str(plateau_preview),
         "backup": str(BACKUP),
+        "plateau_backup": str(PLATEAU_BACKUP),
     }
     report_path = OUT / "daming_han_terrain_apply_report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

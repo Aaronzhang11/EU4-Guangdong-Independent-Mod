@@ -1,0 +1,137 @@
+{
+  "batch": "B39",
+  "files": [
+    {
+      "path": "map/terrain/colormap_spring.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/colormap_spring.dds",
+      "baseline_sha256": "983b1b90e3a0092ab84484859cffb3c3f8b3d646ae3ffee279653c1e41248b66"
+    },
+    {
+      "path": "map/terrain/colormap_summer.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/colormap_summer.dds",
+      "baseline_sha256": "8c3e813adeae3e448cdf8f0cbee66b68213cb097aec8474cdf891d923979bf96"
+    },
+    {
+      "path": "map/terrain/colormap_autumn.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/colormap_autumn.dds",
+      "baseline_sha256": "fe7a9f553560f2735eda1c3784f9ba5ded7920298c8825cdafb37fd9e9677128"
+    },
+    {
+      "path": "map/terrain/colormap_winter.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/colormap_winter.dds",
+      "baseline_sha256": "1e62a0f6124c7bb5f843f3085be28596326123f83552911af93938d8c1410692"
+    },
+    {
+      "path": "map/terrain/atlas0.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/atlas0.dds",
+      "baseline_sha256": "0514e4c6527f504e96bb48e53744c1d666ae1d407bdecfd5c1169f6f668e536c"
+    },
+    {
+      "path": "map/terrain/atlas_normal0.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/atlas_normal0.dds",
+      "baseline_sha256": "5491084fe4875afac8adaaac48d274a8fb32b3fff82164c91bdc8d3bd17edca7"
+    },
+    {
+      "path": "map/terrain/RiverSurface_diffuse.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/RiverSurface_diffuse.dds",
+      "baseline_sha256": "9ff1f1040a6189fb5c1f473f5f04f35c7b7311975a2c073fe850166c46cafad4"
+    },
+    {
+      "path": "map/terrain/RiverSurface_normal.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/RiverSurface_normal.dds",
+      "baseline_sha256": "cfaf0cf753d512e864c9460d1eea4daf58d46eb3626a4e2aa45ba9c5c478a5de"
+    },
+    {
+      "path": "map/terrain/River_normal.bmp",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/River_normal.bmp",
+      "baseline_sha256": "f1455cdc11892666eb1c305706519a39c095e579aa1fb175bde41067679aa47e"
+    },
+    {
+      "path": "map/terrain/Tree_tint.bmp",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/Tree_tint.bmp",
+      "baseline_sha256": "2ab0d13bc05388e38f5b3f57ad7c9cf334eda420188e0a472c89b28eb4db80f9"
+    },
+    {
+      "path": "map/terrain/Tree_season.bmp",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/Tree_season.bmp",
+      "baseline_sha256": "ca4ea784720ba5949e5f3f49496b09f872e74baa25d4b105693e0f503edf3ff1"
+    },
+    {
+      "path": "map/terrain/colormap_water.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/colormap_water.dds",
+      "baseline_sha256": "50ebaa0ceb9d0e7867550e738a8acdef6561f0c4e1f4624ca202cf07865c0dc8"
+    },
+    {
+      "path": "map/terrain/underwater_terrain.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/underwater_terrain.dds",
+      "baseline_sha256": "e375b7f271d6a7856f3763764ae5080fddef17315adf9ea872ebcae37f1ef686"
+    },
+    {
+      "path": "map/terrain/ice_normal.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/ice_normal.dds",
+      "baseline_sha256": "cf6fba196a996daf27174ce4c7b5c839ec85c1fc75824b047cfd385923f640a6"
+    },
+    {
+      "path": "map/terrain/reflection.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/reflection.dds",
+      "baseline_sha256": "78e983715d0f8bcdc59a8d0e50551e38a791d86b10439d0c225e787de4ab9b92"
+    },
+    {
+      "path": "map/terrain/map_overlay_tile.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/map_overlay_tile.dds",
+      "baseline_sha256": "db85320ac18de00037040764c467a17c29a35c0759668babc7db6bf702db40d1"
+    },
+    {
+      "path": "map/terrain/border0.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/border0.dds",
+      "baseline_sha256": "325f8d36112332aaf6c567e7ae7ad84f6885a8f38146c2ab7c8d28ebd3b697df"
+    },
+    {
+      "path": "map/terrain/border1.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/border1.dds",
+      "baseline_sha256": "e8709d22a4c7b69bf1a144782c92b681f66bb9173000c231b4d70f3dfbce2ecf"
+    },
+    {
+      "path": "map/terrain/border5.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/border5.dds",
+      "baseline_sha256": "b8ef627f75846ecdd8293ca3593748ae3ca84538dcb37235bb308669e5aab909"
+    },
+    {
+      "path": "map/terrain/border5data.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/border5data.dds",
+      "baseline_sha256": "cdb4e745d332443bb8f8f960e86b275a972ab92ed70e297898a8509dd8df5844"
+    },
+    {
+      "path": "map/terrain/border6.dds",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/terrain/border6.dds",
+      "baseline_sha256": "4474462207ddefd4a11d53729e5f2bf7c4a35dbd60d80b0ae0b746d2196d61a7"
+    },
+    {
+      "path": "map/trees.bmp",
+      "target_existed": false,
+      "baseline": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV/map/trees.bmp",
+      "baseline_sha256": "b67c97490c675d0e0a3d804386542cbca14afc3038a09221eb21bbf908cbe652"
+    }
+  ]
+}

@@ -10,5 +10,7 @@
 - 游戏性保护：已有 `terrain_override` 的省份可采用完整源纹理；其余省份只替换为同一游戏地形类别的源索引，因此逐像素保证玩法地形类别不变。
 - 不修改：`terrain.txt`、`heightmap.bmp`、`rivers.bmp`、`provinces.bmp`、省份历史、区域、贸易和本地化。
 - 一次性备份：`pre_b38/map/terrain.bmp`。
+- 青藏连续化：仅在 `tibet_region` 内对现有山地族索引进行半径 `6 px` 的闭合，填补内部小断裂；锁定水域与海岸，并验证无未覆盖省份的主地形类别变化。
+- 青藏连续化前备份：`pre_b40_white_tibet/map/terrain.bmp`。
 - 正式预览：`daming_han_terrain_formal_preview.png`。
 - 实装脚本：`tools/map_pipeline/apply_b38_daming_han_terrain_visual.py`，必须可重复运行并保持哈希稳定。
