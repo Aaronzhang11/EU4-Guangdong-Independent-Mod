@@ -1,12 +1,14 @@
+# 5015 - Puqi
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = zhongyuan
+add_core = CHC
+culture = hubei
 religion = confucianism
-capital = "Yingzhou"
-trade_goods = grain
-base_tax = 4
-base_production = 4
+capital = "Puqi"
+trade_goods = tea
+base_tax = 2
+base_production = 2
 base_manpower = 2
 is_city = yes
 discovered_by = chinese
