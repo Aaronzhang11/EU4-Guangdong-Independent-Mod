@@ -18,3 +18,7 @@
  dongjiang_area:0 "龙川"
  dongjiang_area_name:0 "龙川"
  dongjiang_area_adj:0 "龙川"
+ PROV5310:0 "南岭西段"
+ PROV_ADJ5310:0 "南岭西段"
+ PROV5311:0 "南岭东段"
+ PROV_ADJ5311:0 "南岭东段"

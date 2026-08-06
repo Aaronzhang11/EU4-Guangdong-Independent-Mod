@@ -390,6 +390,8 @@ categories =  {
             #1.37
             2838 #tarija
     5304 # B27 Hainan five-province refinement mountain
+    5310 # Nanling mountain
+    5311 # Nanling eastern mountain
 }
     }
 

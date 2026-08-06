@@ -1,0 +1,75 @@
+graphical_culture = asiangfx
+
+color = { 13 148 146 }
+
+revolutionary_colors = {
+    13 148 146
+    160 0 0
+    255 255 255
+}
+
+# These are given names. EU4 displays them together with the current dynasty.
+monarch_names = {
+    "守仁 #0" = 10
+    "守礼 #0" = 10
+    "守信 #0" = 10
+    "守正 #0" = 10
+    "承恩 #0" = 10
+    "承业 #0" = 10
+    "承志 #0" = 10
+    "承德 #0" = 10
+    "文盛 #0" = 10
+    "文昭 #0" = 10
+    "文远 #0" = 10
+    "景明 #0" = 10
+    "景泰 #0" = 10
+    "世安 #0" = 10
+    "世昌 #0" = 10
+    "维新 #0" = 10
+    "维桢 #0" = 10
+    "弘毅 #0" = 10
+    "弘道 #0" = 10
+    "继贤 #0" = 10
+    "继宗 #0" = 10
+    "启明 #0" = 10
+    "启元 #0" = 10
+    "慧兰 #0" = -1
+    "淑贞 #0" = -1
+    "玉英 #0" = -1
+    "婉仪 #0" = -1
+}
+
+leader_names = {
+    "子轩"
+    "博文"
+    "大钧"
+    "林"
+    "何"
+    "罗"
+    "邓"
+    "谢"
+    "郑"
+    "吴"
+    "周"
+    "朱"
+}
+
+ship_names = {
+    "Pearl River"
+    "South Sea"
+    "Canton Trader"
+    "Xiangshan"
+    "Lingnan"
+    "Macau"
+    "Kingchow"
+    "Five Rams"
+    "White Cloud"
+    "West River"
+    "East River"
+    "Lingding Sea"
+}
+
+army_names = {
+    "潮州卫队"
+    "$PROVINCE$军"
+}

@@ -203,6 +203,8 @@ asia = {
     1343 #Ganges
     1340 #comorin
     1335 #basra
+    5310 # Nanling mountain
+    5311 # Nanling eastern mountain
 
     2369 2357 2354 2360 2355 2368 2364 2356 2363 2350 2349 2370 2352 2358 2353 2351 2359 1781 1782 1783
     2362 2361

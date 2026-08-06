@@ -407,6 +407,8 @@ impassable = {
     5175 5176 5183 5187 # Qin-Shu mountain barriers
     5257 5258 5259 5260 5261 # B23 Shanxi 20-province refinement impassable
     5304 # B27 Hainan five-province refinement impassable
+    5310 # Nanling mountain
+    5311 # Nanling eastern mountain
 }
 
 mild_monsoon = {
