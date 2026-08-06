@@ -1,0 +1,110 @@
+{
+  "batch": "B39 Daming terrain rendering asset adaptation",
+  "source": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/1728520255",
+  "source_offset": [
+    438,
+    9
+  ],
+  "target_size": [
+    5632,
+    2048
+  ],
+  "core_regions": [
+    "mongolia_region",
+    "manchuria_region",
+    "korea_region",
+    "japan_region",
+    "tibet_region",
+    "north_china_region",
+    "south_china_region",
+    "xinan_region",
+    "burma_region",
+    "indo_china_region",
+    "malaya_region",
+    "moluccas_region",
+    "indonesia_region"
+  ],
+  "transition_radius": 180,
+  "source_blank_threshold": 220,
+  "source_blank_expand": 9,
+  "source_blank_feather": 4,
+  "core_pixels": 440776,
+  "transition_pixels": 2664646,
+  "water_pixels_locked": 7485510,
+  "seasonal_white_fix": {
+    "colormap_spring.dds": {
+      "source_near_white_pixels": 6076164,
+      "near_white_adopted_pixels": 0,
+      "water_adopted_pixels": 0,
+      "result_near_white_pixels": 0,
+      "decoded_near_white_pixels": 0,
+      "decoded_near_white_water_pixels": 0,
+      "decoded_nonopaque_pixels": 0
+    },
+    "colormap_summer.dds": {
+      "source_near_white_pixels": 6076091,
+      "near_white_adopted_pixels": 0,
+      "water_adopted_pixels": 0,
+      "result_near_white_pixels": 15,
+      "decoded_near_white_pixels": 15,
+      "decoded_near_white_water_pixels": 0,
+      "decoded_nonopaque_pixels": 0
+    },
+    "colormap_autumn.dds": {
+      "source_near_white_pixels": 6075963,
+      "near_white_adopted_pixels": 0,
+      "water_adopted_pixels": 0,
+      "result_near_white_pixels": 0,
+      "decoded_near_white_pixels": 0,
+      "decoded_near_white_water_pixels": 0,
+      "decoded_nonopaque_pixels": 0
+    },
+    "colormap_winter.dds": {
+      "source_near_white_pixels": 6075862,
+      "near_white_adopted_pixels": 0,
+      "water_adopted_pixels": 0,
+      "result_near_white_pixels": 0,
+      "decoded_near_white_pixels": 0,
+      "decoded_near_white_water_pixels": 0,
+      "decoded_nonopaque_pixels": 0
+    }
+  },
+  "locked_files": {
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/provinces.bmp": "5d06944cd38cce83a48b49e38bd02d4768ec52e9b01860987836d2718820635e",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/terrain.bmp": "2531e34860277556a4fa558b0cf7788b9a7fd8f7e91932bde6e33013e3dbd997",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/heightmap.bmp": "7d667c6315a54480cf2c10c120b1178cddbd8c163d8dae015b0b63b93ae56bae",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/rivers.bmp": "9cbb1876f952da878175842805b146ca5a3a6dd69e915194bbc742777070fcd3",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/terrain.txt": "66bd319e30c644ca138740a7e8380d1278bc72f7ea86d67a3c5447697dffead3"
+  },
+  "outputs": {
+    "guangdong_independent_practice/map/terrain/colormap_spring.dds": "813a663f9084a87db461e06f081828939ae0c2c11b5bb58e8387ab1f5d4086fc",
+    "guangdong_independent_practice/map/terrain/colormap_summer.dds": "d7c4626204c56de2f18463cfbf7f7215799acdc68b41de69e58fcaa5c7660789",
+    "guangdong_independent_practice/map/terrain/colormap_autumn.dds": "382d553a1f9237dd487a4bcb18ce88a5bd6b6ad8990b0d6dfc55f6cd71c81b6a",
+    "guangdong_independent_practice/map/terrain/colormap_winter.dds": "b113e10c49a8d9b15716a30fe90109e2c044903ee397327042531ae426bb2945",
+    "guangdong_independent_practice/map/terrain/atlas0.dds": "575f717aa3d773a11d63967684ce704dd92de46555493c0edd785f33bdb021da",
+    "guangdong_independent_practice/map/terrain/atlas_normal0.dds": "a2f4575346c6ecb7982a4d678cc9e2e178c28198d9abcce72592e144ee04c972",
+    "guangdong_independent_practice/map/terrain/RiverSurface_diffuse.dds": "8bba90e95c11f061fbdcfe63479d9464cb4fe8c5552262d27c94f30257c350df",
+    "guangdong_independent_practice/map/terrain/RiverSurface_normal.dds": "cfaf0cf753d512e864c9460d1eea4daf58d46eb3626a4e2aa45ba9c5c478a5de",
+    "guangdong_independent_practice/map/terrain/River_normal.bmp": "d11aad0da515dff59a7f9eeeecc7bce399abc72952e6e7d00bcd49db36571afe",
+    "guangdong_independent_practice/map/terrain/Tree_tint.bmp": "2ab0d13bc05388e38f5b3f57ad7c9cf334eda420188e0a472c89b28eb4db80f9",
+    "guangdong_independent_practice/map/terrain/Tree_season.bmp": "ca4ea784720ba5949e5f3f49496b09f872e74baa25d4b105693e0f503edf3ff1",
+    "guangdong_independent_practice/map/terrain/colormap_water.dds": "c29026443b7b5ec8ca718af35e3a25de8fdeafcc052fa4205788bfc043d8053c",
+    "guangdong_independent_practice/map/terrain/underwater_terrain.dds": "e375b7f271d6a7856f3763764ae5080fddef17315adf9ea872ebcae37f1ef686",
+    "guangdong_independent_practice/map/terrain/ice_normal.dds": "cf6fba196a996daf27174ce4c7b5c839ec85c1fc75824b047cfd385923f640a6",
+    "guangdong_independent_practice/map/terrain/reflection.dds": "b35690046c92d4d2cfd081624bb97cde238c4b90f59c66fc57664c0d2934763d",
+    "guangdong_independent_practice/map/terrain/map_overlay_tile.dds": "58cfd1ff197573bcef007590644d5c7117081c37d24c02367818b8e87e14e470",
+    "guangdong_independent_practice/map/terrain/border0.dds": "6f30b5e658f0c7ad4cd51b30895ab6180f5c9a945ccbaa5e5b01d1710c90bfd6",
+    "guangdong_independent_practice/map/terrain/border1.dds": "35f66e51d117e5772724ef9640695e6f6ea9826f7793db518c51528644f95011",
+    "guangdong_independent_practice/map/terrain/border5.dds": "0d073568271eb145a68bab85299bbc6c47141e61e9807f08ed336355673f2375",
+    "guangdong_independent_practice/map/terrain/border5data.dds": "5927b93f8064ecf3df65373fb94b3e8a58bee9d3e9cd1257028e6b6d5cd92671",
+    "guangdong_independent_practice/map/terrain/border6.dds": "ca07cb8963b71c48019cc82f1328467ded7a4c3d9cf2df1437e41eed9ba4032d",
+    "guangdong_independent_practice/map/trees.bmp": "89d6d66ce5d61487fdc1d36beec420ec1f1f495be44e806a560a9025428a6081",
+    "planning/terrain_transplant/daming_visual_assets_v1/daming_visual_assets_preview.png": "137e92354ab14b0f89d544481d48c478691e2faf520435336a0257ea7c18eceb",
+    "planning/terrain_transplant/daming_visual_assets_v1/daming_atlas_comparison.png": "0d27cbe0bb8ad4715b0dd7bbfa785d6adc09f4e4f8b68b8c0f74c5ff0d9f4add"
+  },
+  "backup_manifest": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/pre_b39/manifest.json",
+  "white_fix_backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/pre_b40_white_fix/map/terrain",
+  "preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/daming_visual_assets_preview.png",
+  "atlas_preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/daming_atlas_comparison.png",
+  "preexisting_targets": []
+}

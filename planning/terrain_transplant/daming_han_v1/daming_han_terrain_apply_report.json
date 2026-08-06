@@ -1,0 +1,51 @@
+{
+  "batch": "B38 Daming East and Southeast Asia blended terrain transplant",
+  "source": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/1728520255/map/terrain.bmp",
+  "source_offset": [
+    438,
+    9
+  ],
+  "core_regions": [
+    "mongolia_region",
+    "manchuria_region",
+    "korea_region",
+    "japan_region",
+    "tibet_region",
+    "north_china_region",
+    "south_china_region",
+    "xinan_region",
+    "burma_region",
+    "indo_china_region",
+    "malaya_region",
+    "moluccas_region",
+    "indonesia_region"
+  ],
+  "transition_radius": 120,
+  "transition_noise_scale": 18,
+  "plateau_close_radius": 6,
+  "plateau_min_height": 80,
+  "plateau_fill_index": 6,
+  "plateau_fill_pixels": 2308,
+  "preview_crop": [
+    3740,
+    94,
+    5416,
+    1842
+  ],
+  "core_land_pixels": 440776,
+  "transition_extent_pixels": 2349248,
+  "editable_pixels": 383678,
+  "formal_changed_pixels": 281899,
+  "exterior_changed_pixels": 0,
+  "affected_playable_provinces": 1213,
+  "blocked_cross_category_pixels": 43523,
+  "unprotected_modal_category_changes": 0,
+  "canonical_sha256": "2531e34860277556a4fa558b0cf7788b9a7fd8f7e91932bde6e33013e3dbd997",
+  "backup_sha256": "70adfaeced340f47af251829df204fd119e814237b595551f13c111d79a44f6b",
+  "heightmap_sha256": "7d667c6315a54480cf2c10c120b1178cddbd8c163d8dae015b0b63b93ae56bae",
+  "rivers_sha256": "9cbb1876f952da878175842805b146ca5a3a6dd69e915194bbc742777070fcd3",
+  "preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_han_v1/daming_han_terrain_formal_preview.png",
+  "plateau_preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_han_v1/tibet_terrain_continuity_preview.png",
+  "backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_han_v1/pre_b38/map/terrain.bmp",
+  "plateau_backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_han_v1/pre_b40_white_tibet/map/terrain.bmp"
+}
