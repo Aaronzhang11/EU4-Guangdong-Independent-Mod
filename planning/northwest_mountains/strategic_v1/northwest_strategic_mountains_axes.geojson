@@ -1,0 +1,863 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "阿尔泰山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "3136",
+        "daming_support": true,
+        "candidate_rgb": [
+          103,
+          145,
+          189
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4163.4,
+            553.2
+          ],
+          [
+            4140.58,
+            566.27
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "塔尔巴哈台山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5176",
+        "daming_support": true,
+        "candidate_rgb": [
+          174,
+          51,
+          139
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4071.01,
+            569.48
+          ],
+          [
+            4051.74,
+            577.36
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "阿拉套山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5172",
+        "daming_support": true,
+        "candidate_rgb": [
+          38,
+          164,
+          89
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3951.6,
+            619.89
+          ],
+          [
+            3954.26,
+            634.32
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "外伊犁山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5171",
+        "daming_support": true,
+        "candidate_rgb": [
+          109,
+          70,
+          39
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3891.46,
+            645.21
+          ],
+          [
+            3912.51,
+            662.38
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "乌孙山西段",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5177",
+        "daming_support": true,
+        "candidate_rgb": [
+          180,
+          183,
+          196
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3978.12,
+            643.16
+          ],
+          [
+            3969.4,
+            662.73
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "乌孙山东段",
+        "group": "北庭天山",
+        "status": "叠合现有底座",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5178",
+        "daming_support": false,
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3993.83,
+            647.35
+          ],
+          [
+            4023.01,
+            650.93
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "博罗科努山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5170",
+        "daming_support": true,
+        "candidate_rgb": [
+          44,
+          89,
+          146
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4055.31,
+            628.43
+          ],
+          [
+            4063.92,
+            652.03
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "天山中段",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5151",
+        "daming_support": true,
+        "candidate_rgb": [
+          115,
+          202,
+          96
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4083.62,
+            640.39
+          ],
+          [
+            4117.96,
+            674.13
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "天山东段",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5158",
+        "daming_support": true,
+        "candidate_rgb": [
+          186,
+          108,
+          46
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4133.89,
+            632.19
+          ],
+          [
+            4129.76,
+            651.38
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "巴里坤山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5173",
+        "daming_support": true,
+        "candidate_rgb": [
+          50,
+          221,
+          203
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4216.97,
+            650.24
+          ],
+          [
+            4247.25,
+            658.02
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "哈尔里克山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5174",
+        "daming_support": true,
+        "candidate_rgb": [
+          121,
+          127,
+          153
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4230.33,
+            638.31
+          ],
+          [
+            4234.99,
+            648.46
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "北塔山",
+        "group": "北庭天山",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5175",
+        "daming_support": true,
+        "candidate_rgb": [
+          192,
+          33,
+          103
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4165.92,
+            608.92
+          ],
+          [
+            4169.92,
+            604.92
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "喀喇昆仑山",
+        "group": "昆仑南缘",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5163",
+        "daming_support": true,
+        "candidate_rgb": [
+          56,
+          146,
+          53
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3940.25,
+            799.74
+          ],
+          [
+            3932.53,
+            812.9
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "昆仑山西段",
+        "group": "昆仑南缘",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5169",
+        "daming_support": true,
+        "candidate_rgb": [
+          127,
+          52,
+          210
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3976.29,
+            784.77
+          ],
+          [
+            3929.92,
+            792.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "昆仑山中段",
+        "group": "昆仑南缘",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "4975",
+        "daming_support": true,
+        "candidate_rgb": [
+          198,
+          165,
+          160
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4112.81,
+            776.58
+          ],
+          [
+            3980.95,
+            807.98
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "昆仑山东段",
+        "group": "昆仑南缘",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5552",
+        "daming_support": true,
+        "candidate_rgb": [
+          62,
+          71,
+          110
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4253.97,
+            793.75
+          ],
+          [
+            4310.17,
+            810.44
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "祁曼塔格山",
+        "group": "昆仑南缘",
+        "status": "叠合现有底座",
+        "source_mod": "风云世纪两千年",
+        "source_id": "4986",
+        "daming_support": false,
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4443.51,
+            731.8
+          ],
+          [
+            4435.24,
+            751.86
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "青海南山",
+        "group": "河西祁连",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5553",
+        "daming_support": true,
+        "candidate_rgb": [
+          133,
+          184,
+          60
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4288.34,
+            782.21
+          ],
+          [
+            4301.34,
+            760.98
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "祁连山",
+        "group": "河西祁连",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5290",
+        "daming_support": true,
+        "candidate_rgb": [
+          204,
+          90,
+          217
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4346.27,
+            755.91
+          ],
+          [
+            4369.98,
+            770.39
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "合黎山",
+        "group": "河西祁连",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5368",
+        "daming_support": true,
+        "candidate_rgb": [
+          68,
+          203,
+          167
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4343.96,
+            726.01
+          ],
+          [
+            4347.73,
+            742.29
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "龙首山",
+        "group": "河西祁连",
+        "status": "叠合现有底座",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5369",
+        "daming_support": false,
+        "candidate_rgb": null,
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4360.88,
+            742.46
+          ],
+          [
+            4370.04,
+            744.86
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "马鬃山西段",
+        "group": "河西祁连",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5371",
+        "daming_support": true,
+        "candidate_rgb": [
+          139,
+          109,
+          117
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4290.22,
+            703.53
+          ],
+          [
+            4298.73,
+            711.19
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "马鬃山东段",
+        "group": "河西祁连",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5372",
+        "daming_support": true,
+        "candidate_rgb": [
+          210,
+          222,
+          67
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4281.08,
+            660.72
+          ],
+          [
+            4268.96,
+            660.31
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "拉脊山",
+        "group": "河湟朔漠",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5551",
+        "daming_support": true,
+        "candidate_rgb": [
+          74,
+          128,
+          224
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4332.68,
+            813.85
+          ],
+          [
+            4319.97,
+            816.87
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "积石山",
+        "group": "河湟朔漠",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5550",
+        "daming_support": true,
+        "candidate_rgb": [
+          145,
+          34,
+          174
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4391.6,
+            806.27
+          ],
+          [
+            4400.3,
+            825.32
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "阿尼玛卿山",
+        "group": "河湟朔漠",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5549",
+        "daming_support": true,
+        "candidate_rgb": [
+          216,
+          147,
+          124
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4368.54,
+            840.65
+          ],
+          [
+            4380.1,
+            848.86
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "贺兰山",
+        "group": "河湟朔漠",
+        "status": "新增候选",
+        "source_mod": "当前模组省界",
+        "source_id": "当前709—698/5286省界",
+        "daming_support": true,
+        "candidate_rgb": [
+          80,
+          53,
+          74
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4476.76,
+            731.75
+          ],
+          [
+            4428.6,
+            777.72
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "狼山",
+        "group": "河湟朔漠",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5114",
+        "daming_support": true,
+        "candidate_rgb": [
+          151,
+          166,
+          231
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4476.65,
+            679.18
+          ],
+          [
+            4445.75,
+            692.42
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "阴山西段",
+        "group": "河湟朔漠",
+        "status": "新增候选",
+        "source_mod": "风云世纪两千年",
+        "source_id": "5082",
+        "daming_support": true,
+        "candidate_rgb": [
+          222,
+          72,
+          181
+        ],
+        "pixel_crs": "EU4 provinces.bmp top-left origin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4568.54,
+            694.62
+          ],
+          [
+            4497.15,
+            701.54
+          ]
+        ]
+      }
+    }
+  ]
+}
