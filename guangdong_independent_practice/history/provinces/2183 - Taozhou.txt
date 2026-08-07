@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = tibetan
+culture = gdd_long
 religion = vajrayana
 capital = "Taozhou"
 trade_goods = livestock

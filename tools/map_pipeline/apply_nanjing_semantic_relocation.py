@@ -44,17 +44,27 @@ def initial_value(text: str, key: str) -> str | None:
     return match.group(1).strip() if match else None
 
 
+def history_path(province_id: int) -> Path:
+    paths = [
+        path for path in (MOD / "history/provinces").glob("*.txt")
+        if re.match(rf"{province_id}(?:\D|$)", path.name)
+    ]
+    if len(paths) != 1:
+        raise ValueError(f"Expected one history for {province_id}; found {paths}")
+    return paths[0]
+
+
 def validate_histories() -> None:
-    liuhe = (MOD / "history/provinces/1821 - Liuhe.txt").read_text(encoding="utf-8-sig")
-    jiangning = (MOD / "history/provinces/5056 - Jiangning.txt").read_text(encoding="utf-8-sig")
+    liuhe = history_path(1821).read_text(encoding="utf-8-sig")
+    jiangning = history_path(5056).read_text(encoding="utf-8-sig")
     expected = {
         "liuhe": {
-            "trade_goods": "grain", "base_tax": "2",
-            "base_production": "2", "base_manpower": "1",
+            "culture": "gdd_wu", "trade_goods": "grain", "base_tax": "7",
+            "base_production": "8", "base_manpower": "4",
         },
         "jiangning": {
-            "trade_goods": "silk", "base_tax": "7",
-            "base_production": "8", "base_manpower": "4",
+            "culture": "gdd_jianghuai", "trade_goods": "silk", "base_tax": "2",
+            "base_production": "2", "base_manpower": "1",
             "fort_15th": "yes",
         },
     }

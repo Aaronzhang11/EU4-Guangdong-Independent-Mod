@@ -33,6 +33,10 @@ AREAS = {
     "xi_shaanxi_area": (2180, 5277, 5291, 5306),
     "longnan_area": (2183, 5289, 5290),
 }
+CULTURE_BY_ID = {
+    5305: "gdd_zhongyuan",
+    5306: "gdd_long",
+}
 
 
 def read(path: Path) -> str:
@@ -206,7 +210,8 @@ def set_initial(path: Path, values: dict[str, str]) -> None:
 
 def history_text(pid: int, name: str, goods: str, dev: tuple[int, int, int]) -> str:
     tax, production, manpower = dev
-    return f'''# {pid} - {name}\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\nculture = xibei\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\nbase_tax = {tax}\nbase_production = {production}\nbase_manpower = {manpower}\nis_city = yes\ndiscovered_by = chinese\ndiscovered_by = nomad_group\n'''
+    culture = CULTURE_BY_ID[pid]
+    return f'''# {pid} - {name}\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\nculture = {culture}\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\nbase_tax = {tax}\nbase_production = {production}\nbase_manpower = {manpower}\nis_city = yes\ndiscovered_by = chinese\ndiscovered_by = nomad_group\n'''
 
 
 def update_histories() -> None:

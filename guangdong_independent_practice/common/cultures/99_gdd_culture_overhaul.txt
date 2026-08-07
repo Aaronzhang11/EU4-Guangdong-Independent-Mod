@@ -1,0 +1,369 @@
+# B41 approved Han-Baiyue-Yinshang-Qiang culture overhaul
+# Inherited name pools below are preserved verbatim.
+
+gdd_baiyue_group = {
+	graphical_culture = asiangfx
+
+	gdd_guangfu = {
+		primary = GDD
+		dynasty_names = { Li Wang Zhang Liu Chen Yang Zhao Huang Zhou Wu Xu Sun Ma Zhu Hu Guo Lin He Gao Luo Zheng Liang Xie Song Tang Han Feng Cao Peng Xiao Tian Dong Yuan Pan Yu Jiang Cai }
+		male_names = { Wen Wu Cheng De Ren Yi Li Zhi Xin Ming Yuan Jun An Ping Tai Guang Hong Sheng Jian Zhong Bo Liang Qing Hao Rui }
+		female_names = { Hua Lan Mei Ying Yue Yun Xiu Zhen Ning Hui Fang Yan Ling Qing Yu }
+	}
+
+	gdd_zhuang = {
+		primary = CGS
+		dynasty_names = { Li Wang Zhang Liu Chen Yang Zhao Huang Zhou Wu Xu Sun Ma Zhu Hu Guo Lin He Gao Luo Zheng Liang Xie Song Tang Han Feng Cao Peng Xiao Tian Dong Yuan Pan Yu Jiang Cai }
+		male_names = { Wen Wu Cheng De Ren Yi Li Zhi Xin Ming Yuan Jun An Ping Tai Guang Hong Sheng Jian Zhong Bo Liang Qing Hao Rui }
+		female_names = { Hua Lan Mei Ying Yue Yun Xiu Zhen Ning Hui Fang Yan Ling Qing Yu }
+	}
+
+	gdd_wu = {
+		primary = WUU
+		dynasty_names = { Li Wang Zhang Liu Chen Yang Zhao Huang Zhou Wu Xu Sun Ma Zhu Hu Guo Lin He Gao Luo Zheng Liang Xie Song Tang Han Feng Cao Peng Xiao Tian Dong Yuan Pan Yu Jiang Cai }
+		male_names = { Wen Wu Cheng De Ren Yi Li Zhi Xin Ming Yuan Jun An Ping Tai Guang Hong Sheng Jian Zhong Bo Liang Qing Hao Rui }
+		female_names = { Hua Lan Mei Ying Yue Yun Xiu Zhen Ning Hui Fang Yan Ling Qing Yu }
+	}
+
+	gdd_min = {
+		primary = MIN
+		dynasty_names = { Li Wang Zhang Liu Chen Yang Zhao Huang Zhou Wu Xu Sun Ma Zhu Hu Guo Lin He Gao Luo Zheng Liang Xie Song Tang Han Feng Cao Peng Xiao Tian Dong Yuan Pan Yu Jiang Cai }
+		male_names = { Wen Wu Cheng De Ren Yi Li Zhi Xin Ming Yuan Jun An Ping Tai Guang Hong Sheng Jian Zhong Bo Liang Qing Hao Rui }
+		female_names = { Hua Lan Mei Ying Yue Yun Xiu Zhen Ning Hui Fang Yan Ling Qing Yu }
+	}
+
+vietnamese = {
+    primary = DAI
+    dynasty_names = {
+      "Î" 	# Lê
+      "H" 	# Tran
+      "«" 	# Mac
+      "." 	# Nguyen
+      "Ñ" 	# Trinh
+      "fk" 	# Vu
+      "yn" 	# Nguyen Phuc
+      ".IQ" 	# Nguyen Quang
+    }
+    male_names = {
+      "R" 	# An
+      "cRNg" 	# Quy Ly
+      "IlÍ" 	# Han Thuong
+      "sØmÜ" 	# Ngoi
+      "cRib" 	# Quy Khoang
+      ")R" 	# Loi
+      "CQ" 	# Nguyen Long
+      "¦úW" 	# Bang Co
+      "Rl" 	# Nghi Dan
+      "`Ú" 	# Tu Thanh
+      "ó" 	# Tranh
+      "n4" 	# Thuan
+      "ìo" 	# Tuan
+      "Fo" 	# Oanh
+      "R" 	# Y
+      "?i" 	# Xuan
+      "v¸^" 	# Dang Dung
+      "vp" 	# Dang Doanh
+      "^R" 	# Trang Tong
+      "ywm" 	# Phuc Hai
+      "yn" 	# Phuc Nguyen
+      "Km" 	# Mau Hop
+      "lebk" 	# Kinh Chi
+      "lem`" 	# Kinh Cung
+      "leËR" 	# Kinh Khoan
+      "leR" 	# Kinh Vu
+      "ôuy" 	# Duy Duong
+      "ôuJy" 	# Duy Phuong
+      "ôuey" 	# Duy Tuong
+      "ôusy" 	# Duy Than
+      "ôugy" 	# Duy Dieu
+      "ôu&" 	# Duy Khiem
+      "zS" 	# Hue
+      "IQ5" 	# Quang Toan
+      "ôuky" 	# Duy Hop
+    }
+    female_names = {
+      "Ññ" 	# Kim Anh
+      "àñm" 	# Thuy Tram
+      "µxs" 	# Bich Ngoc
+      "³<" 	# Phuong Nga
+      "nI" 	# Thanh Thao
+    }
+  }
+
+miao = {
+    primary = CMI
+    dynasty_names = {
+      "Ä" 	# Fang
+      "y" 	# Hang
+      "áw" 	# Hue
+      "·^" 	# Khang
+      "R" 	# Kong
+      "g" 	# Soung
+      "äS" 	# Kue
+      "W" 	# Lo
+      "W" 	# Lor
+      "Ng" 	# Li
+      "l" 	# Moua
+      "Xo" 	# Pha
+      "U" 	# Tang
+      "v" 	# Thao
+      ".V" 	# Chang
+      "H" 	# Cheng
+      "1g" 	# Chu
+      "s" 	# Vang
+      "4T" 	# Vue
+      "q" 	# Xiong
+      "hg" 	# Yang
+    }
+    male_names = {
+      "AyG" 	# Qizhen
+      "Ay°" 	# Qiyu
+      "ÁZm" 	# Jianjun
+      "Pyj" 	# Youcheng
+      "Sgq" 	# Houzhao
+      "Sq" 	# Houcong
+      "VW" 	# Zaihou
+      "Êµ" 	# Yijun
+      "8^m" 	# Changluo
+      "1uÀh" 	# Youjian
+      "1u'T" 	# Yousong
+      "w." 	# Yujian
+      "1ui" 	# Youlang
+      "bR" 	# Chenggong
+      "KQX" 	# Kehshuan
+      "h" 	# Biao
+      "	j" 	# Shuang
+      "áh" 	# Gang
+      "Ï" 	# Su
+      "bh" 	# Zhen
+      "y" 	# Fu
+      "h" 	# Zi
+      "^g" 	# Qi
+      "j" 	# Tan
+      "óm" 	# Chun
+      "Ïg" 	# Bai
+      "Bh" 	# Gui
+      "i" 	# Zhi
+      "Cg" 	# Quan
+      "ii" 	# Pian
+      "^j" 	# Hui
+      "iT" 	# Song
+      "" 	# Mo
+      "gi" 	# Ying
+      "Ïu" 	# Jing
+      "h" 	# Dang
+      "`i" 	# Nan
+      "Øfq" 	# Gaoxu
+      "Øçq" 	# Caosui
+      "Ør" 	# Gauxi
+      "Pylg" 	# Youyuan
+      "PyÆh" 	# Youlun
+      "Pyßi" 	# Youbin
+      "Sp" 	# Houwei
+      "1u!h" 	# Youxiao
+      "Pyg" 	# Youji
+      "1u<" 	# Youxue
+      "1u)h" 	# Youyi
+      "1uOj" 	# Youshan
+      "HaÜp" 	# Cixuan
+      "Ha¯p" 	# Cijiang
+      "Ha²p" 	# Cizhao
+      "Haq" 	# Cihuan
+      "Hap" 	# Cican
+      "H" 	# He
+      "Nm" 	# Ji
+      "¾" 	# Da
+      "G%f" 	# Yuchun
+    }
+    female_names = {
+      "TZ" 	# Heying
+      "%fh" 	# Chunmei
+      "l`ga" 	# Tianhui
+      "zz" 	# Kon
+      "oS" 	# Mao
+    }
+  }
+}
+
+gdd_qiang_group = {
+	graphical_culture = asiangfx
+
+	gdd_diqiang = {
+		dynasty_names = { Li Wang Zhang Liu Chen Yang Zhao Huang Zhou Wu Xu Sun Ma Zhu Hu Guo Lin He Gao Luo Zheng Liang Xie Song Tang Han Feng Cao Peng Xiao Tian Dong Yuan Pan Yu Jiang Cai }
+		male_names = { Wen Wu Cheng De Ren Yi Li Zhi Xin Ming Yuan Jun An Ping Tai Guang Hong Sheng Jian Zhong Bo Liang Qing Hao Rui }
+		female_names = { Hua Lan Mei Ying Yue Yun Xiu Zhen Ning Hui Fang Yan Ling Qing Yu }
+	}
+
+bai = {
+    primary = CDL
+    dynasty_names = {
+      "µk" 	# Duan
+      "Ø" 	# Gao
+      "mR" 	# Meng
+    }
+    male_names = {
+      "AyG" 	# Qizhen
+      "Ay°" 	# Qiyu
+      "Áñm" 	# Jianjun
+      "Pyj" 	# Youcheng
+      "Sgq" 	# Houzhao
+      "Sq" 	# Houcong
+      "VW" 	# Zaihou
+      "Êµ" 	# Yijun
+      "8^m" 	# Changluo
+      "1uÀh" 	# Youjian
+      "1u'T" 	# Yousong
+      "w." 	# Yujian
+      "1ui" 	# Youlang
+      "bR" 	# Chenggong
+      "KQX" 	# Kehshuan
+      "h" 	# Biao
+      "	j" 	# Shuang
+      "áh" 	# Gang
+      "Zj" 	# Su
+      "bh" 	# Zhen
+      "i" 	# Fu
+      "h" 	# Zi
+      "^g" 	# Qi
+      "j" 	# Tan
+      "?i" 	# Chun
+      "Ïg" 	# Bai
+      "Bh" 	# Gui
+      "i" 	# Zhi
+      "Cg" 	# Quan
+      "ii" 	# Pian
+      "^j" 	# Hui
+      "g" 	# Song
+      "!j" 	# Mo
+      "yi" 	# Ying
+      "qh" 	# Jing
+      "h" 	# Dang
+      "`i" 	# Nan
+      "Øfq" 	# Gaoxu
+      "Øçq" 	# Caosui
+      "Ør" 	# Gauxi
+      "Pylg" 	# Youyuan
+      "PyÆh" 	# Youlun
+      "Pyßi" 	# Youbin
+      "Sp" 	# Houwei
+      "1u!h" 	# Youxiao
+      "1uki" 	# Youji
+      "1u<" 	# Youxue
+      "1u)h" 	# Youyi
+      "1uOj" 	# Youshan
+      "HaÜp" 	# Cixuan
+      "Ha¯p" 	# Cijiang
+      "Ha²p" 	# Cizhao
+      "Haq" 	# Cihuan
+      "Hap" 	# Cican
+      "³l" 	# He
+      "¥" 	# Ji
+      "p" 	# Da
+      "G%f" 	# Yuchun
+    }
+    female_names = {
+      "Tñ" 	# Heying
+      "%fi" 	# Chunmei
+      ")YØu" 	# Tianhui
+      "zz" 	# Kon
+      "Ûk" 	# Mao
+      "sñ" 	# Yuying
+      "W" 	# Yuantong
+      "ö^ey" 	# Yanxiang
+      "Àyc" 	# Xiurong
+      "ÿRZ" 	# Shouying
+      "yZ" 	# Fuyuan
+      "yZ" 	# Luzhen
+      "^t+R" 	# Ruirong
+      ".tÃZ" 	# Suzhen
+    }
+  }
+
+yi = {
+    primary = CYI
+    dynasty_names = {
+      "R" 	# An
+      "bY" 	# She
+      "R" 	# Liu
+      "G^" 	# Longzan
+      "¯Q" 	# Feng
+      "t" 	# Pu
+    }
+    male_names = {
+      "AyG" 	# Qizhen
+      "Ay°" 	# Qiyu
+      "Áñm" 	# Jianjun
+      "Pyj" 	# Youcheng
+      "Sgq" 	# Houzhao
+      "Sq" 	# Houcong
+      "VW" 	# Zaihou
+      "Êµ" 	# Yijun
+      "8^m" 	# Changluo
+      "1uÀh" 	# Youjian
+      "1u'T" 	# Yousong
+      "w." 	# Yujian
+      "1ui" 	# Youlang
+      "bR" 	# Chenggong
+      "KQX" 	# Kehshuan
+      "h" 	# Biao
+      "	j" 	# Shuang
+      "áh" 	# Gang
+      "Zj" 	# Su
+      "bh" 	# Zhen
+      "i" 	# Fu
+      "h" 	# Zi
+      "^g" 	# Qi
+      "j" 	# Tan
+      "?i" 	# Chun
+      "Ïg" 	# Bai
+      "Bh" 	# Gui
+      "i" 	# Zhi
+      "Cg" 	# Quan
+      "ii" 	# Pian
+      "^j" 	# Hui
+      "g" 	# Song
+      "!j" 	# Mo
+      "yi" 	# Ying
+      "qh" 	# Jing
+      "h" 	# Dang
+      "`i" 	# Nan
+      "Øfq" 	# Gaoxu
+      "Øçq" 	# Caosui
+      "Ør" 	# Gauxi
+      "Pylg" 	# Youyuan
+      "PyÆh" 	# Youlun
+      "Pyßi" 	# Youbin
+      "Sp" 	# Houwei
+      "1u!h" 	# Youxiao
+      "1uki" 	# Youji
+      "1u<" 	# Youxue
+      "1u)h" 	# Youyi
+      "1uOj" 	# Youshan
+      "HaÜp" 	# Cixuan
+      "Ha¯p" 	# Cijiang
+      "Ha²p" 	# Cizhao
+      "Haq" 	# Cihuan
+      "Hap" 	# Cican
+      "UO" 	# He
+      "cR" 	# Ji
+      "¾" 	# Da
+      "G%f" 	# Yuchun
+    }
+    female_names = {
+      "TZ" 	# Heying
+      "%fh" 	# Chunmei
+      "l`ga" 	# Tianhui
+      "r" 	# Kon
+      "At" 	# Mao
+      "sñ" 	# Yuying
+      "W" 	# Yuantong
+      "ö^ey" 	# Yanxiang
+      "Àyc" 	# Xiurong
+      "ÿRZ" 	# Shouying
+      "yZ" 	# Fuyuan
+      "yZ" 	# Luzhen
+      "^t+R" 	# Ruirong
+      ".tÃZ" 	# Suzhen
+    }
+  }
+}

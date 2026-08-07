@@ -41,6 +41,26 @@ PROVINCES = {
     5277: ("Guyuan", "固原", (131, 142, 25), "livestock", 3, 3, 4),
     5278: ("Jingning", "静宁", (52, 141, 13), "wool", 3, 3, 3),
 }
+CULTURE_BY_ID = {
+    700: "gdd_zhongyuan",
+    5283: "gdd_zhongyuan",
+    5284: "gdd_zhongyuan",
+    5285: "gdd_zhongyuan",
+    5271: "gdd_zhongyuan",
+    5269: "gdd_jin",
+    5270: "gdd_zhongyuan",
+    5268: "gdd_jin",
+    5267: "gdd_jin",
+    5266: "gdd_jin",
+    5265: "gdd_jin",
+    5275: "gdd_diqiang",
+    5274: "gdd_shu",
+    5273: "gdd_zhongyuan",
+    5272: "gdd_zhongyuan",
+    5276: "gdd_long",
+    5277: "gdd_long",
+    5278: "gdd_long",
+}
 OBSOLETE_PROVINCES = {5282}
 
 EXISTING = {
@@ -301,7 +321,7 @@ def update_map_lists():
 def history_text(pid, data):
     name, _, _, goods, tax, production, manpower = data
     return f'''# {pid} - {name}\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\n'''+ \
-        f'''culture = zhili\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\n''' + \
+        f'''culture = {CULTURE_BY_ID[pid]}\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\n''' + \
         f'''base_tax = {tax}\nbase_production = {production}\nbase_manpower = {manpower}\n''' + \
         '''is_city = yes\ndiscovered_by = chinese\ndiscovered_by = nomad_group\n'''
 

@@ -3,7 +3,7 @@
 owner = YAN
 controller = YAN
 add_core = YAN
-culture = chahar
+culture = gdd_yan
 religion = vajrayana
 capital = "Chengde"
 trade_goods = livestock

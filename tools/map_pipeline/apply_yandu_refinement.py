@@ -116,7 +116,7 @@ def history_text(pid, name, goods, tax, production, manpower):
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = zhili
+culture = gdd_yan
 religion = confucianism
 capital = \"{name}\"
 trade_goods = {goods}

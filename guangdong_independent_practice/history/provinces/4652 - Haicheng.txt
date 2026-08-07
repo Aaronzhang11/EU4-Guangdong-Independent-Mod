@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = shandong_culture
+culture = gdd_qi
 religion = confucianism
 capital = "Haicheng"
 trade_goods = grain

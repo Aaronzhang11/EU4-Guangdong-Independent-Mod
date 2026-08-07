@@ -4,7 +4,7 @@ government_rank = 2
 
 technology_group = chinese
 religion = confucianism
-primary_culture = chihan
+primary_culture = gdd_qi
 capital = 5104	#Linzi
 fixed_capital = 5104
 

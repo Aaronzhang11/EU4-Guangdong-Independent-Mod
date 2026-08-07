@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = zhuang
+culture = gdd_zhuang
 religion = confucianism
 capital = "Siming"
 trade_goods = spices

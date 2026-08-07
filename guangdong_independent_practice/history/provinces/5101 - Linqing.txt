@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = shandong
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Linqing"
 trade_goods = cloth

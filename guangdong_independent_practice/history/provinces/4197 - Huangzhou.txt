@@ -1,12 +1,12 @@
-# 4197 - Huangzhou
+# 4197 - De'an
 latent_trade_goods = { coal }
 owner = MNG
 controller = MNG
 add_core = MNG
 add_core = CHC
-culture = hubei
+culture = gdd_chu
 religion = confucianism
-capital = "Huangzhou"
+capital = "De'an"
 trade_goods = grain
 base_tax = 3
 base_production = 3

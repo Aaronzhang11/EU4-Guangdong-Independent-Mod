@@ -3,7 +3,7 @@
 owner = QIC
 controller = QIC
 add_core = QIC
-culture = chihan
+culture = gdd_yan
 religion = confucianism
 capital = "Hejian"
 trade_goods = grain

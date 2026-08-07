@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = xibei
+culture = gdd_diqiang
 religion = confucianism
 capital = "Wudu"
 trade_goods = livestock

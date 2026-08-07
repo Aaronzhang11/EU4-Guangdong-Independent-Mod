@@ -3,7 +3,7 @@
 owner = YAN
 controller = YAN
 add_core = YAN
-culture = yan
+culture = gdd_dongyi
 religion = confucianism
 capital = "Ningyuan"
 trade_goods = salt

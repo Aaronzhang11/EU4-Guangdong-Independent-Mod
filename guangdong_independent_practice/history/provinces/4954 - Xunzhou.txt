@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = cantonese
+culture = gdd_guangfu
 religion = confucianism
 capital = "Xunzhou"
 trade_goods = grain

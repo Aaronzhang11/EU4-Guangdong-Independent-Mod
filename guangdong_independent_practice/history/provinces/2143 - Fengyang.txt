@@ -3,7 +3,7 @@
 owner = XU2
 controller = XU2
 add_core = XU2
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Fengyang"
 trade_goods = grain

@@ -160,7 +160,7 @@ def history_text(pid, data, timeline):
     lines = [
         f"# {pid} - {name}", "", "owner = GDD", "controller = GDD",
         "add_core = MNG", "add_core = GDD", "add_core = YUE",
-        "culture = hakka", "religion = confucianism", f'capital = "{name}"',
+        "culture = gdd_hakka", "religion = confucianism", f'capital = "{name}"',
         f"trade_goods = {goods}", "hre = no", f"base_tax = {dev[0]}",
         f"base_production = {dev[1]}", f"base_manpower = {dev[2]}", "is_city = yes",
         "", "discovered_by = chinese", "discovered_by = nomad_group",
