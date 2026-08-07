@@ -1,0 +1,8 @@
+objectTypes = {
+	pdxmesh = {
+		name = "gdd_luoyang_palace_mesh"
+		file = "gfx/models/Buildings/gdd_luoyang_palace.mesh"
+		scale = 1.0
+		cull_distance = 700.0f
+	}
+}

@@ -1,0 +1,137 @@
+{
+  "ambient_marker_sha256": "3addb3fce4da9702e381a21b95353b1f60fd233c1b80d3edd7b093049502786f",
+  "ambient_source_without_b42_sha256": "f95b1bb99204d610b21132c1c7c208fbc8117287544dc483b1f3665775a69277",
+  "backup": "planning/epang_palace_model/backup/pre_b42_ambient_object.txt.gz",
+  "batch": "GDD_B42_EPANG_PALACE",
+  "design_basis": {
+    "archaeological_fact": "The identifying form is the excavated long rammed-earth front-hall terrace.",
+    "interpretation": "The timber halls are an alternate-history completion based on Qin high-platform architecture.",
+    "scale_reference": "Vanilla nammi2_forbidden_city uses ambient scale 0.35; Epang uses the same scale with a lower, wider silhouette."
+  },
+  "geometry": {
+    "bounds": [
+      [
+        -6.4,
+        0.0,
+        -3.75
+      ],
+      [
+        6.4,
+        2.43,
+        2.225
+      ]
+    ],
+    "submeshes": 7,
+    "triangles": 3984,
+    "vertices": 11952
+  },
+  "locked_map_sha256": {
+    "guangdong_independent_practice/map/heightmap.bmp": "7d667c6315a54480cf2c10c120b1178cddbd8c163d8dae015b0b63b93ae56bae",
+    "guangdong_independent_practice/map/provinces.bmp": "5d06944cd38cce83a48b49e38bd02d4768ec52e9b01860987836d2718820635e",
+    "guangdong_independent_practice/map/rivers.bmp": "9cbb1876f952da878175842805b146ca5a3a6dd69e915194bbc742777070fcd3"
+  },
+  "map_policy": {
+    "area_and_region": "unchanged",
+    "bitmap_changes": 0,
+    "editable_pixel_mask": null,
+    "gameplay_memberships": "unchanged",
+    "history_policy": "Province histories are unchanged.",
+    "localisation_policy": "No localisation keys are added or changed.",
+    "locked_exterior": "All provinces.bmp pixels are locked; the transaction does not open the bitmap for writing."
+  },
+  "model_version": "GDD_B42_EPANG_PALACE_V1",
+  "placement": {
+    "position": [
+      4498.0,
+      0.04,
+      1223.0
+    ],
+    "rotation": [
+      0.0,
+      -5.0,
+      0.0
+    ],
+    "scale": 0.38
+  },
+  "preview": "planning/epang_palace_model/preview/gdd_epang_palace_preview.png",
+  "province": {
+    "id": 5271,
+    "name": "Binzhou",
+    "rgb": [
+      195,
+      253,
+      181
+    ]
+  },
+  "purpose": "Add an original alternate-history completed Epang Palace ambient map model beside Xianyang.",
+  "validation": {
+    "outputs": {
+      "ambient_braces_balanced": true,
+      "ambient_marker_count": 1,
+      "dds_count": 9,
+      "luoyang_marker_preserved": true,
+      "material_count": 7,
+      "mesh_bytes": 623438,
+      "mesh_round_trip": {
+        "parsed_diffuse_textures": [
+          "gdd_epang_bronze_diffuse.dds",
+          "gdd_epang_dark_diffuse.dds",
+          "gdd_epang_earth_diffuse.dds",
+          "gdd_epang_red_diffuse.dds",
+          "gdd_epang_roof_diffuse.dds",
+          "gdd_epang_stone_diffuse.dds",
+          "gdd_epang_wood_diffuse.dds"
+        ],
+        "parsed_submeshes": 7,
+        "parsed_triangles": 3984,
+        "parsed_vertices": 11952
+      }
+    },
+    "placement": {
+      "anchor_distances": {
+        "Binzhou city": 8.246,
+        "Changan city": 13.342,
+        "Haojing city": 8.062,
+        "Xianyang city": 8.0
+      },
+      "centre_pixel": [
+        195,
+        253,
+        181
+      ],
+      "definition_name": "Binzhou",
+      "footprint_corners": [
+        [
+          4495.4531,
+          1221.7924
+        ],
+        [
+          4495.6509,
+          1224.0542
+        ],
+        [
+          4500.2985,
+          1221.3685
+        ],
+        [
+          4500.4964,
+          1223.6303
+        ]
+      ],
+      "height_range": [
+        106,
+        118
+      ],
+      "river_values": [
+        255
+      ],
+      "sample_count": 48,
+      "sample_window": [
+        4494,
+        1220,
+        4501,
+        1225
+      ]
+    }
+  }
+}

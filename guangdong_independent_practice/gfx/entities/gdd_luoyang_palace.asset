@@ -1,0 +1,4 @@
+entity = {
+	name = "gdd_luoyang_palace_entity"
+	pdxmesh = "gdd_luoyang_palace_mesh"
+}

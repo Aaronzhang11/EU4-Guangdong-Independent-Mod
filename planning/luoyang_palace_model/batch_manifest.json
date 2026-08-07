@@ -1,0 +1,57 @@
+{
+  "ambient_marker_sha256": "78c3860ae559bd1a08a5082791d5275d01b9391048e950d367f1d7d5b582beb2",
+  "ambient_source_sha256": "a9588e0f05b3aceea2425de18340e6da1f52f324775f8aceaedf11e38bb96232",
+  "backup": "planning/luoyang_palace_model/backup/pre_b41_ambient_object.txt.gz",
+  "batch": "GDD_B41_LUOYANG_PALACE",
+  "geometry": {
+    "bounds": [
+      [
+        -3.89,
+        0.0,
+        -5.26
+      ],
+      [
+        3.89,
+        3.5100000000000002,
+        4.74
+      ]
+    ],
+    "triangles": 2006,
+    "vertices": 6018
+  },
+  "map_policy": {
+    "area": "chengzhou_area (unchanged)",
+    "bitmap_changes": 0,
+    "editable_pixel_mask": null,
+    "gameplay_memberships": "unchanged",
+    "history_policy": "Province 1836 history is unchanged.",
+    "localisation_policy": "No localisation keys are added or changed.",
+    "locked_exterior": "All provinces.bmp pixels are locked; the transaction does not open the bitmap.",
+    "region": "zhongyuan_region (unchanged)"
+  },
+  "model_version": "GDD_B41_LUOYANG_PALACE_V1",
+  "placement": {
+    "position": [
+      4550.0,
+      0.04,
+      1215.0
+    ],
+    "rotation": [
+      0.0,
+      -18.0,
+      0.0
+    ],
+    "scale": 0.27
+  },
+  "preview": "planning/luoyang_palace_model/preview/gdd_luoyang_palace_preview.png",
+  "province": {
+    "id": 1836,
+    "name": "Luoyang",
+    "rgb": [
+      208,
+      130,
+      79
+    ]
+  },
+  "purpose": "Add an original Sui-Tang Luoyang palace ambient map model."
+}
