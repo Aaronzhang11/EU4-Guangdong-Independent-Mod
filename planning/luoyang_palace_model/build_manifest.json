@@ -1,0 +1,28 @@
+{
+  "batch": "GDD_B41_LUOYANG_PALACE",
+  "files": {
+    "guangdong_independent_practice/gfx/entities/gdd_luoyang_palace.asset": "e779589eed096bf5faf1a463a3730931ee8b76403991b4018cf08f71f26080c6",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_dark_diffuse.dds": "9e204a4e70581efdec43e28252eb61db01fd015432270f64f9e6e501addd07ee",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_earth_diffuse.dds": "775c3ae0793c25448a40f3002d0aaba8cf4442865a6cde3523ec2cef7c0424d7",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_flat_normal.dds": "e9f8bd7f4d3e3039a28152ef5ba6bec7822f174b1eaa49f695f0f9dec0a2c433",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_flat_spec.dds": "d254af16c9aeeaf58e47d59ced6f3989a53c4edb52e552c4e04ca13c815d714c",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_gold_diffuse.dds": "76277b5c3b0efc6f02c2a05fd04b6c50d9557f1267607065e186f26a3aa40cfb",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_palace.mesh": "0939a3da8cd2502ac45711d9e8d441078e8baca369944ee8cee9d4860809ee55",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_red_diffuse.dds": "4ac6d732f75b42410d58aa6afecc74749baa99745f77f43515f1fbd4a023b677",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_roof_diffuse.dds": "36f8365b9b4e47c6af88acd7be11dc9ecf4c7dd243cd2abcb011bffc179ee7be",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_stone_diffuse.dds": "93bc0c5006ff166fa03ef26d47468d32246352ca12429d1d9c88dac27cfad328",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_luoyang_wood_diffuse.dds": "a814a9a5d9393696f40f2336f4797885b9a483f7a959e3919b8a2e2774b237c0",
+    "guangdong_independent_practice/interface/assets/gdd_luoyang_palace.gfx": "5e0c38f89e9c97ebd20fd7c5fb8e0826623e955b26ca3d9a1de6c9dd48537278",
+    "planning/luoyang_palace_model/backup/pre_b41_ambient_object.txt.gz": "400975bee092cede25aa1fc6c2c1351985781abcf8ab6307d8940928d4e118b6",
+    "planning/luoyang_palace_model/batch_manifest.json": "b03756724a13f4b90d729e885f0154932c552718021763600cf9f83ef0a99881",
+    "planning/luoyang_palace_model/blender_build_stamp.json": "72d14083aff244357b84102eda64afdb2c4f533a11e2ba299b102466c43d4901",
+    "planning/luoyang_palace_model/preview/gdd_luoyang_palace_preview.png": "0fb06ee18b7be5c5738857f15737688a7d16f3ddd9cee991da26765c01cb72e8",
+    "planning/luoyang_palace_model/source/gdd_luoyang_palace.blend": "9b0c9e5be755c699d49e6782cdadc2ca7973559b81ec5a6003f3fc60ed55b36a"
+  },
+  "shared_files": {
+    "guangdong_independent_practice/map/ambient_object.txt": {
+      "marker_sha256": "78c3860ae559bd1a08a5082791d5275d01b9391048e950d367f1d7d5b582beb2",
+      "policy": "shared-mutated; hash only the marker owned by this batch"
+    }
+  }
+}

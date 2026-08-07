@@ -1,0 +1,28 @@
+{
+  "batch": "GDD_B42_EPANG_PALACE",
+  "files": {
+    "guangdong_independent_practice/gfx/entities/gdd_epang_palace.asset": "59a79aa04b46945a4108a5e62e7f6ec099b6a0ec69ac55b9cb46ae4ddcc807e0",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_bronze_diffuse.dds": "b46b7dbaebd9094397a62707d17d5f748a5b86dd3c8f668b7033d72a12b73932",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_dark_diffuse.dds": "55f465f53898b1a3a89f4d311de0a3e7415e7d6eac50644724bb211f36c17c35",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_earth_diffuse.dds": "dd5c671161ffb7b3ff90edcb0fd314bf8033e524b65075580874a6f09436dfa7",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_flat_normal.dds": "e9f8bd7f4d3e3039a28152ef5ba6bec7822f174b1eaa49f695f0f9dec0a2c433",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_flat_spec.dds": "33f80fd3273bbad280f95e7b0796bce4cef6bd69dec8bff02e6124f88fce2661",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_palace.mesh": "56611994ad4e96dac2b68442dd5926a9bc99bda20c270e25cbb4ca5c934fb19c",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_red_diffuse.dds": "b230fcad16afdbda1509fcb7a351da1bdb11f03a48175cd87e4d524668cb746a",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_roof_diffuse.dds": "7be9b70eb795a44ba3270f5e48aa7605aacbe5ec902f3dfeab3d5a1635a1b3c5",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_stone_diffuse.dds": "cb4a39476207aee709cf9065f377859498e2b64458f8c282b9bf2c785781c1e1",
+    "guangdong_independent_practice/gfx/models/Buildings/gdd_epang_wood_diffuse.dds": "786e9b3b32b8f90ce6666a6e80dde097290ab4a9dbf1dcecd5b8706b6714bf9c",
+    "guangdong_independent_practice/interface/assets/gdd_epang_palace.gfx": "779312f2b2403096d3213a6453888f4304fcf346c1a421d8ad526b0290c43013",
+    "planning/epang_palace_model/backup/pre_b42_ambient_object.txt.gz": "bb9246a6f7af6941874601c4e106877c55661e6868c471363a661a1ae0d7ccde",
+    "planning/epang_palace_model/batch_manifest.json": "b275877c02b23011b9d052743c3b8a048d4065a216197c8156232508c6429e32",
+    "planning/epang_palace_model/blender_build_stamp.json": "02dcc692de821c59177c81bbc5c9381f28e67e278b300f4530e473720362c3c9",
+    "planning/epang_palace_model/preview/gdd_epang_palace_preview.png": "dd52883aa181c67a0cb46ca950d46695fa59d00e0f45352ab20b7b29dcbbe7f6",
+    "planning/epang_palace_model/source/gdd_epang_palace.blend": "f11cc55a144bfb6c68e90621b28a7f918b6ca573bf0cb9cc054c023b3f807c2b"
+  },
+  "shared_files": {
+    "guangdong_independent_practice/map/ambient_object.txt": {
+      "marker_sha256": "3addb3fce4da9702e381a21b95353b1f60fd233c1b80d3edd7b093049502786f",
+      "policy": "shared-mutated; hash only the marker owned by this batch"
+    }
+  }
+}
