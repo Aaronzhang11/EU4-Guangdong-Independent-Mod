@@ -79,6 +79,18 @@ GOODS = {
     5218: "grain", 5219: "grain", 5220: "cloth",
     5221: "cotton", 5222: "salt", 5223: "salt",
 }
+CULTURE_BY_ID = {
+    696: "gdd_yan",
+    5211: "gdd_dongyi",
+    5212: "gdd_yan",
+    5213: "gdd_yan",
+    5218: "gdd_yan",
+    5219: "gdd_yan",
+    5220: "gdd_yan",
+    5221: "gdd_yan",
+    5222: "gdd_qi",
+    5223: "gdd_yan",
+}
 
 
 def read_definitions(path: Path):
@@ -346,7 +358,7 @@ def history_text(pid):
         5221: (3, 3, 3), 5222: (4, 4, 4), 5223: (3, 3, 3),
     }[pid]
     return f'''# {pid} - {name}\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\n'''+ \
-        f'''culture = zhili\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\n''' + \
+        f'''culture = {CULTURE_BY_ID[pid]}\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\n''' + \
         f'''base_tax = {tax}\nbase_production = {production}\nbase_manpower = {manpower}\n''' + \
         '''is_city = yes\ndiscovered_by = chinese\ndiscovered_by = nomad_group\n'''
 
@@ -363,7 +375,7 @@ def update_histories():
         old.unlink()
     (directory / "696 - Baoding.txt").write_text(
         '''# 696 - Baoding\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\n'''
-        '''culture = zhili\nreligion = confucianism\ncapital = "Baoding"\ntrade_goods = grain\n'''
+        f'''culture = {CULTURE_BY_ID[696]}\nreligion = confucianism\ncapital = "Baoding"\ntrade_goods = grain\n'''
         '''base_tax = 5\nbase_production = 4\nbase_manpower = 4\nis_city = yes\n'''
         '''discovered_by = chinese\ndiscovered_by = nomad_group\n'''
     )

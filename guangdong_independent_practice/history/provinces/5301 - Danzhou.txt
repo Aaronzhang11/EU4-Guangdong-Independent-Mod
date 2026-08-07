@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = chimin
+culture = gdd_zhuang
 religion = confucianism
 capital = "Danzhou"
 trade_goods = salt

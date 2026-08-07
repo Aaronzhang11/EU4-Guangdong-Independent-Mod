@@ -29,12 +29,12 @@ PROVINCES = {
     5204: ("Liaoyang", "辽阳", (150, 117, 28), "liaoning_area", "iron", (5, 5, 5), "manchu", False),
     5205: ("Tieling", "铁岭", (255, 236, 11), "liaoning_area", "livestock", (2, 3, 3), "manchu", False),
     2112: ("Jiuliancheng", "九连城", (115, 210, 143), "liaoning_area", "fur", (2, 2, 3), "manchu", False),
-    4652: ("Haicheng", "海城", (140, 69, 200), "liaoning_area", "grain", (3, 3, 2), "shandong_culture", False),
-    2113: ("Gaizhou", "盖州", (193, 133, 132), "liaoning_area", "fish", (3, 3, 3), "shandong_culture", False),
+    4652: ("Haicheng", "海城", (140, 69, 200), "liaoning_area", "grain", (3, 3, 2), "gdd_qi", False),
+    2113: ("Gaizhou", "盖州", (193, 133, 132), "liaoning_area", "fish", (3, 3, 3), "gdd_qi", False),
     5206: ("Liaohetao", "辽河套", (165, 28, 167), "xi_liaoning_area", "grain", (3, 3, 2), "manchu", False),
-    704: ("Ningyuan", "宁远", (100, 32, 255), "xi_liaoning_area", "salt", (3, 2, 3), "chihan", True),
-    5207: ("Guangning", "广宁", (216, 196, 193), "xi_liaoning_area", "livestock", (4, 3, 3), "chihan", False),
-    5209: ("Jinzhou", "锦州", (187, 198, 158), "xi_liaoning_area", "salt", (3, 4, 3), "chihan", False),
+    704: ("Ningyuan", "宁远", (100, 32, 255), "xi_liaoning_area", "salt", (3, 2, 3), "gdd_dongyi", True),
+    5207: ("Guangning", "广宁", (216, 196, 193), "xi_liaoning_area", "livestock", (4, 3, 3), "gdd_yan", False),
+    5209: ("Jinzhou", "锦州", (187, 198, 158), "xi_liaoning_area", "salt", (3, 4, 3), "gdd_dongyi", False),
 }
 NEW_IDS = {5204, 5205, 5206, 5207, 5209}
 AREA_BLOCKS = {

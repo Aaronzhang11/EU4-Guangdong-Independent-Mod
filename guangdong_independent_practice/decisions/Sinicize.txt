@@ -1,0 +1,166 @@
+# B41 approved Han-Baiyue-Yinshang-Qiang culture overhaul: inherited culture reference override
+country_decisions = {
+	sinicize_culture = {
+		potential = {
+			OR = {
+				primary_culture = korean
+				primary_culture = vietnamese
+				primary_culture = gdd_zhuang
+				primary_culture = miao
+				primary_culture = bai
+				primary_culture = yi
+				culture_group = tibetan_group
+			}
+		}
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							culture_group = tibetan_group
+							primary_culture = miao
+							primary_culture = bai
+							primary_culture = yi
+						}
+					}
+				}
+				OR = {
+					culture_group = tibetan_group
+					culture = miao
+					culture = bai
+					culture = yi
+				}
+			}
+			else = { culture = ROOT }
+			NOT = { continent = north_america }
+			NOT = { continent = south_america }
+			NOT = { continent = new_world }
+			NOT = { continent = oceania }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		allow = {
+			OR = {
+				development_in_provinces = {
+					culture_group = east_asian
+					value = 300
+				}
+				#custom_trigger_tooltip = {
+				#	tooltip = chinese_culture_group_dominates_in_country
+				#	OR = {
+				#		dominant_culture = manchu_new
+				#		dominant_culture = gdd_yan
+				#		dominant_culture = gdd_guangfu
+				#		dominant_culture = gdd_jin
+				#		dominant_culture = gdd_wu
+				#		dominant_culture = gdd_min
+				#		dominant_culture = gdd_hakka
+				#		dominant_culture = gdd_gan
+				#		dominant_culture = gdd_chu
+				#		dominant_culture = gdd_shu
+				#		dominant_culture = gdd_jianghuai
+				#		dominant_culture = gdd_long
+				#		dominant_culture = gdd_chu
+				#		dominant_culture = gdd_zhongyuan
+				#		dominant_culture = gdd_qi
+				#		dominant_culture = vietnamese_new
+				#		dominant_culture = korean_new
+				#		dominant_culture = tibetan_new
+				#		dominant_culture = altaic_new
+				#		dominant_culture = gdd_zhuang
+				#	}
+				#}
+				is_emperor_of_china = yes
+			}
+			if = {
+				limit = {
+					OR = {
+						culture_group = tibetan_group
+						primary_culture = miao
+						primary_culture = bai
+						primary_culture = yi
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = sinicize_culture_at
+					NOT = {
+						any_province = {
+							OR = {
+								culture_group = tibetan_group
+								culture = miao
+								culture = bai
+								culture = yi
+							}
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							NOT = { continent = north_america }
+							NOT = { continent = south_america }
+							NOT = { continent = new_world }
+							NOT = { continent = oceania }
+						}
+					}
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = sinicize_culture_tt
+					NOT = {
+						any_province = {
+							culture = ROOT
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							NOT = { continent = north_america }
+							NOT = { continent = south_america }
+							NOT = { continent = new_world }
+							NOT = { continent = oceania }
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			if = { #Sinicize Vietnamese
+				limit = {
+					primary_culture = vietnamese
+				}
+				update_entire_culture = {
+					culture = vietnamese
+				}
+			}
+			if = { #Sinicize Korean
+				limit = {
+					primary_culture = korean
+				}
+				update_entire_culture = {
+					culture = korean
+				}
+			}
+			if = { #Sinicize Zhuang
+				limit = {
+					primary_culture = gdd_zhuang
+				}
+				update_entire_culture = {
+					culture = gdd_zhuang
+				}
+			}
+			if = { #Sinicize Tibetan
+				limit = {
+					OR = {
+						culture_group = tibetan_group
+						primary_culture = miao
+						primary_culture = bai
+						primary_culture = yi
+					}
+				}
+				update_entire_culture_group = {
+					culture = tibetan
+					culture1 = tibetan
+					culture2 = yi
+					culture3 = bai
+					culture4 = miao
+				}
+			}
+			custom_tooltip = sinicize_culture_ct
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

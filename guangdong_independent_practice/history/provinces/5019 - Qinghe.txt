@@ -2,7 +2,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = jianghuai
+culture = gdd_jianghuai
 religion = confucianism
 capital = "Qinghe"
 trade_goods = grain

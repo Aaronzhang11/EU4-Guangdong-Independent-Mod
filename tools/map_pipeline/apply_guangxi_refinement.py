@@ -22,20 +22,20 @@ MARKER = "B28 Guangxi 14-province refinement"
 
 # id: English, Chinese, colour, area, goods, development, culture
 PROVINCES = {
-    1840: ("Guilin", "桂林", (208, 138, 79), "guangxi_area", "silk", (4, 4, 2), "zhuang"),
-    2163: ("Liuzhou", "柳州", (67, 62, 128), "guangxi_area", "salt", (3, 3, 2), "zhuang"),
-    5200: ("Pingle", "平乐", (83, 24, 236), "guangxi_area", "iron", (2, 2, 2), "zhuang"),
-    5208: ("Quanzhou", "全州", (227, 142, 44), "guangxi_area", "grain", (2, 2, 2), "zhuang"),
-    4959: ("Qingyuan", "庆远", (22, 216, 219), "guidong_area", "livestock", (2, 2, 3), "zhuang"),
-    5201: ("Sien", "思恩", (162, 74, 195), "guidong_area", "tropical_wood", (2, 2, 2), "zhuang"),
-    2162: ("Wuzhou", "梧州", (68, 78, 64), "guidong_area", "copper", (3, 4, 2), "cantonese"),
-    4954: ("Xunzhou", "浔州", (152, 52, 251), "guidong_area", "grain", (2, 3, 2), "cantonese"),
-    5202: ("Yuzhou", "鬱州", (195, 84, 100), "guidong_area", "grain", (2, 2, 2), "cantonese"),
-    2164: ("Nanning", "南宁", (67, 70, 192), "youjiang_area", "grain", (3, 3, 2), "zhuang"),
-    664: ("Sicheng", "泗城", (94, 80, 255), "youjiang_area", "tea", (1, 2, 2), "zhuang"),
-    4960: ("Zhenan", "镇安", (182, 187, 245), "youjiang_area", "sugar", (1, 2, 2), "zhuang"),
-    5203: ("Siming", "思明", (50, 52, 170), "youjiang_area", "spices", (1, 2, 2), "zhuang"),
-    5210: ("Tianzhou", "田州", (69, 166, 112), "youjiang_area", "iron", (2, 2, 2), "zhuang"),
+    1840: ("Guilin", "桂林", (208, 138, 79), "guangxi_area", "silk", (4, 4, 2), "gdd_gui"),
+    2163: ("Liuzhou", "柳州", (67, 62, 128), "guangxi_area", "salt", (3, 3, 2), "gdd_gui"),
+    5200: ("Pingle", "平乐", (83, 24, 236), "guangxi_area", "iron", (2, 2, 2), "gdd_gui"),
+    5208: ("Quanzhou", "全州", (227, 142, 44), "guangxi_area", "grain", (2, 2, 2), "gdd_gui"),
+    4959: ("Qingyuan", "庆远", (22, 216, 219), "guidong_area", "livestock", (2, 2, 3), "gdd_zhuang"),
+    5201: ("Sien", "思恩", (162, 74, 195), "guidong_area", "tropical_wood", (2, 2, 2), "gdd_zhuang"),
+    2162: ("Wuzhou", "梧州", (68, 78, 64), "guidong_area", "copper", (3, 4, 2), "gdd_guangfu"),
+    4954: ("Xunzhou", "浔州", (152, 52, 251), "guidong_area", "grain", (2, 3, 2), "gdd_guangfu"),
+    5202: ("Yuzhou", "鬱州", (195, 84, 100), "guidong_area", "grain", (2, 2, 2), "gdd_guangfu"),
+    2164: ("Nanning", "南宁", (67, 70, 192), "youjiang_area", "grain", (3, 3, 2), "gdd_guangfu"),
+    664: ("Sicheng", "泗城", (94, 80, 255), "youjiang_area", "tea", (1, 2, 2), "gdd_zhuang"),
+    4960: ("Zhenan", "镇安", (182, 187, 245), "youjiang_area", "sugar", (1, 2, 2), "gdd_zhuang"),
+    5203: ("Siming", "思明", (50, 52, 170), "youjiang_area", "spices", (1, 2, 2), "gdd_zhuang"),
+    5210: ("Tianzhou", "田州", (69, 166, 112), "youjiang_area", "iron", (2, 2, 2), "gdd_zhuang"),
 }
 NEW_IDS = {5200, 5201, 5202, 5203, 5208, 5210}
 AREA_BLOCKS = {

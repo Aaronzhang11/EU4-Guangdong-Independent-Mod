@@ -1,0 +1,17 @@
+common/disasters/empire_of_china_culture.txt
+common/government_reforms/01_government_reforms_monarchies.txt
+common/government_reforms/02_government_reforms_republics.txt
+common/government_reforms/06_government_reforms_common.txt
+common/naval_doctrines/00_naval_doctrines.txt
+common/scripted_triggers/00_scripted_triggers.txt
+common/scripted_triggers/00_scripted_triggers_FR.txt
+decisions/KoreanDecisions.txt
+decisions/Lanfang_Decisions.txt
+decisions/Sinicize.txt
+events/ChineseEmpire.txt
+events/FlavorPirates.txt
+events/ManchuMissionEvents.txt
+events/PirateEvents.txt
+events/RandomEvents.txt
+events/WomenInHistory.txt
+events/flavorMNG.txt

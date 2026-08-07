@@ -34,6 +34,14 @@ AREAS = {
     "longyou_area": (2180, 5291, 5307, 5308, 5309),
     "xi_shaanxi_area": (2181, 5276, 5277, 5278, 5305, 5306),
 }
+CULTURE_BY_ID = {
+    2180: "gdd_zhongyuan",
+    5290: "gdd_diqiang",
+    5291: "gdd_long",
+    5307: "gdd_long",
+    5308: "gdd_diqiang",
+    5309: "gdd_diqiang",
+}
 
 
 def read(path: Path) -> str:
@@ -80,7 +88,8 @@ def update_area() -> None:
     write(path, text)
 
 
-def history_text(pid: int, name: str, goods: str, dev: tuple[int, int, int], culture="xibei", religion="confucianism") -> str:
+def history_text(pid: int, name: str, goods: str, dev: tuple[int, int, int], religion="confucianism") -> str:
+    culture = CULTURE_BY_ID[pid]
     return f'''# {pid} - {name}\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\nculture = {culture}\nreligion = {religion}\ncapital = "{name}"\ntrade_goods = {goods}\nbase_tax = {dev[0]}\nbase_production = {dev[1]}\nbase_manpower = {dev[2]}\nis_city = yes\ndiscovered_by = chinese\ndiscovered_by = nomad_group\n'''
 
 
@@ -95,7 +104,7 @@ def set_history(pid: int, filename: str, text: str) -> None:
 
 def update_histories() -> None:
     set_history(2180, "2180 - Tianshui.txt", history_text(2180, "Tianshui", "grain", (3, 3, 2)))
-    set_history(5290, "5290 - Dangchang.txt", history_text(5290, "Dangchang", "livestock", (2, 2, 2), "tibetan", "vajrayana"))
+    set_history(5290, "5290 - Dangchang.txt", history_text(5290, "Dangchang", "livestock", (2, 2, 2), "vajrayana"))
     set_history(5291, "5291 - Minzhou.txt", history_text(5291, "Minzhou", "grain", (2, 2, 1)))
     set_history(5307, "5307 - Lintao.txt", history_text(5307, "Lintao", "livestock", (1, 1, 1)))
     set_history(5308, "5308 - Gongchang.txt", history_text(5308, "Gongchang", "grain", (1, 1, 1)))
