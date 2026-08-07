@@ -69,6 +69,67 @@
       "decoded_nonopaque_pixels": 0
     }
   },
+  "tree_fix": {
+    "source_size": [
+      1000,
+      400
+    ],
+    "vanilla_target_size": [
+      704,
+      293
+    ],
+    "output_size": [
+      704,
+      293
+    ],
+    "valid_indices": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      20,
+      27,
+      28,
+      29,
+      30
+    ],
+    "used_indices": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      20,
+      27,
+      28,
+      29,
+      30
+    ],
+    "remapped_indices": {
+      "16->13": 15
+    },
+    "water_fraction_limit": 0.05,
+    "water_tree_cells_removed": 765,
+    "water_tree_cells_after": 0
+  },
   "locked_files": {
     "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/provinces.bmp": "5d06944cd38cce83a48b49e38bd02d4768ec52e9b01860987836d2718820635e",
     "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/terrain.bmp": "2531e34860277556a4fa558b0cf7788b9a7fd8f7e91932bde6e33013e3dbd997",
@@ -98,13 +159,16 @@
     "guangdong_independent_practice/map/terrain/border5.dds": "0d073568271eb145a68bab85299bbc6c47141e61e9807f08ed336355673f2375",
     "guangdong_independent_practice/map/terrain/border5data.dds": "5927b93f8064ecf3df65373fb94b3e8a58bee9d3e9cd1257028e6b6d5cd92671",
     "guangdong_independent_practice/map/terrain/border6.dds": "ca07cb8963b71c48019cc82f1328467ded7a4c3d9cf2df1437e41eed9ba4032d",
-    "guangdong_independent_practice/map/trees.bmp": "89d6d66ce5d61487fdc1d36beec420ec1f1f495be44e806a560a9025428a6081",
+    "guangdong_independent_practice/map/trees.bmp": "3cb7457b09bda57803239dfed0c8e4bb1c9efd5c540b4dff0d629c6dbac7fe75",
     "planning/terrain_transplant/daming_visual_assets_v1/daming_visual_assets_preview.png": "137e92354ab14b0f89d544481d48c478691e2faf520435336a0257ea7c18eceb",
-    "planning/terrain_transplant/daming_visual_assets_v1/daming_atlas_comparison.png": "0d27cbe0bb8ad4715b0dd7bbfa785d6adc09f4e4f8b68b8c0f74c5ff0d9f4add"
+    "planning/terrain_transplant/daming_visual_assets_v1/daming_atlas_comparison.png": "0d27cbe0bb8ad4715b0dd7bbfa785d6adc09f4e4f8b68b8c0f74c5ff0d9f4add",
+    "planning/terrain_transplant/daming_visual_assets_v1/trees_fix_preview.png": "fe22ca4ca284fd91392f8845d950679f02748fc1bcc09f35aff1937b202509c6"
   },
   "backup_manifest": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/pre_b39/manifest.json",
   "white_fix_backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/pre_b40_white_fix/map/terrain",
+  "tree_fix_backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/pre_b41_tree_fix/map/trees.bmp",
   "preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/daming_visual_assets_preview.png",
   "atlas_preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/daming_atlas_comparison.png",
+  "tree_preview": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/terrain_transplant/daming_visual_assets_v1/trees_fix_preview.png",
   "preexisting_targets": []
 }
