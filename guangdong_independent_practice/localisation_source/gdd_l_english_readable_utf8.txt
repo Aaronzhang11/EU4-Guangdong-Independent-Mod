@@ -50,7 +50,7 @@
  estate_nobles_gdd_clan_autonomy_charter:0 "宗族自治特许"
  estate_nobles_gdd_clan_autonomy_charter_desc:0 "梁氏兄弟和当地各个宗族的默契条约。"
  gdd_clan_autonomy_charter_locked_tt:0 "需要先完成对应任务，才能撤销§Y宗族自治特许§!。"
- gdd_clan_autonomy_charter_province_effect_tt:0 "只要该特权生效，所有§Y粤§!、§Y客§!或§Y闽§!文化的直属省份将获得§G+50.0%§!本地人力修正和§R+10.0%§!最低自治度。"
+ gdd_clan_autonomy_charter_province_effect_tt:0 "只要该特权生效，所有§Y粤§!、§Y客家§!或§Y闽越§!文化的直属省份将获得§G+50.0%§!本地人力修正和§R+10.0%§!最低自治度。"
  gdd_clan_autonomy_charter_province_modifier:0 "宗族自治特许"
  desc_gdd_clan_autonomy_charter_province_modifier:0 "当地宗族依据朝廷授予的自治特许管理乡里，并负责征募与维持地方武装。"
 
