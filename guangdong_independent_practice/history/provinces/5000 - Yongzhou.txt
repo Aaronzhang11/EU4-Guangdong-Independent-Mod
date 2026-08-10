@@ -1,9 +1,9 @@
 # 5000 - Yongzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CSA
+controller = CSA
 add_core = CHC
+add_core = CSA
 culture = xiang
 religion = confucianism
 capital = "Yongzhou"

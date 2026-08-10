@@ -1,9 +1,9 @@
 # 670 - Ganzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = HAK
+controller = HAK
 add_core = NNG
+add_core = HAK
 culture = hakka
 religion = confucianism
 capital = "Ganzhou"

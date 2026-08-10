@@ -1,7 +1,7 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GYA
+controller = GYA
 add_core = CYI
+add_core = GYA
 culture = miao
 religion = animism
 capital = "Puding"

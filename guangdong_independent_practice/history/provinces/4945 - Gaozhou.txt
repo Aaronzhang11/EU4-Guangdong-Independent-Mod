@@ -1,10 +1,9 @@
 # 4945 - Gaozhou
 
-owner = GDD
-controller = GDD
-add_core = MNG
-add_core = GDD
+owner = LIL
+controller = LIL
 add_core = YUE
+add_core = LIL
 culture = cantonese
 religion = confucianism
 capital = "Gaozhou"

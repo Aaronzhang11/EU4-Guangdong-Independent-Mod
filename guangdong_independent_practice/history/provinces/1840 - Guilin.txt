@@ -1,8 +1,8 @@
 # 1840 - Guilin
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GUI
+controller = GUI
+add_core = GUI
 culture = zhuang
 religion = confucianism
 capital = "Guilin"

@@ -1,0 +1,30 @@
+# 616 - Cao Bang / 高平
+
+owner = NUN
+controller = NUN
+add_core = NUN
+add_core = DAI
+add_core = TOK
+culture = zhuang
+religion = mahayana
+capital = "Cao Bang"
+trade_goods = grain
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+
+discovered_by = chinese
+discovered_by = indian
+
+1520.1.1 = { unrest = 10 }
+1524.1.1 = { unrest = 0 }
+1655.1.1 = { discovered_by = SPA }
+1730.1.1 = { unrest = 5 }
+1731.1.1 = { unrest = 0 }
+1802.7.22 = {
+	owner = ANN
+	controller = ANN
+	remove_core = DAI
+}

@@ -1,9 +1,9 @@
 # 5240 - Mengzi
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DIA
+controller = DIA
 add_core = CDL
+add_core = DIA
 culture = bai
 religion = buddhism
 capital = "Mengzi"

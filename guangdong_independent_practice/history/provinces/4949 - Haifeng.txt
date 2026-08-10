@@ -1,10 +1,10 @@
 # 4949 - Haifeng
 
-owner = GDD
-controller = GDD
+owner = CZC
+controller = CZC
 add_core = MNG
-add_core = GDD
 add_core = YUE
+add_core = CZC
 culture = chimin
 religion = confucianism
 capital = "Haifeng"

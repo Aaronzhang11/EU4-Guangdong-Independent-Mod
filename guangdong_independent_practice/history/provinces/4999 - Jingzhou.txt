@@ -1,10 +1,10 @@
 # 4999 - Jingzhou (Hunan)
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CZM
+controller = CZM
 add_core = CMI
 add_core = CHC
+add_core = CZM
 culture = miao
 religion = animism
 capital = "Jingzhou"

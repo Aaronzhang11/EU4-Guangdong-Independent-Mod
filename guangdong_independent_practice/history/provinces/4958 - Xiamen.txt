@@ -1,8 +1,7 @@
 # 4958 - Xiamen
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = MIN
+controller = MIN
 add_core = MIN
 culture = chimin
 religion = confucianism

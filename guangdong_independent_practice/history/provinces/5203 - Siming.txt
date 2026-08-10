@@ -1,8 +1,8 @@
 # 5203 - Siming
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = NUN
+controller = NUN
+add_core = NUN
 culture = zhuang
 religion = confucianism
 capital = "Siming"

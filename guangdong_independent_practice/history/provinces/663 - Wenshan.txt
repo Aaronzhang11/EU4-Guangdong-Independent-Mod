@@ -1,9 +1,9 @@
 # 663 - Wenshan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = NUN
+controller = NUN
 add_core = CDL
+add_core = NUN
 culture = yi
 religion = animism
 capital = "Wenshan"

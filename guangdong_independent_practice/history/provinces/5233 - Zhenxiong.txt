@@ -1,9 +1,9 @@
 # 5233 - Zhenxiong
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YEL
+controller = YEL
 add_core = CDL
+add_core = YEL
 culture = yi
 religion = animism
 capital = "Zhenxiong"

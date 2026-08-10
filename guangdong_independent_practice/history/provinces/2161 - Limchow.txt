@@ -1,9 +1,8 @@
 # 2161 - Limchow
 
-owner = GDD
-controller = GDD
-add_core = MNG
-add_core = GDD
+owner = LIL
+controller = LIL
+add_core = LIL
 culture = cantonese
 religion = confucianism
 capital = "Limchow"

@@ -65,7 +65,7 @@ P = (
     Province(5239, "勐腊", "Mengla", "diannan_area", (57,88,139), (57,88,139), (4401,1048), "tropical_wood", (1,2,1), "shan", "buddhism", "MMA"),
     Province(5240, "蒙自", "Mengzi", "diannan_area", (36,133,156), (36,133,156), (4425,1018), "grain", (3,3,1), "bai", "buddhism"),
     Province(5241, "红河", "Honghe", "diannan_area", (241,224,45), (241,224,45), (4415,1032), "tea", (2,2,1), "yi", "animism"),
-    Province(663, "文山", "Wenshan", "diannan_area", (143,209,24), (222,78,192), (4450,1020), "iron", (2,2,1), "yi", "animism"),
+    Province(663, "文山", "Wenshan", "diannan_area", (143,209,24), (222,78,192), (4450,1020), "iron", (2,2,1), "yi", "animism", "NUN"),
 )
 
 AREA_NAMES = {
@@ -250,8 +250,10 @@ def update_areas_region() -> None:
 
 def history_text(province: Province) -> str:
     cores = [province.owner]
-    if province.owner != "MNG":
+    if province.owner != "MNG" and province.province_id != 663:
         cores.append("MNG")
+    if province.province_id == 663:
+        cores.append("CDL")
     if province.owner == "MNG" and province.culture in {"bai", "yi"}:
         cores.append("CDL")
     lines = [

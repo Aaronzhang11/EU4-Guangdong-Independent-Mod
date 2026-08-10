@@ -1,0 +1,10 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+
+technology_group = chinese
+religion = buddhism
+primary_culture = bai
+add_accepted_culture = yi
+capital = 662 # Kunming
+fixed_capital = 662

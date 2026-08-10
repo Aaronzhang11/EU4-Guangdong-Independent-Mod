@@ -1,9 +1,9 @@
 # 1833 - Ji'an
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = LCH
+controller = LCH
 add_core = NNG
+add_core = LCH
 culture = gan
 religion = confucianism
 capital = "Ji'an"

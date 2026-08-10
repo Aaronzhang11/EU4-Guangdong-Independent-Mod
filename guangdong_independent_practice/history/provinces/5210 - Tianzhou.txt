@@ -1,8 +1,8 @@
 # 5210 - Tianzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = TZZ
+controller = TZZ
+add_core = TZZ
 culture = zhuang
 religion = confucianism
 capital = "Tianzhou"

@@ -30,7 +30,7 @@ PROVINCES = {
     5201: ("Sien", "思恩", (162, 74, 195), "guidong_area", "tropical_wood", (2, 2, 2), "zhuang"),
     2162: ("Wuzhou", "梧州", (68, 78, 64), "guidong_area", "copper", (3, 4, 2), "cantonese"),
     4954: ("Xunzhou", "浔州", (152, 52, 251), "guidong_area", "grain", (2, 3, 2), "cantonese"),
-    5202: ("Yuzhou", "鬱州", (195, 84, 100), "guidong_area", "grain", (2, 2, 2), "cantonese"),
+    5202: ("Yuzhou", "玉林", (195, 84, 100), "guidong_area", "grain", (2, 2, 2), "cantonese"),
     2164: ("Nanning", "南宁", (67, 70, 192), "youjiang_area", "grain", (3, 3, 2), "zhuang"),
     664: ("Sicheng", "泗城", (94, 80, 255), "youjiang_area", "tea", (1, 2, 2), "zhuang"),
     4960: ("Zhenan", "镇安", (182, 187, 245), "youjiang_area", "sugar", (1, 2, 2), "zhuang"),
@@ -220,8 +220,11 @@ def update_lists():
 
 def history_text(pid, data):
     name, _, _, _, goods, dev, culture = data
+    owner = "NUN" if pid in {4960, 5201, 5203} else "MNG"
     lines = [
-        f"# {pid} - {name}", "", "owner = MNG", "controller = MNG", "add_core = MNG",
+        f"# {pid} - {name}", "", f"owner = {owner}", f"controller = {owner}", f"add_core = {owner}",
+    ]
+    lines += [
         f"culture = {culture}", "religion = confucianism", f'capital = "{name}"',
         f"trade_goods = {goods}", f"base_tax = {dev[0]}", f"base_production = {dev[1]}",
         f"base_manpower = {dev[2]}", "is_city = yes",

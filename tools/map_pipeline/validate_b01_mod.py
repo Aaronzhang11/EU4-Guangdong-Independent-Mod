@@ -325,7 +325,7 @@ PREPARED_HISTORY = {
     4957: ("MNG", (1, 1, 1), "paper", "chimin"),
     4958: ("MNG", (2, 3, 1), "fish", "chimin"),
     4959: ("MNG", (1, 1, 1), "livestock", "zhuang"),
-    4960: ("MNG", (1, 1, 1), "grain", "zhuang"),
+    4960: ("NUN", (1, 1, 1), "grain", "zhuang"),
     4961: (None, (1, 1, 1), "fish", "polynesian"),
 }
 PREPARED_DEV_PARTITIONS = {
@@ -343,11 +343,11 @@ EXPECTED_HISTORY = {
     2156: ("MNG", (4, 4, 1), "chinaware", "chimin"),
     2157: ("GDD", (2, 2, 1), "grain", "hakka"),
     2158: ("GDD", (2, 3, 1), "iron", "hakka"),
-    2159: ("GDD", (2, 2, 1), "sugar", "chimin"),
+    2159: ("LIL", (2, 2, 1), "sugar", "chimin"),
     4942: ("GDD", (4, 4, 1), "chinaware", "cantonese"),
     4943: ("GDD", (3, 3, 1), "incense", "cantonese"),
     4944: ("GDD", (2, 2, 1), "tea", "hakka"),
-    4945: ("GDD", (1, 1, 1), "grain", "cantonese"),
+    4945: ("LIL", (1, 1, 1), "grain", "cantonese"),
     4946: ("GDD", (1, 1, 1), "fish", "cantonese"),
     4947: ("GDD", (1, 1, 1), "grain", "cantonese"),
     4948: ("GDD", (2, 1, 1), "grain", "hakka"),
@@ -1391,8 +1391,9 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         if actual != expected:
             raise ValueError(f"{path.name}: history {actual}, expected {expected}")
         if province_id in IMPLEMENTED_IDS:
-            if "add_core = GDD" not in text:
-                raise ValueError(f"{path.name}: missing GDD core")
+            expected_core = "LIL" if province_id == 4945 else "GDD"
+            if f"add_core = {expected_core}" not in text:
+                raise ValueError(f"{path.name}: missing {expected_core} core")
             if initial_history_value(text, "religion") != "confucianism":
                 raise ValueError(f"{path.name}: religion must be confucianism")
             if initial_history_value(text, "is_city") != "yes":

@@ -1,9 +1,9 @@
 # 5241 - Honghe
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DIA
+controller = DIA
 add_core = CDL
+add_core = DIA
 culture = yi
 religion = animism
 capital = "Honghe"

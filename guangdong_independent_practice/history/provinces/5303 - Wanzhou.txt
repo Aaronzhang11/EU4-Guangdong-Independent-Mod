@@ -1,8 +1,9 @@
 # 5303 - Wanzhou
 
-owner = MNG
-controller = MNG
+owner = CZC
+controller = CZC
 add_core = MNG
+add_core = CZC
 culture = chimin
 religion = confucianism
 capital = "Wanzhou"

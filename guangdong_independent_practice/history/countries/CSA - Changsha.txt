@@ -1,0 +1,10 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+
+technology_group = chinese
+religion = confucianism
+primary_culture = xiang
+add_accepted_culture = hakka
+capital = 671 # Changsha
+fixed_capital = 671

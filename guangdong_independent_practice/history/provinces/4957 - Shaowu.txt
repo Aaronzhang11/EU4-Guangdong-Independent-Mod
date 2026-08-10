@@ -1,10 +1,10 @@
 # 4957 - Shaowu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = HAK
+controller = HAK
 add_core = MIN
 add_core = NNG
+add_core = HAK
 culture = chimin
 religion = confucianism
 capital = "Shaowu"

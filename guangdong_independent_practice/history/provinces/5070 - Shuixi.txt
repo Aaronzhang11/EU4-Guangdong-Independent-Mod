@@ -1,7 +1,7 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YEL
+controller = YEL
 add_core = CYI
+add_core = YEL
 culture = yi
 religion = animism
 capital = "Shuixi"
