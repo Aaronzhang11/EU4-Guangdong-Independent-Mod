@@ -68,7 +68,6 @@ TAG_PROVINCES = {
     "DAE": (702, 2177, 697, 5243, 5244, 5242),
     "YOU": (701, 5266, 5265, 5267, 2179, 5268),
     "ZNG": (5273, 5272),
-    "SH2": (5008, 681, 5284),
     "JUU": (689, 5274),
     "WDU": (5309, 5308),
     "DCH": (5290, 5092),
@@ -90,7 +89,7 @@ TAG_PROVINCES = {
     "JRG": (5091, 5089),
     "TSF": (4993,),
     "ZHG": (4967,),
-    "SHE": (5030,),
+    "SHE": (5030, 5008, 681, 5284),
     "GUZ": (4194, 5211),
     "WUZ": (704, 5209),
     "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 2112, 2113, 4652, 4672, 5204, 726, 5205, 5206, 5207),
@@ -119,9 +118,9 @@ MUTED_COUNTRY_COLORS = {
     "DCH": (128, 149, 109),
     "DIA": (126, 130, 159),
     "DZH": (145, 120, 142),
-    "GDD": (115, 118, 158),
+    "GDD": (190, 72, 72),
     "GON": (115, 118, 158),
-    "GUI": (181, 151, 101),
+    "GUI": (65, 120, 158),
     "GUN": (232, 232, 220),
     "GUZ": (35, 37, 40),
     "GUO": (96, 143, 139),
@@ -134,7 +133,7 @@ MUTED_COUNTRY_COLORS = {
     "KAM": (64, 146, 106),
     "KSD": (209, 120, 83),
     "LCH": (193, 166, 82),
-    "LIL": (150, 156, 104),
+    "LIL": (156, 204, 158),
     "LIU": (245, 245, 230),
     "LSH": (108, 137, 124),
     "LUO": (108, 137, 124),
@@ -148,8 +147,7 @@ MUTED_COUNTRY_COLORS = {
     "QIN": (38, 42, 46),
     "QSH": (157, 113, 137),
     "QWO": (196, 166, 74),
-    "SHE": (145, 120, 151),
-    "SH2": (166, 116, 120),
+    "SHE": (166, 116, 120),
     "SHU": (145, 64, 81),
     "SHZ": (139, 113, 153),
     "SNG": (157, 113, 137),
@@ -203,7 +201,6 @@ POLITIES = {
     "DAE": {"file": "B43_Dai.txt", "history": "DAE - Dai.txt", "capital": 5244, "rank": 1, "color": MUTED_COUNTRY_COLORS["DAE"]},
     "YOU": {"file": "B43_Yiqu.txt", "history": "YOU - Yiqu.txt", "capital": 2179, "rank": 1, "color": MUTED_COUNTRY_COLORS["YOU"]},
     "ZNG": {"file": "B43_Zheng.txt", "history": "ZNG - Zheng.txt", "capital": 5273, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZNG"]},
-    "SH2": {"file": "B43_Shen_Han_Mian.txt", "history": "SH2 - Shen Han Mian.txt", "capital": 5008, "rank": 1, "color": MUTED_COUNTRY_COLORS["SH2"]},
     "JUU": {"file": "B43_Ju.txt", "history": "JUU - Ju.txt", "capital": 689, "rank": 1, "color": MUTED_COUNTRY_COLORS["JUU"]},
     "WDU": {"file": "B43_Wudu.txt", "history": "WDU - Wudu.txt", "capital": 5309, "rank": 1, "color": MUTED_COUNTRY_COLORS["WDU"]},
     "DCH": {"file": "B43_Dangchang.txt", "history": "DCH - Dangchang.txt", "capital": 5290, "rank": 1, "color": MUTED_COUNTRY_COLORS["DCH"]},
@@ -301,10 +298,13 @@ FORCED_CORE_REMOVALS = {
     "MNG": {663, 666, 2162, 2164, 4949, 5217, 5303},
 }
 
-LEGACY_BAS_ARTIFACTS = (
+LEGACY_COUNTRY_ARTIFACTS = (
     COUNTRIES / "B43_Bashi.txt",
     COUNTRY_HISTORY / "BAS - Bashi.txt",
     FLAGS / "BAS.tga",
+    COUNTRIES / "B43_Shen_Han_Mian.txt",
+    COUNTRY_HISTORY / "SH2 - Shen Han Mian.txt",
+    FLAGS / "SH2.tga",
 )
 
 PRESERVED_OWNERSHIP = {
@@ -709,8 +709,13 @@ def set_existing_country_capital(path: Path, capital: int, write: bool) -> bool:
     else:
         initial, dated = data, b""
     initial, count = re.subn(
-        rb"(?m)^(\s*capital\s*=\s*)\d+([^\r\n]*)$",
-        lambda match: match.group(1) + str(capital).encode("ascii") + match.group(2),
+        rb"(?m)^([ \t]*capital[ \t]*=[ \t]*)\d+([^\r\n]*)(\r?)$",
+        lambda match: (
+            match.group(1)
+            + str(capital).encode("ascii")
+            + match.group(2)
+            + match.group(3)
+        ),
         initial,
         count=1,
     )
@@ -808,6 +813,12 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
             raise ValueError(f"{tag}: forbidden cores remain in {sorted(remaining)}")
     if current_owned_ids("BAS") or current_core_ids("BAS"):
         raise ValueError("Legacy BAS ownership/core data remains after migration to BD2")
+    if current_owned_ids("SH2") or current_core_ids("SH2"):
+        raise ValueError("Legacy SH2 ownership/core data remains after migration to SHE")
+    remaining_legacy_artifacts = [path for path in LEGACY_COUNTRY_ARTIFACTS if path.exists()]
+    if remaining_legacy_artifacts:
+        names = ", ".join(path.name for path in remaining_legacy_artifacts)
+        raise ValueError(f"Legacy country artifacts remain: {names}")
     if POLITIES["DAE"]["capital"] != 5244:
         raise ValueError("DAE capital must remain Daizhou (5244)")
     for tag, config in POLITIES.items():
@@ -843,6 +854,8 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         raise ValueError("BD2 conflicts with a vanilla country tag")
     if re.search(r"(?m)^\s*BAS\s*=", tag_text):
         raise ValueError("Legacy BAS tag declaration remains")
+    if re.search(r"(?m)^\s*SH2\s*=", tag_text):
+        raise ValueError("Legacy SH2 tag declaration remains")
     localisation = read_text(MOD / "localisation_source/gdd_l_english_readable_utf8.txt")
     for tag in set(POLITIES) | set(BORROWED_CAPITALS) | {"CHC", "QSH", "XU2", "SNG", "CZH"}:
         if len(re.findall(rf"(?m)^\s*{tag}:0\s+", localisation)) != 1:
@@ -922,7 +935,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     COUNTRY_HISTORY.mkdir(parents=True, exist_ok=True)
     FLAGS.mkdir(parents=True, exist_ok=True)
     removed_legacy_artifacts: list[str] = []
-    for path in LEGACY_BAS_ARTIFACTS:
+    for path in LEGACY_COUNTRY_ARTIFACTS:
         if path.exists():
             path.unlink()
             removed_legacy_artifacts.append(str(path.relative_to(ROOT)))
@@ -982,6 +995,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             "yangzhou": "XU2 owns and cores 685",
             "shangqiu": "SNG owns and cores 2176",
             "badi_tag": "BD2; legacy BAS removed",
+            "shen_consolidation": "SHE inherits former SH2 provinces; legacy SH2 removed",
             "ming_cores": "removed from every B43-assigned province",
             "southern_ming_core_cleanup": [663, 666, 2162, 2164, 4949, 5217, 5303],
         },
@@ -991,7 +1005,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
         "changed_history_files": sorted(set(changed_history_files)),
         "removed_legacy_artifacts": sorted(set(removed_legacy_artifacts)),
         "legacy_artifacts_required_absent": [
-            str(path.relative_to(ROOT)) for path in LEGACY_BAS_ARTIFACTS
+            str(path.relative_to(ROOT)) for path in LEGACY_COUNTRY_ARTIFACTS
         ],
         "generated_country_files": sorted(set(generated_country_files)),
         "validation": validation,

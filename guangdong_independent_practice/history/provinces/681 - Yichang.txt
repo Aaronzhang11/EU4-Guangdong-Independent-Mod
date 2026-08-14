@@ -1,7 +1,7 @@
 # 681 - Yiling
-owner = SH2
-controller = SH2
-add_core = SH2
+owner = SHE
+controller = SHE
+add_core = SHE
 culture = hubei
 religion = confucianism
 capital = "Yiling"
