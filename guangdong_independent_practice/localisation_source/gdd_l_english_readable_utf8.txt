@@ -99,8 +99,6 @@
  YOU_ADJ:0 "义渠"
  ZNG:0 "郑"
  ZNG_ADJ:0 "郑"
- SH2:0 "申汉沔"
- SH2_ADJ:0 "申汉沔"
  JUU:0 "苴"
  JUU_ADJ:0 "苴"
  WDU:0 "武都"

@@ -10,6 +10,7 @@
     "yangzhou": "XU2 owns and cores 685",
     "shangqiu": "SNG owns and cores 2176",
     "badi_tag": "BD2; legacy BAS removed",
+    "shen_consolidation": "SHE inherits former SH2 provinces; legacy SH2 removed",
     "ming_cores": "removed from every B43-assigned province",
     "southern_ming_core_cleanup": [
       663,
@@ -238,11 +239,6 @@
       5273,
       5272
     ],
-    "SH2": [
-      5008,
-      681,
-      5284
-    ],
     "JUU": [
       689,
       5274
@@ -367,7 +363,10 @@
       4967
     ],
     "SHE": [
-      5030
+      5030,
+      5008,
+      681,
+      5284
     ],
     "GUZ": [
       4194,
@@ -406,7 +405,10 @@
   "legacy_artifacts_required_absent": [
     "guangdong_independent_practice\\common\\countries\\B43_Bashi.txt",
     "guangdong_independent_practice\\history\\countries\\BAS - Bashi.txt",
-    "guangdong_independent_practice\\gfx\\flags\\BAS.tga"
+    "guangdong_independent_practice\\gfx\\flags\\BAS.tga",
+    "guangdong_independent_practice\\common\\countries\\B43_Shen_Han_Mian.txt",
+    "guangdong_independent_practice\\history\\countries\\SH2 - Shen Han Mian.txt",
+    "guangdong_independent_practice\\gfx\\flags\\SH2.tga"
   ],
   "generated_country_files": [
     "guangdong_independent_practice\\common\\countries\\B43_Amdo_Golog.txt",
@@ -438,7 +440,6 @@
     "guangdong_independent_practice\\common\\countries\\B43_Quwo.txt",
     "guangdong_independent_practice\\common\\countries\\B43_Shazhou.txt",
     "guangdong_independent_practice\\common\\countries\\B43_Shen.txt",
-    "guangdong_independent_practice\\common\\countries\\B43_Shen_Han_Mian.txt",
     "guangdong_independent_practice\\common\\countries\\B43_Sui.txt",
     "guangdong_independent_practice\\common\\countries\\B43_Tianshi_Fu.txt",
     "guangdong_independent_practice\\common\\countries\\B43_Wanggu_Russia.txt",
@@ -512,7 +513,6 @@
     "guangdong_independent_practice\\history\\countries\\QIN - Qin.txt",
     "guangdong_independent_practice\\history\\countries\\QSH - Qunshu.txt",
     "guangdong_independent_practice\\history\\countries\\QWO - Quwo.txt",
-    "guangdong_independent_practice\\history\\countries\\SH2 - Shen Han Mian.txt",
     "guangdong_independent_practice\\history\\countries\\SHE - Shen.txt",
     "guangdong_independent_practice\\history\\countries\\SHU - Shu.txt",
     "guangdong_independent_practice\\history\\countries\\SHZ - Shazhou.txt",
@@ -536,8 +536,8 @@
   ],
   "validation": {
     "province_count": 262,
-    "polity_count": 56,
-    "generated_tag_count": 45,
+    "polity_count": 55,
+    "generated_tag_count": 44,
     "preserved_qi": [
       690,
       691,
@@ -576,7 +576,81 @@
     "dae_capital": 5244,
     "badi_tag": "BD2",
     "adjacent_color_audit": {
-      "status": "skipped"
+      "country_edge_count": 163,
+      "minimum_required_delta_e": 12.0,
+      "minimum_delta_e": 12.7,
+      "closest_edges": [
+        {
+          "tags": [
+            "WUU",
+            "YUE"
+          ],
+          "delta_e": 12.7
+        },
+        {
+          "tags": [
+            "DAE",
+            "YOU"
+          ],
+          "delta_e": 18.5
+        },
+        {
+          "tags": [
+            "CHN",
+            "XU2"
+          ],
+          "delta_e": 22.6
+        },
+        {
+          "tags": [
+            "CHG",
+            "SHZ"
+          ],
+          "delta_e": 23.5
+        },
+        {
+          "tags": [
+            "JUU",
+            "SHE"
+          ],
+          "delta_e": 23.8
+        },
+        {
+          "tags": [
+            "KAM",
+            "LSH"
+          ],
+          "delta_e": 24.0
+        },
+        {
+          "tags": [
+            "SUI",
+            "XU2"
+          ],
+          "delta_e": 24.1
+        },
+        {
+          "tags": [
+            "LUO",
+            "SUI"
+          ],
+          "delta_e": 24.3
+        },
+        {
+          "tags": [
+            "CZM",
+            "WLM"
+          ],
+          "delta_e": 24.4
+        },
+        {
+          "tags": [
+            "CHN",
+            "GUO"
+          ],
+          "delta_e": 24.6
+        }
+      ]
     },
     "core_cleanup": {
       "exact": {
