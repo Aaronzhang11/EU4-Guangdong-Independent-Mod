@@ -1,0 +1,5 @@
+# B43 Chunqiu polity definition.
+graphical_culture = asiangfx
+
+color = { 74 122 168 }
+revolutionary_colors = { 5 8 1 }

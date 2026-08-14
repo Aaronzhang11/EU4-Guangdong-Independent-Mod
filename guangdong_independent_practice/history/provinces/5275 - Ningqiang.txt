@@ -1,8 +1,8 @@
 # 5275 - Ningqiang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WXG
+controller = WXG
+add_core = WXG
 culture = zhili
 religion = confucianism
 capital = "Ningqiang"

@@ -1,8 +1,8 @@
 # 5274 - Xingan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = JUU
+controller = JUU
+add_core = JUU
 culture = zhili
 religion = confucianism
 capital = "Xingan"

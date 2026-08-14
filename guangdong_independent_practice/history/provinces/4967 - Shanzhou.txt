@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZHG
+controller = ZHG
+add_core = ZHG
 add_core = LNG
 culture = zhongyuan
 religion = confucianism

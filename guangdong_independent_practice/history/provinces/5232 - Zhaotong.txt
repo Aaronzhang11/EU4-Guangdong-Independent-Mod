@@ -1,8 +1,8 @@
 # 5232 - Zhaotong
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = LSH
+controller = LSH
+add_core = LSH
 add_core = CDL
 culture = yi
 religion = animism

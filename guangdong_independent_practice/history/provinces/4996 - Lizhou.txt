@@ -1,9 +1,8 @@
 # 4996 - Lizhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = WLM
+controller = WLM
+add_core = WLM
 culture = xiang
 religion = confucianism
 capital = "Lizhou"

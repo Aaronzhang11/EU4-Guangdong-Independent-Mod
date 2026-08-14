@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GON
+controller = GON
+add_core = GON
 culture = zhongyuan
 religion = confucianism
 capital = "Dengzhou"

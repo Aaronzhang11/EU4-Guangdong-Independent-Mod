@@ -1,8 +1,7 @@
 # 5008 - Yunyang
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = SH2
+controller = SH2
+add_core = SH2
 culture = hubei
 religion = confucianism
 capital = "Yunyang"

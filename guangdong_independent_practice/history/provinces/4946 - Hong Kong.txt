@@ -3,7 +3,6 @@
 owner = GDD
 controller = GDD
 add_core = GDD
-add_core = YUE
 culture = cantonese
 religion = confucianism
 capital = "Tuen Mun"

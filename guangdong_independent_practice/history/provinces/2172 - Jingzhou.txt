@@ -1,7 +1,6 @@
 # 2172 - Jingzhou
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CHC
+controller = CHC
 add_core = CHC
 culture = hubei
 religion = confucianism

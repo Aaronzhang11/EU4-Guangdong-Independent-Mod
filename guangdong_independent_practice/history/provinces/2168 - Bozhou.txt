@@ -1,7 +1,7 @@
 # 2168 - Bozhou
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = BAA
+controller = BAA
+add_core = BAA
 add_core = CYI
 add_core = CXI
 culture = yi

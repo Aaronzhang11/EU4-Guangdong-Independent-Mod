@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = SNG
+controller = SNG
+add_core = SNG
 culture = zhongyuan
 religion = confucianism
 capital = "Suizhou"

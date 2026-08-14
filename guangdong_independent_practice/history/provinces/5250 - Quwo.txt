@@ -1,8 +1,8 @@
 # 5250 - Quwo
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QWO
+controller = QWO
+add_core = QWO
 culture = zhili
 religion = confucianism
 capital = "Quwo"

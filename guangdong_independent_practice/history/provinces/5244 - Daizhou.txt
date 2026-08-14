@@ -1,8 +1,8 @@
 # 5244 - Daizhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DAE
+controller = DAE
+add_core = DAE
 culture = zhili
 religion = confucianism
 capital = "Daizhou"

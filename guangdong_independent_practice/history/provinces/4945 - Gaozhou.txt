@@ -2,7 +2,6 @@
 
 owner = LIL
 controller = LIL
-add_core = YUE
 add_core = LIL
 culture = cantonese
 religion = confucianism

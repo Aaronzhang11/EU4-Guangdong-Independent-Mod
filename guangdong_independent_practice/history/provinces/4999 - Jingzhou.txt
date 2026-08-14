@@ -3,7 +3,6 @@
 owner = CZM
 controller = CZM
 add_core = CMI
-add_core = CHC
 add_core = CZM
 culture = miao
 religion = animism

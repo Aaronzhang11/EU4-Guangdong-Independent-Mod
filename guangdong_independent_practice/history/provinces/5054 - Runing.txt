@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CAI
+controller = CAI
+add_core = CAI
 culture = zhongyuan
 religion = confucianism
 capital = "Runing"

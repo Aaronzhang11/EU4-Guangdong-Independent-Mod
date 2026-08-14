@@ -1,9 +1,9 @@
 # 5227 - Lushui
 
-owner = MMA
-controller = MMA
+owner = MDL
+controller = MDL
+add_core = MDL
 add_core = MMA
-add_core = MNG
 culture = shan
 religion = buddhism
 capital = "Lushui"

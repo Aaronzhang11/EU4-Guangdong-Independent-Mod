@@ -1,8 +1,8 @@
 # 694 - Pingyang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WEI
+controller = WEI
+add_core = WEI
 culture = zhili
 religion = confucianism
 capital = "Pingyang"

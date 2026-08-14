@@ -1,8 +1,8 @@
 # 5272 - Shangzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZNG
+controller = ZNG
+add_core = ZNG
 culture = zhili
 religion = confucianism
 capital = "Shangzhou"

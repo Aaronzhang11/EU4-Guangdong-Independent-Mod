@@ -1,8 +1,8 @@
 # 5108 - Taian
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = LUU
+controller = LUU
+add_core = LUU
 culture = shandong
 religion = confucianism
 capital = "Taian"

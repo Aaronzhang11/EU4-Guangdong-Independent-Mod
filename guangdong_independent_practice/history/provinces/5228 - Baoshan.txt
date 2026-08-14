@@ -1,8 +1,8 @@
 # 5228 - Baoshan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = NZA
+controller = NZA
+add_core = NZA
 add_core = CDL
 culture = bai
 religion = buddhism

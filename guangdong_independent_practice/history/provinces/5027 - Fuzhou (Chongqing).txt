@@ -1,10 +1,9 @@
 # 5027 - Fuzhou (Chongqing)
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WLM
+controller = WLM
+add_core = WLM
 add_core = CXI
-add_core = SHU
 culture = sichuanese
 religion = confucianism
 capital = "Fuzhou"

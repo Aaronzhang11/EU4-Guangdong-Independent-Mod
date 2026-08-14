@@ -1,10 +1,9 @@
 # 4987 - Wanzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = BAA
+controller = BAA
+add_core = BAA
 add_core = CXI
-add_core = SHU
 culture = sichuanese
 religion = confucianism
 capital = "Wanzhou"

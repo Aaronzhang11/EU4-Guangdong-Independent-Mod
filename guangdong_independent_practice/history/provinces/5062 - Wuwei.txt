@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CCH
+controller = CCH
+add_core = CCH
 culture = jianghuai
 religion = confucianism
 capital = "Wuwei"

@@ -2,7 +2,6 @@
 
 owner = CSA
 controller = CSA
-add_core = CHC
 add_core = CSA
 culture = xiang
 religion = confucianism

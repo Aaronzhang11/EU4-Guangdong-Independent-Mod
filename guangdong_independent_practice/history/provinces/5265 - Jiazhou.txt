@@ -1,8 +1,8 @@
 # 5265 - Jiazhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YOU
+controller = YOU
+add_core = YOU
 culture = zhili
 religion = confucianism
 capital = "Jiazhou"

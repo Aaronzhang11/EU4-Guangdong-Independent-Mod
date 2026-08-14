@@ -1,7 +1,7 @@
 # 1822 - Suzhou
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = wu
 religion = confucianism
 capital = "Suzhou"

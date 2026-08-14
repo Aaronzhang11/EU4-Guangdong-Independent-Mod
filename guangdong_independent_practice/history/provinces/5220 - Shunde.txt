@@ -1,8 +1,8 @@
 # 5220 - Shunde
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZHA
+controller = ZHA
+add_core = ZHA
 culture = zhili
 religion = confucianism
 capital = "Shunde"

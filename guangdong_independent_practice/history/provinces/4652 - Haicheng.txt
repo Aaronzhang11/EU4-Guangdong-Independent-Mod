@@ -1,8 +1,8 @@
 # 4652 - Haicheng
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YAN
+controller = YAN
+add_core = YAN
 culture = shandong_culture
 religion = confucianism
 capital = "Haicheng"

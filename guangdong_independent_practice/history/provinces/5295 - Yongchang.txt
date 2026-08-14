@@ -1,8 +1,8 @@
 # 5295 - Yongchang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WGS
+controller = WGS
+add_core = WGS
 culture = xibei
 religion = confucianism
 capital = "Yongchang"

@@ -1,8 +1,8 @@
 # 5211 - Shanhaiguan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GUZ
+controller = GUZ
+add_core = GUZ
 culture = zhili
 religion = confucianism
 capital = "Shanhaiguan"

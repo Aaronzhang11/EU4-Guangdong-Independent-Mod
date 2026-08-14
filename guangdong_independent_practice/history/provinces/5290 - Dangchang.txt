@@ -1,8 +1,8 @@
 # 5290 - Dangchang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DCH
+controller = DCH
+add_core = DCH
 culture = tibetan
 religion = vajrayana
 capital = "Dangchang"

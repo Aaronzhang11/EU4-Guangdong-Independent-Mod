@@ -1,9 +1,8 @@
 # 2152 - Jianning
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = MIN
+owner = YUE
+controller = YUE
+add_core = YUE
 add_core = NNG
 culture = chimin
 religion = confucianism

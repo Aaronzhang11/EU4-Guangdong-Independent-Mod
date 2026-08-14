@@ -1,8 +1,8 @@
 # 5289 - Jiezhou Gansu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DZH
+controller = DZH
+add_core = DZH
 culture = xibei
 religion = confucianism
 capital = "Jiezhou Gansu"

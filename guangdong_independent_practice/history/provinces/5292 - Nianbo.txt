@@ -1,8 +1,8 @@
 # 5292 - Nianbo
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WGS
+controller = WGS
+add_core = WGS
 culture = xibei
 religion = vajrayana
 capital = "Nianbo"

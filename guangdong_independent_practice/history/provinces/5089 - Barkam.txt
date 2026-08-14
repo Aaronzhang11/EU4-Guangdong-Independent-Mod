@@ -1,8 +1,8 @@
 # 5089 - Barkam
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = JRG
+controller = JRG
+add_core = JRG
 add_core = CXI
 culture = tibetan
 religion = vajrayana

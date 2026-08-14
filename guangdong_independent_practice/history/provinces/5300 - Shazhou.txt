@@ -1,9 +1,8 @@
 # 5300 - Shazhou
 
-owner = HMI
-controller = HMI
-add_core = HMI
-add_core = MNG
+owner = SHZ
+controller = SHZ
+add_core = SHZ
 culture = oirats
 religion = vajrayana
 capital = "Shazhou"

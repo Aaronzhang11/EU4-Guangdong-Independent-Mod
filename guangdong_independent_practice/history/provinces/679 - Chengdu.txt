@@ -1,8 +1,7 @@
 # 679 - Chengdu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = SHU
+controller = SHU
 add_core = CXI
 add_core = SHU
 culture = sichuanese

@@ -1,8 +1,8 @@
 # 5284 - Haojing
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = SH2
+controller = SH2
+add_core = SH2
 culture = zhili
 religion = confucianism
 capital = "Haojing"

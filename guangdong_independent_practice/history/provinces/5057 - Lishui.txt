@@ -1,7 +1,7 @@
 # 5057 - Lishui (Jiangsu)
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = jianghuai
 religion = confucianism
 capital = "Lishui"

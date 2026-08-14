@@ -1,8 +1,8 @@
 #1821 - Jiangling
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = jianghuai
 religion = confucianism
 capital = "Jiangling"

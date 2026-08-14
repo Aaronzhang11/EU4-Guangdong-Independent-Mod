@@ -1,8 +1,8 @@
 # 698 - Ningxia
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WGS
+controller = WGS
+add_core = WGS
 culture = mongol
 religion = confucianism
 capital = "Ningxia"

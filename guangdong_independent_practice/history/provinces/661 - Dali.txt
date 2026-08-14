@@ -1,8 +1,8 @@
 # 661 - Dali
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = MDL
+controller = MDL
+add_core = MDL
 add_core = CDL
 culture = bai
 religion = buddhism

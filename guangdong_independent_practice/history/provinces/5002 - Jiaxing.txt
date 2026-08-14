@@ -1,9 +1,8 @@
 # 5002 - Jiaxing
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = WUU
+owner = YUE
+controller = YUE
+add_core = YUE
 culture = wu
 religion = confucianism
 capital = "Jiaxing"

@@ -1,6 +1,6 @@
 l_english:
- PROV4197:0 "蓟州"
- PROV_ADJ4197:0 "蓟州"
+ PROV4197:0 "蕲州"
+ PROV_ADJ4197:0 "蕲州"
  pearl_river_delta_area:0 "南海"
  pearl_river_delta_area_name:0 "南海"
  pearl_river_delta_area_adj:0 "南海"

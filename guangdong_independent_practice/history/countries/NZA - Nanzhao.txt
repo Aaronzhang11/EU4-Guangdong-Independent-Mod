@@ -1,0 +1,9 @@
+# B43 Chunqiu polity history.
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+technology_group = chinese
+religion = animism
+primary_culture = yi
+capital = 5235
+fixed_capital = 5235

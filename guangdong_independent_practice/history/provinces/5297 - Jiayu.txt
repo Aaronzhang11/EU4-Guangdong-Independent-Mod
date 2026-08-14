@@ -1,8 +1,8 @@
 # 5297 - Jiayu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GZH
+controller = GZH
+add_core = GZH
 culture = xibei
 religion = confucianism
 capital = "Jiayu"

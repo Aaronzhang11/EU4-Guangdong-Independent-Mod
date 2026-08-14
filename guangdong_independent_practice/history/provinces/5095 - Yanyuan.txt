@@ -1,8 +1,8 @@
 # 5095 - Yanyuan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = LSH
+controller = LSH
+add_core = LSH
 add_core = CYI
 add_core = CDL
 add_core = CXI

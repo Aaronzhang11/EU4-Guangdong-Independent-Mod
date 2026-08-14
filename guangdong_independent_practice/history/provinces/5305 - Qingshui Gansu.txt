@@ -1,8 +1,8 @@
 # 5305 - Qingshui Gansu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QIN
+controller = QIN
+add_core = QIN
 culture = xibei
 religion = confucianism
 capital = "Qingshui Gansu"

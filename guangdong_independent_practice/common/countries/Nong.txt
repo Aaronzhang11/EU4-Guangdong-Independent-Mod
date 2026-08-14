@@ -1,7 +1,6 @@
 # Default regional country template.
 graphical_culture = asiangfx
-
-color = { 70 142 76 }
+color = { 109 150 116 }
 revolutionary_colors = { 0 1 0 }
 historical_score = 0
 

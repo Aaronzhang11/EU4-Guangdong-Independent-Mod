@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QSH
+controller = QSH
+add_core = QSH
 culture = wu
 religion = confucianism
 capital = "Taiping"

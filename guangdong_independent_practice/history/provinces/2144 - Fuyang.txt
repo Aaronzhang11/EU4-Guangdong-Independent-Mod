@@ -1,7 +1,8 @@
 # 2144 - Fuyang
 
-owner = XU2
-controller = XU2
+owner = CHN
+controller = CHN
+add_core = CHN
 add_core = XU2
 culture = zhongyuan
 religion = confucianism

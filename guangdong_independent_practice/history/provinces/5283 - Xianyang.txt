@@ -1,8 +1,8 @@
 # 5283 - Xianyang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QIN
+controller = QIN
+add_core = QIN
 culture = zhili
 religion = confucianism
 capital = "Xianyang"

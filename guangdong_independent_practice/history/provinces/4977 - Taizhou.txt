@@ -1,7 +1,7 @@
 # 4977 - Taizhou
-owner = XU2
-controller = XU2
-add_core = XU2
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = jianghuai
 religion = confucianism
 capital = "Taizhou"

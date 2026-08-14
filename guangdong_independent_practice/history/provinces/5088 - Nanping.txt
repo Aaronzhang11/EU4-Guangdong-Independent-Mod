@@ -1,8 +1,8 @@
 # 5088 - Nanping
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DZH
+controller = DZH
+add_core = DZH
 add_core = CXI
 culture = tibetan
 religion = vajrayana

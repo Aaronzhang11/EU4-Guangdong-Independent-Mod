@@ -1,0 +1,724 @@
+{
+  "batch": "B43_chunqiu_polities",
+  "constraints": {
+    "yan": "expanded to the user-confirmed Liaodong provinces",
+    "qi": "preserved; no QIC province changes",
+    "dae_capital": "Daizhou (5244)",
+    "jiarong": "JRG owns Ngawa (5091) and Barkam (5089)",
+    "geometry": "unchanged",
+    "huzhou": "YUE owns and cores 4950",
+    "yangzhou": "XU2 owns and cores 685",
+    "shangqiu": "SNG owns and cores 2176",
+    "badi_tag": "BD2; legacy BAS removed",
+    "ming_cores": "removed from every B43-assigned province",
+    "southern_ming_core_cleanup": [
+      663,
+      666,
+      2162,
+      2164,
+      4949,
+      5217,
+      5303
+    ]
+  },
+  "policy": {
+    "LSH": [
+      5095,
+      2748,
+      5094,
+      5232
+    ],
+    "MDL": [
+      5226,
+      2167,
+      661,
+      5229,
+      5227
+    ],
+    "NZA": [
+      5235,
+      2165,
+      5237,
+      5228
+    ],
+    "CHC": [
+      4994,
+      4992,
+      4979,
+      4982,
+      5016,
+      5015,
+      5014,
+      2172,
+      5010,
+      5012,
+      4197,
+      682,
+      5011,
+      4981
+    ],
+    "QSH": [
+      686,
+      5065,
+      5067
+    ],
+    "WUU": [
+      2147,
+      2146,
+      5066,
+      5068,
+      1821,
+      5024,
+      2145,
+      5057,
+      5025,
+      1822,
+      5022,
+      4977,
+      5023
+    ],
+    "YUE": [
+      5099,
+      2152,
+      5096,
+      5007,
+      1824,
+      4956,
+      5003,
+      2149,
+      2148,
+      684,
+      4976,
+      5002,
+      4950,
+      4951,
+      5004,
+      5005,
+      5006,
+      2150
+    ],
+    "CCH": [
+      5061,
+      5062
+    ],
+    "BAA": [
+      5081,
+      4211,
+      4987,
+      5026,
+      5082,
+      680,
+      4213,
+      2168,
+      2169
+    ],
+    "BD2": [
+      5013,
+      5028
+    ],
+    "WLM": [
+      5027,
+      4996
+    ],
+    "BMY": [
+      2170,
+      5087,
+      5086,
+      5090
+    ],
+    "DZH": [
+      5088,
+      5289
+    ],
+    "XU2": [
+      2141,
+      5018,
+      4196,
+      2143,
+      2142,
+      5020,
+      5056,
+      5064,
+      1838,
+      5063,
+      5021,
+      5059,
+      685
+    ],
+    "LUU": [
+      5112,
+      5109,
+      5108,
+      2140
+    ],
+    "SNG": [
+      5110,
+      5058,
+      2176,
+      5050
+    ],
+    "CAG": [
+      5111,
+      5031
+    ],
+    "CAI": [
+      5054
+    ],
+    "CHN": [
+      2144,
+      5051
+    ],
+    "GUN": [
+      2137,
+      4966
+    ],
+    "CZH": [
+      688,
+      5053,
+      5046,
+      1836
+    ],
+    "SUI": [
+      2175,
+      5009
+    ],
+    "LUO": [
+      2171
+    ],
+    "GON": [
+      687,
+      5055
+    ],
+    "ZSH": [
+      2136,
+      696,
+      5218
+    ],
+    "ZHA": [
+      5246,
+      5247,
+      693,
+      5248,
+      5251,
+      5245,
+      5255,
+      5220,
+      5221,
+      5048
+    ],
+    "WEI": [
+      4195,
+      5219,
+      2178,
+      5252,
+      694,
+      5256,
+      5249,
+      5253,
+      5254,
+      5269
+    ],
+    "DAE": [
+      702,
+      2177,
+      697,
+      5243,
+      5244,
+      5242
+    ],
+    "YOU": [
+      701,
+      5266,
+      5265,
+      5267,
+      2179,
+      5268
+    ],
+    "ZNG": [
+      5273,
+      5272
+    ],
+    "SH2": [
+      5008,
+      681,
+      5284
+    ],
+    "JUU": [
+      689,
+      5274
+    ],
+    "WDU": [
+      5309,
+      5308
+    ],
+    "DCH": [
+      5290,
+      5092
+    ],
+    "QIN": [
+      5307,
+      5306,
+      5305,
+      5291,
+      2180,
+      2181,
+      5278,
+      4198,
+      5271,
+      5283,
+      700,
+      5285,
+      5270
+    ],
+    "WGS": [
+      2191,
+      4676,
+      708,
+      5295,
+      2182,
+      5292,
+      5288,
+      5286,
+      5287,
+      5277,
+      5276,
+      4223,
+      698,
+      709
+    ],
+    "GZH": [
+      5296,
+      707,
+      5297
+    ],
+    "SHZ": [
+      5300,
+      5299,
+      2122
+    ],
+    "HZH": [
+      2184,
+      5293,
+      699,
+      2183
+    ],
+    "SHU": [
+      5080,
+      5078,
+      5085,
+      5083,
+      5077,
+      4212,
+      5084,
+      5079,
+      5076,
+      679,
+      5075
+    ],
+    "YPG": [
+      5294
+    ],
+    "QWO": [
+      5250
+    ],
+    "WVG": [
+      5047,
+      5049
+    ],
+    "GUO": [
+      5052,
+      5045
+    ],
+    "LIU": [
+      5060
+    ],
+    "WXG": [
+      5275
+    ],
+    "KSD": [
+      4204,
+      706,
+      711,
+      2123,
+      4693
+    ],
+    "AMD": [
+      2134,
+      705
+    ],
+    "KAM": [
+      2133,
+      2135,
+      2131,
+      2132,
+      5093,
+      678,
+      5224,
+      5225
+    ],
+    "JRG": [
+      5091,
+      5089
+    ],
+    "TSF": [
+      4993
+    ],
+    "ZHG": [
+      4967
+    ],
+    "SHE": [
+      5030
+    ],
+    "GUZ": [
+      4194,
+      5211
+    ],
+    "WUZ": [
+      704,
+      5209
+    ],
+    "YAN": [
+      703,
+      1816,
+      5113,
+      5114,
+      5115,
+      5116,
+      5212,
+      5213,
+      2112,
+      2113,
+      4652,
+      4672,
+      5204,
+      726,
+      5205,
+      5206,
+      5207
+    ]
+  },
+  "reset_owners": {
+    "2154": "MNG"
+  },
+  "created_from_vanilla": [],
+  "changed_history_files": [],
+  "removed_legacy_artifacts": [],
+  "legacy_artifacts_required_absent": [
+    "guangdong_independent_practice\\common\\countries\\B43_Bashi.txt",
+    "guangdong_independent_practice\\history\\countries\\BAS - Bashi.txt",
+    "guangdong_independent_practice\\gfx\\flags\\BAS.tga"
+  ],
+  "generated_country_files": [
+    "guangdong_independent_practice\\common\\countries\\B43_Amdo_Golog.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Ba.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Badi.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Baima_Miyao.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Cai.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Cao.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Chao.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Chen.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Dai.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Dangchang.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Dengzhi.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Ganzhou.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Gong.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Guan.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Guo.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Guzhu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Hezhou_Huihui.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Jiarong.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Ju.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Liangshan.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Liu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Lu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Luo.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Mongol_Dali.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Nanzhao.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Qunshu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Quwo.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Shazhou.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Shen.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Shen_Han_Mian.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Sui.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Tianshi_Fu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wanggu_Russia.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wei.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wei_State.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wudu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wuling.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wuxing.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Wuzhong.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Yinping.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Yiqu.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Zhao.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Zheng.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Zhongshan.txt",
+    "guangdong_independent_practice\\common\\countries\\B43_Zhougong.txt",
+    "guangdong_independent_practice\\common\\countries\\Changsha.txt",
+    "guangdong_independent_practice\\common\\countries\\Chaozhou.txt",
+    "guangdong_independent_practice\\common\\countries\\Chenzhou_Miao.txt",
+    "guangdong_independent_practice\\common\\countries\\Chu.txt",
+    "guangdong_independent_practice\\common\\countries\\Dian.txt",
+    "guangdong_independent_practice\\common\\countries\\Guangdong.txt",
+    "guangdong_independent_practice\\common\\countries\\Guilin.txt",
+    "guangdong_independent_practice\\common\\countries\\Guiyang.txt",
+    "guangdong_independent_practice\\common\\countries\\Hakka.txt",
+    "guangdong_independent_practice\\common\\countries\\Khoshuud.txt",
+    "guangdong_independent_practice\\common\\countries\\Liliao.txt",
+    "guangdong_independent_practice\\common\\countries\\Linchuan.txt",
+    "guangdong_independent_practice\\common\\countries\\Mdokhams.txt",
+    "guangdong_independent_practice\\common\\countries\\Min.txt",
+    "guangdong_independent_practice\\common\\countries\\Nanchang.txt",
+    "guangdong_independent_practice\\common\\countries\\Nong.txt",
+    "guangdong_independent_practice\\common\\countries\\Qi.txt",
+    "guangdong_independent_practice\\common\\countries\\Qin.txt",
+    "guangdong_independent_practice\\common\\countries\\SNG.txt",
+    "guangdong_independent_practice\\common\\countries\\Shu.txt",
+    "guangdong_independent_practice\\common\\countries\\Tianzhou.txt",
+    "guangdong_independent_practice\\common\\countries\\Wu.txt",
+    "guangdong_independent_practice\\common\\countries\\Wuxi_Miao.txt",
+    "guangdong_independent_practice\\common\\countries\\Xu2.txt",
+    "guangdong_independent_practice\\common\\countries\\Yan.txt",
+    "guangdong_independent_practice\\common\\countries\\Yelang.txt",
+    "guangdong_independent_practice\\common\\countries\\Yue.txt",
+    "guangdong_independent_practice\\common\\countries\\Zhou.txt",
+    "guangdong_independent_practice\\history\\countries\\AMD - Amdo Golog.txt",
+    "guangdong_independent_practice\\history\\countries\\BAA - Ba.txt",
+    "guangdong_independent_practice\\history\\countries\\BD2 - Badi.txt",
+    "guangdong_independent_practice\\history\\countries\\BMY - Baima Miyao.txt",
+    "guangdong_independent_practice\\history\\countries\\CAG - Cao.txt",
+    "guangdong_independent_practice\\history\\countries\\CAI - Cai.txt",
+    "guangdong_independent_practice\\history\\countries\\CCH - Chao.txt",
+    "guangdong_independent_practice\\history\\countries\\CHN - Chen.txt",
+    "guangdong_independent_practice\\history\\countries\\DAE - Dai.txt",
+    "guangdong_independent_practice\\history\\countries\\DCH - Dangchang.txt",
+    "guangdong_independent_practice\\history\\countries\\DZH - Dengzhi.txt",
+    "guangdong_independent_practice\\history\\countries\\GON - Gong.txt",
+    "guangdong_independent_practice\\history\\countries\\GUN - Guan.txt",
+    "guangdong_independent_practice\\history\\countries\\GUO - Guo.txt",
+    "guangdong_independent_practice\\history\\countries\\GUZ - Guzhu.txt",
+    "guangdong_independent_practice\\history\\countries\\GZH - Ganzhou.txt",
+    "guangdong_independent_practice\\history\\countries\\HZH - Hezhou Huihui.txt",
+    "guangdong_independent_practice\\history\\countries\\JRG - Jiarong.txt",
+    "guangdong_independent_practice\\history\\countries\\JUU - Ju.txt",
+    "guangdong_independent_practice\\history\\countries\\KAM - Mdo Khams.txt",
+    "guangdong_independent_practice\\history\\countries\\KSD - Khoshuud.txt",
+    "guangdong_independent_practice\\history\\countries\\LIU - Liu.txt",
+    "guangdong_independent_practice\\history\\countries\\LSH - Liangshan.txt",
+    "guangdong_independent_practice\\history\\countries\\LUO - Luo.txt",
+    "guangdong_independent_practice\\history\\countries\\LUU - Lu.txt",
+    "guangdong_independent_practice\\history\\countries\\MDL - Mongol Dali.txt",
+    "guangdong_independent_practice\\history\\countries\\NZA - Nanzhao.txt",
+    "guangdong_independent_practice\\history\\countries\\QIN - Qin.txt",
+    "guangdong_independent_practice\\history\\countries\\QSH - Qunshu.txt",
+    "guangdong_independent_practice\\history\\countries\\QWO - Quwo.txt",
+    "guangdong_independent_practice\\history\\countries\\SH2 - Shen Han Mian.txt",
+    "guangdong_independent_practice\\history\\countries\\SHE - Shen.txt",
+    "guangdong_independent_practice\\history\\countries\\SHU - Shu.txt",
+    "guangdong_independent_practice\\history\\countries\\SHZ - Shazhou.txt",
+    "guangdong_independent_practice\\history\\countries\\SUI - Sui.txt",
+    "guangdong_independent_practice\\history\\countries\\TSF - Tianshi Fu.txt",
+    "guangdong_independent_practice\\history\\countries\\WDU - Wudu.txt",
+    "guangdong_independent_practice\\history\\countries\\WEI - Wei.txt",
+    "guangdong_independent_practice\\history\\countries\\WGS - Wanggu Russia.txt",
+    "guangdong_independent_practice\\history\\countries\\WLM - Wuling.txt",
+    "guangdong_independent_practice\\history\\countries\\WUU - Wu.txt",
+    "guangdong_independent_practice\\history\\countries\\WUZ - Wuzhong.txt",
+    "guangdong_independent_practice\\history\\countries\\WVG - Wei State.txt",
+    "guangdong_independent_practice\\history\\countries\\WXG - Wuxing.txt",
+    "guangdong_independent_practice\\history\\countries\\YOU - Yiqu.txt",
+    "guangdong_independent_practice\\history\\countries\\YPG - Yinping.txt",
+    "guangdong_independent_practice\\history\\countries\\YUE - Yue.txt",
+    "guangdong_independent_practice\\history\\countries\\ZHA - Zhao.txt",
+    "guangdong_independent_practice\\history\\countries\\ZHG - Zhougong.txt",
+    "guangdong_independent_practice\\history\\countries\\ZNG - Zheng.txt",
+    "guangdong_independent_practice\\history\\countries\\ZSH - Zhongshan.txt"
+  ],
+  "validation": {
+    "province_count": 262,
+    "polity_count": 56,
+    "generated_tag_count": 45,
+    "preserved_qi": [
+      690,
+      691,
+      695,
+      2138,
+      2139,
+      5101,
+      5102,
+      5103,
+      5104,
+      5105,
+      5106,
+      5107,
+      5222,
+      5223
+    ],
+    "expanded_yan": [
+      703,
+      726,
+      1816,
+      2112,
+      2113,
+      4652,
+      4672,
+      5113,
+      5114,
+      5115,
+      5116,
+      5204,
+      5205,
+      5206,
+      5207,
+      5212,
+      5213
+    ],
+    "dae_capital": 5244,
+    "badi_tag": "BD2",
+    "adjacent_color_audit": {
+      "status": "skipped"
+    },
+    "core_cleanup": {
+      "exact": {
+        "CHC": [
+          682,
+          2172,
+          4197,
+          4979,
+          4981,
+          4982,
+          4992,
+          4994,
+          5010,
+          5011,
+          5012,
+          5014,
+          5015,
+          5016
+        ],
+        "MIN": [
+          669,
+          1829,
+          4952,
+          4953,
+          4958,
+          5097,
+          5098
+        ],
+        "SHU": [
+          679,
+          4212,
+          5075,
+          5076,
+          5077,
+          5078,
+          5079,
+          5080,
+          5083,
+          5084,
+          5085
+        ],
+        "WUU": [
+          1821,
+          1822,
+          2145,
+          2146,
+          2147,
+          4977,
+          5022,
+          5023,
+          5024,
+          5025,
+          5057,
+          5066,
+          5068
+        ],
+        "KAM": [
+          678,
+          2131,
+          2132,
+          2133,
+          2135,
+          5093,
+          5224,
+          5225
+        ],
+        "KSD": [
+          706,
+          711,
+          2123,
+          4204,
+          4693
+        ],
+        "YAN": [
+          703,
+          726,
+          1816,
+          2112,
+          2113,
+          4652,
+          4672,
+          5113,
+          5114,
+          5115,
+          5116,
+          5204,
+          5205,
+          5206,
+          5207,
+          5212,
+          5213
+        ]
+      },
+      "removed": {
+        "YUE": [
+          665,
+          667,
+          668,
+          2157,
+          2159,
+          4942,
+          4943,
+          4945,
+          4946,
+          4947,
+          4949,
+          5214,
+          5215
+        ],
+        "XU2": [
+          4977,
+          5022,
+          5023
+        ],
+        "BAS": [
+          5013,
+          5028
+        ],
+        "HMI": [
+          707,
+          2122,
+          5299,
+          5300
+        ],
+        "QIN": [
+          689,
+          2179
+        ],
+        "WVG": [
+          5048,
+          5270
+        ],
+        "MNG": [
+          663,
+          666,
+          2162,
+          2164,
+          4949,
+          5217,
+          5303
+        ]
+      }
+    }
+  }
+}

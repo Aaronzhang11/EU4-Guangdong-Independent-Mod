@@ -1,8 +1,8 @@
 # 4993 - Guangxin
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = TSF
+controller = TSF
+add_core = TSF
 add_core = NNG
 culture = gan
 religion = confucianism

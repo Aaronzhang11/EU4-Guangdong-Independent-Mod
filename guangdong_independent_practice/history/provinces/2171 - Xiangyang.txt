@@ -1,8 +1,7 @@
 # 2171 - Xiangyang
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = LUO
+controller = LUO
+add_core = LUO
 culture = hubei
 religion = confucianism
 capital = "Xiangyang"

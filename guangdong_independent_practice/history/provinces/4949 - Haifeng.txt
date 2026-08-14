@@ -2,8 +2,6 @@
 
 owner = CZC
 controller = CZC
-add_core = MNG
-add_core = YUE
 add_core = CZC
 culture = chimin
 religion = confucianism
