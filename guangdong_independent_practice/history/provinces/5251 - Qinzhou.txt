@@ -3,7 +3,7 @@
 owner = ZHA
 controller = ZHA
 add_core = ZHA
-culture = zhili
+culture = gdd_jin
 religion = confucianism
 capital = "Qinzhou"
 trade_goods = grain

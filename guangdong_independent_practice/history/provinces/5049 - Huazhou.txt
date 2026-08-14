@@ -1,7 +1,7 @@
 owner = WVG
 controller = WVG
 add_core = WVG
-culture = zhongyuan
+culture = gdd_songwei
 religion = confucianism
 capital = "Huazhou"
 trade_goods = livestock

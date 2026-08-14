@@ -3,7 +3,7 @@
 owner = YAN
 controller = YAN
 add_core = YAN
-culture = chihan
+culture = gdd_yan
 religion = confucianism
 capital = "Beijing"
 trade_goods = grain

@@ -4,7 +4,7 @@ government_rank = 1
 
 technology_group = chinese
 religion = animism
-primary_culture = yi
+primary_culture = gdd_shu
 add_accepted_culture = miao
 capital = 674 # Guiyang / current localisation: Guizhu
 fixed_capital = 674

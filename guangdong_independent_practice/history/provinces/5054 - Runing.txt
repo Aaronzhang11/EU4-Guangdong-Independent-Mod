@@ -1,7 +1,7 @@
 owner = CAI
 controller = CAI
 add_core = CAI
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Runing"
 trade_goods = grain

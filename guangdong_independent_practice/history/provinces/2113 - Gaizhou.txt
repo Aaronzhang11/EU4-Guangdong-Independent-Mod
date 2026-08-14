@@ -3,7 +3,7 @@
 owner = YAN
 controller = YAN
 add_core = YAN
-culture = shandong_culture
+culture = gdd_qi
 religion = confucianism
 capital = "Gaizhou"
 trade_goods = fish

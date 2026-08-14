@@ -3,7 +3,7 @@
 owner = WUZ
 controller = WUZ
 add_core = WUZ
-culture = chihan
+culture = gdd_dongyi
 religion = confucianism
 capital = "Jinzhou"
 trade_goods = salt

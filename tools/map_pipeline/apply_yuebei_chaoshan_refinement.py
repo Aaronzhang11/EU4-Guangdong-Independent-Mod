@@ -24,11 +24,11 @@ PARENTS = {
 }
 # id: English, Chinese, colour, goods, development, culture, owner, extra core
 PROVINCES = {
-    2158: ("Shaoguan", "韶关", (65, 46, 176), "iron", (2, 3, 1), "hakka", "GDD", "HUA"),
-    5216: ("Lianzhou", "连州", (69, 150, 92), "livestock", (2, 2, 1), "hakka", "GDD", "HUA"),
-    2156: ("Chaozhou", "潮州", (146, 81, 81), "chinaware", (3, 3, 2), "chimin", "MNG", "MIN"),
-    5217: ("Puning", "普宁", (213, 91, 149), "grain", (2, 3, 1), "chimin", "MNG", "MIN"),
-    4949: ("Haifeng", "海丰", (67, 219, 198), "salt", (1, 1, 1), "chimin", "GDD", "YUE"),
+    2158: ("Shaoguan", "韶关", (65, 46, 176), "iron", (2, 3, 1), "gdd_guangfu", "GDD", "HUA"),
+    5216: ("Lianzhou", "连州", (69, 150, 92), "livestock", (2, 2, 1), "gdd_hakka", "GDD", "HUA"),
+    2156: ("Chaozhou", "潮州", (146, 81, 81), "chinaware", (3, 3, 2), "gdd_min", "MNG", "MIN"),
+    5217: ("Puning", "普宁", (213, 91, 149), "grain", (2, 3, 1), "gdd_min", "MNG", "MIN"),
+    4949: ("Haifeng", "海丰", (67, 219, 198), "salt", (1, 1, 1), "gdd_min", "GDD", "YUE"),
 }
 NEW_IDS = [5216, 5217]
 

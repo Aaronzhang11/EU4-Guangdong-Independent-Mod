@@ -4,7 +4,7 @@ government_rank = 1
 
 technology_group = chinese
 religion = confucianism
-primary_culture = hakka
-add_accepted_culture = chimin
+primary_culture = gdd_hakka
+add_accepted_culture = gdd_min
 capital = 4944 # Meizhou
 fixed_capital = 4944

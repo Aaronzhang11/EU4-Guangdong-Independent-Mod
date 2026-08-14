@@ -3,8 +3,9 @@ add_government_reform = gdd_local_fiefdom_reform
 government_rank = 1
 
 mercantilism = 20
-primary_culture = cantonese
-add_accepted_culture = hakka
+primary_culture = gdd_guangfu
+add_accepted_culture = gdd_hakka
+add_accepted_culture = gdd_min
 religion = confucianism
 technology_group = chinese
 capital = 667

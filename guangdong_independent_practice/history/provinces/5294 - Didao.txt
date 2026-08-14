@@ -3,7 +3,7 @@
 owner = YPG
 controller = YPG
 add_core = YPG
-culture = xibei
+culture = gdd_long
 religion = confucianism
 capital = "Didao"
 trade_goods = grain

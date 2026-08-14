@@ -4,14 +4,14 @@ owner = CHN
 controller = CHN
 add_core = CHN
 add_core = XU2
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
-capital = "Fuyang"
+capital = "Yingzhou"
 trade_goods = grain
 hre = no
-base_tax = 2
-base_production = 2
-base_manpower = 1
+base_tax = 4
+base_production = 4
+base_manpower = 2
 is_city = yes
 
 

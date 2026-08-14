@@ -3,7 +3,7 @@
 owner = WXG
 controller = WXG
 add_core = WXG
-culture = zhili
+culture = gdd_diqiang
 religion = confucianism
 capital = "Ningqiang"
 trade_goods = iron

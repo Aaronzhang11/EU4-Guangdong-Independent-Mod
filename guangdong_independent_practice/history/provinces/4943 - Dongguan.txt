@@ -3,7 +3,7 @@
 owner = GDD
 controller = GDD
 add_core = GDD
-culture = cantonese
+culture = gdd_guangfu
 religion = confucianism
 capital = "Dongguan"
 trade_goods = incense

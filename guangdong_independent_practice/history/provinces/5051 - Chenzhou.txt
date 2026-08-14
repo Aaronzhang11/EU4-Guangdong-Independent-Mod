@@ -1,7 +1,7 @@
 owner = CHN
 controller = CHN
 add_core = CHN
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Chenzhou"
 trade_goods = grain

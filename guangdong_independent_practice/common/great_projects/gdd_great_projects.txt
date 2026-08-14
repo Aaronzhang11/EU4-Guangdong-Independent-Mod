@@ -23,8 +23,8 @@ gdd_nanhai_temple = {
 			is_core = owner
 			owner = {
 				OR = {
-					primary_culture = cantonese
-					accepted_culture = cantonese
+					primary_culture = gdd_guangfu
+					accepted_culture = gdd_guangfu
 				}
 			}
 		}
@@ -36,8 +36,8 @@ gdd_nanhai_temple = {
 			is_core = owner
 			owner = {
 				OR = {
-					primary_culture = cantonese
-					accepted_culture = cantonese
+					primary_culture = gdd_guangfu
+					accepted_culture = gdd_guangfu
 				}
 			}
 		}

@@ -3,7 +3,7 @@
 owner = CHC
 controller = CHC
 add_core = CHC
-culture = xiang
+culture = gdd_chu
 religion = confucianism
 capital = "Yuezhou"
 trade_goods = tea

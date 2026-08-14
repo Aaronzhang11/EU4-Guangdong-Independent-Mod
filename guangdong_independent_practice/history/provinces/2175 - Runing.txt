@@ -1,7 +1,7 @@
 owner = SUI
 controller = SUI
 add_core = SUI
-culture = zhongyuan
+culture = gdd_chu
 religion = confucianism
 capital = "Xinyang"
 trade_goods = tea

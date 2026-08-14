@@ -856,10 +856,16 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         raise ValueError("Legacy BAS tag declaration remains")
     if re.search(r"(?m)^\s*SH2\s*=", tag_text):
         raise ValueError("Legacy SH2 tag declaration remains")
-    localisation = read_text(MOD / "localisation_source/gdd_l_english_readable_utf8.txt")
+    localisation = "\n".join(
+        read_text(path)
+        for path in sorted((MOD / "localisation_source").glob("*.txt"))
+    )
     for tag in set(POLITIES) | set(BORROWED_CAPITALS) | {"CHC", "QSH", "XU2", "SNG", "CZH"}:
-        if len(re.findall(rf"(?m)^\s*{tag}:0\s+", localisation)) != 1:
-            raise ValueError(f"{tag}: readable localisation must occur exactly once")
+        for key in (tag, f"{tag}_ADJ"):
+            if len(re.findall(rf"(?m)^\s*{key}:0\s+", localisation)) != 1:
+                raise ValueError(
+                    f"{key}: readable localisation must occur exactly once"
+                )
     for tag, config in BORROWED_CAPITALS.items():
         history = COUNTRY_HISTORY / config["history"]
         if not history.exists() or int(initial_value(read_text(history), "capital")) != config["capital"]:

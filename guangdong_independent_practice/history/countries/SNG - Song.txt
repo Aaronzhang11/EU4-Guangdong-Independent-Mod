@@ -4,7 +4,7 @@ government_rank = 1
 
 technology_group = chinese
 religion = confucianism
-primary_culture = chihan
+primary_culture = gdd_songwei
 capital = 2176	#Shangqiu
 fixed_capital = 2176
 

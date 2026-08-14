@@ -3,7 +3,7 @@
 owner = CZC
 controller = CZC
 add_core = CZC
-culture = chimin
+culture = gdd_min
 religion = confucianism
 capital = "Qiongzhou"
 trade_goods = grain

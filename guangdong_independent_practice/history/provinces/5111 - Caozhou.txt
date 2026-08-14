@@ -3,7 +3,7 @@
 owner = CAG
 controller = CAG
 add_core = CAG
-culture = shandong
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Caozhou"
 trade_goods = grain

@@ -3,7 +3,7 @@
 owner = WEI
 controller = WEI
 add_core = WEI
-culture = chihan
+culture = gdd_yan
 religion = confucianism
 capital = "Zhending"
 trade_goods = grain

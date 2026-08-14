@@ -3,7 +3,7 @@
 owner = WLM
 controller = WLM
 add_core = WLM
-culture = xiang
+culture = miao
 religion = confucianism
 capital = "Lizhou"
 trade_goods = grain

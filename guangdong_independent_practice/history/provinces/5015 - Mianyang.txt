@@ -1,10 +1,10 @@
-# 5015 - Puqi
+# 5015 - Mianyang
 owner = CHC
 controller = CHC
 add_core = CHC
-culture = hubei
+culture = gdd_chu
 religion = confucianism
-capital = "Puqi"
+capital = "Mianyang"
 trade_goods = tea
 base_tax = 2
 base_production = 2

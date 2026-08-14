@@ -3,7 +3,7 @@
 owner = GZH
 controller = GZH
 add_core = GZH
-culture = xibei
+culture = gdd_long
 religion = confucianism
 capital = "Zhangye"
 trade_goods = grain

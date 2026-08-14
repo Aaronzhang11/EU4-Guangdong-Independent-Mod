@@ -3,8 +3,8 @@ add_government_reform = gdd_local_fiefdom_reform
 government_rank = 1
 
 mercantilism = 20
-primary_culture = chimin
-add_accepted_culture = cantonese
+primary_culture = gdd_min
+add_accepted_culture = gdd_guangfu
 religion = confucianism
 technology_group = chinese
 capital = 2156 #Chaochow

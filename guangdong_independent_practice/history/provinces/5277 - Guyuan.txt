@@ -3,7 +3,7 @@
 owner = WGS
 controller = WGS
 add_core = WGS
-culture = zhili
+culture = gdd_long
 religion = confucianism
 capital = "Guyuan"
 trade_goods = livestock

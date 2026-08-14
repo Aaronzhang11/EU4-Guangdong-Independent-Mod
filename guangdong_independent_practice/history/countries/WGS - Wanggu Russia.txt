@@ -5,5 +5,6 @@ government_rank = 2
 technology_group = chinese
 religion = vajrayana
 primary_culture = mongol
+add_accepted_culture = gdd_long
 capital = 4223
 fixed_capital = 4223

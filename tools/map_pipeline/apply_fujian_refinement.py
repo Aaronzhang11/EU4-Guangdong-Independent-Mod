@@ -141,7 +141,7 @@ def update_areas_region() -> None:
 def history(p: Province) -> str:
     cores=["MNG","MIN"] + (["NNG"] if p.area=="west_fujian_area" else [])
     lines=[f"# {p.province_id} - {p.english}","","owner = MNG","controller = MNG",*(f"add_core = {c}" for c in cores),
-           "culture = chimin","religion = confucianism",f'capital = "{p.english}"',f"trade_goods = {p.goods}",
+           "culture = gdd_min","religion = confucianism",f'capital = "{p.english}"',f"trade_goods = {p.goods}",
            f"base_tax = {p.development[0]}",f"base_production = {p.development[1]}",f"base_manpower = {p.development[2]}","is_city = yes"]
     if p.cot: lines.append(f"center_of_trade = {p.cot}")
     if p.fort: lines.append("fort_15th = yes")

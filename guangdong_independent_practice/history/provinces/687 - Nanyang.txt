@@ -1,7 +1,7 @@
 owner = GON
 controller = GON
 add_core = GON
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Nanyang"
 trade_goods = cloth

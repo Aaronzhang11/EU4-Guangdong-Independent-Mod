@@ -2,7 +2,7 @@
 owner = SHE
 controller = SHE
 add_core = SHE
-culture = hubei
+culture = gdd_chu
 religion = confucianism
 capital = "Yunyang"
 trade_goods = iron

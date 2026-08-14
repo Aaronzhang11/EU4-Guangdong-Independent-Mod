@@ -3,7 +3,7 @@
 owner = DCH
 controller = DCH
 add_core = DCH
-culture = tibetan
+culture = gdd_diqiang
 religion = vajrayana
 capital = "Dangchang"
 trade_goods = livestock

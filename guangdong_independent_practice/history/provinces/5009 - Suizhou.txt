@@ -2,7 +2,7 @@
 owner = SUI
 controller = SUI
 add_core = SUI
-culture = hubei
+culture = gdd_chu
 religion = confucianism
 capital = "Suizhou"
 trade_goods = cotton

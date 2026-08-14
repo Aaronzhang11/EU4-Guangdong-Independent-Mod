@@ -3,7 +3,7 @@
 owner = GUI
 controller = GUI
 add_core = GUI
-culture = zhuang
+culture = gdd_zhuang
 religion = confucianism
 capital = "Qingyuan"
 trade_goods = livestock

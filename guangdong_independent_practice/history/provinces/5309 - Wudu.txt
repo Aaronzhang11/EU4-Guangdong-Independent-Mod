@@ -3,7 +3,7 @@
 owner = WDU
 controller = WDU
 add_core = WDU
-culture = xibei
+culture = gdd_diqiang
 religion = confucianism
 capital = "Wudu"
 trade_goods = livestock

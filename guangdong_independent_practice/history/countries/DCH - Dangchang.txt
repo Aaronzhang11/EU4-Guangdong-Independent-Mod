@@ -4,6 +4,6 @@ add_government_reform = gdd_local_fiefdom_reform
 government_rank = 1
 technology_group = chinese
 religion = vajrayana
-primary_culture = tibetan
+primary_culture = gdd_diqiang
 capital = 5290
 fixed_capital = 5290

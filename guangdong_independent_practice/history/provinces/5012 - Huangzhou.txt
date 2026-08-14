@@ -1,10 +1,11 @@
-owner = CHN
-controller = CHN
-add_core = CHN
-culture = zhongyuan
+# 5012 - Huangzhou
+owner = CHC
+controller = CHC
+add_core = CHC
+culture = gdd_chu
 religion = confucianism
-capital = "Yingzhou"
-trade_goods = grain
+capital = "Huangzhou"
+trade_goods = tea
 base_tax = 4
 base_production = 4
 base_manpower = 2

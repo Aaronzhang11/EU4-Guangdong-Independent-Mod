@@ -3,7 +3,7 @@
 owner = ZSH
 controller = ZSH
 add_core = ZSH
-culture = jin
+culture = gdd_jin
 religion = confucianism
 capital = "Xuanhua"
 trade_goods = grain

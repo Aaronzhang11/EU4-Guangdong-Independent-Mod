@@ -3,7 +3,7 @@
 owner = QWO
 controller = QWO
 add_core = QWO
-culture = zhili
+culture = gdd_jin
 religion = confucianism
 capital = "Quwo"
 trade_goods = cloth

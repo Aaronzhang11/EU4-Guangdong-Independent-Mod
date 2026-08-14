@@ -3,7 +3,7 @@
 owner = HAK
 controller = HAK
 add_core = HAK
-culture = hakka
+culture = gdd_hakka
 religion = confucianism
 capital = "Heyuan"
 trade_goods = tropical_wood

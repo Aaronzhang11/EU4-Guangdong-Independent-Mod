@@ -3,7 +3,7 @@
 owner = NUN
 controller = NUN
 add_core = NUN
-culture = zhuang
+culture = gdd_zhuang
 religion = confucianism
 capital = "Siming"
 trade_goods = spices

@@ -3,7 +3,7 @@
 owner = MIN
 controller = MIN
 add_core = MIN
-culture = chimin
+culture = gdd_min
 religion = confucianism
 capital = "Yongchun"
 trade_goods = tea

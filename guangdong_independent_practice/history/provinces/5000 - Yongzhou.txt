@@ -3,7 +3,7 @@
 owner = CSA
 controller = CSA
 add_core = CSA
-culture = xiang
+culture = gdd_chu
 religion = confucianism
 capital = "Yongzhou"
 trade_goods = iron

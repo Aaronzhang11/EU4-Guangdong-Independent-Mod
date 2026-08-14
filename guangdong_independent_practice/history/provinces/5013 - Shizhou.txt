@@ -2,7 +2,7 @@
 owner = BD2
 controller = BD2
 add_core = BD2
-culture = miao
+culture = gdd_diqiang
 religion = animism
 capital = "Shizhou"
 trade_goods = livestock

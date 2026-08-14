@@ -3,7 +3,7 @@
 owner = LIL
 controller = LIL
 add_core = LIL
-culture = chimin
+culture = gdd_zhuang
 religion = confucianism
 capital = "Leichow"
 trade_goods = sugar

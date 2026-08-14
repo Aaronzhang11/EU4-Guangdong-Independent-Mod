@@ -3,7 +3,7 @@
 owner = DAE
 controller = DAE
 add_core = DAE
-culture = mongol
+culture = gdd_jin
 religion = vajrayana
 capital = "Hohhot"
 trade_goods = iron

@@ -3,7 +3,7 @@
 owner = HZH
 controller = HZH
 add_core = HZH
-culture = xibei
+culture = gdd_long
 religion = vajrayana
 capital = "Hezhou Gansu"
 trade_goods = livestock

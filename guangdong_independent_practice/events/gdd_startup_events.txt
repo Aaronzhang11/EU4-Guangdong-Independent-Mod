@@ -119,7 +119,7 @@ country_event = {
             skill = 2
             age = 33
             location = 667
-            culture = cantonese
+            culture = gdd_guangfu
             religion = confucianism
             cost_multiplier = 0.25
         }
@@ -130,7 +130,7 @@ country_event = {
             skill = 2
             age = 35
             location = 667
-            culture = cantonese
+            culture = gdd_guangfu
             religion = confucianism
             cost_multiplier = 0.25
         }
@@ -141,7 +141,7 @@ country_event = {
             skill = 2
             age = 32
             location = 667
-            culture = cantonese
+            culture = gdd_guangfu
             religion = confucianism
             cost_multiplier = 0.25
         }
@@ -184,7 +184,7 @@ country_event = {
                 dip = 3
                 mil = 5
                 male = yes
-                culture = cantonese
+                culture = gdd_guangfu
                 religion = confucianism
             }
         }
