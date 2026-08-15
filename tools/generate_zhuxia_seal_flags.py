@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate deterministic clerical-script flags for all Zhuxia-culture states."""
+"""Generate deterministic small-seal-script flags for Zhuxia-culture states."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / "guangdong_independent_practice"
 FLAGS = MOD / "gfx/flags"
 HISTORIES = MOD / "history/countries"
-MASK_ARCHIVE = ROOT / "tools/assets/zhuxia_lishu_masks.json.zlib"
+MASK_ARCHIVE = ROOT / "tools/assets/zhuxia_seal_masks.json.zlib"
 ZHUXIA_CULTURES = {
     "gdd_zhongyuan", "gdd_jianghuai", "gdd_chu", "gdd_gan",
     "gdd_hakka", "gdd_gui", "gdd_shu", "gdd_dian",
@@ -24,16 +24,16 @@ ZHUXIA_CULTURES = {
 }
 INSCRIPTIONS = {
     "BAA": "巴", "CAG": "曹", "CAI": "蔡", "CCH": "巢", "CHC": "楚",
-    "CHN": "陈", "CSA": "长沙", "CSH": "顺", "CXI": "西", "CZH": "周",
+    "CHN": "陳", "CSA": "長沙", "CSH": "順", "CXI": "西", "CZH": "周",
     "DAE": "代", "DIA": "滇", "DQU": "宕渠", "EGU": "鄂", "GON": "共",
-    "GUI": "桂", "GUN": "管", "GUO": "虢", "GYA": "贵", "GZH": "甘",
-    "HAK": "客", "HNG": "衡", "HUA": "淮", "HYM": "扬", "HZH": "河",
-    "JIN": "晋", "JUU": "苴", "LCH": "临川", "LFA": "兰芳", "LIU": "六",
-    "LNG": "梁", "LUO": "罗", "LUU": "鲁", "MNG": "明", "NCH": "南昌",
-    "NNG": "宁", "QIC": "齐", "QIN": "秦", "QSH": "舒", "QVN": "权",
-    "QWO": "曲沃", "SHE": "申", "SHU": "蜀", "SUI": "随", "TNG": "唐",
-    "TSF": "天师", "WEI": "魏", "XU2": "徐", "YAN": "燕", "YOU": "义渠",
-    "YPG": "阴平", "ZHA": "赵", "ZHG": "周公", "ZHU": "州", "ZNG": "郑",
+    "GUI": "桂", "GUN": "管", "GUO": "虢", "GYA": "貴", "GZH": "甘",
+    "HAK": "客", "HNG": "衡", "HUA": "淮", "HYM": "揚", "HZH": "河",
+    "JIN": "晉", "JUU": "苴", "LCH": "臨川", "LFA": "蘭芳", "LIU": "六",
+    "LNG": "梁", "LUO": "羅", "LUU": "魯", "MNG": "明", "NCH": "南昌",
+    "NNG": "寧", "QIC": "齊", "QIN": "秦", "QSH": "舒", "QVN": "權",
+    "QWO": "曲沃", "SHE": "申", "SHU": "蜀", "SUI": "隨", "TNG": "唐",
+    "TSF": "天師", "WEI": "魏", "XU2": "徐", "YAN": "燕", "YOU": "義渠",
+    "YPG": "陰平", "ZHA": "趙", "ZHG": "周公", "ZHU": "州", "ZNG": "鄭",
     "ZSH": "中山",
 }
 COLORS = {
@@ -82,7 +82,7 @@ def tga_bytes(tag: str, glyph_masks: dict[str, str]) -> bytes:
     ink = (232, 218, 164) if sum(background) < 480 else (48, 39, 32)
     alpha = base64.b64decode(glyph_masks[tag])
     if len(alpha) != 128 * 128:
-        raise ValueError(f"{tag}: corrupt clerical-script mask")
+        raise ValueError(f"{tag}: corrupt small-seal-script mask")
     header = struct.pack(
         "<BBBHHBHHHHBB", 0, 0, 2, 0, 0, 0, 0, 0, 128, 128, 24, 0x20
     )
@@ -107,7 +107,7 @@ def run(check: bool = False) -> None:
         )
     glyph_masks = masks()
     if set(glyph_masks) != expected - PRESERVED:
-        raise ValueError("clerical-script mask archive does not match target policy")
+        raise ValueError("small-seal-script mask archive does not match target policy")
     for tag in sorted(expected - PRESERVED):
         path = FLAGS / f"{tag}.tga"
         data = tga_bytes(tag, glyph_masks)
