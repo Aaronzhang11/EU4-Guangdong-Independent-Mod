@@ -188,6 +188,11 @@ def write_countries() -> None:
             encoding="utf-8",
         )
         (FLAGS / f"{tag}.tga").write_bytes(flag_bytes(config["color"]))
+
+    sys.path.insert(0, str(ROOT / "tools"))
+    from generate_zhuxia_seal_flags import run as generate_zhuxia_seal_flags
+
+    generate_zhuxia_seal_flags(check=False)
     set_existing_country_capital(COUNTRY_HISTORY / "XU2 - Xu2.txt", 2141, write=True)
 
 

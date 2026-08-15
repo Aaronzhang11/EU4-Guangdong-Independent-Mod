@@ -22,6 +22,7 @@ import json
 from pathlib import Path
 import re
 import struct
+import sys
 
 import numpy as np
 from PIL import Image
@@ -951,6 +952,10 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         if check_colors
         else {"status": "skipped"}
     )
+    sys.path.insert(0, str(ROOT / "tools"))
+    from generate_zhuxia_seal_flags import run as check_zhuxia_seal_flags
+
+    check_zhuxia_seal_flags(check=True)
     return {
         "province_count": len(all_ids),
         "polity_count": len(TAG_PROVINCES),
@@ -1069,6 +1074,13 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
         if not (FLAGS / f"{tag}.tga").exists():
             source_color = (65, 105, 150) if tag == "SNG" else (179, 128, 104)
             (FLAGS / f"{tag}.tga").write_bytes(flag_bytes(source_color))
+
+    # Country batches historically emitted diagonal placeholder flags. Reapply
+    # the B53 Zhuxia seal standard last so a full B43 replay stays deterministic.
+    sys.path.insert(0, str(ROOT / "tools"))
+    from generate_zhuxia_seal_flags import run as generate_zhuxia_seal_flags
+
+    generate_zhuxia_seal_flags(check=False)
 
     validation = validate(vanilla_root, check_colors=check_colors)
     report = {
