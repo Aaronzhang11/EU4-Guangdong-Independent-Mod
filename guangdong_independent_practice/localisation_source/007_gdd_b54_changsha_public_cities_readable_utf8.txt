@@ -1,0 +1,7 @@
+﻿l_english:
+ CDE:0 "常"
+ CDE_ADJ:0 "常"
+ JJG:0 "九"
+ JJG_ADJ:0 "九"
+ HYA:0 "汉"
+ HYA_ADJ:0 "汉"

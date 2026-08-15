@@ -45,7 +45,9 @@ TAG_PROVINCES = {
     "LSH": (5095, 2748, 5094, 5232),
     "MDL": (5226, 2167, 661, 5229, 5227),
     "NZA": (5235, 2165, 5237, 5228),
-    "CHC": (4994, 4992, 4979, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 4981, 5320),
+    "CHC": (4994, 4992, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 5320),
+    "JJG": (4979,),
+    "HYA": (4981,),
     "EGU": (682, 5016),
     "QVN": (5010, 5343),
     "ZHU": (5015, 5344),
@@ -60,7 +62,9 @@ TAG_PROVINCES = {
     "CCH": (5061, 5062),
     "BAA": (5026, 5082, 680, 4213, 2168, 2169, 5330, 5334, 5335),
     "BD2": (5013, 5028),
-    "WLM": (4996, 672, 4997, 5312, 5313, 5316, 5317, 5322),
+    "CSA": (671, 4998, 5321, 4997, 5322),
+    "WLM": (4996, 5312, 5313, 5316, 5317),
+    "CDE": (672,),
     "BMY": (2170, 5087, 5086, 5090),
     "DZH": (5088, 5289),
     "XU2": (2141, 5018, 4196, 2142, 5020),
@@ -125,6 +129,7 @@ MUTED_COUNTRY_COLORS = {
     "CAI": (115, 118, 158),
     "CCH": (116, 150, 163),
     "CHC": (231, 176, 194),
+    "CDE": (116, 67, 111),
     "CHN": (135, 121, 103),
     "CSA": (113, 149, 141),
     "CZC": (139, 113, 153),
@@ -149,7 +154,9 @@ MUTED_COUNTRY_COLORS = {
     "HNG": (93, 117, 160),
     "HUA": (67, 112, 100),
     "HYM": (72, 143, 160),
+    "HYA": (48, 77, 135),
     "JRG": (176, 130, 103),
+    "JJG": (164, 82, 43),
     "JUU": (139, 113, 153),
     "KAM": (64, 146, 106),
     "KSD": (209, 120, 83),
@@ -209,6 +216,8 @@ POLITIES = {
     "MDL": {"file": "B43_Mongol_Dali.txt", "history": "MDL - Mongol Dali.txt", "capital": 661, "rank": 1, "color": MUTED_COUNTRY_COLORS["MDL"]},
     "NZA": {"file": "B43_Nanzhao.txt", "history": "NZA - Nanzhao.txt", "capital": 5235, "rank": 1, "color": MUTED_COUNTRY_COLORS["NZA"]},
     "QSH": {"file": "B43_Qunshu.txt", "history": "QSH - Qunshu.txt", "capital": 686, "rank": 1, "color": MUTED_COUNTRY_COLORS["QSH"]},
+    "JJG": {"file": "B54_Jiujiang.txt", "history": "JJG - Jiujiang.txt", "capital": 4979, "rank": 1, "color": MUTED_COUNTRY_COLORS["JJG"], "government": "republic", "reform": "oligarchy_reform"},
+    "HYA": {"file": "B54_Hanyang.txt", "history": "HYA - Hanyang.txt", "capital": 4981, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYA"], "government": "republic", "reform": "oligarchy_reform"},
     "EGU": {"file": "B52_E.txt", "history": "EGU - E.txt", "capital": 682, "rank": 1, "color": MUTED_COUNTRY_COLORS["EGU"]},
     "QVN": {"file": "B52_Quan.txt", "history": "QVN - Quan.txt", "capital": 5343, "rank": 1, "color": MUTED_COUNTRY_COLORS["QVN"]},
     "ZHU": {"file": "B52_Zhou.txt", "history": "ZHU - Zhou.txt", "capital": 5344, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHU"]},
@@ -222,6 +231,7 @@ POLITIES = {
     "BAA": {"file": "B43_Ba.txt", "history": "BAA - Ba.txt", "capital": 680, "rank": 2, "color": MUTED_COUNTRY_COLORS["BAA"]},
     "BD2": {"file": "B43_Badi.txt", "history": "BD2 - Badi.txt", "capital": 5013, "rank": 1, "color": MUTED_COUNTRY_COLORS["BD2"]},
     "WLM": {"file": "B43_Wuling.txt", "history": "WLM - Wuling.txt", "capital": 4996, "rank": 1, "color": MUTED_COUNTRY_COLORS["WLM"]},
+    "CDE": {"file": "B54_Changde.txt", "history": "CDE - Changde.txt", "capital": 672, "rank": 1, "color": MUTED_COUNTRY_COLORS["CDE"], "government": "republic", "reform": "oligarchy_reform"},
     "BMY": {"file": "B43_Baima_Miyao.txt", "history": "BMY - Baima Miyao.txt", "capital": 5086, "rank": 1, "color": MUTED_COUNTRY_COLORS["BMY"]},
     "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"]},
     "DQU": {"file": "B46_Dangqu.txt", "history": "DQU - Dangqu.txt", "capital": 5333, "rank": 1, "color": MUTED_COUNTRY_COLORS["DQU"], "accepted": ("gdd_diqiang",)},
@@ -314,6 +324,11 @@ RESET_OWNERS: dict[int, str] = {
 # on their intended opening territory.
 EXACT_CORE_TAGS = {
     "CHC": set(TAG_PROVINCES["CHC"]),
+    "JJG": set(TAG_PROVINCES["JJG"]),
+    "HYA": set(TAG_PROVINCES["HYA"]),
+    "CSA": set(TAG_PROVINCES["CSA"]),
+    "CDE": set(TAG_PROVINCES["CDE"]),
+    "WLM": set(TAG_PROVINCES["WLM"]),
     "EGU": set(TAG_PROVINCES["EGU"]),
     "QVN": set(TAG_PROVINCES["QVN"]),
     "ZHU": set(TAG_PROVINCES["ZHU"]),
@@ -335,6 +350,11 @@ EXACT_CORE_TAGS = {
     "DQU": set(TAG_PROVINCES["DQU"]),
     "ZHI": set(TAG_PROVINCES["ZHI"]),
 }
+
+# B54 public cities are fully sovereign one-province republics.  Their
+# capitals start with no foreign core, so an older regional claim cannot turn
+# the release into an immediate reconquest target.
+EXCLUSIVE_CORE_OWNERS = {672: "CDE", 4979: "JJG", 4981: "HYA"}
 
 FORCED_CORE_REMOVALS = {
     "YUE": {
@@ -593,6 +613,8 @@ def validate_adjacent_colors(vanilla_root: Path) -> dict[str, object]:
 
 
 def should_remove_core(tag: str, province_id: int) -> bool:
+    if province_id in EXCLUSIVE_CORE_OWNERS and tag != EXCLUSIVE_CORE_OWNERS[province_id]:
+        return True
     if tag == "MNG" and any(
         province_id in provinces for provinces in TAG_PROVINCES.values()
     ):
@@ -837,8 +859,8 @@ def current_core_ids(tag: str) -> set[int]:
 
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 300 or len(set(all_ids)) != 300:
-        raise ValueError("Expanded polity policy must contain 300 unique provinces after B52")
+    if len(all_ids) != 303 or len(set(all_ids)) != 303:
+        raise ValueError("Expanded polity policy must contain 303 unique provinces after B54")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:
@@ -874,6 +896,14 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
             raise ValueError(
                 f"{tag}: exact core mismatch; actual={sorted(actual)}, expected={sorted(expected)}"
             )
+    for province_id, owner in EXCLUSIVE_CORE_OWNERS.items():
+        paths = ensure_province_history(province_id, vanilla_root, write=False)
+        for path in paths:
+            actual = initial_cores(read_text(path))
+            if actual != {owner}:
+                raise ValueError(
+                    f"{path.name}: public-city cores {sorted(actual)} != [{owner}]"
+                )
     for tag, removed_ids in FORCED_CORE_REMOVALS.items():
         remaining = current_core_ids(tag) & removed_ids
         if remaining:
@@ -1094,6 +1124,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             "huzhou": "YUE owns and cores 4950",
             "eastern_balance": "B50 splits Huai, Ou, Yang, Wu and Zhou from WUU/YUE/XU2",
             "chu_vassals": "B52 splits E, Quan and Zhou from CHC as starting vassals",
+            "changsha_public_cities": "B54 gives Yiyang and Anhua to CSA and releases Changde, Jiujiang and Hanyang as public cities",
             "shangqiu": "SNG owns and cores 2176",
             "badi_tag": "BD2; legacy BAS removed",
             "shen_consolidation": "SHE inherits former SH2 provinces; legacy SH2 removed",

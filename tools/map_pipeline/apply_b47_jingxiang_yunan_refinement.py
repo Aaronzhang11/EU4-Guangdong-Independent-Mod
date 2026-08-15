@@ -678,8 +678,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         if not set(members).issubset(set(b43.TAG_PROVINCES[tag])):
             raise ValueError(f"B43 replay policy is missing B47 {tag} provinces")
     all_policy_ids = [province_id for members in b43.TAG_PROVINCES.values() for province_id in members]
-    if len(all_policy_ids) != 300 or len(set(all_policy_ids)) != 300:
-        raise ValueError("B43 replay policy does not contain 300 unique post-B52 provinces")
+    if len(all_policy_ids) != 303 or len(set(all_policy_ids)) != 303:
+        raise ValueError("B43 replay policy does not contain 303 unique post-B54 provinces")
     return {
         "province_components": "23/23 one component",
         "area_land_components": area_components,

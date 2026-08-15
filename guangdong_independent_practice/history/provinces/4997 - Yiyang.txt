@@ -1,8 +1,8 @@
 # 4997 - Yiyang
 
-owner = WLM
-controller = WLM
-add_core = WLM
+owner = CSA
+controller = CSA
+add_core = CSA
 culture = gdd_chu
 religion = confucianism
 capital = "Yiyang"

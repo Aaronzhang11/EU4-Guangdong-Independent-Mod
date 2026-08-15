@@ -19,13 +19,13 @@
 675,曲靖,diandong_area,yi,gdd_dian,675 - Umung.txt
 679,成都,sichuan_area,sichuanese,gdd_shu,679 - Chengdu.txt
 680,重庆,chongqing_area,sichuanese,gdd_shu,680 - Chongqing.txt
-681,夷陵,hanjiang_xiangyun_area,hubei,gdd_chu,681 - Yichang.txt
+681,夷陵,yigui_area,hubei,gdd_chu,681 - Yichang.txt
 682,武昌,wuhan_enan_area,hubei,gdd_chu,682 - Wuchang.txt
 683,,jiangxi_area,gan,gdd_gan,683 - Nanchang.txt
 684,杭州,zhejiang_area,wu,gdd_wu,684 - Hangzhou.txt
 685,扬州,huaiyang_tongtai_area,jianghuai,gdd_jianghuai,685 - Yangzhou.txt
 686,安庆,wanjiang_area,jianghuai,gdd_jianghuai,686 - Anqing.txt
-687,南阳,runing_nanyang_area,zhongyuan,gdd_zhongyuan,687 - Nanyang.txt
+687,南阳,wandeng_area,zhongyuan,gdd_zhongyuan,687 - Nanyang.txt
 688,开封,wangji_area,zhongyuan,gdd_zhongyuan,688 - Kaifeng.txt
 689,汉中,nan_shaanxi_area,xibei,gdd_shu,689 - Hanzhong.txt
 690,登州,denglai_area,shandong,gdd_qi,690 - Qingzhou.txt
@@ -94,8 +94,8 @@
 2168,播州,qiandong_area,yi,miao,2168 - Bozhou.txt
 2169,阆中,chuanbei_area,sichuanese,gdd_shu,2169 - Langzhong.txt
 2170,松州,songmao_area,tibetan,gdd_diqiang,2170 - Songqu.txt
-2171,襄阳,hanjiang_xiangyun_area,hubei,gdd_zhongyuan,2171 - Xiangyang.txt
-2172,荆州,jingyi_shinan_area,hubei,gdd_chu,2172 - Jingzhou.txt
+2171,襄阳,hanshang_area,hubei,gdd_zhongyuan,2171 - Xiangyang.txt
+2172,荆州,jingyi_area,hubei,gdd_chu,2172 - Jingzhou.txt
 2173,辰州,wuling_hunan_area,miao,miao,2173 - Yuanling.txt
 2174,衡州,hengchen_area,xiang,gdd_chu,2174 - Hengyang.txt
 2175,信阳,dean_qihuang_area,zhongyuan,gdd_chu,2175 - Runing.txt
@@ -180,14 +180,14 @@
 5005,宁海,east_zhejiang_area,wu,gdd_wu,5005 - Ninghai.txt
 5006,义乌,jinqu_chuzhou_area,wu,gdd_wu,5006 - Yiwu.txt
 5007,处州,jinqu_chuzhou_area,wu,gdd_wu,5007 - Chuzhou.txt
-5008,郧,hanjiang_xiangyun_area,hubei,gdd_chu,5008 - Yunyang.txt
+5008,郧,hanshang_area,hubei,gdd_chu,5008 - Yunyang.txt
 5009,随州,dean_qihuang_area,hubei,gdd_chu,5009 - Suizhou.txt
-5010,安陆,jingyi_shinan_area,hubei,gdd_chu,5010 - Chengtian.txt
+5010,安陆,yunmeng_jingmen_area,hubei,gdd_chu,5010 - Chengtian.txt
 5011,汉口,wuhan_enan_area,hubei,gdd_chu,5011 - Hankou.txt
 5012,黄州,dean_qihuang_area,hubei,gdd_chu,5012 - Huangzhou.txt
-5013,施州,jingyi_shinan_area,miao,gdd_diqiang,5013 - Shizhou.txt
-5014,公安,jingyi_shinan_area,hubei,gdd_chu,5014 - Gongan.txt
-5015,沔阳,jingyi_shinan_area,hubei,gdd_chu,5015 - Mianyang.txt
+5013,施州,jingyi_area,miao,gdd_diqiang,5013 - Shizhou.txt
+5014,公安,jingyi_area,hubei,gdd_chu,5014 - Gongan.txt
+5015,沔阳,yunmeng_jingmen_area,hubei,gdd_chu,5015 - Mianyang.txt
 5016,兴国,wuhan_enan_area,hubei,gdd_chu,5016 - Xingguo.txt
 5017,,,zhongyuan,gdd_zhongyuan,5017 - Pizhou.txt
 5018,宿迁,xuhuai_haizhou_area,jianghuai,gdd_jianghuai,5018 - Suqian.txt
@@ -211,9 +211,9 @@
 5050,睢州,guide_xuchen_area,zhongyuan,gdd_songwei,5050 - Suizhou.txt
 5051,陈州,guide_xuchen_area,zhongyuan,gdd_zhongyuan,5051 - Chenzhou.txt
 5052,许州,guide_xuchen_area,zhongyuan,gdd_zhongyuan,5052 - Xuzhou.txt
-5053,汝州,runing_nanyang_area,zhongyuan,gdd_zhongyuan,5053 - Ruzhou.txt
-5054,汝宁,runing_nanyang_area,zhongyuan,gdd_zhongyuan,5054 - Runing.txt
-5055,邓州,runing_nanyang_area,zhongyuan,gdd_zhongyuan,5055 - Dengzhou.txt
+5053,汝州,rucai_area,zhongyuan,gdd_zhongyuan,5053 - Ruzhou.txt
+5054,汝宁,rucai_area,zhongyuan,gdd_zhongyuan,5054 - Runing.txt
+5055,邓州,wandeng_area,zhongyuan,gdd_zhongyuan,5055 - Dengzhou.txt
 5056,六合,yingtian_area,jianghuai,gdd_jianghuai,5056 - Jiangning.txt
 5057,溧水,yingtian_area,jianghuai,gdd_wu,5057 - Lishui.txt
 5058,亳州,huaiying_area,zhongyuan,gdd_zhongyuan,5058 - Bozhou.txt
@@ -387,3 +387,13 @@
 5338,忠州,fuling_area,unknown,gdd_shu,5338 - Zhongzhou.txt
 5339,开州,xiajiang_area,unknown,gdd_shu,5339 - Kaizhou.txt
 5340,石砫,fuling_area,unknown,miao,5340 - Shizhu.txt
+5341,房州,hanshang_area,gdd_chu,gdd_chu,5341 - Fangzhou (Hubei).txt
+5342,宜城,hanshang_area,gdd_zhongyuan,gdd_zhongyuan,5342 - Yicheng.txt
+5343,荆门,yunmeng_jingmen_area,gdd_chu,gdd_chu,5343 - Jingmen.txt
+5344,监利,yunmeng_jingmen_area,gdd_chu,gdd_chu,5344 - Jianli.txt
+5345,枝江,jingyi_area,gdd_chu,gdd_chu,5345 - Zhijiang.txt
+5346,归州,yigui_area,gdd_chu,gdd_chu,5346 - Guizhou (Hubei).txt
+5347,方城,wandeng_area,gdd_zhongyuan,gdd_zhongyuan,5347 - Fangcheng.txt
+5348,内乡,wandeng_area,gdd_zhongyuan,gdd_zhongyuan,5348 - Neixiang.txt
+5349,息州,rucai_area,gdd_zhongyuan,gdd_zhongyuan,5349 - Xizhou.txt
+5350,光州,dean_qihuang_area,gdd_chu,gdd_chu,5350 - Guangzhou (Henan).txt

@@ -1,8 +1,8 @@
 # 672 - Wulin
 
-owner = WLM
-controller = WLM
-add_core = WLM
+owner = CDE
+controller = CDE
+add_core = CDE
 culture = gdd_chu
 religion = confucianism
 capital = "Changde"

@@ -192,7 +192,10 @@ COUNTRY_POLICY = {
     "MIN": ("gdd_min", ()),
     "SHU": ("gdd_shu", ()),
     "CHC": ("gdd_chu", ()),
+    "CDE": ("gdd_chu", ()),
     "EGU": ("gdd_chu", ()),
+    "HYA": ("gdd_chu", ()),
+    "JJG": ("gdd_chu", ()),
     "QVN": ("gdd_chu", ()),
     "ZHU": ("gdd_chu", ()),
     "CXI": ("gdd_chu", ()),
@@ -319,9 +322,11 @@ INITIAL_HISTORY_OVERRIDES = {
     },
     5015: {
         "capital": '"Mianyang"',
-        "base_tax": "2",
-        "base_production": "2",
-        "base_manpower": "2",
+        # B47 split the former six-development province into Mianyang and
+        # Jianli; preserve the reviewed 1/1/1 retained half on replay.
+        "base_tax": "1",
+        "base_production": "1",
+        "base_manpower": "1",
     },
     5056: {"base_tax": "2", "base_production": "2", "base_manpower": "1"},
 }
@@ -861,8 +866,19 @@ def update_country_histories() -> None:
         )
         if count != 1:
             raise ValueError(f"Country {tag} lacks primary_culture in {path.name}")
+        policy_accepted = {
+            culture
+            for _policy_primary, policy_values in COUNTRY_POLICY.values()
+            for culture in policy_values
+        }
         managed_cultures = "|".join(
-            map(re.escape, sorted(set(OLD_TO_DEFAULT) | ALL_NEW_CULTURES, key=lambda value: (-len(value), value)))
+            map(
+                re.escape,
+                sorted(
+                    set(OLD_TO_DEFAULT) | ALL_NEW_CULTURES | policy_accepted,
+                    key=lambda value: (-len(value), value),
+                ),
+            )
         )
         text = re.sub(
             rf"(?m)^[ \t]*add_accepted_culture[ \t]*=[ \t]*(?:{managed_cultures})[ \t]*(?:\r?\n|$)",

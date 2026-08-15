@@ -1,0 +1,9 @@
+# B43 Chunqiu polity history.
+government = republic
+add_government_reform = oligarchy_reform
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_chu
+capital = 4979
+fixed_capital = 4979

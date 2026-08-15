@@ -1,7 +1,7 @@
 {
   "batch": "B45_hunan_jiangxi_balanced_refinement",
   "marker": "GDD_B45_HUNAN_JIANGXI_REFINEMENT",
-  "purpose": "Implement the reviewed unified Hunan-Jiangxi refinement while preventing Changsha from becoming overpowered.",
+  "purpose": "Implement the reviewed unified Hunan-Jiangxi refinement, with the later B54 Changsha and public-city ownership override.",
   "reference_root": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/3400977776",
   "parent_ids": [
     2173,
@@ -364,7 +364,7 @@
         2174
       ],
       "area": "dongting_area",
-      "owner": "WLM",
+      "owner": "CSA",
       "culture": "gdd_chu",
       "religion": "confucianism",
       "capital": "Anhua",
@@ -375,7 +375,7 @@
         2
       ],
       "cores": [
-        "WLM"
+        "CSA"
       ],
       "cot": 0,
       "fort": false,
@@ -720,22 +720,26 @@
     "area_components": "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5013 through 5037",
     "country_development_in_scope": {
       "CHC": 31,
-      "CSA": 27,
+      "CDE": 15,
+      "CSA": 39,
       "CZM": 18,
       "HAK": 18,
       "HNG": 52,
+      "JJG": 20,
       "LCH": 4,
       "NCH": 45,
       "TSF": 14,
-      "WLM": 43
+      "WLM": 16
     },
     "changsha_constraint": {
       "province_ids": [
         671,
+        4997,
         4998,
-        5321
+        5321,
+        5322
       ],
-      "development": 27
+      "development": 39
     }
   },
   "canonical_bitmap_sha256": "a88fb39ea6fa217610984b8f3fe0918cf0308f1a9e0e21be652eed84a124185a"

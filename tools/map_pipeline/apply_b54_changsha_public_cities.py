@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Restore E, Quan and Zhou as small starting vassals of Chu."""
+"""Apply the B54 Changsha transfer and three independent public cities.
+
+This batch changes only opening ownership, cores and country data. Province
+geometry, development, areas, trade nodes and trade centres remain unchanged.
+"""
 
 from __future__ import annotations
 
@@ -16,12 +20,13 @@ PROVINCE_HISTORY = MOD / "history/provinces"
 COUNTRY_HISTORY = MOD / "history/countries"
 COUNTRIES = MOD / "common/countries"
 FLAGS = MOD / "gfx/flags"
+CLIMATE = MOD / "map/climate.txt"
 TAG_FILE = MOD / "common/country_tags/gdd_country_tags.txt"
-DIPLOMACY = MOD / "history/diplomacy/gdd_b52_chu_vassals.txt"
-SOURCE = MOD / "localisation_source/006_gdd_b52_chu_vassals_readable_utf8.txt"
-TARGET = MOD / "localisation/replace/006_gdd_b52_chu_vassals_l_english.yml"
-REPORT = ROOT / "planning/chu_vassals_b52/ownership_report.json"
-MANIFEST = ROOT / "planning/chu_vassals_b52/batch_manifest.json"
+SOURCE = MOD / "localisation_source/007_gdd_b54_changsha_public_cities_readable_utf8.txt"
+TARGET = MOD / "localisation/replace/007_gdd_b54_changsha_public_cities_l_english.yml"
+PLAN = ROOT / "planning/changsha_public_cities_b54"
+REPORT = PLAN / "ownership_report.json"
+MANIFEST = PLAN / "batch_manifest.json"
 DEFAULT_VANILLA_ROOT = (
     Path.home()
     / "Library/Application Support/Steam/steamapps/common/Europa Universalis IV"
@@ -48,19 +53,25 @@ from apply_b43_chunqiu_polities import (  # noqa: E402
     province_id_from_path,
     read_text,
     remove_initial_core,
-    set_existing_country_capital,
     should_remove_core,
     validate as validate_b43,
 )
 
 
-VASSAL_TAGS = ("EGU", "QVN", "ZHU")
-AFFECTED_TAGS = ("CHC", *VASSAL_TAGS)
-EXPECTED_DEVELOPMENT = {"CHC": 105, "EGU": 27, "QVN": 8, "ZHU": 6}
-LOCALISATION = {"EGU": "鄂", "QVN": "权", "ZHU": "州"}
-CHU_CAPITAL = 2172
-TAG_MARKER_BEGIN = "# GDD_B52_CHU_VASSALS_BEGIN"
-TAG_MARKER_END = "# GDD_B52_CHU_VASSALS_END"
+PUBLIC_CITIES = ("CDE", "JJG", "HYA")
+AFFECTED_TAGS = ("CSA", "WLM", "CHC", *PUBLIC_CITIES)
+EXPECTED_DEVELOPMENT = {
+    "CSA": 39,
+    "WLM": 16,
+    "CHC": 105,
+    "CDE": 15,
+    "JJG": 20,
+    "HYA": 9,
+}
+LOCALISATION = {"CDE": "常", "JJG": "九", "HYA": "汉"}
+TAG_MARKER_BEGIN = "# GDD_B54_CHANGSHA_PUBLIC_CITIES_BEGIN"
+TAG_MARKER_END = "# GDD_B54_CHANGSHA_PUBLIC_CITIES_END"
+CLIMATE_MARKER = "GDD_B54_CHANGSHA_PUBLIC_CITIES"
 
 
 def history_paths(province_id: int) -> list[Path]:
@@ -70,20 +81,44 @@ def history_paths(province_id: int) -> list[Path]:
     return paths
 
 
-def diplomacy_text() -> str:
-    blocks = ["# B52: restored Chu-affiliated small states."]
-    for tag in VASSAL_TAGS:
-        blocks.extend(
-            (
-                "vassal = {",
-                "\tfirst = CHC",
-                f"\tsecond = {tag}",
-                "\tstart_date = 1444.1.1",
-                "\tend_date = 1821.1.1",
-                "}",
-            )
-        )
-    return "\n".join(blocks) + "\n"
+def ensure_climate_membership() -> None:
+    text = CLIMATE.read_text(encoding="cp1252")
+    match = re.search(r"(?m)^mild_monsoon\s*=\s*\{", text)
+    if not match:
+        raise ValueError("climate.txt: missing mild_monsoon block")
+    depth = 1
+    index = match.end()
+    while index < len(text) and depth:
+        if text[index] == "{":
+            depth += 1
+        elif text[index] == "}":
+            depth -= 1
+        index += 1
+    if depth:
+        raise ValueError("climate.txt: unbalanced mild_monsoon block")
+    start, end = match.start(), index
+    block = text[start:end]
+    cleaned: list[str] = []
+    for line in block.splitlines():
+        if CLIMATE_MARKER in line:
+            continue
+        code, separator, comment = line.partition("#")
+        tokens = code.split()
+        if "672" in tokens:
+            tokens = [token for token in tokens if token != "672"]
+            indent = code[: len(code) - len(code.lstrip())]
+            code = indent + " ".join(tokens)
+            if separator and code.strip():
+                code += " "
+        cleaned.append(code + (separator + comment if separator else ""))
+    block = "\n".join(cleaned)
+    close = block.rfind("}")
+    block = (
+        block[:close].rstrip()
+        + f"\n    672 # {CLIMATE_MARKER}\n"
+        + block[close:]
+    )
+    CLIMATE.write_text(text[:start] + block + text[end:], encoding="cp1252")
 
 
 def update_tag_file() -> None:
@@ -93,13 +128,15 @@ def update_tag_file() -> None:
         "",
         text,
     )
-    for tag in VASSAL_TAGS:
+    for tag in PUBLIC_CITIES:
         text = re.sub(rf'(?m)^\s*{tag}\s*=\s*"[^"]+"\s*\n?', "", text)
     lines = [TAG_MARKER_BEGIN]
-    for tag in VASSAL_TAGS:
+    for tag in PUBLIC_CITIES:
         lines.append(f'{tag} = "countries/{POLITIES[tag]["file"]}"')
     lines.append(TAG_MARKER_END)
-    TAG_FILE.write_text(text.rstrip() + "\n\n" + "\n".join(lines) + "\n", encoding="utf-8")
+    TAG_FILE.write_text(
+        text.rstrip() + "\n\n" + "\n".join(lines) + "\n", encoding="utf-8"
+    )
 
 
 def write_localisation() -> None:
@@ -138,17 +175,25 @@ def apply_province_policy(vanilla_root: Path) -> None:
 
 
 def write_countries() -> None:
-    for tag in VASSAL_TAGS:
+    COUNTRIES.mkdir(parents=True, exist_ok=True)
+    COUNTRY_HISTORY.mkdir(parents=True, exist_ok=True)
+    FLAGS.mkdir(parents=True, exist_ok=True)
+    for tag in PUBLIC_CITIES:
         config = POLITIES[tag]
-        capital_text = read_text(history_paths(int(config["capital"]))[0])
-        culture = initial_value(capital_text, "culture")
-        religion = initial_value(capital_text, "religion")
+        capital = read_text(history_paths(int(config["capital"]))[0])
+        culture = initial_value(capital, "culture")
+        religion = initial_value(capital, "religion")
         (COUNTRIES / str(config["file"])).write_text(
             country_definition(config["color"]), encoding="utf-8"
         )
         (COUNTRY_HISTORY / str(config["history"])).write_text(
             country_history(
-                int(config["capital"]), int(config["rank"]), culture, religion
+                int(config["capital"]),
+                int(config["rank"]),
+                culture,
+                religion,
+                government="republic",
+                reform="oligarchy_reform",
             ),
             encoding="utf-8",
         )
@@ -158,12 +203,6 @@ def write_countries() -> None:
     from generate_zhuxia_seal_flags import run as generate_zhuxia_seal_flags
 
     generate_zhuxia_seal_flags(check=False)
-
-    set_existing_country_capital(
-        COUNTRY_HISTORY / "CHC - Chu.txt", CHU_CAPITAL, write=True
-    )
-    DIPLOMACY.parent.mkdir(parents=True, exist_ok=True)
-    DIPLOMACY.write_text(diplomacy_text(), encoding="utf-8")
 
 
 def province_development(province_id: int) -> int:
@@ -175,7 +214,7 @@ def province_development(province_id: int) -> int:
 
 
 def scan_tag_collisions(roots: tuple[Path, ...]) -> None:
-    for tag in VASSAL_TAGS:
+    for tag in PUBLIC_CITIES:
         matches: list[str] = []
         for root in roots:
             directory = root / "common/country_tags"
@@ -190,18 +229,23 @@ def scan_tag_collisions(roots: tuple[Path, ...]) -> None:
 
 def validate_manifest() -> dict[str, object]:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    if manifest.get("batch") != "B52_chu_vassals":
-        raise ValueError("B52 manifest batch marker is missing")
-    targets = manifest.get("opening_territory", {})
+    if manifest.get("batch") != "B54_changsha_public_cities":
+        raise ValueError("B54 manifest batch marker is missing")
+    opening = manifest.get("opening_territory", {})
     for tag in AFFECTED_TAGS:
-        if targets.get(tag) != list(TAG_PROVINCES[tag]):
-            raise ValueError(f"{tag}: B52 manifest territory drifted")
+        if opening.get(tag) != list(TAG_PROVINCES[tag]):
+            raise ValueError(f"{tag}: B54 manifest territory drifted")
     return manifest
 
 
 def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str, object]:
     scan_tag_collisions((vanilla_root, *dependency_roots))
     manifest = validate_manifest()
+    climate = CLIMATE.read_text(encoding="cp1252")
+    if len(re.findall(r"(?<!\d)672(?!\d)", climate)) != 1:
+        raise ValueError("Changde (672) must have exactly one climate membership")
+    if not re.search(rf"(?m)^\s*672\s+#\s*{CLIMATE_MARKER}\s*$", climate):
+        raise ValueError("Changde (672) must be in the B54 mild_monsoon membership")
     b43 = validate_b43(vanilla_root, check_colors=True)
     stats: dict[str, dict[str, int]] = {}
     for tag in AFFECTED_TAGS:
@@ -215,36 +259,36 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
             raise ValueError(f"{tag}: exact-core policy drifted")
         stats[tag] = {"provinces": len(provinces), "development": development}
 
-    chu = read_text(COUNTRY_HISTORY / "CHC - Chu.txt")
-    if initial_value(chu, "capital") != str(CHU_CAPITAL):
-        raise ValueError("Chu capital must be Jiangling/Jingzhou (2172)")
-    if initial_value(chu, "fixed_capital") != str(CHU_CAPITAL):
-        raise ValueError("Chu fixed capital must be Jiangling/Jingzhou (2172)")
-
-    for tag in VASSAL_TAGS:
+    for tag in PUBLIC_CITIES:
         history = read_text(COUNTRY_HISTORY / str(POLITIES[tag]["history"]))
-        if initial_value(history, "add_government_reform") != "gdd_local_fiefdom_reform":
-            raise ValueError(f"{tag}: must use the existing local-fiefdom reform")
-    if read_text(DIPLOMACY) != diplomacy_text():
-        raise ValueError("B52 starting-vassal diplomacy drifted")
+        if initial_value(history, "government") != "republic":
+            raise ValueError(f"{tag}: public city must be a republic")
+        if initial_value(history, "add_government_reform") != "oligarchy_reform":
+            raise ValueError(f"{tag}: public city must use oligarchy_reform")
+        province = read_text(history_paths(int(POLITIES[tag]["capital"]))[0])
+        if initial_cores(province) != {tag}:
+            raise ValueError(f"{tag}: public-city capital must have only its own core")
+        for path in (MOD / "history/diplomacy").glob("*.txt"):
+            if re.search(rf"(?<![A-Z0-9]){tag}(?![A-Z0-9])", read_text(path)):
+                raise ValueError(f"{tag}: public city must start independent")
 
     source_text = SOURCE.read_text(encoding="utf-8-sig")
     for tag, name in LOCALISATION.items():
         for key in (tag, f"{tag}_ADJ"):
             expected = rf'(?m)^\s*{key}:0\s+"{re.escape(name)}"\s*$'
             if len(re.findall(expected, source_text)) != 1:
-                raise ValueError(f"{key}: missing B52 localisation")
+                raise ValueError(f"{key}: missing one-character B54 localisation")
 
     return {
-        "batch": "B52_chu_vassals",
-        "design": "Chu direct realm plus three restored starting vassals",
-        "chu_capital": {"province_id": CHU_CAPITAL, "name": "Jiangling"},
+        "batch": "B54_changsha_public_cities",
         "countries": stats,
-        "vassals": {tag: "CHC" for tag in VASSAL_TAGS},
+        "public_cities": {tag: LOCALISATION[tag] for tag in PUBLIC_CITIES},
+        "independence": "no starting subject relation",
         "geometry": "unchanged",
         "areas": "unchanged",
         "trade_nodes": "unchanged",
         "trade_centres": "unchanged",
+        "province_development": "unchanged",
         "manifest": str(MANIFEST.relative_to(ROOT)),
         "manifest_invariants": manifest["invariants"],
         "b43_validation": b43,
@@ -252,10 +296,11 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
 
 
 def apply(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str, object]:
+    ensure_climate_membership()
     apply_province_policy(vanilla_root)
     update_tag_file()
-    write_countries()
     write_localisation()
+    write_countries()
     report = validate(vanilla_root, dependency_roots)
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(

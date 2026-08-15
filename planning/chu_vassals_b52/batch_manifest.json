@@ -7,13 +7,13 @@
     "ZHU": "Zhou, restored in the Mianyang-Jianli lake and marsh country"
   },
   "opening_territory": {
-    "CHC": [4994, 4992, 4979, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 4981, 5320],
+    "CHC": [4994, 4992, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 5320],
     "EGU": [682, 5016],
     "QVN": [5010, 5343],
     "ZHU": [5015, 5344]
   },
   "opening_development": {
-    "CHC": 134,
+    "CHC": 105,
     "EGU": 27,
     "QVN": 8,
     "ZHU": 6

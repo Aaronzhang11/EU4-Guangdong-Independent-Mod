@@ -1,9 +1,8 @@
 # 4979 - Jiujiang
 
-owner = CHC
-controller = CHC
-add_core = CHC
-add_core = NNG
+owner = JJG
+controller = JJG
+add_core = JJG
 culture = gdd_chu
 religion = confucianism
 capital = "Jiujiang"

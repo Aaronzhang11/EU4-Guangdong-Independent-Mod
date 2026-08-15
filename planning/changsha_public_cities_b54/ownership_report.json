@@ -1,46 +1,53 @@
 {
-  "batch": "B52_chu_vassals",
-  "design": "Chu direct realm plus three restored starting vassals",
-  "chu_capital": {
-    "province_id": 2172,
-    "name": "Jiangling"
-  },
+  "batch": "B54_changsha_public_cities",
   "countries": {
+    "CSA": {
+      "provinces": 5,
+      "development": 39
+    },
+    "WLM": {
+      "provinces": 5,
+      "development": 16
+    },
     "CHC": {
       "provinces": 10,
       "development": 105
     },
-    "EGU": {
-      "provinces": 2,
-      "development": 27
+    "CDE": {
+      "provinces": 1,
+      "development": 15
     },
-    "QVN": {
-      "provinces": 2,
-      "development": 8
+    "JJG": {
+      "provinces": 1,
+      "development": 20
     },
-    "ZHU": {
-      "provinces": 2,
-      "development": 6
+    "HYA": {
+      "provinces": 1,
+      "development": 9
     }
   },
-  "vassals": {
-    "EGU": "CHC",
-    "QVN": "CHC",
-    "ZHU": "CHC"
+  "public_cities": {
+    "CDE": "常",
+    "JJG": "九",
+    "HYA": "汉"
   },
+  "independence": "no starting subject relation",
   "geometry": "unchanged",
   "areas": "unchanged",
   "trade_nodes": "unchanged",
   "trade_centres": "unchanged",
-  "manifest": "planning/chu_vassals_b52/batch_manifest.json",
+  "province_development": "unchanged",
+  "manifest": "planning/changsha_public_cities_b54/batch_manifest.json",
   "manifest_invariants": {
     "province_geometry": "unchanged",
     "areas_and_regions": "unchanged",
+    "climate": "Changde 672 is explicitly assigned to mild_monsoon",
     "trade_nodes_and_routes": "unchanged",
     "trade_centres": "unchanged",
     "province_development": "unchanged",
-    "culture_and_religion": "gdd_chu and confucianism retained",
-    "subject_government": "existing gdd_local_fiefdom_reform; no new reform"
+    "culture_and_religion": "existing province values retained",
+    "public_city_government": "republic with vanilla oligarchy_reform",
+    "diplomacy": "all three public cities start independent"
   },
   "b43_validation": {
     "province_count": 303,

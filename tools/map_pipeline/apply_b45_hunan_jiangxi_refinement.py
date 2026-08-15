@@ -41,6 +41,7 @@ MANIFEST = PLAN / "batch_manifest.json"
 MARKER = "GDD_B45_HUNAN_JIANGXI_REFINEMENT"
 B46_MANIFEST = ROOT / "planning/chuandongbei_chongqing_b46/batch_manifest.json"
 B47_MANIFEST = ROOT / "planning/jingxiang_yunan_b47/batch_manifest.json"
+B54_MANIFEST = ROOT / "planning/changsha_public_cities_b54/batch_manifest.json"
 DEFAULT_REFERENCE = Path(
     "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/"
     "workshop/content/236850/3400977776"
@@ -88,8 +89,8 @@ P = (
     Province(671, "长沙", "Changsha", 671, None, (671, 5259, 5257), "hunan_area", "CSA", "gdd_chu", "confucianism", "Changsha", "grain", (4, 4, 2), ("CSA",)),
     Province(5320, "平江", "Pingjiang", 671, (49, 75, 247), (5260,), "hunan_area", "CHC", "gdd_chu", "confucianism", "Pingjiang", "tea", (3, 2, 1), ("CHC",)),
     Province(5321, "浏阳", "Liuyang", 671, (122, 226, 190), (5265, 5261, 5263, 5264, 5296, 5295), "hunan_area", "CSA", "gdd_chu", "confucianism", "Liuyang", "chinaware", (1, 3, 1), ("CSA",)),
-    Province(4997, "益阳", "Yiyang", 4997, None, (5261, 5263, 671), "dongting_area", "WLM", "gdd_chu", "confucianism", "Yiyang", "naval_supplies", (2, 2, 2), ("WLM",)),
-    Province(5322, "安化", "Anhua", 4997, (195, 121, 133), (5262, 5284, 5283, 2174), "dongting_area", "WLM", "gdd_chu", "confucianism", "Anhua", "tea", (2, 2, 2), ("WLM",)),
+    Province(4997, "益阳", "Yiyang", 4997, None, (5261, 5263, 671), "dongting_area", "CSA", "gdd_chu", "confucianism", "Yiyang", "naval_supplies", (2, 2, 2), ("CSA",)),
+    Province(5322, "安化", "Anhua", 4997, (195, 121, 133), (5262, 5284, 5283, 2174), "dongting_area", "CSA", "gdd_chu", "confucianism", "Anhua", "tea", (2, 2, 2), ("CSA",)),
     # Jiangxi: six new provinces, preserving every parent group's development.
     Province(683, "南昌", "Nanchang", 683, None, (683, 5292, 5297), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Nanchang", "paper", (4, 4, 2), ("NNG", "NCH")),
     Province(5323, "丰城", "Fengcheng", 683, (12, 16, 76), (5299, 5296, 1833), "xunyang_area", "NCH", "gdd_gan", "confucianism", "Fengcheng", "grain", (3, 3, 2), ("NNG", "NCH")),
@@ -107,7 +108,8 @@ P = (
 
 # Unsplit Hunan provinces whose political balance changes in the same batch.
 UNSPLIT_UPDATES = {
-    672: dict(owner="WLM", culture="gdd_chu", religion="confucianism", cores=("WLM",), capital="Changde", goods="cotton", development=(5, 6, 4), cot=0, fort=False),
+    672: dict(owner="CDE", culture="gdd_chu", religion="confucianism", cores=("CDE",), capital="Changde", goods="cotton", development=(5, 6, 4), cot=0, fort=False),
+    4979: dict(owner="JJG", culture="gdd_chu", religion="confucianism", cores=("JJG",), capital="Jiujiang", goods="tea", development=(7, 8, 5), cot=1, fort=False),
     4982: dict(owner="CHC", culture="gdd_chu", religion="confucianism", cores=("CHC",), capital="Yuezhou", goods="tea", development=(7, 8, 4), cot=1, fort=False),
     4983: dict(owner="HNG", culture="gdd_chu", religion="confucianism", cores=("HNG",), capital="Baoqing", goods="livestock", development=(3, 3, 4), cot=0, fort=False),
     4998: dict(owner="CSA", culture="gdd_chu", religion="confucianism", cores=("CSA",), capital="Xiangtan", goods="chinaware", development=(4, 5, 3), cot=0, fort=False),
@@ -155,14 +157,15 @@ SCOPE_NAMES = {
 }
 
 OWNER_COLOURS = {
-    "CSA": (113, 149, 141), "HNG": (93, 117, 160), "CHC": (231, 176, 194),
+    "CSA": (113, 149, 141), "CDE": (116, 67, 111), "JJG": (164, 82, 43),
+    "HNG": (93, 117, 160), "CHC": (231, 176, 194),
     "WLM": (159, 129, 111), "CZM": (128, 149, 109), "NCH": (82, 136, 174),
     "LCH": (193, 166, 82), "TSF": (171, 136, 146), "HAK": (181, 151, 101),
 }
 
 UNSPLIT_OWNERS = {
-    672: "WLM", 4982: "CHC", 4998: "CSA", 4983: "HNG", 5000: "HNG", 5001: "HNG",
-    4979: "CHC", 4992: "CHC", 1833: "LCH", 4980: "LCH", 4995: "HAK",
+    672: "CDE", 4982: "CHC", 4998: "CSA", 4983: "HNG", 5000: "HNG", 5001: "HNG",
+    4979: "JJG", 4992: "CHC", 1833: "LCH", 4980: "LCH", 4995: "HAK",
 }
 
 
@@ -849,7 +852,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         country_dev[province.owner] += sum(province.development)
     for province_id, policy in UNSPLIT_UPDATES.items():
         country_dev[policy["owner"]] += sum(policy["development"])
-    # The explicit user constraint: Changsha owns only three provinces and 27 development.
+    # B54 explicit override: Changsha gains Yiyang and Anhua, for five provinces
+    # and 39 development; Changde and Jiujiang become independent public cities.
     changsha_ids = sorted(
         [province.province_id for province in P if province.owner == "CSA"]
         + [pid for pid, policy in UNSPLIT_UPDATES.items() if policy["owner"] == "CSA"]
@@ -861,7 +865,7 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
             actual_changsha_ids.append(int(path.name.split()[0]))
     if sorted(actual_changsha_ids) != changsha_ids:
         raise ValueError(f"Changsha has unmanaged starting provinces: {sorted(actual_changsha_ids)}")
-    if changsha_ids != [671, 4998, 5321] or country_dev["CSA"] != 27:
+    if changsha_ids != [671, 4997, 4998, 5321, 5322] or country_dev["CSA"] != 39:
         raise ValueError(f"Changsha cap failed: provinces={changsha_ids}, dev={country_dev['CSA']}")
     return {
         "province_components": "all one component",
@@ -924,7 +928,7 @@ def apply(reference_root: Path) -> None:
     write_manifest(changed_pixels, exterior_pixels, pixel_counts, validation, reference_root)
     print(
         f"{MARKER}; NEW_PROVINCES:{len(NEW_IDS)}; CHANGED_PIXELS:{changed_pixels}; "
-        f"EXTERIOR_PIXELS:{exterior_pixels}; CHANGSHA_DEV:27"
+        f"EXTERIOR_PIXELS:{exterior_pixels}; CHANGSHA_DEV:39"
     )
 
 
@@ -965,6 +969,11 @@ def main() -> None:
         if B47_MANIFEST.exists():
             subprocess.run(
                 [sys.executable, str(ROOT / "tools/map_pipeline/apply_b47_jingxiang_yunan_refinement.py")],
+                check=True,
+            )
+        if B54_MANIFEST.exists():
+            subprocess.run(
+                [sys.executable, str(ROOT / "tools/map_pipeline/apply_b54_changsha_public_cities.py")],
                 check=True,
             )
 

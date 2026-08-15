@@ -59,6 +59,7 @@ FILES = {
     "004_gdd_b50_eastern_polities_readable_utf8.txt": "replace/004_gdd_b50_eastern_polities_l_english.yml",
     "005_gdd_b51_liao_polity_readable_utf8.txt": "replace/005_gdd_b51_liao_polity_l_english.yml",
     "006_gdd_b52_chu_vassals_readable_utf8.txt": "replace/006_gdd_b52_chu_vassals_l_english.yml",
+    "007_gdd_b54_changsha_public_cities_readable_utf8.txt": "replace/007_gdd_b54_changsha_public_cities_l_english.yml",
     "gdd_zzz_chunqiu_area_overrides_readable_utf8.txt": "replace/zzz_gdd_chunqiu_area_overrides_l_english.yml",
     "gdd_yangtze_navigation_readable_utf8.txt": "gdd_yangtze_navigation_l_english.yml",
     "gdd_huai_navigation_readable_utf8.txt": "gdd_huai_navigation_l_english.yml",
