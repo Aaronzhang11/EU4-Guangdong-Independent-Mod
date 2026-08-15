@@ -1,0 +1,27 @@
+# 5320 - Pingjiang
+
+owner = CHC
+controller = CHC
+add_core = CHC
+culture = gdd_chu
+religion = confucianism
+capital = "Pingjiang"
+trade_goods = tea
+hre = no
+base_tax = 3
+base_production = 2
+base_manpower = 1
+is_city = yes
+
+discovered_by = chinese
+discovered_by = nomad_group
+
+1595.1.1 = { discovered_by = SPA }
+1643.1.1 = { controller = CXI }
+1647.12.1 = {
+    owner = QNG
+    controller = QNG
+    add_core = QNG
+}
+1652.4.1 = { controller = MNG }
+1658.1.1 = { controller = QNG }

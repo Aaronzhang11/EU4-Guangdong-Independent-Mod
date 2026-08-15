@@ -1,0 +1,15 @@
+# 5344 - Jianli
+
+owner = CHC
+controller = CHC
+add_core = CHC
+culture = gdd_chu
+religion = confucianism
+capital = "Jianli"
+trade_goods = grain
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group

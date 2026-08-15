@@ -1,11 +1,11 @@
-# 2149 - Ningbo
+# 2149 - Mingzhou
 
 owner = YUE
 controller = YUE
 add_core = YUE
 culture = gdd_wu
 religion = confucianism
-capital = "Ningbo"
+capital = "Mingzhou"
 trade_goods = naval_supplies
 hre = no
 base_tax = 5

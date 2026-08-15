@@ -1,7 +1,7 @@
 # 诸夏—百越—殷商—羌文化重构分配摘要
 
 - 批次：B41 approved Han-Baiyue-Yinshang-Qiang culture overhaul
-- 已更新省份历史：359
+- 已更新省份历史：388
 - 诸夏文化：12
 - 百越文化：6
 - 殷商文化：3
@@ -12,11 +12,11 @@
 |---|---|---:|
 | `gdd_zhongyuan` | 中原 | 39 |
 | `gdd_jianghuai` | 江淮 | 19 |
-| `gdd_chu` | 楚 | 23 |
-| `gdd_gan` | 赣 | 7 |
-| `gdd_hakka` | 客家 | 8 |
+| `gdd_chu` | 楚 | 29 |
+| `gdd_gan` | 赣 | 12 |
+| `gdd_hakka` | 客家 | 9 |
 | `gdd_gui` | 桂 | 5 |
-| `gdd_shu` | 蜀 | 22 |
+| `gdd_shu` | 蜀 | 31 |
 | `gdd_dian` | 滇 | 5 |
 | `gdd_jin` | 晋 | 28 |
 | `gdd_qi` | 齐 | 17 |
@@ -30,7 +30,7 @@
 | `gdd_dongyi` | 东夷 | 4 |
 | `gdd_diqiang` | 氐羌 | 13 |
 | `vietnamese` | 安南 | 6 |
-| `miao` | 苗瑶 | 10 |
+| `miao` | 苗瑶 | 18 |
 | `korean` | 朝鲜 | 20 |
 | `bai` | 白 | 4 |
 | `yi` | 彝 | 15 |

@@ -425,7 +425,8 @@ chengdu={
         4987 5026 5027 5028 # B09 Chongqing five-way split
         5075 5076 5077 5078 5079 5080 5081 5082 5083 5084 5085 5086 5087 5088 5089 5090 5091 5092 5093 5094 5095 # B18 Sichuan 36-province refinement
         660 661 662 663 675 2165 2166 2167 5224 5225 5226 5227 5228 5229 5230 5231 5232 5233 5234 5235 5236 5237 5238 5239 5240 5241 # B38 Yunnan Chengdu trade-node consistency
-    }
+        5329 5330 5331 5332 5333 5334 5335 5336 5337 5338 5339 5340 # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+}
 }
 burma={
     location=584
@@ -518,7 +519,8 @@ canton={
     5216 5217 # B30 Yuebei-Chaoshan refinement
         5069 5070 5071 5072 5073 5074 # B17 Guizhou refinement
     5301 5302 5303 # B27 Hainan five-province refinement
-    }
+        5312 5313 5314 5315 5316 5317 5318 5319 5320 5321 5322 # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+}
 }
 philippines={
     location=1397
@@ -705,6 +707,7 @@ hangzhou={
         5056 5057 # B15 Yingtian refinement
         5058 5059 5060 5061 5062 5063 5064 5065 5066 5067 5068 # B16 Anhui refinement
         5096 5097 5098 5099 5100 # B19 Fujian 13-province refinement
+        5323 5324 5325 5326 5327 5328 # GDD_B45_HUNAN_JIANGXI_REFINEMENT
 }
 }
 xian={
@@ -737,6 +740,7 @@ xian={
     5286 5287 5288 5289 5290 5291 5293 5294 # B26 Gansu-Ningxia 23-province refinement Xian
     5305 5306 # B34 Longyou refinement Xian
     5307 5308 5309 # B37 Tianshui user refinement Xian
+        5341 5342 5343 5344 5345 5346 5347 5348 5349 5350 # GDD_B47_JINGXIANG_YUNAN_BALANCED
 }
 }
 beijing={

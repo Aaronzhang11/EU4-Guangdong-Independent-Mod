@@ -1,0 +1,403 @@
+{
+  "batch": "B47_jingxiang_yunan_geojson_preview",
+  "status": "review_only_not_game_loaded",
+  "canonical_map_modified": false,
+  "parent_ids": [
+    5008,
+    2171,
+    681,
+    2172,
+    5015,
+    5010,
+    5013,
+    5014,
+    687,
+    5053,
+    5054,
+    5055,
+    2175
+  ],
+  "provisional_new_ids": [
+    5341,
+    5342,
+    5343,
+    5344,
+    5345,
+    5346,
+    5347,
+    5348,
+    5349,
+    5350
+  ],
+  "max_provinces_if_applied": 5351,
+  "new_rgb": {
+    "5341": [
+      210,
+      87,
+      145
+    ],
+    "5342": [
+      77,
+      172,
+      204
+    ],
+    "5343": [
+      188,
+      151,
+      62
+    ],
+    "5344": [
+      92,
+      189,
+      108
+    ],
+    "5345": [
+      133,
+      83,
+      198
+    ],
+    "5346": [
+      218,
+      111,
+      67
+    ],
+    "5347": [
+      68,
+      123,
+      190
+    ],
+    "5348": [
+      172,
+      76,
+      102
+    ],
+    "5349": [
+      112,
+      169,
+      73
+    ],
+    "5350": [
+      201,
+      124,
+      183
+    ]
+  },
+  "editable_pixel_count": 4142,
+  "covered_pixel_count": 4142,
+  "changed_preview_pixels": 1833,
+  "changed_pixels_outside_editable_mask": 0,
+  "development_total": 133,
+  "connectivity_policy": {
+    "jingyi_area": "strictly river-separated; gameplay-connected by existing 2172-5013 crossing through navigable river 5037",
+    "other_areas": "strictly land-connected in the reviewed preview",
+    "new_synthetic_crossings": 0
+  },
+  "province_pixel_counts": {
+    "5008": 144,
+    "5341": 124,
+    "2171": 478,
+    "5342": 14,
+    "681": 2,
+    "5346": 83,
+    "2172": 23,
+    "5345": 237,
+    "5015": 48,
+    "5344": 166,
+    "5010": 26,
+    "5343": 461,
+    "5013": 375,
+    "5014": 298,
+    "687": 57,
+    "5347": 286,
+    "5053": 340,
+    "5054": 273,
+    "5349": 6,
+    "5055": 50,
+    "5348": 131,
+    "2175": 195,
+    "5350": 325
+  },
+  "cells": [
+    {
+      "province_id": 5008,
+      "name": "郧",
+      "parent_id": 5008,
+      "development": 4,
+      "polity": "SHE",
+      "area_key": "hanshang_area",
+      "area_name": "鄢庸",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 5341,
+      "name": "房州",
+      "parent_id": 5008,
+      "development": 4,
+      "polity": "SHE",
+      "area_key": "hanshang_area",
+      "area_name": "鄢庸",
+      "culture": "gdd_chu",
+      "new": true
+    },
+    {
+      "province_id": 2171,
+      "name": "襄阳",
+      "parent_id": 2171,
+      "development": 11,
+      "polity": "LUO",
+      "area_key": "hanshang_area",
+      "area_name": "鄢庸",
+      "culture": "gdd_zhongyuan",
+      "new": false
+    },
+    {
+      "province_id": 5342,
+      "name": "宜城",
+      "parent_id": 2171,
+      "development": 6,
+      "polity": "LUO",
+      "area_key": "hanshang_area",
+      "area_name": "鄢庸",
+      "culture": "gdd_zhongyuan",
+      "new": true
+    },
+    {
+      "province_id": 5010,
+      "name": "安陆",
+      "parent_id": 5010,
+      "development": 4,
+      "polity": "CHC",
+      "area_key": "yunmeng_jingmen_area",
+      "area_name": "云梦",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 5343,
+      "name": "荆门",
+      "parent_id": 5010,
+      "development": 4,
+      "polity": "CHC",
+      "area_key": "yunmeng_jingmen_area",
+      "area_name": "云梦",
+      "culture": "gdd_chu",
+      "new": true
+    },
+    {
+      "province_id": 5015,
+      "name": "沔阳",
+      "parent_id": 5015,
+      "development": 3,
+      "polity": "CHC",
+      "area_key": "yunmeng_jingmen_area",
+      "area_name": "云梦",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 5344,
+      "name": "监利",
+      "parent_id": 5015,
+      "development": 3,
+      "polity": "CHC",
+      "area_key": "yunmeng_jingmen_area",
+      "area_name": "云梦",
+      "culture": "gdd_chu",
+      "new": true
+    },
+    {
+      "province_id": 2172,
+      "name": "荆州",
+      "parent_id": 2172,
+      "development": 9,
+      "polity": "CHC",
+      "area_key": "jingyi_area",
+      "area_name": "荆郢",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 5345,
+      "name": "枝江",
+      "parent_id": 2172,
+      "development": 5,
+      "polity": "CHC",
+      "area_key": "jingyi_area",
+      "area_name": "荆郢",
+      "culture": "gdd_chu",
+      "new": true
+    },
+    {
+      "province_id": 5014,
+      "name": "公安",
+      "parent_id": 5014,
+      "development": 9,
+      "polity": "CHC",
+      "area_key": "jingyi_area",
+      "area_name": "荆郢",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 681,
+      "name": "夷陵",
+      "parent_id": 681,
+      "development": 7,
+      "polity": "SHE",
+      "area_key": "yigui_area",
+      "area_name": "夷陵",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 5346,
+      "name": "归州",
+      "parent_id": 681,
+      "development": 4,
+      "polity": "SHE",
+      "area_key": "yigui_area",
+      "area_name": "夷陵",
+      "culture": "gdd_chu",
+      "new": true
+    },
+    {
+      "province_id": 5013,
+      "name": "施州",
+      "parent_id": 5013,
+      "development": 6,
+      "polity": "BD2",
+      "area_key": "jingyi_area",
+      "area_name": "荆郢",
+      "culture": "gdd_diqiang",
+      "new": false
+    },
+    {
+      "province_id": 687,
+      "name": "南阳",
+      "parent_id": 687,
+      "development": 10,
+      "polity": "GON",
+      "area_key": "wandeng_area",
+      "area_name": "申邓",
+      "culture": "gdd_zhongyuan",
+      "new": false
+    },
+    {
+      "province_id": 5347,
+      "name": "方城",
+      "parent_id": 687,
+      "development": 5,
+      "polity": "GON",
+      "area_key": "wandeng_area",
+      "area_name": "申邓",
+      "culture": "gdd_zhongyuan",
+      "new": true
+    },
+    {
+      "province_id": 5055,
+      "name": "邓州",
+      "parent_id": 5055,
+      "development": 6,
+      "polity": "GON",
+      "area_key": "wandeng_area",
+      "area_name": "申邓",
+      "culture": "gdd_zhongyuan",
+      "new": false
+    },
+    {
+      "province_id": 5348,
+      "name": "内乡",
+      "parent_id": 5055,
+      "development": 4,
+      "polity": "GON",
+      "area_key": "wandeng_area",
+      "area_name": "申邓",
+      "culture": "gdd_zhongyuan",
+      "new": true
+    },
+    {
+      "province_id": 5053,
+      "name": "汝州",
+      "parent_id": 5053,
+      "development": 8,
+      "polity": "CZH",
+      "area_key": "rucai_area",
+      "area_name": "汝蔡",
+      "culture": "gdd_zhongyuan",
+      "new": false
+    },
+    {
+      "province_id": 5054,
+      "name": "汝宁",
+      "parent_id": 5054,
+      "development": 8,
+      "polity": "CAI",
+      "area_key": "rucai_area",
+      "area_name": "汝蔡",
+      "culture": "gdd_zhongyuan",
+      "new": false
+    },
+    {
+      "province_id": 5349,
+      "name": "息州",
+      "parent_id": 5054,
+      "development": 4,
+      "polity": "CAI",
+      "area_key": "rucai_area",
+      "area_name": "汝蔡",
+      "culture": "gdd_zhongyuan",
+      "new": true
+    },
+    {
+      "province_id": 2175,
+      "name": "信阳",
+      "parent_id": 2175,
+      "development": 5,
+      "polity": "SUI",
+      "area_key": "dean_qihuang_area",
+      "area_name": "随黄",
+      "culture": "gdd_chu",
+      "new": false
+    },
+    {
+      "province_id": 5350,
+      "name": "光州",
+      "parent_id": 2175,
+      "development": 4,
+      "polity": "SUI",
+      "area_key": "dean_qihuang_area",
+      "area_name": "随黄",
+      "culture": "gdd_chu",
+      "new": true
+    }
+  ],
+  "geojson": {
+    "sources": [
+      "https://geo.datav.aliyun.com/areas_v3/bound/420000_full_district.json",
+      "https://geo.datav.aliyun.com/areas_v3/bound/410000_full_district.json"
+    ],
+    "geojson_feature_count": 104,
+    "geojson_bounds": [
+      108.367783,
+      29.115098,
+      115.943294,
+      34.345679
+    ]
+  },
+  "workshop_density_references": {
+    "大明日不落": 103,
+    "岁在甲子": 175,
+    "风云世纪两千年": 159
+  },
+  "workshop_roots": {
+    "大明日不落": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/1728520255",
+    "岁在甲子": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/3400977776",
+    "风云世纪两千年": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/2935149060"
+  },
+  "outputs": [
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/b47_geojson_reviewed_provinces.bmp",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/b47_geojson_review.png",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/b47_reference_comparison.png"
+  ]
+}

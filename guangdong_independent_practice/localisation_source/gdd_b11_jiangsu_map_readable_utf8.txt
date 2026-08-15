@@ -1,8 +1,6 @@
 ﻿l_english:
  PROV685:0 "扬州"
  PROV_ADJ685:0 "扬州"
- PROV1821:0 "六合"
- PROV_ADJ1821:0 "六合"
  PROV1822:0 "苏州"
  PROV_ADJ1822:0 "苏州"
  PROV2141:0 "徐州"
@@ -31,8 +29,6 @@
  PROV_ADJ5024:0 "常州"
  PROV5025:0 "无锡"
  PROV_ADJ5025:0 "无锡"
- PROV5056:0 "江宁"
- PROV_ADJ5056:0 "江宁"
  PROV5057:0 "溧水"
  PROV_ADJ5057:0 "溧水"
 

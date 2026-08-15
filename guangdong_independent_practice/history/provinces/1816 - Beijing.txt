@@ -1,11 +1,11 @@
-#1816 - Beijing
+# 1816 - Ji
 
 owner = YAN
 controller = YAN
 add_core = YAN
 culture = gdd_yan
 religion = confucianism
-capital = "Beijing"
+capital = "Ji"
 trade_goods = grain
 hre = no
 base_tax = 13

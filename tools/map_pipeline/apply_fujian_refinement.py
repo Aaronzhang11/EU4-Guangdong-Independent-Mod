@@ -34,7 +34,7 @@ class Province:
 
 
 P = (
-    Province(669, "闽侯", "Minhou", "fujian_area", (230,137,66), (223,90,255), (4665,963), "tea", (7,7,3), 1, True),
+    Province(669, "福州", "Fuzhou", "fujian_area", (230,137,66), (223,90,255), (4665,963), "tea", (7,7,3), 1, True),
     Province(5096, "福宁", "Funing", "fujian_area", (80,156,200), (80,156,200), (4675,954), "tea", (4,4,2)),
     Province(5097, "福清", "Fuqing", "fujian_area", (220,184,69), (220,184,69), (4665,976), "fish", (5,5,2)),
     Province(4952, "兴化", "Xinghua", "fujian_area", (77,170,118), (226,189,60), (4664,982), "fish", (5,5,2)),

@@ -1,0 +1,426 @@
+{
+  "batch": "B46_chuandongbei_chongqing_geojson_refinement",
+  "marker": "GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON",
+  "purpose": "Implement the reviewed GeoJSON-guided second refinement without increasing regional development.",
+  "parent_ids": [
+    5080,
+    5081,
+    2169,
+    5082,
+    4211,
+    5026,
+    680,
+    5027,
+    4987,
+    5028
+  ],
+  "new_provinces": [
+    {
+      "province_id": 5329,
+      "chinese": "昭化",
+      "english": "Zhaohua",
+      "parent_id": 5081,
+      "colour": [
+        184,
+        165,
+        77
+      ],
+      "area": "chuanbei_area",
+      "owner": "JUU",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Zhaohua",
+      "goods": "grain",
+      "development": [
+        1,
+        1,
+        2
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5330,
+      "chinese": "蓬州",
+      "english": "Pengzhou",
+      "parent_id": 2169,
+      "colour": [
+        155,
+        76,
+        224
+      ],
+      "area": "baqu_area",
+      "owner": "BAA",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Pengzhou",
+      "goods": "grain",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5331,
+      "chinese": "遂州",
+      "english": "Suizhou",
+      "parent_id": 5082,
+      "colour": [
+        48,
+        184,
+        80
+      ],
+      "area": "chuanbei_area",
+      "owner": "SHU",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Suizhou",
+      "goods": "cloth",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5332,
+      "chinese": "巴州",
+      "english": "Bazhou",
+      "parent_id": 4211,
+      "colour": [
+        224,
+        94,
+        101
+      ],
+      "area": "baqu_area",
+      "owner": "DQU",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Bazhou",
+      "goods": "grain",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5333,
+      "chinese": "渠州",
+      "english": "Quzhou",
+      "parent_id": 4211,
+      "colour": [
+        62,
+        104,
+        184
+      ],
+      "area": "baqu_area",
+      "owner": "DQU",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Quzhou",
+      "goods": "iron",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5334,
+      "chinese": "昌州",
+      "english": "Changzhou Sichuan",
+      "parent_id": 5026,
+      "colour": [
+        164,
+        224,
+        58
+      ],
+      "area": "chongqing_area",
+      "owner": "BAA",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Changzhou",
+      "goods": "grain",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5335,
+      "chinese": "江津",
+      "english": "Jiangjin",
+      "parent_id": 680,
+      "colour": [
+        184,
+        77,
+        176
+      ],
+      "area": "chongqing_area",
+      "owner": "BAA",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Jiangjin",
+      "goods": "wine",
+      "development": [
+        2,
+        3,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5336,
+      "chinese": "南川",
+      "english": "Nanchuan",
+      "parent_id": 5027,
+      "colour": [
+        76,
+        224,
+        192
+      ],
+      "area": "fuling_area",
+      "owner": "ZHI",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Nanchuan",
+      "goods": "iron",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5337,
+      "chinese": "彭水",
+      "english": "Pengshui",
+      "parent_id": 5027,
+      "colour": [
+        184,
+        114,
+        48
+      ],
+      "area": "fuling_area",
+      "owner": "ZHI",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Pengshui",
+      "goods": "livestock",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5338,
+      "chinese": "忠州",
+      "english": "Zhongzhou",
+      "parent_id": 4987,
+      "colour": [
+        120,
+        94,
+        224
+      ],
+      "area": "fuling_area",
+      "owner": "ZHI",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Zhongzhou",
+      "goods": "tea",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5339,
+      "chinese": "开州",
+      "english": "Kaizhou",
+      "parent_id": 4987,
+      "colour": [
+        74,
+        184,
+        62
+      ],
+      "area": "xiajiang_area",
+      "owner": "DQU",
+      "culture": "gdd_shu",
+      "religion": "confucianism",
+      "capital": "Kaizhou",
+      "goods": "tea",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5340,
+      "chinese": "石砫",
+      "english": "Shizhu",
+      "parent_id": 5028,
+      "colour": [
+        224,
+        58,
+        123
+      ],
+      "area": "fuling_area",
+      "owner": "ZHI",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Shizhu",
+      "goods": "livestock",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    }
+  ],
+  "reviewed_bitmap": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/chuandongbei_chongqing_b46/b46_reviewed_provinces.bmp",
+  "reviewed_bitmap_sha256": "4b3b28533d1a5b1c1a6aa200166a0dde7df9f4702857a032fc137d038f228589",
+  "backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/chuandongbei_chongqing_b46/pre_b46_provinces.bmp",
+  "changed_pixels_this_run": 0,
+  "changed_pixels_vs_backup": 2444,
+  "changed_pixels_vs_backup_outside_editable_mask": 0,
+  "changed_pixels_outside_editable_mask": 0,
+  "pixel_counts": {
+    "5080": 537,
+    "5081": 145,
+    "5329": 264,
+    "2169": 150,
+    "5330": 57,
+    "5331": 117,
+    "5332": 356,
+    "5082": 83,
+    "4211": 208,
+    "5333": 243,
+    "5026": 62,
+    "5334": 200,
+    "680": 106,
+    "5335": 208,
+    "5027": 87,
+    "5336": 161,
+    "5337": 297,
+    "4987": 102,
+    "5338": 120,
+    "5339": 100,
+    "5028": 207,
+    "5340": 242
+  },
+  "areas": {
+    "chuanbei_area": [
+      5080,
+      5081,
+      5329,
+      2169,
+      5331
+    ],
+    "baqu_area": [
+      5330,
+      5332,
+      5082,
+      4211,
+      5333
+    ],
+    "chongqing_area": [
+      5026,
+      5334,
+      680,
+      5335
+    ],
+    "fuling_area": [
+      5027,
+      5336,
+      5337,
+      5338,
+      5340
+    ],
+    "xiajiang_area": [
+      4987,
+      5339,
+      5028
+    ]
+  },
+  "region": "xinan_region",
+  "trade_node": "chengdu",
+  "trade_company": "trade_company_chengdu",
+  "countries": {
+    "SHU": [
+      5080,
+      5331
+    ],
+    "JUU": [
+      5081,
+      5329
+    ],
+    "BAA": [
+      2169,
+      5330,
+      5082,
+      5026,
+      5334,
+      680,
+      5335
+    ],
+    "DQU": [
+      5332,
+      4211,
+      5333,
+      4987,
+      5339
+    ],
+    "ZHI": [
+      5027,
+      5336,
+      5337,
+      5338,
+      5340
+    ],
+    "BD2": [
+      5028
+    ]
+  },
+  "validation": {
+    "province_components": "22/22 one component",
+    "area_components": "5/5 one component",
+    "polity_components": "6/6 one component in B46 scope",
+    "development_total": 106,
+    "polity_development_in_scope": {
+      "SHU": 16,
+      "JUU": 8,
+      "BAA": 42,
+      "DQU": 17,
+      "ZHI": 17,
+      "BD2": 6
+    }
+  },
+  "canonical_bitmap_sha256": "4b3b28533d1a5b1c1a6aa200166a0dde7df9f4702857a032fc137d038f228589"
+}

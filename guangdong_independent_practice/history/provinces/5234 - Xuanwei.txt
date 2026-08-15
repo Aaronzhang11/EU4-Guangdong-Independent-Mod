@@ -1,4 +1,4 @@
-# 5234 - Xuanwei
+# 5234 - Zhanyi
 
 owner = DIA
 controller = DIA
@@ -6,7 +6,7 @@ add_core = CDL
 add_core = DIA
 culture = yi
 religion = animism
-capital = "Xuanwei"
+capital = "Zhanyi"
 trade_goods = livestock
 base_tax = 2
 base_production = 2

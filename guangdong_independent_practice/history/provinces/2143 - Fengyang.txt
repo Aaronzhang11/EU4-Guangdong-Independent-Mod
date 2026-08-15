@@ -1,11 +1,11 @@
-# 2143 - Fengyang
+# 2143 - Haozhou
 
 owner = XU2
 controller = XU2
 add_core = XU2
 culture = gdd_zhongyuan
 religion = confucianism
-capital = "Fengyang"
+capital = "Haozhou"
 trade_goods = grain
 hre = no
 base_tax = 3

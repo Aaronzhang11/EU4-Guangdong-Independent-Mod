@@ -1,0 +1,453 @@
+{
+  "batch": "B47_jingxiang_yunan_balanced_refinement",
+  "marker": "GDD_B47_JINGXIANG_YUNAN_BALANCED",
+  "purpose": "Apply the approved balanced Jingxiang and southern Henan refinement while locking the modern Hubei-Henan boundary and regional development.",
+  "geometry_policy": "lock the modern Hubei-Henan boundary; allow cross-parent rebalancing only inside each modern province domain",
+  "parent_ids": [
+    5008,
+    2171,
+    681,
+    2172,
+    5015,
+    5010,
+    5013,
+    5014,
+    687,
+    5053,
+    5054,
+    5055,
+    2175
+  ],
+  "target_ids": [
+    5008,
+    5341,
+    2171,
+    5342,
+    5010,
+    5343,
+    5015,
+    5344,
+    2172,
+    5345,
+    5014,
+    681,
+    5346,
+    5013,
+    687,
+    5347,
+    5055,
+    5348,
+    5053,
+    5054,
+    5349,
+    2175,
+    5350
+  ],
+  "new_provinces": [
+    {
+      "province_id": 5341,
+      "chinese": "房州",
+      "english": "Fangzhou (Hubei)",
+      "parent_id": 5008,
+      "colour": [
+        210,
+        87,
+        145
+      ],
+      "area": "hanshang_area",
+      "owner": "SHE",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Fangzhou",
+      "goods": "livestock",
+      "development": [
+        1,
+        1,
+        2
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5342,
+      "chinese": "宜城",
+      "english": "Yicheng",
+      "parent_id": 2171,
+      "colour": [
+        77,
+        172,
+        204
+      ],
+      "area": "hanshang_area",
+      "owner": "LUO",
+      "culture": "gdd_zhongyuan",
+      "religion": "confucianism",
+      "capital": "Yicheng",
+      "goods": "grain",
+      "development": [
+        2,
+        2,
+        2
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5343,
+      "chinese": "荆门",
+      "english": "Jingmen",
+      "parent_id": 5010,
+      "colour": [
+        188,
+        151,
+        62
+      ],
+      "area": "yunmeng_jingmen_area",
+      "owner": "CHC",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Jingmen",
+      "goods": "grain",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5344,
+      "chinese": "监利",
+      "english": "Jianli",
+      "parent_id": 5015,
+      "colour": [
+        92,
+        189,
+        108
+      ],
+      "area": "yunmeng_jingmen_area",
+      "owner": "CHC",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Jianli",
+      "goods": "grain",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5345,
+      "chinese": "枝江",
+      "english": "Zhijiang",
+      "parent_id": 2172,
+      "colour": [
+        133,
+        83,
+        198
+      ],
+      "area": "jingyi_area",
+      "owner": "CHC",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Zhijiang",
+      "goods": "grain",
+      "development": [
+        2,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5346,
+      "chinese": "归州",
+      "english": "Guizhou (Hubei)",
+      "parent_id": 681,
+      "colour": [
+        218,
+        111,
+        67
+      ],
+      "area": "yigui_area",
+      "owner": "SHE",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Guizhou",
+      "goods": "tea",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5347,
+      "chinese": "方城",
+      "english": "Fangcheng",
+      "parent_id": 687,
+      "colour": [
+        68,
+        123,
+        190
+      ],
+      "area": "wandeng_area",
+      "owner": "GON",
+      "culture": "gdd_zhongyuan",
+      "religion": "confucianism",
+      "capital": "Fangcheng",
+      "goods": "livestock",
+      "development": [
+        2,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5348,
+      "chinese": "内乡",
+      "english": "Neixiang",
+      "parent_id": 5055,
+      "colour": [
+        172,
+        76,
+        102
+      ],
+      "area": "wandeng_area",
+      "owner": "GON",
+      "culture": "gdd_zhongyuan",
+      "religion": "confucianism",
+      "capital": "Neixiang",
+      "goods": "iron",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5349,
+      "chinese": "息州",
+      "english": "Xizhou",
+      "parent_id": 5054,
+      "colour": [
+        112,
+        169,
+        73
+      ],
+      "area": "rucai_area",
+      "owner": "CAI",
+      "culture": "gdd_zhongyuan",
+      "religion": "confucianism",
+      "capital": "Xizhou",
+      "goods": "grain",
+      "development": [
+        2,
+        1,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    },
+    {
+      "province_id": 5350,
+      "chinese": "光州",
+      "english": "Guangzhou (Henan)",
+      "parent_id": 2175,
+      "colour": [
+        201,
+        124,
+        183
+      ],
+      "area": "dean_qihuang_area",
+      "owner": "SUI",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Guangzhou",
+      "goods": "tea",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cot": 0,
+      "fort": false
+    }
+  ],
+  "reviewed_bitmap": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/b47_geojson_v3_reviewed_provinces.bmp",
+  "reviewed_bitmap_sha256": "bffea1e0ff88dbf0d0a3369bdfa494c0c7994e0e13cf90176e9c33511754ada7",
+  "backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/pre_b47_provinces.bmp",
+  "backup_sha256": "4b3b28533d1a5b1c1a6aa200166a0dde7df9f4702857a032fc137d038f228589",
+  "correction_backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/pre_b47_modern_border_correction_provinces.bmp",
+  "correction_backup_sha256": "5348829f5ee3366e66a860360397e1dde2fd4ccc0b5160085b45c1532833b338",
+  "formal_review": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/jingxiang_yunan_b47/b47_formal_review.png",
+  "changed_pixels_this_run": 0,
+  "changed_pixels_vs_backup": 2017,
+  "changed_pixels_vs_backup_outside_editable_mask": 0,
+  "changed_pixels_outside_editable_mask": 0,
+  "pixel_counts": {
+    "5008": 110,
+    "5341": 118,
+    "2171": 296,
+    "5342": 162,
+    "5010": 108,
+    "5343": 108,
+    "5015": 81,
+    "5344": 81,
+    "2172": 244,
+    "5345": 135,
+    "5014": 404,
+    "681": 122,
+    "5346": 104,
+    "5013": 269,
+    "687": 284,
+    "5347": 142,
+    "5055": 171,
+    "5348": 114,
+    "5053": 228,
+    "5054": 227,
+    "5349": 114,
+    "2175": 289,
+    "5350": 231
+  },
+  "areas": {
+    "hanshang_area": [
+      5008,
+      5341,
+      2171,
+      5342
+    ],
+    "yunmeng_jingmen_area": [
+      5010,
+      5343,
+      5015,
+      5344
+    ],
+    "jingyi_area": [
+      2172,
+      5345,
+      5014,
+      5013
+    ],
+    "yigui_area": [
+      681,
+      5346
+    ],
+    "wandeng_area": [
+      687,
+      5347,
+      5055,
+      5348
+    ],
+    "rucai_area": [
+      5053,
+      5054,
+      5349
+    ],
+    "dean_qihuang_area": [
+      5009,
+      4197,
+      5012,
+      2175,
+      5350
+    ]
+  },
+  "regions": {
+    "south_china_region": [
+      "hanshang_area",
+      "yunmeng_jingmen_area",
+      "jingyi_area",
+      "yigui_area",
+      "dean_qihuang_area"
+    ],
+    "north_china_region": [
+      "wandeng_area",
+      "rucai_area"
+    ]
+  },
+  "trade_node": "xian",
+  "trade_company": "trade_company_xian",
+  "countries": {
+    "SHE": [
+      5008,
+      5341,
+      681,
+      5346
+    ],
+    "LUO": [
+      2171,
+      5342
+    ],
+    "CHC": [
+      5010,
+      5343,
+      5015,
+      5344,
+      2172,
+      5345,
+      5014
+    ],
+    "BD2": [
+      5013
+    ],
+    "GON": [
+      687,
+      5347,
+      5055,
+      5348
+    ],
+    "CZH": [
+      5053
+    ],
+    "CAI": [
+      5054,
+      5349
+    ],
+    "SUI": [
+      2175,
+      5350
+    ]
+  },
+  "validation": {
+    "province_components": "23/23 one component",
+    "area_land_components": {
+      "hanshang_area": 1,
+      "yunmeng_jingmen_area": 1,
+      "jingyi_area": 2,
+      "yigui_area": 1,
+      "wandeng_area": 1,
+      "rucai_area": 1,
+      "dean_qihuang_area": 1
+    },
+    "jingyi_gameplay_connectivity": "crossing-connected via 2172-5013 through navigable river 5037",
+    "development_total": 133,
+    "polity_development_in_scope": {
+      "SHE": 19,
+      "LUO": 17,
+      "CHC": 37,
+      "BD2": 6,
+      "GON": 25,
+      "CZH": 8,
+      "CAI": 12,
+      "SUI": 9
+    },
+    "minimum_province_pixels": 81,
+    "modern_hubei_henan_boundary": "hard constraint from reviewed county GeoJSON",
+    "modern_boundary_violations": {
+      "hubei_cells_in_henan": 0,
+      "henan_cells_in_hubei": 0
+    }
+  },
+  "canonical_bitmap_sha256": "bffea1e0ff88dbf0d0a3369bdfa494c0c7994e0e13cf90176e9c33511754ada7"
+}

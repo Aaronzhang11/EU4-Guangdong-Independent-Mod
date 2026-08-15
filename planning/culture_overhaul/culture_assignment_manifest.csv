@@ -4,14 +4,14 @@
 616,,red_river_delta_area,zhuang,gdd_zhuang,616 - Cao Bang.txt
 661,大理,dianxi_area,bai,bai,661 - Dali.txt
 662,昆明,yunnan_area,bai,gdd_dian,662 - Yunnan.txt
-663,文山,diannan_area,bai,gdd_zhuang,663 - Guangnan.txt
+663,广南,diannan_area,bai,gdd_zhuang,663 - Guangnan.txt
 664,泗城,youjiang_area,zhuang,gdd_zhuang,664 - Lingyun.txt
 665,,west_guangdong_area,cantonese,gdd_guangfu,665 - Shiuhing.txt
 666,琼州,hainan_area,chimin,gdd_min,666 - Kiungchow.txt
 667,,pearl_river_delta_area,cantonese,gdd_guangfu,667 - Canton.txt
-668,,pearl_river_delta_area,cantonese,gdd_guangfu,668 - Macau.txt
-669,闽侯,fujian_area,chimin,gdd_min,669 - Fuzhou.txt
-670,,south_jiangxi_area,hakka,gdd_hakka,670 - Ganzhou.txt
+668,香山,pearl_river_delta_area,cantonese,gdd_guangfu,668 - Macau.txt
+669,福州,fujian_area,chimin,gdd_min,669 - Fuzhou.txt
+670,,gannan_area,hakka,gdd_hakka,670 - Ganzhou.txt
 671,,hunan_area,xiang,gdd_chu,671 - Changsha.txt
 672,常德,dongting_area,xiang,gdd_chu,672 - Wulin.txt
 673,都云,qiandong_area,miao,miao,673 - Zhenyuan.txt
@@ -39,8 +39,8 @@
 699,兰州,gansu_area,xibei,gdd_long,699 - Lanzhou.txt
 700,长安,changan_area,zhili,gdd_zhongyuan,700 - Xi'an.txt
 701,,ordos_area,mongol,gdd_jin,701 - Ordos.txt
-702,,inner_mongolia_area,mongol,gdd_jin,702 - Hohhot.txt
-703,,hebei_area,chahar,gdd_yan,703 - Chengde.txt
+702,丰州,inner_mongolia_area,mongol,gdd_jin,702 - Hohhot.txt
+703,热河,hebei_area,chahar,gdd_yan,703 - Chengde.txt
 704,宁远,xi_liaoning_area,yan,gdd_dongyi,704 - Ningyuan.txt
 708,武威,hexi_area,xibei,gdd_long,708 - Gansu.txt
 732,,hamgyeong_area,korean,korean,732 - South Hamgyeong.txt
@@ -51,8 +51,8 @@
 737,,south_korea_area,korean,korean,737 - Jeonju.txt
 1013,,south_korea_area,korean,korean,1013 - Cheongju.txt
 1016,,vietnam_area,vietnamese,vietnamese,1016 - Ha Tinh.txt
-1816,燕,yandu_area,chihan,gdd_yan,1816 - Beijing.txt
-1821,六合,yingtian_area,jianghuai,gdd_wu,1821 - Nanjing.txt
+1816,蓟,yandu_area,chihan,gdd_yan,1816 - Beijing.txt
+1821,江宁,yingtian_area,jianghuai,gdd_wu,1821 - Nanjing.txt
 1822,苏州,jinling_wuhui_area,wu,gdd_wu,1822 - Suzhou.txt
 1824,温州,east_zhejiang_area,wu,gdd_wu,1824 - Wenzhou.txt
 1829,泉州,minnan_area,chimin,gdd_min,1829 - Quanzhou.txt
@@ -62,27 +62,27 @@
 1840,桂林,guangxi_area,zhuang,gdd_gui,1840 - Guilin.txt
 1845,,pyongan_area,korean,korean,1845 - South Pyongan.txt
 2113,盖州,liaoning_area,shandong_culture,gdd_qi,2113 - Gaizhou.txt
-2136,,hebei_area,jin,gdd_jin,2136 - Xuanhua.txt
+2136,上谷,hebei_area,jin,gdd_jin,2136 - Xuanhua.txt
 2137,大名,south_hebei_area,chihan,gdd_zhongyuan,2137 - Daming.txt
 2138,武定,qizhou_area,shandong,gdd_qi,2138 - Wuding.txt
 2139,莱州,denglai_area,shandong_culture,gdd_qi,2139 - Laizhou.txt
 2140,兖州,lunan_area,shandong,gdd_qi,2140 - Yanzhou.txt
 2141,徐州,xuhuai_haizhou_area,zhongyuan,gdd_zhongyuan,2141 - Xuzhou.txt
 2142,淮安,xuhuai_haizhou_area,jianghuai,gdd_jianghuai,2142 - Huai'an.txt
-2143,凤阳,huaiying_area,zhongyuan,gdd_zhongyuan,2143 - Fengyang.txt
+2143,濠州,huaiying_area,zhongyuan,gdd_zhongyuan,2143 - Fengyang.txt
 2144,颍州,huaiying_area,zhongyuan,gdd_zhongyuan,2144 - Fuyang.txt
 2145,镇江,jinling_wuhui_area,jianghuai,gdd_wu,2145 - Zhenjiang.txt
 2146,宁国,huining_area,wu,gdd_wu,2146 - Ningguo.txt
 2147,徽州,huining_area,wu,gdd_wu,2147 - Huizhou.txt
 2148,绍兴,zhejiang_area,wu,gdd_wu,2148 - Shaoxin.txt
-2149,宁波,east_zhejiang_area,wu,gdd_wu,2149 - Ningbo.txt
+2149,明州,east_zhejiang_area,wu,gdd_wu,2149 - Ningbo.txt
 2150,金华,jinqu_chuzhou_area,wu,gdd_wu,2150 - Jinhua.txt
 2151,饶州,jiangxi_area,gan,gdd_gan,2151 - Poyang.txt
 2152,建宁,west_fujian_area,chimin,gdd_min,2152 - Jianning.txt
 2153,汀州,west_fujian_area,chimin,gdd_min,2153 -Tingzhou.txt
 2156,潮州,chaoshan_area,chimin,gdd_min,2156 - Chaochow.txt
 2157,惠州,dongjiang_area,hakka,gdd_hakka,2157 - Waichow.txt
-2158,韶关,guangdong_area,hakka,gdd_guangfu,2158 - Shiukwan.txt
+2158,韶州,guangdong_area,hakka,gdd_guangfu,2158 - Shiukwan.txt
 2159,,west_guangdong_area,chimin,gdd_zhuang,2159 - Leichow.txt
 2160,崖州,hainan_area,chimin,gdd_zhuang,2160 - Ngaichow.txt
 2161,,west_guangdong_area,cantonese,gdd_zhuang,2161 - Limchow.txt
@@ -96,12 +96,12 @@
 2170,松州,songmao_area,tibetan,gdd_diqiang,2170 - Songqu.txt
 2171,襄阳,hanjiang_xiangyun_area,hubei,gdd_zhongyuan,2171 - Xiangyang.txt
 2172,荆州,jingyi_shinan_area,hubei,gdd_chu,2172 - Jingzhou.txt
-2173,辰州,dongting_area,miao,miao,2173 - Yuanling.txt
-2174,衡州,hunan_area,xiang,gdd_chu,2174 - Hengyang.txt
+2173,辰州,wuling_hunan_area,miao,miao,2173 - Yuanling.txt
+2174,衡州,hengchen_area,xiang,gdd_chu,2174 - Hengyang.txt
 2175,信阳,dean_qihuang_area,zhongyuan,gdd_chu,2175 - Runing.txt
 2176,归德,guide_xuchen_area,zhongyuan,gdd_songwei,2176 - Shangqiu.txt
 2177,宁武,yanmen_area,zhili,gdd_jin,2177 - Ningwu.txt
-2178,潞安,shangdang_area,zhili,gdd_jin,2178 - Lu'an.txt
+2178,潞州,shangdang_area,zhili,gdd_jin,2178 - Lu'an.txt
 2179,延安,bei_shaanxi_area,jin,gdd_jin,2179 - Yan'an.txt
 2180,天水,longyou_area,xibei,gdd_zhongyuan,2180 - Tianshui.txt
 2181,平凉,xi_shaanxi_area,xibei,gdd_zhongyuan,2181 - Pingliang.txt
@@ -123,7 +123,7 @@
 4197,蕲州,dean_qihuang_area,hubei,gdd_chu,4197 - Huangzhou.txt
 4198,凤翔,shaanxi_area,xibei,gdd_zhongyuan,4198 - Fengxiang.txt
 4199,思南,qiandong_area,miao,miao,4199 - Tongren.txt
-4211,达州,chuanbei_area,sichuanese,gdd_shu,4211 - Dazhou.txt
+4211,达州,baqu_area,sichuanese,gdd_shu,4211 - Dazhou.txt
 4212,嘉州,jiaya_area,sichuanese,gdd_shu,4212 - Jiazhou.txt
 4213,泸州,chuannan_area,sichuanese,gdd_shu,4213 - Luzhou.txt
 4227,,eastern_korea_area,korean,korean,4227 - Daegu.txt
@@ -140,7 +140,7 @@
 4943,东莞,pearl_river_delta_area,cantonese,gdd_guangfu,4943 - Dongguan.txt
 4944,梅州,dongjiang_area,hakka,gdd_hakka,4944 - Meizhou.txt
 4945,高州,west_guangdong_area,cantonese,gdd_zhuang,4945 - Gaozhou.txt
-4946,香港,pearl_river_delta_area,cantonese,gdd_guangfu,4946 - Hong Kong.txt
+4946,屯门,pearl_river_delta_area,cantonese,gdd_guangfu,4946 - Hong Kong.txt
 4947,罗定,west_guangdong_area,cantonese,gdd_guangfu,4947 - Luoding.txt
 4948,南雄,guangdong_area,hakka,gdd_hakka,4948 - Nanxiong.txt
 4949,海丰,chaoshan_area,chimin,gdd_min,4949 - Haifeng.txt
@@ -158,35 +158,35 @@
 4967,陕州,chengzhou_area,zhongyuan,gdd_zhongyuan,4967 - Shanzhou.txt
 4976,松江,jinling_wuhui_area,wu,gdd_wu,4976 - Songjiang.txt
 4977,泰州,huaiyang_tongtai_area,jianghuai,gdd_jianghuai,4977 - Taizhou.txt
-4979,九江,jiangxi_area,gan,gdd_chu,4979 - Jiujiang.txt
+4979,九江,xunyang_area,gan,gdd_chu,4979 - Jiujiang.txt
 4980,临川,south_jiangxi_area,gan,gdd_gan,4980 - Linchuan.txt
 4981,汉阳,wuhan_enan_area,hubei,gdd_chu,4981 - Hanyang.txt
 4982,岳州,hunan_area,xiang,gdd_chu,4982 - Yuezhou.txt
 4983,宝庆,southwest_hunan_area,xiang,gdd_chu,4983 - Baoqing.txt
-4987,万州,chongqing_area,sichuanese,gdd_shu,4987 - Wanzhou.txt
-4992,瑞州,jiangxi_area,gan,gdd_gan,4992 - Ruizhou.txt
+4987,万州,xiajiang_area,sichuanese,gdd_shu,4987 - Wanzhou.txt
+4992,瑞州,xunyang_area,gan,gdd_gan,4992 - Ruizhou.txt
 4993,广信,jiangxi_area,gan,gdd_gan,4993 - Guangxin.txt
 4994,袁州,south_jiangxi_area,gan,gdd_gan,4994 - Yuanzhou.txt
-4995,南安,south_jiangxi_area,hakka,gdd_hakka,4995 - Nan'an.txt
-4996,澧州,dongting_area,xiang,miao,4996 - Lizhou.txt
+4995,南安,gannan_area,hakka,gdd_hakka,4995 - Nan'an.txt
+4996,澧州,lishui_area,xiang,miao,4996 - Lizhou.txt
 4997,益阳,dongting_area,xiang,gdd_chu,4997 - Yiyang.txt
 4998,湘潭,hunan_area,xiang,gdd_chu,4998 - Xiangtan.txt
 4999,靖州,southwest_hunan_area,miao,miao,4999 - Jingzhou.txt
 5000,永州,southwest_hunan_area,xiang,gdd_chu,5000 - Yongzhou.txt
-5001,郴州,southwest_hunan_area,xiang,gdd_gui,5001 - Chenzhou.txt
+5001,郴州,hengchen_area,xiang,gdd_gui,5001 - Chenzhou.txt
 5002,嘉兴,zhejiang_area,wu,gdd_wu,5002 - Jiaxing.txt
 5003,严州,zhejiang_area,wu,gdd_wu,5003 - Yanzhou.txt
 5004,昌国,east_zhejiang_area,wu,gdd_wu,5004 - Changguo.txt
 5005,宁海,east_zhejiang_area,wu,gdd_wu,5005 - Ninghai.txt
 5006,义乌,jinqu_chuzhou_area,wu,gdd_wu,5006 - Yiwu.txt
 5007,处州,jinqu_chuzhou_area,wu,gdd_wu,5007 - Chuzhou.txt
-5008,郧阳,hanjiang_xiangyun_area,hubei,gdd_chu,5008 - Yunyang.txt
+5008,郧,hanjiang_xiangyun_area,hubei,gdd_chu,5008 - Yunyang.txt
 5009,随州,dean_qihuang_area,hubei,gdd_chu,5009 - Suizhou.txt
-5010,承天,jingyi_shinan_area,hubei,gdd_chu,5010 - Chengtian.txt
+5010,安陆,jingyi_shinan_area,hubei,gdd_chu,5010 - Chengtian.txt
 5011,汉口,wuhan_enan_area,hubei,gdd_chu,5011 - Hankou.txt
 5012,黄州,dean_qihuang_area,hubei,gdd_chu,5012 - Huangzhou.txt
 5013,施州,jingyi_shinan_area,miao,gdd_diqiang,5013 - Shizhou.txt
-5014,公安,dongting_area,hubei,gdd_chu,5014 - Gongan.txt
+5014,公安,jingyi_shinan_area,hubei,gdd_chu,5014 - Gongan.txt
 5015,沔阳,jingyi_shinan_area,hubei,gdd_chu,5015 - Mianyang.txt
 5016,兴国,wuhan_enan_area,hubei,gdd_chu,5016 - Xingguo.txt
 5017,,,zhongyuan,gdd_zhongyuan,5017 - Pizhou.txt
@@ -199,8 +199,8 @@
 5024,常州,jinling_wuhui_area,wu,gdd_wu,5024 - Changzhou.txt
 5025,无锡,jinling_wuhui_area,wu,gdd_wu,5025 - Wuxi.txt
 5026,合州,chongqing_area,sichuanese,gdd_shu,5026 - Hezhou (Chongqing).txt
-5027,涪州,chongqing_area,sichuanese,miao,5027 - Fuzhou (Chongqing).txt
-5028,夔州,chongqing_area,sichuanese,gdd_diqiang,5028 - Kuizhou.txt
+5027,涪州,fuling_area,sichuanese,miao,5027 - Fuzhou (Chongqing).txt
+5028,夔州,xiajiang_area,sichuanese,gdd_diqiang,5028 - Kuizhou.txt
 5030,郑州,wangji_area,zhongyuan,gdd_zhongyuan,5030 - Zhengzhou.txt
 5031,陈留,wangji_area,zhongyuan,gdd_zhongyuan,5031 - Chenliu.txt
 5045,孟津,chengzhou_area,zhongyuan,gdd_zhongyuan,5045 - Mengjin.txt
@@ -214,7 +214,7 @@
 5053,汝州,runing_nanyang_area,zhongyuan,gdd_zhongyuan,5053 - Ruzhou.txt
 5054,汝宁,runing_nanyang_area,zhongyuan,gdd_zhongyuan,5054 - Runing.txt
 5055,邓州,runing_nanyang_area,zhongyuan,gdd_zhongyuan,5055 - Dengzhou.txt
-5056,江宁,yingtian_area,jianghuai,gdd_jianghuai,5056 - Jiangning.txt
+5056,六合,yingtian_area,jianghuai,gdd_jianghuai,5056 - Jiangning.txt
 5057,溧水,yingtian_area,jianghuai,gdd_wu,5057 - Lishui.txt
 5058,亳州,huaiying_area,zhongyuan,gdd_zhongyuan,5058 - Bozhou.txt
 5059,寿州,jianghuai_area,zhongyuan,gdd_jianghuai,5059 - Shouzhou.txt
@@ -240,7 +240,7 @@
 5079,黎州,jiaya_area,sichuanese,gdd_shu,5079 - Lizhou (Sichuan).txt
 5080,绵州,chuanbei_area,sichuanese,gdd_shu,5080 - Mianzhou.txt
 5081,剑州,chuanbei_area,sichuanese,gdd_shu,5081 - Jianzhou (Sichuan).txt
-5082,顺庆,chuanbei_area,sichuanese,gdd_shu,5082 - Shunqing.txt
+5082,顺庆,baqu_area,sichuanese,gdd_shu,5082 - Shunqing.txt
 5083,资州,chuannan_area,sichuanese,gdd_shu,5083 - Zizhou.txt
 5084,富顺,chuannan_area,sichuanese,gdd_shu,5084 - Fushun.txt
 5085,叙州,chuannan_area,sichuanese,gdd_shu,5085 - Xuzhou (Sichuan).txt
@@ -250,7 +250,7 @@
 5090,金川,aba_area,tibetan,gdd_diqiang,5090 - Jinchuan.txt
 5092,若尔盖,songmao_area,tibetan,gdd_diqiang,5092 - Zoige.txt
 5094,会理,liangshan_area,yi,yi,5094 - Huili.txt
-5095,盐源,liangshan_area,yi,yi,5095 - Yanyuan.txt
+5095,盐井,liangshan_area,yi,yi,5095 - Yanyuan.txt
 5096,福宁,fujian_area,chimin,gdd_min,5096 - Funing.txt
 5097,福清,fujian_area,chimin,gdd_min,5097 - Fuqing.txt
 5098,永春,minnan_area,chimin,gdd_min,5098 - Yongchun.txt
@@ -259,7 +259,7 @@
 5101,临清,luxi_area,shandong,gdd_zhongyuan,5101 - Linqing.txt
 5102,德州,luxi_area,shandong,gdd_qi,5102 - Dezhou.txt
 5103,东昌,luxi_area,shandong,gdd_zhongyuan,5103 - Dongchang.txt
-5104,淄博（临淄）,qizhou_area,shandong,gdd_qi,5104 - Linzi.txt
+5104,临淄,qizhou_area,shandong,gdd_qi,5104 - Linzi.txt
 5105,青州,qizhou_area,shandong_culture,gdd_qi,5105 - Qingzhou.txt
 5106,宁海,denglai_area,shandong_culture,gdd_qi,5106 - Ninghai.txt
 5107,胶州,denglai_area,shandong,gdd_qi,5107 - Jiaozhou.txt
@@ -274,13 +274,13 @@
 5116,涿州,yandu_area,yan,gdd_yan,5116 - Zhuozhou.txt
 5200,平乐,guangxi_area,zhuang,gdd_gui,5200 - Pingle.txt
 5201,思恩,guidong_area,zhuang,gdd_zhuang,5201 - Sien.txt
-5202,玉林,guidong_area,cantonese,gdd_guangfu,5202 - Yuzhou.txt
+5202,郁林,guidong_area,cantonese,gdd_guangfu,5202 - Yuzhou.txt
 5203,思明,youjiang_area,zhuang,gdd_zhuang,5203 - Siming.txt
 5207,广宁,xi_liaoning_area,chihan,gdd_yan,5207 - Guangning.txt
 5208,全州,guangxi_area,zhuang,gdd_gui,5208 - Quanzhou.txt
 5209,锦州,xi_liaoning_area,chihan,gdd_dongyi,5209 - Jinzhou.txt
 5210,田州,youjiang_area,zhuang,gdd_zhuang,5210 - Tianzhou.txt
-5211,山海关,dong_hebei_area,zhili,gdd_dongyi,5211 - Shanhaiguan.txt
+5211,临渝关,dong_hebei_area,zhili,gdd_dongyi,5211 - Shanhaiguan.txt
 5212,滦州,dong_hebei_area,yan,gdd_yan,5212 - Luanzhou.txt
 5213,遵化,dong_hebei_area,yan,gdd_yan,5213 - Zunhua.txt
 5214,河源,dongjiang_area,hakka,gdd_hakka,5214 - Heyuan.txt
@@ -291,18 +291,18 @@
 5219,冀州,zhong_hebei_area,zhili,gdd_yan,5219 - Jizhou.txt
 5220,顺德,south_hebei_area,zhili,gdd_yan,5220 - Shunde.txt
 5221,广平,south_hebei_area,zhili,gdd_yan,5221 - Guangping.txt
-5222,天津,zhong_hebei_area,shandong,gdd_qi,5222 - Tianjin.txt
+5222,直沽,zhong_hebei_area,shandong,gdd_qi,5222 - Tianjin.txt
 5223,沧州,zhong_hebei_area,shandong,gdd_qi,5223 - Cangzhou.txt
 5226,剑川,dianxibei_area,bai,bai,5226 - Jianchuan.txt
 5227,泸水,dianxi_area,shan,bai,5227 - Lushui.txt
-5228,保山,dianxi_area,bai,yi,5228 - Baoshan.txt
+5228,永昌府,dianxi_area,bai,yi,5228 - Baoshan.txt
 5229,楚雄,yunnan_area,yi,yi,5229 - Chuxiong.txt
-5230,玉溪,yunnan_area,bai,gdd_dian,5230 - Yuxi.txt
+5230,新兴州,yunnan_area,bai,gdd_dian,5230 - Yuxi.txt
 5231,东川,yunnan_area,yi,yi,5231 - Dongchuan.txt
-5232,昭通,diandong_area,yi,yi,5232 - Zhaotong.txt
-5233,镇雄,diandong_area,yi,yi,5233 - Zhenxiong.txt
-5234,宣威,diandong_area,yi,yi,5234 - Xuanwei.txt
-5235,临沧,dianxinan_area,yi,yi,5235 - Lincang.txt
+5232,乌蒙,diandong_area,yi,yi,5232 - Zhaotong.txt
+5233,芒部,diandong_area,yi,yi,5233 - Zhenxiong.txt
+5234,沾益,diandong_area,yi,yi,5234 - Xuanwei.txt
+5235,勐缅,dianxinan_area,yi,yi,5235 - Lincang.txt
 5237,镇沅,diannan_area,yi,yi,5237 - Zhenyuan.txt
 5240,蒙自,diannan_area,bai,gdd_dian,5240 - Mengzi.txt
 5241,红河,diannan_area,yi,yi,5241 - Honghe.txt
@@ -327,7 +327,7 @@
 5268,富州,bei_shaanxi_area,zhili,gdd_jin,5268 - Fuzhou.txt
 5269,同州,shaanxi_area,zhili,gdd_jin,5269 - Tongzhou.txt
 5270,华州,shaanxi_area,zhili,gdd_zhongyuan,5270 - Huazhou.txt
-5271,岐州,shaanxi_area,zhili,gdd_zhongyuan,5271 - Binzhou.txt
+5271,邠州,shaanxi_area,zhili,gdd_zhongyuan,5271 - Binzhou.txt
 5272,商州,changan_area,zhili,gdd_zhongyuan,5272 - Shangzhou.txt
 5273,金州,nan_shaanxi_area,zhili,gdd_zhongyuan,5273 - Jinzhou.txt
 5274,兴安,nan_shaanxi_area,zhili,gdd_shu,5274 - Xingan.txt
@@ -358,3 +358,32 @@
 5307,临洮,longyou_area,xibei,gdd_long,5307 - Lintao.txt
 5308,巩昌,longyou_area,xibei,gdd_diqiang,5308 - Gongchang.txt
 5309,武都,longyou_area,xibei,gdd_diqiang,5309 - Wudu.txt
+5312,永顺,wuling_hunan_area,unknown,miao,5312 - Yongshun.txt
+5313,保靖,wuling_hunan_area,unknown,miao,5313 - Baojing.txt
+5314,沅州,wuling_hunan_area,unknown,miao,5314 - Yuanzhou Hunan.txt
+5315,绥宁,southwest_hunan_area,unknown,miao,5315 - Suining Hunan.txt
+5316,慈利,lishui_area,unknown,gdd_chu,5316 - Cili.txt
+5317,桑植,lishui_area,unknown,miao,5317 - Sangzhi.txt
+5318,耒阳,hengchen_area,unknown,gdd_chu,5318 - Leiyang.txt
+5319,茶陵,hengchen_area,unknown,gdd_chu,5319 - Chaling.txt
+5320,平江,hunan_area,unknown,gdd_chu,5320 - Pingjiang.txt
+5321,浏阳,hunan_area,unknown,gdd_chu,5321 - Liuyang.txt
+5322,安化,dongting_area,unknown,gdd_chu,5322 - Anhua.txt
+5323,丰城,xunyang_area,unknown,gdd_gan,5323 - Fengcheng.txt
+5324,奉新,xunyang_area,unknown,gdd_gan,5324 - Fengxin.txt
+5325,昌南,jiangxi_area,unknown,gdd_gan,5325 - Changnan.txt
+5326,德兴,jiangxi_area,unknown,gdd_gan,5326 - Dexing.txt
+5327,宁都,gannan_area,unknown,gdd_hakka,5327 - Ningdu.txt
+5328,安福,south_jiangxi_area,unknown,gdd_gan,5328 - Anfu.txt
+5329,昭化,chuanbei_area,unknown,gdd_shu,5329 - Zhaohua.txt
+5330,蓬州,baqu_area,unknown,gdd_shu,5330 - Pengzhou.txt
+5331,遂州,chuanbei_area,unknown,gdd_shu,5331 - Suizhou.txt
+5332,巴州,baqu_area,unknown,gdd_shu,5332 - Bazhou.txt
+5333,渠州,baqu_area,unknown,gdd_shu,5333 - Quzhou.txt
+5334,昌州,chongqing_area,unknown,gdd_shu,5334 - Changzhou Sichuan.txt
+5335,江津,chongqing_area,unknown,gdd_shu,5335 - Jiangjin.txt
+5336,南川,fuling_area,unknown,miao,5336 - Nanchuan.txt
+5337,彭水,fuling_area,unknown,miao,5337 - Pengshui.txt
+5338,忠州,fuling_area,unknown,gdd_shu,5338 - Zhongzhou.txt
+5339,开州,xiajiang_area,unknown,gdd_shu,5339 - Kaizhou.txt
+5340,石砫,fuling_area,unknown,miao,5340 - Shizhu.txt

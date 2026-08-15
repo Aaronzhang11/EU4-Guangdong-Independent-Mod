@@ -1,0 +1,742 @@
+{
+  "batch": "B45_hunan_jiangxi_balanced_refinement",
+  "marker": "GDD_B45_HUNAN_JIANGXI_REFINEMENT",
+  "purpose": "Implement the reviewed unified Hunan-Jiangxi refinement while preventing Changsha from becoming overpowered.",
+  "reference_root": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/3400977776",
+  "parent_ids": [
+    2173,
+    4999,
+    4996,
+    2174,
+    671,
+    4997,
+    683,
+    2151,
+    4993,
+    670,
+    4994
+  ],
+  "new_provinces": [
+    {
+      "province_id": 5312,
+      "chinese": "永顺",
+      "english": "Yongshun",
+      "parent_id": 2173,
+      "colour": [
+        233,
+        147,
+        191
+      ],
+      "reference_ids": [
+        5289,
+        5288,
+        5248
+      ],
+      "area": "wuling_hunan_area",
+      "owner": "WLM",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Yongshun",
+      "goods": "tea",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cores": [
+        "WLM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5313,
+      "chinese": "保靖",
+      "english": "Baojing",
+      "parent_id": 2173,
+      "colour": [
+        50,
+        42,
+        134
+      ],
+      "reference_ids": [
+        5277,
+        5278
+      ],
+      "area": "wuling_hunan_area",
+      "owner": "WLM",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Baojing",
+      "goods": "livestock",
+      "development": [
+        0,
+        1,
+        2
+      ],
+      "cores": [
+        "WLM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5314,
+      "chinese": "沅州",
+      "english": "Yuanzhou Hunan",
+      "parent_id": 2173,
+      "colour": [
+        123,
+        193,
+        77
+      ],
+      "reference_ids": [
+        5279,
+        5282,
+        5285,
+        5268
+      ],
+      "area": "wuling_hunan_area",
+      "owner": "CZM",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Yuanzhou",
+      "goods": "tea",
+      "development": [
+        1,
+        1,
+        2
+      ],
+      "cores": [
+        "CZM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5315,
+      "chinese": "绥宁",
+      "english": "Suining Hunan",
+      "parent_id": 4999,
+      "colour": [
+        196,
+        88,
+        20
+      ],
+      "reference_ids": [
+        5282,
+        673
+      ],
+      "area": "southwest_hunan_area",
+      "owner": "CZM",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Suining",
+      "goods": "naval_supplies",
+      "development": [
+        1,
+        1,
+        2
+      ],
+      "cores": [
+        "CZM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5316,
+      "chinese": "慈利",
+      "english": "Cili",
+      "parent_id": 4996,
+      "colour": [
+        13,
+        239,
+        219
+      ],
+      "reference_ids": [
+        5290,
+        5288
+      ],
+      "area": "lishui_area",
+      "owner": "WLM",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Cili",
+      "goods": "grain",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cores": [
+        "WLM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5317,
+      "chinese": "桑植",
+      "english": "Sangzhi",
+      "parent_id": 4996,
+      "colour": [
+        86,
+        134,
+        162
+      ],
+      "reference_ids": [
+        5291,
+        5289
+      ],
+      "area": "lishui_area",
+      "owner": "WLM",
+      "culture": "miao",
+      "religion": "animism",
+      "capital": "Sangzhi",
+      "goods": "livestock",
+      "development": [
+        0,
+        1,
+        2
+      ],
+      "cores": [
+        "WLM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5318,
+      "chinese": "耒阳",
+      "english": "Leiyang",
+      "parent_id": 2174,
+      "colour": [
+        159,
+        29,
+        105
+      ],
+      "reference_ids": [
+        5266,
+        5274,
+        5275,
+        5276
+      ],
+      "area": "hengchen_area",
+      "owner": "HNG",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Leiyang",
+      "goods": "copper",
+      "development": [
+        1,
+        1,
+        2
+      ],
+      "cores": [
+        "HNG"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5319,
+      "chinese": "茶陵",
+      "english": "Chaling",
+      "parent_id": 2174,
+      "colour": [
+        232,
+        180,
+        48
+      ],
+      "reference_ids": [
+        5267,
+        5264,
+        5263,
+        5304
+      ],
+      "area": "hengchen_area",
+      "owner": "HNG",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Chaling",
+      "goods": "tea",
+      "development": [
+        1,
+        1,
+        1
+      ],
+      "cores": [
+        "HNG"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5320,
+      "chinese": "平江",
+      "english": "Pingjiang",
+      "parent_id": 671,
+      "colour": [
+        49,
+        75,
+        247
+      ],
+      "reference_ids": [
+        5260
+      ],
+      "area": "hunan_area",
+      "owner": "CHC",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Pingjiang",
+      "goods": "tea",
+      "development": [
+        3,
+        2,
+        1
+      ],
+      "cores": [
+        "CHC"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5321,
+      "chinese": "浏阳",
+      "english": "Liuyang",
+      "parent_id": 671,
+      "colour": [
+        122,
+        226,
+        190
+      ],
+      "reference_ids": [
+        5265,
+        5261,
+        5263,
+        5264,
+        5296,
+        5295
+      ],
+      "area": "hunan_area",
+      "owner": "CSA",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Liuyang",
+      "goods": "chinaware",
+      "development": [
+        1,
+        3,
+        1
+      ],
+      "cores": [
+        "CSA"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5322,
+      "chinese": "安化",
+      "english": "Anhua",
+      "parent_id": 4997,
+      "colour": [
+        195,
+        121,
+        133
+      ],
+      "reference_ids": [
+        5262,
+        5284,
+        5283,
+        2174
+      ],
+      "area": "dongting_area",
+      "owner": "WLM",
+      "culture": "gdd_chu",
+      "religion": "confucianism",
+      "capital": "Anhua",
+      "goods": "tea",
+      "development": [
+        2,
+        2,
+        2
+      ],
+      "cores": [
+        "WLM"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5323,
+      "chinese": "丰城",
+      "english": "Fengcheng",
+      "parent_id": 683,
+      "colour": [
+        12,
+        16,
+        76
+      ],
+      "reference_ids": [
+        5299,
+        5296,
+        1833
+      ],
+      "area": "xunyang_area",
+      "owner": "NCH",
+      "culture": "gdd_gan",
+      "religion": "confucianism",
+      "capital": "Fengcheng",
+      "goods": "grain",
+      "development": [
+        3,
+        3,
+        2
+      ],
+      "cores": [
+        "NNG",
+        "NCH"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5324,
+      "chinese": "奉新",
+      "english": "Fengxin",
+      "parent_id": 683,
+      "colour": [
+        85,
+        167,
+        19
+      ],
+      "reference_ids": [
+        5300,
+        5302,
+        5295
+      ],
+      "area": "xunyang_area",
+      "owner": "NCH",
+      "culture": "gdd_gan",
+      "religion": "confucianism",
+      "capital": "Fengxin",
+      "goods": "paper",
+      "development": [
+        2,
+        3,
+        2
+      ],
+      "cores": [
+        "NNG",
+        "NCH"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5325,
+      "chinese": "昌南",
+      "english": "Changnan",
+      "parent_id": 2151,
+      "colour": [
+        158,
+        62,
+        218
+      ],
+      "reference_ids": [
+        5293,
+        5305
+      ],
+      "area": "jiangxi_area",
+      "owner": "NCH",
+      "culture": "gdd_gan",
+      "religion": "confucianism",
+      "capital": "Changnan",
+      "goods": "chinaware",
+      "development": [
+        3,
+        5,
+        2
+      ],
+      "cores": [
+        "NNG",
+        "NCH"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": true
+    },
+    {
+      "province_id": 5326,
+      "chinese": "德兴",
+      "english": "Dexing",
+      "parent_id": 4993,
+      "colour": [
+        231,
+        213,
+        161
+      ],
+      "reference_ids": [
+        5306,
+        5293,
+        5351
+      ],
+      "area": "jiangxi_area",
+      "owner": "TSF",
+      "culture": "gdd_gan",
+      "religion": "confucianism",
+      "capital": "Dexing",
+      "goods": "copper",
+      "development": [
+        2,
+        3,
+        1
+      ],
+      "cores": [
+        "NNG",
+        "TSF"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5327,
+      "chinese": "宁都",
+      "english": "Ningdu",
+      "parent_id": 670,
+      "colour": [
+        48,
+        108,
+        104
+      ],
+      "reference_ids": [
+        5308,
+        5301,
+        5353,
+        1833
+      ],
+      "area": "gannan_area",
+      "owner": "HAK",
+      "culture": "gdd_hakka",
+      "religion": "confucianism",
+      "capital": "Ningdu",
+      "goods": "grain",
+      "development": [
+        2,
+        3,
+        3
+      ],
+      "cores": [
+        "NNG",
+        "HAK"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    },
+    {
+      "province_id": 5328,
+      "chinese": "安福",
+      "english": "Anfu",
+      "parent_id": 4994,
+      "colour": [
+        121,
+        3,
+        47
+      ],
+      "reference_ids": [
+        5304,
+        5303
+      ],
+      "area": "south_jiangxi_area",
+      "owner": "LCH",
+      "culture": "gdd_gan",
+      "religion": "confucianism",
+      "capital": "Anfu",
+      "goods": "grain",
+      "development": [
+        1,
+        2,
+        1
+      ],
+      "cores": [
+        "NNG",
+        "LCH"
+      ],
+      "cot": 0,
+      "fort": false,
+      "kilns": false
+    }
+  ],
+  "editable_mask": {
+    "source": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/hunan_jiangxi_refinement_b45/pre_b45_provinces.bmp",
+    "parent_ids": [
+      2173,
+      4999,
+      4996,
+      2174,
+      671,
+      4997,
+      683,
+      2151,
+      4993,
+      670,
+      4994
+    ]
+  },
+  "backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/hunan_jiangxi_refinement_b45/pre_b45_provinces.bmp",
+  "previews": [
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/hunan_jiangxi_refinement_b45/b45_country_preview.png",
+    "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/hunan_jiangxi_refinement_b45/b45_area_preview.png"
+  ],
+  "changed_pixels_this_run": 0,
+  "changed_pixels_vs_pre_b45_backup": 2762,
+  "changed_pixels_vs_backup_outside_editable_mask": 0,
+  "changed_pixels_outside_editable_mask": 0,
+  "pixel_counts": {
+    "2173": 438,
+    "5312": 76,
+    "5313": 219,
+    "5314": 278,
+    "4999": 358,
+    "5315": 71,
+    "4996": 312,
+    "5316": 172,
+    "5317": 293,
+    "2174": 321,
+    "5318": 322,
+    "5319": 160,
+    "671": 308,
+    "5320": 107,
+    "5321": 133,
+    "4997": 259,
+    "5322": 114,
+    "683": 348,
+    "5323": 158,
+    "5324": 91,
+    "2151": 306,
+    "5325": 136,
+    "4993": 242,
+    "5326": 87,
+    "670": 432,
+    "5327": 197,
+    "4994": 253,
+    "5328": 147
+  },
+  "areas": {
+    "wuling_hunan_area": [
+      2173,
+      5312,
+      5313,
+      5314
+    ],
+    "lishui_area": [
+      4996,
+      5316,
+      5317
+    ],
+    "dongting_area": [
+      672,
+      4997,
+      5322
+    ],
+    "hunan_area": [
+      4982,
+      671,
+      5320,
+      5321,
+      4998
+    ],
+    "hengchen_area": [
+      2174,
+      5318,
+      5319,
+      5001
+    ],
+    "southwest_hunan_area": [
+      4999,
+      5315,
+      4983,
+      5000
+    ],
+    "xunyang_area": [
+      4979,
+      5324,
+      4992,
+      5323
+    ],
+    "jiangxi_area": [
+      683,
+      2151,
+      5325,
+      4993,
+      5326
+    ],
+    "south_jiangxi_area": [
+      1833,
+      4980,
+      4994,
+      5328
+    ],
+    "gannan_area": [
+      670,
+      5327,
+      4995
+    ],
+    "jingyi_shinan_area": [
+      2172,
+      5015,
+      5010,
+      5013,
+      5014
+    ]
+  },
+  "region": "south_china_region",
+  "trade_policy": {
+    "hunan": "canton/trade_company_south_china",
+    "jiangxi": "hangzhou/trade_company_east_china"
+  },
+  "localisation_source": "localisation_source/gdd_b45_hunan_jiangxi_refinement_readable_utf8.txt",
+  "localisation_target": "localisation/gdd_b45_hunan_jiangxi_refinement_l_english.yml",
+  "validation": {
+    "province_components": "all one component",
+    "area_components": "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5013 through 5037",
+    "country_development_in_scope": {
+      "CHC": 31,
+      "CSA": 27,
+      "CZM": 18,
+      "HAK": 18,
+      "HNG": 52,
+      "LCH": 4,
+      "NCH": 45,
+      "TSF": 14,
+      "WLM": 43
+    },
+    "changsha_constraint": {
+      "province_ids": [
+        671,
+        4998,
+        5321
+      ],
+      "development": 27
+    }
+  },
+  "canonical_bitmap_sha256": "a88fb39ea6fa217610984b8f3fe0918cf0308f1a9e0e21be652eed84a124185a"
+}

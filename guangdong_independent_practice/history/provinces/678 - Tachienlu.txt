@@ -1,11 +1,11 @@
-# 678 - Kangding
+# 678 - Dajianlu
 
 owner = KAM
 controller = KAM
 add_core = KAM
 culture = tibetan
 religion = vajrayana
-capital = "Kangding"
+capital = "Dajianlu"
 trade_goods = tea
 base_tax = 3
 base_production = 4

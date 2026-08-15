@@ -1,10 +1,10 @@
-# 5056 - Jiangning (Nanjing)
+# 5056 - Liuhe
 owner = XU2
 controller = XU2
 add_core = XU2
 culture = gdd_jianghuai
 religion = confucianism
-capital = "Nanjing"
+capital = "Liuhe"
 trade_goods = silk
 hre = no
 base_tax = 2

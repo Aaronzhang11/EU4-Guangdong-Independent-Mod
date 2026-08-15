@@ -1,8 +1,6 @@
 ﻿l_english:
  PROV2156:0 "潮州"
  PROV_ADJ2156:0 "潮州"
- PROV2158:0 "韶关"
- PROV_ADJ2158:0 "韶关"
  PROV4949:0 "海丰"
  PROV_ADJ4949:0 "海丰"
  PROV5216:0 "连州"

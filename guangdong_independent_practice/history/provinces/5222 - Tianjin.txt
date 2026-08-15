@@ -1,11 +1,11 @@
-# 5222 - Tianjin
+# 5222 - Zhigu
 
 owner = QIC
 controller = QIC
 add_core = QIC
 culture = gdd_qi
 religion = confucianism
-capital = "Tianjin"
+capital = "Zhigu"
 trade_goods = salt
 base_tax = 4
 base_production = 4

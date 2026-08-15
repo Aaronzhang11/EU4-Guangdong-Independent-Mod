@@ -5,8 +5,6 @@
  PROV_ADJ5058:0 "亳州"
  PROV5059:0 "寿州"
  PROV_ADJ5059:0 "寿州"
- PROV2143:0 "凤阳"
- PROV_ADJ2143:0 "凤阳"
  PROV5060:0 "六安"
  PROV_ADJ5060:0 "六安"
  PROV1838:0 "庐州"

@@ -143,3 +143,52 @@ Region、洲、气候、地形、贸易节点、贸易公司、省份历史、�
 
 静态通过不等于引擎实机通过。正式交付前仍需用全新 1444 年存档检查地图日志、
 寻路、港口和堡垒模型，以及保存/读取。
+
+## B44 世界观地名收口
+
+国家版图（B43）和文化（B41）重放完成后，最后运行 B44，把帝号、近现代名称及
+省份语义错配统一到无帝制世界观。该事务不改 `provinces.bmp`，并会核验正式图
+SHA-256、31 个 definition/history/localisation 映射以及江宁—六合的政治与发展度
+交换：
+
+```sh
+python3 tools/map_pipeline/apply_b44_worldview_toponyms.py
+python3 tools/map_pipeline/apply_b44_worldview_toponyms.py --check
+python3 tools/encode_eu4_chinese_localisation.py --check
+```
+
+权威映射见 `planning/worldview_toponyms_b44/toponym_manifest.csv`。旧批次生成器仍保留
+依赖模组的精确 history 文件名，以保证 EU4 虚拟文件系统遮蔽关系不会因重放改名
+而失效。
+
+## B45 湖南—江西平衡细化
+
+B45 按审定效果图把湖南扩为 23 个省、江西扩为 16 个省，共新增 17 个省份，
+同时把两地重组为 10 个陆地连续 Area。长沙国只保留长沙、湘潭、浏阳三省，
+总发展度固定为 27；衡州—郴州—永州另立衡国，防止拆省后长沙无条件坐大。
+
+```sh
+python3 tools/map_pipeline/apply_b45_hunan_jiangxi_refinement.py
+python3 tools/map_pipeline/apply_b45_hunan_jiangxi_refinement.py --check
+python3 tools/encode_eu4_chinese_localisation.py --check
+```
+
+几何参考、冻结的 ID/RGB、国家文化政策和验证结果见
+`planning/hunan_jiangxi_refinement_b45/batch_manifest.json`。B45 是 B41/B43/B44
+之后的终端地图事务；若重放旧地图生成器，最后必须再次运行 B45。
+
+## B46 川东北—重庆 GeoJSON 二次细化
+
+B46 把川北与巴东现有 10 省细化为 22 省，新增 `5329–5340`，并重组为剑阆、
+巴渠、巴渝、涪陵、峡江五个连续 Area。区域发展度保持 106，不因拆省膨胀；
+新增宕渠（`DQU`）与枳（`ZHI`），巴国在本区控制 42 发展度。
+
+```sh
+python3 tools/map_pipeline/apply_b46_chuandongbei_chongqing_refinement.py
+python3 tools/map_pipeline/apply_b46_chuandongbei_chongqing_refinement.py --check
+python3 tools/encode_eu4_chinese_localisation.py --check
+```
+
+脚本只在十个冻结母省内复制审定像素，正式复现不联网。几何源、GeoJSON 设计记录、
+预览和静态事务清单位于 `planning/chuandongbei_chongqing_b46/`。B46 已取代旧 B18
+生成器在该区域的终端权威；B18 在检测到 B46 清单后只转交 B46，不再写回旧图。

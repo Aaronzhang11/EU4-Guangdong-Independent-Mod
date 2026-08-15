@@ -1,10 +1,10 @@
 # Area connectivity audit
 
-- Total areas: 928
+- Total areas: 939
 - Strict bitmap-disconnected: 72
 - Still disconnected after explicit adjacencies: 41
 - Areas containing empty province references: 0
-- Han-region areas checked: 79
+- Han-region areas checked: 90
 
 ## Han areas requiring reassignment
 
@@ -16,10 +16,10 @@
 
 | Area | Localised | Bitmap components | Components before crossing |
 |---|---|---:|---|
-| `east_zhejiang_area` | 会稽 | 2 | 温州(1824)、宁波(2149)、台州(4951)、宁海(5005) ｜ 昌国(5004) |
-| `jingyi_shinan_area` | 荆楚 | 2 | 荆州(2172)、承天(5010)、沔阳(5015) ｜ 施州(5013) |
+| `east_zhejiang_area` | 会稽 | 2 | 温州(1824)、明州(2149)、台州(4951)、宁海(5005) ｜ 昌国(5004) |
+| `jingyi_area` | 荆郢 | 2 | 荆州(2172)、枝江(5345) ｜ 施州(5013)、公安(5014) |
 | `wuhan_enan_area` | 江夏 | 2 | 武昌(682)、兴国(5016) ｜ 汉阳(4981)、汉口(5011) |
-| `yingtian_area` | 金陵 | 2 | 六合(1821)、溧水(5057) ｜ 江宁(5056) |
+| `yingtian_area` | 金陵 | 2 | 江宁(1821)、溧水(5057) ｜ 六合(5056) |
 
 ## Han areas containing province IDs with no bitmap pixels
 

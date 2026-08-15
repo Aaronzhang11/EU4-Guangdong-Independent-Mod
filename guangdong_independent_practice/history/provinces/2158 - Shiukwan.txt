@@ -1,4 +1,4 @@
-# 2158 - Shaoguan (vanilla filename retained for VFS override)
+# 2158 - Shaozhou
 
 owner = GDD
 controller = GDD
@@ -6,7 +6,7 @@ add_core = GDD
 add_core = HUA
 culture = gdd_guangfu
 religion = confucianism
-capital = "Shaoguan"
+capital = "Shaozhou"
 trade_goods = iron
 hre = no
 base_tax = 2

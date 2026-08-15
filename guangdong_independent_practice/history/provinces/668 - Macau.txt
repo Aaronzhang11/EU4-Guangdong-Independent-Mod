@@ -1,11 +1,11 @@
-#668 - Macau
+# 668 - Xiangshan
 
 owner = GDD
 controller = GDD
 add_core = GDD
 culture = gdd_guangfu
 religion = confucianism
-capital = "Macau"
+capital = "Xiangshan"
 trade_goods = fish
 hre = no
 base_tax = 3 

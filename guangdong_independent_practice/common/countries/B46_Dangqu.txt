@@ -1,0 +1,5 @@
+# B46 GeoJSON-guided northeast Sichuan polity.
+graphical_culture = asiangfx
+
+color = { 74 150 105 }
+revolutionary_colors = { 3 6 4 }

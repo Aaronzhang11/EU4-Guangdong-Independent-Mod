@@ -508,8 +508,8 @@ JIANGSU_HISTORY = {
     4977: ("MNG", (3, 5, 2), "salt", "gdd_jianghuai", "confucianism"),
     5022: ("MNG", (3, 4, 2), "cloth", "gdd_jianghuai", "confucianism"),
     5023: ("MNG", (3, 3, 2), "grain", "gdd_jianghuai", "confucianism"),
-    1821: ("MNG", (7, 8, 4), "grain", "gdd_wu", "confucianism"),
-    5056: ("MNG", (2, 2, 1), "silk", "gdd_jianghuai", "confucianism"),
+    1821: ("WUU", (7, 8, 4), "grain", "gdd_wu", "confucianism"),
+    5056: ("XU2", (2, 2, 1), "silk", "gdd_jianghuai", "confucianism"),
     5057: ("MNG", (2, 2, 1), "tea", "gdd_wu", "confucianism"),
     2145: ("MNG", (4, 4, 2), "naval_supplies", "gdd_wu", "confucianism"),
     5024: ("MNG", (4, 5, 2), "cloth", "gdd_wu", "confucianism"),
@@ -1810,7 +1810,7 @@ def validate_jiangsu_histories(mod_root: Path) -> dict[int, tuple[int, int, int]
             f"Jiangsu centers of trade are {centers}, "
             "expected Huai'an 1/Yangzhou 2/Suzhou 2"
         )
-    for province_id in (2141, 5056):
+    for province_id in (2141, 1821):
         text = history_path(mod_root, province_id).read_text(encoding="cp1252")
         if initial_history_value(text, "fort_15th") != "yes":
             raise ValueError(f"{province_id} must have a 15th-century fort")

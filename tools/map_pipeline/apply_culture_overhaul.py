@@ -212,6 +212,7 @@ COUNTRY_POLICY = {
     "CZM": ("miao", ()),
     "DIA": ("gdd_dian", ("yi",)),
     "GUI": ("gdd_gui", ("gdd_zhuang",)),
+    "HNG": ("gdd_chu", ("gdd_gui", "gdd_hakka")),
     "GYA": ("gdd_shu", ("miao",)),
     "HAK": ("gdd_hakka", ("gdd_min",)),
     "LCH": ("gdd_gan", ()),
@@ -235,6 +236,7 @@ COUNTRY_POLICY = {
     "CHN": ("gdd_zhongyuan", ()),
     "DAE": ("gdd_jin", ()),
     "DCH": ("gdd_diqiang", ()),
+    "DQU": ("gdd_shu", ("gdd_diqiang",)),
     "DZH": ("gdd_diqiang", ()),
     "GON": ("gdd_zhongyuan", ()),
     "GUN": ("gdd_zhongyuan", ()),
@@ -269,6 +271,7 @@ COUNTRY_POLICY = {
     "ZHG": ("gdd_zhongyuan", ()),
     "ZNG": ("gdd_zhongyuan", ()),
     "ZSH": ("gdd_yan", ("gdd_jin",)),
+    "ZHI": ("miao", ("gdd_shu",)),
 }
 
 # B43 intentionally reuses several vanilla tags.  Ordinary localisation does
@@ -287,7 +290,9 @@ COUNTRY_NAME_OVERRIDES = {
 }
 
 # Explicit non-culture terminal values retained by this transaction.  The
-# 1821/5056 development exchange is the user-approved post-document override.
+# latest user correction resolves the two physical slots by numeric ID:
+# Jiangning 1821 retains former Nanjing's development, while the newly split
+# Liuhe 5056 keeps the minor north-bank values.
 # The other entries reconcile B41's province semantics with B43's political
 # histories: ownership, cores and dated blocks stay untouched.
 INITIAL_HISTORY_OVERRIDES = {

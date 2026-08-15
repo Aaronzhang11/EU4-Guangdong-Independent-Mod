@@ -1,9 +1,8 @@
 # 5216 - Lianzhou
 
-owner = CSA
-controller = CSA
-add_core = HUA
-add_core = CSA
+owner = HNG
+controller = HNG
+add_core = HNG
 culture = gdd_hakka
 religion = confucianism
 capital = "Lianzhou"

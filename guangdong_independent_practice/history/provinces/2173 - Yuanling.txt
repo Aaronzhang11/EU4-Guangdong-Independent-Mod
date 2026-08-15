@@ -1,17 +1,16 @@
-# 2173 - Chenzhou Prefecture (seat at Yuanling)
+# 2173 - Chenzhou West
 
 owner = CZM
 controller = CZM
-add_core = CMI
 add_core = CZM
 culture = miao
 religion = animism
 capital = "Yuanling"
 trade_goods = tea
 hre = no
-base_tax = 3
-base_production = 4
-base_manpower = 6
+base_tax = 1
+base_production = 1
+base_manpower = 1
 is_city = yes
 
 discovered_by = chinese

@@ -41,34 +41,36 @@ TAG_PROVINCES = {
     "LSH": (5095, 2748, 5094, 5232),
     "MDL": (5226, 2167, 661, 5229, 5227),
     "NZA": (5235, 2165, 5237, 5228),
-    "CHC": (4994, 4992, 4979, 4982, 5016, 5015, 5014, 2172, 5010, 5012, 4197, 682, 5011, 4981),
+    "CHC": (4994, 4992, 4979, 4982, 5016, 5015, 5344, 5014, 2172, 5345, 5010, 5343, 5012, 4197, 682, 5011, 4981, 5320),
     "QSH": (686, 5065, 5067),
     "WUU": (2147, 2146, 5066, 5068, 1821, 5024, 2145, 5057, 5025, 1822, 5022, 4977, 5023),
     "YUE": (5099, 2152, 5096, 5007, 1824, 4956, 5003, 2149, 2148, 684, 4976, 5002, 4950, 4951, 5004, 5005, 5006, 2150),
     "CCH": (5061, 5062),
-    "BAA": (5081, 4211, 4987, 5026, 5082, 680, 4213, 2168, 2169),
+    "BAA": (5026, 5082, 680, 4213, 2168, 2169, 5330, 5334, 5335),
     "BD2": (5013, 5028),
-    "WLM": (5027, 4996),
+    "WLM": (4996, 672, 4997, 5312, 5313, 5316, 5317, 5322),
     "BMY": (2170, 5087, 5086, 5090),
     "DZH": (5088, 5289),
     "XU2": (2141, 5018, 4196, 2143, 2142, 5020, 5056, 5064, 1838, 5063, 5021, 5059, 685),
     "LUU": (5112, 5109, 5108, 2140),
     "SNG": (5110, 5058, 2176, 5050),
     "CAG": (5111, 5031),
-    "CAI": (5054,),
+    "CAI": (5054, 5349),
     "CHN": (2144, 5051),
     "GUN": (2137, 4966),
     "CZH": (688, 5053, 5046, 1836),
-    "SUI": (2175, 5009),
-    "LUO": (2171,),
-    "GON": (687, 5055),
+    "SUI": (2175, 5350, 5009),
+    "LUO": (2171, 5342),
+    "GON": (687, 5347, 5055, 5348),
     "ZSH": (2136, 696, 5218),
     "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5220, 5221, 5048),
     "WEI": (4195, 5219, 2178, 5252, 694, 5256, 5249, 5253, 5254, 5269),
     "DAE": (702, 2177, 697, 5243, 5244, 5242),
     "YOU": (701, 5266, 5265, 5267, 2179, 5268),
     "ZNG": (5273, 5272),
-    "JUU": (689, 5274),
+    "JUU": (689, 5274, 5081, 5329),
+    "DQU": (5332, 4211, 5333, 4987, 5339),
+    "ZHI": (5027, 5336, 5337, 5338, 5340),
     "WDU": (5309, 5308),
     "DCH": (5290, 5092),
     "QIN": (5307, 5306, 5305, 5291, 2180, 2181, 5278, 4198, 5271, 5283, 700, 5285, 5270),
@@ -76,7 +78,7 @@ TAG_PROVINCES = {
     "GZH": (5296, 707, 5297),
     "SHZ": (5300, 5299, 2122),
     "HZH": (2184, 5293, 699, 2183),
-    "SHU": (5080, 5078, 5085, 5083, 5077, 4212, 5084, 5079, 5076, 679, 5075),
+    "SHU": (5080, 5078, 5085, 5083, 5077, 4212, 5084, 5079, 5076, 679, 5075, 5331),
     "YPG": (5294,),
     "QWO": (5250,),
     "WVG": (5047, 5049),
@@ -87,9 +89,9 @@ TAG_PROVINCES = {
     "AMD": (2134, 705),
     "KAM": (2133, 2135, 2131, 2132, 5093, 678, 5224, 5225),
     "JRG": (5091, 5089),
-    "TSF": (4993,),
+    "TSF": (4993, 5326),
     "ZHG": (4967,),
-    "SHE": (5030, 5008, 681, 5284),
+    "SHE": (5030, 5008, 5341, 681, 5346, 5284),
     "GUZ": (4194, 5211),
     "WUZ": (704, 5209),
     "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 2112, 2113, 4652, 4672, 5204, 726, 5205, 5206, 5207),
@@ -116,6 +118,7 @@ MUTED_COUNTRY_COLORS = {
     "CZM": (128, 149, 109),
     "DAE": (137, 104, 158),
     "DCH": (128, 149, 109),
+    "DQU": (74, 150, 105),
     "DIA": (126, 130, 159),
     "DZH": (145, 120, 142),
     "GDD": (190, 72, 72),
@@ -128,6 +131,7 @@ MUTED_COUNTRY_COLORS = {
     "GZH": (133, 148, 154),
     "HAK": (181, 151, 101),
     "HZH": (166, 116, 120),
+    "HNG": (93, 117, 160),
     "JRG": (176, 130, 103),
     "JUU": (139, 113, 153),
     "KAM": (64, 146, 106),
@@ -173,6 +177,7 @@ MUTED_COUNTRY_COLORS = {
     "ZHG": (96, 143, 139),
     "ZNG": (181, 151, 101),
     "ZSH": (74, 122, 168),
+    "ZHI": (161, 86, 151),
 }
 
 
@@ -187,6 +192,8 @@ POLITIES = {
     "WLM": {"file": "B43_Wuling.txt", "history": "WLM - Wuling.txt", "capital": 4996, "rank": 1, "color": MUTED_COUNTRY_COLORS["WLM"]},
     "BMY": {"file": "B43_Baima_Miyao.txt", "history": "BMY - Baima Miyao.txt", "capital": 5086, "rank": 1, "color": MUTED_COUNTRY_COLORS["BMY"]},
     "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"]},
+    "DQU": {"file": "B46_Dangqu.txt", "history": "DQU - Dangqu.txt", "capital": 5333, "rank": 1, "color": MUTED_COUNTRY_COLORS["DQU"], "accepted": ("gdd_diqiang",)},
+    "ZHI": {"file": "B46_Zhi.txt", "history": "ZHI - Zhi.txt", "capital": 5027, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHI"], "accepted": ("gdd_shu",)},
     "LUU": {"file": "B43_Lu.txt", "history": "LUU - Lu.txt", "capital": 5109, "rank": 1, "color": MUTED_COUNTRY_COLORS["LUU"]},
     "CAG": {"file": "B43_Cao.txt", "history": "CAG - Cao.txt", "capital": 5111, "rank": 1, "color": MUTED_COUNTRY_COLORS["CAG"]},
     "CAI": {"file": "B43_Cai.txt", "history": "CAI - Cai.txt", "capital": 5054, "rank": 1, "color": MUTED_COUNTRY_COLORS["CAI"]},
@@ -264,6 +271,7 @@ EXISTING_COUNTRY_COLORS = {
     "NCH": {"file": "Nanchang.txt", "color": MUTED_COUNTRY_COLORS["NCH"]},
     "GYA": {"file": "Guiyang.txt", "color": MUTED_COUNTRY_COLORS["GYA"]},
     "CZC": {"file": "Chaozhou.txt", "color": MUTED_COUNTRY_COLORS["CZC"]},
+    "HNG": {"file": "B45_Heng.txt", "color": MUTED_COUNTRY_COLORS["HNG"]},
 }
 
 RESET_OWNERS: dict[int, str] = {
@@ -274,13 +282,15 @@ RESET_OWNERS: dict[int, str] = {
 # their current intended territory. YUE loses its legacy Guangdong cores,
 # while XU2 specifically loses its claims on Tongzhou, Taizhou and Rugao.
 EXACT_CORE_TAGS = {
-    "CHC": set(TAG_PROVINCES["CHC"]),
+    "CHC": set(TAG_PROVINCES["CHC"]) | {5320}, # B45 Pingjiang remains Chu
     "MIN": {669, 1829, 4952, 4953, 4958, 5097, 5098},
     "SHU": set(TAG_PROVINCES["SHU"]),
     "WUU": set(TAG_PROVINCES["WUU"]),
     "KAM": set(TAG_PROVINCES["KAM"]),
     "KSD": set(TAG_PROVINCES["KSD"]),
     "YAN": set(TAG_PROVINCES["YAN"]),
+    "DQU": set(TAG_PROVINCES["DQU"]),
+    "ZHI": set(TAG_PROVINCES["ZHI"]),
 }
 
 FORCED_CORE_REMOVALS = {
@@ -290,7 +300,7 @@ FORCED_CORE_REMOVALS = {
         4942, 4943, 4945, 4946, 4947, 4949,
         5214, 5215,
     },
-    "XU2": {4977, 5022, 5023},
+    "XU2": {4977, 5022, 5023, 1821},
     "BAS": {5013, 5028},
     "HMI": {707, 2122, 5299, 5300},
     "QIN": {689, 2179},
@@ -664,7 +674,13 @@ def replace_country_color_bytes(data: bytes, color: tuple[int, int, int]) -> byt
     return new
 
 
-def country_history(capital: int, rank: int, culture: str, religion: str) -> str:
+def country_history(
+    capital: int,
+    rank: int,
+    culture: str,
+    religion: str,
+    accepted: tuple[str, ...] = (),
+) -> str:
     return (
         "# B43 Chunqiu polity history.\n"
         "government = monarchy\n"
@@ -673,6 +689,8 @@ def country_history(capital: int, rank: int, culture: str, religion: str) -> str
         "technology_group = chinese\n"
         f"religion = {religion}\n"
         f"primary_culture = {culture}\n"
+        + "".join(f"add_accepted_culture = {value}\n" for value in accepted)
+        +
         f"capital = {capital}\n"
         f"fixed_capital = {capital}\n"
     )
@@ -770,8 +788,8 @@ def current_core_ids(tag: str) -> set[int]:
 
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 262 or len(set(all_ids)) != 262:
-        raise ValueError("Expanded polity policy must contain 262 unique provinces")
+    if len(all_ids) != 293 or len(set(all_ids)) != 293:
+        raise ValueError("Expanded polity policy must contain 293 unique provinces after B47")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:
@@ -952,7 +970,10 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
         history_path = COUNTRY_HISTORY / config["history"]
         country_path.write_text(country_definition(config["color"]), encoding="utf-8")
         history_path.write_text(
-            country_history(config["capital"], config["rank"], culture, religion),
+            country_history(
+                config["capital"], config["rank"], culture, religion,
+                tuple(config.get("accepted", ())),
+            ),
             encoding="utf-8",
         )
         (FLAGS / f"{tag}.tga").write_bytes(flag_bytes(config["color"]))

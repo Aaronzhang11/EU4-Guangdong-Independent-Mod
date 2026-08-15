@@ -661,13 +661,13 @@ province;red;green;blue;x;x
 660;94;72;0;Banna;x
 661;222;74;64;Dali;x
 662;94;76;128;Kunming;x
-663;222;78;192;Wenshan;x
+663;222;78;192;Guangnan;x
 664;94;80;255;Sicheng;x
 665;223;82;0;XXX;x
 666;239;174;66;Qiongzhou;x
 667;223;86;128;Guangzhou;x
-668;95;88;192;Macau;x
-669;223;90;255;Minhou;x
+668;95;88;192;Xiangshan;x
+669;223;90;255;Fuzhou;x
 670;95;92;0;Ganzhou;x
 671;223;94;64;Changsha;x
 672;96;96;128;Chenzhou;x
@@ -676,10 +676,10 @@ province;red;green;blue;x;x
 675;224;102;0;Qujing;x
 676;96;104;64;U-Tsang;x
 677;224;106;128;Qamdo;x
-678;96;108;192;Kangding;x
+678;96;108;192;Dajianlu;x
 679;225;110;255;Chengdu;x
 680;97;112;0;Chongqing;x
-681;225;114;64;Yichuan;x
+681;225;114;64;Yiling;x
 682;97;116;128;Hanyang;x
 683;225;118;192;Nanchang;x
 684;97;120;255;Hangzhou;x
@@ -700,8 +700,8 @@ province;red;green;blue;x;x
 699;144;236;110;Lanzhou;x
 700;74;157;215;Changan;x
 701;228;154;64;Ordos;x
-702;100;156;128;Ulaanchab;x
-703;228;158;192;Chengde;x
+702;100;156;128;Fengzhou;x
+703;228;158;192;Rehe;x
 704;100;32;255;Ningyuan;x
 705;228;34;0;Dangla;x
 706;100;36;64;Amdo;x
@@ -1814,12 +1814,12 @@ province;red;green;blue;x;x
 1813;76;84;126;Saskatchewan;x
 1814;205;86;173;Columbia;x
 1815;77;88;32;Ayeyarwady;x
-1816;89;177;232;Yan;x
+1816;89;177;232;Ji;x
 1817;77;92;126;Nan;x
 1818;205;94;173;Chikuzen;x
 1819;77;96;32;Tosa;x
 1820;205;98;79;Awa;x
-1821;78;100;126;Liuhe;x
+1821;78;100;126;Jiangning;x
 1822;206;102;173;Shangai;x
 1823;78;104;32;Stung Treng;x
 1824;206;106;79;Wenzhou;x
@@ -2134,20 +2134,20 @@ province;red;green;blue;x;x
 2133;118;126;240;Dege;x
 2134;119;120;192;Rebgong;x
 2135;118;130;80;Rangtang;x
-2136;124;210;144;Xuanhua;x
+2136;124;210;144;Shanggu;x
 2137;143;75;75;Daming;x
 2138;106;168;79;Wuding;x
 2139;215;106;157;Laizhou;x
 2140;214;128;77;Yanzhou;x
 2141;107;218;111;Xuzhou;x
 2142;84;80;128;Huai'an;x
-2143;190;53;53;Fengyang;x
+2143;190;53;53;Haozhou;x
 2144;82;62;176;Yingzhou;x
 2145;185;51;51;Zhenjiang;x
 2146;185;197;39;Ningguo;x
 2147;150;42;42;Huizhou;x
 2148;41;150;61;Shaoxin;x
-2149;121;54;54;Ningbo;x
+2149;121;54;54;Mingzhou;x
 2150;69;102;64;Jinhua;x
 2151;131;100;35;Poyang;x
 2152;144;37;37;Jianning;x
@@ -2156,7 +2156,7 @@ province;red;green;blue;x;x
 2155;97;44;96;Middag;x
 2156;146;81;81;Chaozhou;x
 2157;65;52;224;Huizhou;x
-2158;65;46;176;Shaoguan;x
+2158;65;46;176;Shaozhou;x
 2159;64;44;160;Leichow;x
 2160;59;141;183;Yazhou;x
 2161;64;32;64;Limchow;x
@@ -2176,7 +2176,7 @@ province;red;green;blue;x;x
 2175;171;198;23;Xinyang;x
 2176;88;144;64;Guide;x
 2177;89;162;208;Ningwu;x
-2178;90;172;96;Luan;x
+2178;90;172;96;Luzhou;x
 2179;91;188;224;Yan'an;x
 2180;138;152;194;Tianshui;x
 2181;93;216;64;Pingliang;x
@@ -4195,7 +4195,7 @@ province;red;green;blue;x;x
 4194;94;52;48;Yongping;x
 4195;151;185;125;Zhending;x
 4196;104;143;106;Haizhou;x
-4197;148;197;227;De'an;x
+4197;148;197;227;Qizhou;x
 4198;56;144;141;Fengxiang;x
 4199;45;117;59;Sinan;x
 4200;29;161;216;Hulan;x
@@ -4944,7 +4944,7 @@ province;red;green;blue;x;x
 4943;67;219;159;Dongguan;x
 4944;187;30;204;Meizhou;x
 4945;186;212;73;Gaozhou;x
-4946;20;200;220;Hong Kong;x
+4946;20;200;220;Tuen Mun;x
 4947;106;60;226;Luoding;x
 4948;190;128;45;Nanxiong;x
 4949;67;219;198;Haifeng;x
@@ -4986,9 +4986,9 @@ province;red;green;blue;x;x
 5005;210;80;160;Ninghai;x
 5006;175;210;60;Yiwu;x
 5007;110;75;225;Chuzhou (Zhejiang);x
-5008;235;115;55;Yunyang;x
+5008;235;115;55;Yun;x
 5009;55;185;95;Suizhou;x
-5010;185;70;225;Chengtian;x
+5010;185;70;225;Anlu;x
 5011;235;190;55;Hankou;x
 5012;45;150;220;Huangzhou;x
 5013;205;75;105;Shizhou;x
@@ -5019,7 +5019,7 @@ province;red;green;blue;x;x
 5053;201;120;171;Ruzhou;x
 5054;87;109;203;Runing;x
 5055;149;190;68;Dengzhou;x
-5056;130;104;198;Jiangning;x
+5056;130;104;198;Liuhe;x
 5057;146;158;175;Lishui (Jiangsu);x
 5058;68;138;214;Bozhou (Anhui);x
 5059;45;105;185;Shouzhou;x
@@ -5041,7 +5041,7 @@ province;red;green;blue;x;x
 5032;230;223;132;Yangtze Estuary;x
 5033;230;200;135;Lower Yangtze;x
 5034;230;142;111;Anqing Reach;x
-5035;225;171;16;Wuhan Reach;x
+5035;225;171;16;Xiakou Reach;x
 5036;230;199;86;Jingzhou Reach;x
 5037;230;157;30;Yichang Reach;x
 5038;230;200;85;Jiujiang Reach;x
@@ -5071,7 +5071,7 @@ province;red;green;blue;x;x
 5092;70;199;103;Zoige;x
 5093;199;56;186;Lithang;x
 5094;199;135;70;Huili;x
-5095;97;63;224;Yanyuan;x
+5095;97;63;224;Yanjing;x
 5096;80;156;200;Funing;x
 5097;220;184;69;Fuqing;x
 5098;151;103;190;Yongchun;x
@@ -5094,27 +5094,27 @@ province;red;green;blue;x;x
 5115;241;116;35;Tongzhou;x
 5116;132;74;218;Zhuozhou;x
 5117;29;106;158;Hangou;x
-5211;169;93;189;Shanhaiguan;x
+5211;169;93;189;Linyuguan;x
 5212;237;64;149;Luanzhou;x
 5213;92;222;161;Zunhua;x
 5218;6;97;9;Yizhou;x
 5219;26;197;241;Jizhou;x
 5220;75;16;90;Shunde;x
 5221;167;208;144;Guangping;x
-5222;126;25;141;Tianjin;x
+5222;126;25;141;Zhigu;x
 5223;84;33;209;Cangzhou;x
 5224;199;104;151;Deqin;x
 5225;150;193;55;Dukezong;x
 5226;232;192;56;Jianchuan;x
 5227;218;108;54;Lushui;x
-5228;202;168;74;Baoshan;x
+5228;202;168;74;Yongchangfu;x
 5229;221;107;52;Chuxiong;x
-5230;239;194;127;Yuxi;x
+5230;239;194;127;Xinxingzhou;x
 5231;206;55;43;Dongchuan;x
-5232;244;182;62;Zhaotong;x
-5233;107;156;51;Zhenxiong;x
-5234;25;130;90;Xuanwei;x
-5235;145;202;55;Lincang;x
+5232;244;182;62;Wumeng;x
+5233;107;156;51;Mangbu;x
+5234;25;130;90;Zhanyi;x
+5235;145;202;55;Mengmian;x
 5236;231;40;37;Gengma;x
 5237;73;172;207;Zhenyuan;x
 5238;112;218;194;Menglian;x
@@ -5188,7 +5188,7 @@ province;red;green;blue;x;x
 5304;92;88;84;Wuzhishan;x
 5200;83;24;236;Pingle;x
 5201;162;74;195;Sien;x
-5202;195;84;100;Yuzhou;x
+5202;195;84;100;Yulin;x
 5203;50;52;170;Siming;x
 5208;227;142;44;Quanzhou;x
 5210;69;166;112;Tianzhou;x
@@ -5203,3 +5203,42 @@ province;red;green;blue;x;x
 5309;0;211;220;Wudu;x
 5310;37;173;211;Nanling West;x
 5311;198;52;122;Nanling East;x
+5312;233;147;191;Yongshun;x
+5313;50;42;134;Baojing;x
+5314;123;193;77;Yuanzhou Hunan;x
+5315;196;88;20;Suining Hunan;x
+5316;13;239;219;Cili;x
+5317;86;134;162;Sangzhi;x
+5318;159;29;105;Leiyang;x
+5319;232;180;48;Chaling;x
+5320;49;75;247;Pingjiang;x
+5321;122;226;190;Liuyang;x
+5322;195;121;133;Anhua;x
+5323;12;16;76;Fengcheng;x
+5324;85;167;19;Fengxin;x
+5325;158;62;218;Changnan;x
+5326;231;213;161;Dexing;x
+5327;48;108;104;Ningdu;x
+5328;121;3;47;Anfu;x
+5329;184;165;77;Zhaohua;x
+5330;155;76;224;Pengzhou;x
+5331;48;184;80;Suizhou;x
+5332;224;94;101;Bazhou;x
+5333;62;104;184;Quzhou;x
+5334;164;224;58;Changzhou Sichuan;x
+5335;184;77;176;Jiangjin;x
+5336;76;224;192;Nanchuan;x
+5337;184;114;48;Pengshui;x
+5338;120;94;224;Zhongzhou;x
+5339;74;184;62;Kaizhou;x
+5340;224;58;123;Shizhu;x
+5341;210;87;145;Fangzhou (Hubei);x
+5342;77;172;204;Yicheng;x
+5343;188;151;62;Jingmen;x
+5344;92;189;108;Jianli;x
+5345;133;83;198;Zhijiang;x
+5346;218;111;67;Guizhou (Hubei);x
+5347;68;123;190;Fangcheng;x
+5348;172;76;102;Neixiang;x
+5349;112;169;73;Xizhou;x
+5350;201;124;183;Guangzhou (Henan);x
