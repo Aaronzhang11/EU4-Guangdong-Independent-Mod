@@ -192,3 +192,35 @@ python3 tools/encode_eu4_chinese_localisation.py --check
 脚本只在十个冻结母省内复制审定像素，正式复现不联网。几何源、GeoJSON 设计记录、
 预览和静态事务清单位于 `planning/chuandongbei_chongqing_b46/`。B46 已取代旧 B18
 生成器在该区域的终端权威；B18 在检测到 B46 清单后只转交 B46，不再写回旧图。
+
+## B48 开局贸易中心层级重构
+
+B48 不改变贸易节点、贸易流向或省份归属，只重构开局贸易中心的层级与密度。
+它把 38 个中心收束为 32 个，并把二级中心由 17 个降为 9 个；三级仍只保留
+广州。脚本同时修正会重建福建、湖南、川渝、云南、山西、陇中历史的旧生成器。
+
+```sh
+python3 tools/map_pipeline/apply_b48_trade_center_rebalance.py
+python3 tools/map_pipeline/apply_b48_trade_center_rebalance.py --check
+```
+
+权威等级表、撤销与降级名单、各贸易节点配额见
+`planning/trade_center_rebalance_b48/batch_manifest.json`。重放任何旧地图生成器后，
+最后必须再次运行 B48。
+
+## B49 中华八节点贸易网络
+
+B49 将原先过大的五个中国核心节点重构为吴越、百越、荆楚、巴蜀、滇夜郎、
+秦陇、河济、幽燕八个节点。吴越沿用内部键 `hangzhou` 并成为中国内部唯一
+`end=yes` 终点；八个特许贸易区与八节点的陆地边界逐省一致。蒙古、西域、藏地、
+满洲继续由外围节点承接，安南则按世界观并入百越节点及百越贸易区。
+
+```sh
+python3 tools/map_pipeline/apply_b49_eight_node_trade_network.py
+python3 tools/map_pipeline/apply_b49_eight_node_trade_network.py --check
+python3 tools/encode_eu4_chinese_localisation.py --check
+```
+
+完整 Area 映射、边疆迁移、八区特许贸易归属和无环流向见
+`planning/trade_nodes_b49/batch_manifest.json`。重放旧地图生成器后，最后依次运行
+B48、B49。

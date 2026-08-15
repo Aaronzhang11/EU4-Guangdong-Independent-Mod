@@ -70,7 +70,7 @@ P = (
     Province(5333, "渠州", "Quzhou", 4211, (62, 104, 184), "baqu_area", "DQU", "gdd_shu", "confucianism", "Quzhou", "iron", (1, 1, 1)),
     Province(5026, "合州", "Hezhou (Chongqing)", 5026, None, "chongqing_area", "BAA", "gdd_shu", "confucianism", "Hezhou", "grain", (2, 2, 1)),
     Province(5334, "昌州", "Changzhou Sichuan", 5026, (164, 224, 58), "chongqing_area", "BAA", "gdd_shu", "confucianism", "Changzhou", "grain", (1, 2, 1)),
-    Province(680, "重庆", "Chongqing", 680, None, "chongqing_area", "BAA", "gdd_shu", "confucianism", "Chongqing", "cloth", (4, 5, 2), cot=2),
+    Province(680, "重庆", "Chongqing", 680, None, "chongqing_area", "BAA", "gdd_shu", "confucianism", "Chongqing", "cloth", (4, 5, 2), cot=1),
     Province(5335, "江津", "Jiangjin", 680, (184, 77, 176), "chongqing_area", "BAA", "gdd_shu", "confucianism", "Jiangjin", "wine", (2, 3, 1)),
     Province(5027, "涪州", "Fuzhou (Chongqing)", 5027, None, "fuling_area", "ZHI", "miao", "animism", "Fuzhou", "paper", (1, 2, 1)),
     Province(5336, "南川", "Nanchuan", 5027, (76, 224, 192), "fuling_area", "ZHI", "miao", "animism", "Nanchuan", "iron", (1, 1, 1)),

@@ -39,7 +39,7 @@ P = (
     Province(5243,"朔州","Shuozhou","yanmen_area",(226,200,66),(226,200,66),"grain",(3,4,2)),
     Province(2177,"宁武","Ningwu","yanmen_area",(137,191,64),(89,162,208),"livestock",(2,3,3),0,True),
     Province(5244,"代州","Daizhou","yanmen_area",(65,172,104),(65,172,104),"livestock",(3,3,2),0,True),
-    Province(693,"太原","Taiyuan","shanxi_area",(58,164,160),(227,138,192),"cloth",(8,8,4),2,True),
+    Province(693,"太原","Taiyuan","shanxi_area",(58,164,160),(227,138,192),"cloth",(8,8,4),1,True,
     Province(5245,"忻州","Xinzhou","shanxi_area",(62,144,197),(62,144,197),"grain",(3,4,2)),
     Province(5246,"平定","Pingding","shanxi_area",(89,112,203),(89,112,203),"iron",(3,5,2)),
     Province(5247,"辽州","Liaozhou","shanxi_area",(137,91,198),(137,91,198),"iron",(2,4,2)),

@@ -45,11 +45,11 @@ P = (
     Province(2167, "丽江", "Lijiang", "dianxibei_area", (61,171,211), (75,240,74), (4384,949), "tea", (3,3,2), "bai", "buddhism"),
     Province(5226, "剑川", "Jianchuan", "dianxibei_area", (232,192,56), (232,192,56), (4374,966), "livestock", (2,2,1), "bai", "buddhism"),
     Province(5227, "泸水", "Lushui", "dianxi_area", (218,108,54), (218,108,54), (4347,967), "tropical_wood", (1,1,1), "bai", "buddhism", "MMA"),
-    Province(661, "大理", "Dali", "dianxi_area", (232,154,55), (222,74,64), (4376,985), "tea", (5,5,2), "bai", "buddhism", cot=2, fort=True),
+    Province(661, "大理", "Dali", "dianxi_area", (232,154,55), (222,74,64), (4376,985), "tea", (5,5,2), "bai", "buddhism", cot=1, fort=True),
     Province(5228, "永昌府", "Yongchangfu", "dianxi_area", (202,168,74), (202,168,74), (4354,996), "iron", (2,3,1), "yi", "buddhism"),
     Province(2166, "德宏", "Dehong", "dianxi_area", (74,159,125), (69,205,50), (4343,1012), "tropical_wood", (2,2,1), "shan", "buddhism", "MMA"),
     Province(5229, "楚雄", "Chuxiong", "yunnan_area", (221,107,52), (221,107,52), (4396,987), "livestock", (2,3,1), "yi", "animism"),
-    Province(662, "昆明", "Kunming", "yunnan_area", (238,224,204), (94,76,128), (4413,990), "copper", (6,5,2), "gdd_dian", "buddhism", cot=2, fort=True),
+    Province(662, "昆明", "Kunming", "yunnan_area", (238,224,204), (94,76,128), (4413,990), "copper", (6,5,2), "gdd_dian", "buddhism", cot=1, fort=True),
     Province(5230, "新兴州", "Xinxingzhou", "yunnan_area", (239,194,127), (239,194,127), (4415,1005), "grain", (3,3,1), "gdd_dian", "buddhism"),
     Province(5231, "东川", "Dongchuan", "yunnan_area", (206,55,43), (206,55,43), (4417,968), "copper", (1,3,1), "yi", "animism"),
     Province(5232, "乌蒙", "Wumeng", "diandong_area", (244,182,62), (244,182,62), (4440,938), "livestock", (2,2,1), "yi", "animism"),
@@ -375,21 +375,21 @@ def update_memberships() -> None:
         text = append_ids(text, "tropical", [5235,5236,5237,5238,5239,5240,5241], tropical_marker)
         climate.write_text(text, encoding="cp1252")
 
-    # All modern-Yunnan provinces belong to the Chengdu trade node.  Keep the
-    # company and node semantics aligned when this historical builder is rerun.
-    chengdu_ids = [
+    # B49 separates Yunnan from Bashu: provinces use the Yungui node while the
+    # historical trade-company policy remains Chengdu.
+    yunnan_ids = [
         5224,5225,5226,5227,5228,5229,
         5230,5231,5232,5233,5234,5235,5236,5237,5238,5239,5240,5241,
     ]
     node_path = MOD / "common/tradenodes/00_tradenodes.txt"
-    add_to_top_level_block(node_path, "chengdu", "members", chengdu_ids, marker + " Chengdu node")
+    add_to_top_level_block(node_path, "yungui", "members", yunnan_ids, marker + " Yungui node")
 
     company_path = MOD / "common/trade_companies/00_trade_companies.txt"
     add_to_top_level_block(
         company_path,
         "trade_company_chengdu",
         "provinces",
-        chengdu_ids,
+        yunnan_ids,
         marker + " Chengdu company",
     )
 

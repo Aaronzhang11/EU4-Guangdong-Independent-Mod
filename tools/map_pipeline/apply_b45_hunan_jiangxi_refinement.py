@@ -82,7 +82,7 @@ P = (
     Province(4996, "澧州", "Lizhou", 4996, None, (5286, 5287), "lishui_area", "WLM", "miao", "confucianism", "Lizhou", "grain", (1, 2, 1), ("WLM",)),
     Province(5316, "慈利", "Cili", 4996, (13, 239, 219), (5290, 5288), "lishui_area", "WLM", "gdd_chu", "confucianism", "Cili", "grain", (1, 1, 1), ("WLM",)),
     Province(5317, "桑植", "Sangzhi", 4996, (86, 134, 162), (5291, 5289), "lishui_area", "WLM", "miao", "animism", "Sangzhi", "livestock", (0, 1, 2), ("WLM",)),
-    Province(2174, "衡州", "Hengzhou", 2174, None, (2174, 5270, 5268, 5269), "hengchen_area", "HNG", "gdd_chu", "confucianism", "Hengyang", "gold", (2, 2, 2), ("HNG",), cot=1),
+    Province(2174, "衡州", "Hengzhou", 2174, None, (2174, 5270, 5268, 5269), "hengchen_area", "HNG", "gdd_chu", "confucianism", "Hengyang", "gold", (2, 2, 2), ("HNG",)),
     Province(5318, "耒阳", "Leiyang", 2174, (159, 29, 105), (5266, 5274, 5275, 5276), "hengchen_area", "HNG", "gdd_chu", "confucianism", "Leiyang", "copper", (1, 1, 2), ("HNG",)),
     Province(5319, "茶陵", "Chaling", 2174, (232, 180, 48), (5267, 5264, 5263, 5304), "hengchen_area", "HNG", "gdd_chu", "confucianism", "Chaling", "tea", (1, 1, 1), ("HNG",)),
     Province(671, "长沙", "Changsha", 671, None, (671, 5259, 5257), "hunan_area", "CSA", "gdd_chu", "confucianism", "Changsha", "grain", (4, 4, 2), ("CSA",)),
@@ -441,8 +441,8 @@ def update_memberships() -> None:
     append_marker_line_to_block(MAP / "terrain.txt", "hills", "5316 5317 5318 5319 5322 5326 5327 5328", "terrain_override")
     append_marker_line_to_block(MAP / "terrain.txt", "highlands", "5312 5313 5314 5315", "terrain_override")
     trade_nodes = MOD / "common/tradenodes/00_tradenodes.txt"
-    append_marker_line_to_block(trade_nodes, "canton", " ".join(map(str, HUNAN_NEW_IDS)), "members")
-    append_marker_line_to_block(trade_nodes, "hangzhou", " ".join(map(str, JIANGXI_NEW_IDS)), "members")
+    append_marker_line_to_block(trade_nodes, "huguang", " ".join(map(str, HUNAN_NEW_IDS)), "members")
+    append_marker_line_to_block(trade_nodes, "huguang", " ".join(map(str, JIANGXI_NEW_IDS)), "members")
     trade_companies = MOD / "common/trade_companies/00_trade_companies.txt"
     append_marker_line_to_block(trade_companies, "trade_company_south_china", " ".join(map(str, HUNAN_NEW_IDS)), "provinces")
     append_marker_line_to_block(trade_companies, "trade_company_east_china", " ".join(map(str, JIANGXI_NEW_IDS)), "provinces")
@@ -898,7 +898,7 @@ def write_manifest(changed_pixels: int, exterior_pixels: int, pixel_counts: dict
         "pixel_counts": pixel_counts,
         "areas": {key: list(value) for key, value in AREA_MEMBERS.items()},
         "region": "south_china_region",
-        "trade_policy": {"hunan": "canton/trade_company_south_china", "jiangxi": "hangzhou/trade_company_east_china"},
+        "trade_policy": {"hunan": "huguang/trade_company_south_china", "jiangxi": "huguang/trade_company_east_china"},
         "localisation_source": "localisation_source/gdd_b45_hunan_jiangxi_refinement_readable_utf8.txt",
         "localisation_target": "localisation/gdd_b45_hunan_jiangxi_refinement_l_english.yml",
         "validation": validation,

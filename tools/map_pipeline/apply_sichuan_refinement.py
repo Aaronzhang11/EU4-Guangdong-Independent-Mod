@@ -61,7 +61,7 @@ P = (
     Province(5084, "富顺", "Fushun", "chuannan_area", (224,171,79), (224,171,79), (4448,919), "salt", (3,6,2), "shu", "gdd_shu", "confucianism"),
     Province(5085, "叙州", "Xuzhou (Sichuan)", "chuannan_area", (105,56,199), (105,56,199), (4437,929), "grain", (4,4,2), "shu", "gdd_shu", "confucianism"),
     Province(4213, "泸州", "Luzhou (Sichuan)", "chuannan_area", (94,224,101), (40,46,10), (4454,929), "grain", (4,4,2), "shu", "gdd_shu", "confucianism"),
-    Province(680, "重庆", "Chongqing", "chongqing_area", (199,70,101), (97,112,0), (4462,911), "cloth", (8,9,3), "ba", "gdd_shu", "confucianism", 2),
+    Province(680, "重庆", "Chongqing", "chongqing_area", (199,70,101), (97,112,0), (4462,911), "cloth", (8,9,3), "ba", "gdd_shu", "confucianism", 1),
     Province(5026, "合州", "Hezhou (Chongqing)", "chongqing_area", (63,149,224), (225,90,40), (4474,900), "grain", (4,4,2), "ba", "gdd_shu", "confucianism"),
     Province(5027, "涪州", "Fuzhou (Chongqing)", "chongqing_area", (179,199,84), (70,190,155), (4491,921), "paper", (4,4,2), "ba", "miao", "confucianism"),
     Province(4987, "万州", "Wanzhou", "chongqing_area", (207,79,224), (164,45,190), (4497,896), "tea", (3,4,2), "ba", "gdd_shu", "confucianism"),

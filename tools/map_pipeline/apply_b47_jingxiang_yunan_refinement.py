@@ -436,9 +436,12 @@ def update_memberships() -> None:
     terrain.write_text(text, encoding="cp1252")
     node = MOD / "common/tradenodes/00_tradenodes.txt"
     text = node.read_text(encoding="cp1252")
-    start, end = block_bounds(text, "xian")
-    block = add_marker_ids(text[start:end], "members", NEW_IDS)
-    node.write_text(text[:start] + block + text[end:], encoding="cp1252")
+    for node_name, ids in (("huguang", (5341, 5342, 5343, 5344, 5345, 5346)),
+                           ("zhongyuan", (5347, 5348, 5349, 5350))):
+        start, end = block_bounds(text, node_name)
+        block = add_marker_ids(text[start:end], "members", ids)
+        text = text[:start] + block + text[end:]
+    node.write_text(text, encoding="cp1252")
     company = MOD / "common/trade_companies/00_trade_companies.txt"
     text = company.read_text(encoding="cp1252")
     start, end = block_bounds(text, "trade_company_xian")
@@ -708,7 +711,8 @@ def write_manifest(changed: int, exterior: int, pixel_counts: dict[int, int], va
         "changed_pixels_outside_editable_mask": exterior, "pixel_counts": pixel_counts,
         "areas": {key: list(value) for key, value in AREA_MEMBERS.items()},
         "regions": {"south_china_region": ["hanshang_area", "yunmeng_jingmen_area", "jingyi_area", "yigui_area", "dean_qihuang_area"], "north_china_region": ["wandeng_area", "rucai_area"]},
-        "trade_node": "xian", "trade_company": "trade_company_xian",
+        "trade_node": {"hubei": "huguang", "henan": "zhongyuan"},
+        "trade_company": "trade_company_xian",
         "countries": {key: list(value) for key, value in POLITY_SCOPE.items()},
         "validation": validation, "canonical_bitmap_sha256": sha256(MAP / "provinces.bmp"),
     }

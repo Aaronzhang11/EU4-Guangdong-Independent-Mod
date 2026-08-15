@@ -710,8 +710,8 @@
   },
   "region": "south_china_region",
   "trade_policy": {
-    "hunan": "canton/trade_company_south_china",
-    "jiangxi": "hangzhou/trade_company_east_china"
+    "hunan": "huguang/trade_company_south_china",
+    "jiangxi": "huguang/trade_company_east_china"
   },
   "localisation_source": "localisation_source/gdd_b45_hunan_jiangxi_refinement_readable_utf8.txt",
   "localisation_target": "localisation/gdd_b45_hunan_jiangxi_refinement_l_english.yml",

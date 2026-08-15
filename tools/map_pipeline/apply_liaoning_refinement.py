@@ -71,6 +71,22 @@ def remove_marker_line(text: str):
     return re.sub(rf"(?m)^\s*.*# {re.escape(MARKER)}.*\n?", "", text)
 
 
+def append_nested_ids(text: str, outer: str, nested: str, ids: set[int]) -> str:
+    outer_bounds = block_bounds(text, outer)
+    if outer_bounds is None:
+        raise ValueError(f"Missing outer block {outer}")
+    block = text[outer_bounds[0]:outer_bounds[1]]
+    nested_bounds = block_bounds(block, nested)
+    if nested_bounds is None:
+        raise ValueError(f"Missing {nested} block in {outer}")
+    nested_block = block[nested_bounds[0]:nested_bounds[1]]
+    close = nested_block.rfind("}")
+    insertion = "\n        " + " ".join(map(str, sorted(ids))) + f" # {MARKER}\n    "
+    nested_block = nested_block[:close].rstrip() + insertion + nested_block[close:]
+    block = block[:nested_bounds[0]] + nested_block + block[nested_bounds[1]:]
+    return text[:outer_bounds[0]] + block + text[outer_bounds[1]:]
+
+
 def update_bitmap():
     backup = OUT / "pre_liaoning_refinement_provinces.bmp"
     if not backup.exists():
@@ -131,8 +147,8 @@ def update_lists():
 
     path = MOD / "common/tradenodes/00_tradenodes.txt"
     text = remove_marker_line(path.read_text())
-    marker = "        5113 5114 5115 5116 # B21 Yandu"
-    text = text.replace(marker, marker + f"\n        {new} # {MARKER}", 1)
+    text = append_nested_ids(text, "girin", "members", {5204, 5205})
+    text = append_nested_ids(text, "beijing", "members", {5206, 5207, 5209})
     path.write_text(text)
 
     path = MOD / "common/trade_companies/00_trade_companies.txt"

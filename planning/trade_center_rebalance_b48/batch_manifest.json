@@ -1,0 +1,160 @@
+{
+  "batch": "B48_trade_center_rebalance",
+  "marker": "GDD_B48_TRADE_CENTER_REBALANCE",
+  "purpose": "Restore a three-tier trade hierarchy and remove redundant opening centers.",
+  "before": {
+    "613": 1,
+    "661": 2,
+    "662": 2,
+    "667": 3,
+    "668": 1,
+    "669": 1,
+    "670": 1,
+    "678": 1,
+    "679": 2,
+    "680": 2,
+    "684": 2,
+    "685": 2,
+    "688": 2,
+    "693": 2,
+    "697": 1,
+    "699": 2,
+    "726": 1,
+    "735": 1,
+    "1816": 2,
+    "1822": 2,
+    "1829": 2,
+    "1836": 2,
+    "1845": 1,
+    "2142": 1,
+    "2149": 1,
+    "2162": 1,
+    "2170": 1,
+    "2172": 1,
+    "2174": 1,
+    "2745": 2,
+    "4948": 1,
+    "4958": 2,
+    "4979": 1,
+    "4982": 1,
+    "5011": 2,
+    "5059": 1,
+    "5066": 2,
+    "5296": 1
+  },
+  "target_levels": {
+    "613": 1,
+    "661": 1,
+    "662": 1,
+    "667": 3,
+    "668": 0,
+    "669": 1,
+    "670": 1,
+    "678": 1,
+    "679": 2,
+    "680": 1,
+    "684": 2,
+    "685": 2,
+    "688": 1,
+    "693": 1,
+    "697": 1,
+    "699": 1,
+    "726": 1,
+    "735": 1,
+    "1816": 2,
+    "1822": 2,
+    "1829": 2,
+    "1836": 2,
+    "1845": 1,
+    "2142": 0,
+    "2149": 1,
+    "2162": 1,
+    "2170": 1,
+    "2172": 1,
+    "2174": 0,
+    "2745": 2,
+    "4948": 0,
+    "4958": 0,
+    "4979": 1,
+    "4982": 1,
+    "5011": 2,
+    "5059": 0,
+    "5066": 1,
+    "5296": 1
+  },
+  "removed": [
+    668,
+    2142,
+    2174,
+    4948,
+    4958,
+    5059
+  ],
+  "demoted": [
+    661,
+    662,
+    680,
+    688,
+    693,
+    699,
+    5066
+  ],
+  "validation": {
+    "managed_provinces": 38,
+    "active_centers": 32,
+    "level_totals": {
+      "1": 22,
+      "2": 9,
+      "3": 1
+    },
+    "node_levels": {
+      "beijing": {
+        "1": 2,
+        "2": 1
+      },
+      "canton": {
+        "1": 3,
+        "2": 1,
+        "3": 1
+      },
+      "chengdu": {
+        "1": 3,
+        "2": 1
+      },
+      "girin": {
+        "1": 1
+      },
+      "hangzhou": {
+        "1": 2,
+        "2": 3
+      },
+      "huguang": {
+        "1": 4,
+        "2": 1
+      },
+      "nippon": {
+        "1": 2,
+        "2": 1
+      },
+      "xian": {
+        "1": 2
+      },
+      "yungui": {
+        "1": 2
+      },
+      "zhongyuan": {
+        "1": 1,
+        "2": 1
+      }
+    }
+  },
+  "replay_generators": [
+    "tools/map_pipeline/apply_b45_hunan_jiangxi_refinement.py",
+    "tools/map_pipeline/apply_b46_chuandongbei_chongqing_refinement.py",
+    "tools/map_pipeline/apply_fujian_refinement.py",
+    "tools/map_pipeline/apply_gansu_ningxia_refinement.py",
+    "tools/map_pipeline/apply_shanxi_refinement.py",
+    "tools/map_pipeline/apply_sichuan_refinement.py",
+    "tools/map_pipeline/apply_yunnan_refinement.py"
+  ]
+}

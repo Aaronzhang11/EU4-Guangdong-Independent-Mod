@@ -55,6 +55,7 @@ FILES = {
     "000_gdd_b41_culture_overhaul_readable_utf8.txt": "replace/000_gdd_b41_culture_overhaul_l_english.yml",
     "001_gdd_b43_country_name_overrides_readable_utf8.txt": "replace/001_gdd_b43_country_name_overrides_l_english.yml",
     "002_gdd_b44_worldview_toponyms_readable_utf8.txt": "replace/002_gdd_b44_worldview_toponyms_l_english.yml",
+    "003_gdd_b49_trade_node_overrides_readable_utf8.txt": "replace/003_gdd_b49_trade_node_overrides_l_english.yml",
     "gdd_zzz_chunqiu_area_overrides_readable_utf8.txt": "replace/zzz_gdd_chunqiu_area_overrides_l_english.yml",
     "gdd_yangtze_navigation_readable_utf8.txt": "gdd_yangtze_navigation_l_english.yml",
     "gdd_huai_navigation_readable_utf8.txt": "gdd_huai_navigation_l_english.yml",

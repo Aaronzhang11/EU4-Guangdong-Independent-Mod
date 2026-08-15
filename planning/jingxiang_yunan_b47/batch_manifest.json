@@ -376,7 +376,10 @@
       "rucai_area"
     ]
   },
-  "trade_node": "xian",
+  "trade_node": {
+    "hubei": "huguang",
+    "henan": "zhongyuan"
+  },
   "trade_company": "trade_company_xian",
   "countries": {
     "SHE": [
