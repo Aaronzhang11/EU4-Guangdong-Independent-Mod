@@ -1,8 +1,8 @@
 # 5015 - Mianyang
 
-owner = CHC
-controller = CHC
-add_core = CHC
+owner = ZHU
+controller = ZHU
+add_core = ZHU
 culture = gdd_chu
 religion = confucianism
 capital = "Mianyang"

@@ -1,7 +1,7 @@
 # 685 - Yangzhou
-owner = XU2
-controller = XU2
-add_core = XU2
+owner = HYM
+controller = HYM
+add_core = HYM
 culture = gdd_jianghuai
 religion = confucianism
 capital = "Yangzhou"

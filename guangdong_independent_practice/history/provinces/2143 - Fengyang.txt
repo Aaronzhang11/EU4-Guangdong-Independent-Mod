@@ -1,8 +1,8 @@
 # 2143 - Haozhou
 
-owner = XU2
-controller = XU2
-add_core = XU2
+owner = HUA
+controller = HUA
+add_core = HUA
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Haozhou"

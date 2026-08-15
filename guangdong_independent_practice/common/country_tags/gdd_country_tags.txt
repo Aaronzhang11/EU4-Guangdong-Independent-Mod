@@ -64,3 +64,23 @@ WUZ = "countries/B43_Wuzhong.txt"
 HNG = "countries/B45_Heng.txt"
 DQU = "countries/B46_Dangqu.txt"
 ZHI = "countries/B46_Zhi.txt"
+
+# B50: eastern balance states and one-character commercial city names.
+
+# GDD_B50_EASTERN_BALANCE_BEGIN
+HUA = "countries/B50_Huai.txt"
+OUE = "countries/B50_Ou.txt"
+HYM = "countries/B50_Yang.txt"
+WHU = "countries/B50_Wuhu.txt"
+ZHO = "countries/B50_Zhou.txt"
+# GDD_B50_EASTERN_BALANCE_END
+
+# GDD_B51_LIAO_POLITY_BEGIN
+LIO = "countries/B51_Liao.txt"
+# GDD_B51_LIAO_POLITY_END
+
+# GDD_B52_CHU_VASSALS_BEGIN
+EGU = "countries/B52_E.txt"
+QVN = "countries/B52_Quan.txt"
+ZHU = "countries/B52_Zhou.txt"
+# GDD_B52_CHU_VASSALS_END

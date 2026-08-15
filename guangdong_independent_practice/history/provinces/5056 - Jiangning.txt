@@ -1,7 +1,7 @@
 # 5056 - Liuhe
-owner = XU2
-controller = XU2
-add_core = XU2
+owner = HUA
+controller = HUA
+add_core = HUA
 culture = gdd_jianghuai
 religion = confucianism
 capital = "Liuhe"

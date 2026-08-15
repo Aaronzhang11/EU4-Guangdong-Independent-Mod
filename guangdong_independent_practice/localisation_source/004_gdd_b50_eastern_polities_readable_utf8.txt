@@ -1,0 +1,11 @@
+﻿l_english:
+ HUA:0 "淮"
+ HUA_ADJ:0 "淮"
+ OUE:0 "瓯"
+ OUE_ADJ:0 "瓯"
+ HYM:0 "扬"
+ HYM_ADJ:0 "扬"
+ WHU:0 "芜"
+ WHU_ADJ:0 "芜"
+ ZHO:0 "舟"
+ ZHO_ADJ:0 "舟"

@@ -61,10 +61,10 @@ P = (
     Province(5341, "房州", "Fangzhou (Hubei)", 5008, (210, 87, 145), "hanshang_area", "SHE", "gdd_chu", "confucianism", "Fangzhou", "livestock", (1, 1, 2)),
     Province(2171, "襄阳", "Xiangyang", 2171, None, "hanshang_area", "LUO", "gdd_zhongyuan", "confucianism", "Xiangyang", "grain", (4, 4, 3), fort=True),
     Province(5342, "宜城", "Yicheng", 2171, (77, 172, 204), "hanshang_area", "LUO", "gdd_zhongyuan", "confucianism", "Yicheng", "grain", (2, 2, 2)),
-    Province(5010, "安陆", "Anlu", 5010, None, "yunmeng_jingmen_area", "CHC", "gdd_chu", "confucianism", "Anlu", "paper", (2, 1, 1)),
-    Province(5343, "荆门", "Jingmen", 5010, (188, 151, 62), "yunmeng_jingmen_area", "CHC", "gdd_chu", "confucianism", "Jingmen", "grain", (1, 2, 1)),
-    Province(5015, "沔阳", "Mianyang", 5015, None, "yunmeng_jingmen_area", "CHC", "gdd_chu", "confucianism", "Mianyang", "tea", (1, 1, 1)),
-    Province(5344, "监利", "Jianli", 5015, (92, 189, 108), "yunmeng_jingmen_area", "CHC", "gdd_chu", "confucianism", "Jianli", "grain", (1, 1, 1)),
+    Province(5010, "安陆", "Anlu", 5010, None, "yunmeng_jingmen_area", "QVN", "gdd_chu", "confucianism", "Anlu", "paper", (2, 1, 1)),
+    Province(5343, "荆门", "Jingmen", 5010, (188, 151, 62), "yunmeng_jingmen_area", "QVN", "gdd_chu", "confucianism", "Jingmen", "grain", (1, 2, 1)),
+    Province(5015, "沔阳", "Mianyang", 5015, None, "yunmeng_jingmen_area", "ZHU", "gdd_chu", "confucianism", "Mianyang", "tea", (1, 1, 1)),
+    Province(5344, "监利", "Jianli", 5015, (92, 189, 108), "yunmeng_jingmen_area", "ZHU", "gdd_chu", "confucianism", "Jianli", "grain", (1, 1, 1)),
     Province(2172, "荆州", "Jingzhou", 2172, None, "jingyi_area", "CHC", "gdd_chu", "confucianism", "Jiangling", "grain", (3, 3, 3), cot=1, fort=True),
     Province(5345, "枝江", "Zhijiang", 2172, (133, 83, 198), "jingyi_area", "CHC", "gdd_chu", "confucianism", "Zhijiang", "grain", (2, 2, 1)),
     Province(5014, "公安", "Gongan", 5014, None, "jingyi_area", "CHC", "gdd_chu", "confucianism", "Gongan", "grain", (2, 4, 3)),
@@ -117,11 +117,12 @@ TERRAIN_IDS = {
 }
 POLITY_SCOPE = {
     "SHE": (5008, 5341, 681, 5346), "LUO": (2171, 5342),
-    "CHC": (5010, 5343, 5015, 5344, 2172, 5345, 5014), "BD2": (5013,),
+    "CHC": (2172, 5345, 5014), "QVN": (5010, 5343),
+    "ZHU": (5015, 5344), "BD2": (5013,),
     "GON": (687, 5347, 5055, 5348), "CZH": (5053,),
     "CAI": (5054, 5349), "SUI": (2175, 5350),
 }
-POLITY_DEVELOPMENT = {"SHE": 19, "LUO": 17, "CHC": 37, "BD2": 6, "GON": 25, "CZH": 8, "CAI": 12, "SUI": 9}
+POLITY_DEVELOPMENT = {"SHE": 19, "LUO": 17, "CHC": 23, "QVN": 8, "ZHU": 6, "BD2": 6, "GON": 25, "CZH": 8, "CAI": 12, "SUI": 9}
 ORIGINAL_PARENT_DEV = {
     5008: (2, 3, 3), 2171: (6, 6, 5), 681: (4, 4, 3), 2172: (5, 5, 4),
     5015: (2, 2, 2), 5010: (3, 3, 2), 5013: (2, 2, 2), 5014: (2, 4, 3),
@@ -521,7 +522,7 @@ def update_registry() -> None:
         row.update({
             "design_key": f"B47-{sequence:02d}", "game_id": str(province.province_id),
             "rgb_r": str(red), "rgb_g": str(green), "rgb_b": str(blue),
-            "macro_region": "south_china" if province.owner in {"SHE", "LUO", "CHC", "BD2", "SUI"} else "north_china",
+            "macro_region": "south_china" if province.owner in {"SHE", "LUO", "CHC", "QVN", "ZHU", "BD2", "SUI"} else "north_china",
             "draw_batch": "B47", "new_name_zh": province.chinese, "new_name_en": province.english,
             "internal_key_hint": f"gdd_b47_{province.province_id}", "parent_id": str(province.parent_id),
             "parent_definition_name": definitions[province.parent_id][1],
@@ -677,8 +678,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         if not set(members).issubset(set(b43.TAG_PROVINCES[tag])):
             raise ValueError(f"B43 replay policy is missing B47 {tag} provinces")
     all_policy_ids = [province_id for members in b43.TAG_PROVINCES.values() for province_id in members]
-    if len(all_policy_ids) != 293 or len(set(all_policy_ids)) != 293:
-        raise ValueError("B43 replay policy does not contain 293 unique post-B47 provinces")
+    if len(all_policy_ids) != 300 or len(set(all_policy_ids)) != 300:
+        raise ValueError("B43 replay policy does not contain 300 unique post-B52 provinces")
     return {
         "province_components": "23/23 one component",
         "area_land_components": area_components,

@@ -1,0 +1,396 @@
+{
+  "batch": "B52_chu_vassals",
+  "design": "Chu direct realm plus three restored starting vassals",
+  "chu_capital": {
+    "province_id": 2172,
+    "name": "Jiangling"
+  },
+  "countries": {
+    "CHC": {
+      "provinces": 12,
+      "development": 134
+    },
+    "EGU": {
+      "provinces": 2,
+      "development": 27
+    },
+    "QVN": {
+      "provinces": 2,
+      "development": 8
+    },
+    "ZHU": {
+      "provinces": 2,
+      "development": 6
+    }
+  },
+  "vassals": {
+    "EGU": "CHC",
+    "QVN": "CHC",
+    "ZHU": "CHC"
+  },
+  "geometry": "unchanged",
+  "areas": "unchanged",
+  "trade_nodes": "unchanged",
+  "trade_centres": "unchanged",
+  "manifest": "planning/chu_vassals_b52/batch_manifest.json",
+  "manifest_invariants": {
+    "province_geometry": "unchanged",
+    "areas_and_regions": "unchanged",
+    "trade_nodes_and_routes": "unchanged",
+    "trade_centres": "unchanged",
+    "province_development": "unchanged",
+    "culture_and_religion": "gdd_chu and confucianism retained",
+    "subject_government": "existing gdd_local_fiefdom_reform; no new reform"
+  },
+  "b43_validation": {
+    "province_count": 300,
+    "polity_count": 67,
+    "generated_tag_count": 55,
+    "preserved_qi": [
+      690,
+      691,
+      695,
+      2138,
+      2139,
+      5101,
+      5102,
+      5103,
+      5104,
+      5105,
+      5106,
+      5107,
+      5222,
+      5223
+    ],
+    "yan_territory": [
+      703,
+      1816,
+      4672,
+      5113,
+      5114,
+      5115,
+      5116,
+      5206,
+      5207,
+      5212,
+      5213
+    ],
+    "liao_territory": [
+      726,
+      2112,
+      2113,
+      4652,
+      5204,
+      5205
+    ],
+    "chu_vassals": {
+      "EGU": [
+        682,
+        5016
+      ],
+      "QVN": [
+        5010,
+        5343
+      ],
+      "ZHU": [
+        5015,
+        5344
+      ]
+    },
+    "dae_capital": 5244,
+    "badi_tag": "BD2",
+    "adjacent_color_audit": {
+      "country_edge_count": 189,
+      "minimum_required_delta_e": 12.0,
+      "minimum_delta_e": 12.7,
+      "closest_edges": [
+        {
+          "tags": [
+            "WUU",
+            "YUE"
+          ],
+          "delta_e": 12.7
+        },
+        {
+          "tags": [
+            "BAA",
+            "DQU"
+          ],
+          "delta_e": 13.6
+        },
+        {
+          "tags": [
+            "DAE",
+            "YOU"
+          ],
+          "delta_e": 18.5
+        },
+        {
+          "tags": [
+            "HUA",
+            "HYM"
+          ],
+          "delta_e": 21.2
+        },
+        {
+          "tags": [
+            "CCH",
+            "HUA"
+          ],
+          "delta_e": 22.8
+        },
+        {
+          "tags": [
+            "WXM",
+            "ZHI"
+          ],
+          "delta_e": 23.0
+        },
+        {
+          "tags": [
+            "CHG",
+            "SHZ"
+          ],
+          "delta_e": 23.5
+        },
+        {
+          "tags": [
+            "JUU",
+            "SHE"
+          ],
+          "delta_e": 23.8
+        },
+        {
+          "tags": [
+            "KAM",
+            "LSH"
+          ],
+          "delta_e": 24.0
+        },
+        {
+          "tags": [
+            "LUO",
+            "SUI"
+          ],
+          "delta_e": 24.3
+        }
+      ]
+    },
+    "core_cleanup": {
+      "exact": {
+        "CHC": [
+          2172,
+          4197,
+          4979,
+          4981,
+          4982,
+          4992,
+          4994,
+          5011,
+          5012,
+          5014,
+          5320,
+          5345
+        ],
+        "EGU": [
+          682,
+          5016
+        ],
+        "QVN": [
+          5010,
+          5343
+        ],
+        "ZHU": [
+          5015,
+          5344
+        ],
+        "MIN": [
+          669,
+          1829,
+          2152,
+          4952,
+          4953,
+          4958,
+          5096,
+          5097,
+          5098,
+          5099
+        ],
+        "SHU": [
+          679,
+          4212,
+          5075,
+          5076,
+          5077,
+          5078,
+          5079,
+          5080,
+          5083,
+          5084,
+          5085,
+          5331
+        ],
+        "WUU": [
+          1821,
+          1822,
+          2145,
+          2146,
+          2147,
+          5022,
+          5023,
+          5024,
+          5025,
+          5057,
+          5068
+        ],
+        "YUE": [
+          684,
+          2148,
+          2149,
+          2150,
+          4950,
+          4956,
+          4976,
+          5002,
+          5003,
+          5005,
+          5006
+        ],
+        "XU2": [
+          2141,
+          2142,
+          2144,
+          4196,
+          5018,
+          5020
+        ],
+        "HUA": [
+          1838,
+          2143,
+          5056,
+          5059,
+          5063,
+          5064
+        ],
+        "OUE": [
+          1824,
+          4951,
+          5007
+        ],
+        "HYM": [
+          685,
+          4977,
+          5021
+        ],
+        "WHU": [
+          5066
+        ],
+        "ZHO": [
+          5004
+        ],
+        "KAM": [
+          678,
+          2131,
+          2132,
+          2133,
+          2135,
+          5093,
+          5224,
+          5225
+        ],
+        "KSD": [
+          706,
+          711,
+          2123,
+          4204,
+          4693
+        ],
+        "YAN": [
+          703,
+          1816,
+          4672,
+          5113,
+          5114,
+          5115,
+          5116,
+          5206,
+          5207,
+          5212,
+          5213
+        ],
+        "LIO": [
+          726,
+          2112,
+          2113,
+          4652,
+          5204,
+          5205
+        ],
+        "DQU": [
+          4211,
+          4987,
+          5332,
+          5333,
+          5339
+        ],
+        "ZHI": [
+          5027,
+          5336,
+          5337,
+          5338,
+          5340
+        ]
+      },
+      "removed": {
+        "YUE": [
+          665,
+          667,
+          668,
+          2157,
+          2159,
+          4942,
+          4943,
+          4945,
+          4946,
+          4947,
+          4949,
+          5214,
+          5215
+        ],
+        "XU2": [
+          1821,
+          4977,
+          5022,
+          5023
+        ],
+        "BAS": [
+          5013,
+          5028
+        ],
+        "HMI": [
+          707,
+          2122,
+          5299,
+          5300
+        ],
+        "QIN": [
+          689,
+          2179
+        ],
+        "WVG": [
+          5048,
+          5270
+        ],
+        "MNG": [
+          663,
+          666,
+          2162,
+          2164,
+          4949,
+          5217,
+          5303
+        ]
+      }
+    }
+  }
+}

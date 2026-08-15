@@ -73,10 +73,10 @@ CELLS = (
     Cell(5341, "房州", 5008, 4, "SHE", "hanshang_area", "鄢庸", "gdd_chu", True),
     Cell(2171, "襄阳", 2171, 11, "LUO", "hanshang_area", "鄢庸", "gdd_zhongyuan"),
     Cell(5342, "宜城", 2171, 6, "LUO", "hanshang_area", "鄢庸", "gdd_zhongyuan", True),
-    Cell(5010, "安陆", 5010, 4, "CHC", "yunmeng_jingmen_area", "江汉", "gdd_chu"),
-    Cell(5343, "荆门", 5010, 4, "CHC", "yunmeng_jingmen_area", "江汉", "gdd_chu", True),
-    Cell(5015, "沔阳", 5015, 3, "CHC", "yunmeng_jingmen_area", "江汉", "gdd_chu"),
-    Cell(5344, "监利", 5015, 3, "CHC", "yunmeng_jingmen_area", "江汉", "gdd_chu", True),
+    Cell(5010, "安陆", 5010, 4, "QVN", "yunmeng_jingmen_area", "江汉", "gdd_chu"),
+    Cell(5343, "荆门", 5010, 4, "QVN", "yunmeng_jingmen_area", "江汉", "gdd_chu", True),
+    Cell(5015, "沔阳", 5015, 3, "ZHU", "yunmeng_jingmen_area", "江汉", "gdd_chu"),
+    Cell(5344, "监利", 5015, 3, "ZHU", "yunmeng_jingmen_area", "江汉", "gdd_chu", True),
     Cell(2172, "荆州", 2172, 9, "CHC", "jingyi_area", "荆郢", "gdd_chu"),
     Cell(5345, "枝江", 2172, 5, "CHC", "jingyi_area", "荆郢", "gdd_chu", True),
     Cell(5014, "公安", 5014, 9, "CHC", "jingyi_area", "荆郢", "gdd_chu"),
@@ -96,9 +96,10 @@ CELLS = (
 CELL_BY_ID = {cell.province_id: cell for cell in CELLS}
 CELL_BY_NAME = {cell.name: cell for cell in CELLS}
 
-POLITY_NAMES = {"SHE": "申", "LUO": "罗", "CHC": "楚", "BD2": "巴氐", "GON": "共", "CZH": "周", "CAI": "蔡", "SUI": "随"}
+POLITY_NAMES = {"SHE": "申", "LUO": "罗", "CHC": "楚", "QVN": "权", "ZHU": "州", "BD2": "巴氐", "GON": "共", "CZH": "周", "CAI": "蔡", "SUI": "随"}
 POLITY_COLORS = {
     "SHE": (176, 109, 70), "LUO": (60, 143, 132), "CHC": (135, 78, 153),
+    "QVN": (178, 138, 75), "ZHU": (130, 96, 142),
     "BD2": (126, 91, 72), "GON": (70, 111, 174), "CZH": (202, 155, 55),
     "CAI": (91, 149, 78), "SUI": (75, 132, 181),
 }

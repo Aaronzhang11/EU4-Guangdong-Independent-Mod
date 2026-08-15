@@ -1,8 +1,8 @@
 # 5343 - Jingmen
 
-owner = CHC
-controller = CHC
-add_core = CHC
+owner = QVN
+controller = QVN
+add_core = QVN
 culture = gdd_chu
 religion = confucianism
 capital = "Jingmen"

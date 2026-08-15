@@ -1,8 +1,8 @@
 # 5096 - Funing
 
-owner = YUE
-controller = YUE
-add_core = YUE
+owner = MIN
+controller = MIN
+add_core = MIN
 culture = gdd_min
 religion = confucianism
 capital = "Funing"

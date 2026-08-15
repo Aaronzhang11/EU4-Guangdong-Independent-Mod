@@ -1,6 +1,6 @@
-owner = WUU
-controller = WUU
-add_core = WUU
+owner = WHU
+controller = WHU
+add_core = WHU
 culture = gdd_wu
 religion = confucianism
 capital = "Wuhu"

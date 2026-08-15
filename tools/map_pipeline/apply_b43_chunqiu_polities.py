@@ -2,13 +2,16 @@
 """Apply the user-confirmed B43 1444 polity map without changing province geometry.
 
 Hard constraints:
-- YAN receives the user-confirmed Liaodong expansion, while Ningyuan and
-  Yongping are transferred to WUZ and GUZ respectively.
+- B51 invests a Khitan Liao state in the six-province Liaodong area, while
+  Ningyuan and Yongping remain with WUZ and GUZ respectively.
 - QIC keeps its already assigned provinces exactly.
 - DAE uses Daizhou (5244) as its capital.
 - Jiarong uses JRG and owns Ngawa (5091) and Barkam (5089).
-- Huzhou (4950) belongs to YUE and Yangzhou (685) belongs to XU2.
+- Huzhou (4950) belongs to YUE; the B50 eastern balance partition creates
+  Huai, Ou and the Yang/Wu/Zhou commercial city-states without map changes.
 - Badi uses the conflict-free tag BD2; legacy BAS data is removed.
+- B52 restores E, Quan and Zhou as small Chu vassals, with Chu seated at
+  Jiangling and retaining its main river corridor.
 - CHC, MIN and WUU use exact core sets, with explicit YUE/XU2 cleanup.
 """
 
@@ -41,17 +44,26 @@ TAG_PROVINCES = {
     "LSH": (5095, 2748, 5094, 5232),
     "MDL": (5226, 2167, 661, 5229, 5227),
     "NZA": (5235, 2165, 5237, 5228),
-    "CHC": (4994, 4992, 4979, 4982, 5016, 5015, 5344, 5014, 2172, 5345, 5010, 5343, 5012, 4197, 682, 5011, 4981, 5320),
+    "CHC": (4994, 4992, 4979, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 4981, 5320),
+    "EGU": (682, 5016),
+    "QVN": (5010, 5343),
+    "ZHU": (5015, 5344),
     "QSH": (686, 5065, 5067),
-    "WUU": (2147, 2146, 5066, 5068, 1821, 5024, 2145, 5057, 5025, 1822, 5022, 4977, 5023),
-    "YUE": (5099, 2152, 5096, 5007, 1824, 4956, 5003, 2149, 2148, 684, 4976, 5002, 4950, 4951, 5004, 5005, 5006, 2150),
+    "WUU": (2147, 2146, 5068, 1821, 5024, 2145, 5057, 5025, 1822, 5022, 5023),
+    "YUE": (4956, 5003, 2149, 2148, 684, 4976, 5002, 4950, 5005, 5006, 2150),
+    "MIN": (669, 1829, 4952, 4953, 4958, 5097, 5098, 2152, 5096, 5099),
+    "OUE": (1824, 4951, 5007),
+    "ZHO": (5004,),
+    "WHU": (5066,),
+    "HYM": (685, 5021, 4977),
     "CCH": (5061, 5062),
     "BAA": (5026, 5082, 680, 4213, 2168, 2169, 5330, 5334, 5335),
     "BD2": (5013, 5028),
     "WLM": (4996, 672, 4997, 5312, 5313, 5316, 5317, 5322),
     "BMY": (2170, 5087, 5086, 5090),
     "DZH": (5088, 5289),
-    "XU2": (2141, 5018, 4196, 2143, 2142, 5020, 5056, 5064, 1838, 5063, 5021, 5059, 685),
+    "XU2": (2141, 5018, 4196, 2142, 5020),
+    "HUA": (2143, 5059, 1838, 5063, 5064, 5056),
     "LUU": (5112, 5109, 5108, 2140),
     "SNG": (5110, 5058, 2176, 5050),
     "CAG": (5111, 5031),
@@ -94,7 +106,8 @@ TAG_PROVINCES = {
     "SHE": (5030, 5008, 5341, 681, 5346, 5284),
     "GUZ": (4194, 5211),
     "WUZ": (704, 5209),
-    "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 2112, 2113, 4652, 4672, 5204, 726, 5205, 5206, 5207),
+    "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 4672, 5206, 5207),
+    "LIO": (726, 5204, 5205, 2112, 4652, 2113),
 }
 
 
@@ -121,6 +134,7 @@ MUTED_COUNTRY_COLORS = {
     "DQU": (74, 150, 105),
     "DIA": (126, 130, 159),
     "DZH": (145, 120, 142),
+    "EGU": (72, 129, 122),
     "GDD": (190, 72, 72),
     "GON": (115, 118, 158),
     "GUI": (65, 120, 158),
@@ -132,12 +146,15 @@ MUTED_COUNTRY_COLORS = {
     "HAK": (181, 151, 101),
     "HZH": (166, 116, 120),
     "HNG": (93, 117, 160),
+    "HUA": (67, 112, 100),
+    "HYM": (72, 143, 160),
     "JRG": (176, 130, 103),
     "JUU": (139, 113, 153),
     "KAM": (64, 146, 106),
     "KSD": (209, 120, 83),
     "LCH": (193, 166, 82),
     "LIL": (156, 204, 158),
+    "LIO": (184, 151, 72),
     "LIU": (245, 245, 230),
     "LSH": (108, 137, 124),
     "LUO": (108, 137, 124),
@@ -147,10 +164,12 @@ MUTED_COUNTRY_COLORS = {
     "NCH": (82, 136, 174),
     "NUN": (109, 150, 116),
     "NZA": (109, 150, 116),
+    "OUE": (174, 101, 74),
     "QIC": (83, 149, 116),
     "QIN": (38, 42, 46),
     "QSH": (157, 113, 137),
     "QWO": (196, 166, 74),
+    "QVN": (178, 138, 75),
     "SHE": (166, 116, 120),
     "SHU": (145, 64, 81),
     "SHZ": (139, 113, 153),
@@ -163,6 +182,7 @@ MUTED_COUNTRY_COLORS = {
     "WGS": (150, 156, 104),
     "WLM": (159, 129, 111),
     "WUU": (133, 111, 175),
+    "WHU": (202, 151, 70),
     "WVG": (109, 150, 116),
     "WXG": (96, 143, 139),
     "WXM": (139, 113, 153),
@@ -170,6 +190,7 @@ MUTED_COUNTRY_COLORS = {
     "WUZ": (103, 137, 166),
     "YAN": (201, 68, 54),
     "YEL": (178, 142, 117),
+    "ZHO": (183, 168, 75),
     "YOU": (157, 113, 137),
     "YPG": (126, 130, 159),
     "YUE": (116, 130, 194),
@@ -178,6 +199,7 @@ MUTED_COUNTRY_COLORS = {
     "ZNG": (181, 151, 101),
     "ZSH": (74, 122, 168),
     "ZHI": (161, 86, 151),
+    "ZHU": (130, 96, 142),
 }
 
 
@@ -186,6 +208,15 @@ POLITIES = {
     "MDL": {"file": "B43_Mongol_Dali.txt", "history": "MDL - Mongol Dali.txt", "capital": 661, "rank": 1, "color": MUTED_COUNTRY_COLORS["MDL"]},
     "NZA": {"file": "B43_Nanzhao.txt", "history": "NZA - Nanzhao.txt", "capital": 5235, "rank": 1, "color": MUTED_COUNTRY_COLORS["NZA"]},
     "QSH": {"file": "B43_Qunshu.txt", "history": "QSH - Qunshu.txt", "capital": 686, "rank": 1, "color": MUTED_COUNTRY_COLORS["QSH"]},
+    "EGU": {"file": "B52_E.txt", "history": "EGU - E.txt", "capital": 682, "rank": 1, "color": MUTED_COUNTRY_COLORS["EGU"]},
+    "QVN": {"file": "B52_Quan.txt", "history": "QVN - Quan.txt", "capital": 5343, "rank": 1, "color": MUTED_COUNTRY_COLORS["QVN"]},
+    "ZHU": {"file": "B52_Zhou.txt", "history": "ZHU - Zhou.txt", "capital": 5344, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHU"]},
+    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "mongol", "accepted": ("manchu", "gdd_qi")},
+    "HUA": {"file": "B50_Huai.txt", "history": "HUA - Huai.txt", "capital": 5059, "rank": 1, "color": MUTED_COUNTRY_COLORS["HUA"]},
+    "OUE": {"file": "B50_Ou.txt", "history": "OUE - Ou.txt", "capital": 1824, "rank": 1, "color": MUTED_COUNTRY_COLORS["OUE"]},
+    "HYM": {"file": "B50_Yang.txt", "history": "HYM - Yang.txt", "capital": 685, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYM"], "government": "republic", "reform": "oligarchy_reform"},
+    "WHU": {"file": "B50_Wuhu.txt", "history": "WHU - Wuhu.txt", "capital": 5066, "rank": 1, "color": MUTED_COUNTRY_COLORS["WHU"], "government": "republic", "reform": "oligarchy_reform"},
+    "ZHO": {"file": "B50_Zhou.txt", "history": "ZHO - Zhou.txt", "capital": 5004, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHO"], "government": "republic", "reform": "oligarchy_reform"},
     "CCH": {"file": "B43_Chao.txt", "history": "CCH - Chao.txt", "capital": 5061, "rank": 1, "color": MUTED_COUNTRY_COLORS["CCH"]},
     "BAA": {"file": "B43_Ba.txt", "history": "BAA - Ba.txt", "capital": 680, "rank": 2, "color": MUTED_COUNTRY_COLORS["BAA"]},
     "BD2": {"file": "B43_Badi.txt", "history": "BD2 - Badi.txt", "capital": 5013, "rank": 1, "color": MUTED_COUNTRY_COLORS["BD2"]},
@@ -278,17 +309,28 @@ RESET_OWNERS: dict[int, str] = {
     2154: "MNG",  # Tamsui
 }
 
-# User-confirmed core cleanup. CHC, MIN and WUU must have cores only on
-# their current intended territory. YUE loses its legacy Guangdong cores,
-# while XU2 specifically loses its claims on Tongzhou, Taizhou and Rugao.
+# User-confirmed core cleanup. Major and B50 eastern tags retain cores only
+# on their intended opening territory.
 EXACT_CORE_TAGS = {
-    "CHC": set(TAG_PROVINCES["CHC"]) | {5320}, # B45 Pingjiang remains Chu
-    "MIN": {669, 1829, 4952, 4953, 4958, 5097, 5098},
+    "CHC": set(TAG_PROVINCES["CHC"]),
+    "EGU": set(TAG_PROVINCES["EGU"]),
+    "QVN": set(TAG_PROVINCES["QVN"]),
+    "ZHU": set(TAG_PROVINCES["ZHU"]),
+    "MIN": set(TAG_PROVINCES["MIN"]),
     "SHU": set(TAG_PROVINCES["SHU"]),
     "WUU": set(TAG_PROVINCES["WUU"]),
+    "YUE": set(TAG_PROVINCES["YUE"]),
+    # Yingzhou (2144) keeps the previously reviewed historical XU2 core.
+    "XU2": set(TAG_PROVINCES["XU2"]) | {2144},
+    "HUA": set(TAG_PROVINCES["HUA"]),
+    "OUE": set(TAG_PROVINCES["OUE"]),
+    "HYM": set(TAG_PROVINCES["HYM"]),
+    "WHU": set(TAG_PROVINCES["WHU"]),
+    "ZHO": set(TAG_PROVINCES["ZHO"]),
     "KAM": set(TAG_PROVINCES["KAM"]),
     "KSD": set(TAG_PROVINCES["KSD"]),
     "YAN": set(TAG_PROVINCES["YAN"]),
+    "LIO": set(TAG_PROVINCES["LIO"]),
     "DQU": set(TAG_PROVINCES["DQU"]),
     "ZHI": set(TAG_PROVINCES["ZHI"]),
 }
@@ -680,11 +722,13 @@ def country_history(
     culture: str,
     religion: str,
     accepted: tuple[str, ...] = (),
+    government: str = "monarchy",
+    reform: str = "gdd_local_fiefdom_reform",
 ) -> str:
     return (
         "# B43 Chunqiu polity history.\n"
-        "government = monarchy\n"
-        "add_government_reform = gdd_local_fiefdom_reform\n"
+        f"government = {government}\n"
+        f"add_government_reform = {reform}\n"
         f"government_rank = {rank}\n"
         "technology_group = chinese\n"
         f"religion = {religion}\n"
@@ -755,6 +799,10 @@ def set_existing_country_capital(path: Path, capital: int, write: bool) -> bool:
         )
     if capital == 2176:
         initial = initial.replace(b"#Beijing", b"#Shangqiu")
+    if capital == 2141:
+        initial = initial.replace(b"#Fengyang", b"#Xuzhou")
+    if capital == 2172:
+        initial = initial.replace(b"#Wuchang", b"#Jiangling")
     new = initial + dated
     changed = new != data
     if write and changed:
@@ -788,8 +836,8 @@ def current_core_ids(tag: str) -> set[int]:
 
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 293 or len(set(all_ids)) != 293:
-        raise ValueError("Expanded polity policy must contain 293 unique provinces after B47")
+    if len(all_ids) != 300 or len(set(all_ids)) != 300:
+        raise ValueError("Expanded polity policy must contain 300 unique provinces after B52")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:
@@ -891,6 +939,9 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
     song_history = COUNTRY_HISTORY / "SNG - Song.txt"
     if int(initial_value(read_text(song_history), "capital")) != 2176:
         raise ValueError("SNG capital must be Shangqiu/Guide (2176)")
+    xu_history = COUNTRY_HISTORY / "XU2 - Xu2.txt"
+    if int(initial_value(read_text(xu_history), "capital")) != 2141:
+        raise ValueError("XU2 capital must be Xuzhou (2141) after B50")
     song_province = ensure_province_history(2176, vanilla_root, write=False)[0]
     song_text = read_text(song_province)
     if initial_value(song_text, "owner") != "SNG" or "SNG" not in initial_cores(song_text):
@@ -905,7 +956,11 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         "polity_count": len(TAG_PROVINCES),
         "generated_tag_count": len(POLITIES),
         "preserved_qi": sorted(PRESERVED_OWNERSHIP["QIC"]),
-        "expanded_yan": sorted(TAG_PROVINCES["YAN"]),
+        "yan_territory": sorted(TAG_PROVINCES["YAN"]),
+        "liao_territory": sorted(TAG_PROVINCES["LIO"]),
+        "chu_vassals": {
+            tag: sorted(TAG_PROVINCES[tag]) for tag in ("EGU", "QVN", "ZHU")
+        },
         "dae_capital": 5244,
         "badi_tag": "BD2",
         "adjacent_color_audit": adjacent_color_audit,
@@ -965,7 +1020,9 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             removed_legacy_artifacts.append(str(path.relative_to(ROOT)))
     generated_country_files: list[str] = []
     for tag, config in POLITIES.items():
-        culture, religion = capital_attributes(config["capital"], vanilla_root)
+        capital_culture, capital_religion = capital_attributes(config["capital"], vanilla_root)
+        culture = str(config.get("culture", capital_culture))
+        religion = str(config.get("religion", capital_religion))
         country_path = COUNTRIES / config["file"]
         history_path = COUNTRY_HISTORY / config["history"]
         country_path.write_text(country_definition(config["color"]), encoding="utf-8")
@@ -973,6 +1030,8 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             country_history(
                 config["capital"], config["rank"], culture, religion,
                 tuple(config.get("accepted", ())),
+                str(config.get("government", "monarchy")),
+                str(config.get("reform", "gdd_local_fiefdom_reform")),
             ),
             encoding="utf-8",
         )
@@ -1003,6 +1062,8 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
 
     if set_existing_country_capital(COUNTRY_HISTORY / "SNG - Song.txt", 2176, write=True):
         generated_country_files.append("guangdong_independent_practice/history/countries/SNG - Song.txt")
+    if set_existing_country_capital(COUNTRY_HISTORY / "XU2 - Xu2.txt", 2141, write=True):
+        generated_country_files.append("guangdong_independent_practice/history/countries/XU2 - Xu2.txt")
 
     for tag in ("SNG", "XU2"):
         if not (FLAGS / f"{tag}.tga").exists():
@@ -1013,13 +1074,14 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     report = {
         "batch": "B43_chunqiu_polities",
         "constraints": {
-            "yan": "expanded to the user-confirmed Liaodong provinces",
+            "yan_liao": "B51 invests LIO in the six-province Liaodong area",
             "qi": "preserved; no QIC province changes",
             "dae_capital": "Daizhou (5244)",
             "jiarong": "JRG owns Ngawa (5091) and Barkam (5089)",
             "geometry": "unchanged",
             "huzhou": "YUE owns and cores 4950",
-            "yangzhou": "XU2 owns and cores 685",
+            "eastern_balance": "B50 splits Huai, Ou, Yang, Wu and Zhou from WUU/YUE/XU2",
+            "chu_vassals": "B52 splits E, Quan and Zhou from CHC as starting vassals",
             "shangqiu": "SNG owns and cores 2176",
             "badi_tag": "BD2; legacy BAS removed",
             "shen_consolidation": "SHE inherits former SH2 provinces; legacy SH2 removed",

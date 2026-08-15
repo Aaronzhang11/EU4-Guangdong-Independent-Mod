@@ -1,0 +1,51 @@
+{
+  "batch": "B52_chu_vassals",
+  "purpose": "Restore three historically grounded small states as actual starting vassals of Chu without changing map geometry.",
+  "worldview": {
+    "EGU": "E, the eastern bronze-and-river gateway around Wuchang and Xingguo",
+    "QVN": "Quan, restored around Anlu and Jingmen on the middle Han corridor",
+    "ZHU": "Zhou, restored in the Mianyang-Jianli lake and marsh country"
+  },
+  "opening_territory": {
+    "CHC": [4994, 4992, 4979, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 4981, 5320],
+    "EGU": [682, 5016],
+    "QVN": [5010, 5343],
+    "ZHU": [5015, 5344]
+  },
+  "opening_development": {
+    "CHC": 134,
+    "EGU": 27,
+    "QVN": 8,
+    "ZHU": 6
+  },
+  "capitals": {
+    "CHC": 2172,
+    "EGU": 682,
+    "QVN": 5343,
+    "ZHU": 5344
+  },
+  "diplomacy": {
+    "overlord": "CHC",
+    "subjects": ["EGU", "QVN", "ZHU"],
+    "relation": "vassal",
+    "start_date": "1444.1.1",
+    "end_date": "1821.1.1"
+  },
+  "invariants": {
+    "province_geometry": "unchanged",
+    "areas_and_regions": "unchanged",
+    "trade_nodes_and_routes": "unchanged",
+    "trade_centres": "unchanged",
+    "province_development": "unchanged",
+    "culture_and_religion": "gdd_chu and confucianism retained",
+    "subject_government": "existing gdd_local_fiefdom_reform; no new reform"
+  },
+  "replay": "tools/map_pipeline/apply_b52_chu_vassals.py",
+  "downstream_generators": [
+    "tools/map_pipeline/apply_b43_chunqiu_polities.py",
+    "tools/map_pipeline/apply_b47_jingxiang_yunan_refinement.py",
+    "tools/map_pipeline/apply_culture_overhaul.py",
+    "planning/jingxiang_yunan_b47/render_b47_geojson_proposal.py",
+    "tools/encode_eu4_chinese_localisation.py"
+  ]
+}

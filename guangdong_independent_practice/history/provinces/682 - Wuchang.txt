@@ -1,7 +1,7 @@
 # 682 - Wuchang
-owner = CHC
-controller = CHC
-add_core = CHC
+owner = EGU
+controller = EGU
+add_core = EGU
 culture = gdd_chu
 religion = confucianism
 capital = "Wuchang"

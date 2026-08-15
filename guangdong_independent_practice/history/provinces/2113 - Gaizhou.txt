@@ -1,8 +1,8 @@
 # 2113 - Gaizhou
 
-owner = YAN
-controller = YAN
-add_core = YAN
+owner = LIO
+controller = LIO
+add_core = LIO
 culture = gdd_qi
 religion = confucianism
 capital = "Gaizhou"
