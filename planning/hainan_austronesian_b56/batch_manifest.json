@@ -1,0 +1,39 @@
+{
+  "batch": "B56_hainan_austronesian_polity",
+  "marker": "GDD_B56_HAINAN_AUSTRONESIAN_POLITY",
+  "map_bitmap_sha256_before": "b7fdd9e5d43ab989f918318ae4722579377fb6781f5eb881017d27bcf76e0ae2",
+  "map_bitmap_sha256_after": "b7fdd9e5d43ab989f918318ae4722579377fb6781f5eb881017d27bcf76e0ae2",
+  "formal_review": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/hainan_austronesian_b56/formal_review.png",
+  "validation": {
+    "country": "HLI",
+    "capital": 5302,
+    "owned_provinces": [
+      5301,
+      5302,
+      2160
+    ],
+    "claimed_island": [
+      666,
+      5301,
+      5302,
+      2160,
+      5303
+    ],
+    "development": {
+      "HLI": 17,
+      "CZC_hainan": 13,
+      "island_total": 30
+    },
+    "cultures": {
+      "HLI": "gdd_qiongli",
+      "CZC_hainan": "gdd_min"
+    },
+    "religions": {
+      "HLI": "hinduism",
+      "CZC_occupation": "confucianism"
+    },
+    "bitmap_changed_pixels": 0,
+    "trade_network_changed": false,
+    "new_trade_centres": 0
+  }
+}

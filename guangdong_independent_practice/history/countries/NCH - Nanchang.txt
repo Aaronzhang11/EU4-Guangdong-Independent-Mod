@@ -4,6 +4,6 @@ government_rank = 1
 
 technology_group = chinese
 religion = confucianism
-primary_culture = gan
+primary_culture = gdd_gan
 capital = 683 # Nanchang
 fixed_capital = 683

@@ -3,7 +3,7 @@
 owner = TZZ
 controller = TZZ
 add_core = TZZ
-culture = zhuang
+culture = gdd_zhuang
 religion = confucianism
 capital = "Tianzhou"
 trade_goods = iron

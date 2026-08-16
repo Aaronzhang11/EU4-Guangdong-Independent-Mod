@@ -30,9 +30,9 @@ estate_nobles_gdd_clan_autonomy_charter = {
 		if = {
 			limit = {
 				OR = {
-					culture = cantonese
-					culture = hakka
-					culture = chimin
+					culture = gdd_guangfu
+					culture = gdd_hakka
+					culture = gdd_min
 				}
 			}
 			add_province_modifier = {

@@ -3,7 +3,7 @@
 owner = HZH
 controller = HZH
 add_core = HZH
-culture = tibetan
+culture = gdd_long
 religion = vajrayana
 capital = "Taozhou"
 trade_goods = livestock

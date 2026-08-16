@@ -18,10 +18,14 @@ DRAFT = ROOT / "planning/beijing/yandu_mountain_border_5_full_draft.bmp"
 PROVINCES = [
     (5113, "Changping", "昌平", (36, 183, 73), "grain", 4, 3, 3),
     (5114, "Miyun", "密云", (210, 64, 142), "iron", 3, 4, 3),
-    (1816, "Yan", "燕", (89, 177, 232), "cloth", 7, 7, 4),
+    (1816, "Ji", "蓟", (89, 177, 232), "cloth", 7, 7, 4),
     (5115, "Tongzhou", "通州", (241, 116, 35), "grain", 5, 5, 3),
     (5116, "Zhuozhou", "涿州", (132, 74, 218), "iron", 4, 4, 3),
 ]
+
+# Keep the dependency's exact history filename so this mod shadows it in the
+# EU4 virtual filesystem even though the province's in-game name is now Ji.
+HISTORY_FILENAMES = {1816: "1816 - Beijing.txt"}
 
 
 def replace_block(text, key, replacement):
@@ -116,7 +120,7 @@ def history_text(pid, name, goods, tax, production, manpower):
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = zhili
+culture = gdd_yan
 religion = confucianism
 capital = \"{name}\"
 trade_goods = {goods}
@@ -133,11 +137,11 @@ def update_histories():
     directory = MOD / "history/provinces"
     records = PROVINCES + [(695, "Hejian", "河间", (227, 142, 0), "grain", 4, 4, 3)]
     for pid, name, _, _, goods, tax, production, manpower in records:
+        desired = directory / HISTORY_FILENAMES.get(pid, f"{pid} - {name}.txt")
         for old in directory.glob(f"{pid} - *.txt"):
-            old.unlink()
-        (directory / f"{pid} - {name}.txt").write_text(
-            history_text(pid, name, goods, tax, production, manpower)
-        )
+            if old != desired:
+                old.unlink()
+        desired.write_text(history_text(pid, name, goods, tax, production, manpower))
 
 
 def update_positions(bitmap):

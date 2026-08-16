@@ -3,7 +3,7 @@
 owner = WGS
 controller = WGS
 add_core = WGS
-culture = xibei
+culture = gdd_long
 religion = vajrayana
 capital = "Nianbo"
 trade_goods = grain

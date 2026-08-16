@@ -1,9 +1,9 @@
 # 4983 - Baoqing
 
-owner = CSA
-controller = CSA
-add_core = CSA
-culture = xiang
+owner = HNG
+controller = HNG
+add_core = HNG
+culture = gdd_chu
 religion = confucianism
 capital = "Baoqing"
 trade_goods = livestock

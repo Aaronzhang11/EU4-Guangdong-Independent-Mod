@@ -3,13 +3,12 @@
 owner = BAA
 controller = BAA
 add_core = BAA
-add_core = CXI
-culture = sichuanese
+culture = gdd_shu
 religion = confucianism
 capital = "Langzhong"
 trade_goods = grain
-base_tax = 4
-base_production = 4
+base_tax = 3
+base_production = 2
 base_manpower = 2
 is_city = yes
 discovered_by = chinese

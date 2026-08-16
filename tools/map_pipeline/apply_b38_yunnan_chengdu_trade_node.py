@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Place every modern-Yunnan province exclusively in the Chengdu trade node."""
+"""Place every modern-Yunnan province exclusively in the B49 Yungui node."""
 
 from __future__ import annotations
 
@@ -10,7 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 MOD = ROOT / "guangdong_independent_practice"
 PATH = MOD / "common/tradenodes/00_tradenodes.txt"
-MARKER = "B38 Yunnan Chengdu trade-node consistency"
+MARKER = "B38/B49 Yunnan Yungui trade-node consistency"
+TARGET_NODE = "yungui"
 
 YUNNAN = {
     660, 661, 662, 663, 675, 2165, 2166, 2167,
@@ -81,7 +82,7 @@ def member_ids(text: str, node: str) -> set[int]:
 def verify(text: str) -> None:
     nodes = node_names(text)
     owners = {pid: [node for node in nodes if pid in member_ids(text, node)] for pid in YUNNAN}
-    bad = {pid: values for pid, values in owners.items() if values != ["chengdu"]}
+    bad = {pid: values for pid, values in owners.items() if values != [TARGET_NODE]}
     if bad:
         raise ValueError(f"Yunnan trade-node owners are not exclusively Chengdu: {bad}")
 
@@ -92,13 +93,13 @@ def main() -> None:
     # Only touch nodes that currently contain Yunnan members. Work from the end
     # so replacing one block cannot invalidate another block's offsets.
     affected = [node for node in nodes if YUNNAN & member_ids(text, node)]
-    if "chengdu" not in affected:
-        affected.append("chengdu")
+    if TARGET_NODE not in affected:
+        affected.append(TARGET_NODE)
     for node in reversed(affected):
-        text = update_node(text, node, node == "chengdu")
+        text = update_node(text, node, node == TARGET_NODE)
     verify(text)
     PATH.write_text(text, encoding="cp1252")
-    print(f"{MARKER}; PROVINCES:{len(YUNNAN)}; NODE:chengdu")
+    print(f"{MARKER}; PROVINCES:{len(YUNNAN)}; NODE:{TARGET_NODE}")
 
 
 if __name__ == "__main__":

@@ -11,6 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import re
+import subprocess
 import sys
 
 import numpy as np
@@ -44,50 +45,56 @@ class Province:
 # New colours are the reviewed draft colours.  Retained IDs keep their existing
 # definition colour so existing references remain stable.
 P = (
-    Province(679, "成都", "Chengdu", "sichuan_area", (199,133,84), (225,110,255), (4449,888), "silk", (10,11,4), "shu", "sichuanese", "confucianism", 2, True),
-    Province(5075, "灌州", "Guanzhou", "sichuan_area", (98,79,224), (98,79,224), (4428,881), "grain", (4,4,2), "shu", "sichuanese", "confucianism"),
-    Province(5076, "邛州", "Qiongzhou", "sichuan_area", (78,199,56), (78,199,56), (4417,899), "tea", (4,4,2), "shu", "sichuanese", "confucianism"),
-    Province(5077, "眉州", "Meizhou (Sichuan)", "sichuan_area", (224,94,153), (224,94,153), (4438,902), "cloth", (5,5,2), "shu", "sichuanese", "confucianism"),
-    Province(4212, "嘉州", "Jiazhou", "jiaya_area", (70,165,199), (122,61,105), (4446,916), "tea", (5,5,2), "shu", "sichuanese", "confucianism"),
-    Province(5078, "雅州", "Yazhou", "jiaya_area", (224,219,63), (224,219,63), (4427,916), "tea", (4,5,2), "shu", "sichuanese", "confucianism"),
-    Province(5079, "黎州", "Lizhou (Sichuan)", "jiaya_area", (161,84,199), (161,84,199), (4409,913), "livestock", (2,2,2), "shu", "sichuanese", "confucianism"),
-    Province(5080, "绵州", "Mianzhou", "chuanbei_area", (79,224,134), (79,224,134), (4447,875), "cloth", (5,5,2), "shu", "sichuanese", "confucianism"),
-    Province(5081, "剑州", "Jianzhou (Sichuan)", "chuanbei_area", (199,69,56), (199,69,56), (4451,858), "iron", (3,3,2), "shu", "sichuanese", "confucianism", 0, True),
-    Province(2169, "阆中", "Langzhong", "chuanbei_area", (94,120,224), (149,33,33), (4467,869), "grain", (4,4,2), "shu", "sichuanese", "confucianism"),
-    Province(5082, "顺庆", "Shunqing", "chuanbei_area", (133,199,70), (133,199,70), (4475,886), "grain", (4,5,2), "shu", "sichuanese", "confucianism"),
-    Province(4211, "达州", "Dazhou", "chuanbei_area", (224,63,189), (72,32,16), (4498,875), "livestock", (3,3,2), "shu", "sichuanese", "confucianism"),
-    Province(5083, "资州", "Zizhou", "chuannan_area", (84,199,190), (84,199,190), (4455,912), "salt", (4,5,2), "shu", "sichuanese", "confucianism"),
-    Province(5084, "富顺", "Fushun", "chuannan_area", (224,171,79), (224,171,79), (4448,919), "salt", (3,6,2), "shu", "sichuanese", "confucianism"),
-    Province(5085, "叙州", "Xuzhou (Sichuan)", "chuannan_area", (105,56,199), (105,56,199), (4437,929), "grain", (4,4,2), "shu", "sichuanese", "confucianism"),
-    Province(4213, "泸州", "Luzhou (Sichuan)", "chuannan_area", (94,224,101), (40,46,10), (4454,929), "grain", (4,4,2), "shu", "sichuanese", "confucianism"),
-    Province(680, "重庆", "Chongqing", "chongqing_area", (199,70,101), (97,112,0), (4462,911), "cloth", (8,9,3), "ba", "sichuanese", "confucianism", 2),
-    Province(5026, "合州", "Hezhou (Chongqing)", "chongqing_area", (63,149,224), (225,90,40), (4474,900), "grain", (4,4,2), "ba", "sichuanese", "confucianism"),
-    Province(5027, "涪州", "Fuzhou (Chongqing)", "chongqing_area", (179,199,84), (70,190,155), (4491,921), "paper", (4,4,2), "ba", "sichuanese", "confucianism"),
-    Province(4987, "万州", "Wanzhou", "chongqing_area", (207,79,224), (164,45,190), (4497,896), "tea", (3,4,2), "ba", "sichuanese", "confucianism"),
-    Province(5028, "夔州", "Kuizhou", "chongqing_area", (56,199,140), (150,70,230), (4515,883), "naval_supplies", (3,3,2), "ba", "sichuanese", "confucianism", 0, True),
-    Province(2170, "松州", "Songzhou", "songmao_area", (224,133,94), (90,182,176), (4428,847), "livestock", (3,3,3), "songmao", "tibetan", "vajrayana", 1, True),
-    Province(5086, "茂州", "Maozhou", "songmao_area", (70,70,199), (70,70,199), (4434,863), "livestock", (2,2,2), "songmao", "tibetan", "vajrayana"),
-    Province(5087, "汶川", "Wenchuan", "songmao_area", (109,224,63), (109,224,63), (4428,873), "wool", (2,2,2), "songmao", "tibetan", "vajrayana"),
-    Province(5088, "南坪", "Nanping", "songmao_area", (199,84,150), (199,84,150), (4434,834), "livestock", (2,2,2), "songmao", "tibetan", "vajrayana"),
+    Province(679, "成都", "Chengdu", "sichuan_area", (199,133,84), (225,110,255), (4449,888), "silk", (10,11,4), "shu", "gdd_shu", "confucianism", 2, True),
+    Province(5075, "灌州", "Guanzhou", "sichuan_area", (98,79,224), (98,79,224), (4428,881), "grain", (4,4,2), "shu", "gdd_shu", "confucianism"),
+    Province(5076, "邛州", "Qiongzhou", "sichuan_area", (78,199,56), (78,199,56), (4417,899), "tea", (4,4,2), "shu", "gdd_shu", "confucianism"),
+    Province(5077, "眉州", "Meizhou (Sichuan)", "sichuan_area", (224,94,153), (224,94,153), (4438,902), "cloth", (5,5,2), "shu", "gdd_shu", "confucianism"),
+    Province(4212, "嘉州", "Jiazhou", "jiaya_area", (70,165,199), (122,61,105), (4446,916), "tea", (5,5,2), "shu", "gdd_shu", "confucianism"),
+    Province(5078, "雅州", "Yazhou", "jiaya_area", (224,219,63), (224,219,63), (4427,916), "tea", (4,5,2), "shu", "gdd_shu", "confucianism"),
+    Province(5079, "黎州", "Lizhou (Sichuan)", "jiaya_area", (161,84,199), (161,84,199), (4409,913), "livestock", (2,2,2), "shu", "gdd_shu", "confucianism"),
+    Province(5080, "绵州", "Mianzhou", "chuanbei_area", (79,224,134), (79,224,134), (4447,875), "cloth", (5,5,2), "shu", "gdd_shu", "confucianism"),
+    Province(5081, "剑州", "Jianzhou (Sichuan)", "chuanbei_area", (199,69,56), (199,69,56), (4451,858), "iron", (3,3,2), "shu", "gdd_shu", "confucianism", 0, True),
+    Province(2169, "阆中", "Langzhong", "chuanbei_area", (94,120,224), (149,33,33), (4467,869), "grain", (4,4,2), "shu", "gdd_shu", "confucianism"),
+    Province(5082, "顺庆", "Shunqing", "chuanbei_area", (133,199,70), (133,199,70), (4475,886), "grain", (4,5,2), "shu", "gdd_shu", "confucianism"),
+    Province(4211, "达州", "Dazhou", "chuanbei_area", (224,63,189), (72,32,16), (4498,875), "livestock", (3,3,2), "shu", "gdd_shu", "confucianism"),
+    Province(5083, "资州", "Zizhou", "chuannan_area", (84,199,190), (84,199,190), (4455,912), "salt", (4,5,2), "shu", "gdd_shu", "confucianism"),
+    Province(5084, "富顺", "Fushun", "chuannan_area", (224,171,79), (224,171,79), (4448,919), "salt", (3,6,2), "shu", "gdd_shu", "confucianism"),
+    Province(5085, "叙州", "Xuzhou (Sichuan)", "chuannan_area", (105,56,199), (105,56,199), (4437,929), "grain", (4,4,2), "shu", "gdd_shu", "confucianism"),
+    Province(4213, "泸州", "Luzhou (Sichuan)", "chuannan_area", (94,224,101), (40,46,10), (4454,929), "grain", (4,4,2), "shu", "gdd_shu", "confucianism"),
+    Province(680, "重庆", "Chongqing", "chongqing_area", (199,70,101), (97,112,0), (4462,911), "cloth", (8,9,3), "ba", "gdd_shu", "confucianism", 1),
+    Province(5026, "合州", "Hezhou (Chongqing)", "chongqing_area", (63,149,224), (225,90,40), (4474,900), "grain", (4,4,2), "ba", "gdd_shu", "confucianism"),
+    Province(5027, "涪州", "Fuzhou (Chongqing)", "chongqing_area", (179,199,84), (70,190,155), (4491,921), "paper", (4,4,2), "ba", "miao", "confucianism"),
+    Province(4987, "万州", "Wanzhou", "chongqing_area", (207,79,224), (164,45,190), (4497,896), "tea", (3,4,2), "ba", "gdd_shu", "confucianism"),
+    Province(5028, "夔州", "Kuizhou", "chongqing_area", (56,199,140), (150,70,230), (4515,883), "naval_supplies", (3,3,2), "ba", "gdd_diqiang", "confucianism", 0, True),
+    Province(2170, "松州", "Songzhou", "songmao_area", (224,133,94), (90,182,176), (4428,847), "livestock", (3,3,3), "songmao", "gdd_diqiang", "vajrayana", 1, True),
+    Province(5086, "茂州", "Maozhou", "songmao_area", (70,70,199), (70,70,199), (4434,863), "livestock", (2,2,2), "songmao", "gdd_diqiang", "vajrayana"),
+    Province(5087, "汶川", "Wenchuan", "songmao_area", (109,224,63), (109,224,63), (4428,873), "wool", (2,2,2), "songmao", "gdd_diqiang", "vajrayana"),
+    Province(5088, "南坪", "Nanping", "songmao_area", (199,84,150), (199,84,150), (4434,834), "livestock", (2,2,2), "songmao", "gdd_diqiang", "vajrayana"),
     Province(5089, "马尔康", "Barkam", "aba_area", (79,205,224), (79,205,224), (4406,860), "tea", (2,3,2), "songmao", "tibetan", "vajrayana"),
-    Province(5090, "金川", "Jinchuan", "aba_area", (199,176,56), (199,176,56), (4407,872), "copper", (2,2,2), "songmao", "tibetan", "vajrayana"),
+    Province(5090, "金川", "Jinchuan", "aba_area", (199,176,56), (199,176,56), (4407,872), "copper", (2,2,2), "songmao", "gdd_diqiang", "vajrayana"),
     Province(5091, "阿坝", "Ngawa", "aba_area", (166,94,224), (166,94,224), (4404,842), "wool", (2,2,3), "songmao", "tibetan", "vajrayana"),
-    Province(5092, "若尔盖", "Zoige", "aba_area", (70,199,103), (70,199,103), (4418,836), "livestock", (1,2,3), "songmao", "tibetan", "vajrayana"),
-    Province(678, "康定", "Kangding", "ganzi_area", (224,63,69), (96,108,192), (4393,906), "tea", (3,4,2), "kham", "tibetan", "vajrayana", 1),
+    Province(5092, "若尔盖", "Zoige", "aba_area", (70,199,103), (70,199,103), (4418,836), "livestock", (1,2,3), "songmao", "gdd_diqiang", "vajrayana"),
+    Province(678, "打箭炉", "Dajianlu", "ganzi_area", (224,63,69), (96,108,192), (4393,906), "tea", (3,4,2), "kham", "tibetan", "vajrayana", 1),
     Province(2133, "德格", "Dege", "ganzi_area", (84,121,199), (118,126,240), (4367,861), "paper", (3,4,2), "kham", "tibetan", "vajrayana"),
     Province(2135, "壤塘", "Rangtang", "ganzi_area", (169,224,79), (118,130,80), (4386,850), "wool", (1,2,2), "kham", "tibetan", "vajrayana"),
     Province(5093, "理塘", "Lithang", "ganzi_area", (199,56,186), (199,56,186), (4368,917), "livestock", (2,3,2), "kham", "tibetan", "vajrayana"),
     Province(2748, "嶲州", "Xizhou", "liangshan_area", (94,224,198), (80,32,128), (4420,943), "grain", (4,4,3), "liangshan", "yi", "animism", 0, True),
     Province(5094, "会理", "Huili", "liangshan_area", (199,135,70), (199,135,70), (4438,960), "copper", (3,4,2), "liangshan", "yi", "animism"),
-    Province(5095, "盐源", "Yanyuan", "liangshan_area", (97,63,224), (97,63,224), (4397,958), "salt", (2,2,2), "liangshan", "yi", "animism"),
+    Province(5095, "盐井", "Yanjing", "liangshan_area", (97,63,224), (97,63,224), (4397,958), "salt", (2,2,2), "liangshan", "yi", "animism"),
 )
 
 AREA_NAMES = {
     "sichuan_area": ("成都", "成都"), "jiaya_area": ("嘉雅", "嘉州"),
     "chuanbei_area": ("川北", "阆中"), "chuannan_area": ("川南", "叙州"),
     "chongqing_area": ("巴东", "重庆"), "songmao_area": ("松茂", "松州"),
-    "aba_area": ("阿坝", "马尔康"), "ganzi_area": ("甘孜", "康定"),
+    "aba_area": ("阿坝", "马尔康"), "ganzi_area": ("甘孜", "打箭炉"),
     "liangshan_area": ("凉山", "嶲州"),
+}
+
+# Preserve inherited VFS paths while changing the semantic name inside them.
+HISTORY_FILENAMES = {
+    678: "678 - Tachienlu.txt",
+    5095: "5095 - Yanyuan.txt",
 }
 
 
@@ -281,13 +288,14 @@ def history_text(province: Province) -> str:
 def update_histories() -> None:
     directory = MOD / "history/provinces"
     for province in P:
+        desired = directory / HISTORY_FILENAMES.get(
+            province.province_id,
+            f"{province.province_id} - {province.english}.txt",
+        )
         for old in directory.glob(f"{province.province_id} - *.txt"):
-            desired = directory / f"{province.province_id} - {province.english}.txt"
             if old != desired:
                 old.unlink()
-        (directory / f"{province.province_id} - {province.english}.txt").write_text(
-            history_text(province), encoding="utf-8"
-        )
+        desired.write_text(history_text(province), encoding="utf-8")
 
 
 def position_block(province: Province, x: int, y: int) -> str:
@@ -375,6 +383,17 @@ def update_localisation() -> None:
 
 
 def main() -> None:
+    # Once B46 exists, the old B18 transaction is superseded.  Returning here
+    # prevents its obsolete 36-province histories and province ceiling from
+    # overwriting the later GeoJSON map before the terminal overlay runs.
+    b46_manifest = ROOT / "planning/chuandongbei_chongqing_b46/batch_manifest.json"
+    if b46_manifest.exists():
+        subprocess.run(
+            [sys.executable, str(ROOT / "tools/map_pipeline/apply_b46_chuandongbei_chongqing_refinement.py")],
+            check=True,
+        )
+        print("SICHUAN_B18_SUPERSEDED_BY_B46")
+        return
     centres = apply_geometry()
     update_definition()
     update_areas_and_region()

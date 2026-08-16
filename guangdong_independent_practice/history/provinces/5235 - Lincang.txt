@@ -1,4 +1,4 @@
-# 5235 - Lincang
+# 5235 - Mengmian
 
 owner = NZA
 controller = NZA
@@ -6,7 +6,7 @@ add_core = NZA
 add_core = CDL
 culture = yi
 religion = animism
-capital = "Lincang"
+capital = "Mengmian"
 trade_goods = tea
 base_tax = 2
 base_production = 2

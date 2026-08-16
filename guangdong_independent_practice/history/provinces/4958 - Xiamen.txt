@@ -3,7 +3,7 @@
 owner = MIN
 controller = MIN
 add_core = MIN
-culture = chimin
+culture = gdd_min
 religion = confucianism
 capital = "Xiamen"
 trade_goods = fish
@@ -11,7 +11,6 @@ base_tax = 4
 base_production = 6
 base_manpower = 2
 is_city = yes
-center_of_trade = 2
 discovered_by = chinese
 discovered_by = nomad_group
 

@@ -3,7 +3,7 @@
 owner = GDD
 controller = GDD
 add_core = GDD
-culture = zhuang
+culture = gdd_guangfu
 religion = confucianism
 capital = "Nanning"
 trade_goods = grain

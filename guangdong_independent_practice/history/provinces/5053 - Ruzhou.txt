@@ -1,7 +1,9 @@
+# 5053 - Ruzhou
+
 owner = CZH
 controller = CZH
 add_core = CZH
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Ruzhou"
 trade_goods = iron

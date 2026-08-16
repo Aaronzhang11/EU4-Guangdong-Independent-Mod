@@ -21,7 +21,7 @@ PROVINCES = [
     (2138, "Wuding", "武定", (106, 168, 79), "salt", 3, 4, 3),
     (5103, "Dongchang", "东昌", (190, 122, 54), "grain", 3, 3, 3),
     (691, "Jinan", "济南", (128, 95, 170), "paper", 6, 6, 3),
-    (5104, "Linzi", "淄博（临淄）", (220, 151, 43), "chinaware", 4, 5, 3),
+    (5104, "Linzi", "临淄", (220, 151, 43), "chinaware", 4, 5, 3),
     (5105, "Qingzhou", "青州", (55, 157, 176), "grain", 4, 5, 3),
     (2139, "Laizhou", "莱州", (215, 106, 157), "iron", 4, 4, 3),
     (690, "Dengzhou", "登州", (139, 121, 88), "fish", 4, 4, 3),
@@ -34,6 +34,25 @@ PROVINCES = [
     (5111, "Caozhou", "曹州", (112, 133, 55), "grain", 3, 3, 4),
     (5112, "Yizhou", "沂州", (48, 148, 164), "livestock", 3, 3, 3),
 ]
+CULTURE_BY_ID = {
+    5101: "gdd_zhongyuan",
+    5102: "gdd_qi",
+    2138: "gdd_qi",
+    5103: "gdd_zhongyuan",
+    691: "gdd_qi",
+    5104: "gdd_qi",
+    5105: "gdd_qi",
+    2139: "gdd_qi",
+    690: "gdd_qi",
+    5106: "gdd_qi",
+    5107: "gdd_qi",
+    5108: "gdd_qi",
+    2140: "gdd_qi",
+    5109: "gdd_qi",
+    5110: "gdd_zhongyuan",
+    5111: "gdd_zhongyuan",
+    5112: "gdd_qi",
+}
 
 OLD_COLORS = {(98, 132, 0), (226, 134, 64), (86, 118, 240), (145, 24, 24), (238, 254, 148)}
 NEW_COLORS = {p[3] for p in PROVINCES}
@@ -156,7 +175,7 @@ def update_histories():
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = shandong
+culture = {CULTURE_BY_ID[pid]}
 religion = confucianism
 capital = \"{name}\"
 trade_goods = {goods}

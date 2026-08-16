@@ -1,8 +1,8 @@
 # 5021 - Gaoyou
-owner = XU2
-controller = XU2
-add_core = XU2
-culture = jianghuai
+owner = HYM
+controller = HYM
+add_core = HYM
+culture = gdd_jianghuai
 religion = confucianism
 capital = "Gaoyou"
 trade_goods = grain

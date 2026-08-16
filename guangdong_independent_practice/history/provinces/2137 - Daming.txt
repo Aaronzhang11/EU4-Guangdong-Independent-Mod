@@ -3,7 +3,7 @@
 owner = GUN
 controller = GUN
 add_core = GUN
-culture = chihan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Daming"
 trade_goods = grain

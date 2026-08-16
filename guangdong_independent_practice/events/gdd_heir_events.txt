@@ -67,7 +67,7 @@ country_event = {
             mil = 3
             claim = 90
             female = no
-            culture = cantonese
+            culture = gdd_guangfu
             religion = confucianism
         }
 

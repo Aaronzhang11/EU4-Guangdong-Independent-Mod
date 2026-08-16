@@ -1,8 +1,8 @@
 # 682 - Wuchang
-owner = CHC
-controller = CHC
-add_core = CHC
-culture = hubei
+owner = EGU
+controller = EGU
+add_core = EGU
+culture = gdd_chu
 religion = confucianism
 capital = "Wuchang"
 trade_goods = salt

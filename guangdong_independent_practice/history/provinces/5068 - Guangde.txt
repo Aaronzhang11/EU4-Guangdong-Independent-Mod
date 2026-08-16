@@ -1,7 +1,7 @@
 owner = WUU
 controller = WUU
 add_core = WUU
-culture = wu
+culture = gdd_wu
 religion = confucianism
 capital = "Guangde"
 trade_goods = naval_supplies

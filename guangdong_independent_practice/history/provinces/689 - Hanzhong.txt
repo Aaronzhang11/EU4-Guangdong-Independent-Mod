@@ -3,7 +3,7 @@
 owner = JUU
 controller = JUU
 add_core = JUU
-culture = xibei
+culture = gdd_shu
 religion = confucianism
 capital = "Hanzhong"
 trade_goods = iron

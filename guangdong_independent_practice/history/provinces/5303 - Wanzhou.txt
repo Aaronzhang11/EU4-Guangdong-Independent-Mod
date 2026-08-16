@@ -2,8 +2,9 @@
 
 owner = CZC
 controller = CZC
+add_core = HLI
 add_core = CZC
-culture = chimin
+culture = gdd_min
 religion = confucianism
 capital = "Wanzhou"
 trade_goods = spices

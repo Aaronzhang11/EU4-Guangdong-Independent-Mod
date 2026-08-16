@@ -2,9 +2,8 @@
 
 owner = HAK
 controller = HAK
-add_core = HUA
 add_core = HAK
-culture = hakka
+culture = gdd_hakka
 religion = confucianism
 capital = "Baochang"
 trade_goods = grain
@@ -13,8 +12,6 @@ base_tax = 2
 base_production = 1
 base_manpower = 1
 is_city = yes
-center_of_trade = 1
-
 discovered_by = chinese
 discovered_by = nomad_group
 

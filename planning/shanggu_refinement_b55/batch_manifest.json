@@ -1,0 +1,19 @@
+{
+  "batch": "B55_shanggu_refinement",
+  "reviewed_masks_sha256": "5c1ba8b2968ee9e1ee7616b36f84daccf60194bed6e33026a139abf126e5ba8b",
+  "backup_sha256": "bffea1e0ff88dbf0d0a3369bdfa494c0c7994e0e13cf90176e9c33511754ada7",
+  "canonical_bitmap_sha256": "b7fdd9e5d43ab989f918318ae4722579377fb6781f5eb881017d27bcf76e0ae2",
+  "changed_pixels_this_run": 0,
+  "validation": {
+    "scope_pixels": 2192,
+    "pixel_counts": {
+      "2136": 365,
+      "5351": 196,
+      "5352": 181,
+      "703": 811,
+      "5353": 639
+    },
+    "development_total": 17,
+    "province_count": 5
+  }
+}

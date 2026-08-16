@@ -4,7 +4,7 @@ government_rank = 1
 
 technology_group = chinese
 religion = buddhism
-primary_culture = bai
+primary_culture = gdd_dian
 add_accepted_culture = yi
 capital = 662 # Kunming
 fixed_capital = 662

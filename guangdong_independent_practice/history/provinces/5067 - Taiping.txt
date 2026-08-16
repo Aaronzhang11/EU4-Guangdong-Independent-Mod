@@ -1,7 +1,7 @@
 owner = QSH
 controller = QSH
 add_core = QSH
-culture = wu
+culture = gdd_wu
 religion = confucianism
 capital = "Taiping"
 trade_goods = tea

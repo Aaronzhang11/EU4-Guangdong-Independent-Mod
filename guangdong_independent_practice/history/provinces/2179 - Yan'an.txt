@@ -3,7 +3,7 @@
 owner = YOU
 controller = YOU
 add_core = YOU
-culture = jin
+culture = gdd_jin
 religion = confucianism
 capital = "Yan'an"
 trade_goods = grain

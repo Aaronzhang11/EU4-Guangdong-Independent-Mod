@@ -1,7 +1,7 @@
 owner = QSH
 controller = QSH
 add_core = QSH
-culture = jianghuai
+culture = gdd_jianghuai
 religion = confucianism
 capital = "Anqing"
 trade_goods = cloth

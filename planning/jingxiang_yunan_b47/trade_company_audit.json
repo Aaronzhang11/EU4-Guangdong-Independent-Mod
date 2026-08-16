@@ -1,0 +1,35 @@
+{
+  "mod_root": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice",
+  "trade_company_members_checked": 2688,
+  "expectations": [
+    {
+      "trade_company": "trade_company_xian",
+      "province_ids": [
+        5341,
+        5342,
+        5343,
+        5344,
+        5345,
+        5346,
+        5347,
+        5348,
+        5349,
+        5350
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    {
+      "code": "missing_trade_node",
+      "province_id": 1801,
+      "trade_companies": [
+        "trade_company_south_africa"
+      ]
+    }
+  ],
+  "summary": {
+    "errors": 0,
+    "warnings": 1
+  }
+}

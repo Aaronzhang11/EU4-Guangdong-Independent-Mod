@@ -1,8 +1,9 @@
 # 5013 - Shizhou
+
 owner = BD2
 controller = BD2
 add_core = BD2
-culture = miao
+culture = gdd_diqiang
 religion = animism
 capital = "Shizhou"
 trade_goods = livestock
@@ -12,3 +13,4 @@ base_manpower = 2
 is_city = yes
 discovered_by = chinese
 discovered_by = nomad_group
+discovered_by = indian

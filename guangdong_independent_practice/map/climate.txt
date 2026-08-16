@@ -261,6 +261,7 @@ mild_winter = {
     5204 5205 5206 5207 5209 # B27 Liaoning 10-province refinement
     5305 5306 # B34 Longyou refinement
     5307 5308 5309 # B37 Tianshui user refinement
+    5351 5352 5353 # GDD_B55_SHANGGU_REFINEMENT
 }
 
 #Example: Inland Europe & Scandinavia
@@ -487,6 +488,8 @@ mild_monsoon = {
     2857 2879 2884 # Rio Grande do Sol
     2730 2731 # Northern Australia
     4844 4841 4842 4835 4834 4831 4832 4833 4830 4829 4827 4828
+    5312 5313 5314 5315 5316 5317 5318 5319 5320 5321 5322 5323 5324 5325 5326 5327 5328 # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    672 # GDD_B54_CHANGSHA_PUBLIC_CITIES
 }
 
 normal_monsoon = {
@@ -610,6 +613,8 @@ normal_monsoon = {
     5214 5215 # B29 Huizhou 3-province refinement monsoon
     5216 5217 # B30 Yuebei-Chaoshan refinement monsoon
     5301 5302 5303 5304 # B27 Hainan five-province refinement
+        5329 5330 5331 5332 5333 5334 5335 5336 5337 5338 5339 5340 # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+        5341 5342 5343 5344 5345 5346 5347 5348 5349 5350 681 687 2171 2175 # GDD_B47_JINGXIANG_YUNAN_BALANCED
 }
 
 severe_monsoon = {

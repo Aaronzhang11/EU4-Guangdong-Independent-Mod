@@ -1,7 +1,7 @@
 owner = CCH
 controller = CCH
 add_core = CCH
-culture = jianghuai
+culture = gdd_jianghuai
 religion = confucianism
 capital = "Chaohu"
 trade_goods = fish

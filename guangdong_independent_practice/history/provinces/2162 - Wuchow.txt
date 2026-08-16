@@ -3,7 +3,7 @@
 owner = GDD
 controller = GDD
 add_core = GDD
-culture = cantonese
+culture = gdd_guangfu
 religion = confucianism
 capital = "Wuzhou"
 trade_goods = copper
@@ -11,5 +11,5 @@ base_tax = 3
 base_production = 4
 base_manpower = 2
 is_city = yes
-center_of_trade = 1
+center_of_trade = 1 # GDD_B48_TRADE_CENTER_REBALANCE
 discovered_by = chinese

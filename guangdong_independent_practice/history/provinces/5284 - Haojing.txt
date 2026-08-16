@@ -3,7 +3,7 @@
 owner = SHE
 controller = SHE
 add_core = SHE
-culture = zhili
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Haojing"
 trade_goods = grain

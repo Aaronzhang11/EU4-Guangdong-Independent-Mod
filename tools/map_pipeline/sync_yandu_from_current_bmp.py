@@ -15,7 +15,7 @@ MAP = ROOT / "guangdong_independent_practice/map"
 PROVINCES = [
     (5113, "Changping", (36, 183, 73)),
     (5114, "Miyun", (210, 64, 142)),
-    (1816, "Yan", (89, 177, 232)),
+    (1816, "Ji", (89, 177, 232)),
     (5115, "Tongzhou", (241, 116, 35)),
     (5116, "Zhuozhou", (132, 74, 218)),
     (695, "Hejian", (227, 142, 0)),

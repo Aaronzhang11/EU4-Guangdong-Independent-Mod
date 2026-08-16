@@ -1,0 +1,11 @@
+# B45 balanced Hunan polity history.
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_chu
+add_accepted_culture = gdd_gui
+add_accepted_culture = gdd_hakka
+capital = 2174
+fixed_capital = 2174

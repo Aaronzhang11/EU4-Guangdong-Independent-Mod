@@ -3,7 +3,7 @@
 owner = LIL
 controller = LIL
 add_core = LIL
-culture = cantonese
+culture = gdd_zhuang
 religion = confucianism
 capital = "Limchow"
 trade_goods = incense

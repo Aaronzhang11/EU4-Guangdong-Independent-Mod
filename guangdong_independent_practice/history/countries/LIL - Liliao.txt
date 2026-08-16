@@ -4,7 +4,7 @@ government_rank = 1
 
 technology_group = chinese
 religion = confucianism
-primary_culture = cantonese
-add_accepted_culture = chimin
+primary_culture = gdd_zhuang
+add_accepted_culture = gdd_min
 capital = 2161 # Limchow / 廉州; development 7
 fixed_capital = 2161

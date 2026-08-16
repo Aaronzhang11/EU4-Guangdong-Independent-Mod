@@ -1,7 +1,7 @@
 owner = LIU
 controller = LIU
 add_core = LIU
-culture = jianghuai
+culture = gdd_jianghuai
 religion = confucianism
 capital = "Lu'an"
 trade_goods = tea

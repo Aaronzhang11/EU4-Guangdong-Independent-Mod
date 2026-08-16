@@ -78,7 +78,7 @@ YANGTZE_DEFINITIONS = {
     5032: ((230, 223, 132), "Yangtze Estuary"),
     5033: ((230, 200, 135), "Lower Yangtze"),
     5034: ((230, 142, 111), "Anqing Reach"),
-    5035: ((225, 171, 16), "Wuhan Reach"),
+    5035: ((225, 171, 16), "Xiakou Reach"),
     5036: ((230, 199, 86), "Jingzhou Reach"),
     5037: ((230, 157, 30), "Yichang Reach"),
     5038: ((230, 200, 85), "Jiujiang Reach"),
@@ -151,7 +151,7 @@ NEW_DEFINITION_NAMES = {
     4943: "Dongguan",
     4944: "Meizhou",
     4945: "Gaozhou",
-    4946: "Hong Kong",
+    4946: "Tuen Mun",
     4947: "Luoding",
     4948: "Nanxiong",
     4949: "Lufeng",
@@ -188,9 +188,9 @@ NEW_DEFINITION_NAMES = {
     5006: "Yiwu",
     5007: "Chuzhou (Zhejiang)",
     4981: "Hanyang",
-    5008: "Yunyang",
+    5008: "Yun",
     5009: "Suizhou",
-    5010: "Chengtian",
+    5010: "Anlu",
     5011: "Hankou",
     5012: "Huangzhou",
     5013: "Shizhou",
@@ -226,7 +226,7 @@ NEW_DEFINITION_NAMES = {
     5053: "Ruzhou",
     5054: "Runing",
     5055: "Dengzhou",
-    5056: "Jiangning",
+    5056: "Liuhe",
     5057: "Lishui (Jiangsu)",
     5058: "Bozhou (Anhui)",
     5059: "Shouzhou",
@@ -380,7 +380,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, -0.785, 0, 0, 0),
     },
     4946: {
-        "comment": "Hong Kong",
+        "comment": "Tuen Mun",
         "positions": (
             4587, 1013, 4585, 1012, 4589, 1012, 4589, 1014,
             4586, 1015, 4588, 1010, 0, 0,
@@ -436,7 +436,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     2149: {
-        "comment": "Ningbo - adjusted after Changguo split",
+        "comment": "Mingzhou - adjusted after Changguo split",
         "positions": (
             4699, 1137, 4697, 1136, 4701, 1139, 4703, 1131,
             4698, 1139, 4701, 1136, 0, 0,
@@ -792,7 +792,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     4197: {
-        "comment": "De'an - Dabie foothills",
+        "comment": "Qizhou - Dabie foothills",
         "positions": (4598,1167,4597,1167,4599,1167,4598,1168,4598,1166,4597,1168,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -802,7 +802,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     5008: {
-        "comment": "Yunyang - Wudang frontier",
+        "comment": "Yun - Wudang frontier",
         "positions": (4521,1186,4520,1186,4522,1186,4521,1187,4521,1185,4520,1187,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -812,7 +812,7 @@ POSITION_DATA = {
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     5010: {
-        "comment": "Chengtian - middle Han River",
+        "comment": "Anlu - middle Han River",
         "positions": (4561,1167,4560,1167,4562,1167,4561,1168,4561,1166,4560,1168,0,0),
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
@@ -985,7 +985,7 @@ POSITION_DATA.update({
         "rotation": (0, 0, 0, 0, 0, 0, 0),
     },
     2143: {
-        "comment": "Fengyang - adjusted for navigable Yangtze",
+        "comment": "Haozhou - adjusted for navigable Yangtze",
         "positions": (
             4646, 1197, 4639, 1197, 4639, 1199, 4644, 1204,
             4639, 1199, 4640, 1196, 4639, 1199,
@@ -1187,7 +1187,7 @@ NAVIGABLE_WATER_POSITION_CENTERS = {
     5032: (4683, 1182),  # Yangtze Estuary
     5033: (4677, 1184),  # Lower Yangtze, widest local fleet berth
     5034: (4653, 1171),  # Anqing Reach
-    5035: (4589, 1155),  # Wuhan Reach
+    5035: (4589, 1155),  # Xiakou Reach
     5036: (4555, 1151),  # Jingzhou Reach
     5037: (4520, 1164),  # Yichang Reach
     5038: (4602, 1153),  # Jiujiang Reach
@@ -1480,11 +1480,11 @@ def build_definition(
     source = read_text(vanilla_root / "map/definition.csv").rstrip("\r\n")
     source, renamed = re.subn(
         r"(?m)^4197;148;197;227;Huangzhou;x$",
-        "4197;148;197;227;De'an;x",
+        "4197;148;197;227;Qizhou;x",
         source,
     )
     if renamed != 1:
-        raise ValueError("definition.csv: could not rename province 4197 to De'an")
+        raise ValueError("definition.csv: could not rename province 4197 to Qizhou")
     henan_renames = {
         687: ("Running", "Nanyang"),
         692: ("Handan", "Huaiqing"),
@@ -1506,13 +1506,14 @@ def build_definition(
             )
     source, nanjing_rename_count = re.subn(
         r"(?m)^(1821;78;100;126;)Nanjing(;x)$",
-        r"\g<1>Liuhe\g<2>",
+        r"\g<1>Jiangning\g<2>",
         source,
     )
     if nanjing_rename_count != 1:
-        raise ValueError("definition.csv: could not rename province 1821 to Liuhe")
+        raise ValueError("definition.csv: could not rename province 1821 to Jiangning")
     anhui_renames = {
         1838: ("Hefei", "Luzhou"),
+        2143: ("Fengyang", "Haozhou"),
         2144: ("Fuyang", "Yingzhou"),
     }
     for province_id, (old_name, new_name) in anhui_renames.items():
@@ -2368,9 +2369,9 @@ def build_adjacencies(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/adjacencies.csv")
     sentinel = "-1;-1;;-1;-1;-1;-1;-1;-1;"
     straits = (
-        "2149;5004;sea;1373;-1;-1;-1;-1;Ningbo-Changguo (Zhoushan) Strait",
+        "2149;5004;sea;1373;-1;-1;-1;-1;Mingzhou-Changguo (Zhoushan) Strait",
         "2145;685;sea;5033;-1;-1;-1;-1;Zhenjiang-Yangzhou crossing",
-        "5056;1821;sea;5033;-1;-1;-1;-1;Jiangning-Liuhe crossing",
+        "5056;1821;sea;5033;-1;-1;-1;-1;Liuhe-Jiangning crossing",
         "686;5067;sea;5038;-1;-1;-1;-1;Anqing-Taiping crossing",
         "5065;5062;sea;5034;-1;-1;-1;-1;Chizhou-Wuwei crossing",
         "5066;5061;sea;5033;-1;-1;-1;-1;Wuhu-Chaohu crossing",
@@ -2385,9 +2386,9 @@ def build_adjacencies(vanilla_root: Path, output: Path) -> None:
         "5054;2144;sea;5040;-1;-1;-1;-1;Runing-Fuyang Huai crossing",
         "2175;2144;sea;5040;-1;-1;-1;-1;Xinyang-Fuyang Huai crossing",
         "2144;5059;sea;5041;-1;-1;-1;-1;Yingzhou-Shouzhou Huai crossing",
-        "2143;5064;sea;5041;-1;-1;-1;-1;Fengyang-Hezhou Huai crossing",
-        "2143;5063;sea;5042;-1;-1;-1;-1;Fengyang-Chuzhou Huai crossing",
-        "2143;2142;sea;1896;-1;-1;-1;-1;Fengyang-Huai'an Hongze crossing",
+        "2143;5064;sea;5041;-1;-1;-1;-1;Haozhou-Hezhou Huai crossing",
+        "2143;5063;sea;5042;-1;-1;-1;-1;Haozhou-Chuzhou Huai crossing",
+        "2143;2142;sea;1896;-1;-1;-1;-1;Haozhou-Huai'an Hongze crossing",
         "2142;4196;sea;5043;-1;-1;-1;-1;Huai'an-Haizhou Huai crossing",
         "4196;5020;sea;5044;-1;-1;-1;-1;Haizhou-Yancheng estuary crossing",
     )

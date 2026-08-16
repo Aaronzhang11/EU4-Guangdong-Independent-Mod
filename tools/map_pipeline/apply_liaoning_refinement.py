@@ -25,21 +25,25 @@ MARKER = "B27 Liaoning 10-province refinement"
 
 # id: English, Chinese, colour, area, goods, development, culture, fort
 PROVINCES = {
-    726: ("Shenyang", "沈阳", (103, 76, 64), "liaoning_area", "cloth", (4, 4, 3), "manchu", True),
-    5204: ("Liaoyang", "辽阳", (150, 117, 28), "liaoning_area", "iron", (5, 5, 5), "manchu", False),
+    726: ("Shenyang", "沈阳", (103, 76, 64), "liaoning_area", "cloth", (4, 4, 3), "gdd_khitan", True),
+    5204: ("Liaoyang", "辽阳", (150, 117, 28), "liaoning_area", "iron", (5, 5, 5), "gdd_khitan", False),
     5205: ("Tieling", "铁岭", (255, 236, 11), "liaoning_area", "livestock", (2, 3, 3), "manchu", False),
     2112: ("Jiuliancheng", "九连城", (115, 210, 143), "liaoning_area", "fur", (2, 2, 3), "manchu", False),
-    4652: ("Haicheng", "海城", (140, 69, 200), "liaoning_area", "grain", (3, 3, 2), "shandong_culture", False),
-    2113: ("Gaizhou", "盖州", (193, 133, 132), "liaoning_area", "fish", (3, 3, 3), "shandong_culture", False),
+    4652: ("Haicheng", "海城", (140, 69, 200), "liaoning_area", "grain", (3, 3, 2), "gdd_qi", False),
+    2113: ("Gaizhou", "盖州", (193, 133, 132), "liaoning_area", "fish", (3, 3, 3), "gdd_qi", False),
     5206: ("Liaohetao", "辽河套", (165, 28, 167), "xi_liaoning_area", "grain", (3, 3, 2), "manchu", False),
-    704: ("Ningyuan", "宁远", (100, 32, 255), "xi_liaoning_area", "salt", (3, 2, 3), "chihan", True),
-    5207: ("Guangning", "广宁", (216, 196, 193), "xi_liaoning_area", "livestock", (4, 3, 3), "chihan", False),
-    5209: ("Jinzhou", "锦州", (187, 198, 158), "xi_liaoning_area", "salt", (3, 4, 3), "chihan", False),
+    704: ("Ningyuan", "宁远", (100, 32, 255), "xi_liaoning_area", "salt", (3, 2, 3), "gdd_dongyi", True),
+    5207: ("Guangning", "广宁", (216, 196, 193), "xi_liaoning_area", "livestock", (4, 3, 3), "gdd_yan", False),
+    5209: ("Jinzhou", "锦州", (187, 198, 158), "xi_liaoning_area", "salt", (3, 4, 3), "gdd_dongyi", False),
 }
 NEW_IDS = {5204, 5205, 5206, 5207, 5209}
 AREA_BLOCKS = {
     "liaoning_area": [726, 5204, 5205, 2112, 4652, 2113],
     "xi_liaoning_area": [5206, 704, 5207, 5209],
+}
+OWNER_BY_ID = {
+    726: "LIO", 5204: "LIO", 5205: "LIO", 2112: "LIO", 4652: "LIO", 2113: "LIO",
+    5206: "YAN", 5207: "YAN", 704: "WUZ", 5209: "WUZ",
 }
 
 
@@ -69,6 +73,22 @@ def replace_block(text: str, name: str, replacement: str):
 
 def remove_marker_line(text: str):
     return re.sub(rf"(?m)^\s*.*# {re.escape(MARKER)}.*\n?", "", text)
+
+
+def append_nested_ids(text: str, outer: str, nested: str, ids: set[int]) -> str:
+    outer_bounds = block_bounds(text, outer)
+    if outer_bounds is None:
+        raise ValueError(f"Missing outer block {outer}")
+    block = text[outer_bounds[0]:outer_bounds[1]]
+    nested_bounds = block_bounds(block, nested)
+    if nested_bounds is None:
+        raise ValueError(f"Missing {nested} block in {outer}")
+    nested_block = block[nested_bounds[0]:nested_bounds[1]]
+    close = nested_block.rfind("}")
+    insertion = "\n        " + " ".join(map(str, sorted(ids))) + f" # {MARKER}\n    "
+    nested_block = nested_block[:close].rstrip() + insertion + nested_block[close:]
+    block = block[:nested_bounds[0]] + nested_block + block[nested_bounds[1]:]
+    return text[:outer_bounds[0]] + block + text[outer_bounds[1]:]
 
 
 def update_bitmap():
@@ -131,8 +151,8 @@ def update_lists():
 
     path = MOD / "common/tradenodes/00_tradenodes.txt"
     text = remove_marker_line(path.read_text())
-    marker = "        5113 5114 5115 5116 # B21 Yandu"
-    text = text.replace(marker, marker + f"\n        {new} # {MARKER}", 1)
+    text = append_nested_ids(text, "girin", "members", {5204, 5205})
+    text = append_nested_ids(text, "beijing", "members", {5206, 5207, 5209})
     path.write_text(text)
 
     path = MOD / "common/trade_companies/00_trade_companies.txt"
@@ -158,8 +178,9 @@ def update_lists():
 
 def history_text(pid, data):
     name, _, _, _, goods, dev, culture, fort = data
+    owner = OWNER_BY_ID[pid]
     lines = [
-        f"# {pid} - {name}", "", "owner = MNG", "controller = MNG", "add_core = MNG",
+        f"# {pid} - {name}", "", f"owner = {owner}", f"controller = {owner}", f"add_core = {owner}",
         f"culture = {culture}", "religion = confucianism", f'capital = "{name}"',
         f"trade_goods = {goods}", f"base_tax = {dev[0]}", f"base_production = {dev[1]}",
         f"base_manpower = {dev[2]}", "is_city = yes",

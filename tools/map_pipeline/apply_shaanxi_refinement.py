@@ -26,7 +26,7 @@ PROVINCES = {
     5283: ("Xianyang", "咸阳", (210, 73, 128), "grain", 5, 4, 4),
     5284: ("Haojing", "镐京", (226, 157, 42), "grain", 5, 4, 4),
     5285: ("Lantian", "蓝田", (78, 179, 91), "iron", 3, 3, 3),
-    5271: ("Binzhou", "彬州", (195, 253, 181), "grain", 3, 3, 3),
+    5271: ("Binzhou", "邠州", (195, 253, 181), "grain", 3, 3, 3),
     5269: ("Tongzhou", "同州", (163, 189, 226), "grain", 4, 4, 4),
     5270: ("Huazhou", "华州", (181, 232, 133), "iron", 3, 3, 3),
     5268: ("Fuzhou", "富州", (181, 205, 7), "wool", 3, 2, 3),
@@ -40,6 +40,26 @@ PROVINCES = {
     5276: ("Qinan", "秦安", (168, 43, 246), "grain", 3, 3, 3),
     5277: ("Guyuan", "固原", (131, 142, 25), "livestock", 3, 3, 4),
     5278: ("Jingning", "静宁", (52, 141, 13), "wool", 3, 3, 3),
+}
+CULTURE_BY_ID = {
+    700: "gdd_zhongyuan",
+    5283: "gdd_zhongyuan",
+    5284: "gdd_zhongyuan",
+    5285: "gdd_zhongyuan",
+    5271: "gdd_zhongyuan",
+    5269: "gdd_jin",
+    5270: "gdd_zhongyuan",
+    5268: "gdd_jin",
+    5267: "gdd_jin",
+    5266: "gdd_jin",
+    5265: "gdd_jin",
+    5275: "gdd_diqiang",
+    5274: "gdd_shu",
+    5273: "gdd_zhongyuan",
+    5272: "gdd_zhongyuan",
+    5276: "gdd_long",
+    5277: "gdd_long",
+    5278: "gdd_yan",
 }
 OBSOLETE_PROVINCES = {5282}
 
@@ -301,7 +321,7 @@ def update_map_lists():
 def history_text(pid, data):
     name, _, _, goods, tax, production, manpower = data
     return f'''# {pid} - {name}\n\nowner = MNG\ncontroller = MNG\nadd_core = MNG\n'''+ \
-        f'''culture = zhili\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\n''' + \
+        f'''culture = {CULTURE_BY_ID[pid]}\nreligion = confucianism\ncapital = "{name}"\ntrade_goods = {goods}\n''' + \
         f'''base_tax = {tax}\nbase_production = {production}\nbase_manpower = {manpower}\n''' + \
         '''is_city = yes\ndiscovered_by = chinese\ndiscovered_by = nomad_group\n'''
 

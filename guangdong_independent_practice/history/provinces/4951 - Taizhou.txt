@@ -1,9 +1,9 @@
 # 4951 - Taizhou (Zhejiang)
 
-owner = YUE
-controller = YUE
-add_core = YUE
-culture = wu
+owner = OUE
+controller = OUE
+add_core = OUE
+culture = gdd_wu
 religion = confucianism
 capital = "Linhai"
 trade_goods = fish

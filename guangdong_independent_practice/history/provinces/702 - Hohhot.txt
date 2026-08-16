@@ -1,11 +1,11 @@
-#702 - Ulanqab
+# 702 - Fengzhou
 
 owner = DAE
 controller = DAE
 add_core = DAE
-culture = mongol
+culture = gdd_jin
 religion = vajrayana
-capital = "Hohhot"
+capital = "Fengzhou"
 trade_goods = iron
 hre = no
 base_tax = 4 

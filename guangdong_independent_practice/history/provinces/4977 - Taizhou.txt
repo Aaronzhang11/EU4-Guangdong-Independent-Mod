@@ -1,8 +1,8 @@
 # 4977 - Taizhou
-owner = WUU
-controller = WUU
-add_core = WUU
-culture = jianghuai
+owner = HYM
+controller = HYM
+add_core = HYM
+culture = gdd_jianghuai
 religion = confucianism
 capital = "Taizhou"
 trade_goods = salt

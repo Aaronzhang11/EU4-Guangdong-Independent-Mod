@@ -3,7 +3,7 @@
 owner = DAE
 controller = DAE
 add_core = DAE
-culture = zhili
+culture = gdd_jin
 religion = confucianism
 capital = "Shuozhou"
 trade_goods = grain

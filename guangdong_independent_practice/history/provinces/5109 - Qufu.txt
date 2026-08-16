@@ -3,7 +3,7 @@
 owner = LUU
 controller = LUU
 add_core = LUU
-culture = shandong
+culture = gdd_qi
 religion = confucianism
 capital = "Qufu"
 trade_goods = paper

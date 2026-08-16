@@ -3,7 +3,7 @@
 owner = QIN
 controller = QIN
 add_core = QIN
-culture = zhili
+culture = gdd_yan
 religion = confucianism
 capital = "Jingning"
 trade_goods = wool

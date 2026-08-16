@@ -1,9 +1,9 @@
-# 4946 - Hong Kong
+# 4946 - Tuen Mun
 
 owner = GDD
 controller = GDD
 add_core = GDD
-culture = cantonese
+culture = gdd_guangfu
 religion = confucianism
 capital = "Tuen Mun"
 trade_goods = fish

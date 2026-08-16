@@ -1,7 +1,7 @@
 owner = GUO
 controller = GUO
 add_core = GUO
-culture = zhongyuan
+culture = gdd_zhongyuan
 religion = confucianism
 capital = "Xuzhou"
 trade_goods = cloth

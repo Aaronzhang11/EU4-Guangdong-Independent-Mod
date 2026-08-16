@@ -1,9 +1,9 @@
 # 4652 - Haicheng
 
-owner = YAN
-controller = YAN
-add_core = YAN
-culture = shandong_culture
+owner = LIO
+controller = LIO
+add_core = LIO
+culture = gdd_qi
 religion = confucianism
 capital = "Haicheng"
 trade_goods = grain
