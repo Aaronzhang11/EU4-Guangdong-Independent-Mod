@@ -315,7 +315,7 @@ def update_areas():
     path = MAP / "area.txt"
     text = path.read_text()
     blocks = {
-        "hebei_area": "hebei_area = {\n    703 2136\n}",
+        "hebei_area": "hebei_area = {\n    703 2136 5351 5352 5353\n}",
         "yandu_area": "yandu_area = {\n    5113 5114 1816 5115 5116\n}",
         "dong_hebei_area": "dong_hebei_area = {\n    4194 5211 5212 5213\n}",
         "zhong_hebei_area": "zhong_hebei_area = {\n    695 696 5222 5223 5219\n}",

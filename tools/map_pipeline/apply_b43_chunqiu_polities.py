@@ -79,7 +79,7 @@ TAG_PROVINCES = {
     "SUI": (2175, 5350, 5009),
     "LUO": (2171, 5342),
     "GON": (687, 5347, 5055, 5348),
-    "ZSH": (2136, 696, 5218),
+    "ZSH": (2136, 696, 5218, 5351, 5352),
     "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5220, 5221, 5048),
     "WEI": (4195, 5219, 2178, 5252, 694, 5256, 5249, 5253, 5254, 5269),
     "DAE": (702, 2177, 697, 5243, 5244, 5242),
@@ -111,7 +111,7 @@ TAG_PROVINCES = {
     "SHE": (5030, 5008, 5341, 681, 5346, 5284),
     "GUZ": (4194, 5211),
     "WUZ": (704, 5209),
-    "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 4672, 5206, 5207),
+    "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 4672, 5206, 5207, 5353),
     "LIO": (726, 5204, 5205, 2112, 4652, 2113),
 }
 
@@ -859,8 +859,8 @@ def current_core_ids(tag: str) -> set[int]:
 
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 303 or len(set(all_ids)) != 303:
-        raise ValueError("Expanded polity policy must contain 303 unique provinces after B54")
+    if len(all_ids) != 306 or len(set(all_ids)) != 306:
+        raise ValueError("Expanded polity policy must contain 306 unique provinces after B55")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:

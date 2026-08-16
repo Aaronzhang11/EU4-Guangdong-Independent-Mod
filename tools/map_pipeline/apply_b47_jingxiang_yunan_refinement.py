@@ -301,7 +301,9 @@ def update_definition_and_ceiling() -> None:
         output.append(f"{province_id};{red};{green};{blue};{name};x")
     path.write_text("\n".join(output) + "\n", encoding="cp1252")
     default = MAP / "default.map"
-    text, count = re.subn(r"(?m)^max_provinces\s*=\s*\d+", "max_provinces = 5351", default.read_text(encoding="cp1252"))
+    current_text = default.read_text(encoding="cp1252")
+    current_ceiling = int(re.search(r"(?m)^max_provinces\s*=\s*(\d+)", current_text).group(1))
+    text, count = re.subn(r"(?m)^max_provinces\s*=\s*\d+", f"max_provinces = {max(current_ceiling, 5351)}", current_text)
     if count != 1:
         raise ValueError("default.map needs exactly one max_provinces")
     default.write_text(text, encoding="cp1252")
@@ -606,8 +608,9 @@ def validate_modern_province_boundary(ids: np.ndarray) -> dict[str, int]:
 
 def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
     rows = definition_rows()
-    if max(rows) != 5350 or "max_provinces = 5351" not in (MAP / "default.map").read_text(encoding="cp1252"):
-        raise ValueError("B47 province ceiling is not 5350/5351")
+    ceiling = int(re.search(r"(?m)^max_provinces\s*=\s*(\d+)", (MAP / "default.map").read_text(encoding="cp1252")).group(1))
+    if max(rows) < 5350 or ceiling <= max(rows):
+        raise ValueError("B47 province ceiling is not a valid exclusive upper bound")
     colour_owners: dict[tuple[int, int, int], list[tuple[int, str]]] = {}
     for province_id, (colour, name) in rows.items():
         colour_owners.setdefault(colour, []).append((province_id, name))
@@ -678,8 +681,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         if not set(members).issubset(set(b43.TAG_PROVINCES[tag])):
             raise ValueError(f"B43 replay policy is missing B47 {tag} provinces")
     all_policy_ids = [province_id for members in b43.TAG_PROVINCES.values() for province_id in members]
-    if len(all_policy_ids) != 303 or len(set(all_policy_ids)) != 303:
-        raise ValueError("B43 replay policy does not contain 303 unique post-B54 provinces")
+    if len(all_policy_ids) != 306 or len(set(all_policy_ids)) != 306:
+        raise ValueError("B43 replay policy does not contain 306 unique post-B55 provinces")
     return {
         "province_components": "23/23 one component",
         "area_land_components": area_components,
