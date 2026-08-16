@@ -23,7 +23,7 @@
 | `gdd_yan` | 燕 | 19 |
 | `gdd_long` | 陇 | 19 |
 | `gdd_guangfu` | 粤 | 12 |
-| `gdd_zhuang` | 壮侗 | 16 |
+| `gdd_zhuang` | 壮侗 | 13 |
 | `gdd_wu` | 吴越 | 27 |
 | `gdd_min` | 闽越 | 18 |
 | `gdd_songwei` | 宋卫 | 4 |
@@ -34,3 +34,4 @@
 | `korean` | 朝鲜 | 20 |
 | `bai` | 白 | 4 |
 | `yi` | 彝 | 15 |
+| `gdd_qiongli` | 琼黎 | 3 |

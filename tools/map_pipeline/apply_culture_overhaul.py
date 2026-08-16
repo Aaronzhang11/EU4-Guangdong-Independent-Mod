@@ -84,6 +84,7 @@ CULTURE_DISPLAY = {
     **{key: value[0] for key, value in YINSHANG_CUSTOM_CULTURES.items()},
     **{key: value[0] for key, value in QIANG_CUSTOM_CULTURES.items()},
     **{key: value[0] for key, value in MOVED_INHERITED_CULTURES.items()},
+    "gdd_qiongli": "琼黎",
 }
 ALL_NEW_CULTURES = set(CULTURE_DISPLAY)
 
@@ -214,6 +215,7 @@ COUNTRY_POLICY = {
     "CGS": ("gdd_zhuang", ()),
     "GDD": ("gdd_guangfu", ("gdd_hakka", "gdd_min")),
     "CZC": ("gdd_min", ("gdd_guangfu",)),
+    "HLI": ("gdd_qiongli", ()),
     "SNG": ("gdd_songwei", ()),
     "XU2": ("gdd_zhongyuan", ()),
 
@@ -798,6 +800,12 @@ def write_culture_definitions() -> None:
     inherited = rewrite_group(inherited, "southeastasian_group", {"vietnamese"})
     inherited = rewrite_group(inherited, "tibetan_group", {"miao", "bai", "yi"})
     inherited = rewrite_group(inherited, "thai_group", {"zhuang"})
+    inherited = rewrite_group(
+        inherited,
+        "malay",
+        {"gdd_qiongli"},
+        (culture_entry("gdd_qiongli", "HLI"),),
+    )
     marker = f"# {MARKER}: shadows inherited common/cultures/00_cultures.txt and removes superseded cultures\n"
     (directory / "00_cultures.txt").write_bytes((marker + inherited).encode("latin-1"))
 
@@ -822,7 +830,7 @@ def write_culture_definitions() -> None:
     if remaining_old:
         raise ValueError(f"Inherited culture definitions survived replacement: {sorted(remaining_old)}")
     inherited_targets = direct_definitions(inherited, ALL_NEW_CULTURES)
-    expected_inherited = set(HAN_CULTURES) | set(YINSHANG_CUSTOM_CULTURES) | {"korean"}
+    expected_inherited = set(HAN_CULTURES) | set(YINSHANG_CUSTOM_CULTURES) | {"korean", "gdd_qiongli"}
     if inherited_targets != expected_inherited:
         raise ValueError(
             "Unexpected target definitions left in 00_cultures.txt: "

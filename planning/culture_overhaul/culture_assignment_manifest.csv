@@ -84,7 +84,7 @@
 2157,惠州,dongjiang_area,hakka,gdd_hakka,2157 - Waichow.txt
 2158,韶州,guangdong_area,hakka,gdd_guangfu,2158 - Shiukwan.txt
 2159,,west_guangdong_area,chimin,gdd_zhuang,2159 - Leichow.txt
-2160,崖州,hainan_area,chimin,gdd_zhuang,2160 - Ngaichow.txt
+2160,崖州,hainan_area,chimin,gdd_qiongli,2160 - Ngaichow.txt
 2161,,west_guangdong_area,cantonese,gdd_zhuang,2161 - Limchow.txt
 2162,梧州,guidong_area,cantonese,gdd_guangfu,2162 - Wuchow.txt
 2163,柳州,guangxi_area,zhuang,gdd_gui,2163 - Liuzhou.txt
@@ -350,8 +350,8 @@
 5295,永昌,hexi_area,xibei,gdd_long,5295 - Yongchang.txt
 5296,张掖,hexi_area,xibei,gdd_long,5296 - Zhangye.txt
 5297,嘉峪,hexi_area,xibei,gdd_long,5297 - Jiayu.txt
-5301,儋州,hainan_area,chimin,gdd_zhuang,5301 - Danzhou.txt
-5302,昌化,hainan_area,chimin,gdd_zhuang,5302 - Changhua.txt
+5301,儋州,hainan_area,chimin,gdd_qiongli,5301 - Danzhou.txt
+5302,昌化,hainan_area,chimin,gdd_qiongli,5302 - Changhua.txt
 5303,万州,hainan_area,chimin,gdd_min,5303 - Wanzhou.txt
 5305,清水,xi_shaanxi_area,xibei,gdd_zhongyuan,5305 - Qingshui Gansu.txt
 5306,通渭,xi_shaanxi_area,xibei,gdd_long,5306 - Tongwei.txt

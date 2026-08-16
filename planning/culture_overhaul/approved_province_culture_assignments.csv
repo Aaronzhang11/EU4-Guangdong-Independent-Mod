@@ -7,7 +7,7 @@
 663,广南,百越文化组,壮侗文化,广南,gdd_zhuang,explicit,B44 地名裁决后省名与文档条目一致
 664,泗城,百越文化组,壮侗文化,凌云,gdd_zhuang,explicit,文档“凌云”映射至地块“泗城”
 665,肇庆,百越文化组,广府文化,肇庆,gdd_guangfu,explicit,
-666,琼州,百越文化组,闽越文化,琼州,gdd_min,explicit,
+666,琼州,百越文化组,闽越文化,潮州海南据点,gdd_min,user_override,B56后续用户修正：潮州控制的琼州、万州改为闽越文化
 667,广州,百越文化组,广府文化,广州,gdd_guangfu,explicit,
 668,香山,百越文化组,广府文化,澳门,gdd_guangfu,explicit,B44 仅改地名；文化裁决不变
 669,福州,百越文化组,闽越文化,福州,gdd_min,explicit,B44 地名裁决后省名与文档条目一致
@@ -78,7 +78,7 @@
 2157,惠州,汉文化组,客家文化,惠州,gdd_hakka,explicit,
 2158,韶州,百越文化组,广府文化,韶关,gdd_guangfu,explicit,B44 仅改地名；文化裁决不变
 2159,雷州,百越文化组,壮侗文化,雷州,gdd_zhuang,explicit,
-2160,崖州,百越文化组,壮侗文化,补充裁决,gdd_zhuang,fallback,文档未明列地块的用户批准兜底
+2160,崖州,马来文化组,琼黎文化,黎国南岛腹地,gdd_qiongli,user_override,B56用户确认：黎国三省为琼黎文化
 2161,廉州,百越文化组,壮侗文化,廉州,gdd_zhuang,explicit,
 2162,梧州,百越文化组,广府文化,梧州,gdd_guangfu,explicit,
 2163,柳州,汉文化组,桂柳文化,柳州,gdd_gui,explicit,
@@ -321,9 +321,9 @@
 5291,岷州,汉文化组,西北文化,岷州,gdd_long,explicit,
 5292,碾伯,汉文化组,西北文化,碾伯,gdd_long,explicit,
 5293,河州,汉文化组,西北文化,河州,gdd_long,explicit,
-5301,儋州,百越文化组,壮侗文化,补充裁决,gdd_zhuang,fallback,文档未明列地块的用户批准兜底
-5302,昌化,百越文化组,壮侗文化,补充裁决,gdd_zhuang,fallback,文档未明列地块的用户批准兜底
-5303,万州,百越文化组,闽越文化,文昌,gdd_min,explicit,经裁决按省份 ID 消歧；文档“文昌”映射至地块“万州”
+5301,儋州,马来文化组,琼黎文化,黎国南岛腹地,gdd_qiongli,user_override,B56用户确认：黎国三省为琼黎文化
+5302,昌化,马来文化组,琼黎文化,黎国南岛腹地,gdd_qiongli,user_override,B56用户确认：黎国三省为琼黎文化
+5303,万州,百越文化组,闽越文化,潮州海南据点,gdd_min,user_override,B56后续用户修正：潮州控制的琼州、万州改为闽越文化
 5305,清水,汉文化组,中原文化,清水,gdd_zhongyuan,explicit,
 5306,通渭,汉文化组,西北文化,通渭,gdd_long,explicit,
 5307,临洮,汉文化组,西北文化,临洮,gdd_long,explicit,

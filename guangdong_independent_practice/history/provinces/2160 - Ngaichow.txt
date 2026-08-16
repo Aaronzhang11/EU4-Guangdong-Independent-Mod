@@ -1,10 +1,10 @@
 # 2160 - Yazhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = gdd_zhuang
-religion = confucianism
+owner = HLI
+controller = HLI
+add_core = HLI
+culture = gdd_qiongli
+religion = hinduism
 capital = "Yazhou"
 trade_goods = fish
 base_tax = 2

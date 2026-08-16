@@ -27,4 +27,5 @@
  korean:0 "朝鲜"
  bai:0 "白"
  yi:0 "彝"
+ gdd_qiongli:0 "琼黎"
  gdd_zhuang_new:0 "汉化壮侗"

@@ -61,6 +61,7 @@ FILES = {
     "006_gdd_b52_chu_vassals_readable_utf8.txt": "replace/006_gdd_b52_chu_vassals_l_english.yml",
     "007_gdd_b54_changsha_public_cities_readable_utf8.txt": "replace/007_gdd_b54_changsha_public_cities_l_english.yml",
     "008_gdd_b55_shanggu_refinement_readable_utf8.txt": "replace/008_gdd_b55_shanggu_refinement_l_english.yml",
+    "009_gdd_b56_hainan_austronesian_polity_readable_utf8.txt": "replace/009_gdd_b56_hainan_austronesian_polity_l_english.yml",
     "gdd_zzz_chunqiu_area_overrides_readable_utf8.txt": "replace/zzz_gdd_chunqiu_area_overrides_l_english.yml",
     "gdd_yangtze_navigation_readable_utf8.txt": "gdd_yangtze_navigation_l_english.yml",
     "gdd_huai_navigation_readable_utf8.txt": "gdd_huai_navigation_l_english.yml",

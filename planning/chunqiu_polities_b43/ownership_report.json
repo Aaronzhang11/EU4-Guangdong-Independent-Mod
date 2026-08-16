@@ -1,13 +1,15 @@
 {
   "batch": "B43_chunqiu_polities",
   "constraints": {
-    "yan": "expanded to the user-confirmed Liaodong provinces",
+    "yan_liao": "B51 invests LIO in the six-province Liaodong area",
     "qi": "preserved; no QIC province changes",
     "dae_capital": "Daizhou (5244)",
     "jiarong": "JRG owns Ngawa (5091) and Barkam (5089)",
     "geometry": "unchanged",
     "huzhou": "YUE owns and cores 4950",
-    "yangzhou": "XU2 owns and cores 685",
+    "eastern_balance": "B50 splits Huai, Ou, Yang, Wu and Zhou from WUU/YUE/XU2",
+    "chu_vassals": "B52 splits E, Quan and Zhou from CHC as starting vassals",
+    "changsha_public_cities": "B54 gives Yiyang and Anhua to CSA and releases Changde, Jiujiang and Hanyang as public cities",
     "shangqiu": "SNG owns and cores 2176",
     "badi_tag": "BD2; legacy BAS removed",
     "shen_consolidation": "SHE inherits former SH2 provinces; legacy SH2 removed",
@@ -45,18 +47,32 @@
     "CHC": [
       4994,
       4992,
-      4979,
       4982,
-      5016,
-      5015,
       5014,
       2172,
-      5010,
+      5345,
       5012,
       4197,
-      682,
       5011,
+      5320
+    ],
+    "JJG": [
+      4979
+    ],
+    "HYA": [
       4981
+    ],
+    "EGU": [
+      682,
+      5016
+    ],
+    "QVN": [
+      5010,
+      5343
+    ],
+    "ZHU": [
+      5015,
+      5344
     ],
     "QSH": [
       686,
@@ -66,7 +82,6 @@
     "WUU": [
       2147,
       2146,
-      5066,
       5068,
       1821,
       5024,
@@ -75,15 +90,9 @@
       5025,
       1822,
       5022,
-      4977,
       5023
     ],
     "YUE": [
-      5099,
-      2152,
-      5096,
-      5007,
-      1824,
       4956,
       5003,
       2149,
@@ -92,34 +101,73 @@
       4976,
       5002,
       4950,
-      4951,
-      5004,
       5005,
       5006,
       2150
+    ],
+    "MIN": [
+      669,
+      1829,
+      4952,
+      4953,
+      4958,
+      5097,
+      5098,
+      2152,
+      5096,
+      5099
+    ],
+    "OUE": [
+      1824,
+      4951,
+      5007
+    ],
+    "ZHO": [
+      5004
+    ],
+    "WHU": [
+      5066
+    ],
+    "HYM": [
+      685,
+      5021,
+      4977
     ],
     "CCH": [
       5061,
       5062
     ],
     "BAA": [
-      5081,
-      4211,
-      4987,
       5026,
       5082,
       680,
       4213,
       2168,
-      2169
+      2169,
+      5330,
+      5334,
+      5335
     ],
     "BD2": [
       5013,
       5028
     ],
+    "CSA": [
+      671,
+      4998,
+      5321,
+      4997,
+      5322
+    ],
     "WLM": [
-      5027,
-      4996
+      4996,
+      5312,
+      5313,
+      5316,
+      5317
+    ],
+    "CDE": [
+      672
     ],
     "BMY": [
       2170,
@@ -135,16 +183,16 @@
       2141,
       5018,
       4196,
-      2143,
       2142,
-      5020,
-      5056,
-      5064,
+      5020
+    ],
+    "HUA": [
+      2143,
+      5059,
       1838,
       5063,
-      5021,
-      5059,
-      685
+      5064,
+      5056
     ],
     "LUU": [
       5112,
@@ -163,7 +211,8 @@
       5031
     ],
     "CAI": [
-      5054
+      5054,
+      5349
     ],
     "CHN": [
       2144,
@@ -181,19 +230,25 @@
     ],
     "SUI": [
       2175,
+      5350,
       5009
     ],
     "LUO": [
-      2171
+      2171,
+      5342
     ],
     "GON": [
       687,
-      5055
+      5347,
+      5055,
+      5348
     ],
     "ZSH": [
       2136,
       696,
-      5218
+      5218,
+      5351,
+      5352
     ],
     "ZHA": [
       5246,
@@ -241,7 +296,23 @@
     ],
     "JUU": [
       689,
-      5274
+      5274,
+      5081,
+      5329
+    ],
+    "DQU": [
+      5332,
+      4211,
+      5333,
+      4987,
+      5339
+    ],
+    "ZHI": [
+      5027,
+      5336,
+      5337,
+      5338,
+      5340
     ],
     "WDU": [
       5309,
@@ -309,7 +380,8 @@
       5079,
       5076,
       679,
-      5075
+      5075,
+      5331
     ],
     "YPG": [
       5294
@@ -357,7 +429,8 @@
       5089
     ],
     "TSF": [
-      4993
+      4993,
+      5326
     ],
     "ZHG": [
       4967
@@ -365,7 +438,9 @@
     "SHE": [
       5030,
       5008,
+      5341,
       681,
+      5346,
       5284
     ],
     "GUZ": [
@@ -385,15 +460,23 @@
       5116,
       5212,
       5213,
-      2112,
-      2113,
-      4652,
       4672,
-      5204,
-      726,
-      5205,
       5206,
-      5207
+      5207,
+      5353
+    ],
+    "LIO": [
+      726,
+      5204,
+      5205,
+      2112,
+      4652,
+      2113
+    ],
+    "HLI": [
+      5301,
+      5302,
+      2160
     ]
   },
   "reset_owners": {
@@ -455,6 +538,22 @@
     "guangdong_independent_practice/common/countries/B43_Zheng.txt",
     "guangdong_independent_practice/common/countries/B43_Zhongshan.txt",
     "guangdong_independent_practice/common/countries/B43_Zhougong.txt",
+    "guangdong_independent_practice/common/countries/B45_Heng.txt",
+    "guangdong_independent_practice/common/countries/B46_Dangqu.txt",
+    "guangdong_independent_practice/common/countries/B46_Zhi.txt",
+    "guangdong_independent_practice/common/countries/B50_Huai.txt",
+    "guangdong_independent_practice/common/countries/B50_Ou.txt",
+    "guangdong_independent_practice/common/countries/B50_Wuhu.txt",
+    "guangdong_independent_practice/common/countries/B50_Yang.txt",
+    "guangdong_independent_practice/common/countries/B50_Zhou.txt",
+    "guangdong_independent_practice/common/countries/B51_Liao.txt",
+    "guangdong_independent_practice/common/countries/B52_E.txt",
+    "guangdong_independent_practice/common/countries/B52_Quan.txt",
+    "guangdong_independent_practice/common/countries/B52_Zhou.txt",
+    "guangdong_independent_practice/common/countries/B54_Changde.txt",
+    "guangdong_independent_practice/common/countries/B54_Hanyang.txt",
+    "guangdong_independent_practice/common/countries/B54_Jiujiang.txt",
+    "guangdong_independent_practice/common/countries/B56_Li.txt",
     "guangdong_independent_practice/common/countries/Changsha.txt",
     "guangdong_independent_practice/common/countries/Chaozhou.txt",
     "guangdong_independent_practice/common/countries/Chenzhou_Miao.txt",
@@ -490,28 +589,39 @@
     "guangdong_independent_practice/history/countries/CAG - Cao.txt",
     "guangdong_independent_practice/history/countries/CAI - Cai.txt",
     "guangdong_independent_practice/history/countries/CCH - Chao.txt",
+    "guangdong_independent_practice/history/countries/CDE - Changde.txt",
     "guangdong_independent_practice/history/countries/CHN - Chen.txt",
     "guangdong_independent_practice/history/countries/DAE - Dai.txt",
     "guangdong_independent_practice/history/countries/DCH - Dangchang.txt",
+    "guangdong_independent_practice/history/countries/DQU - Dangqu.txt",
     "guangdong_independent_practice/history/countries/DZH - Dengzhi.txt",
+    "guangdong_independent_practice/history/countries/EGU - E.txt",
     "guangdong_independent_practice/history/countries/GON - Gong.txt",
     "guangdong_independent_practice/history/countries/GUN - Guan.txt",
     "guangdong_independent_practice/history/countries/GUO - Guo.txt",
     "guangdong_independent_practice/history/countries/GUZ - Guzhu.txt",
     "guangdong_independent_practice/history/countries/GZH - Ganzhou.txt",
+    "guangdong_independent_practice/history/countries/HLI - Li.txt",
+    "guangdong_independent_practice/history/countries/HUA - Huai.txt",
+    "guangdong_independent_practice/history/countries/HYA - Hanyang.txt",
+    "guangdong_independent_practice/history/countries/HYM - Yang.txt",
     "guangdong_independent_practice/history/countries/HZH - Hezhou Huihui.txt",
+    "guangdong_independent_practice/history/countries/JJG - Jiujiang.txt",
     "guangdong_independent_practice/history/countries/JRG - Jiarong.txt",
     "guangdong_independent_practice/history/countries/JUU - Ju.txt",
     "guangdong_independent_practice/history/countries/KAM - Mdo Khams.txt",
     "guangdong_independent_practice/history/countries/KSD - Khoshuud.txt",
+    "guangdong_independent_practice/history/countries/LIO - Liao.txt",
     "guangdong_independent_practice/history/countries/LIU - Liu.txt",
     "guangdong_independent_practice/history/countries/LSH - Liangshan.txt",
     "guangdong_independent_practice/history/countries/LUO - Luo.txt",
     "guangdong_independent_practice/history/countries/LUU - Lu.txt",
     "guangdong_independent_practice/history/countries/MDL - Mongol Dali.txt",
     "guangdong_independent_practice/history/countries/NZA - Nanzhao.txt",
+    "guangdong_independent_practice/history/countries/OUE - Ou.txt",
     "guangdong_independent_practice/history/countries/QIN - Qin.txt",
     "guangdong_independent_practice/history/countries/QSH - Qunshu.txt",
+    "guangdong_independent_practice/history/countries/QVN - Quan.txt",
     "guangdong_independent_practice/history/countries/QWO - Quwo.txt",
     "guangdong_independent_practice/history/countries/SHE - Shen.txt",
     "guangdong_independent_practice/history/countries/SHU - Shu.txt",
@@ -521,6 +631,7 @@
     "guangdong_independent_practice/history/countries/WDU - Wudu.txt",
     "guangdong_independent_practice/history/countries/WEI - Wei.txt",
     "guangdong_independent_practice/history/countries/WGS - Wanggu Russia.txt",
+    "guangdong_independent_practice/history/countries/WHU - Wuhu.txt",
     "guangdong_independent_practice/history/countries/WLM - Wuling.txt",
     "guangdong_independent_practice/history/countries/WUU - Wu.txt",
     "guangdong_independent_practice/history/countries/WUZ - Wuzhong.txt",
@@ -531,13 +642,16 @@
     "guangdong_independent_practice/history/countries/YUE - Yue.txt",
     "guangdong_independent_practice/history/countries/ZHA - Zhao.txt",
     "guangdong_independent_practice/history/countries/ZHG - Zhougong.txt",
+    "guangdong_independent_practice/history/countries/ZHI - Zhi.txt",
+    "guangdong_independent_practice/history/countries/ZHO - Zhou.txt",
+    "guangdong_independent_practice/history/countries/ZHU - Zhou.txt",
     "guangdong_independent_practice/history/countries/ZNG - Zheng.txt",
     "guangdong_independent_practice/history/countries/ZSH - Zhongshan.txt"
   ],
   "validation": {
-    "province_count": 262,
-    "polity_count": 55,
-    "generated_tag_count": 44,
+    "province_count": 309,
+    "polity_count": 72,
+    "generated_tag_count": 59,
     "preserved_qi": [
       690,
       691,
@@ -554,29 +668,46 @@
       5222,
       5223
     ],
-    "expanded_yan": [
+    "yan_territory": [
       703,
-      726,
       1816,
-      2112,
-      2113,
-      4652,
       4672,
       5113,
       5114,
       5115,
       5116,
-      5204,
-      5205,
       5206,
       5207,
       5212,
-      5213
+      5213,
+      5353
     ],
+    "liao_territory": [
+      726,
+      2112,
+      2113,
+      4652,
+      5204,
+      5205
+    ],
+    "chu_vassals": {
+      "EGU": [
+        682,
+        5016
+      ],
+      "QVN": [
+        5010,
+        5343
+      ],
+      "ZHU": [
+        5015,
+        5344
+      ]
+    },
     "dae_capital": 5244,
     "badi_tag": "BD2",
     "adjacent_color_audit": {
-      "country_edge_count": 163,
+      "country_edge_count": 198,
       "minimum_required_delta_e": 12.0,
       "minimum_delta_e": 12.7,
       "closest_edges": [
@@ -589,6 +720,13 @@
         },
         {
           "tags": [
+            "BAA",
+            "DQU"
+          ],
+          "delta_e": 13.6
+        },
+        {
+          "tags": [
             "DAE",
             "YOU"
           ],
@@ -596,10 +734,31 @@
         },
         {
           "tags": [
-            "CHN",
-            "XU2"
+            "CSA",
+            "CZM"
           ],
-          "delta_e": 22.6
+          "delta_e": 18.6
+        },
+        {
+          "tags": [
+            "HUA",
+            "HYM"
+          ],
+          "delta_e": 21.2
+        },
+        {
+          "tags": [
+            "CCH",
+            "HUA"
+          ],
+          "delta_e": 22.8
+        },
+        {
+          "tags": [
+            "WXM",
+            "ZHI"
+          ],
+          "delta_e": 23.0
         },
         {
           "tags": [
@@ -621,63 +780,69 @@
             "LSH"
           ],
           "delta_e": 24.0
-        },
-        {
-          "tags": [
-            "SUI",
-            "XU2"
-          ],
-          "delta_e": 24.1
-        },
-        {
-          "tags": [
-            "LUO",
-            "SUI"
-          ],
-          "delta_e": 24.3
-        },
-        {
-          "tags": [
-            "CZM",
-            "WLM"
-          ],
-          "delta_e": 24.4
-        },
-        {
-          "tags": [
-            "CHN",
-            "GUO"
-          ],
-          "delta_e": 24.6
         }
       ]
     },
     "core_cleanup": {
       "exact": {
         "CHC": [
-          682,
           2172,
           4197,
-          4979,
-          4981,
           4982,
           4992,
           4994,
-          5010,
           5011,
           5012,
           5014,
-          5015,
+          5320,
+          5345
+        ],
+        "JJG": [
+          4979
+        ],
+        "HYA": [
+          4981
+        ],
+        "CSA": [
+          671,
+          4997,
+          4998,
+          5321,
+          5322
+        ],
+        "CDE": [
+          672
+        ],
+        "WLM": [
+          4996,
+          5312,
+          5313,
+          5316,
+          5317
+        ],
+        "EGU": [
+          682,
           5016
+        ],
+        "QVN": [
+          5010,
+          5343
+        ],
+        "ZHU": [
+          5015,
+          5344
         ],
         "MIN": [
           669,
           1829,
+          2152,
           4952,
           4953,
           4958,
+          5096,
           5097,
-          5098
+          5098,
+          5099
         ],
         "SHU": [
           679,
@@ -690,7 +855,8 @@
           5080,
           5083,
           5084,
-          5085
+          5085,
+          5331
         ],
         "WUU": [
           1821,
@@ -698,14 +864,57 @@
           2145,
           2146,
           2147,
-          4977,
           5022,
           5023,
           5024,
           5025,
           5057,
-          5066,
           5068
+        ],
+        "YUE": [
+          684,
+          2148,
+          2149,
+          2150,
+          4950,
+          4956,
+          4976,
+          5002,
+          5003,
+          5005,
+          5006
+        ],
+        "XU2": [
+          2141,
+          2142,
+          2144,
+          4196,
+          5018,
+          5020
+        ],
+        "HUA": [
+          1838,
+          2143,
+          5056,
+          5059,
+          5063,
+          5064
+        ],
+        "OUE": [
+          1824,
+          4951,
+          5007
+        ],
+        "HYM": [
+          685,
+          4977,
+          5021
+        ],
+        "WHU": [
+          5066
+        ],
+        "ZHO": [
+          5004
         ],
         "KAM": [
           678,
@@ -726,22 +935,46 @@
         ],
         "YAN": [
           703,
-          726,
           1816,
-          2112,
-          2113,
-          4652,
           4672,
           5113,
           5114,
           5115,
           5116,
-          5204,
-          5205,
           5206,
           5207,
           5212,
-          5213
+          5213,
+          5353
+        ],
+        "LIO": [
+          726,
+          2112,
+          2113,
+          4652,
+          5204,
+          5205
+        ],
+        "DQU": [
+          4211,
+          4987,
+          5332,
+          5333,
+          5339
+        ],
+        "ZHI": [
+          5027,
+          5336,
+          5337,
+          5338,
+          5340
+        ],
+        "HLI": [
+          666,
+          2160,
+          5301,
+          5302,
+          5303
         ]
       },
       "removed": {
@@ -787,10 +1020,13 @@
         "MNG": [
           663,
           666,
+          2160,
           2162,
           2164,
           4949,
           5217,
+          5301,
+          5302,
           5303
         ]
       }
