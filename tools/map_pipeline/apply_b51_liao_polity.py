@@ -52,7 +52,7 @@ from apply_b43_chunqiu_polities import (  # noqa: E402
 
 
 LIAODONG_IDS = (726, 5204, 5205, 2112, 4652, 2113)
-EXPECTED_DEVELOPMENT = {"YAN": 123, "LIO": 58}
+EXPECTED_DEVELOPMENT = {"YAN": 124, "LIO": 58}
 TAG_MARKER_BEGIN = "# GDD_B51_LIAO_POLITY_BEGIN"
 TAG_MARKER_END = "# GDD_B51_LIAO_POLITY_END"
 
@@ -133,7 +133,9 @@ def write_country() -> None:
         ),
         encoding="utf-8",
     )
-    (FLAGS / "LIO.tga").write_bytes(flag_bytes(config["color"]))
+    flag_path = FLAGS / "LIO.tga"
+    if not flag_path.exists():
+        flag_path.write_bytes(flag_bytes(config["color"]))
 
 
 def province_development(province_id: int) -> int:
@@ -178,8 +180,8 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
     history = read_text(COUNTRY_HISTORY / "LIO - Liao.txt")
     if initial_value(history, "capital") != "5204":
         raise ValueError("LIO capital must be Liaoyang (5204)")
-    if initial_value(history, "primary_culture") != "mongol":
-        raise ValueError("LIO must use mongol as the temporary Khitan gameplay proxy")
+    if initial_value(history, "primary_culture") != "gdd_khitan":
+        raise ValueError("LIO must use the dedicated Khitan culture")
     accepted = set(re.findall(r"(?m)^\s*add_accepted_culture\s*=\s*(\S+)", history))
     if accepted != {"manchu", "gdd_qi"}:
         raise ValueError(f"LIO accepted-culture policy drifted: {sorted(accepted)}")

@@ -2834,8 +2834,8 @@ utsang_area = { #4
 ngari_area = { #3
     2128 4516 4520
 } #new!!
-hebei_area = {
-    703 2136
+hebei_area = { # GDD_B55_SHANGGU_REFINEMENT
+    703 2136 5351 5352 5353
 }
 south_hebei_area = { # B31 Han land-contiguous area reorganisation
     2137 4195 5221 5220 5218 696

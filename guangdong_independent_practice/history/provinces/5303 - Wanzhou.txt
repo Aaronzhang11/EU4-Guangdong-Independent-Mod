@@ -2,6 +2,7 @@
 
 owner = CZC
 controller = CZC
+add_core = HLI
 add_core = CZC
 culture = gdd_min
 religion = confucianism

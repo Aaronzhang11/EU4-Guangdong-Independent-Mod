@@ -1,32 +1,36 @@
 {
   "batch": "B52_chu_vassals",
-  "purpose": "Restore three historically grounded small states as actual starting vassals of Chu without changing map geometry.",
+  "purpose": "Maintain four actual starting vassals of Chu without changing map geometry.",
   "worldview": {
     "EGU": "E, the eastern bronze-and-river gateway around Wuchang and Xingguo",
     "QVN": "Quan, restored around Anlu and Jingmen on the middle Han corridor",
-    "ZHU": "Zhou, restored in the Mianyang-Jianli lake and marsh country"
+    "ZHU": "Zhou, restored in the Mianyang-Jianli lake and marsh country",
+    "CSA": "Changsha, the southern Chu cadet state around the Xiang River"
   },
   "opening_territory": {
     "CHC": [4994, 4992, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 5320],
     "EGU": [682, 5016],
     "QVN": [5010, 5343],
-    "ZHU": [5015, 5344]
+    "ZHU": [5015, 5344],
+    "CSA": [671, 4998, 5321, 4997, 5322]
   },
   "opening_development": {
     "CHC": 105,
     "EGU": 27,
     "QVN": 8,
-    "ZHU": 6
+    "ZHU": 6,
+    "CSA": 39
   },
   "capitals": {
     "CHC": 2172,
     "EGU": 682,
     "QVN": 5343,
-    "ZHU": 5344
+    "ZHU": 5344,
+    "CSA": 671
   },
   "diplomacy": {
     "overlord": "CHC",
-    "subjects": ["EGU", "QVN", "ZHU"],
+    "subjects": ["EGU", "QVN", "ZHU", "CSA"],
     "relation": "vassal",
     "start_date": "1444.1.1",
     "end_date": "1821.1.1"
