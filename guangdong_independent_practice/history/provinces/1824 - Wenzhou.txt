@@ -1,8 +1,8 @@
 #1824 - Wenzhou (retained after Taizhou split)
 
-owner = YUE
-controller = YUE
-add_core = YUE
+owner = OUE
+controller = OUE
+add_core = OUE
 culture = gdd_wu
 religion = confucianism
 capital = "Wenzhou"

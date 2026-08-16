@@ -22,6 +22,19 @@ AREA_MEMBERS = {
     "chongqing_area": (680, 5026, 5027, 4987, 5028),
     "jingyi_shinan_area": (2172, 5015, 5010, 5013),
 }
+B46_INSTALLED = (ROOT / "planning/chuandongbei_chongqing_b46/batch_manifest.json").exists()
+B45_INSTALLED = (ROOT / "planning/hunan_jiangxi_refinement_b45/batch_manifest.json").exists()
+B37_INSTALLED = (ROOT / "planning/tianshui_user_edit_review/b37_formal_report.json").exists()
+
+if B37_INSTALLED:
+    # B37 is authoritative for the later Tianshui split.  Replaying B36 must
+    # not restore the pre-B37 four-province layout and orphan 5307-5309.
+    AREA_MEMBERS["longyou_area"] = (2180, 5291, 5307, 5308, 5309)
+    AREA_MEMBERS["xi_shaanxi_area"] = (2181, 5276, 5277, 5278, 5305, 5306)
+if B45_INSTALLED:
+    # B45 moved Gongan out of Dongting and into the reviewed Jingyi/Shinan
+    # crossing-connected area.  Preserve that terminal assignment on reruns.
+    AREA_MEMBERS["jingyi_shinan_area"] = (2172, 5015, 5010, 5013, 5014)
 
 YUNNAN_CHENGDU_CORRECTION = (662, 663, 5230, 5231, 5232, 5233, 5234, 5240, 5241)
 YUNNAN_ALL = {
@@ -60,6 +73,8 @@ def update_areas() -> None:
     path = MAP / "area.txt"
     text = path.read_text(encoding="cp1252", errors="strict")
     for key, province_ids in AREA_MEMBERS.items():
+        if B46_INSTALLED and key == "chongqing_area":
+            continue
         start, end = block_bounds(text, key)
         replacement = (
             f"{key} = {{ # {MARKER}\n"
@@ -148,10 +163,17 @@ def verify() -> None:
     area_text = (MAP / "area.txt").read_text(encoding="cp1252", errors="strict")
     areas = {key: audit.area_ids(body) for key, body in audit.blocks(area_text, "_area").items()}
     for key, expected in AREA_MEMBERS.items():
+        if B46_INSTALLED and key == "chongqing_area":
+            continue
         if tuple(areas.get(key, ())) != expected:
             raise ValueError(f"{key}: expected {expected}, got {areas.get(key)}")
 
-    targeted = {province_id for values in AREA_MEMBERS.values() for province_id in values}
+    targeted = {
+        province_id
+        for key, values in AREA_MEMBERS.items()
+        if not (B46_INSTALLED and key == "chongqing_area")
+        for province_id in values
+    }
     owners = {
         province_id: [key for key, values in areas.items() if province_id in values]
         for province_id in targeted
@@ -159,6 +181,35 @@ def verify() -> None:
     bad_owners = {province_id: values for province_id, values in owners.items() if len(values) != 1}
     if bad_owners:
         raise ValueError(f"Area membership is not unique: {bad_owners}")
+
+    # Check every locally controlled, physically present, initially owned
+    # province rather than only the four B36 area blocks.  Stale histories
+    # without a definition or bitmap pixels are intentionally excluded.
+    all_owners: dict[int, set[str]] = {}
+    for area, values in areas.items():
+        for province_id in values:
+            all_owners.setdefault(province_id, set()).add(area)
+    _by_id, by_color = audit.definitions()
+    present = audit.bitmap_presence(by_color)
+    locally_owned: set[int] = set()
+    for history in (MOD / "history/provinces").glob("*.txt"):
+        match = re.match(r"\s*(\d+)", history.name)
+        if not match:
+            continue
+        province_id = int(match.group(1))
+        body = history.read_text(encoding="cp1252", errors="replace")
+        if province_id in present and re.search(r"(?m)^\s*owner\s*=\s*[A-Z0-9]+\s*$", body):
+            locally_owned.add(province_id)
+    missing_areas = sorted(province_id for province_id in locally_owned if not all_owners.get(province_id))
+    duplicate_areas = {
+        province_id: sorted(all_owners[province_id])
+        for province_id in locally_owned
+        if len(all_owners.get(province_id, set())) > 1
+    }
+    if missing_areas:
+        raise ValueError(f"Playable local provinces missing an area: {missing_areas}")
+    if duplicate_areas:
+        raise ValueError(f"Playable local provinces in multiple areas: {duplicate_areas}")
 
     adjacency_text = (MAP / "adjacencies.csv").read_text(encoding="cp1252", errors="strict")
     pairs = {
@@ -185,8 +236,9 @@ def main() -> None:
     update_trade_companies()
     update_adjacency()
     verify()
+    active_area_count = len(AREA_MEMBERS) - int(B46_INSTALLED and "chongqing_area" in AREA_MEMBERS)
     print(
-        f"{MARKER}; AREAS:{len(AREA_MEMBERS)}; "
+        f"{MARKER}; AREAS:{active_area_count}; "
         f"YUNNAN_TO_CHENGDU:{len(YUNNAN_CHENGDU_CORRECTION)}; ADJACENCIES:1"
     )
 

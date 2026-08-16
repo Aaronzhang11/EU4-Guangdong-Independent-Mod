@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Minimally align Liuhe/Jiangning visual position slots with provinces.bmp."""
+"""Minimally align Jiangning/Liuhe visual position slots with provinces.bmp."""
 
 from __future__ import annotations
 
@@ -14,8 +14,8 @@ MARKER = "B39 Jiangning position alignment"
 # Land slots: city, unit, province text, trade, battle.
 # Port slots remain on the Lower Yangtze river province.
 TARGETS = {
-    1821: {"land": (4660.0, 1179.0), "port": (4654.0, 1185.0)},  # Liuhe
-    5056: {"land": (4652.0, 1186.0), "port": (4657.0, 1180.0)},  # Jiangning/Nanjing
+    1821: {"land": (4660.0, 1179.0), "port": (4654.0, 1185.0)},  # Jiangning
+    5056: {"land": (4652.0, 1186.0), "port": (4657.0, 1180.0)},  # Liuhe
 }
 
 

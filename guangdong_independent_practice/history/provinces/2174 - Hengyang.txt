@@ -1,20 +1,17 @@
 # 2174 - Hengzhou
 
-owner = CSA
-controller = CSA
-add_core = CMI
-add_core = CSA
+owner = HNG
+controller = HNG
+add_core = HNG
 culture = gdd_chu
 religion = confucianism
 capital = "Hengyang"
 trade_goods = gold
 hre = no
-base_tax = 4
-base_production = 4
-base_manpower = 5
+base_tax = 2
+base_production = 2
+base_manpower = 2
 is_city = yes
-center_of_trade = 1
-
 discovered_by = chinese
 discovered_by = nomad_group
 

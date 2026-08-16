@@ -39,12 +39,12 @@ P = (
     Province(5243,"朔州","Shuozhou","yanmen_area",(226,200,66),(226,200,66),"grain",(3,4,2)),
     Province(2177,"宁武","Ningwu","yanmen_area",(137,191,64),(89,162,208),"livestock",(2,3,3),0,True),
     Province(5244,"代州","Daizhou","yanmen_area",(65,172,104),(65,172,104),"livestock",(3,3,2),0,True),
-    Province(693,"太原","Taiyuan","shanxi_area",(58,164,160),(227,138,192),"cloth",(8,8,4),2,True),
+    Province(693,"太原","Taiyuan","shanxi_area",(58,164,160),(227,138,192),"cloth",(8,8,4),1,True,
     Province(5245,"忻州","Xinzhou","shanxi_area",(62,144,197),(62,144,197),"grain",(3,4,2)),
     Province(5246,"平定","Pingding","shanxi_area",(89,112,203),(89,112,203),"iron",(3,5,2)),
     Province(5247,"辽州","Liaozhou","shanxi_area",(137,91,198),(137,91,198),"iron",(2,4,2)),
     Province(5248,"汾州","Fenzhou","shanxi_area",(193,120,74),(193,120,74),"wine",(4,5,2)),
-    Province(2178,"潞安","Luan","shangdang_area",(63,126,95),(90,172,96),"iron",(5,5,3)),
+    Province(2178,"潞州","Luzhou","shangdang_area",(63,126,95),(90,172,96),"iron",(5,5,3)),
     Province(5251,"沁州","Qinzhou","shangdang_area",(75,135,174),(75,135,174),"grain",(3,3,2)),
     Province(5252,"泽州","Zezhou","shangdang_area",(111,90,160),(111,90,160),"iron",(3,6,2)),
     Province(5249,"绛州","Jiangzhou","shangdang_area",(201,116,92),(201,116,92),"grain",(3,3,2)),
@@ -67,6 +67,11 @@ AREA_NAMES = {
     "shangdang_area": ("上党", "潞安"),
     "hedong_area": ("河东", "平阳"),
 }
+
+
+# Lu'an is the inherited dependency filename; keeping it prevents a second
+# effective history for province 2178 after replaying this generator.
+HISTORY_FILENAMES = {2178: "2178 - Lu'an.txt"}
 
 
 def mask(values: np.ndarray, colour: tuple[int,int,int]) -> np.ndarray:
@@ -171,8 +176,10 @@ def history_text(p: Province) -> str:
 def update_histories() -> None:
     directory=MOD/"history/provinces"
     for p in P:
-        for old in directory.glob(f"{p.province_id} - *.txt"):old.unlink()
-        if p.area:(directory/f"{p.province_id} - {p.english}.txt").write_text(history_text(p),encoding="utf-8")
+        desired=directory/HISTORY_FILENAMES.get(p.province_id,f"{p.province_id} - {p.english}.txt")
+        for old in directory.glob(f"{p.province_id} - *.txt"):
+            if old != desired:old.unlink()
+        if p.area:desired.write_text(history_text(p),encoding="utf-8")
 
 
 def position_block(p: Province,x: int,y: int) -> str:

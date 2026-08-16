@@ -1,23 +1,25 @@
 {
   "batch": "B32_nanjing_semantic_relocation",
-  "purpose": "Move Nanjing-specific monuments and gameplay hooks from former province 1821 to Jiangning 5056",
-  "old_province": {
+  "purpose": "Keep Nanjing-specific monuments and gameplay hooks on original-slot Jiangning 1821; keep new Liuhe 5056 clear",
+  "jiangning": {
     "id": 1821,
-    "name": "Liuhe",
+    "name": "Jiangning",
     "rgb": [78, 100, 126]
   },
-  "new_province": {
+  "liuhe": {
     "id": 5056,
-    "name": "Jiangning (Nanjing)",
+    "name": "Liuhe",
     "rgb": [130, 104, 198]
   },
   "geometry_policy": "No provinces.bmp changes",
-  "history_policy": "Preserve reviewed split: Liuhe 2/2/1 grain; Jiangning 7/8/4 silk with fort_15th",
-  "relocated_features": [
+  "history_policy": "Jiangning 1821 keeps former Nanjing development 7/8/4; Liuhe 5056 keeps 2/2/1; goods and fort stay attached to their numeric IDs",
+  "jiangning_features": [
     "porcelain_tower_nanjing",
     "grand_canal_4",
     "estate_eunuchs_porcelain_tower_agenda",
     "ai_wants_chinese_capitals",
     "lost_control_of_nanjing"
+  ],
+  "liuhe_features": [
   ]
 }

@@ -198,11 +198,22 @@ COUNTRY_POLICY = {
     "MIN": ("gdd_min", ()),
     "SHU": ("gdd_shu", ()),
     "CHC": ("gdd_chu", ()),
+    "CDE": ("gdd_chu", ()),
+    "EGU": ("gdd_chu", ()),
+    "HYA": ("gdd_chu", ()),
+    "JJG": ("gdd_chu", ()),
+    "QVN": ("gdd_chu", ()),
+    "ZHU": ("gdd_chu", ()),
     "CXI": ("gdd_chu", ()),
     "NNG": ("gdd_gan", ()),
     "TNG": ("gdd_zhongyuan", ()),
     "LNG": ("gdd_zhongyuan", ()),
     "HUA": ("gdd_jianghuai", ()),
+    "LIO": ("mongol", ("manchu", "gdd_qi")),
+    "OUE": ("gdd_wu", ()),
+    "HYM": ("gdd_jianghuai", ()),
+    "WHU": ("gdd_wu", ()),
+    "ZHO": ("gdd_wu", ()),
     "CSH": ("gdd_long", ()),
     "LFA": ("gdd_hakka", ()),
     "FRM": ("gdd_min", ()),
@@ -218,6 +229,7 @@ COUNTRY_POLICY = {
     "CZM": ("miao", ()),
     "DIA": ("gdd_dian", ("yi",)),
     "GUI": ("gdd_gui", ("gdd_zhuang",)),
+    "HNG": ("gdd_chu", ("gdd_gui", "gdd_hakka")),
     "GYA": ("gdd_shu", ("miao",)),
     "HAK": ("gdd_hakka", ("gdd_min",)),
     "LCH": ("gdd_gan", ()),
@@ -241,6 +253,7 @@ COUNTRY_POLICY = {
     "CHN": ("gdd_zhongyuan", ()),
     "DAE": ("gdd_jin", ()),
     "DCH": ("gdd_diqiang", ()),
+    "DQU": ("gdd_shu", ("gdd_diqiang",)),
     "DZH": ("gdd_diqiang", ()),
     "GON": ("gdd_zhongyuan", ()),
     "GUN": ("gdd_zhongyuan", ()),
@@ -275,6 +288,7 @@ COUNTRY_POLICY = {
     "ZHG": ("gdd_zhongyuan", ()),
     "ZNG": ("gdd_zhongyuan", ()),
     "ZSH": ("gdd_yan", ("gdd_jin",)),
+    "ZHI": ("miao", ("gdd_shu",)),
 }
 
 # B43 intentionally reuses several vanilla tags.  Ordinary localisation does
@@ -293,7 +307,9 @@ COUNTRY_NAME_OVERRIDES = {
 }
 
 # Explicit non-culture terminal values retained by this transaction.  The
-# 1821/5056 development exchange is the user-approved post-document override.
+# latest user correction resolves the two physical slots by numeric ID:
+# Jiangning 1821 retains former Nanjing's development, while the newly split
+# Liuhe 5056 keeps the minor north-bank values.
 # The other entries reconcile B41's province semantics with B43's political
 # histories: ownership, cores and dated blocks stay untouched.
 INITIAL_HISTORY_OVERRIDES = {
@@ -312,9 +328,11 @@ INITIAL_HISTORY_OVERRIDES = {
     },
     5015: {
         "capital": '"Mianyang"',
-        "base_tax": "2",
-        "base_production": "2",
-        "base_manpower": "2",
+        # B47 split the former six-development province into Mianyang and
+        # Jianli; preserve the reviewed 1/1/1 retained half on replay.
+        "base_tax": "1",
+        "base_production": "1",
+        "base_manpower": "1",
     },
     5056: {"base_tax": "2", "base_production": "2", "base_manpower": "1"},
 }
@@ -858,8 +876,19 @@ def update_country_histories() -> None:
         )
         if count != 1:
             raise ValueError(f"Country {tag} lacks primary_culture in {path.name}")
+        policy_accepted = {
+            culture
+            for _policy_primary, policy_values in COUNTRY_POLICY.values()
+            for culture in policy_values
+        }
         managed_cultures = "|".join(
-            map(re.escape, sorted(set(OLD_TO_DEFAULT) | ALL_NEW_CULTURES, key=lambda value: (-len(value), value)))
+            map(
+                re.escape,
+                sorted(
+                    set(OLD_TO_DEFAULT) | ALL_NEW_CULTURES | policy_accepted,
+                    key=lambda value: (-len(value), value),
+                ),
+            )
         )
         text = re.sub(
             rf"(?m)^[ \t]*add_accepted_culture[ \t]*=[ \t]*(?:{managed_cultures})[ \t]*(?:\r?\n|$)",

@@ -1,4 +1,4 @@
-# 663 - Wenshan
+# 663 - Guangnan
 
 owner = NUN
 controller = NUN
@@ -6,7 +6,7 @@ add_core = CDL
 add_core = NUN
 culture = gdd_zhuang
 religion = animism
-capital = "Wenshan"
+capital = "Guangnan"
 trade_goods = iron
 base_tax = 2
 base_production = 2

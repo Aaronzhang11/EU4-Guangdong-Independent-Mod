@@ -1,0 +1,5 @@
+# B46 GeoJSON-guided Chongqing polity.
+graphical_culture = asiangfx
+
+color = { 161 86 151 }
+revolutionary_colors = { 6 3 6 }

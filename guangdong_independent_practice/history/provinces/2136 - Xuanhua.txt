@@ -1,11 +1,11 @@
-# 2136 - Xuanhua
+# 2136 - Shanggu
 
 owner = ZSH
 controller = ZSH
 add_core = ZSH
 culture = gdd_jin
 religion = confucianism
-capital = "Xuanhua"
+capital = "Shanggu"
 trade_goods = grain
 hre = no
 base_tax = 3 

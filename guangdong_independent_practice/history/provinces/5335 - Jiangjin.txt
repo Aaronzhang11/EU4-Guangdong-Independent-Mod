@@ -1,0 +1,21 @@
+# 5335 - Jiangjin
+
+owner = BAA
+controller = BAA
+add_core = BAA
+culture = gdd_shu
+religion = confucianism
+capital = "Jiangjin"
+trade_goods = wine
+base_tax = 2
+base_production = 3
+base_manpower = 1
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group
+
+1644.10.1 = { owner = CXI controller = CXI }
+1655.1.1 = { discovered_by = SPA }
+1659.7.1 = { owner = QNG controller = QNG }
+1673.12.1 = { controller = CZH }
+1680.1.1 = { controller = QNG }

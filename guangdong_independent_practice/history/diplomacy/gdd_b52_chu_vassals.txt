@@ -1,0 +1,19 @@
+# B52: restored Chu-affiliated small states.
+vassal = {
+	first = CHC
+	second = EGU
+	start_date = 1444.1.1
+	end_date = 1821.1.1
+}
+vassal = {
+	first = CHC
+	second = QVN
+	start_date = 1444.1.1
+	end_date = 1821.1.1
+}
+vassal = {
+	first = CHC
+	second = ZHU
+	start_date = 1444.1.1
+	end_date = 1821.1.1
+}

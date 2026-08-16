@@ -49,7 +49,7 @@ P = (
     Province(5290,"岷州","Minzhou","longnan_area",(141,71,29),"livestock",(2,2,2),"gdd_diqiang","vajrayana"),
     Province(5291,"巩昌","Gongchang","longnan_area",(224,208,220),"grain",(3,3,2),"gdd_long","confucianism"),
     Province(2184,"西宁","Xining","gansu_area",(61,99,165),"salt",(4,3,3),"gdd_long","vajrayana"),
-    Province(699,"兰州","Lanzhou","gansu_area",(144,236,110),"copper",(5,5,3),"gdd_long","confucianism",cot=2),
+    Province(699,"兰州","Lanzhou","gansu_area",(144,236,110),"copper",(5,5,3),"gdd_long","confucianism",cot=1),
     Province(5292,"碾伯","Nianbo","gansu_area",(227,127,55),"grain",(2,2,2),"gdd_long","vajrayana"),
     Province(5293,"河州","Hezhou Gansu","gansu_area",(64,18,246),"livestock",(2,3,2),"gdd_long","vajrayana"),
     Province(5294,"狄道","Didao","gansu_area",(147,155,191),"grain",(3,2,2),"gdd_long","confucianism"),
@@ -265,8 +265,9 @@ def update_positions(centres: dict[int, tuple[int, int]]) -> None:
 
 def update_memberships() -> None:
     new_ids = list(range(5286, 5301))
-    xian_new = [5286,5287,5288,5289,5290,5291,5293,5294]
-    yumen_new = [5292,5295,5296,5297,5298,5299,5300]
+    xian_new = [5286,5287,5288,5289,5290,5291,5292,5293,5294,5295,5296,5297]
+    # 5298 is a retired zero-pixel orphan; only Kuyu and Shazhou remain in Yumen.
+    yumen_new = [5299,5300]
 
     path = MAP / "continent.txt"
     text = append_ids(path.read_text(encoding="cp1252"), "asia", new_ids, MARKER)

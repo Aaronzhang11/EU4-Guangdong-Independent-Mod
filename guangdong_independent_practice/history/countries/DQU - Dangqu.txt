@@ -1,0 +1,10 @@
+# B46 Dangqu polity.
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_shu
+add_accepted_culture = gdd_diqiang
+capital = 5333
+fixed_capital = 5333

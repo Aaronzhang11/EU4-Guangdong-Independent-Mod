@@ -327,73 +327,47 @@ trade_company_indochina = {
 }
 
 trade_company_south_china = {
-    color = { 100 230 20 }
+    color = { 38 166 126 }
 
-    provinces = {
-        2161 1371 610 613 616 664 665 666 667 668 672 738 1016 1840 2154 2155 2156 2157 2158 2159 2160 2162 2163 2164 2173 2174 2372 671 2373 673 674 4199
-        4820 4819 4821
-        4942 4943 4944 4945 4946 4947 4948 4949 4954 4955 4959 4960 4961 4982 4983 4996 4997 4998 4999 5000 5001 # B01 Guangdong, P02 Guangxi/Taiwan and B07 Hunan
-    5200 5201 5202 5203 5208 5210 # B28 Guangxi 14-province refinement
-    5214 5215 # B29 Huizhou 3-province refinement
-    5216 5217 # B30 Yuebei-Chaoshan refinement
-        5069 5070 5071 5072 5073 5074 # B17 Guizhou refinement
-    5301 5302 5303 # B27 Hainan five-province refinement
+    provinces={
+        610 613 616 664 665 666 667 668 669 738 1016 1829 1840 2152 2153 2154 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        2155 2156 2157 2158 2159 2160 2161 2162 2163 2164 2372 2373 4819 4820 4821 4942
+        4943 4944 4945 4946 4947 4948 4949 4952 4953 4954 4955 4957 4958 4959 4960 4961
+        5096 5097 5098 5099 5100 5200 5201 5202 5203 5208 5210 5214 5215 5216 5217 5301
+        5302 5303
     }
 
-    # Specific
-    # Generic
     names = {
-        name = "TRADE_COMPANY_SOUTH_CHINA_Root_Culture_GetName"
-    }
-    names = {
-        name = "TRADE_COMPANY_SOUTH_CHINA_China_Trade_Company"
+        name = "GDD_TRADE_COMPANY_CANTON"
     }
 }
 
 trade_company_east_china = {
-    color = { 178 34 34 }
+    color = { 236 196 52 }
 
-    provinces = {
-        669 670 683 684 685 686 1821 1822 1824 1829 1833 1838 1897 2143 2144 2145 2146 2147 2148 2149 2150 2151 2152 2153
-        2141 2142 4196 #North Jiangsu
-        4950 4951 4952 4953 4956 4957 4958 4979 4980 4992 4993 4994 4995 5002 5003 5004 5005 5006 5007 # P02/B06 Zhejiang and Fujian plus B07 Jiangxi
-        4976 4977 5018 5020 5021 5022 5023 5024 5025 # B11 Jiangsu refinement
-        5056 5057 # B15 Yingtian refinement
-        5058 5059 5060 5061 5062 5063 5064 5065 5066 5067 5068 # B16 Anhui refinement
-        5096 5097 5098 5099 5100 # B19 Fujian 13-province refinement
-}
-
-    # Specific
-    # Generic
-    names = {
-        name = "TRADE_COMPANY_EAST_CHINA_Root_Culture_GetName"
+    provinces={
+        684 685 686 1821 1822 1824 1838 2141 2142 2143 2144 2145 2146 2147 2148 2149 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        2150 4196 4950 4951 4956 4976 4977 5002 5003 5004 5005 5006 5007 5018 5020 5021
+        5022 5023 5024 5025 5056 5057 5058 5059 5060 5061 5062 5063 5064 5065 5066 5067
+        5068
     }
+
     names = {
-        name = "TRADE_COMPANY_EAST_CHINA_China_Trade_Company"
+        name = "GDD_TRADE_COMPANY_HANGZHOU"
     }
 }
 
 trade_company_north_china = {
-    color = { 60 60 255 }
+    color = { 87 106 151 }
 
-    provinces = {
-        690 691 702 2138 2139 2140 2114 2747 4671
-        703 1816 2136 4194 #North Hebei
-        695 696 2137 4195 #South Hebei
-        704 726 2112 2113 4652  #Liaoning
-        5204 5205 5206 5207 5209 # B27 Liaoning 10-province refinement
-        693 694 697 2177 2178 #Shanxi
-        4670
-    5242 5243 5244 5245 5246 5247 5248 5251 5252 5249 5250 5255 5256 5253 5254 # B23 Shanxi 20-province refinement
-}
-
-    # Specific
-    # Generic
-    names = {
-        name = "TRADE_COMPANY_NORTH_CHINA_Root_Culture_GetName"
+    provinces={
+        693 694 695 696 697 703 704 1816 2136 2137 2177 2178 4194 4195 5113 5114 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        5115 5116 5206 5207 5209 5211 5212 5213 5218 5219 5220 5221 5222 5223 5242 5243
+        5244 5245 5246 5247 5248 5249 5250 5251 5252 5253 5254 5255 5256
     }
+
     names = {
-        name = "TRADE_COMPANY_NORTH_CHINA_China_Trade_Company"
+        name = "GDD_TRADE_COMPANY_BEIJING"
     }
 }
 
@@ -1238,6 +1212,7 @@ trade_company_girin = {
         1850 1049 2107 2108 2111 2106 2186 1058 2102 2104 1053 2103 1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044 1046 1047 1052 1783 2438 2439 2440 2446 1055 1056 1057 730 2110 2188 4201 1033 1048 1050 4214 4216 729 731 2105 4215 4217 722 2109 2187 4202 4203 724 725 4218 727 728 2185 4200
         4654 4655 4656 4657 4658 4659 4660 4661 4662 4653 4663
         4664 4665 4674 4675 4672 2115
+        726 2112 2113 4652 5204 5205 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
     }
 
     # Specific
@@ -1276,10 +1251,11 @@ trade_company_yumen = {
     color = { 115 93 58 }
 
     provinces = {
-        710 1786 707 708 711 714 719 1784 2118 2119 2123 2189 2190 2194 2182 2184 2122 4206 4207 717 721 2116 4219 4220 720 2193 4221 713 715 2120 4208 718 2117 4222 712 2121 2192
+        710 1786 707 711 714 719 1784 2118 2119 2123 2189 2190 2194 2122 4206 4207 717 721 2116 4219 4220 720 2193 4221 713 715 2120 4208 718 2117 4222 712 2121 2192
         4673 4666 4667 723 4669 4668 4681 4683 4682 4678 4677 4680 4684 4693
-    5292 5295 5296 5297 5299 5300 # B35 orphan hotfix: 5298 has no map pixels
-}
+    5299 5300 # B35 orphan hotfix: 5298 has no map pixels
+        701 702 709 2114 2191 2747 4223 4670 4671 4676 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+    }
 
     # Specific
     # Generic
@@ -1292,47 +1268,30 @@ trade_company_yumen = {
 }
 
 trade_company_xian = {
-    color = { 159 112 119 }
+    color = { 205 142 55 }
 
-    provinces = {
-        687 1836 2181 2180 698 699 688 2183 2175 2176 681 682 2171 2172 4197 689 700 2179 4198 701 709 2191 4223 # B35 orphan hotfix: 692 has no map pixels
-        4676
-        4981 5008 5009 5010 5011 5012 5013 5014 5015 5016 # B10 Hubei refinement
-        4966 5030 5031 # B03 Kaifeng royal domain
-        4967 5045 5046 5047 5048 5049 5050 5051 5052 5053 5054 5055 # B14 Henan refinement
-    5286 5287 5288 5289 5290 5291 5293 5294 # B26 Gansu-Ningxia 23-province refinement Xian
-    5305 5306 # B34 Longyou refinement Xian
-    5307 5308 5309 # B37 Tianshui user refinement Xian
-}
-
-    # Specific
-    # Generic
-    names = {
-        name = "TRADE_COMPANY_XIAN_Root_Culture_GetName"
+    provinces={
+        689 698 699 700 708 2179 2180 2181 2182 2183 2184 4198 5265 5266 5267 5268 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        5269 5270 5271 5272 5273 5274 5275 5276 5277 5278 5283 5284 5285 5286 5287 5288
+        5289 5290 5291 5292 5293 5294 5295 5296 5297 5305 5306 5307 5308 5309
     }
+
     names = {
-        name = "TRADE_COMPANY_XIAN_Asia_Trade_Company"
+        name = "GDD_TRADE_COMPANY_XIAN"
     }
 }
 
 trade_company_chengdu = {
-    color = { 196 157 34 }
+    color = { 186 96 96 }
 
-    provinces = {
-        2132 2167 678 2135 2131 2133 660 661 2165 2166 679 680 4212 2169 2170 4211 675 2168 2748 4213
-        4987 5026 5027 5028 # B09 Chongqing five-way split
-        5075 5076 5077 5078 5079 5080 5081 5082 5083 5084 5085 5086 5087 5088 5089 5090 5091 5092 5093 5094 5095 # B18 Sichuan 36-province refinement
-        5224 5225 5226 5227 5228 5229 5235 5236 5237 5238 5239 # B22 Yunnan 26-province refinement Chengdu company
-        662 663 5230 5231 5232 5233 5234 5240 5241 # B36 area and trade-company consistency
+    provinces={
+        678 679 680 2133 2135 2169 2170 2748 4211 4212 4213 4987 5026 5027 5028 5075 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        5076 5077 5078 5079 5080 5081 5082 5083 5084 5085 5086 5087 5088 5089 5090 5091
+        5092 5093 5094 5095 5329 5330 5331 5332 5333 5334 5335 5336 5337 5338 5339 5340
     }
 
-    # Specific
-    # Generic
     names = {
-        name = "TRADE_COMPANY_CHENGDU_Root_Culture_GetName"
-    }
-    names = {
-        name = "TRADE_COMPANY_CHENGDU_Asia_Trade_Company"
+        name = "GDD_TRADE_COMPANY_CHENGDU"
     }
 }
 
@@ -1341,9 +1300,10 @@ trade_company_lhasa = {
 
     provinces = {
         2129 2128 676 705 706 2134 4204 677 2130 4205
-        565 4481 4482 #bhutan_area
-        557 2070 2071 4483 4485 #nepal_area
-        4514 4515 4516 4517 4518 4519 4520 #new tibetan provinces
+        565 4481 4482 # bhutan_area
+        557 2070 2071 4483 4485 # nepal_area
+        4514 4515 4516 4517 4518 4519 4520 # new tibetan provinces
+        2131 2132 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
     }
 
     # Specific
@@ -1400,5 +1360,48 @@ trade_company_polynesia = {
     }
     names = {
         name = "TRADE_COMPANY_POLYNESIA_Oceania_Trade_Company"
+    }
+}
+
+trade_company_huguang = {
+    color = { 112 174 76 }
+
+    provinces={
+        670 671 672 681 682 683 1833 2151 2171 2172 2173 2174 2175 4197 4979 4980 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        4981 4982 4983 4992 4993 4994 4995 4996 4997 4998 4999 5000 5001 5008 5009 5010
+        5011 5012 5013 5014 5015 5016 5312 5313 5314 5315 5316 5317 5318 5319 5320 5321
+        5322 5323 5324 5325 5326 5327 5328 5341 5342 5343 5344 5345 5346 5350
+    }
+
+    names = {
+        name = "GDD_TRADE_COMPANY_HUGUANG"
+    }
+}
+
+trade_company_yungui = {
+    color = { 145 104 181 }
+
+    provinces={
+        660 661 662 663 673 674 675 2165 2166 2167 2168 4199 5069 5070 5071 5072 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        5073 5074 5224 5225 5226 5227 5228 5229 5230 5231 5232 5233 5234 5235 5236 5237
+        5238 5239 5240 5241
+    }
+
+    names = {
+        name = "GDD_TRADE_COMPANY_YUNGUI"
+    }
+}
+
+trade_company_zhongyuan = {
+    color = { 76 137 194 }
+
+    provinces={
+        687 688 690 691 1836 2138 2139 2140 2176 4966 4967 5030 5031 5045 5046 5047 # GDD_B49_EIGHT_NODE_TRADE_NETWORK
+        5048 5049 5050 5051 5052 5053 5054 5055 5101 5102 5103 5104 5105 5106 5107 5108
+        5109 5110 5111 5112 5347 5348 5349
+    }
+
+    names = {
+        name = "GDD_TRADE_COMPANY_ZHONGYUAN"
     }
 }

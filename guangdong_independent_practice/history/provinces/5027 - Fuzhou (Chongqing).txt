@@ -1,19 +1,19 @@
 # 5027 - Fuzhou (Chongqing)
 
-owner = WLM
-controller = WLM
-add_core = WLM
-add_core = CXI
+owner = ZHI
+controller = ZHI
+add_core = ZHI
 culture = miao
-religion = confucianism
+religion = animism
 capital = "Fuzhou"
 trade_goods = paper
-base_tax = 4
-base_production = 4
-base_manpower = 2
+base_tax = 1
+base_production = 2
+base_manpower = 1
 is_city = yes
 discovered_by = chinese
 discovered_by = nomad_group
+discovered_by = indian
 
 1644.10.1 = { owner = CXI controller = CXI }
 1655.1.1 = { discovered_by = SPA }

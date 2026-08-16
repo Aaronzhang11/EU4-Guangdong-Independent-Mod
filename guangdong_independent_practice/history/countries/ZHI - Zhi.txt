@@ -1,0 +1,10 @@
+# B46 Zhi polity.
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+technology_group = chinese
+religion = animism
+primary_culture = miao
+add_accepted_culture = gdd_shu
+capital = 5027
+fixed_capital = 5027

@@ -1,0 +1,22 @@
+# 5340 - Shizhu
+
+owner = ZHI
+controller = ZHI
+add_core = ZHI
+culture = miao
+religion = animism
+capital = "Shizhu"
+trade_goods = livestock
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+discovered_by = chinese
+discovered_by = nomad_group
+discovered_by = indian
+
+1644.10.1 = { owner = CXI controller = CXI }
+1655.1.1 = { discovered_by = SPA }
+1659.7.1 = { owner = QNG controller = QNG }
+1673.12.1 = { controller = CZH }
+1680.1.1 = { controller = QNG }

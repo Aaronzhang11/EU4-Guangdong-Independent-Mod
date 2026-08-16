@@ -19,18 +19,21 @@ MAP = MOD / "map"
 OUT = ROOT / "planning/guangdong"
 MARKER = "B30 Yuebei-Chaoshan refinement"
 PARENTS = {
-    2158: ((65, 46, 176), ("韶关", (4577, 998)), ("连州", (4558, 990))),
+    2158: ((65, 46, 176), ("韶州", (4577, 998)), ("连州", (4558, 990))),
     2156: ((146, 81, 81), ("潮州", (4626, 1004)), ("普宁", (4624, 1020))),
 }
 # id: English, Chinese, colour, goods, development, culture, owner, extra core
 PROVINCES = {
-    2158: ("Shaoguan", "韶关", (65, 46, 176), "iron", (2, 3, 1), "gdd_guangfu", "GDD", "HUA"),
-    5216: ("Lianzhou", "连州", (69, 150, 92), "livestock", (2, 2, 1), "gdd_hakka", "GDD", "HUA"),
+    2158: ("Shaozhou", "韶州", (65, 46, 176), "iron", (2, 3, 1), "gdd_guangfu", "GDD", "HUA"),
+    5216: ("Lianzhou", "连州", (69, 150, 92), "livestock", (2, 2, 1), "gdd_hakka", "HNG", "HUA"),
     2156: ("Chaozhou", "潮州", (146, 81, 81), "chinaware", (3, 3, 2), "gdd_min", "MNG", "MIN"),
     5217: ("Puning", "普宁", (213, 91, 149), "grain", (2, 3, 1), "gdd_min", "MNG", "MIN"),
     4949: ("Haifeng", "海丰", (67, 219, 198), "salt", (1, 1, 1), "gdd_min", "GDD", "YUE"),
 }
 NEW_IDS = [5216, 5217]
+
+# Preserve the dependency filename while the actual province becomes Shaozhou.
+HISTORY_FILENAMES = {2158: "2158 - Shiukwan.txt"}
 
 
 def block_bounds(text, name):
@@ -217,9 +220,11 @@ def update_histories():
                  2156: chaozhou_timeline, 5217: chaozhou_timeline, 4949: haifeng_timeline}
     directory = MOD / "history/provinces"
     for pid, data in PROVINCES.items():
+        desired = directory / HISTORY_FILENAMES.get(pid, f"{pid} - {data[0]}.txt")
         for old in directory.glob(f"{pid} - *.txt"):
-            old.unlink()
-        (directory / f"{pid} - {data[0]}.txt").write_text(history_text(pid, data, timelines[pid]))
+            if old != desired:
+                old.unlink()
+        desired.write_text(history_text(pid, data, timelines[pid]))
 
 
 def position_block(pid, name, x, y):
@@ -254,7 +259,7 @@ def update_localisation():
     for pid, (_name, chinese, *_rest) in sorted(PROVINCES.items()):
         lines += [f' PROV{pid}:0 "{chinese}"', f' PROV_ADJ{pid}:0 "{chinese}"']
     lines += [
-        ' guangdong_area:0 "粤北"', ' guangdong_area_name:0 "韶关"', ' guangdong_area_adj:0 "粤北"',
+        ' guangdong_area:0 "粤北"', ' guangdong_area_name:0 "韶州"', ' guangdong_area_adj:0 "粤北"',
         ' chaoshan_area:0 "潮汕"', ' chaoshan_area_name:0 "潮州"', ' chaoshan_area_adj:0 "潮汕"',
         ' dongjiang_area:0 "东江"', ' dongjiang_area_name:0 "惠州"', ' dongjiang_area_adj:0 "东江"',
     ]
@@ -282,7 +287,7 @@ def render_preview(bitmap, sizes):
     lx = map_image.width + 24
     draw.text((lx, 20), "粤北、潮汕细化 · 正式实装", fill=(24, 24, 24), font=font(27))
     lines = [
-        ("粤北", "韶关 · 连州 · 南雄"),
+        ("粤北", "韶州 · 连州 · 南雄"),
         ("潮汕", "潮州 · 普宁 · 海丰"),
         ("东江", "惠州 · 河源 · 龙川 · 梅州"),
     ]
@@ -292,7 +297,7 @@ def render_preview(bitmap, sizes):
         draw.text((lx, y + 37), members, fill=(70, 70, 70), font=font(16))
     draw.text((lx, 385), f"连州：{sizes['连州']}像素", fill=(55, 55, 55), font=font(17))
     draw.text((lx, 420), f"普宁：{sizes['普宁']}像素", fill=(55, 55, 55), font=font(17))
-    draw.text((lx, 475), "东莞、香港及广东外边界未改动", fill=(60, 85, 60), font=font(16))
+    draw.text((lx, 475), "东莞、屯门及广东外边界未改动", fill=(60, 85, 60), font=font(16))
     canvas.save(OUT / "yuebei_chaoshan_applied_preview.png")
 
 

@@ -1,23 +1,23 @@
-#1816 - Beijing
+# 1816 - Ji
 
 owner = YAN
 controller = YAN
 add_core = YAN
 culture = gdd_yan
 religion = confucianism
-capital = "Beijing"
+capital = "Ji"
 trade_goods = grain
 hre = no
 base_tax = 13
 base_production = 13
 base_manpower = 5
 is_city = yes
+center_of_trade = 2 # GDD_B48_TRADE_CENTER_REBALANCE
 fort_15th = yes #the Nine Garrisons
 add_core = YAN
 discovered_by = chinese
 discovered_by = nomad_group
 extra_cost = 16
-center_of_trade = 2
 
 1519.1.1 = { discovered_by = POR } # Tome Pires
 1542.1.1 = { unrest = 5 } # Assassination attemp on Shi Zong

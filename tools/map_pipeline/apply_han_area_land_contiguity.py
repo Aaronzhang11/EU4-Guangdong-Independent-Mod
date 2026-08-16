@@ -29,13 +29,11 @@ MOVES = {
     5239: "dianxinan_area",           # Mengla
     2165: "diannan_area",             # Simao
     5237: "diannan_area",             # Zhenyuan
-    2173: "dongting_area",            # Chenzhou (west Hunan)
     4982: "hunan_area",               # Yuezhou
     4983: "southwest_hunan_area",     # Baoqing
     681: "hanjiang_xiangyun_area",    # Yiling
-    5010: "jingyi_shinan_area",       # Chengtian
+    5010: "jingyi_shinan_area",       # Anlu
     5013: "jingyi_shinan_area",       # Shizhou
-    5014: "dongting_area",            # Gongan
     5028: "chongqing_area",           # Kuizhou
     5272: "changan_area",             # Shangzhou
     696: "south_hebei_area",          # Baoding: connects Yizhou to Zhending
@@ -44,8 +42,12 @@ MOVES = {
     5291: "xi_shaanxi_area",          # Gongchang
     5059: "jianghuai_area",           # Shouzhou
     2175: "dean_qihuang_area",        # Xinyang
-    1821: "huaiyang_tongtai_area",    # Liuhe
+    1821: "huaiyang_tongtai_area",    # Jiangning
 }
+if (ROOT / "planning/chuandongbei_chongqing_b46/batch_manifest.json").exists():
+    # B46 places Kuizhou in the dedicated Xiajiang area.  The older B31 move
+    # remains valid only before the reviewed second Sichuan refinement exists.
+    MOVES.pop(5028, None)
 
 EMPTY_REFERENCES = {692, 5298}  # Huaiqing and Guazhou have no bitmap pixels.
 
