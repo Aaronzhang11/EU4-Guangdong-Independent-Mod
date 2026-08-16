@@ -223,7 +223,7 @@ POLITIES = {
     "EGU": {"file": "B52_E.txt", "history": "EGU - E.txt", "capital": 682, "rank": 1, "color": MUTED_COUNTRY_COLORS["EGU"]},
     "QVN": {"file": "B52_Quan.txt", "history": "QVN - Quan.txt", "capital": 5343, "rank": 1, "color": MUTED_COUNTRY_COLORS["QVN"]},
     "ZHU": {"file": "B52_Zhou.txt", "history": "ZHU - Zhou.txt", "capital": 5344, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHU"]},
-    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "mongol", "accepted": ("manchu", "gdd_qi")},
+    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "gdd_khitan", "accepted": ("manchu", "gdd_qi"), "preserve_flag": True},
     "HUA": {"file": "B50_Huai.txt", "history": "HUA - Huai.txt", "capital": 5059, "rank": 1, "color": MUTED_COUNTRY_COLORS["HUA"]},
     "OUE": {"file": "B50_Ou.txt", "history": "OUE - Ou.txt", "capital": 1824, "rank": 1, "color": MUTED_COUNTRY_COLORS["OUE"]},
     "HYM": {"file": "B50_Yang.txt", "history": "HYM - Yang.txt", "capital": 685, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYM"], "government": "republic", "reform": "oligarchy_reform"},
@@ -1018,7 +1018,7 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         "yan_territory": sorted(TAG_PROVINCES["YAN"]),
         "liao_territory": sorted(TAG_PROVINCES["LIO"]),
         "chu_vassals": {
-            tag: sorted(TAG_PROVINCES[tag]) for tag in ("EGU", "QVN", "ZHU")
+            tag: sorted(TAG_PROVINCES[tag]) for tag in ("EGU", "QVN", "ZHU", "CSA")
         },
         "dae_capital": 5244,
         "badi_tag": "BD2",
@@ -1166,7 +1166,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             "geometry": "unchanged",
             "huzhou": "YUE owns and cores 4950",
             "eastern_balance": "B50 splits Huai, Ou, Yang, Wu and Zhou from WUU/YUE/XU2",
-            "chu_vassals": "B52 splits E, Quan and Zhou from CHC as starting vassals",
+            "chu_vassals": "B52 makes E, Quan, Zhou and Changsha starting vassals of CHC",
             "changsha_public_cities": "B54 gives Yiyang and Anhua to CSA and releases Changde, Jiujiang and Hanyang as public cities",
             "shangqiu": "SNG owns and cores 2176",
             "badi_tag": "BD2; legacy BAS removed",

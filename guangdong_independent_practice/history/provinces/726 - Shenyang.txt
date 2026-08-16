@@ -3,7 +3,7 @@
 owner = LIO
 controller = LIO
 add_core = LIO
-culture = manchu
+culture = gdd_khitan
 religion = confucianism
 capital = "Shenyang"
 trade_goods = cloth

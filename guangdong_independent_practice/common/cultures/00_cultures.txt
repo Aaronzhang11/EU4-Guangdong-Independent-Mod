@@ -32195,6 +32195,13 @@ altaic = {
     "üf‰" 	# Mansi
     "Ilyr" 	# Khantys
   }
+
+	gdd_khitan = {
+		primary = LIO
+		dynasty_names = { Yelu Xiao Shulv Diela Bali Yishi Punu Nieliji }
+		male_names = { Abaoji Deguang Ruan Jing Xian Zongzhen Hongji Yanxi Dashi Bei Longxu Xianshi }
+		female_names = { Shulu Chengtian Guanyin Yanyan Pusage Hutujin }
+	}
 }
 central_american = {
   graphical_culture = southamericagfx

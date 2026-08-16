@@ -1,7 +1,7 @@
 # 诸夏—百越—殷商—羌文化重构分配摘要
 
 - 批次：B41 approved Han-Baiyue-Yinshang-Qiang culture overhaul
-- 已更新省份历史：401
+- 已更新省份历史：403
 - 诸夏文化：12
 - 百越文化：6
 - 殷商文化：3
@@ -35,3 +35,4 @@
 | `bai` | 白 | 4 |
 | `yi` | 彝 | 15 |
 | `gdd_qiongli` | 琼黎 | 3 |
+| `gdd_khitan` | 契丹 | 2 |

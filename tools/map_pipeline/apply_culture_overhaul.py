@@ -85,6 +85,7 @@ CULTURE_DISPLAY = {
     **{key: value[0] for key, value in QIANG_CUSTOM_CULTURES.items()},
     **{key: value[0] for key, value in MOVED_INHERITED_CULTURES.items()},
     "gdd_qiongli": "琼黎",
+    "gdd_khitan": "契丹",
 }
 ALL_NEW_CULTURES = set(CULTURE_DISPLAY)
 
@@ -204,7 +205,7 @@ COUNTRY_POLICY = {
     "TNG": ("gdd_zhongyuan", ()),
     "LNG": ("gdd_zhongyuan", ()),
     "HUA": ("gdd_jianghuai", ()),
-    "LIO": ("mongol", ("manchu", "gdd_qi")),
+    "LIO": ("gdd_khitan", ("manchu", "gdd_qi")),
     "OUE": ("gdd_wu", ()),
     "HYM": ("gdd_jianghuai", ()),
     "WHU": ("gdd_wu", ()),
@@ -643,6 +644,18 @@ def culture_entry(key: str, primary: str | None) -> str:
     )
 
 
+def khitan_culture_entry() -> str:
+    """Dedicated Khitan names instead of the generic Sinitic fallback pool."""
+    return (
+        "\tgdd_khitan = {\n"
+        "\t\tprimary = LIO\n"
+        "\t\tdynasty_names = { Yelu Xiao Shulv Diela Bali Yishi Punu Nieliji }\n"
+        "\t\tmale_names = { Abaoji Deguang Ruan Jing Xian Zongzhen Hongji Yanxi Dashi Bei Longxu Xianshi }\n"
+        "\t\tfemale_names = { Shulu Chengtian Guanyin Yanyan Pusage Hutujin }\n"
+        "\t}"
+    )
+
+
 def matching_brace(text: str, opening: int) -> int:
     depth = 1
     quoted = False
@@ -806,6 +819,12 @@ def write_culture_definitions() -> None:
         {"gdd_qiongli"},
         (culture_entry("gdd_qiongli", "HLI"),),
     )
+    inherited = rewrite_group(
+        inherited,
+        "altaic",
+        {"gdd_khitan"},
+        (khitan_culture_entry(),),
+    )
     marker = f"# {MARKER}: shadows inherited common/cultures/00_cultures.txt and removes superseded cultures\n"
     (directory / "00_cultures.txt").write_bytes((marker + inherited).encode("latin-1"))
 
@@ -830,7 +849,7 @@ def write_culture_definitions() -> None:
     if remaining_old:
         raise ValueError(f"Inherited culture definitions survived replacement: {sorted(remaining_old)}")
     inherited_targets = direct_definitions(inherited, ALL_NEW_CULTURES)
-    expected_inherited = set(HAN_CULTURES) | set(YINSHANG_CUSTOM_CULTURES) | {"korean", "gdd_qiongli"}
+    expected_inherited = set(HAN_CULTURES) | set(YINSHANG_CUSTOM_CULTURES) | {"korean", "gdd_qiongli", "gdd_khitan"}
     if inherited_targets != expected_inherited:
         raise ValueError(
             "Unexpected target definitions left in 00_cultures.txt: "

@@ -43,6 +43,7 @@
 703,热河,hebei_area,chahar,gdd_yan,703 - Chengde.txt
 704,宁远,xi_liaoning_area,yan,gdd_dongyi,704 - Ningyuan.txt
 708,武威,hexi_area,xibei,gdd_long,708 - Gansu.txt
+726,沈阳,liaoning_area,manchu,gdd_khitan,726 - Shenyang.txt
 732,,hamgyeong_area,korean,korean,732 - South Hamgyeong.txt
 733,,western_korea_area,korean,korean,733 - Hwangju.txt
 734,,eastern_korea_area,korean,korean,734 - West Gangwon.txt
@@ -276,6 +277,7 @@
 5201,思恩,guidong_area,zhuang,gdd_zhuang,5201 - Sien.txt
 5202,郁林,guidong_area,cantonese,gdd_guangfu,5202 - Yuzhou.txt
 5203,思明,youjiang_area,zhuang,gdd_zhuang,5203 - Siming.txt
+5204,辽阳,liaoning_area,manchu,gdd_khitan,5204 - Liaoyang.txt
 5207,广宁,xi_liaoning_area,chihan,gdd_yan,5207 - Guangning.txt
 5208,全州,guangxi_area,zhuang,gdd_gui,5208 - Quanzhou.txt
 5209,锦州,xi_liaoning_area,chihan,gdd_dongyi,5209 - Jinzhou.txt
