@@ -55,9 +55,10 @@ from apply_b43_chunqiu_polities import (  # noqa: E402
 )
 
 
-VASSAL_TAGS = ("EGU", "QVN", "ZHU")
+CREATED_VASSAL_TAGS = ("EGU", "QVN", "ZHU")
+VASSAL_TAGS = (*CREATED_VASSAL_TAGS, "CSA")
 AFFECTED_TAGS = ("CHC", *VASSAL_TAGS)
-EXPECTED_DEVELOPMENT = {"CHC": 105, "EGU": 27, "QVN": 8, "ZHU": 6}
+EXPECTED_DEVELOPMENT = {"CHC": 105, "EGU": 27, "QVN": 8, "ZHU": 6, "CSA": 39}
 LOCALISATION = {"EGU": "鄂", "QVN": "权", "ZHU": "州"}
 CHU_CAPITAL = 2172
 TAG_MARKER_BEGIN = "# GDD_B52_CHU_VASSALS_BEGIN"
@@ -94,10 +95,10 @@ def update_tag_file() -> None:
         "",
         text,
     )
-    for tag in VASSAL_TAGS:
+    for tag in CREATED_VASSAL_TAGS:
         text = re.sub(rf'(?m)^\s*{tag}\s*=\s*"[^"]+"\s*\n?', "", text)
     lines = [TAG_MARKER_BEGIN]
-    for tag in VASSAL_TAGS:
+    for tag in CREATED_VASSAL_TAGS:
         lines.append(f'{tag} = "countries/{POLITIES[tag]["file"]}"')
     lines.append(TAG_MARKER_END)
     TAG_FILE.write_text(text.rstrip() + "\n\n" + "\n".join(lines) + "\n", encoding="utf-8")
@@ -139,7 +140,7 @@ def apply_province_policy(vanilla_root: Path) -> None:
 
 
 def write_countries() -> None:
-    for tag in VASSAL_TAGS:
+    for tag in CREATED_VASSAL_TAGS:
         config = POLITIES[tag]
         capital_text = read_text(history_paths(int(config["capital"]))[0])
         culture = initial_value(capital_text, "culture")
@@ -176,7 +177,7 @@ def province_development(province_id: int) -> int:
 
 
 def scan_tag_collisions(roots: tuple[Path, ...]) -> None:
-    for tag in VASSAL_TAGS:
+    for tag in CREATED_VASSAL_TAGS:
         matches: list[str] = []
         for root in roots:
             directory = root / "common/country_tags"
@@ -223,7 +224,12 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
         raise ValueError("Chu fixed capital must be Jiangling/Jingzhou (2172)")
 
     for tag in VASSAL_TAGS:
-        history = read_text(COUNTRY_HISTORY / str(POLITIES[tag]["history"]))
+        history_path = (
+            COUNTRY_HISTORY / "CSA - Changsha.txt"
+            if tag == "CSA"
+            else COUNTRY_HISTORY / str(POLITIES[tag]["history"])
+        )
+        history = read_text(history_path)
         if initial_value(history, "add_government_reform") != "gdd_local_fiefdom_reform":
             raise ValueError(f"{tag}: must use the existing local-fiefdom reform")
     if read_text(DIPLOMACY) != diplomacy_text():
@@ -238,7 +244,7 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
 
     return {
         "batch": "B52_chu_vassals",
-        "design": "Chu direct realm plus three restored starting vassals",
+        "design": "Chu direct realm plus E, Quan, Zhou and Changsha as starting vassals",
         "chu_capital": {"province_id": CHU_CAPITAL, "name": "Jiangling"},
         "countries": stats,
         "vassals": {tag: "CHC" for tag in VASSAL_TAGS},

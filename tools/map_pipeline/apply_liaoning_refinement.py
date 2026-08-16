@@ -25,8 +25,8 @@ MARKER = "B27 Liaoning 10-province refinement"
 
 # id: English, Chinese, colour, area, goods, development, culture, fort
 PROVINCES = {
-    726: ("Shenyang", "沈阳", (103, 76, 64), "liaoning_area", "cloth", (4, 4, 3), "manchu", True),
-    5204: ("Liaoyang", "辽阳", (150, 117, 28), "liaoning_area", "iron", (5, 5, 5), "manchu", False),
+    726: ("Shenyang", "沈阳", (103, 76, 64), "liaoning_area", "cloth", (4, 4, 3), "gdd_khitan", True),
+    5204: ("Liaoyang", "辽阳", (150, 117, 28), "liaoning_area", "iron", (5, 5, 5), "gdd_khitan", False),
     5205: ("Tieling", "铁岭", (255, 236, 11), "liaoning_area", "livestock", (2, 3, 3), "manchu", False),
     2112: ("Jiuliancheng", "九连城", (115, 210, 143), "liaoning_area", "fur", (2, 2, 3), "manchu", False),
     4652: ("Haicheng", "海城", (140, 69, 200), "liaoning_area", "grain", (3, 3, 2), "gdd_qi", False),

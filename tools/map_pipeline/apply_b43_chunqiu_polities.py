@@ -88,7 +88,7 @@ TAG_PROVINCES = {
     "SUI": (2175, 5350, 5009),
     "LUO": (2171, 5342),
     "GON": (687, 5347, 5055, 5348),
-    "ZSH": (2136, 696, 5218),
+    "ZSH": (2136, 696, 5218, 5351, 5352),
     "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5220, 5221, 5048),
     "WEI": (4195, 5219, 2178, 5252, 694, 5256, 5249, 5253, 5254, 5269),
     "DAE": (702, 2177, 697, 5243, 5244, 5242),
@@ -120,8 +120,9 @@ TAG_PROVINCES = {
     "SHE": (5030, 5008, 5341, 681, 5346, 5284),
     "GUZ": (4194, 5211),
     "WUZ": (704, 5209),
-    "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 4672, 5206, 5207),
+    "YAN": (703, 1816, 5113, 5114, 5115, 5116, 5212, 5213, 4672, 5206, 5207, 5353),
     "LIO": (726, 5204, 5205, 2112, 4652, 2113),
+    "HLI": (5301, 5302, 2160),
 }
 
 
@@ -161,6 +162,7 @@ MUTED_COUNTRY_COLORS = {
     "HAK": (181, 151, 101),
     "HZH": (166, 116, 120),
     "HNG": (93, 117, 160),
+    "HLI": (44, 126, 104),
     "HUA": (67, 112, 100),
     "HYM": (72, 143, 160),
     "HYA": (48, 77, 135),
@@ -230,7 +232,7 @@ POLITIES = {
     "EGU": {"file": "B52_E.txt", "history": "EGU - E.txt", "capital": 682, "rank": 1, "color": MUTED_COUNTRY_COLORS["EGU"]},
     "QVN": {"file": "B52_Quan.txt", "history": "QVN - Quan.txt", "capital": 5343, "rank": 1, "color": MUTED_COUNTRY_COLORS["QVN"]},
     "ZHU": {"file": "B52_Zhou.txt", "history": "ZHU - Zhou.txt", "capital": 5344, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHU"]},
-    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "mongol", "accepted": ("manchu", "gdd_qi")},
+    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "gdd_khitan", "accepted": ("manchu", "gdd_qi"), "preserve_flag": True},
     "HUA": {"file": "B50_Huai.txt", "history": "HUA - Huai.txt", "capital": 5059, "rank": 1, "color": MUTED_COUNTRY_COLORS["HUA"]},
     "OUE": {"file": "B50_Ou.txt", "history": "OUE - Ou.txt", "capital": 1824, "rank": 1, "color": MUTED_COUNTRY_COLORS["OUE"]},
     "HYM": {"file": "B50_Yang.txt", "history": "HYM - Yang.txt", "capital": 685, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYM"], "government": "republic", "reform": "oligarchy_reform"},
@@ -243,8 +245,8 @@ POLITIES = {
     "CDE": {"file": "B54_Changde.txt", "history": "CDE - Changde.txt", "capital": 672, "rank": 1, "color": MUTED_COUNTRY_COLORS["CDE"], "government": "republic", "reform": "oligarchy_reform"},
     "BMY": {"file": "B43_Baima_Miyao.txt", "history": "BMY - Baima Miyao.txt", "capital": 5086, "rank": 1, "color": MUTED_COUNTRY_COLORS["BMY"]},
     "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"]},
-    "DQU": {"file": "B46_Dangqu.txt", "history": "DQU - Dangqu.txt", "capital": 5333, "rank": 1, "color": MUTED_COUNTRY_COLORS["DQU"], "accepted": ("gdd_diqiang",)},
-    "ZHI": {"file": "B46_Zhi.txt", "history": "ZHI - Zhi.txt", "capital": 5027, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHI"], "accepted": ("gdd_shu",)},
+    "DQU": {"file": "B46_Dangqu.txt", "history": "DQU - Dangqu.txt", "capital": 5333, "rank": 1, "color": MUTED_COUNTRY_COLORS["DQU"], "accepted": ("gdd_diqiang",), "definition_comment": "# B46 GeoJSON-guided northeast Sichuan polity.", "history_comment": "# B46 Dangqu polity.", "revolutionary_colors": (3, 6, 4)},
+    "ZHI": {"file": "B46_Zhi.txt", "history": "ZHI - Zhi.txt", "capital": 5027, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHI"], "accepted": ("gdd_shu",), "definition_comment": "# B46 GeoJSON-guided Chongqing polity.", "history_comment": "# B46 Zhi polity.", "revolutionary_colors": (6, 3, 6)},
     "LUU": {"file": "B43_Lu.txt", "history": "LUU - Lu.txt", "capital": 5109, "rank": 1, "color": MUTED_COUNTRY_COLORS["LUU"]},
     "CAG": {"file": "B43_Cao.txt", "history": "CAG - Cao.txt", "capital": 5111, "rank": 1, "color": MUTED_COUNTRY_COLORS["CAG"]},
     "CAI": {"file": "B43_Cai.txt", "history": "CAI - Cai.txt", "capital": 5054, "rank": 1, "color": MUTED_COUNTRY_COLORS["CAI"]},
@@ -279,6 +281,7 @@ POLITIES = {
     "SHE": {"file": "B43_Shen.txt", "history": "SHE - Shen.txt", "capital": 5030, "rank": 1, "color": MUTED_COUNTRY_COLORS["SHE"]},
     "GUZ": {"file": "B43_Guzhu.txt", "history": "GUZ - Guzhu.txt", "capital": 4194, "rank": 1, "color": MUTED_COUNTRY_COLORS["GUZ"]},
     "WUZ": {"file": "B43_Wuzhong.txt", "history": "WUZ - Wuzhong.txt", "capital": 704, "rank": 1, "color": MUTED_COUNTRY_COLORS["WUZ"]},
+    "HLI": {"file": "B56_Li.txt", "history": "HLI - Li.txt", "capital": 5302, "rank": 1, "color": MUTED_COUNTRY_COLORS["HLI"], "culture": "gdd_qiongli", "religion": "hinduism", "government": "tribal", "reform": "tribal_kingdom", "preserve_flag": True},
 }
 
 
@@ -358,7 +361,10 @@ EXACT_CORE_TAGS = {
     "LIO": set(TAG_PROVINCES["LIO"]),
     "DQU": set(TAG_PROVINCES["DQU"]),
     "ZHI": set(TAG_PROVINCES["ZHI"]),
+    "HLI": {666, 2160, 5301, 5302, 5303},
 }
+
+ADDITIONAL_CORES = {"HLI": {666, 5303}}
 
 # B54 public cities are fully sovereign one-province republics.  Their
 # capitals start with no foreign core, so an older regional claim cannot turn
@@ -377,7 +383,7 @@ FORCED_CORE_REMOVALS = {
     "HMI": {707, 2122, 5299, 5300},
     "QIN": {689, 2179},
     "WVG": {5048, 5270},
-    "MNG": {663, 666, 2162, 2164, 4949, 5217, 5303},
+    "MNG": {663, 666, 2160, 2162, 2164, 4949, 5217, 5301, 5302, 5303},
 }
 
 LEGACY_COUNTRY_ARTIFACTS = (
@@ -436,6 +442,18 @@ def apply_owner(text: str, owner: str) -> str:
         if not marker:
             raise ValueError("Missing controller insertion point")
         initial = initial[:marker.end()] + f"{newline}add_core = {owner}" + initial[marker.end():]
+    return initial + dated
+
+
+def add_initial_core(text: str, core: str) -> str:
+    initial, dated = initial_section(text)
+    if core in initial_cores(initial):
+        return text
+    newline = "\r\n" if "\r\n" in text else "\n"
+    marker = re.search(r"(?m)^\s*controller\s*=\s*\S+\s*$", initial)
+    if not marker:
+        raise ValueError("Missing controller insertion point")
+    initial = initial[:marker.end()] + f"{newline}add_core = {core}" + initial[marker.end():]
     return initial + dated
 
 
@@ -709,13 +727,18 @@ def capital_attributes(capital: int, vanilla_root: Path) -> tuple[str, str]:
     return initial_value(text, "culture"), initial_value(text, "religion")
 
 
-def country_definition(color: tuple[int, int, int]) -> str:
+def country_definition(
+    color: tuple[int, int, int],
+    comment: str = "# B43 Chunqiu polity definition.",
+    revolutionary_colors: tuple[int, int, int] = (5, 8, 1),
+) -> str:
     red, green, blue = color
+    rev = " ".join(map(str, revolutionary_colors))
     return (
-        "# B43 Chunqiu polity definition.\n"
+        f"{comment}\n"
         "graphical_culture = asiangfx\n\n"
         f"color = {{ {red} {green} {blue} }}\n"
-        "revolutionary_colors = { 5 8 1 }\n"
+        f"revolutionary_colors = {{ {rev} }}\n"
     )
 
 
@@ -723,7 +746,7 @@ def replace_country_color(text: str, color: tuple[int, int, int]) -> str:
     red, green, blue = color
     replacement = f"color = {{ {red} {green} {blue} }}"
     new, count = re.subn(
-        r"(?m)^\s*color\s*=\s*\{\s*\d+\s+\d+\s+\d+\s*\}\s*$",
+        r"(?m)^[ \t]*color[ \t]*=[ \t]*\{[ \t]*\d+[ \t]+\d+[ \t]+\d+[ \t]*\}[ \t]*$",
         replacement,
         text,
         count=1,
@@ -738,7 +761,7 @@ def replace_country_color_bytes(data: bytes, color: tuple[int, int, int]) -> byt
     red, green, blue = color
     replacement = f"color = {{ {red} {green} {blue} }}".encode("ascii")
     new, count = re.subn(
-        rb"(?m)^\s*color\s*=\s*\{\s*\d+\s+\d+\s+\d+\s*\}\s*$",
+        rb"(?m)^[ \t]*color[ \t]*=[ \t]*\{[ \t]*\d+[ \t]+\d+[ \t]+\d+[ \t]*\}[ \t\r]*$",
         replacement,
         data,
         count=1,
@@ -756,9 +779,10 @@ def country_history(
     accepted: tuple[str, ...] = (),
     government: str = "monarchy",
     reform: str = "gdd_local_fiefdom_reform",
+    comment: str = "# B43 Chunqiu polity history.",
 ) -> str:
     return (
-        "# B43 Chunqiu polity history.\n"
+        f"{comment}\n"
         f"government = {government}\n"
         f"add_government_reform = {reform}\n"
         f"government_rank = {rank}\n"
@@ -869,8 +893,8 @@ def current_core_ids(tag: str) -> set[int]:
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     character_encoding_audit = normalize_country_history_files(check=True)
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 303 or len(set(all_ids)) != 303:
-        raise ValueError("Expanded polity policy must contain 303 unique provinces after B54")
+    if len(all_ids) != 309 or len(set(all_ids)) != 309:
+        raise ValueError("Expanded polity policy must contain 309 unique provinces after B56")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:
@@ -1004,7 +1028,7 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         "yan_territory": sorted(TAG_PROVINCES["YAN"]),
         "liao_territory": sorted(TAG_PROVINCES["LIO"]),
         "chu_vassals": {
-            tag: sorted(TAG_PROVINCES[tag]) for tag in ("EGU", "QVN", "ZHU")
+            tag: sorted(TAG_PROVINCES[tag]) for tag in ("EGU", "QVN", "ZHU", "CSA")
         },
         "dae_capital": 5244,
         "badi_tag": "BD2",
@@ -1041,6 +1065,15 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
                 path.write_text(new, encoding="utf-8")
                 changed_history_files.append(path.name)
 
+    for tag, province_ids in ADDITIONAL_CORES.items():
+        for province_id in province_ids:
+            for path in ensure_province_history(province_id, vanilla_root, write=True):
+                old = read_text(path)
+                new = add_initial_core(old, tag)
+                if new != old:
+                    path.write_text(new, encoding="utf-8")
+                    changed_history_files.append(path.name)
+
     core_override_files = ensure_core_override_files(vanilla_root, write=True)
     created_from_vanilla.extend(path.name for path in core_override_files)
     for path in PROVINCE_HISTORY.glob("*.txt"):
@@ -1071,27 +1104,39 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
         religion = str(config.get("religion", capital_religion))
         country_path = COUNTRIES / config["file"]
         history_path = COUNTRY_HISTORY / config["history"]
-        # Preserve culture-specific Chinese name pools and any other country
-        # settings already added to generated B43 definitions.  Only create a
-        # minimal file when the polity has no existing definition.
+<<<<<<< HEAD
+            definition_text = country_definition(
+            config["color"],
+            str(config.get("definition_comment", "# B43 Chunqiu polity definition.")),
+            tuple(config.get("revolutionary_colors", (5, 8, 1))),
+        )
+        # Preserve the local Chinese name pools and any other country settings.
+        # New countries still receive the remote definition parameters.
         if country_path.exists():
             country_path.write_bytes(
-                replace_country_color_bytes(country_path.read_bytes(), config["color"])
+                replace_country_color_bytes(
+                    country_path.read_bytes(),
+                    config["color"],
+                )
             )
         else:
             country_path.write_bytes(
-                country_definition_bytes(country_definition(config["color"]), culture)
+                country_definition_bytes(definition_text, culture)
             )
+>>>>>>> origin/test
         history_path.write_text(
             country_history(
                 config["capital"], config["rank"], culture, religion,
                 tuple(config.get("accepted", ())),
                 str(config.get("government", "monarchy")),
                 str(config.get("reform", "gdd_local_fiefdom_reform")),
+                str(config.get("history_comment", "# B43 Chunqiu polity history.")),
             ),
             encoding="utf-8",
         )
-        (FLAGS / f"{tag}.tga").write_bytes(flag_bytes(config["color"]))
+        flag_path = FLAGS / f"{tag}.tga"
+        if not config.get("preserve_flag") or not flag_path.exists():
+            flag_path.write_bytes(flag_bytes(config["color"]))
         generated_country_files.extend((str(country_path.relative_to(ROOT)), str(history_path.relative_to(ROOT))))
 
     for tag, config in EXISTING_COUNTRY_COLORS.items():
@@ -1146,7 +1191,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             "geometry": "unchanged",
             "huzhou": "YUE owns and cores 4950",
             "eastern_balance": "B50 splits Huai, Ou, Yang, Wu and Zhou from WUU/YUE/XU2",
-            "chu_vassals": "B52 splits E, Quan and Zhou from CHC as starting vassals",
+            "chu_vassals": "B52 makes E, Quan, Zhou and Changsha starting vassals of CHC",
             "changsha_public_cities": "B54 gives Yiyang and Anhua to CSA and releases Changde, Jiujiang and Hanyang as public cities",
             "shangqiu": "SNG owns and cores 2176",
             "badi_tag": "BD2; legacy BAS removed",

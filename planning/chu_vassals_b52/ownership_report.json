@@ -1,6 +1,6 @@
 {
   "batch": "B52_chu_vassals",
-  "design": "Chu direct realm plus three restored starting vassals",
+  "design": "Chu direct realm plus E, Quan, Zhou and Changsha as starting vassals",
   "chu_capital": {
     "province_id": 2172,
     "name": "Jiangling"
@@ -21,12 +21,17 @@
     "ZHU": {
       "provinces": 2,
       "development": 6
+    },
+    "CSA": {
+      "provinces": 5,
+      "development": 39
     }
   },
   "vassals": {
     "EGU": "CHC",
     "QVN": "CHC",
-    "ZHU": "CHC"
+    "ZHU": "CHC",
+    "CSA": "CHC"
   },
   "geometry": "unchanged",
   "areas": "unchanged",
@@ -43,9 +48,9 @@
     "subject_government": "existing gdd_local_fiefdom_reform; no new reform"
   },
   "b43_validation": {
-    "province_count": 303,
-    "polity_count": 71,
-    "generated_tag_count": 58,
+    "province_count": 309,
+    "polity_count": 72,
+    "generated_tag_count": 59,
     "preserved_qi": [
       690,
       691,
@@ -73,7 +78,8 @@
       5206,
       5207,
       5212,
-      5213
+      5213,
+      5353
     ],
     "liao_territory": [
       726,
@@ -95,12 +101,19 @@
       "ZHU": [
         5015,
         5344
+      ],
+      "CSA": [
+        671,
+        4997,
+        4998,
+        5321,
+        5322
       ]
     },
     "dae_capital": 5244,
     "badi_tag": "BD2",
     "adjacent_color_audit": {
-      "country_edge_count": 197,
+      "country_edge_count": 198,
       "minimum_required_delta_e": 12.0,
       "minimum_delta_e": 12.7,
       "closest_edges": [
@@ -337,7 +350,8 @@
           5206,
           5207,
           5212,
-          5213
+          5213,
+          5353
         ],
         "LIO": [
           726,
@@ -360,6 +374,13 @@
           5337,
           5338,
           5340
+        ],
+        "HLI": [
+          666,
+          2160,
+          5301,
+          5302,
+          5303
         ]
       },
       "removed": {
@@ -405,10 +426,13 @@
         "MNG": [
           663,
           666,
+          2160,
           2162,
           2164,
           4949,
           5217,
+          5301,
+          5302,
           5303
         ]
       }

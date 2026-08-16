@@ -107,7 +107,11 @@ def update_areas_region() -> None:
 
 def history_text(p: Province) -> str:
     tax,production,manpower=p.development
-    return "\n".join([f"# {p.province_id} - {p.english}","","owner = MNG","controller = MNG","add_core = MNG",f"culture = {({666: 'gdd_min', 5301: 'gdd_zhuang', 5302: 'gdd_zhuang', 5303: 'gdd_min', 2160: 'gdd_zhuang'})[p.province_id]}","religion = confucianism",f'capital = "{p.english}"',f"trade_goods = {p.goods}",f"base_tax = {tax}",f"base_production = {production}",f"base_manpower = {manpower}","is_city = yes","discovered_by = chinese","discovered_by = indian","discovered_by = muslim","discovered_by = nomad_group"]) + "\n"
+    owner="CZC" if p.province_id in (666,5303) else "HLI"
+    religion="confucianism" if owner=="CZC" else "hinduism"
+    culture="gdd_min" if owner=="CZC" else "gdd_qiongli"
+    cores=[f"add_core = {owner}"] + (["add_core = HLI"] if owner=="CZC" else [])
+    return "\n".join([f"# {p.province_id} - {p.english}","",f"owner = {owner}",f"controller = {owner}",*cores,f"culture = {culture}",f"religion = {religion}",f'capital = "{p.english}"',f"trade_goods = {p.goods}",f"base_tax = {tax}",f"base_production = {production}",f"base_manpower = {manpower}","is_city = yes","discovered_by = chinese","discovered_by = indian","discovered_by = muslim","discovered_by = nomad_group"]) + "\n"
 
 
 def update_histories() -> None:

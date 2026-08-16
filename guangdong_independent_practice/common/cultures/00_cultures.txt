@@ -32817,6 +32817,13 @@ altaic = {
     "üf‰" 	# Mansi
     "Ilyr" 	# Khantys
   }
+
+	gdd_khitan = {
+		primary = LIO
+		dynasty_names = { Yelu Xiao Shulv Diela Bali Yishi Punu Nieliji }
+		male_names = { Abaoji Deguang Ruan Jing Xian Zongzhen Hongji Yanxi Dashi Bei Longxu Xianshi }
+		female_names = { Shulu Chengtian Guanyin Yanyan Pusage Hutujin }
+	}
 }
 central_american = {
   graphical_culture = southamericagfx
@@ -50062,6 +50069,13 @@ malay = {
     "b" 	# Cheng
     "äSœQåg‚„" 	# Gunungjati
   }
+
+	gdd_qiongli = {
+		primary = HLI
+		dynasty_names = { Li Wang Zhang Liu Chen Yang Zhao Huang Zhou Wu Xu Sun Ma Zhu Hu Guo Lin He Gao Luo Zheng Liang Xie Song Tang Han Feng Cao Peng Xiao Tian Dong Yuan Pan Yu Jiang Cai }
+		male_names = { Wen Wu Cheng De Ren Yi Li Zhi Xin Ming Yuan Jun An Ping Tai Guang Hong Sheng Jian Zhong Bo Liang Qing Hao Rui }
+		female_names = { Hua Lan Mei Ying Yue Yun Xiu Zhen Ning Hui Fang Yan Ling Qing Yu }
+	}
 }
 thai_group = {
   graphical_culture = southeastasiangfx

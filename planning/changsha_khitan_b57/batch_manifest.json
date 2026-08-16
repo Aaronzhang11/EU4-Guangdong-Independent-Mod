@@ -1,0 +1,32 @@
+{
+  "marker": "GDD_B57_CHANGSHA_KHITAN",
+  "bitmap_sha256_before": "b7fdd9e5d43ab989f918318ae4722579377fb6781f5eb881017d27bcf76e0ae2",
+  "bitmap_sha256_after": "b7fdd9e5d43ab989f918318ae4722579377fb6781f5eb881017d27bcf76e0ae2",
+  "validation": {
+    "batch": "B57_changsha_khitan",
+    "changsha": {
+      "tag": "CSA",
+      "overlord": "CHC",
+      "subject_type": "vassal",
+      "development": 39
+    },
+    "khitan_culture": {
+      "key": "gdd_khitan",
+      "group": "altaic",
+      "provinces": [
+        726,
+        5204
+      ]
+    },
+    "liao_flag": {
+      "script": "Khitan Large Script ninefold seal",
+      "source_glyph_pua": "U+E23D",
+      "seal_glyph_pua": "U+F012",
+      "interpretation": "possible Liao/Khitan state name or epithet"
+    },
+    "geometry": "unchanged",
+    "areas": "unchanged",
+    "trade": "unchanged",
+    "bitmap_sha256": "b7fdd9e5d43ab989f918318ae4722579377fb6781f5eb881017d27bcf76e0ae2"
+  }
+}

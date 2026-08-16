@@ -1,10 +1,10 @@
 # 5302 - Changhua
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = gdd_zhuang
-religion = confucianism
+owner = HLI
+controller = HLI
+add_core = HLI
+culture = gdd_qiongli
+religion = hinduism
 capital = "Changhua"
 trade_goods = tropical_wood
 base_tax = 2

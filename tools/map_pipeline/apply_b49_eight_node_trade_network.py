@@ -99,7 +99,7 @@ EXPECTED_LAND_COUNTS = {
     "yungui": 36,
     "xian": 46,
     "zhongyuan": 39,
-    "beijing": 45,
+    "beijing": 48,
 }
 
 BASE_AREA_LAND_COUNTS = {
@@ -110,7 +110,7 @@ BASE_AREA_LAND_COUNTS = {
     "yungui": 36,
     "xian": 46,
     "zhongyuan": 39,
-    "beijing": 45,
+    "beijing": 48,
 }
 
 # "Zhaodi" means the complete localized Area, not the starting territory of
