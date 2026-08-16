@@ -1,4 +1,4 @@
-# 5228 - Baoshan
+# 5228 - Yongchangfu
 
 owner = NZA
 controller = NZA
@@ -6,7 +6,7 @@ add_core = NZA
 add_core = CDL
 culture = yi
 religion = buddhism
-capital = "Baoshan"
+capital = "Yongchang"
 trade_goods = iron
 base_tax = 2
 base_production = 3

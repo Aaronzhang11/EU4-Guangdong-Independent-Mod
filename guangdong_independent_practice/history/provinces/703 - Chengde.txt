@@ -1,11 +1,11 @@
-#703 - Chengde
+# 703 - Rehe
 
 owner = YAN
 controller = YAN
 add_core = YAN
 culture = gdd_yan
 religion = vajrayana
-capital = "Chengde"
+capital = "Rehe"
 trade_goods = livestock
 hre = no
 base_tax = 3 

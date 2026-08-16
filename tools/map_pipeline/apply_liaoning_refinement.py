@@ -41,6 +41,10 @@ AREA_BLOCKS = {
     "liaoning_area": [726, 5204, 5205, 2112, 4652, 2113],
     "xi_liaoning_area": [5206, 704, 5207, 5209],
 }
+OWNER_BY_ID = {
+    726: "LIO", 5204: "LIO", 5205: "LIO", 2112: "LIO", 4652: "LIO", 2113: "LIO",
+    5206: "YAN", 5207: "YAN", 704: "WUZ", 5209: "WUZ",
+}
 
 
 def block_bounds(text: str, name: str):
@@ -69,6 +73,22 @@ def replace_block(text: str, name: str, replacement: str):
 
 def remove_marker_line(text: str):
     return re.sub(rf"(?m)^\s*.*# {re.escape(MARKER)}.*\n?", "", text)
+
+
+def append_nested_ids(text: str, outer: str, nested: str, ids: set[int]) -> str:
+    outer_bounds = block_bounds(text, outer)
+    if outer_bounds is None:
+        raise ValueError(f"Missing outer block {outer}")
+    block = text[outer_bounds[0]:outer_bounds[1]]
+    nested_bounds = block_bounds(block, nested)
+    if nested_bounds is None:
+        raise ValueError(f"Missing {nested} block in {outer}")
+    nested_block = block[nested_bounds[0]:nested_bounds[1]]
+    close = nested_block.rfind("}")
+    insertion = "\n        " + " ".join(map(str, sorted(ids))) + f" # {MARKER}\n    "
+    nested_block = nested_block[:close].rstrip() + insertion + nested_block[close:]
+    block = block[:nested_bounds[0]] + nested_block + block[nested_bounds[1]:]
+    return text[:outer_bounds[0]] + block + text[outer_bounds[1]:]
 
 
 def update_bitmap():
@@ -131,8 +151,8 @@ def update_lists():
 
     path = MOD / "common/tradenodes/00_tradenodes.txt"
     text = remove_marker_line(path.read_text())
-    marker = "        5113 5114 5115 5116 # B21 Yandu"
-    text = text.replace(marker, marker + f"\n        {new} # {MARKER}", 1)
+    text = append_nested_ids(text, "girin", "members", {5204, 5205})
+    text = append_nested_ids(text, "beijing", "members", {5206, 5207, 5209})
     path.write_text(text)
 
     path = MOD / "common/trade_companies/00_trade_companies.txt"
@@ -158,8 +178,9 @@ def update_lists():
 
 def history_text(pid, data):
     name, _, _, _, goods, dev, culture, fort = data
+    owner = OWNER_BY_ID[pid]
     lines = [
-        f"# {pid} - {name}", "", "owner = MNG", "controller = MNG", "add_core = MNG",
+        f"# {pid} - {name}", "", f"owner = {owner}", f"controller = {owner}", f"add_core = {owner}",
         f"culture = {culture}", "religion = confucianism", f'capital = "{name}"',
         f"trade_goods = {goods}", f"base_tax = {dev[0]}", f"base_production = {dev[1]}",
         f"base_manpower = {dev[2]}", "is_city = yes",

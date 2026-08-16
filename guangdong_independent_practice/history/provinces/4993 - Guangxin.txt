@@ -2,16 +2,16 @@
 
 owner = TSF
 controller = TSF
-add_core = TSF
 add_core = NNG
+add_core = TSF
 culture = gdd_gan
 religion = confucianism
 capital = "Shangrao"
 trade_goods = copper
 hre = no
-base_tax = 5
-base_production = 6
-base_manpower = 3
+base_tax = 3
+base_production = 3
+base_manpower = 2
 is_city = yes
 
 discovered_by = chinese

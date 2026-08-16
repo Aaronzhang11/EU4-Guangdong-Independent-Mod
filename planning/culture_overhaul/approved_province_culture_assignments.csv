@@ -1,16 +1,16 @@
-province_id,province_name,document_group,document_culture,document_entry,target_culture,source_rule,decision_note
+﻿province_id,province_name,document_group,document_culture,document_entry,target_culture,source_rule,decision_note
 610,清化,百越文化组,安南文化,安南全境,vietnamese,scope,按1444年安南初始领地展开
 613,东京,百越文化组,安南文化,安南全境,vietnamese,scope,按1444年安南初始领地展开
 616,高平,百越文化组,壮侗文化,高平,gdd_zhuang,explicit,明确条目优先于“安南全境”
 661,大理,羌文化组,白文化,大理,bai,explicit,
 662,昆明,汉文化组,南中文化,昆明,gdd_dian,explicit,
-663,文山,百越文化组,壮侗文化,广南,gdd_zhuang,explicit,文档“广南”映射至地块“文山”
+663,广南,百越文化组,壮侗文化,广南,gdd_zhuang,explicit,B44 地名裁决后省名与文档条目一致
 664,泗城,百越文化组,壮侗文化,凌云,gdd_zhuang,explicit,文档“凌云”映射至地块“泗城”
 665,肇庆,百越文化组,广府文化,肇庆,gdd_guangfu,explicit,
 666,琼州,百越文化组,闽越文化,琼州,gdd_min,explicit,
 667,广州,百越文化组,广府文化,广州,gdd_guangfu,explicit,
-668,澳门,百越文化组,广府文化,澳门,gdd_guangfu,explicit,
-669,闽侯,百越文化组,闽越文化,福州,gdd_min,explicit,文档“福州”映射至地块“闽侯”
+668,香山,百越文化组,广府文化,澳门,gdd_guangfu,explicit,B44 仅改地名；文化裁决不变
+669,福州,百越文化组,闽越文化,福州,gdd_min,explicit,B44 地名裁决后省名与文档条目一致
 670,赣州,汉文化组,客家文化,赣州,gdd_hakka,explicit,
 671,长沙,汉文化组,楚文化,长沙,gdd_chu,explicit,
 672,常德,汉文化组,楚文化,常德,gdd_chu,explicit,
@@ -34,8 +34,8 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 699,兰州,汉文化组,西北文化,兰州,gdd_long,explicit,
 700,长安,汉文化组,中原文化,西安,gdd_zhongyuan,explicit,文档“西安”映射至地块“长安”
 701,鄂尔多斯,汉文化组,三晋文化,鄂尔多斯,gdd_jin,explicit,
-702,呼和浩特,汉文化组,三晋文化,呼和浩特,gdd_jin,explicit,
-703,承德,汉文化组,河北文化,热河,gdd_yan,explicit,经裁决按省份 ID 消歧；文档“热河”映射至地块“承德”
+702,丰州,汉文化组,三晋文化,呼和浩特,gdd_jin,explicit,B44 仅改地名；文化裁决不变
+703,热河,汉文化组,河北文化,热河,gdd_yan,explicit,B44 地名裁决后省名与文档条目一致
 704,宁远,殷商文化组,东夷文化,宁远,gdd_dongyi,explicit,
 732,咸兴,殷商文化组,朝鲜,朝鲜全境,korean,scope,按朝鲜区域及1444年朝鲜初始领地展开
 733,黄州,殷商文化组,朝鲜,朝鲜全境,korean,scope,按朝鲜区域及1444年朝鲜初始领地展开
@@ -45,8 +45,8 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 737,全州,殷商文化组,朝鲜,朝鲜全境,korean,scope,按朝鲜区域及1444年朝鲜初始领地展开
 1013,清州,殷商文化组,朝鲜,朝鲜全境,korean,scope,按朝鲜区域及1444年朝鲜初始领地展开
 1016,河静,百越文化组,安南文化,安南全境,vietnamese,scope,按1444年安南初始领地展开
-1816,燕,汉文化组,河北文化,北京,gdd_yan,explicit,文档“北京”映射至地块“燕”
-1821,六合,百越文化组,吴越文化,江宁,gdd_wu,user_override,用户后续要求与江宁 5056 互换文化；本行覆盖原文档裁决
+1816,蓟,汉文化组,河北文化,北京,gdd_yan,explicit,B44 将国名“燕”与首府城“蓟”分离
+1821,江宁,百越文化组,吴越文化,南京,gdd_wu,user_override,用户最终按地图位置确认：原南京格即江宁，保留原南京发展度与吴越文化
 1822,苏州,百越文化组,吴越文化,苏州,gdd_wu,explicit,
 1824,温州,百越文化组,吴越文化,温州,gdd_wu,explicit,
 1829,泉州,百越文化组,闽越文化,泉州,gdd_min,explicit,
@@ -56,27 +56,27 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 1840,桂林,汉文化组,桂柳文化,桂林,gdd_gui,explicit,
 1845,平壤,殷商文化组,朝鲜,朝鲜全境,korean,scope,按朝鲜区域及1444年朝鲜初始领地展开
 2113,盖州,汉文化组,齐鲁文化,盖州,gdd_qi,explicit,
-2136,宣化,汉文化组,三晋文化,宣化,gdd_jin,explicit,
+2136,上谷,汉文化组,三晋文化,宣化,gdd_jin,explicit,B44 仅改地名；文化裁决不变
 2137,大名,汉文化组,中原文化,大名,gdd_zhongyuan,explicit,
 2138,武定,汉文化组,齐鲁文化,武定,gdd_qi,explicit,
 2139,莱州,汉文化组,齐鲁文化,莱州,gdd_qi,explicit,
 2140,兖州,汉文化组,齐鲁文化,兖州,gdd_qi,explicit,
 2141,徐州,汉文化组,中原文化,徐州,gdd_zhongyuan,explicit,
 2142,淮安,汉文化组,江淮文化,淮安,gdd_jianghuai,explicit,
-2143,凤阳,汉文化组,中原文化,凤阳,gdd_zhongyuan,explicit,
+2143,濠州,汉文化组,中原文化,凤阳,gdd_zhongyuan,explicit,B44 仅改地名；文化裁决不变
 2144,颍州,汉文化组,中原文化,阜阳,gdd_zhongyuan,explicit,文档“阜阳”映射至地块“颍州”
 2145,镇江,百越文化组,吴越文化,镇江,gdd_wu,explicit,
 2146,宁国,百越文化组,吴越文化,宁国,gdd_wu,explicit,
 2147,徽州,百越文化组,吴越文化,徽州,gdd_wu,explicit,
 2148,绍兴,百越文化组,吴越文化,绍兴,gdd_wu,explicit,
-2149,宁波,百越文化组,吴越文化,宁波,gdd_wu,explicit,
+2149,明州,百越文化组,吴越文化,宁波,gdd_wu,explicit,B44 仅改地名；文化裁决不变
 2150,金华,百越文化组,吴越文化,金华,gdd_wu,explicit,
 2151,饶州,汉文化组,江右文化,鄱阳,gdd_gan,explicit,文档“鄱阳”映射至地块“饶州”
 2152,建宁,百越文化组,闽越文化,建宁,gdd_min,explicit,
 2153,汀州,百越文化组,闽越文化,汀州,gdd_min,explicit,
 2156,潮州,百越文化组,闽越文化,潮州,gdd_min,explicit,
 2157,惠州,汉文化组,客家文化,惠州,gdd_hakka,explicit,
-2158,韶关,百越文化组,广府文化,韶关,gdd_guangfu,explicit,
+2158,韶州,百越文化组,广府文化,韶关,gdd_guangfu,explicit,B44 仅改地名；文化裁决不变
 2159,雷州,百越文化组,壮侗文化,雷州,gdd_zhuang,explicit,
 2160,崖州,百越文化组,壮侗文化,补充裁决,gdd_zhuang,fallback,文档未明列地块的用户批准兜底
 2161,廉州,百越文化组,壮侗文化,廉州,gdd_zhuang,explicit,
@@ -95,7 +95,7 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 2175,信阳,汉文化组,楚文化,信阳,gdd_chu,explicit,
 2176,归德,殷商文化组,宋卫文化,商丘,gdd_songwei,explicit,文档“商丘”映射至地块“归德”
 2177,宁武,汉文化组,三晋文化,宁武,gdd_jin,explicit,
-2178,潞安,汉文化组,三晋文化,潞安,gdd_jin,explicit,
+2178,潞州,汉文化组,三晋文化,潞安,gdd_jin,explicit,B44 仅改地名；文化裁决不变
 2179,延安,汉文化组,三晋文化,延安,gdd_jin,explicit,
 2180,天水,汉文化组,中原文化,天水,gdd_zhongyuan,explicit,
 2181,平凉,汉文化组,中原文化,平凉,gdd_zhongyuan,explicit,
@@ -131,7 +131,7 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 4943,东莞,百越文化组,广府文化,东莞,gdd_guangfu,explicit,
 4944,梅州,汉文化组,客家文化,梅州,gdd_hakka,explicit,
 4945,高州,百越文化组,壮侗文化,高州,gdd_zhuang,explicit,
-4946,香港,百越文化组,广府文化,香港,gdd_guangfu,explicit,
+4946,屯门,百越文化组,广府文化,香港,gdd_guangfu,explicit,B44 仅改地名；文化裁决不变
 4947,罗定,百越文化组,广府文化,罗定,gdd_guangfu,explicit,
 4948,南雄,汉文化组,客家文化,南雄,gdd_hakka,explicit,
 4949,海丰,百越文化组,闽越文化,海丰,gdd_min,explicit,
@@ -168,7 +168,7 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5006,义乌,百越文化组,吴越文化,义乌,gdd_wu,explicit,
 5007,处州,百越文化组,吴越文化,处州,gdd_wu,explicit,
 5009,随州,汉文化组,楚文化,随州,gdd_chu,explicit,
-5010,承天,汉文化组,楚文化,承天,gdd_chu,explicit,
+5010,安陆,汉文化组,楚文化,承天,gdd_chu,explicit,B44 仅改地名；文化裁决不变
 5011,汉口,汉文化组,楚文化,汉口,gdd_chu,explicit,
 5012,黄州,汉文化组,楚文化,黄州,gdd_chu,explicit,经裁决按省份 ID 消歧
 5013,施州,羌文化组,氐羌文化,施州,gdd_diqiang,explicit,
@@ -195,7 +195,7 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5053,汝州,汉文化组,中原文化,汝州,gdd_zhongyuan,explicit,
 5054,汝宁,汉文化组,中原文化,汝宁,gdd_zhongyuan,explicit,经裁决按省份 ID 消歧
 5055,邓州,汉文化组,中原文化,邓州,gdd_zhongyuan,explicit,
-5056,南京,汉文化组,江淮文化,南京,gdd_jianghuai,user_override,用户后续要求与原南京槽位 1821 互换文化；本行覆盖原文档裁决
+5056,六合,汉文化组,江淮文化,六合,gdd_jianghuai,user_override,用户最终按地图位置确认：新增 5000 段省份即六合，不承载南京奇观
 5057,溧水,百越文化组,吴越文化,溧水,gdd_wu,explicit,
 5058,亳州,汉文化组,中原文化,亳州,gdd_zhongyuan,explicit,
 5059,寿州,汉文化组,江淮文化,寿州,gdd_jianghuai,explicit,
@@ -229,7 +229,7 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5090,金川,羌文化组,氐羌文化,金川,gdd_diqiang,explicit,
 5092,若尔盖,羌文化组,氐羌文化,若尔盖,gdd_diqiang,explicit,
 5094,会理,羌文化组,彝文化,会理,yi,explicit,
-5095,盐源,羌文化组,彝文化,盐源,yi,explicit,
+5095,盐井,羌文化组,彝文化,盐源,yi,explicit,B44 仅改地名；文化裁决不变
 5096,福宁,百越文化组,闽越文化,福宁,gdd_min,explicit,
 5097,福清,百越文化组,闽越文化,福清,gdd_min,explicit,
 5098,永春,百越文化组,闽越文化,永春,gdd_min,explicit,
@@ -238,7 +238,7 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5101,临清,汉文化组,中原文化,临清,gdd_zhongyuan,explicit,
 5102,德州,汉文化组,齐鲁文化,德州,gdd_qi,explicit,
 5103,东昌,汉文化组,中原文化,东昌,gdd_zhongyuan,explicit,
-5104,淄博（临淄）,汉文化组,齐鲁文化,淄博,gdd_qi,explicit,经裁决按省份 ID 消歧；文档“淄博”映射至地块“淄博（临淄）”
+5104,临淄,汉文化组,齐鲁文化,淄博,gdd_qi,explicit,B44 删除现代复合名；文化裁决不变
 5105,青州,汉文化组,齐鲁文化,青州,gdd_qi,explicit,经裁决按省份 ID 消歧；文档重复条目去重
 5106,宁海,汉文化组,齐鲁文化,宁海,gdd_qi,explicit,经裁决按省份 ID 消歧
 5107,胶州,汉文化组,齐鲁文化,胶州,gdd_qi,explicit,
@@ -253,12 +253,12 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5116,涿州,汉文化组,河北文化,涿州,gdd_yan,explicit,
 5200,平乐,汉文化组,桂柳文化,平乐,gdd_gui,explicit,
 5201,思恩,百越文化组,壮侗文化,思恩,gdd_zhuang,explicit,
-5202,鬱州,百越文化组,广府文化,玉林,gdd_guangfu,explicit,经裁决按省份 ID 消歧；文档“玉林”映射至地块“鬱州”
+5202,郁林,百越文化组,广府文化,玉林,gdd_guangfu,explicit,B44 统一历史写法与省份语义
 5203,思明,百越文化组,壮侗文化,思明,gdd_zhuang,explicit,
 5208,全州,汉文化组,桂柳文化,全州,gdd_gui,explicit,经裁决按省份 ID 消歧
 5209,锦州,殷商文化组,东夷文化,锦州,gdd_dongyi,explicit,
 5210,田州,百越文化组,壮侗文化,田州,gdd_zhuang,explicit,
-5211,山海关,殷商文化组,东夷文化,山海关,gdd_dongyi,explicit,
+5211,临渝关,殷商文化组,东夷文化,山海关,gdd_dongyi,explicit,B44 仅改地名；文化裁决不变
 5212,滦州,汉文化组,河北文化,滦州,gdd_yan,explicit,
 5213,遵化,汉文化组,河北文化,遵化,gdd_yan,explicit,
 5214,河源,汉文化组,客家文化,河源,gdd_hakka,explicit,
@@ -268,17 +268,17 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5219,冀州,汉文化组,河北文化,冀州,gdd_yan,explicit,
 5220,顺德,汉文化组,河北文化,顺德,gdd_yan,explicit,
 5221,广平,汉文化组,河北文化,广平,gdd_yan,explicit,
-5222,天津,汉文化组,齐鲁文化,天津,gdd_qi,explicit,
+5222,直沽,汉文化组,齐鲁文化,天津,gdd_qi,explicit,B44 仅改地名；文化裁决不变
 5226,剑川,羌文化组,白文化,剑川,bai,explicit,经裁决按省份 ID 消歧
 5227,泸水,羌文化组,白文化,泸水,bai,explicit,
-5228,保山,羌文化组,彝文化,保山,yi,explicit,
+5228,永昌府,羌文化组,彝文化,保山,yi,explicit,B44 仅改地名；文化裁决不变
 5229,楚雄,羌文化组,彝文化,楚雄,yi,explicit,
-5230,玉溪,汉文化组,南中文化,玉溪,gdd_dian,explicit,
+5230,新兴州,汉文化组,南中文化,玉溪,gdd_dian,explicit,B44 仅改地名；文化裁决不变
 5231,东川,羌文化组,彝文化,东川,yi,explicit,
-5232,昭通,羌文化组,彝文化,昭通,yi,explicit,
-5233,镇雄,羌文化组,彝文化,镇雄,yi,explicit,
-5234,宣威,羌文化组,彝文化,宣威,yi,explicit,
-5235,临沧,羌文化组,彝文化,临沧,yi,explicit,
+5232,乌蒙,羌文化组,彝文化,昭通,yi,explicit,B44 仅改地名；文化裁决不变
+5233,芒部,羌文化组,彝文化,镇雄,yi,explicit,B44 仅改地名；文化裁决不变
+5234,沾益,羌文化组,彝文化,宣威,yi,explicit,B44 仅改地名；文化裁决不变
+5235,勐缅,羌文化组,彝文化,临沧,yi,explicit,B44 仅改地名；文化裁决不变
 5237,镇沅,羌文化组,彝文化,镇沅,yi,explicit,
 5240,蒙自,汉文化组,南中文化,蒙自,gdd_dian,explicit,
 5241,红河,羌文化组,彝文化,补充裁决,yi,fallback,文档未明列地块的用户批准兜底
@@ -329,3 +329,42 @@ province_id,province_name,document_group,document_culture,document_entry,target_
 5307,临洮,汉文化组,西北文化,临洮,gdd_long,explicit,
 5308,巩昌,羌文化组,氐羌文化,巩昌,gdd_diqiang,explicit,
 5309,武都,羌文化组,氐羌文化,武都,gdd_diqiang,explicit,
+5312,永顺,百越文化组,苗瑶文化,B45赣湘细化,miao,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5313,保靖,百越文化组,苗瑶文化,B45赣湘细化,miao,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5314,沅州,百越文化组,苗瑶文化,B45赣湘细化,miao,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5315,绥宁,百越文化组,苗瑶文化,B45赣湘细化,miao,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5316,慈利,汉文化组,楚文化,B45赣湘细化,gdd_chu,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5317,桑植,百越文化组,苗瑶文化,B45赣湘细化,miao,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5318,耒阳,汉文化组,楚文化,B45赣湘细化,gdd_chu,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5319,茶陵,汉文化组,楚文化,B45赣湘细化,gdd_chu,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5320,平江,汉文化组,楚文化,B45赣湘细化,gdd_chu,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5321,浏阳,汉文化组,楚文化,B45赣湘细化,gdd_chu,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5322,安化,汉文化组,楚文化,B45赣湘细化,gdd_chu,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5323,丰城,汉文化组,江右文化,B45赣湘细化,gdd_gan,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5324,奉新,汉文化组,江右文化,B45赣湘细化,gdd_gan,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5325,昌南,汉文化组,江右文化,B45赣湘细化,gdd_gan,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5326,德兴,汉文化组,江右文化,B45赣湘细化,gdd_gan,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5327,宁都,汉文化组,客家文化,B45赣湘细化,gdd_hakka,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5328,安福,汉文化组,江右文化,B45赣湘细化,gdd_gan,user_delegated,用户授权按国家与区域平衡裁决；B45新增省份
+5329,昭化,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5330,蓬州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5331,遂州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5332,巴州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5333,渠州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5334,昌州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5335,江津,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5336,南川,百越文化组,苗瑶文化,B46川东北重庆二次细化,miao,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5337,彭水,百越文化组,苗瑶文化,B46川东北重庆二次细化,miao,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5338,忠州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5339,开州,汉文化组,巴蜀文化,B46川东北重庆二次细化,gdd_shu,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5340,石砫,百越文化组,苗瑶文化,B46川东北重庆二次细化,miao,user_delegated,用户授权按国家、地形与区域连通性裁决；B46新增省份
+5341,房州,汉文化组,楚文化,B47荆襄豫南二次细化,gdd_chu,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5342,宜城,汉文化组,中原文化,B47荆襄豫南二次细化,gdd_zhongyuan,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5343,荆门,汉文化组,楚文化,B47荆襄豫南二次细化,gdd_chu,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5344,监利,汉文化组,楚文化,B47荆襄豫南二次细化,gdd_chu,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5345,枝江,汉文化组,楚文化,B47荆襄豫南二次细化,gdd_chu,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5346,归州,汉文化组,楚文化,B47荆襄豫南二次细化,gdd_chu,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5347,方城,汉文化组,中原文化,B47荆襄豫南二次细化,gdd_zhongyuan,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5348,内乡,汉文化组,中原文化,B47荆襄豫南二次细化,gdd_zhongyuan,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5349,息州,汉文化组,中原文化,B47荆襄豫南二次细化,gdd_zhongyuan,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份
+5350,光州,汉文化组,楚文化,B47荆襄豫南二次细化,gdd_chu,user_delegated,用户授权国家与文化归属；跨旧省界均衡版新增省份

@@ -1,0 +1,7 @@
+﻿l_english:
+ EGU:0 "鄂"
+ EGU_ADJ:0 "鄂"
+ QVN:0 "权"
+ QVN_ADJ:0 "权"
+ ZHU:0 "州"
+ ZHU_ADJ:0 "州"

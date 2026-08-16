@@ -1,0 +1,39 @@
+{
+  "batch": "B54_changsha_public_cities",
+  "purpose": "Transfer Yiyang and Anhua to Changsha and release Changde, Jiujiang and Hanyang as independent public cities.",
+  "opening_territory": {
+    "CSA": [671, 4998, 5321, 4997, 5322],
+    "WLM": [4996, 5312, 5313, 5316, 5317],
+    "CHC": [4994, 4992, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 5320],
+    "CDE": [672],
+    "JJG": [4979],
+    "HYA": [4981]
+  },
+  "opening_development": {
+    "CSA": 39,
+    "WLM": 16,
+    "CHC": 105,
+    "CDE": 15,
+    "JJG": 20,
+    "HYA": 9
+  },
+  "public_cities": {
+    "CDE": {"name": "常", "capital": 672},
+    "JJG": {"name": "九", "capital": 4979},
+    "HYA": {"name": "汉", "capital": 4981}
+  },
+  "invariants": {
+    "province_geometry": "unchanged",
+    "areas_and_regions": "unchanged",
+    "climate": "Changde 672 is explicitly assigned to mild_monsoon",
+    "trade_nodes_and_routes": "unchanged",
+    "trade_centres": "unchanged",
+    "province_development": "unchanged",
+    "culture_and_religion": "existing province values retained",
+    "public_city_government": "republic with vanilla oligarchy_reform",
+    "diplomacy": "all three public cities start independent"
+  },
+  "replay": "tools/map_pipeline/apply_b54_changsha_public_cities.py",
+  "localisation_source": "guangdong_independent_practice/localisation_source/007_gdd_b54_changsha_public_cities_readable_utf8.txt",
+  "localisation_target": "guangdong_independent_practice/localisation/replace/007_gdd_b54_changsha_public_cities_l_english.yml"
+}

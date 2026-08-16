@@ -1,6 +1,6 @@
-owner = XU2
-controller = XU2
-add_core = XU2
+owner = HUA
+controller = HUA
+add_core = HUA
 culture = gdd_jianghuai
 religion = confucianism
 capital = "Shouzhou"
@@ -9,7 +9,6 @@ base_tax = 4
 base_production = 4
 base_manpower = 3
 is_city = yes
-center_of_trade = 1
 fort_15th = yes
 discovered_by = chinese
 discovered_by = nomad_group

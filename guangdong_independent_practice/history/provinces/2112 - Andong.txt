@@ -1,8 +1,8 @@
 # 2112 - Jiuliancheng
 
-owner = YAN
-controller = YAN
-add_core = YAN
+owner = LIO
+controller = LIO
+add_core = LIO
 culture = manchu
 religion = confucianism
 capital = "Jiuliancheng"

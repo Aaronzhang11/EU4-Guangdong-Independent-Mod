@@ -1,8 +1,8 @@
 # 5007 - Chuzhou
 
-owner = YUE
-controller = YUE
-add_core = YUE
+owner = OUE
+controller = OUE
+add_core = OUE
 culture = gdd_wu
 religion = confucianism
 capital = "Lishui"

@@ -1,4 +1,5 @@
 # 2171 - Xiangyang
+
 owner = LUO
 controller = LUO
 add_core = LUO
@@ -6,9 +7,9 @@ culture = gdd_zhongyuan
 religion = confucianism
 capital = "Xiangyang"
 trade_goods = grain
-base_tax = 6
-base_production = 6
-base_manpower = 5
+base_tax = 4
+base_production = 4
+base_manpower = 3
 is_city = yes
 fort_15th = yes
 discovered_by = chinese

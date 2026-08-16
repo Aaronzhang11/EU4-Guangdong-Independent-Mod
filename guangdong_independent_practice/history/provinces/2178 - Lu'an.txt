@@ -1,11 +1,11 @@
-# 2178 - Luan
+# 2178 - Luzhou
 
 owner = WEI
 controller = WEI
 add_core = WEI
 culture = gdd_jin
 religion = confucianism
-capital = "Luan"
+capital = "Luzhou"
 trade_goods = iron
 base_tax = 5
 base_production = 5

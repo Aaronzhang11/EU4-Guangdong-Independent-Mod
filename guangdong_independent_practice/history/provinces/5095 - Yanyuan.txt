@@ -1,4 +1,4 @@
-# 5095 - Yanyuan
+# 5095 - Yanjing
 
 owner = LSH
 controller = LSH
@@ -8,7 +8,7 @@ add_core = CDL
 add_core = CXI
 culture = yi
 religion = animism
-capital = "Yanyuan"
+capital = "Yanjing"
 trade_goods = salt
 base_tax = 2
 base_production = 2

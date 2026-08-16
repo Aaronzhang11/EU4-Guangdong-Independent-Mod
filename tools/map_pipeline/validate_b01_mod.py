@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import importlib.util
 import json
 import re
 from collections import deque
@@ -508,8 +509,8 @@ JIANGSU_HISTORY = {
     4977: ("MNG", (3, 5, 2), "salt", "gdd_jianghuai", "confucianism"),
     5022: ("MNG", (3, 4, 2), "cloth", "gdd_jianghuai", "confucianism"),
     5023: ("MNG", (3, 3, 2), "grain", "gdd_jianghuai", "confucianism"),
-    1821: ("MNG", (7, 8, 4), "grain", "gdd_wu", "confucianism"),
-    5056: ("MNG", (2, 2, 1), "silk", "gdd_jianghuai", "confucianism"),
+    1821: ("WUU", (7, 8, 4), "grain", "gdd_wu", "confucianism"),
+    5056: ("XU2", (2, 2, 1), "silk", "gdd_jianghuai", "confucianism"),
     5057: ("MNG", (2, 2, 1), "tea", "gdd_wu", "confucianism"),
     2145: ("MNG", (4, 4, 2), "naval_supplies", "gdd_wu", "confucianism"),
     5024: ("MNG", (4, 5, 2), "cloth", "gdd_wu", "confucianism"),
@@ -1311,43 +1312,13 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     ) <= ocean_ids:
         raise ValueError("terrain.txt: navigable Yangtze or Huai is not ocean terrain")
 
-    trade_nodes = (
-        mod_root / "common/tradenodes/00_tradenodes.txt"
-    ).read_text(encoding="cp1252")
-    canton = block_text(trade_nodes, "canton")
-    canton_members = set(numeric_tokens(block_text(canton, "members")))
-    for province_id in (
-        IMPLEMENTED_IDS
-        + (4954, 4955, 4959, 4960, 4961)
-        + HUNAN_IDS
-    ):
-        assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
-        if province_id not in canton_members:
-            raise ValueError(f"Canton trade node lacks {province_id}")
-    hangzhou = block_text(trade_nodes, "hangzhou")
-    hangzhou_members = set(numeric_tokens(block_text(hangzhou, "members")))
-    for province_id in (
-        4950, 4951, 4952, 4953, 4956, 4957, 4958,
-        4979, 4980, 4992, 4993, 4994, 4995,
-        5002, 5003, 5004, 5005, 5006, 5007,
-        5056, 5057,
-        5058, 5059, 5060, 5061, 5062, 5063, 5064, 5065, 5066, 5067, 5068,
-    ):
-        assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
-        if province_id not in hangzhou_members:
-            raise ValueError(f"Hangzhou trade node lacks {province_id}")
-    xian = block_text(trade_nodes, "xian")
-    xian_members = set(numeric_tokens(block_text(xian, "members")))
-    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS + HENAN_NEW_IDS:
-        assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
-        if province_id not in xian_members:
-            raise ValueError(f"Xi'an trade node lacks {province_id}")
-    chengdu = block_text(trade_nodes, "chengdu")
-    chengdu_members = set(numeric_tokens(block_text(chengdu, "members")))
-    for province_id in CHONGQING_NEW_IDS:
-        assert_token_once(trade_nodes, province_id, "00_tradenodes.txt")
-        if province_id not in chengdu_members:
-            raise ValueError(f"Chengdu trade node lacks {province_id}")
+    b49_path = Path(__file__).with_name("apply_b49_eight_node_trade_network.py")
+    specification = importlib.util.spec_from_file_location("gdd_b49_trade_validation", b49_path)
+    if specification is None or specification.loader is None:
+        raise ValueError("Cannot load the B49 trade-network validator")
+    b49 = importlib.util.module_from_spec(specification)
+    specification.loader.exec_module(b49)
+    b49.validate(mod_root)
 
     companies = (
         mod_root / "common/trade_companies/00_trade_companies.txt"
@@ -1380,7 +1351,9 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
     xian_company_provinces = set(
         numeric_tokens(block_text(xian_company, "provinces"))
     )
-    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS + HENAN_NEW_IDS:
+    for province_id in HUBEI_NEW_IDS + WANGJI_NEW_IDS + tuple(
+        value for value in HENAN_NEW_IDS if value != 5048
+    ):
         assert_token_once(companies, province_id, "00_trade_companies.txt")
         if province_id not in xian_company_provinces:
             raise ValueError(f"Xi'an trade company lacks {province_id}")
@@ -1439,8 +1412,8 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
             )
 
     nanxiong = history_path(mod_root, 4948).read_text(encoding="cp1252")
-    if initial_history_value(nanxiong, "center_of_trade") != "1":
-        raise ValueError("4948 Nanxiong must have a level-1 center of trade")
+    if re.search(r"(?m)^center_of_trade\s*=", nanxiong):
+        raise ValueError("4948 Nanxiong must not have an opening center of trade after B48")
     lufeng = history_path(mod_root, 4949).read_text(encoding="cp1252")
     if initial_history_value(lufeng, "fort_15th") != "yes":
         raise ValueError("4949 Lufeng must have a 15th-century fort")
@@ -1464,9 +1437,9 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         match = re.search(r"(?m)^center_of_trade\s*=\s*(\d+)", text)
         if match:
             centers[province_id] = int(match.group(1))
-    if centers != {688: 2, 1836: 2}:
+    if centers != {688: 1, 1836: 2}:
         raise ValueError(
-            f"Henan centers of trade are {centers}, expected Tokyo and Chengzhou"
+            f"Henan centers of trade are {centers}, expected Kaifeng 1/Luoyang 2"
         )
     for province_id in ANHUI_ALL_IDS:
         text = history_path(mod_root, province_id).read_text(encoding="cp1252")
@@ -1488,9 +1461,9 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         match = re.search(r"(?m)^center_of_trade\s*=\s*(\d+)", text)
         if match:
             anhui_centers[province_id] = int(match.group(1))
-    if anhui_centers != {5059: 1, 5066: 2}:
+    if anhui_centers != {5066: 1}:
         raise ValueError(
-            f"Anhui centers of trade are {anhui_centers}, expected Shouzhou 1/Wuhu 2"
+            f"Anhui centers of trade are {anhui_centers}, expected Wuhu 1"
         )
     return development
 
@@ -1669,10 +1642,10 @@ def validate_hunan_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         raise ValueError(f"Hunan development is {totals}, expected (50, 59, 51)")
     if sum(sum(values) for values in development.values()) != 160:
         raise ValueError("Hunan total development must be exactly 160")
-    if center_of_trade_ids != {2174, 4982}:
+    if center_of_trade_ids != {4982}:
         raise ValueError(
             f"Hunan centers of trade are {sorted(center_of_trade_ids)}, "
-            "expected Hengzhou and Yuezhou"
+            "expected Yuezhou only"
         )
     chenzhou = history_path(mod_root, 5001).read_text(encoding="cp1252")
     if initial_history_value(chenzhou, "fort_15th") != "yes":
@@ -1805,12 +1778,12 @@ def validate_jiangsu_histories(mod_root: Path) -> dict[int, tuple[int, int, int]
     )
     if totals != (69, 84, 41):
         raise ValueError(f"Jiangsu development is {totals}, expected (69, 84, 41)")
-    if centers != {2142: 1, 685: 2, 1822: 2}:
+    if centers != {685: 2, 1822: 2}:
         raise ValueError(
             f"Jiangsu centers of trade are {centers}, "
-            "expected Huai'an 1/Yangzhou 2/Suzhou 2"
+            "expected Yangzhou 2/Suzhou 2"
         )
-    for province_id in (2141, 5056):
+    for province_id in (2141, 1821):
         text = history_path(mod_root, province_id).read_text(encoding="cp1252")
         if initial_history_value(text, "fort_15th") != "yes":
             raise ValueError(f"{province_id} must have a 15th-century fort")

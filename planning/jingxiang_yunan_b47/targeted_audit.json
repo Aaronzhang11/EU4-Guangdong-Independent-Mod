@@ -1,0 +1,53 @@
+{
+  "mod_root": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice",
+  "targets": [
+    681,
+    687,
+    2171,
+    2172,
+    2175,
+    5008,
+    5010,
+    5013,
+    5014,
+    5015,
+    5053,
+    5054,
+    5055,
+    5341,
+    5342,
+    5343,
+    5344,
+    5345,
+    5346,
+    5347,
+    5348,
+    5349,
+    5350
+  ],
+  "findings": [],
+  "pixel_comparison": {
+    "changed": 2017,
+    "outside_editable_mask": 0,
+    "editable_ids": [
+      681,
+      687,
+      2171,
+      2172,
+      2175,
+      5008,
+      5010,
+      5013,
+      5014,
+      5015,
+      5053,
+      5054,
+      5055
+    ]
+  },
+  "summary": {
+    "targets": 23,
+    "errors": 0,
+    "warnings": 0
+  }
+}
