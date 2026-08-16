@@ -25,6 +25,8 @@ from typing import Iterable
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from country_name_pool_support import country_definition_bytes
+
 
 ROOT = Path(__file__).resolve().parents[2]
 MOD = ROOT / "guangdong_independent_practice"
@@ -595,13 +597,13 @@ def update_country() -> None:
     text += '\nHNG = "countries/B45_Heng.txt"\n'
     tags.write_text(text, encoding="cp1252")
 
-    (COUNTRIES / "B45_Heng.txt").write_text(
+    (COUNTRIES / "B45_Heng.txt").write_bytes(country_definition_bytes(
         "# B45 balanced Hunan polity.\n"
         "graphical_culture = asiangfx\n\n"
         "color = { 93 117 160 }\n"
         "revolutionary_colors = { 3 5 8 }\n",
-        encoding="cp1252",
-    )
+        "gdd_chu",
+    ))
     (COUNTRY_HISTORY / "HNG - Heng.txt").write_text(
         "# B45 balanced Hunan polity history.\n"
         "government = monarchy\n"
@@ -933,23 +935,51 @@ def apply(reference_root: Path) -> None:
 
 
 def check(reference_root: Path) -> None:
-    expected, editable, pixel_counts = expected_geometry(reference_root)
-    current = np.array(Image.open(MAP / "provinces.bmp").convert("RGB"), dtype=np.uint8)
-    check_mask = editable.copy()
-    for later_manifest in (B46_MANIFEST, B47_MANIFEST):
-        if later_manifest.exists():
-            payload = json.loads(later_manifest.read_text(encoding="utf-8"))
-            later_backup = Path(payload["backup"])
-            later_editable = np.isin(
-                decode_ids(later_backup, MAP / "definition.csv"),
-                tuple(payload["parent_ids"]),
+    reference_bitmap = reference_root / "map/provinces.bmp"
+    reference_definition = reference_root / "map/definition.csv"
+    if reference_bitmap.exists() and reference_definition.exists():
+        expected, editable, pixel_counts = expected_geometry(reference_root)
+        current = np.array(Image.open(MAP / "provinces.bmp").convert("RGB"), dtype=np.uint8)
+        check_mask = editable.copy()
+        for later_manifest in (B46_MANIFEST, B47_MANIFEST):
+            if later_manifest.exists():
+                payload = json.loads(later_manifest.read_text(encoding="utf-8"))
+                later_backup = Path(payload["backup"])
+                later_editable = np.isin(
+                    decode_ids(later_backup, MAP / "definition.csv"),
+                    tuple(payload["parent_ids"]),
+                )
+                check_mask &= ~later_editable
+        mismatch = np.any(current[check_mask] != expected[check_mask], axis=1)
+        if int(np.count_nonzero(mismatch)):
+            raise ValueError(
+                "Canonical bitmap differs from expected B45 geometry at "
+                f"{int(np.count_nonzero(mismatch))} editable pixels"
             )
-            check_mask &= ~later_editable
-    mismatch = np.any(current[check_mask] != expected[check_mask], axis=1)
-    if int(np.count_nonzero(mismatch)):
-        raise ValueError(f"Canonical bitmap differs from expected B45 geometry at {int(np.count_nonzero(mismatch))} editable pixels")
+        check_mode = "reference_geometry"
+    else:
+        # The source workshop dependency is not distributed with this repo.
+        # On machines without it, retain a deterministic structural check
+        # against the frozen counts produced by the reviewed B45 transaction.
+        if not MANIFEST.exists():
+            raise FileNotFoundError(
+                f"Missing both B45 reference map ({reference_root}) and manifest ({MANIFEST})"
+            )
+        payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        if tuple(payload.get("parent_ids", ())) != PARENT_IDS:
+            raise ValueError("B45 manifest parent scope does not match the pipeline")
+        pixel_counts = {
+            int(province_id): int(count)
+            for province_id, count in payload.get("pixel_counts", {}).items()
+        }
+        if set(pixel_counts) != set(FINAL_PROVINCE_BY_ID):
+            raise ValueError("B45 manifest pixel-count scope is incomplete")
+        check_mode = "frozen_manifest_structure"
     validation = validate(pixel_counts)
-    print(f"{MARKER}_CHECK; PASS; NEW_PROVINCES:{len(NEW_IDS)}; CHANGSHA:{validation['changsha_constraint']}")
+    print(
+        f"{MARKER}_CHECK; PASS; MODE:{check_mode}; NEW_PROVINCES:{len(NEW_IDS)}; "
+        f"CHANGSHA:{validation['changsha_constraint']}"
+    )
 
 
 def main() -> None:

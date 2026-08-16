@@ -37,6 +37,7 @@ DEFAULT_DEPENDENCY_ROOTS = (
 )
 
 sys.path.insert(0, str(ROOT / "tools/map_pipeline"))
+from country_name_pool_support import country_definition_bytes  # noqa: E402
 from apply_b43_chunqiu_polities import (  # noqa: E402
     EXACT_CORE_TAGS,
     POLITIES,
@@ -172,8 +173,8 @@ def write_countries() -> None:
         capital_history = read_text(history_paths(int(config["capital"]))[0])
         culture = initial_value(capital_history, "culture")
         religion = initial_value(capital_history, "religion")
-        (COUNTRIES / str(config["file"])).write_text(
-            country_definition(config["color"]), encoding="utf-8"
+        (COUNTRIES / str(config["file"])).write_bytes(
+            country_definition_bytes(country_definition(config["color"]), culture)
         )
         (COUNTRY_HISTORY / str(config["history"])).write_text(
             country_history(

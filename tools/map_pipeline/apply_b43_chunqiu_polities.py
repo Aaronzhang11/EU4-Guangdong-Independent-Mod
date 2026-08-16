@@ -36,6 +36,7 @@ if str(TOOLS) not in sys.path:
 from normalize_country_history_character_encoding import (  # noqa: E402
     normalize_country_history_files,
 )
+from country_name_pool_support import country_definition_bytes  # noqa: E402
 
 MOD = ROOT / "guangdong_independent_practice"
 PROVINCE_HISTORY = MOD / "history/provinces"
@@ -1078,7 +1079,9 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
                 replace_country_color_bytes(country_path.read_bytes(), config["color"])
             )
         else:
-            country_path.write_text(country_definition(config["color"]), encoding="utf-8")
+            country_path.write_bytes(
+                country_definition_bytes(country_definition(config["color"]), culture)
+            )
         history_path.write_text(
             country_history(
                 config["capital"], config["rank"], culture, religion,

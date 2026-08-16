@@ -549,6 +549,9 @@ def generated_country_data(data: bytes, culture: str) -> bytes:
     # Keep generated mixed-byte scripts on LF.  Literal CR bytes make Git's
     # text diff treat every line as trailing whitespace on Windows.
     data = data.replace(b"\r\n", b"\n")
+    # Keep generated overrides deterministic and avoid legacy trailing spaces
+    # being reported as errors by Git's whitespace checker.
+    data = re.sub(rb"[ \t]+(?=\n)", b"", data)
     newline_bytes = b"\n"
     newline = "\n"
     data = GENERATED_COMMENT_PATTERN.sub(b"", data)

@@ -37,11 +37,11 @@ historical_units = {
 ship_names = {
 	Beiji Tianshu Sifu Gouchen Tianzhu Zhushi Tianqiang Xuange
 	Taizun Beidou Santai Tianji Wenchang Qizhenjiangjun Tenshe
-	Liaoning Beiluoshimen Yujing Hongshi 
+	Liaoning Beiluoshimen Yujing Hongshi
 	Qinglong Baihu Zhuque Xuanwu Zhaowu Yong'an Nan'an Longhai Fu'an Fuding Jinchang
 	Qingyuan Xining Xingyi Wu'an Xianning Ruichang Xinghua
 	Zhaoyuan Xingping Yongji Xiaoyi Yongkang Rende Anding
-	Yanping 
+	Yanping
 }
 
 # Culture-specific Chinese personal names (gdd_shu).

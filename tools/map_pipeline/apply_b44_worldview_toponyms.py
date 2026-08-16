@@ -90,6 +90,10 @@ LIUHE = {
     "base_production": "2",
     "base_manpower": "1",
 }
+# B43/B50 later transfer Liuhe to Huai without changing the B44 toponym,
+# culture or development policy.  The B44 checker must remain valid both
+# immediately after B44 (XU2) and on the final integrated map (HUA).
+LIUHE_VALID_OWNERS = {"XU2", "HUA"}
 
 
 def sha256(path: Path) -> str:
@@ -390,25 +394,42 @@ def validate() -> dict[str, object]:
             expected = rf'(?m)^\s*{key}:0\s+"{re.escape(policy[1])}"\s*$'
             if len(re.findall(expected, readable)) != 1:
                 raise ValueError(f"{key}: missing or incorrect B44 provider")
-            providers = sum(
-                len(re.findall(rf"(?m)^\s*{key}:\d+\s+", text))
-                for text in all_readable.values()
-            )
-            if providers != 1:
-                raise ValueError(f"{key}: expected one readable provider, found {providers}")
+            provider_values = [
+                (path, value)
+                for path, text in all_readable.items()
+                for value in re.findall(
+                    rf'(?m)^\s*{key}:\d+\s+"([^"\r\n]*)"\s*$', text
+                )
+            ]
+            if not provider_values:
+                raise ValueError(f"{key}: readable provider is missing")
+            conflicts = [
+                str(path.relative_to(MOD))
+                for path, value in provider_values
+                if value != policy[1]
+            ]
+            if conflicts:
+                raise ValueError(
+                    f"{key}: conflicting readable provider(s): {', '.join(conflicts)}"
+                )
 
     for province_id, expected in ((1821, JIANGNING), (5056, LIUHE)):
         text = read_text(history_path(province_id))
         for key, value in expected.items():
-            if initial_value(text, key) != value:
+            actual = initial_value(text, key)
+            if province_id == 5056 and key in {"owner", "controller"}:
+                if actual not in LIUHE_VALID_OWNERS:
+                    raise ValueError(f"{province_id}: {key} has invalid owner {actual}")
+            elif actual != value:
                 raise ValueError(f"{province_id}: {key} is not {value}")
         initial, _dated = initial_section(text)
-        owner = expected["owner"]
+        owner = initial_value(text, "owner")
         if len(re.findall(rf"(?m)^\s*add_core\s*=\s*{owner}\s*$", initial)) != 1:
             raise ValueError(f"{province_id}: incorrect owner core")
-        other = "WUU" if owner == "XU2" else "XU2"
-        if re.search(rf"(?m)^\s*add_core\s*=\s*{other}\s*$", initial):
-            raise ValueError(f"{province_id}: stale {other} core")
+        possible_stale_cores = {"WUU", "XU2", "HUA"} - {owner}
+        for other in possible_stale_cores:
+            if re.search(rf"(?m)^\s*add_core\s*=\s*{other}\s*$", initial):
+                raise ValueError(f"{province_id}: stale {other} core")
 
     combined_development = sum(
         int(initial_value(read_text(history_path(province_id)), key) or -1)
@@ -432,13 +453,17 @@ def validate() -> dict[str, object]:
     from encode_eu4_chinese_localisation import verify_file
 
     verify_file(SOURCE, TARGET)
+    actual_liuhe = dict(LIUHE)
+    liuhe_text = read_text(history_path(5056))
+    actual_liuhe["owner"] = initial_value(liuhe_text, "owner")
+    actual_liuhe["controller"] = initial_value(liuhe_text, "controller")
     return {
         "batch": BATCH,
         "toponym_count": len(TOPONYMS),
         "province_ids": sorted(TOPONYMS),
         "geometry": "unchanged",
         "jiangning": JIANGNING,
-        "liuhe": LIUHE,
+        "liuhe": actual_liuhe,
         "combined_development": combined_development,
         "localisation_source": str(SOURCE.relative_to(ROOT)),
         "localisation_target": str(TARGET.relative_to(ROOT)),

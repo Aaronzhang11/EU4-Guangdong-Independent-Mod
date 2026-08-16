@@ -33,7 +33,7 @@ ship_names = {
 	Dartsendo
 	Gyantse Gartse
 	Lhasa Lhotse
-	Makalu 
+	Makalu
 	Nagqu Nyingchi Nedong
 	Pelbar
 	Qamdo
