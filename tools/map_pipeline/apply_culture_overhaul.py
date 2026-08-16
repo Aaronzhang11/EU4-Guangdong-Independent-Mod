@@ -23,6 +23,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MOD = ROOT / "guangdong_independent_practice"
+TOOLS = ROOT / "tools"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from apply_culture_name_pools import apply_to_culture_files
+
 MAP = MOD / "map"
 VANILLA = Path(
     "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/common/Europa Universalis IV"
@@ -791,7 +797,7 @@ def write_culture_definitions() -> None:
             + "\n}\n"
         )
 
-    text = f"# {MARKER}\n# Inherited name pools below are preserved verbatim.\n\n"
+    text = f"# {MARKER}\n# Inherited definitions are preserved byte-for-byte before Chinese name-pool replacement.\n\n"
     text += group_text(
         "gdd_baiyue_group",
         baiyue_custom + (preserved["vietnamese"], preserved["miao"]),
@@ -819,7 +825,11 @@ def write_culture_definitions() -> None:
             "Unexpected target definitions in 99_gdd_culture_overhaul.txt: "
             f"expected {sorted(expected_separate)}, got {sorted(separate_targets)}"
         )
-    path.write_text(text, encoding="utf-8")
+    # ``preserved`` contains Latin-1 byte surrogates from the inherited file.
+    # Writing it as UTF-8 double-encodes the EU4 Chinese escape bytes and
+    # creates mojibake in Vietnamese, Miao, Bai and Yi names.
+    path.write_bytes(text.encode("latin-1"))
+    apply_to_culture_files(check=False)
 
 
 def country_history_path(tag: str) -> Path:

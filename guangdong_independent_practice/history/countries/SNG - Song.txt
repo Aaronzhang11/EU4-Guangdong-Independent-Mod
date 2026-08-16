@@ -10,8 +10,8 @@ fixed_capital = 2176
 
 1444.11.11 = {
     monarch = {
-        name = "ик"
-        dynasty = "вс"
+        name = "2O"
+        dynasty = "PR"
         birth_date = 1417.5.12
         adm = 3
         dip = 4
@@ -19,8 +19,8 @@ fixed_capital = 2176
     }
 
     heir = {
-        name = "╥Б"
-        dynasty = "вс"
+        name = "S"
+        dynasty = "PR"
         birth_date = 1438.6.18
         adm = 4
         dip = 5

@@ -1,0 +1,325 @@
+guiTypes = {
+
+	# Three-column Empire of China layout.
+	# Only the vanilla controls are declared here: decrees on the left,
+	# emperor/mandate/tributaries in the centre, and reforms on the right.
+	windowType = {
+		name = "celestial_window"
+		position = { x = -365 y = -370 }
+		size = { x = 750 y = 750 }
+		moveable = 1
+		dontRender = ""
+		horizontalBorder = ""
+		verticalBorder = ""
+		fullScreen = no
+		Orientation = "CENTER"
+
+		upsound = celestial_empire
+		downsound = ""
+
+		# The decorative background contains the three-column frame and the
+		# two golden dragons. It is visual only and adds no scripted controls.
+		iconType = {
+			name = "celestial_bg"
+			spriteType = "GFX_eoc_bg_dom"
+			position = { x = 66 y = 18 }
+		}
+
+		instantTextBoxType = {
+			name = "celestial_label"
+			position = { x = 183 y = 55 }
+			format = centre
+			textureFile = ""
+			font = "vic_29"
+			borderSize = { x = 4 y = 4 }
+			text = "CELESTIAL_CELESTIAL"
+			maxWidth = 657
+			maxHeight = 32
+		}
+
+		# Left column: the original meritocracy display and decree list.
+		instantTextBoxType = {
+			name = "decree_label"
+			position = { x = 127 y = 92 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 4 y = 0 }
+			text = "CELESTIAL_DECREES"
+			maxWidth = 194
+			maxHeight = 32
+			format = centre
+		}
+
+		iconType = {
+			name = "meritocracy_icon"
+			spriteType = "GFX_icon_legitimacy"
+			position = { x = 183 y = 127 }
+			frame = 5
+		}
+
+		instantTextBoxType = {
+			name = "meritocracy_value"
+			position = { x = 217 y = 130 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 4 y = 0 }
+			text = "100"
+			maxWidth = 72
+			maxHeight = 32
+			format = centre
+		}
+
+		listboxType = {
+			name = "decree_listbox"
+			position = { x = 104 y = 150 }
+			backGround = ""
+			size = { x = 220 y = 620 }
+			Orientation = "UPPER_LEFT"
+			horizontal = 0
+			spacing = 0
+			scrollbartype = "standardlistbox_slider"
+			borderSize = { x = 5 y = 5 }
+		}
+
+		# Centre-top: emperor shield, the two original action icons and status.
+		guiButtonType = {
+			name = "emperor_shield"
+			quadTextureSprite = "GFX_shield_thin"
+			position = { x = 464 y = 136 }
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			buttonFont = "vic_18_black"
+			hint_tag = "hint_emperor"
+		}
+
+		iconType = {
+			name = "benefits_icon"
+			spriteType = "GFX_emperor_of_china_icon"
+			position = { x = 476 y = 217 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name = "diplomatic_actions_icon"
+			spriteType = "GFX_celestial_more_dip_actions_icon"
+			position = { x = 521 y = 217 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType = {
+			name = "emperor_label"
+			position = { x = 386 y = 268 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 0 y = 0 }
+			text = "CELESTIAL_EMPEROR"
+			maxWidth = 270
+			maxHeight = 32
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "influence_label"
+			position = { x = 399 y = 318 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 4 y = 0 }
+			text = "CELESTIAL_MANDATE"
+			maxWidth = 225
+			maxHeight = 32
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "influence_value"
+			position = { x = 464 y = 365 }
+			textureFile = ""
+			font = "vic_29"
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 113
+			maxHeight = 32
+			format = centre
+			hint_tag = "hint_imperialauthority"
+		}
+
+		instantTextBoxType = {
+			name = "influence_growth"
+			position = { x = 464 y = 405 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 0 y = 0 }
+			text = "0.00"
+			maxWidth = 113
+			maxHeight = 32
+			format = centre
+			hint_tag = "hint_imperialauthority"
+		}
+
+		# Centre-bottom: the original tributary list, with no added controls.
+		instantTextBoxType = {
+			name = "tributary_label"
+			position = { x = 411 y = 633 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 4 y = 0 }
+			text = "CELESTIAL_TRIBUTARIES"
+			maxWidth = 194
+			maxHeight = 32
+			format = centre
+		}
+
+		listboxType = {
+			name = "tributary_shield_box"
+			position = { x = 341 y = 660 }
+			backGround = ""
+			size = { x = 360 y = 120 }
+			Orientation = "UPPER_LEFT"
+			horizontal = 0
+			spacing = 0
+			borderSize = { x = 10 y = 10 }
+		}
+
+		# Right column: only reforms provided by the active game/mod data.
+		instantTextBoxType = {
+			name = "decisions_label"
+			position = { x = 714 y = 92 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = { x = 4 y = 0 }
+			text = "CELESTIAL_DECISIONS"
+			maxWidth = 162
+			maxHeight = 32
+			format = centre
+		}
+
+		listboxType = {
+			name = "decisions_listbox"
+			position = { x = 701 y = 135 }
+			backGround = ""
+			size = { x = 204 y = 635 }
+			Orientation = "UPPER_LEFT"
+			horizontal = 0
+			spacing = 0
+			scrollbartype = "standardlistbox_slider"
+			borderSize = { x = 5 y = 5 }
+		}
+
+		guiButtonType = {
+			name = "close_button"
+			position = { x = 920 y = 60 }
+			quadTextureSprite = "GFX_closebutton2"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = close_window
+			shortcut = "ESCAPE"
+		}
+	}
+
+	guiButtonType = {
+		name = "tributary_shield"
+		quadTextureSprite = "GFX_shield_small"
+		position = { x = 6 y = -16 }
+		tooltip = ""
+		tooltipText = ""
+		delayedTooltipText = ""
+		buttonFont = "vic_18_black"
+	}
+
+	positionType = {
+		name = "tributary_shield_offset"
+		position = { x = 26 y = 26 }
+	}
+
+	# Vanilla decree entry, scaled to the narrower left column.
+	windowType = {
+		name = "celestial_decree_entry"
+		backGround = ""
+		position = { x = 0 y = 0 }
+		size = { x = 205 y = 40 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder = ""
+		verticalBorder = ""
+		fullScreen = no
+
+		guiButtonType = {
+			name = "select_button"
+			quadTextureSprite = "GFX_decree_button"
+			position = { x = 0 y = 0 }
+			Orientation = "UPPER_LEFT"
+			buttonText = "decree_title"
+			buttonFont = "vic_18_black"
+			clicksound = click
+			scale = 0.95
+		}
+
+		iconType = {
+			name = "decree_button_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 155 y = 2 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "decree_button_check"
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 165 y = 10 }
+			scale = 0.8
+		}
+	}
+
+	# Vanilla celestial-reform entry, scaled to the right column.
+	windowType = {
+		name = "celestial_decision_entry"
+		backGround = ""
+		position = { x = 0 y = 0 }
+		size = { x = 300 y = 34 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder = ""
+		verticalBorder = ""
+		fullScreen = no
+
+		guiButtonType = {
+			name = "select_button"
+			position = { x = 0 y = -14 }
+			quadTextureSprite = "GFX_reform_button"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			buttonFont = ""
+		}
+
+		iconType = {
+			name = "mutualy_exclusive_reforms"
+			spriteType = "GFX_mutualy_exclusive_reforms"
+			# Vanilla position: the listbox's 5 px border keeps the 13x35
+			# yellow conflict bracket visible without covering the reform button.
+			position = { x = -4 y = -15 }
+		}
+
+		iconType = {
+			name = "enacted_decision"
+			spriteType = "GFX_enacted_reform_icon"
+			position = { x = 6 y = -6 }
+		}
+
+		instantTextBoxType = {
+			position = { x = 28 y = -6 }
+			name = "title"
+			font = "vic_18"
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 164
+			maxHeight = 20
+			text = ""
+			format = left
+			alwaystransparent = yes
+		}
+	}
+}

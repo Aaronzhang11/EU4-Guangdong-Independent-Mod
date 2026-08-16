@@ -19,12 +19,21 @@ import json
 from pathlib import Path
 import re
 import struct
+import sys
 
 import numpy as np
 from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[2]
+TOOLS = ROOT / "tools"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from normalize_country_history_character_encoding import (  # noqa: E402
+    normalize_country_history_files,
+)
+
 MOD = ROOT / "guangdong_independent_practice"
 PROVINCE_HISTORY = MOD / "history/provinces"
 COUNTRY_HISTORY = MOD / "history/countries"
@@ -769,6 +778,7 @@ def current_core_ids(tag: str) -> set[int]:
 
 
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
+    character_encoding_audit = normalize_country_history_files(check=True)
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
     if len(all_ids) != 262 or len(set(all_ids)) != 262:
         raise ValueError("Expanded polity policy must contain 262 unique provinces")
@@ -891,6 +901,7 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         "dae_capital": 5244,
         "badi_tag": "BD2",
         "adjacent_color_audit": adjacent_color_audit,
+        "character_encoding_audit": character_encoding_audit,
         "core_cleanup": {
             "exact": {tag: sorted(ids) for tag, ids in EXACT_CORE_TAGS.items()},
             "removed": {tag: sorted(ids) for tag, ids in FORCED_CORE_REMOVALS.items()},
@@ -950,7 +961,15 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
         culture, religion = capital_attributes(config["capital"], vanilla_root)
         country_path = COUNTRIES / config["file"]
         history_path = COUNTRY_HISTORY / config["history"]
-        country_path.write_text(country_definition(config["color"]), encoding="utf-8")
+        # Preserve culture-specific Chinese name pools and any other country
+        # settings already added to generated B43 definitions.  Only create a
+        # minimal file when the polity has no existing definition.
+        if country_path.exists():
+            country_path.write_bytes(
+                replace_country_color_bytes(country_path.read_bytes(), config["color"])
+            )
+        else:
+            country_path.write_text(country_definition(config["color"]), encoding="utf-8")
         history_path.write_text(
             country_history(config["capital"], config["rank"], culture, religion),
             encoding="utf-8",
@@ -983,6 +1002,8 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     if set_existing_country_capital(COUNTRY_HISTORY / "SNG - Song.txt", 2176, write=True):
         generated_country_files.append("guangdong_independent_practice/history/countries/SNG - Song.txt")
 
+    character_encoding_repairs = normalize_country_history_files(check=False)
+
     for tag in ("SNG", "XU2"):
         if not (FLAGS / f"{tag}.tga").exists():
             source_color = (65, 105, 150) if tag == "SNG" else (179, 128, 104)
@@ -1014,6 +1035,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             str(path.relative_to(ROOT)) for path in LEGACY_COUNTRY_ARTIFACTS
         ],
         "generated_country_files": sorted(set(generated_country_files)),
+        "character_encoding_repairs": character_encoding_repairs,
         "validation": validation,
     }
     REPORT_DIR.mkdir(parents=True, exist_ok=True)

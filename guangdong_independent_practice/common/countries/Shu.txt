@@ -32,302 +32,7 @@ historical_units = {
 	reformed_manchu_rifle
 }
 
-monarch_names = {
-		"Zhanji #0" = 10
-		"Zhanjun #0" = 10
-		"Zhanyong #0" = 10
-		"Zhanyin #0" = 10
-		"Zhanshan #0" = 10
-		"Zhangang #0" = 10
-		"Zhan'ao #0" = 10
-		"Zhankai #0" = 10
-		"Zhanyan #0" = 10
-		"Jianrui #0" = 10
-		"Jianlin #0" = 10
-		"Jianti #0" = 10
-		"Jianchun #0" = 10
-		"Jianze #0" = 10
-		"Jianjun #0" = 10
-		"Jianzhi #0" = 10
-		"Jianpei #0" = 10
-		"Jianji #0" = 10
-		"Youji #0" = 10
-		"Youtang #0" = 10
-		"Youwan #0" = 10
-		"Youlun #0" = 10
-		"Youbing #0" = 10
-		"Youyun #0" = 10
-		"Youheng #0" = 10
-		"You'kai #0" = 10
-		"Houzhao #0" = 10
-		"Houwei #0" = 10
-		"Houxi #0" = 10
-		"Houcong #0" = 10
-		"Zaiji #0" = 10
-		"Zairui #0" = 10
-		"Zaihou #0" = 10
-		"Yiling #0" = 10
-		"Yijun #0" = 10
-		"Yiliu #0" = 10
-		"Changluo #0" = 10
-		"Changxu #0" = 10
-		"Changxun #0" = 10
-		"Changzhi #0" = 10
-		"Changhao #0" = 10
-		"Changrun #0" = 10
-		"Changyin #0" = 10
-		"Changbo #0" = 10
-		"Youxiao #0" = 10
-		"Youxue #0" = 10
-		"Youmo #0" = 10
-		"Youjian #0" = 10
-		"Youyi #0" = 10
-		"Youshan #0" = 10
-		"Ciran #0" = 10
-		"Ciyu #0" = 10
-		"Cijiong #0" = 10
-		"Cilang #0" = 10
-		"Ciheng #0" = 10
-		"Cizhao #0" = 10
-		"Cihuan #0" = 10
-		"Cican #0" = 10
-		"Shangbing #0" = 10
-		"Shanglie #0" = 10
-		"Shangyi #0" = 10
-		"Shanghong #0" = 10
-		"Zhijun #0" = 10
-		"Zhibao #0" = 10
-		"Gongxi #0" = 10
-		"Gongjian #0" = 10
-		"Gongtang #0" = 10
-		"Gongming #0" = 10
-		"Jixi #0" = 10
-		"Jiye #0" = 10
-		"Jihuang #0" = 10
-		"Jihuan #0" = 10
-		"Jixuan #0" = 10
-		"Meigui #0" = 10
-		"Meiyuan #0" = 10
-		"Zhongxuan #0" = 10
-		"Zhongduo #0" = 10
-		"Qiyuan #0" = 10
-		"Qiying #0" = 10
-		"Qirong #0" = 10
-		"Youdun #0" = 10
-		"Zishi #0" = 10
-		"Linmei #0" = 10
-		"Cijue #0" = 10
-		"Ciwei #0" = 10
-		"Cikai #0" = 10
-		"Youhua #0" = 10
-		"Linyuan #0" = 10
-		"Qisheng #0" = 10
-		"Biao #0" = 10
-		"Shuang #0" = 10
-		"Gang #0" = 10
-		"Su #0" = 10
-		"Zhen #0" = 10
-		"Bo #0" = 10
-		"Zi #0" = 10
-		"Chun #0" = 10
-		"Bo #0" = 10
-		"Gui #0" = 10
-		"Xuntan #0" = 10
-		"Xunquan #0" = 10
-		"Ying #0" = 10
-		"Zhanyan #0" = 10
-		"Zhi #0" = 10
-		"Quan #0" = 10
-		"Chenhao #0" = 10
-		"Bian #0" = 10
-		"Hui #0" = 10
-		"Song #0" = 10
-		"Mo #0" = 10
-		"Yin #0" = 10
-		"Jing #0" = 10
-		"Dong #0" = 10
-		"Nan #0" = 10
-		"Shouqian #0" = 10
-		"Xiongying #0" = 10
-		"Yuntong #0" = 10
-		"Yunjian #0" = 10
-		"Wengui #0" = 10
-		"Wenkui #0" = 10
-		"Gaoxu #0" = 10
-		"Gaosui #0" = 10
-		"Houyu #0" = 10
-		"ZhanYong #0" = 10
-		"Yousi #0" = 10
-		"Jianchun #0" = 10
-		"Jianshu #0" = 10
-		"Jianzhi #0" = 10
-		"Yourong #0" = 10
-		"Houjue #0" = 10
-		"Zailun #0" = 10
-		"Zaiji #0" = 10
-		"Changfang #0" = 10
-		"Changxu #0" = 10
-		"Changxun #0" = 10
-		"Changzhi #0" = 10
-		"Changrun #0" = 10
-		"Cilang #0" = 10
-		"Cihuan #0" = 10
-		"Guan #0" = 0
-		"Keqin #0" = 0
-		"Fu #0" = 0
-		"Dounan #0" = 0
-		"Chengzu #0" = 0
-		"Zixiang #0" = 0
-		"Bingyi #0" = 0
-		"Guan #0" = 0
-		"Zongren #0" = 0
-		"Yuan #0" = 0
-		"Fu #0" = 0
-		"Xingui #0" = 0
-		"Zonglian #0" = 0
-		"Ji #0" = 0
-		"Xiang #0" = 0
-		"Yu #0" = 0
-		"Quan #0" = 0
-		"Zhong #0" = 0
-		"Ji #0" = 0
-		"Xizheng #0" = 0
-		"Jian #0" = 0
-		"Shao'en #0" = 0
-		"Jiusi #0" = 0
-		"Song #0" = 0
-		"Chun #0" = 0
-		"Youxue #0" = 0
-		"Zugan #0" = 0
-		"Yingfang #0" = 0
-		"Kekuan #0" = 0
-		"Mo #0" = 0
-		"Juren #0" = 0
-		"Qing #0" = 0
-		"Qinshun #0" = 0
-		"Duan #0" = 0
-		"Zhencheng #0" = 0
-		"Bao #0" = 0
-		"Li #0" = 0
-		"Xiao #0" = 0
-		"Xian #0" = 0
-		"Tang #0" = 0
-		"Boyuan #0" = 0
-		"Chunyao #0" = 0
-		"Xianzhang #0" = 0
-		"Liang #0" = 0
-		"Ruoshui #0" = 0
-		"Shouyi #0" = 0
-		"De #0" = 0
-		"Ti #0" = 0
-		"Hongxian #0" = 0
-		"Shihuai #0" = 0
-		"Shixi #0" = 0
-		"Yizan #0" = 0
-		"Huali #0" = 0
-		"Zhide #0" = 0
-		"Yuanxi #0" = 0
-		"Xixue #0" = 0
-		"Weizhen #0" = 0
-		"Han #0" = 0
-		"Boheng #0" = 0
-		"Mian #0" = 0
-		"Zongyi #0" = 0
-		"Kai #0" = 0
-		"Meng #0" = 0
-		"Hong #0" = 0
-		"Du #0" = 0
-		"Danian #0" = 0
-		"Tai #0" = 0
-		"Minzheng #0" = 0
-		"Mengyang #0" = 0
-		"Jingming #0" = 0
-		"Zhenqing #0" = 0
-		"Gong #0" = 0
-		"Shanfu #0" = 0
-		"Shen #0" = 0
-		"Zhengming #0" = 0
-		"Zuo #0" = 0
-		"Weiqi #0" = 0
-		"Shenzhong #0" = 0
-		"Panlong #0" = 0
-		"Youguang #0" = 0
-		"Weizhen #0" = 0
-		"Shisheng #0" = 0
-		"Qichang #0" = 0
-		"Hongdao #0" = 0
-		"Nanying #0" = 0
-		"Shaozong #0" = 0
-		"Peng #0" = 0
-		"Wenshi #0" = 0
-		"Liangxiang #0" = 0
-		"Wannian #0" = 0
-		"Zongyan #0" = 0
-		"Tingkui #0" = 0
-		"Bangzuo #0" = 0
-		"Ruxiu #0" = 0
-		"Guochang #0" = 0
-		"Huanchun #0" = 0
-		"Xianming #0" = 0
-		"Shengdou #0" = 0
-		"Zhaochen #0" = 0
-		"Shimei #0" = 0
-		"Guoxi #0" = 0
-		"Shangzhen #0" = 0
-		"Daoxing #0" = 0
-		"Tingbiao #0" = 0
-		"Yunrang #0" = 0
-		"Wan #0" = 0
-		"Jin #0" = 0
-		"Ding #0" = 0
-		"Wuchang #0" = 0
-		"Chengzhang #0" = 0
-		"Jiefu #0" = 0
-		"Wenyong #0" = 0
-		"Shiming #0" = 0
-		"Chonghua #0" = 0
-		"Sanfeng #0" = 0
-		"Wanyan #0" = 0
-		"Dayong #0" = 0
-		"Zhongwen #0" = 0
-		"Kexue #0" = 0
-		"Yuanjie #0" = 0
-		"Rucai  #0" = 0
-		"Kexi  #0" = 0
-		"Zhongming  #0" = 0
-		"Jinxing  #0" = 0
-		"Yan  #0" = 0
-		"Yingxiang  #0" = 0
-		"Zongmin  #0" = 0
-		"Heying #0" = -1
-		"Chunmei #0" = -1
-		"Tianhui #0" = -1
-		"Kon #0" = -1
-		"Mao #0" = -1
-		"Yuying #0" = -1
-		"Yuantong #0" = -1
-		"Yanxiang #0" = -1
-		"Xiurong #0" = -1
-		"Shouying #0" = -1
-		"Fuyuan #0" = -1
-		"Luzhen #0" = -1
-		"Ruirong #0" = -1
-		"Suzhen #0" = -1
-		"Xiao'e #0" = -1
-		"Xiaoying #0" = -1
-		"Xiaoyuan #0" = -1
-		"Xiaoji #0" = -1
-		"Xiaolou #0" = -1
-}
 
-leader_names = {
-	Zhu Wu Geng Shang Zheng Zhao Li Shi Liu Guo Yang Wang Qian Ma Meng Gao 
-	Chen Sun Sima Cao Xiao Qi Zu Zhou Huang Bai Qiu Tang Lu	Xu Chang 
-	Feng Deng Hua Gu Fei Fu Hu Mei Xue Liao Jin Ye He Lan Du Fang Mao Hao 
-	Kong Jiao Si Pan Zuo Ding Bao Yan Tan Han Luo Xie Yuan Qin Ruan	Niu Zeng
-	Dong Lin Shen Ouyang Su Yu Ren Chai Xia Mo Dai Jiang Yue Jia Xiong Cui
-	"Ou'yang" "Huangfu" "Dongfang" "Linghu"
-}
 
 ship_names = {
 	Beiji Tianshu Sifu Gouchen Tianzhu Zhushi Tianqiang Xuange
@@ -337,4 +42,411 @@ ship_names = {
 	Qingyuan Xining Xingyi Wu'an Xianning Ruichang Xinghua
 	Zhaoyuan Xingping Yongji Xiaoyi Yongkang Rende Anding
 	Yanping 
+}
+
+# Culture-specific Chinese personal names (gdd_shu).
+monarch_names = {
+    "fV-f #0" = 10
+    "˝V‡V #0" = 10
+    "àRIN #0" = 10
+    "bfk #0" = 10
+    "ofÜñ #0" = 10
+    "áel #0" = 10
+    "V»p #0" = 10
+    "NÀR #0" = 10
+    "KQY #0" = 10
+    "˜^ãt #0" = 10
+    "`m` #0" = 10
+    "∑VZ #0" = 10
+    "Õufk #0" = 10
+    "óR #0" = 10
+    "=Oƒñ #0" = 10
+    "ÚNfk #0" = 10
+    "cRf #0" = 10
+    "PRÒÇ #0" = 10
+    "Ùu≥S #0" = 10
+    "=T‡V #0" = 10
+    "AQb #0" = 10
+    "CQJy #0" = 10
+    "`∑V #0" = 10
+    "âR˝V #0" = 10
+    "fV‡V #0" = 10
+    "fVIN #0" = 10
+    "fVfk #0" = 10
+    "fVÜñ #0" = 10
+    "fVl #0" = 10
+    "fV»p #0" = 10
+    "fVÀR #0" = 10
+    "fVY #0" = 10
+    "fVãt #0" = 10
+    "fVm` #0" = 10
+    "fVZ #0" = 10
+    "fV #0" = 10
+    "fVƒñ #0" = 10
+    "fVf #0" = 10
+    "fVÒÇ #0" = 10
+    "fV≥S #0" = 10
+    "fVb #0" = 10
+    "fVJy #0" = 10
+    "fV∑V #0" = 10
+    "˝V-f #0" = 10
+    "˝VIN #0" = 10
+    "˝Vfk #0" = 10
+    "˝VÜñ #0" = 10
+    "˝Vl #0" = 10
+    "˝V»p #0" = 10
+    "˝VÀR #0" = 10
+    "˝VY #0" = 10
+    "˝Vãt #0" = 10
+    "˝Vm` #0" = 10
+    "˝VZ #0" = 10
+    "˝V #0" = 10
+    "˝Vƒñ #0" = 10
+    "˝Vf #0" = 10
+    "˝VÒÇ #0" = 10
+    "˝V≥S #0" = 10
+    "˝Vb #0" = 10
+    "˝VJy #0" = 10
+    "˝V∑V #0" = 10
+    "àR-f #0" = 10
+    "àR‡V #0" = 10
+    "àRfk #0" = 10
+    "àRÜñ #0" = 10
+    "àRl #0" = 10
+    "àR»p #0" = 10
+    "àRÀR #0" = 10
+    "àRY #0" = 10
+    "àRãt #0" = 10
+    "àRm` #0" = 10
+    "àRZ #0" = 10
+    "àR #0" = 10
+    "àRƒñ #0" = 10
+    "àRf #0" = 10
+    "àRÒÇ #0" = 10
+    "àR≥S #0" = 10
+    "àRb #0" = 10
+    "àRJy #0" = 10
+    "àR∑V #0" = 10
+    "b-f #0" = 10
+    "b‡V #0" = 10
+    "bIN #0" = 10
+    "bÜñ #0" = 10
+    "bl #0" = 10
+    "b»p #0" = 10
+    "bÀR #0" = 10
+    "bY #0" = 10
+    "bãt #0" = 10
+    "bm` #0" = 10
+    "bZ #0" = 10
+    "b #0" = 10
+    "bƒñ #0" = 10
+    "bf #0" = 10
+    "bÒÇ #0" = 10
+    "b≥S #0" = 10
+    "bb #0" = 10
+    "bJy #0" = 10
+    "b∑V #0" = 10
+    "of-f #0" = 10
+    "of‡V #0" = 10
+    "ofIN #0" = 10
+    "offk #0" = 10
+    "ofl #0" = 10
+    "of»p #0" = 10
+    "ofÀR #0" = 10
+    "ofY #0" = 10
+    "ofãt #0" = 10
+    "ofm` #0" = 10
+    "ofZ #0" = 10
+    "of #0" = 10
+    "ofƒñ #0" = 10
+    "off #0" = 10
+    "ofÒÇ #0" = 10
+    "of≥S #0" = 10
+    "ofb #0" = 10
+    "ofJy #0" = 10
+    "of∑V #0" = 10
+    "áe-f #0" = 10
+    "áe‡V #0" = 10
+    "áeIN #0" = 10
+    "áefk #0" = 10
+    "áeÜñ #0" = 10
+    "áe»p #0" = 10
+    "áeÀR #0" = 10
+    "áeY #0" = 10
+    "áeãt #0" = 10
+    "áem` #0" = 10
+    "áeZ #0" = 10
+    "áe #0" = 10
+    "áeƒñ #0" = 10
+    "áef #0" = 10
+    "áeÒÇ #0" = 10
+    "áe≥S #0" = 10
+    "áeb #0" = 10
+    "áeJy #0" = 10
+    "áe∑V #0" = 10
+    "V-f #0" = 10
+    "V‡V #0" = 10
+    "VIN #0" = 10
+    "Vfk #0" = 10
+    "VÜñ #0" = 10
+    "Vl #0" = 10
+    "VÀR #0" = 10
+    "VY #0" = 10
+    "Vãt #0" = 10
+    "Vm` #0" = 10
+    "VZ #0" = 10
+    "V #0" = 10
+    "Vƒñ #0" = 10
+    "Vf #0" = 10
+    "VÒÇ #0" = 10
+    "V≥S #0" = 10
+    "Vb #0" = 10
+    "VJy #0" = 10
+    "V∑V #0" = 10
+    "N-f #0" = 10
+    "N‡V #0" = 10
+    "NIN #0" = 10
+    "Nfk #0" = 10
+    "NÜñ #0" = 10
+    "Nl #0" = 10
+    "N»p #0" = 10
+    "NY #0" = 10
+    "Nãt #0" = 10
+    "Nm` #0" = 10
+    "NZ #0" = 10
+    "N #0" = 10
+    "Nƒñ #0" = 10
+    "Nf #0" = 10
+    "NÒÇ #0" = 10
+    "N≥S #0" = 10
+    "Nb #0" = 10
+    "NJy #0" = 10
+    "N∑V #0" = 10
+    "KQ-f #0" = 10
+    "KQ‡V #0" = 10
+    "KQIN #0" = 10
+    "KQfk #0" = 10
+    "KQÜñ #0" = 10
+    "KQl #0" = 10
+    "KQ»p #0" = 10
+    "KQÀR #0" = 10
+    "KQãt #0" = 10
+    "KQm` #0" = 10
+    "KQZ #0" = 10
+    "KQ #0" = 10
+    "KQƒñ #0" = 10
+    "KQf #0" = 10
+    "KQÒÇ #0" = 10
+    "KQ≥S #0" = 10
+    "KQb #0" = 10
+    "KQJy #0" = 10
+    "KQ∑V #0" = 10
+    "˜^-f #0" = 10
+    "˜^‡V #0" = 10
+    "˜^IN #0" = 10
+    "˜^fk #0" = 10
+    "˜^Üñ #0" = 10
+    "˜^l #0" = 10
+    "˜^»p #0" = 10
+    "˜^ÀR #0" = 10
+    "˜^Y #0" = 10
+    "˜^m` #0" = 10
+    "˜^Z #0" = 10
+    "˜^ #0" = 10
+    "˜^ƒñ #0" = 10
+    "˜^f #0" = 10
+    "˜^ÒÇ #0" = 10
+    "˜^≥S #0" = 10
+    "˜^b #0" = 10
+    "˜^Jy #0" = 10
+    "˜^∑V #0" = 10
+    "`-f #0" = 10
+    "`‡V #0" = 10
+    "`IN #0" = 10
+    "`fk #0" = 10
+    "`Üñ #0" = 10
+    "`l #0" = 10
+    "`»p #0" = 10
+    "`ÀR #0" = 10
+    "`Y #0" = 10
+    "`ãt #0" = 10
+    "`Z #0" = 10
+    "` #0" = 10
+    "`ƒñ #0" = 10
+    "`f #0" = 10
+    "`ÒÇ #0" = 10
+    "`≥S #0" = 10
+    "`b #0" = 10
+    "`Jy #0" = 10
+    "`∑V #0" = 10
+    "∑V-f #0" = 10
+    "∑V‡V #0" = 10
+    "∑VIN #0" = 10
+    "∑Vfk #0" = 10
+    "∑VÜñ #0" = 10
+    "∑Vl #0" = 10
+    "∑V»p #0" = 10
+    "∑VÀR #0" = 10
+    "∑VY #0" = 10
+    "∑Vãt #0" = 10
+    "∑Vm` #0" = 10
+    "∑V #0" = 10
+    "∑Vƒñ #0" = 10
+    "∑Vf #0" = 10
+    "∑VÒÇ #0" = 10
+    "∑V≥S #0" = 10
+    "∑Vb #0" = 10
+    "∑VJy #0" = 10
+    "Õu-f #0" = 10
+    "Õu‡V #0" = 10
+    "ÕuIN #0" = 10
+    "ÕuÜñ #0" = 10
+    "Õul #0" = 10
+    "‰Ng #0" = -1
+    "âsØs #0" = -1
+    "YóÍN #0" = -1
+    "—mÒÇ #0" = -1
+    "‡`≥Ç #0" = -1
+    "pQâs #0" = -1
+    "gZ #0" = -1
+    "¿yç #0" = -1
+    ".tÒÇ #0" = -1
+    "^tôô #0" = -1
+    "%fNS #0" = -1
+    "ÀyZ #0" = -1
+    "‰NØs #0" = -1
+    "‰NÍN #0" = -1
+    "‰NÒÇ #0" = -1
+    "‰N≥Ç #0" = -1
+    "‰Nâs #0" = -1
+    "‰NZ #0" = -1
+    "‰Nç #0" = -1
+    "‰Nôô #0" = -1
+    "‰NNS #0" = -1
+    "‰NëN #0" = -1
+    "‰NπR #0" = -1
+    "âsg #0" = -1
+    "âsÍN #0" = -1
+    "âsÒÇ #0" = -1
+    "âs≥Ç #0" = -1
+    "âsZ #0" = -1
+    "âsç #0" = -1
+    "âsôô #0" = -1
+    "âsNS #0" = -1
+    "âsëN #0" = -1
+    "âsπR #0" = -1
+    "Yóg #0" = -1
+    "YóØs #0" = -1
+    "YóÒÇ #0" = -1
+    "Yó≥Ç #0" = -1
+    "Yóâs #0" = -1
+    "YóZ #0" = -1
+    "Yóç #0" = -1
+    "Yóôô #0" = -1
+    "YóNS #0" = -1
+    "YóëN #0" = -1
+    "YóπR #0" = -1
+    "—mg #0" = -1
+    "—mØs #0" = -1
+    "—mÍN #0" = -1
+    "—m≥Ç #0" = -1
+    "—mâs #0" = -1
+    "—mZ #0" = -1
+    "—mç #0" = -1
+    "—môô #0" = -1
+    "—mNS #0" = -1
+    "—mëN #0" = -1
+    "—mπR #0" = -1
+    "‡`g #0" = -1
+    "‡`Øs #0" = -1
+    "‡`ÍN #0" = -1
+    "‡`ÒÇ #0" = -1
+    "‡`âs #0" = -1
+    "‡`Z #0" = -1
+    "‡`ç #0" = -1
+    "‡`ôô #0" = -1
+    "‡`NS #0" = -1
+    "‡`ëN #0" = -1
+    "‡`πR #0" = -1
+    "pQg #0" = -1
+    "pQØs #0" = -1
+    "pQÍN #0" = -1
+    "pQÒÇ #0" = -1
+    "pQ≥Ç #0" = -1
+    "pQZ #0" = -1
+    "pQç #0" = -1
+    "pQôô #0" = -1
+    "pQNS #0" = -1
+    "pQëN #0" = -1
+    "pQπR #0" = -1
+    "gØs #0" = -1
+    "gÍN #0" = -1
+    "gÒÇ #0" = -1
+    "g≥Ç #0" = -1
+    "gâs #0" = -1
+    "gç #0" = -1
+    "gôô #0" = -1
+    "gNS #0" = -1
+    "gëN #0" = -1
+    "gπR #0" = -1
+    "¿yg #0" = -1
+    "¿yØs #0" = -1
+    "¿yÍN #0" = -1
+    "¿yÒÇ #0" = -1
+    "¿y≥Ç #0" = -1
+    "¿yâs #0" = -1
+    "¿yZ #0" = -1
+    "¿yôô #0" = -1
+    "¿yNS #0" = -1
+    "¿yëN #0" = -1
+    "¿yπR #0" = -1
+    ".tg #0" = -1
+    ".tØs #0" = -1
+    ".tÍN #0" = -1
+    ".t≥Ç #0" = -1
+    ".tâs #0" = -1
+    ".tZ #0" = -1
+    ".tç #0" = -1
+    ".tôô #0" = -1
+    ".tNS #0" = -1
+    ".tëN #0" = -1
+    ".tπR #0" = -1
+    "^tg #0" = -1
+    "^tØs #0" = -1
+    "^tÍN #0" = -1
+    "^tÒÇ #0" = -1
+    "^t≥Ç #0" = -1
+    "^tâs #0" = -1
+    "^tZ #0" = -1
+    "^tç #0" = -1
+    "^tNS #0" = -1
+    "^tëN #0" = -1
+    "^tπR #0" = -1
+    "%fg #0" = -1
+    "%fØs #0" = -1
+    "%fÍN #0" = -1
+    "%fÒÇ #0" = -1
+    "%f≥Ç #0" = -1
+    "%fâs #0" = -1
+    "%fZ #0" = -1
+    "%fç #0" = -1
+}
+
+leader_names = {
+    "Ng"
+    ".V"
+    "ãs"
+    "R"
+    "hg"
+    "Hñ"
+    "uç"
+    "UO"
+    "W"
+    "ØQ"
+    "=å"
+    "9ç"
+    "û^"
+    "’l"
+    "Êy"
+    "jg"
 }
