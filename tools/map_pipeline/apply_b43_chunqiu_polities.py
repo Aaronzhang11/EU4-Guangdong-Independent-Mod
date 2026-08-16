@@ -1104,8 +1104,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
         religion = str(config.get("religion", capital_religion))
         country_path = COUNTRIES / config["file"]
         history_path = COUNTRY_HISTORY / config["history"]
-<<<<<<< HEAD
-            definition_text = country_definition(
+        definition_text = country_definition(
             config["color"],
             str(config.get("definition_comment", "# B43 Chunqiu polity definition.")),
             tuple(config.get("revolutionary_colors", (5, 8, 1))),
@@ -1123,7 +1122,6 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             country_path.write_bytes(
                 country_definition_bytes(definition_text, culture)
             )
->>>>>>> origin/test
         history_path.write_text(
             country_history(
                 config["capital"], config["rank"], culture, religion,
