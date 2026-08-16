@@ -19,8 +19,9 @@
       ]
     },
     "liao_flag": {
-      "script": "Khitan Large Script",
-      "glyph_pua": "U+E23D",
+      "script": "Khitan Large Script ninefold seal",
+      "source_glyph_pua": "U+E23D",
+      "seal_glyph_pua": "U+F012",
       "interpretation": "possible Liao/Khitan state name or epithet"
     },
     "geometry": "unchanged",
