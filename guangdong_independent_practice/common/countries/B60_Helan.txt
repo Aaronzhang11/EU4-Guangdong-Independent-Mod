@@ -1,0 +1,4 @@
+# B60: Jurchen tribal federation of Helandian and Hamgyong.
+graphical_culture = asiangfx
+color = { 78 116 72 }
+revolutionary_colors = { 3 8 1 }

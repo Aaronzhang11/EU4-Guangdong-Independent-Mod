@@ -1,0 +1,33 @@
+# B60: Jizi Joseon, a ritually invested Zhou feudatory.
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = korean
+capital = 1845
+fixed_capital = 1845
+
+1444.1.1 = {
+    monarch = {
+        name = "Gi Hyeon"
+        dynasty = "Gi"
+        adm = 4
+        dip = 4
+        mil = 3
+    }
+    heir = {
+        name = "Gi Jun"
+        monarch_name = "Jun"
+        dynasty = "Gi"
+        birth_date = 1426.1.1
+        claim = 80
+        adm = 3
+        dip = 3
+        mil = 4
+    }
+}
+
+1444.10.29 = {
+    add_truce_with = LIO
+}

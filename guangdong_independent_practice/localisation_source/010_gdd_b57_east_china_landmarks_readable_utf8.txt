@@ -1,0 +1,7 @@
+l_english:
+ PROV4010:0 "微山湖"
+ PROV_ADJ4010:0 "微山湖"
+ PROV5354:0 "大别山"
+ PROV_ADJ5354:0 "大别山"
+ PROV5355:0 "泰山"
+ PROV_ADJ5355:0 "泰山"

@@ -1,0 +1,846 @@
+{
+  "batch": "GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS",
+  "patch_box": [
+    4747,
+    668,
+    4846,
+    830
+  ],
+  "editable_pixels": 6495,
+  "playable_total": 30,
+  "peninsula_playable": 29,
+  "jeju_id": 2741,
+  "development_basis": "1444-era political importance, agricultural capacity, commerce, transport, urbanisation, and frontier constraints",
+  "development_targets": {
+    "732": [5, 4, 3],
+    "733": [4, 4, 3],
+    "734": [3, 3, 2],
+    "735": [8, 7, 3],
+    "736": [5, 4, 3],
+    "737": [5, 5, 3],
+    "1013": [4, 3, 3],
+    "1845": [7, 6, 3],
+    "2694": [3, 3, 2],
+    "2741": [2, 2, 2],
+    "2742": [2, 2, 2],
+    "2743": [2, 2, 2],
+    "2744": [4, 3, 2],
+    "2745": [4, 4, 2],
+    "4227": [4, 4, 2],
+    "4228": [5, 4, 3],
+    "4229": [4, 3, 3],
+    "4230": [4, 3, 2],
+    "4231": [4, 4, 3],
+    "4232": [2, 2, 2],
+    "5356": [2, 2, 1],
+    "5357": [2, 3, 1],
+    "5358": [1, 1, 1],
+    "5359": [3, 2, 2],
+    "5360": [4, 3, 2],
+    "5361": [4, 4, 2],
+    "5362": [2, 2, 1],
+    "5363": [2, 2, 2],
+    "5364": [6, 6, 3],
+    "5365": [3, 3, 3]
+  },
+  "political_targets": {
+    "JIZ": [733, 1845, 4231, 5360, 5361, 5362, 5363, 5364],
+    "LIO": [2744, 4232, 5359],
+    "HLD": [732, 2742, 2743, 5356, 5357, 5358],
+    "KOR": [734, 735, 736, 737, 1013, 2694, 2741, 2745, 4227, 4228, 4229, 4230, 5365]
+  },
+  "culture_targets": {
+    "JIZ": "korean",
+    "LIO": "korean",
+    "HLD": "manchu",
+    "KOR": "gdd_samhan"
+  },
+  "religion_targets": {
+    "JIZ": "confucianism",
+    "LIO": "confucianism",
+    "HLD": "tengri_pagan_reformed",
+    "KOR": "confucianism"
+  },
+  "disputed_core_targets": {
+    "JIZ": [2744, 4232, 5359]
+  },
+  "new_playable_ids": [
+    5356,
+    5357,
+    5358,
+    5359,
+    5360,
+    5361,
+    5362,
+    5363,
+    5364,
+    5365
+  ],
+  "retired_ids": [
+    5366,
+    5367,
+    5368,
+    5369,
+    5370,
+    5371,
+    5372,
+    5373,
+    5374
+  ],
+  "areas": {
+    "zhuxia_xuantu_area": {
+      "chinese": "玄菟",
+      "world": "zhuxia"
+    },
+    "zhuxia_paesu_area": {
+      "chinese": "浿水",
+      "world": "zhuxia"
+    },
+    "zhuxia_lolang_area": {
+      "chinese": "乐浪",
+      "world": "zhuxia"
+    },
+    "zhuxia_daifang_area": {
+      "chinese": "带方",
+      "world": "zhuxia"
+    },
+    "samhan_gyeonggi_area": {
+      "chinese": "京畿",
+      "world": "samhan"
+    },
+    "samhan_gangwon_area": {
+      "chinese": "江原",
+      "world": "samhan"
+    },
+    "samhan_samnam_area": {
+      "chinese": "三南",
+      "world": "samhan"
+    }
+  },
+  "obsolete_areas": [
+    "pyongan_area",
+    "hamgyeong_area",
+    "western_korea_area",
+    "eastern_korea_area",
+    "south_korea_area"
+  ],
+  "mountains": {
+    "5375": {
+      "english": "Rangrim Mountains",
+      "chinese": "狼林山脉",
+      "rgb": [
+        224,
+        180,
+        209
+      ]
+    },
+    "5376": {
+      "english": "Taebaek Mountains",
+      "chinese": "太白山脉",
+      "rgb": [
+        84,
+        175,
+        101
+      ]
+    }
+  },
+  "provinces": [
+    {
+      "number": 1,
+      "id": 2742,
+      "english": "Six Garrisons",
+      "chinese": "六镇",
+      "rgb": [
+        162,
+        64,
+        128
+      ],
+      "parent_id": 2742,
+      "pixels": 261,
+      "centroid": [
+        4833.743,
+        679.617
+      ],
+      "area": "zhuxia_xuantu_area",
+      "world": "zhuxia",
+      "development": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "number": 2,
+      "id": 2743,
+      "english": "Gyeongseong",
+      "chinese": "镜城",
+      "rgb": [
+        209,
+        139,
+        185
+      ],
+      "parent_id": 2743,
+      "pixels": 132,
+      "centroid": [
+        4824.606,
+        693.212
+      ],
+      "area": "zhuxia_xuantu_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 3,
+      "id": 5356,
+      "english": "Gilju",
+      "chinese": "吉州",
+      "rgb": [
+        150,
+        138,
+        167
+      ],
+      "parent_id": 2743,
+      "pixels": 218,
+      "centroid": [
+        4821.261,
+        705.326
+      ],
+      "area": "zhuxia_xuantu_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 4,
+      "id": 5357,
+      "english": "Dancheon",
+      "chinese": "端川",
+      "rgb": [
+        223,
+        166,
+        203
+      ],
+      "parent_id": 2743,
+      "pixels": 211,
+      "centroid": [
+        4808.346,
+        708.498
+      ],
+      "area": "zhuxia_xuantu_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 5,
+      "id": 4232,
+      "english": "Ganggye",
+      "chinese": "江界",
+      "rgb": [
+        145,
+        81,
+        35
+      ],
+      "parent_id": 4232,
+      "pixels": 171,
+      "centroid": [
+        4772.123,
+        710.339
+      ],
+      "area": "zhuxia_paesu_area",
+      "world": "zhuxia",
+      "development": [
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "number": 6,
+      "id": 5358,
+      "english": "Jangjin",
+      "chinese": "长津",
+      "rgb": [
+        82,
+        68,
+        103
+      ],
+      "parent_id": 732,
+      "pixels": 147,
+      "centroid": [
+        4802.687,
+        717.912
+      ],
+      "area": "zhuxia_xuantu_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 7,
+      "id": 5359,
+      "english": "Guseong",
+      "chinese": "龟城",
+      "rgb": [
+        128,
+        112,
+        149
+      ],
+      "parent_id": 2744,
+      "pixels": 128,
+      "centroid": [
+        4771.734,
+        722.203
+      ],
+      "area": "zhuxia_paesu_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 8,
+      "id": 2744,
+      "english": "Nyeongbyeon",
+      "chinese": "宁边",
+      "rgb": [
+        122,
+        48,
+        97
+      ],
+      "parent_id": 2744,
+      "pixels": 271,
+      "centroid": [
+        4757.742,
+        723.074
+      ],
+      "area": "zhuxia_paesu_area",
+      "world": "zhuxia",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 9,
+      "id": 732,
+      "english": "Hamheung",
+      "chinese": "咸兴",
+      "rgb": [
+        104,
+        88,
+        128
+      ],
+      "parent_id": 732,
+      "pixels": 216,
+      "centroid": [
+        4790.213,
+        725.106
+      ],
+      "area": "zhuxia_xuantu_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 10,
+      "id": 1845,
+      "english": "Pyeongyang",
+      "chinese": "平壤",
+      "rgb": [
+        81,
+        148,
+        126
+      ],
+      "parent_id": 1845,
+      "pixels": 105,
+      "centroid": [
+        4773.781,
+        733.029
+      ],
+      "area": "zhuxia_lolang_area",
+      "world": "zhuxia",
+      "development": [
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 11,
+      "id": 5360,
+      "english": "Wonsan",
+      "chinese": "元山",
+      "rgb": [
+        161,
+        119,
+        148
+      ],
+      "parent_id": 732,
+      "pixels": 112,
+      "centroid": [
+        4792.857,
+        738.027
+      ],
+      "area": "zhuxia_daifang_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 12,
+      "id": 5361,
+      "english": "Ryongcheon",
+      "chinese": "龙川",
+      "rgb": [
+        146,
+        197,
+        180
+      ],
+      "parent_id": 1845,
+      "pixels": 117,
+      "centroid": [
+        4764.855,
+        740.487
+      ],
+      "area": "zhuxia_lolang_area",
+      "world": "zhuxia",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 13,
+      "id": 4231,
+      "english": "Haeju",
+      "chinese": "海州",
+      "rgb": [
+        231,
+        184,
+        20
+      ],
+      "parent_id": 4231,
+      "pixels": 207,
+      "centroid": [
+        4773.792,
+        745.787
+      ],
+      "area": "zhuxia_lolang_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 14,
+      "id": 5362,
+      "english": "Yangdeok",
+      "chinese": "阳德",
+      "rgb": [
+        164,
+        223,
+        174
+      ],
+      "parent_id": 4231,
+      "pixels": 124,
+      "centroid": [
+        4786.855,
+        746.766
+      ],
+      "area": "zhuxia_daifang_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 15,
+      "id": 5363,
+      "english": "Tongcheon",
+      "chinese": "通川",
+      "rgb": [
+        58,
+        166,
+        20
+      ],
+      "parent_id": 734,
+      "pixels": 132,
+      "centroid": [
+        4794.962,
+        754.75
+      ],
+      "area": "zhuxia_daifang_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 16,
+      "id": 733,
+      "english": "Hwangju",
+      "chinese": "黄州",
+      "rgb": [
+        232,
+        90,
+        192
+      ],
+      "parent_id": 733,
+      "pixels": 193,
+      "centroid": [
+        4762.451,
+        756.788
+      ],
+      "area": "zhuxia_lolang_area",
+      "world": "zhuxia",
+      "development": [
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "number": 17,
+      "id": 5364,
+      "english": "Gaeseong",
+      "chinese": "开城",
+      "rgb": [
+        200,
+        32,
+        152
+      ],
+      "parent_id": 4231,
+      "pixels": 155,
+      "centroid": [
+        4779.187,
+        757.897
+      ],
+      "area": "zhuxia_daifang_area",
+      "world": "zhuxia",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 18,
+      "id": 2694,
+      "english": "Gangneung",
+      "chinese": "江陵",
+      "rgb": [
+        136,
+        210,
+        148
+      ],
+      "parent_id": 2694,
+      "pixels": 172,
+      "centroid": [
+        4814.849,
+        764.035
+      ],
+      "area": "samhan_gangwon_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "number": 19,
+      "id": 734,
+      "english": "Wonju",
+      "chinese": "原州",
+      "rgb": [
+        104,
+        92,
+        255
+      ],
+      "parent_id": 734,
+      "pixels": 176,
+      "centroid": [
+        4801.045,
+        767.557
+      ],
+      "area": "samhan_gyeonggi_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 20,
+      "id": 735,
+      "english": "Hanseong",
+      "chinese": "汉城",
+      "rgb": [
+        153,
+        134,
+        173
+      ],
+      "parent_id": 735,
+      "pixels": 304,
+      "centroid": [
+        4789.842,
+        770.888
+      ],
+      "area": "samhan_gyeonggi_area",
+      "world": "samhan",
+      "development": [
+        4,
+        4,
+        2
+      ]
+    },
+    {
+      "number": 21,
+      "id": 4230,
+      "english": "Sangju",
+      "chinese": "尚州",
+      "rgb": [
+        158,
+        186,
+        44
+      ],
+      "parent_id": 736,
+      "pixels": 123,
+      "centroid": [
+        4812.057,
+        782.008
+      ],
+      "area": "samhan_gangwon_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 22,
+      "id": 1013,
+      "english": "Cheongju",
+      "chinese": "清州",
+      "rgb": [
+        233,
+        94,
+        0
+      ],
+      "parent_id": 1013,
+      "pixels": 113,
+      "centroid": [
+        4782.841,
+        784.522
+      ],
+      "area": "samhan_gyeonggi_area",
+      "world": "samhan",
+      "development": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 23,
+      "id": 4229,
+      "english": "Chungju",
+      "chinese": "忠州",
+      "rgb": [
+        188,
+        200,
+        56
+      ],
+      "parent_id": 4229,
+      "pixels": 166,
+      "centroid": [
+        4803.651,
+        787.398
+      ],
+      "area": "samhan_gangwon_area",
+      "world": "samhan",
+      "development": [
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "number": 24,
+      "id": 736,
+      "english": "Gyeongju",
+      "chinese": "庆州",
+      "rgb": [
+        217,
+        164,
+        164
+      ],
+      "parent_id": 736,
+      "pixels": 196,
+      "centroid": [
+        4818.878,
+        789.321
+      ],
+      "area": "samhan_gangwon_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 25,
+      "id": 737,
+      "english": "Jeonju",
+      "chinese": "全州",
+      "rgb": [
+        233,
+        98,
+        128
+      ],
+      "parent_id": 1013,
+      "pixels": 263,
+      "centroid": [
+        4789.464,
+        794.194
+      ],
+      "area": "samhan_samnam_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "number": 26,
+      "id": 2745,
+      "english": "Busan",
+      "chinese": "釜山",
+      "rgb": [
+        134,
+        53,
+        105
+      ],
+      "parent_id": 2745,
+      "pixels": 269,
+      "centroid": [
+        4817.848,
+        803.788
+      ],
+      "area": "samhan_gangwon_area",
+      "world": "samhan",
+      "development": [
+        4,
+        4,
+        2
+      ]
+    },
+    {
+      "number": 27,
+      "id": 5365,
+      "english": "Jinju",
+      "chinese": "晋州",
+      "rgb": [
+        35,
+        23,
+        195
+      ],
+      "parent_id": 4227,
+      "pixels": 170,
+      "centroid": [
+        4799.406,
+        807.8
+      ],
+      "area": "samhan_samnam_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 28,
+      "id": 4227,
+      "english": "Daegu",
+      "chinese": "大邱",
+      "rgb": [
+        105,
+        96,
+        64
+      ],
+      "parent_id": 4227,
+      "pixels": 188,
+      "centroid": [
+        4807.505,
+        809.521
+      ],
+      "area": "samhan_samnam_area",
+      "world": "samhan",
+      "development": [
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "number": 29,
+      "id": 4228,
+      "english": "Naju",
+      "chinese": "罗州",
+      "rgb": [
+        195,
+        44,
+        140
+      ],
+      "parent_id": 4228,
+      "pixels": 340,
+      "centroid": [
+        4786.412,
+        816.153
+      ],
+      "area": "samhan_samnam_area",
+      "world": "samhan",
+      "development": [
+        3,
+        3,
+        2
+      ]
+    }
+  ],
+  "merges_from_50_colour_clean_base": 21
+}

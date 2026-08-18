@@ -1,13 +1,13 @@
-#734 - Wonju
+# 734 - Wonju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
+culture = gdd_samhan
 religion = confucianism
-capital = "ŸSÞT" 	# Wonju
+capital = "Wonju"# Wonju
 trade_goods = chinaware
 hre = no
-base_tax = 1
-base_production = 1
+base_tax = 3
+base_production = 3
 base_manpower = 2
 is_city = yes
 add_local_autonomy = 35

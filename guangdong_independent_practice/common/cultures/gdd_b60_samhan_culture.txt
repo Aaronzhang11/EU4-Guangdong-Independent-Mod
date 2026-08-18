@@ -1,0 +1,10 @@
+# B60: the native southern Han culture is distinct from Jizi Joseon.
+gdd_samhan_group = {
+    graphical_culture = asiangfx
+    gdd_samhan = {
+        primary = KOR
+        dynasty_names = { Wang Kim Pak Shin Song Chae Gang Jeong Jang Yun Han Hong Yu }
+        male_names = { Hyeon U Jun Mu Seong Jin Gyeom Won Chung Hwan Yeong }
+        female_names = { Seonhui Myeonghui Jeonghwa Sukhui Yeonghwa }
+    }
+}

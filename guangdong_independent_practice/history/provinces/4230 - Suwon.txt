@@ -1,14 +1,14 @@
-#4230 - Suwon
+# 4230 - Sangju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
+culture = gdd_samhan
 religion = confucianism
-capital = "4lŸS" 	# Suwon
+capital = "Sangju"# Suwon
 trade_goods = chinaware
 hre = no
-base_tax = 3
+base_tax = 4
 base_production = 3
-base_manpower = 1
+base_manpower = 2
 is_city = yes
 add_core = KOR
 discovered_by = chinese

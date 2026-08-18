@@ -1,0 +1,16 @@
+# 5364 - Gaeseong - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
+
+owner = JIZ
+controller = JIZ
+culture = korean
+religion = confucianism
+capital = "Gaeseong"
+trade_goods = naval_supplies
+hre = no
+base_tax = 6
+base_production = 6
+base_manpower = 3
+is_city = yes
+add_core = JIZ
+discovered_by = chinese
+discovered_by = nomad_group
