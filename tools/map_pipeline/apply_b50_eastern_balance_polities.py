@@ -183,7 +183,7 @@ def write_countries() -> None:
                 religion,
                 tuple(config.get("accepted", ())),
                 str(config.get("government", "monarchy")),
-                str(config.get("reform", "gdd_local_fiefdom_reform")),
+                str(config.get("reform", "feudalism_reform")),
             ),
             encoding="utf-8",
         )
