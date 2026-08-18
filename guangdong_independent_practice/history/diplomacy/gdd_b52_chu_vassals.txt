@@ -1,4 +1,5 @@
-# B52: restored Chu-affiliated small states.
+# B52: restored Chu-affiliated small states. Their ordinary vassal relations
+# remain independent from the separate Zhou/Tianxia membership registry.
 vassal = {
 	first = CHC
 	second = EGU

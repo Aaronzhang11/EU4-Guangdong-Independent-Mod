@@ -3,7 +3,6 @@ monarchy = {
 	reform_levels = {
 		feudalism_vs_autocracy = {
 			reforms = {
-				gdd_local_fiefdom_reform
 				feudalism_reform
 				autocracy_reform
 				elective_monarchy_reform
@@ -621,7 +620,6 @@ republic = {
 	reform_levels = {
 		oligarchy_merchant_class_noble_elite = {
 			reforms = {
-				gdd_local_fiefdom_reform
 				oligarchy_reform
 				signoria_reform
 				merchants_reform
@@ -1046,7 +1044,6 @@ tribal = {
 	reform_levels = {
 		tribal_administration = {
 			reforms = {
-				gdd_local_fiefdom_reform
 				steppe_horde
 				tribal_federation
 				tribal_despotism
@@ -1179,7 +1176,6 @@ native = {
 	reform_levels = {
 		tribe_organization = {
 			reforms = {
-				gdd_local_fiefdom_reform
 				native_chiefdom_reform
 				native_federation_reform
 				native_clan_council_reform
@@ -1236,7 +1232,6 @@ theocracy = {
 	reform_levels = {
 		theocratic_leadership = {
 			reforms = {
-				gdd_local_fiefdom_reform
 				leading_clergy_reform
 				monastic_order_reform
 				feudal_theocracy

@@ -25,10 +25,10 @@ l_english:
  gdd_ming_preparing_southward:0 "准备南征"
  gdd_envoys_to_ming_estate_influence:0 "维持对明和议"
 
- gdd_cb_punish_defiant_enfeoffed_subject:0 "讨伐违制藩国"
- gdd_cb_punish_defiant_enfeoffed_subject_desc:0 "“讨伐违制藩国”宣战借口接口已保留，具体机制将在后续版本重新设计。"
- gdd_punish_defiant_enfeoffed_subject_wargoal:0 "收复中华核心"
- gdd_punish_defiant_enfeoffed_subject_wargoal_desc:0 "战争目标是占领违制藩国所持有的中华核心省份。"
+ gdd_cb_punish_southern_defiance:0 "讨伐南方违制者"
+ gdd_cb_punish_southern_defiance_desc:0 "明廷试图以武力惩戒拒绝续约并公开备战的南海政权。"
+ gdd_punish_southern_defiance_wargoal:0 "压服南方政权"
+ gdd_punish_southern_defiance_wargoal_desc:0 "战争目标是击败拒绝遵守旧约的南方政权。"
  GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES:0 "位于中华大区的我方核心省份"
  GDD_PUNISH_DEFIANT_ENFEOFFED_SUBJECT_WAR_NAME:0 "$ORDER$$FIRST$讨伐$SECOND$之战"
 

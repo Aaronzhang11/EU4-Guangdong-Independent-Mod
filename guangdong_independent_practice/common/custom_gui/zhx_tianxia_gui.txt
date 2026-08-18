@@ -1,0 +1,3861 @@
+# Script bindings for the Zhou/Tianxia presentation inside countrydecisionsview.
+# The persistent decision sets a display flag; GUI reads authoritative state
+# and never owns the simulation.
+
+custom_window = {
+    name = zhx_tianxia_window
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        has_country_flag = zhx_tianxia_gui_visible
+    }
+}
+
+custom_shield = {
+    name = zhx_gui_tianzi_shield
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        has_saved_global_event_target = zhx_tianzi
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_tianzi_shield_tt
+    global_event_target = zhx_tianzi
+    open_country = yes
+}
+
+custom_text_box = {
+    name = zhx_gui_tianzi_name
+    potential = { has_global_flag = zhx_system_initialised_v3 }
+    tooltip = zhx_gui_tianzi_shield_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_authority_value
+    potential = { has_global_flag = zhx_system_initialised_v3 }
+    tooltip = zhx_gui_authority_value_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_member_count
+    potential = { has_global_flag = zhx_system_initialised_v3 }
+    tooltip = zhx_gui_member_count_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_player_merit
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        zhx_is_tianxia_member = yes
+    }
+    tooltip = zhx_gui_player_merit_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_player_tianzi
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        zhx_is_tianzi = yes
+    }
+    tooltip = zhx_gui_player_role_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_player_observer
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        NOT = {
+            OR = {
+                zhx_is_tianzi = yes
+                zhx_is_tianxia_member = yes
+            }
+        }
+    }
+    tooltip = zhx_gui_player_role_tt
+}
+
+# The pseudo progress bar deliberately uses the same five buckets as gameplay
+# modifiers. Arbitrary variables cannot drive a native progressbar in EU4.
+custom_text_box = {
+    name = zhx_gui_order_ordered
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = { has_country_flag = zhx_ritual_tier_ordered }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_order_stable
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = { has_country_flag = zhx_ritual_tier_stable }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_order_balanced
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = { has_country_flag = zhx_ritual_tier_balanced }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_order_fractured
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = { has_country_flag = zhx_ritual_tier_fractured }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_order_collapsed
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = { has_country_flag = zhx_ritual_tier_collapsed }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m100
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -100
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -90
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m090
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -90
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -80
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m080
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -80
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -70
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m070
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -70
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -60
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m060
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -60
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -50
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m050
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -50
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -40
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m040
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -40
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -30
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m030
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -30
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -20
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m020
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -20
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -10
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_m010
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -10
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 0
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_zero
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 0
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 10
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p010
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 10
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 20
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p020
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 20
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 30
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p030
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 30
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 40
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p040
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 40
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 50
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p050
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 50
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 60
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p060
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 60
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 70
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p070
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 70
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 80
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p080
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 80
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 90
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p090
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 90
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 100
+                }
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_icon = {
+    name = zhx_gui_bar_p100
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 100
+            }
+        }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_effect_ordered
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = { has_country_flag = zhx_ritual_tier_ordered }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_effect_stable
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = { has_country_flag = zhx_ritual_tier_stable }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_effect_balanced
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = { has_country_flag = zhx_ritual_tier_balanced }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_effect_fractured
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = { has_country_flag = zhx_ritual_tier_fractured }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_effect_collapsed
+    potential = {
+        has_global_flag = zhx_system_initialised_v4
+        CZH = { has_country_flag = zhx_ritual_tier_collapsed }
+    }
+    tooltip = zhx_gui_order_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_incident_active
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = { has_country_flag = zhx_ritual_breakdown_incident_active }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_incident_none
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        CZH = {
+            NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_incident_active_description
+    potential = {
+        has_global_flag = zhx_system_initialised_v6
+        CZH = { has_country_flag = zhx_ritual_breakdown_incident_active }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_incident_none_description
+    potential = {
+        has_global_flag = zhx_system_initialised_v6
+        CZH = {
+            NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_reform_enacted
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        has_global_flag = zhx_reform_reaffirmed_covenant
+    }
+    tooltip = zhx_gui_reform_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_reform_available
+    potential = {
+        has_global_flag = zhx_system_initialised_v3
+        NOT = { has_global_flag = zhx_reform_reaffirmed_covenant }
+    }
+    tooltip = zhx_gui_reform_tt
+}
+
+# ZHX_ROSTER_BINDINGS_BEGIN
+custom_shield = {
+    name = zhx_gui_member_shield_01
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_01
+        event_target:zhx_roster_01 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_01
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_02
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_02
+        event_target:zhx_roster_02 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_02
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_03
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_03
+        event_target:zhx_roster_03 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_03
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_04
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_04
+        event_target:zhx_roster_04 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_04
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_05
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_05
+        event_target:zhx_roster_05 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_05
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_06
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_06
+        event_target:zhx_roster_06 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_06
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_07
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_07
+        event_target:zhx_roster_07 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_07
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_08
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_08
+        event_target:zhx_roster_08 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_08
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_09
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_09
+        event_target:zhx_roster_09 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_09
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_10
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_10
+        event_target:zhx_roster_10 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_10
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_11
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_11
+        event_target:zhx_roster_11 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_11
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_12
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_12
+        event_target:zhx_roster_12 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_12
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_13
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_13
+        event_target:zhx_roster_13 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_13
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_14
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_14
+        event_target:zhx_roster_14 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_14
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_15
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_15
+        event_target:zhx_roster_15 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_15
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_16
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_16
+        event_target:zhx_roster_16 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_16
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_17
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_17
+        event_target:zhx_roster_17 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_17
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_18
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_18
+        event_target:zhx_roster_18 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_18
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_19
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_19
+        event_target:zhx_roster_19 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_19
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_20
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_20
+        event_target:zhx_roster_20 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_20
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_21
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_21
+        event_target:zhx_roster_21 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_21
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_22
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_22
+        event_target:zhx_roster_22 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_22
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_23
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_23
+        event_target:zhx_roster_23 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_23
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_24
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_24
+        event_target:zhx_roster_24 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_24
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_25
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_25
+        event_target:zhx_roster_25 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_25
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_26
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_26
+        event_target:zhx_roster_26 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_26
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_27
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_27
+        event_target:zhx_roster_27 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_27
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_28
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_28
+        event_target:zhx_roster_28 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_28
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_29
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_29
+        event_target:zhx_roster_29 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_29
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_30
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_30
+        event_target:zhx_roster_30 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_30
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_31
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_31
+        event_target:zhx_roster_31 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_31
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_32
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_32
+        event_target:zhx_roster_32 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_32
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_33
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_33
+        event_target:zhx_roster_33 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_33
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_34
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_34
+        event_target:zhx_roster_34 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_34
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_35
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_35
+        event_target:zhx_roster_35 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_35
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_36
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_36
+        event_target:zhx_roster_36 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_36
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_37
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_37
+        event_target:zhx_roster_37 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_37
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_38
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_38
+        event_target:zhx_roster_38 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_38
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_39
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_39
+        event_target:zhx_roster_39 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_39
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_40
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_40
+        event_target:zhx_roster_40 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_40
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_41
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_41
+        event_target:zhx_roster_41 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_41
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_42
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_42
+        event_target:zhx_roster_42 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_42
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_43
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_43
+        event_target:zhx_roster_43 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_43
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_44
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_44
+        event_target:zhx_roster_44 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_44
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_45
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_45
+        event_target:zhx_roster_45 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_45
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_46
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_46
+        event_target:zhx_roster_46 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_46
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_47
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_47
+        event_target:zhx_roster_47 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_47
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_48
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_48
+        event_target:zhx_roster_48 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_48
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_49
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_49
+        event_target:zhx_roster_49 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_49
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_50
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_50
+        event_target:zhx_roster_50 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_50
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_51
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_51
+        event_target:zhx_roster_51 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_51
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_52
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_52
+        event_target:zhx_roster_52 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_52
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_53
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_53
+        event_target:zhx_roster_53 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_53
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_54
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_54
+        event_target:zhx_roster_54 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_54
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_55
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_55
+        event_target:zhx_roster_55 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_55
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_56
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_56
+        event_target:zhx_roster_56 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_56
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_57
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_57
+        event_target:zhx_roster_57 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_57
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_58
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_58
+        event_target:zhx_roster_58 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_58
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_59
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_59
+        event_target:zhx_roster_59 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_59
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_60
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_60
+        event_target:zhx_roster_60 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_60
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_61
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_61
+        event_target:zhx_roster_61 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_61
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_62
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_62
+        event_target:zhx_roster_62 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_62
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_63
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_63
+        event_target:zhx_roster_63 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_63
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_64
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_64
+        event_target:zhx_roster_64 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_64
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_65
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_65
+        event_target:zhx_roster_65 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_65
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_66
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_66
+        event_target:zhx_roster_66 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_66
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_67
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_67
+        event_target:zhx_roster_67 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_67
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_68
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_68
+        event_target:zhx_roster_68 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_68
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_69
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_69
+        event_target:zhx_roster_69 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_69
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_70
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_70
+        event_target:zhx_roster_70 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_70
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_71
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_71
+        event_target:zhx_roster_71 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_71
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_72
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_72
+        event_target:zhx_roster_72 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_72
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_73
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_73
+        event_target:zhx_roster_73 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_73
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_74
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_74
+        event_target:zhx_roster_74 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_74
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_75
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_75
+        event_target:zhx_roster_75 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_75
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_76
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_76
+        event_target:zhx_roster_76 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_76
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_77
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_77
+        event_target:zhx_roster_77 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_77
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_78
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_78
+        event_target:zhx_roster_78 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_78
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_79
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_79
+        event_target:zhx_roster_79 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_79
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_80
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_80
+        event_target:zhx_roster_80 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_80
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_81
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_81
+        event_target:zhx_roster_81 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_81
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_82
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_82
+        event_target:zhx_roster_82 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_82
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_83
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_83
+        event_target:zhx_roster_83 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_83
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_84
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_84
+        event_target:zhx_roster_84 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_84
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_85
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_85
+        event_target:zhx_roster_85 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_85
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_86
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_86
+        event_target:zhx_roster_86 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_86
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_87
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_87
+        event_target:zhx_roster_87 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_87
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_88
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_88
+        event_target:zhx_roster_88 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_88
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_89
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_89
+        event_target:zhx_roster_89 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_89
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_90
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_90
+        event_target:zhx_roster_90 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_90
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_91
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_91
+        event_target:zhx_roster_91 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_91
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_92
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_92
+        event_target:zhx_roster_92 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_92
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_93
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_93
+        event_target:zhx_roster_93 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_93
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_94
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_94
+        event_target:zhx_roster_94 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_94
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_95
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_95
+        event_target:zhx_roster_95 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_95
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_96
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_96
+        event_target:zhx_roster_96 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_96
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_97
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_97
+        event_target:zhx_roster_97 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_97
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_98
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_98
+        event_target:zhx_roster_98 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_98
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_99
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_99
+        event_target:zhx_roster_99 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_99
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_100
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_100
+        event_target:zhx_roster_100 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_100
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_101
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_101
+        event_target:zhx_roster_101 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_101
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_102
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_102
+        event_target:zhx_roster_102 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_102
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_103
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_103
+        event_target:zhx_roster_103 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_103
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_104
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_104
+        event_target:zhx_roster_104 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_104
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_105
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_105
+        event_target:zhx_roster_105 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_105
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_106
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_106
+        event_target:zhx_roster_106 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_106
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_107
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_107
+        event_target:zhx_roster_107 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_107
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_108
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_108
+        event_target:zhx_roster_108 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_108
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_109
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_109
+        event_target:zhx_roster_109 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_109
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_110
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_110
+        event_target:zhx_roster_110 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_110
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_111
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_111
+        event_target:zhx_roster_111 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_111
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_112
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_112
+        event_target:zhx_roster_112 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_112
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_113
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_113
+        event_target:zhx_roster_113 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_113
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_114
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_114
+        event_target:zhx_roster_114 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_114
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_115
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_115
+        event_target:zhx_roster_115 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_115
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_116
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_116
+        event_target:zhx_roster_116 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_116
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_117
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_117
+        event_target:zhx_roster_117 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_117
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_118
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_118
+        event_target:zhx_roster_118 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_118
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_119
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_119
+        event_target:zhx_roster_119 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_119
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_120
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_120
+        event_target:zhx_roster_120 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_120
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_121
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_121
+        event_target:zhx_roster_121 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_121
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_122
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_122
+        event_target:zhx_roster_122 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_122
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_123
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_123
+        event_target:zhx_roster_123 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_123
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_124
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_124
+        event_target:zhx_roster_124 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_124
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_125
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_125
+        event_target:zhx_roster_125 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_125
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_126
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_126
+        event_target:zhx_roster_126 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_126
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_127
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_127
+        event_target:zhx_roster_127 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_127
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_128
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_128
+        event_target:zhx_roster_128 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_128
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_129
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_129
+        event_target:zhx_roster_129 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_129
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_130
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_130
+        event_target:zhx_roster_130 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_130
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_131
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_131
+        event_target:zhx_roster_131 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_131
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_132
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_132
+        event_target:zhx_roster_132 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_132
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_133
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_133
+        event_target:zhx_roster_133 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_133
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_134
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_134
+        event_target:zhx_roster_134 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_134
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_135
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_135
+        event_target:zhx_roster_135 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_135
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_136
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_136
+        event_target:zhx_roster_136 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_136
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_137
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_137
+        event_target:zhx_roster_137 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_137
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_138
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_138
+        event_target:zhx_roster_138 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_138
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_139
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_139
+        event_target:zhx_roster_139 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_139
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_140
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_140
+        event_target:zhx_roster_140 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_140
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_141
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_141
+        event_target:zhx_roster_141 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_141
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_142
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_142
+        event_target:zhx_roster_142 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_142
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_143
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_143
+        event_target:zhx_roster_143 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_143
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_144
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_144
+        event_target:zhx_roster_144 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_144
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_145
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_145
+        event_target:zhx_roster_145 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_145
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_146
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_146
+        event_target:zhx_roster_146 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_146
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_147
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_147
+        event_target:zhx_roster_147 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_147
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_148
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_148
+        event_target:zhx_roster_148 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_148
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_149
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_149
+        event_target:zhx_roster_149 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_149
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_150
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_150
+        event_target:zhx_roster_150 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_150
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_151
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_151
+        event_target:zhx_roster_151 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_151
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_152
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_152
+        event_target:zhx_roster_152 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_152
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_153
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_153
+        event_target:zhx_roster_153 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_153
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_154
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_154
+        event_target:zhx_roster_154 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_154
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_155
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_155
+        event_target:zhx_roster_155 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_155
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_156
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_156
+        event_target:zhx_roster_156 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_156
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_157
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_157
+        event_target:zhx_roster_157 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_157
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_158
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_158
+        event_target:zhx_roster_158 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_158
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_159
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_159
+        event_target:zhx_roster_159 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_159
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_160
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_160
+        event_target:zhx_roster_160 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_160
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_161
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_161
+        event_target:zhx_roster_161 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_161
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_162
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_162
+        event_target:zhx_roster_162 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_162
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_163
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_163
+        event_target:zhx_roster_163 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_163
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_164
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_164
+        event_target:zhx_roster_164 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_164
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_165
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_165
+        event_target:zhx_roster_165 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_165
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_166
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_166
+        event_target:zhx_roster_166 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_166
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_167
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_167
+        event_target:zhx_roster_167 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_167
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_168
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_168
+        event_target:zhx_roster_168 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_168
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_169
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_169
+        event_target:zhx_roster_169 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_169
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_170
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_170
+        event_target:zhx_roster_170 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_170
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_171
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_171
+        event_target:zhx_roster_171 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_171
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_172
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_172
+        event_target:zhx_roster_172 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_172
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_173
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_173
+        event_target:zhx_roster_173 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_173
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_174
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_174
+        event_target:zhx_roster_174 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_174
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_175
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_175
+        event_target:zhx_roster_175 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_175
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_176
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_176
+        event_target:zhx_roster_176 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_176
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_177
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_177
+        event_target:zhx_roster_177 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_177
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_178
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_178
+        event_target:zhx_roster_178 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_178
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_179
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_179
+        event_target:zhx_roster_179 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_179
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_180
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_180
+        event_target:zhx_roster_180 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_180
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_181
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_181
+        event_target:zhx_roster_181 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_181
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_182
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_182
+        event_target:zhx_roster_182 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_182
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_183
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_183
+        event_target:zhx_roster_183 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_183
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_184
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_184
+        event_target:zhx_roster_184 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_184
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_185
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_185
+        event_target:zhx_roster_185 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_185
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_186
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_186
+        event_target:zhx_roster_186 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_186
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_187
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_187
+        event_target:zhx_roster_187 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_187
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_188
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_188
+        event_target:zhx_roster_188 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_188
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_189
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_189
+        event_target:zhx_roster_189 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_189
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_190
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_190
+        event_target:zhx_roster_190 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_190
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_191
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_191
+        event_target:zhx_roster_191 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_191
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_192
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_192
+        event_target:zhx_roster_192 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_192
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_193
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_193
+        event_target:zhx_roster_193 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_193
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_194
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_194
+        event_target:zhx_roster_194 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_194
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_195
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_195
+        event_target:zhx_roster_195 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_195
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_196
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_196
+        event_target:zhx_roster_196 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_196
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_197
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_197
+        event_target:zhx_roster_197 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_197
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_198
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_198
+        event_target:zhx_roster_198 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_198
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_199
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_199
+        event_target:zhx_roster_199 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_199
+    open_country = yes
+}
+
+custom_shield = {
+    name = zhx_gui_member_shield_200
+    potential = {
+        has_global_flag = zhx_gui_roster_initialised
+        has_saved_global_event_target = zhx_roster_200
+        event_target:zhx_roster_200 = {
+            exists = yes
+            has_country_flag = zhx_member
+        }
+    }
+    trigger = { always = yes }
+    tooltip = zhx_gui_member_shield_tt
+    global_event_target = zhx_roster_200
+    open_country = yes
+}
+# ZHX_ROSTER_BINDINGS_END
+
+custom_button = {
+    name = zhx_gui_overview_button
+    potential = { has_global_flag = zhx_system_initialised_v3 }
+    trigger = { always = yes }
+    effect = {
+        country_event = { id = zhx_system.3 }
+    }
+    tooltip = zhx_gui_overview_button_tt
+}
+
+custom_button = {
+    name = zhx_gui_close_button
+    potential = {
+        has_country_flag = zhx_tianxia_gui_visible
+    }
+    trigger = { always = yes }
+    effect = {
+        clr_country_flag = zhx_tianxia_gui_visible
+    }
+    tooltip = zhx_gui_close_button_tt
+}
