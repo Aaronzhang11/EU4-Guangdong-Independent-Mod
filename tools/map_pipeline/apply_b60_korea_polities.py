@@ -329,8 +329,10 @@ def flag_bytes(background: tuple[int, int, int], ink: tuple[int, int, int], glyp
 def write_flags() -> None:
     flags = MOD / "gfx/flags"
     flags.mkdir(parents=True, exist_ok=True)
+    # 箕子朝鲜属于诸夏封邦，继续使用礼制汉字旗。曷懒是诸夏之外的
+    # 女真联盟，其猎鹰旗自 B61 起由 generate_frontier_polity_flags.py
+    # 单独维护；这里不得再用汉字临时旗覆盖它。
     (flags / "JIZ.tga").write_bytes(flag_bytes((47, 91, 102), (232, 218, 164), "箕"))
-    (flags / "HLD.tga").write_bytes(flag_bytes((78, 116, 72), (235, 224, 181), "曷"))
 
 
 def first_value(text: str, key: str) -> str:
