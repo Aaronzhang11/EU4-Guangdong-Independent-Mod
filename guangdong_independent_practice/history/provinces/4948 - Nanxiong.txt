@@ -1,10 +1,8 @@
 # 4948 - Nanxiong
 
-owner = GDD
-controller = GDD
-add_core = MNG
-add_core = GDD
-add_core = HUA
+owner = HAK
+controller = HAK
+add_core = HAK
 culture = gdd_hakka
 religion = confucianism
 capital = "Baochang"
@@ -14,8 +12,6 @@ base_tax = 2
 base_production = 1
 base_manpower = 1
 is_city = yes
-center_of_trade = 1
-
 discovered_by = chinese
 discovered_by = nomad_group
 

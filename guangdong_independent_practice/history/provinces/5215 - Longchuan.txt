@@ -1,10 +1,8 @@
 # 5215 - Longchuan
 
-owner = GDD
-controller = GDD
-add_core = MNG
-add_core = GDD
-add_core = YUE
+owner = HAK
+controller = HAK
+add_core = HAK
 culture = gdd_hakka
 religion = confucianism
 capital = "Longchuan"

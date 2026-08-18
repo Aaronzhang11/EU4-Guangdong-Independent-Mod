@@ -1,10 +1,10 @@
 # 5301 - Danzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = gdd_zhuang
-religion = confucianism
+owner = HLI
+controller = HLI
+add_core = HLI
+culture = gdd_qiongli
+religion = hinduism
 capital = "Danzhou"
 trade_goods = salt
 base_tax = 2

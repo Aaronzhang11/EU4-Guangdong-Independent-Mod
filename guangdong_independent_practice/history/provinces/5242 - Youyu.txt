@@ -1,8 +1,8 @@
 # 5242 - Youyu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DAE
+controller = DAE
+add_core = DAE
 culture = gdd_jin
 religion = confucianism
 capital = "Youyu"

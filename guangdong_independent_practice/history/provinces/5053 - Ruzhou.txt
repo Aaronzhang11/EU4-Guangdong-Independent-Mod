@@ -1,6 +1,8 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+# 5053 - Ruzhou
+
+owner = CZH
+controller = CZH
+add_core = CZH
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Ruzhou"

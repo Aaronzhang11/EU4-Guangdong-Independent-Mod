@@ -1,8 +1,8 @@
 # 2137 - Daming
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GUN
+controller = GUN
+add_core = GUN
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Daming"
@@ -12,10 +12,6 @@ base_tax = 3
 base_production = 3
 base_manpower = 2
 is_city = yes
-add_core = YAN
-
-
-
 discovered_by = chinese
 discovered_by = nomad_group
 

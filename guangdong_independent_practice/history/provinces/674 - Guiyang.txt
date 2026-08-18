@@ -1,9 +1,9 @@
 # 674 - Guizhu
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GYA
+controller = GYA
 add_core = CYI
 add_core = CDL
+add_core = GYA
 culture = gdd_shu
 religion = animism
 capital = "Guizhu"

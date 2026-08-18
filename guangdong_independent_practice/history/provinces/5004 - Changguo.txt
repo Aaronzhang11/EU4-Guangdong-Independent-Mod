@@ -1,9 +1,8 @@
 # 5004 - Changguo
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = WUU
+owner = ZHO
+controller = ZHO
+add_core = ZHO
 culture = gdd_wu
 religion = confucianism
 capital = "Changguo"

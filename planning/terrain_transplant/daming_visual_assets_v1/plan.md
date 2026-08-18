@@ -10,10 +10,12 @@
 - 白色空白修复：源色图的近白空白区及其边缘缓冲不参与移植；全部海域强制使用原版季节色图，避免空白 RGB 在游戏内显示为白色。
 - 全局兼容资产：地表纹理图集、法线图、地图覆盖层、河流表面、水体纹理和源模组覆盖的边界纹理。
 - 树木：将源 `trees.bmp` 按地图偏移投影到目标比例，仅在核心与过渡范围采用源分布，外围采用原版分布。
+- 树木修复：最终尺寸固定为本地图原版基准 `704 x 293`；源图未定义索引 `16` 重映射为相邻语义一致的丛林索引 `13`；使用当前海陆掩膜清除海域及紧贴海岸的树木像素。
 - 锁定文件：`provinces.bmp`、`terrain.bmp`、`heightmap.bmp`、`rivers.bmp`、`terrain.txt`、定义、历史、区域和本地化。
 - 正式输出：`guangdong_independent_practice/map/terrain/` 与 `guangdong_independent_practice/map/trees.bmp`。
 - 修改前基线：`pre_b39/` 保存本模组原有文件；原本缺失的文件在清单中标为继承原版，并另存原版基线副本。
 - 白色修复前基线：`pre_b40_white_fix/` 保存第一版四季色图，便于单独回退本次修复。
+- 树木修复前基线：`pre_b41_tree_fix/map/trees.bmp` 保存原 `880 x 320` 版本。
 - 预览：`daming_visual_assets_preview.png`。
 - 报告：`daming_visual_assets_apply_report.json`。
 

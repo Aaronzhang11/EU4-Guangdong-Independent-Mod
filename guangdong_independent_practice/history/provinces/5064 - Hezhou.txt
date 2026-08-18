@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = HUA
+controller = HUA
+add_core = HUA
 culture = gdd_jianghuai
 religion = confucianism
 capital = "Hezhou"

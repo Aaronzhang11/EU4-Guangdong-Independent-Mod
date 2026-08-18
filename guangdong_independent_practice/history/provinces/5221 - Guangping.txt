@@ -1,8 +1,8 @@
 # 5221 - Guangping
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZHA
+controller = ZHA
+add_core = ZHA
 culture = gdd_yan
 religion = confucianism
 capital = "Guangping"

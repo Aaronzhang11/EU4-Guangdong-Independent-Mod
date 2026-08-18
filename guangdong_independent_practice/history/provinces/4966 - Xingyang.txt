@@ -1,8 +1,8 @@
 # 4966 - Xingyang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GUN
+controller = GUN
+add_core = GUN
 add_core = LNG
 culture = gdd_zhongyuan
 religion = confucianism

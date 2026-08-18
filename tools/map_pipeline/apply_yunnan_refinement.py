@@ -45,18 +45,18 @@ P = (
     Province(2167, "丽江", "Lijiang", "dianxibei_area", (61,171,211), (75,240,74), (4384,949), "tea", (3,3,2), "bai", "buddhism"),
     Province(5226, "剑川", "Jianchuan", "dianxibei_area", (232,192,56), (232,192,56), (4374,966), "livestock", (2,2,1), "bai", "buddhism"),
     Province(5227, "泸水", "Lushui", "dianxi_area", (218,108,54), (218,108,54), (4347,967), "tropical_wood", (1,1,1), "bai", "buddhism", "MMA"),
-    Province(661, "大理", "Dali", "dianxi_area", (232,154,55), (222,74,64), (4376,985), "tea", (5,5,2), "bai", "buddhism", cot=2, fort=True),
-    Province(5228, "保山", "Baoshan", "dianxi_area", (202,168,74), (202,168,74), (4354,996), "iron", (2,3,1), "yi", "buddhism"),
+    Province(661, "大理", "Dali", "dianxi_area", (232,154,55), (222,74,64), (4376,985), "tea", (5,5,2), "bai", "buddhism", cot=1, fort=True),
+    Province(5228, "永昌府", "Yongchangfu", "dianxi_area", (202,168,74), (202,168,74), (4354,996), "iron", (2,3,1), "yi", "buddhism"),
     Province(2166, "德宏", "Dehong", "dianxi_area", (74,159,125), (69,205,50), (4343,1012), "tropical_wood", (2,2,1), "shan", "buddhism", "MMA"),
     Province(5229, "楚雄", "Chuxiong", "yunnan_area", (221,107,52), (221,107,52), (4396,987), "livestock", (2,3,1), "yi", "animism"),
-    Province(662, "昆明", "Kunming", "yunnan_area", (238,224,204), (94,76,128), (4413,990), "copper", (6,5,2), "gdd_dian", "buddhism", cot=2, fort=True),
-    Province(5230, "玉溪", "Yuxi", "yunnan_area", (239,194,127), (239,194,127), (4415,1005), "grain", (3,3,1), "gdd_dian", "buddhism"),
+    Province(662, "昆明", "Kunming", "yunnan_area", (238,224,204), (94,76,128), (4413,990), "copper", (6,5,2), "gdd_dian", "buddhism", cot=1, fort=True),
+    Province(5230, "新兴州", "Xinxingzhou", "yunnan_area", (239,194,127), (239,194,127), (4415,1005), "grain", (3,3,1), "gdd_dian", "buddhism"),
     Province(5231, "东川", "Dongchuan", "yunnan_area", (206,55,43), (206,55,43), (4417,968), "copper", (1,3,1), "yi", "animism"),
-    Province(5232, "昭通", "Zhaotong", "diandong_area", (244,182,62), (244,182,62), (4440,938), "livestock", (2,2,1), "yi", "animism"),
-    Province(5233, "镇雄", "Zhenxiong", "diandong_area", (107,156,51), (107,156,51), (4457,953), "iron", (1,2,1), "yi", "animism"),
-    Province(5234, "宣威", "Xuanwei", "diandong_area", (25,130,90), (25,130,90), (4445,968), "livestock", (2,2,1), "yi", "animism"),
+    Province(5232, "乌蒙", "Wumeng", "diandong_area", (244,182,62), (244,182,62), (4440,938), "livestock", (2,2,1), "yi", "animism"),
+    Province(5233, "芒部", "Mangbu", "diandong_area", (107,156,51), (107,156,51), (4457,953), "iron", (1,2,1), "yi", "animism"),
+    Province(5234, "沾益", "Zhanyi", "diandong_area", (25,130,90), (25,130,90), (4445,968), "livestock", (2,2,1), "yi", "animism"),
     Province(675, "曲靖", "Qujing", "diandong_area", (80,78,115), (224,102,0), (4440,986), "copper", (3,3,2), "gdd_dian", "animism"),
-    Province(5235, "临沧", "Lincang", "dianxinan_area", (145,202,55), (145,202,55), (4376,1017), "tea", (2,2,1), "yi", "animism"),
+    Province(5235, "勐缅", "Mengmian", "dianxinan_area", (145,202,55), (145,202,55), (4376,1017), "tea", (2,2,1), "yi", "animism"),
     Province(5236, "耿马", "Gengma", "dianxinan_area", (231,40,37), (231,40,37), (4359,1021), "tropical_wood", (1,1,1), "shan", "buddhism", "MMA"),
     Province(2165, "思茅", "Simao", "dianxinan_area", (226,168,151), (255,216,0), (4392,1031), "tea", (2,3,1), "gdd_dian", "buddhism"),
     Province(5237, "镇沅", "Zhenyuan", "dianxinan_area", (73,172,207), (73,172,207), (4396,1019), "tea", (1,2,1), "yi", "animism"),
@@ -65,7 +65,7 @@ P = (
     Province(5239, "勐腊", "Mengla", "diannan_area", (57,88,139), (57,88,139), (4401,1048), "tropical_wood", (1,2,1), "shan", "buddhism", "MMA"),
     Province(5240, "蒙自", "Mengzi", "diannan_area", (36,133,156), (36,133,156), (4425,1018), "grain", (3,3,1), "gdd_dian", "buddhism"),
     Province(5241, "红河", "Honghe", "diannan_area", (241,224,45), (241,224,45), (4415,1032), "tea", (2,2,1), "yi", "animism"),
-    Province(663, "文山", "Wenshan", "diannan_area", (143,209,24), (222,78,192), (4450,1020), "iron", (2,2,1), "gdd_zhuang", "animism"),
+    Province(663, "广南", "Guangnan", "diannan_area", (143,209,24), (222,78,192), (4450,1020), "iron", (2,2,1), "gdd_zhuang", "animism", "NUN"),
 )
 
 AREA_NAMES = {
@@ -250,8 +250,10 @@ def update_areas_region() -> None:
 
 def history_text(province: Province) -> str:
     cores = [province.owner]
-    if province.owner != "MNG":
+    if province.owner != "MNG" and province.province_id != 663:
         cores.append("MNG")
+    if province.province_id == 663:
+        cores.append("CDL")
     if province.owner == "MNG" and province.culture in {"bai", "yi"}:
         cores.append("CDL")
     lines = [
@@ -373,21 +375,21 @@ def update_memberships() -> None:
         text = append_ids(text, "tropical", [5235,5236,5237,5238,5239,5240,5241], tropical_marker)
         climate.write_text(text, encoding="cp1252")
 
-    # All modern-Yunnan provinces belong to the Chengdu trade node.  Keep the
-    # company and node semantics aligned when this historical builder is rerun.
-    chengdu_ids = [
+    # B49 separates Yunnan from Bashu: provinces use the Yungui node while the
+    # historical trade-company policy remains Chengdu.
+    yunnan_ids = [
         5224,5225,5226,5227,5228,5229,
         5230,5231,5232,5233,5234,5235,5236,5237,5238,5239,5240,5241,
     ]
     node_path = MOD / "common/tradenodes/00_tradenodes.txt"
-    add_to_top_level_block(node_path, "chengdu", "members", chengdu_ids, marker + " Chengdu node")
+    add_to_top_level_block(node_path, "yungui", "members", yunnan_ids, marker + " Yungui node")
 
     company_path = MOD / "common/trade_companies/00_trade_companies.txt"
     add_to_top_level_block(
         company_path,
         "trade_company_chengdu",
         "provinces",
-        chengdu_ids,
+        yunnan_ids,
         marker + " Chengdu company",
     )
 

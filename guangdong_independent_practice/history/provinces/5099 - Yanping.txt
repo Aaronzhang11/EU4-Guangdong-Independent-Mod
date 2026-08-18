@@ -1,8 +1,7 @@
 # 5099 - Yanping
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = MIN
+controller = MIN
 add_core = MIN
 add_core = NNG
 culture = gdd_min

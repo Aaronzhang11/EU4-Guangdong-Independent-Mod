@@ -38,7 +38,7 @@ SOURCE_IDS = [pid for ids in SOURCE_AREAS.values() for pid in ids]
 
 # The source capital-ring geometries retain this timeline's Yandu identities.
 SOURCE_TO_TARGET = {
-    1816: 1816,   # Beijing -> Yan
+    1816: 1816,   # Beijing slot -> Ji
     5214: 5114,   # Jizhou -> Miyun
     5215: 5113,   # Changping
     5216: 5115,   # Bazhou -> Tongzhou
@@ -54,7 +54,7 @@ OLD_SCOPE_IDS = {
 NAMES = {
     695: ("Hejian", "河间"),
     696: ("Baoding", "保定"),
-    1816: ("Yan", "燕"),
+    1816: ("Ji", "蓟"),
     2137: ("Daming", "大名"),
     4194: ("Yongping", "永平"),
     4195: ("Zhending", "真定"),
@@ -62,18 +62,24 @@ NAMES = {
     5114: ("Miyun", "密云"),
     5115: ("Tongzhou", "通州"),
     5116: ("Zhuozhou", "涿州"),
-    5211: ("Shanhaiguan", "山海关"),
+    5211: ("Linyuguan", "临渝关"),
     5212: ("Luanzhou", "滦州"),
     5213: ("Zunhua", "遵化"),
     5218: ("Yizhou", "易州"),
     5219: ("Jizhou", "冀州"),
     5220: ("Shunde", "顺德"),
     5221: ("Guangping", "广平"),
-    5222: ("Tianjin", "天津"),
+    5222: ("Zhigu", "直沽"),
     5223: ("Cangzhou", "沧州"),
 }
 
 NEW_IDS = [5211, 5212, 5213, 5218, 5219, 5220, 5221, 5222, 5223]
+# These two IDs inherit exact filenames from the Chinese map dependency.  The
+# contents use the B44 names, but the paths must stay stable to shadow it.
+HISTORY_FILENAMES = {
+    5211: "5211 - Shanhaiguan.txt",
+    5222: "5222 - Tianjin.txt",
+}
 GOODS = {
     5211: "grain", 5212: "fish", 5213: "iron",
     5218: "grain", 5219: "grain", 5220: "cloth",
@@ -89,7 +95,7 @@ CULTURE_BY_ID = {
     5220: "gdd_yan",
     5221: "gdd_yan",
     5222: "gdd_qi",
-    5223: "gdd_yan",
+    5223: "gdd_qi",
 }
 
 
@@ -309,7 +315,7 @@ def update_areas():
     path = MAP / "area.txt"
     text = path.read_text()
     blocks = {
-        "hebei_area": "hebei_area = {\n    703 2136\n}",
+        "hebei_area": "hebei_area = {\n    703 2136 5351 5352 5353\n}",
         "yandu_area": "yandu_area = {\n    5113 5114 1816 5115 5116\n}",
         "dong_hebei_area": "dong_hebei_area = {\n    4194 5211 5212 5213\n}",
         "zhong_hebei_area": "zhong_hebei_area = {\n    695 696 5222 5223 5219\n}",
@@ -366,9 +372,11 @@ def history_text(pid):
 def update_histories():
     directory = MOD / "history/provinces"
     for pid in NEW_IDS:
+        desired = directory / HISTORY_FILENAMES.get(pid, f"{pid} - {NAMES[pid][0]}.txt")
         for old in directory.glob(f"{pid} - *.txt"):
-            old.unlink()
-        (directory / f"{pid} - {NAMES[pid][0]}.txt").write_text(history_text(pid))
+            if old != desired:
+                old.unlink()
+        desired.write_text(history_text(pid))
 
     # Province 696 moves from the old Xuanfu geometry to Baoding.
     for old in directory.glob("696 - *.txt"):

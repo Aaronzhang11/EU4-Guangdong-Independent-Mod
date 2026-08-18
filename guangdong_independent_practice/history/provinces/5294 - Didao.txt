@@ -1,8 +1,8 @@
 # 5294 - Didao
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YPG
+controller = YPG
+add_core = YPG
 culture = gdd_long
 religion = confucianism
 capital = "Didao"

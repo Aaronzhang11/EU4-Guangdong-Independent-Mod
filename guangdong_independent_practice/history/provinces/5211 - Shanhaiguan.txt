@@ -1,11 +1,11 @@
-# 5211 - Shanhaiguan
+# 5211 - Linyuguan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GUZ
+controller = GUZ
+add_core = GUZ
 culture = gdd_dongyi
 religion = confucianism
-capital = "Shanhaiguan"
+capital = "Linyuguan"
 trade_goods = grain
 base_tax = 2
 base_production = 2

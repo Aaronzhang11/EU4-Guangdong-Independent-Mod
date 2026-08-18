@@ -1,9 +1,9 @@
 # 5278 - Jingning
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = gdd_long
+owner = QIN
+controller = QIN
+add_core = QIN
+culture = gdd_yan
 religion = confucianism
 capital = "Jingning"
 trade_goods = wool

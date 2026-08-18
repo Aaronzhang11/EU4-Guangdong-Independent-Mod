@@ -1,8 +1,9 @@
 # 666 - Qiongzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CZC
+controller = CZC
+add_core = HLI
+add_core = CZC
 culture = gdd_min
 religion = confucianism
 capital = "Qiongzhou"

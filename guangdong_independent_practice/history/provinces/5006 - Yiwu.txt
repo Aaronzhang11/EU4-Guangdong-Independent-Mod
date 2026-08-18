@@ -1,9 +1,8 @@
 # 5006 - Yiwu
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = WUU
+owner = YUE
+controller = YUE
+add_core = YUE
 culture = gdd_wu
 religion = confucianism
 capital = "Yiwu"

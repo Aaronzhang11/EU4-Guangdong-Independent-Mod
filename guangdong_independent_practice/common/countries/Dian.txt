@@ -1,0 +1,16 @@
+graphical_culture = asiangfx
+color = { 126 130 159 }
+revolutionary_colors = { 0 1 0 }
+historical_score = 0
+
+monarch_names = {
+	"Yuan #0" = 10
+	"Cheng #0" = 10
+	"Long #0" = 10
+	"Zhong #0" = 10
+	"Xing #0" = 10
+}
+
+leader_names = { Duan Gao Yang Luo Zhang }
+ship_names = { Dianchi Honghe Yuxi }
+army_names = { "$PROVINCE$ Army" }

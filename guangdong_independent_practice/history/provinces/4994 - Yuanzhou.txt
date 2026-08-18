@@ -1,17 +1,17 @@
-# 4994 - Yuanzhou
+# 4994 - Yuanzhou Jiangxi
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CHC
+controller = CHC
 add_core = NNG
+add_core = CHC
 culture = gdd_gan
 religion = confucianism
 capital = "Yuanzhou"
 trade_goods = grain
 hre = no
-base_tax = 3
-base_production = 4
-base_manpower = 3
+base_tax = 2
+base_production = 2
+base_manpower = 2
 is_city = yes
 
 discovered_by = chinese

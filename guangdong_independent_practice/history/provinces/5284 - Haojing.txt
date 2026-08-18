@@ -1,8 +1,8 @@
 # 5284 - Haojing
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = SHE
+controller = SHE
+add_core = SHE
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Haojing"

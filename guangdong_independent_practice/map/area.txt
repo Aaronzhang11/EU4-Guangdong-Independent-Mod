@@ -2834,8 +2834,8 @@ utsang_area = { #4
 ngari_area = { #3
     2128 4516 4520
 } #new!!
-hebei_area = {
-    703 2136
+hebei_area = { # GDD_B55_SHANGGU_REFINEMENT
+    703 2136 5351 5352 5353
 }
 south_hebei_area = { # B31 Han land-contiguous area reorganisation
     2137 4195 5221 5220 5218 696
@@ -2879,13 +2879,11 @@ east_zhejiang_area = { #5 (Eastern Maritime Zhejiang)
 jinqu_chuzhou_area = { #4 (Jinhua, Quzhou and Chuzhou)
     2150 5006 4956 5007
 }
-
-jiangxi_area = { #5 (North Jiangxi)
-    683 2151 4979 4992 4993
+jiangxi_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    683 2151 5325 4993 5326
 }
-
-south_jiangxi_area = { #5
-    670 1833 4980 4994 4995
+south_jiangxi_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    1833 4980 4994 5328
 }
 
 fujian_area = { # Fujian 13-province refinement
@@ -2927,47 +2925,36 @@ qiandong_area = { #5 (Eastern Guizhou and the Miao corridors)
 sichuan_area = { # Sichuan 36-province refinement
     679 5075 5076 5077
 }
-chongqing_area = { # B36 area and trade-company consistency
-    680 5026 5027 4987 5028
+chongqing_area = { # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+    5026 5334 680 5335
 }
 
 chuannan_area = { # Sichuan 36-province refinement
     5083 5084 5085 4213
 }
-
-chuanbei_area = { # Sichuan 36-province refinement
-    5080 5081 2169 5082 4211
+chuanbei_area = { # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+    5080 5081 5329 2169 5331
 }
-hanjiang_xiangyun_area = { # B31 Han land-contiguous area reorganisation
-    5008 2171 681
-}
-jingyi_shinan_area = { # B36 area and trade-company consistency
-    2172 5015 5010 5013
-}
-dean_qihuang_area = { # B31 Han land-contiguous area reorganisation
-    5009 4197 5012 2175
+dean_qihuang_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    5009 4197 5012 2175 5350
 }
 
 wuhan_enan_area = { #4 (Wuhan Three Towns and Xingguo)
     4981 682 5011 5016
 }
-dongting_area = { # B31 Han land-contiguous area reorganisation
-    672 4996 4997 2173 5014
+dongting_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    672 4997 5322
 }
-hunan_area = { # B31 Han land-contiguous area reorganisation
-    671 2174 4998 4982
+hunan_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    4982 671 5320 5321 4998
 }
-southwest_hunan_area = { # B31 Han land-contiguous area reorganisation
-    4999 5000 5001 4983
+southwest_hunan_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    4999 5315 4983 5000
 }
 
 guide_xuchen_area = { #4 (Eastern Henan and Shang-Song)
     2176 5050 5051 5052
 }
-runing_nanyang_area = { # B31 Han land-contiguous area reorganisation
-    687 5053 5054 5055
-}
-
 chengzhou_area = { #4 (Chengzhou and the Heluo basin)
     1836 5045 5046 4967
 }
@@ -3880,7 +3867,7 @@ bei_shaanxi_area = {
 nan_shaanxi_area = { # B31 Han land-contiguous area reorganisation
     689 5275 5274 5273
 }
-xi_shaanxi_area = { # B37 Tianshui user refinement
+xi_shaanxi_area = { # B36 area and trade-company consistency
     2181 5276 5277 5278 5305 5306
 }
 
@@ -3925,6 +3912,48 @@ dongjiang_area = { # B30 Yuebei-Chaoshan refinement
 chaoshan_area = { # B30 Yuebei-Chaoshan refinement
     2156 5217 4949
 }
-longyou_area = { # B37 Tianshui user refinement
+longyou_area = { # B36 area and trade-company consistency
     2180 5291 5307 5308 5309
+}
+wuling_hunan_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    2173 5312 5313 5314
+}
+lishui_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    4996 5316 5317
+}
+hengchen_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    2174 5318 5319 5001
+}
+xunyang_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    4979 5324 4992 5323
+}
+gannan_area = { # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+    670 5327 4995
+}
+baqu_area = { # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+    5330 5332 5082 4211 5333
+}
+fuling_area = { # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+    5027 5336 5337 5338 5340
+}
+xiajiang_area = { # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+    4987 5339 5028
+}
+hanshang_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    5008 5341 2171 5342
+}
+yunmeng_jingmen_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    5010 5343 5015 5344
+}
+jingyi_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    2172 5345 5014 5013
+}
+yigui_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    681 5346
+}
+wandeng_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    687 5347 5055 5348
+}
+rucai_area = { # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    5053 5054 5349
 }

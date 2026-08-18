@@ -1,8 +1,8 @@
 # 5224 - Deqin
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = KAM
+controller = KAM
+add_core = KAM
 culture = tibetan
 religion = vajrayana
 capital = "Deqin"

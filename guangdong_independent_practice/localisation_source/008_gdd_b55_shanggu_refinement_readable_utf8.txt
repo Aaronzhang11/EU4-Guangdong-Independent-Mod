@@ -1,0 +1,7 @@
+﻿l_english:
+ PROV5351:0 "蔚州"
+ PROV_ADJ5351:0 "蔚州"
+ PROV5352:0 "龙门"
+ PROV_ADJ5352:0 "龙门"
+ PROV5353:0 "兴州"
+ PROV_ADJ5353:0 "兴州"

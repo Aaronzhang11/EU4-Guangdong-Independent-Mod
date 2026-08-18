@@ -1,0 +1,10 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_zhuang
+add_accepted_culture = yi
+capital = 616 # Cao Bang / 高平; development 7
+fixed_capital = 616

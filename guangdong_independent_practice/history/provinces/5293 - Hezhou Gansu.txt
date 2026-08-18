@@ -1,8 +1,8 @@
 # 5293 - Hezhou Gansu
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = HZH
+controller = HZH
+add_core = HZH
 culture = gdd_long
 religion = vajrayana
 capital = "Hezhou Gansu"

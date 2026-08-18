@@ -1,9 +1,8 @@
 # 4983 - Baoqing
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = HNG
+controller = HNG
+add_core = HNG
 culture = gdd_chu
 religion = confucianism
 capital = "Baoqing"

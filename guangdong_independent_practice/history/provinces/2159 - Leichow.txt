@@ -1,9 +1,8 @@
 # 2159 - Leichow
 
-owner = GDD
-controller = GDD
-add_core = MNG
-add_core = GDD
+owner = LIL
+controller = LIL
+add_core = LIL
 culture = gdd_zhuang
 religion = confucianism
 capital = "Leichow"
@@ -13,10 +12,6 @@ base_tax = 2
 base_production = 2
 base_manpower = 1
 is_city = yes
-add_core = YUE
-
-
-
 discovered_by = chinese
 discovered_by = nomad_group
 discovered_by = indian

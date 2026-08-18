@@ -1,9 +1,8 @@
 # 4998 - Xiangtan
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = CSA
+controller = CSA
+add_core = CSA
 culture = gdd_chu
 religion = confucianism
 capital = "Xiangtan"

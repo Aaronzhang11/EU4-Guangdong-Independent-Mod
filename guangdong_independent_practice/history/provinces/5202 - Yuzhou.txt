@@ -1,11 +1,11 @@
-# 5202 - Yuzhou
+# 5202 - Yulin
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GDD
+controller = GDD
+add_core = GDD
 culture = gdd_guangfu
 religion = confucianism
-capital = "Yuzhou"
+capital = "Yulin"
 trade_goods = grain
 base_tax = 2
 base_production = 2

@@ -1,8 +1,8 @@
 # 5087 - Wenchuan
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = BMY
+controller = BMY
+add_core = BMY
 add_core = CXI
 culture = gdd_diqiang
 religion = vajrayana

@@ -1,7 +1,7 @@
 # 4976 - Songjiang
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YUE
+controller = YUE
+add_core = YUE
 culture = gdd_wu
 religion = confucianism
 capital = "Songjiang"

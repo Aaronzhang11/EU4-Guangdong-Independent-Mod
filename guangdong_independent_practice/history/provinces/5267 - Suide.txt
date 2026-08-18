@@ -1,8 +1,8 @@
 # 5267 - Suide
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YOU
+controller = YOU
+add_core = YOU
 culture = gdd_jin
 religion = confucianism
 capital = "Suide"

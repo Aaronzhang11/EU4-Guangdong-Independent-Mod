@@ -1,11 +1,10 @@
-#1821 - Jiangling
-
-owner = MNG
-controller = MNG
-add_core = MNG
+# 1821 - Jiangning
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = gdd_wu
 religion = confucianism
-capital = "Jiangling"
+capital = "Jiangning"
 trade_goods = grain
 hre = no
 base_tax = 7

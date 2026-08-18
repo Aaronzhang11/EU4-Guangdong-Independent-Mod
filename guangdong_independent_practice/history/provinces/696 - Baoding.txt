@@ -1,8 +1,8 @@
 # 696 - Baoding
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZSH
+controller = ZSH
+add_core = ZSH
 culture = gdd_yan
 religion = confucianism
 capital = "Baoding"

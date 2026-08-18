@@ -30,12 +30,17 @@ VANILLA = Path(
 OUT = ROOT / "planning/terrain_transplant/daming_visual_assets_v1"
 BACKUP = OUT / "pre_b39"
 WHITE_FIX_BACKUP = OUT / "pre_b40_white_fix/map/terrain"
+TREE_FIX_BACKUP = OUT / "pre_b41_tree_fix/map/trees.bmp"
 TARGET_SIZE = (5632, 2048)
 SOURCE_OFFSET = (438, 9)
 TRANSITION_RADIUS = 180
 SOURCE_BLANK_THRESHOLD = 220
 SOURCE_BLANK_EXPAND = 9
 SOURCE_BLANK_FEATHER = 4
+TREE_TARGET_SIZE = (704, 293)
+TREE_VALID_INDICES = (0, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 18, 19, 20, 27, 28, 29, 30)
+TREE_INDEX_REMAP = {16: 13}
+TREE_WATER_FRACTION_LIMIT = 0.05
 
 CORE_REGIONS = (
     "mongolia_region", "manchuria_region", "korea_region", "japan_region",
@@ -244,43 +249,86 @@ def blend_seasonal(
     return result, stats
 
 
-def adapt_trees(core: np.ndarray, fade: np.ndarray) -> Image.Image:
+def adapt_trees(
+    core: np.ndarray,
+    fade: np.ndarray,
+    water: np.ndarray,
+) -> tuple[Image.Image, dict[str, object]]:
     source_image = Image.open(SOURCE / "map/trees.bmp")
     vanilla_image = Image.open(VANILLA / "map/trees.bmp")
     if source_image.mode != "P" or vanilla_image.mode != "P":
         raise ValueError("trees.bmp inputs must remain indexed bitmaps")
     if source_image.getpalette() != vanilla_image.getpalette():
         raise ValueError("Source and vanilla tree palettes differ")
-    scale = source_image.width / 6400.0
-    output_size = (round(TARGET_SIZE[0] * scale), round(TARGET_SIZE[1] * scale))
+    if vanilla_image.size != TREE_TARGET_SIZE:
+        raise ValueError(f"Unexpected vanilla trees.bmp size: {vanilla_image.size}")
+    scale_x = source_image.width / 6400.0
+    scale_y = source_image.height / 2560.0
     x0, y0 = SOURCE_OFFSET
     extent = (
-        x0 * scale, y0 * scale,
-        (x0 + TARGET_SIZE[0]) * scale,
-        (y0 + TARGET_SIZE[1]) * scale,
+        x0 * scale_x, y0 * scale_y,
+        (x0 + TARGET_SIZE[0]) * scale_x,
+        (y0 + TARGET_SIZE[1]) * scale_y,
     )
     source = source_image.transform(
-        output_size, Image.Transform.EXTENT, extent, Image.Resampling.NEAREST
+        TREE_TARGET_SIZE, Image.Transform.EXTENT, extent, Image.Resampling.NEAREST
     )
-    baseline = vanilla_image.resize(output_size, Image.Resampling.NEAREST)
+    baseline = vanilla_image
     # Categorical tree indices use an organic dither in the transition instead of antialiasing.
     fade_small = np.asarray(
         Image.fromarray(np.clip(fade * 255.0, 0, 255).astype(np.uint8), mode="L").resize(
-            output_size, Image.Resampling.BILINEAR
+            TREE_TARGET_SIZE, Image.Resampling.BILINEAR
         ),
         dtype=np.uint8,
     )
     rng = np.random.default_rng(1728520255)
-    select = rng.integers(0, 256, size=(output_size[1], output_size[0]), dtype=np.uint8) < fade_small
+    select = rng.integers(
+        0, 256, size=(TREE_TARGET_SIZE[1], TREE_TARGET_SIZE[0]), dtype=np.uint8
+    ) < fade_small
     select[np.asarray(Image.fromarray(core.astype(np.uint8) * 255, mode="L").resize(
-        output_size, Image.Resampling.NEAREST
+        TREE_TARGET_SIZE, Image.Resampling.NEAREST
     )) > 0] = True
     result = np.asarray(baseline).copy()
     source_values = np.asarray(source)
     result[select] = source_values[select]
+
+    remapped: dict[str, int] = {}
+    for old, new in TREE_INDEX_REMAP.items():
+        count = int((result == old).sum())
+        if count:
+            result[result == old] = new
+        remapped[f"{old}->{new}"] = count
+    undefined = sorted(set(np.unique(result).tolist()) - set(TREE_VALID_INDICES))
+    if undefined:
+        raise ValueError(f"Undefined nonzero tree indices remain: {undefined}")
+
+    water_fraction = np.asarray(
+        Image.fromarray(water.astype(np.uint8) * 255, mode="L").resize(
+            TREE_TARGET_SIZE, Image.Resampling.BOX
+        ),
+        dtype=np.float32,
+    ) / 255.0
+    water_cells = water_fraction > TREE_WATER_FRACTION_LIMIT
+    water_trees_before = int(((result != 0) & water_cells).sum())
+    result[water_cells] = 0
+    water_trees_after = int(((result != 0) & water_cells).sum())
+    if water_trees_after:
+        raise ValueError(f"Trees remain on water cells: {water_trees_after}")
+
     output = Image.fromarray(result.astype(np.uint8), mode="P")
     output.putpalette(source_image.getpalette())
-    return output
+    stats: dict[str, object] = {
+        "source_size": list(source_image.size),
+        "vanilla_target_size": list(vanilla_image.size),
+        "output_size": list(output.size),
+        "valid_indices": list(TREE_VALID_INDICES),
+        "used_indices": sorted(map(int, np.unique(result).tolist())),
+        "remapped_indices": remapped,
+        "water_fraction_limit": TREE_WATER_FRACTION_LIMIT,
+        "water_tree_cells_removed": water_trees_before,
+        "water_tree_cells_after": water_trees_after,
+    }
+    return output, stats
 
 
 def backup_once(owned: list[Path]) -> dict[str, object]:
@@ -345,6 +393,43 @@ def atlas_preview() -> Path:
     return path
 
 
+def tree_fix_preview(
+    before: Image.Image,
+    after: Image.Image,
+    base: Image.Image,
+) -> Path:
+    crop = (3700, 350, 5450, 1750)
+    panel_size = (875, 700)
+    panels: list[Image.Image] = []
+    for tree_image in (before, after):
+        values = np.asarray(tree_image.resize(TARGET_SIZE, Image.Resampling.NEAREST))
+        values = values[crop[1]:crop[3], crop[0]:crop[2]]
+        tree_mask = Image.fromarray((values != 0).astype(np.uint8) * 255, mode="L").resize(
+            panel_size, Image.Resampling.NEAREST
+        )
+        invalid_mask = Image.fromarray((values == 16).astype(np.uint8) * 255, mode="L").resize(
+            panel_size, Image.Resampling.NEAREST
+        )
+        panel = base.crop(crop).convert("RGB").resize(panel_size, Image.Resampling.LANCZOS).convert("RGBA")
+        green = Image.new("RGBA", panel_size, (20, 130, 35, 145))
+        red = Image.new("RGBA", panel_size, (230, 25, 25, 220))
+        panel = Image.composite(green, panel, tree_mask)
+        panel = Image.composite(red, panel, invalid_mask)
+        panels.append(panel.convert("RGB"))
+    titles = ("修复前：880×320，红色为无效索引16", "修复后：704×293，海域已清空")
+    top = 48
+    canvas = Image.new("RGB", (panel_size[0] * 2, panel_size[1] + top), (244, 242, 236))
+    draw = ImageDraw.Draw(canvas)
+    font = ImageFont.truetype("/System/Library/Fonts/STHeiti Medium.ttc", 22)
+    for index, (panel, title) in enumerate(zip(panels, titles)):
+        x = index * panel_size[0]
+        canvas.paste(panel, (x, top))
+        draw.text((x + 16, 9), title, fill=(20, 20, 20), font=font)
+    path = OUT / "trees_fix_preview.png"
+    canvas.save(path)
+    return path
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     target_terrain = MAP / "terrain"
@@ -357,6 +442,9 @@ def main() -> None:
         backup = WHITE_FIX_BACKUP / name
         if current.exists() and not backup.exists():
             shutil.copy2(current, backup)
+    if (MAP / "trees.bmp").exists() and not TREE_FIX_BACKUP.exists():
+        TREE_FIX_BACKUP.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(MAP / "trees.bmp", TREE_FIX_BACKUP)
 
     locked_paths = [
         MAP / "provinces.bmp", MAP / "terrain.bmp", MAP / "heightmap.bmp",
@@ -390,7 +478,7 @@ def main() -> None:
             raise FileNotFoundError(source)
         shutil.copy2(source, target_terrain / name)
 
-    trees = adapt_trees(core, fade)
+    trees, tree_stats = adapt_trees(core, fade, water)
     trees.save(MAP / "trees.bmp", format="BMP")
 
     locked_after = {str(path): sha256(path) for path in locked_paths}
@@ -405,8 +493,11 @@ def main() -> None:
     source = source_full.crop((x0, y0, x0 + TARGET_SIZE[0], y0 + TARGET_SIZE[1]))
     preview_path = preview(before, source, seasonal_images["colormap_summer.dds"])
     atlas_preview_path = atlas_preview()
+    tree_preview_path = tree_fix_preview(
+        Image.open(TREE_FIX_BACKUP), trees, seasonal_images["colormap_summer.dds"]
+    )
 
-    outputs = owned + [preview_path, atlas_preview_path]
+    outputs = owned + [preview_path, atlas_preview_path, tree_preview_path]
     report = {
         "batch": "B39 Daming terrain rendering asset adaptation",
         "source": str(SOURCE),
@@ -421,12 +512,15 @@ def main() -> None:
         "transition_pixels": int(((fade > 0) & ~core).sum()),
         "water_pixels_locked": int(water.sum()),
         "seasonal_white_fix": seasonal_stats,
+        "tree_fix": tree_stats,
         "locked_files": locked_after,
         "outputs": {str(path.relative_to(ROOT)): sha256(path) for path in outputs},
         "backup_manifest": str(BACKUP / "manifest.json"),
         "white_fix_backup": str(WHITE_FIX_BACKUP),
+        "tree_fix_backup": str(TREE_FIX_BACKUP),
         "preview": str(preview_path),
         "atlas_preview": str(atlas_preview_path),
+        "tree_preview": str(tree_preview_path),
         "preexisting_targets": [
             record["path"] for record in manifest["files"] if record["target_existed"]
         ],

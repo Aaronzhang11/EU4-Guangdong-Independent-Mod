@@ -138,6 +138,8 @@ categories =  {
     5287 5291 5296 # B26 Gansu-Ningxia 23-province refinement farmlands
     5204 # B27 Liaoning 10-province refinement farmlands
     5217 # B30 Yuebei-Chaoshan refinement farmlands
+        5320 5321 5323 5324 5325 # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+        5342 5344 5349 # GDD_B47_JINGXIANG_YUNAN_BALANCED
 }
     }
 
@@ -247,6 +249,9 @@ categories =  {
     5216 # B30 Yuebei-Chaoshan refinement hills
     5305 5306 # B34 Longyou refinement hills
     5307 5308 5309 # B37 Tianshui user refinement hills
+        5316 5317 5318 5319 5322 5326 5327 5328 # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+        5329 5332 5333 5338 5339 # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+        5346 5347 5348 5350 # GDD_B47_JINGXIANG_YUNAN_BALANCED
 }
     }
 
@@ -390,6 +395,9 @@ categories =  {
             #1.37
             2838 #tarija
     5304 # B27 Hainan five-province refinement mountain
+    5310 # Nanling mountain
+    5311 # Nanling eastern mountain
+    5351 5352 # GDD_B55_SHANGGU_REFINEMENT
 }
     }
 
@@ -465,6 +473,9 @@ categories =  {
             5055 # B14 Dengzhou basin pasture
     5286 5292 5295 # B26 Gansu-Ningxia 23-province refinement grasslands
     5205 5206 5207 5209 # B27 Liaoning 10-province refinement grasslands
+        5330 5331 5334 5335 # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+        5343 5345 # GDD_B47_JINGXIANG_YUNAN_BALANCED
+    5353 # GDD_B55_SHANGGU_REFINEMENT
 }
     }
 
@@ -747,6 +758,9 @@ categories =  {
         5224 5225 5226 5227 5228 5229 5231 5232 5233 5234 5235 5236 5237 5238 5241 # B22 Yunnan 26-province refinement highlands
     5242 5244 5246 5247 5251 5252 5255 5256 # B23 Shanxi 20-province refinement highlands
     5201 5203 5210 # B28 Guangxi 14-province refinement highlands
+        5312 5313 5314 5315 # GDD_B45_HUNAN_JIANGXI_REFINEMENT
+        5336 5337 5340 # GDD_B46_CHUANDONGBEI_CHONGQING_GEOJSON
+        5341 # GDD_B47_JINGXIANG_YUNAN_BALANCED
 }
     }
 

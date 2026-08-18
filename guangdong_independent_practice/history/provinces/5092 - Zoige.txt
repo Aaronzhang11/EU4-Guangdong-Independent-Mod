@@ -1,8 +1,8 @@
 # 5092 - Zoige
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DCH
+controller = DCH
+add_core = DCH
 add_core = CXI
 culture = gdd_diqiang
 religion = vajrayana

@@ -1,0 +1,9 @@
+government = monarchy
+add_government_reform = gdd_local_fiefdom_reform
+government_rank = 1
+
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_gan
+capital = 4980 # Linchuan
+fixed_capital = 4980

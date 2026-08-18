@@ -1,0 +1,3 @@
+﻿l_english:
+ LIO:0 "辽"
+ LIO_ADJ:0 "辽"

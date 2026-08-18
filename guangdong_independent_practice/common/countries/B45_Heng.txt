@@ -1,0 +1,5 @@
+# B45 balanced Hunan polity.
+graphical_culture = asiangfx
+
+color = { 93 117 160 }
+revolutionary_colors = { 3 5 8 }

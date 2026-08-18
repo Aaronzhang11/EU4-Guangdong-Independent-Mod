@@ -4,7 +4,6 @@ owner = CZC
 controller = CZC
 add_core = CZC
 add_core = GDD
-add_core = MIN
 culture = gdd_min
 religion = confucianism
 capital = "Chaozhou"

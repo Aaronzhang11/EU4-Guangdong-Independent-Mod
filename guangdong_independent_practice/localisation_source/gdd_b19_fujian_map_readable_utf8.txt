@@ -1,6 +1,4 @@
 ﻿l_english:
- PROV669:0 "闽侯"
- PROV_ADJ669:0 "闽侯"
  PROV5096:0 "福宁"
  PROV_ADJ5096:0 "福宁"
  PROV5097:0 "福清"

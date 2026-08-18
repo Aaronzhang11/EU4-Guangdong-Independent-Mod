@@ -1,8 +1,8 @@
 # 5111 - Caozhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CAG
+controller = CAG
+add_core = CAG
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Caozhou"

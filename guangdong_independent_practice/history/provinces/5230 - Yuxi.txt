@@ -1,12 +1,12 @@
-# 5230 - Yuxi
+# 5230 - Xinxingzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = DIA
+controller = DIA
 add_core = CDL
+add_core = DIA
 culture = gdd_dian
 religion = buddhism
-capital = "Yuxi"
+capital = "Xinxing"
 trade_goods = grain
 base_tax = 3
 base_production = 3

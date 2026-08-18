@@ -1,8 +1,8 @@
 # 661 - Dali
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = MDL
+controller = MDL
+add_core = MDL
 add_core = CDL
 culture = bai
 religion = buddhism
@@ -12,7 +12,7 @@ base_tax = 5
 base_production = 5
 base_manpower = 2
 is_city = yes
-center_of_trade = 2
+center_of_trade = 1 # GDD_B48_TRADE_CENTER_REBALANCE
 fort_15th = yes
 discovered_by = chinese
 discovered_by = indian

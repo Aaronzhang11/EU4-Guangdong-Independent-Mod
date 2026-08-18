@@ -1,8 +1,8 @@
 # 5247 - Liaozhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZHA
+controller = ZHA
+add_core = ZHA
 culture = gdd_jin
 religion = confucianism
 capital = "Liaozhou"

@@ -5,8 +5,6 @@
  PROV_ADJ1824:0 "温州"
  PROV2148:0 "绍兴"
  PROV_ADJ2148:0 "绍兴"
- PROV2149:0 "宁波"
- PROV_ADJ2149:0 "宁波"
  PROV2150:0 "金华"
  PROV_ADJ2150:0 "金华"
  PROV4950:0 "湖州"

@@ -1,10 +1,8 @@
 # 5216 - Lianzhou
 
-owner = GDD
-controller = GDD
-add_core = MNG
-add_core = GDD
-add_core = HUA
+owner = HNG
+controller = HNG
+add_core = HNG
 culture = gdd_hakka
 religion = confucianism
 capital = "Lianzhou"

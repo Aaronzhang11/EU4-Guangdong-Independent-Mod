@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = gdd_wu
 religion = confucianism
 capital = "Huizhou"

@@ -1,8 +1,8 @@
 # 2164 - Nanning
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GDD
+controller = GDD
+add_core = GDD
 culture = gdd_guangfu
 religion = confucianism
 capital = "Nanning"

@@ -1,0 +1,32 @@
+﻿batch,province_id,rgb,previous_chinese,target_chinese,previous_definition,target_definition,history_file,target_capital,reason,geometry_policy
+B44_worldview_toponyms,663,"222,78,192",文山,广南,Wenshan,Guangnan,663 - Guangnan.txt,Guangnan,align the map cell with its Guangnan history,no pixel or membership change
+B44_worldview_toponyms,668,"95,88,192",澳门,香山,Macau,Xiangshan,668 - Macau.txt,Xiangshan,use the 1444 county-scale name,no pixel or membership change
+B44_worldview_toponyms,669,"223,90,255",闽侯,福州,Minhou,Fuzhou,669 - Fuzhou.txt,Fuzhou,avoid the modern Minhou composite,no pixel or membership change
+B44_worldview_toponyms,678,"96,108,192",康定,打箭炉,Kangding,Dajianlu,678 - Tachienlu.txt,Dajianlu,restore the pre-Kangding name,no pixel or membership change
+B44_worldview_toponyms,702,"100,156,128",呼和浩特,丰州,Ulaanchab,Fengzhou,702 - Hohhot.txt,Fengzhou,the Hohhot city name postdates the start,no pixel or membership change
+B44_worldview_toponyms,703,"228,158,192",承德,热河,Chengde,Rehe,703 - Chengde.txt,Rehe,remove the Qing imperial-bestowal name,no pixel or membership change
+B44_worldview_toponyms,1816,"89,177,232",燕,蓟,Yan,Ji,1816 - Beijing.txt,Ji,separate the Yan state name from its capital city,no pixel or membership change
+B44_worldview_toponyms,1821,"78,100,126",六合,江宁,Liuhe,Jiangning,1821 - Nanjing.txt,Jiangning,keep the original Nanjing map slot as Jiangning,no pixel or membership change
+B44_worldview_toponyms,2136,"124,210,144",宣化,上谷,Xuanhua,Shanggu,2136 - Xuanhua.txt,Shanggu,remove the late imperial prefectural name,no pixel or membership change
+B44_worldview_toponyms,2143,"190,53,53",凤阳,濠州,Fengyang,Haozhou,2143 - Fengyang.txt,Haozhou,remove the Ming dynastic-patrimony name,no pixel or membership change
+B44_worldview_toponyms,2149,"121,54,54",宁波,明州,Ningbo,Mingzhou,2149 - Ningbo.txt,Mingzhou,remove a name coined around the Ming dynastic taboo,no pixel or membership change
+B44_worldview_toponyms,2158,"65,46,176",韶关,韶州,Shaoguan,Shaozhou,2158 - Shiukwan.txt,Shaozhou,use the long-lived medieval prefectural name,no pixel or membership change
+B44_worldview_toponyms,2178,"90,172,96",潞安,潞州,Luan,Luzhou,2178 - Lu'an.txt,Luzhou,remove the post-1444 prefectural name,no pixel or membership change
+B44_worldview_toponyms,4197,"148,197,227",蕲州,蕲州,De'an,Qizhou,4197 - Huangzhou.txt,Qizhou,unify the existing Qizhou override with its semantics,no pixel or membership change
+B44_worldview_toponyms,4946,"20,200,220",香港,屯门,Hong Kong,Tuen Mun,4946 - Hong Kong.txt,Tuen Mun,use the existing historical seat instead of the modern city frame,no pixel or membership change
+B44_worldview_toponyms,5008,"235,115,55",郧阳,郧,Yunyang,Yun,5008 - Yunyang.txt,Yun,remove the post-1444 Yunyang prefectural name,no pixel or membership change
+B44_worldview_toponyms,5010,"185,70,225",承天,安陆,Chengtian,Anlu,5010 - Chengtian.txt,Anlu,remove the Jiajing imperial-patrimony title,no pixel or membership change
+B44_worldview_toponyms,5035,"225,171,16",武汉江段,夏口江段,Wuhan Reach,Xiakou Reach,5035 - Wuhan Reach.txt,,remove the modern Wuhan composite,no pixel or membership change
+B44_worldview_toponyms,5056,"130,104,198",建业,六合,Jianye,Liuhe,5056 - Jiangning.txt,Liuhe,identify the newly split province as Liuhe,no pixel or membership change
+B44_worldview_toponyms,5095,"97,63,224",盐源,盐井,Yanyuan,Yanjing,5095 - Yanyuan.txt,Yanjing,use the earlier salt-well name,no pixel or membership change
+B44_worldview_toponyms,5104,"220,151,43",淄博（临淄）,临淄,Linzi,Linzi,5104 - Linzi.txt,Linzi,remove the modern Zibo composite,no pixel or membership change
+B44_worldview_toponyms,5202,"195,84,100",玉林,郁林,Yuzhou,Yulin,5202 - Yuzhou.txt,Yulin,restore the historical Yulin spelling and semantics,no pixel or membership change
+B44_worldview_toponyms,5211,"169,93,189",山海关,临渝关,Shanhaiguan,Linyuguan,5211 - Shanhaiguan.txt,Linyuguan,remove the Ming-era pass name,no pixel or membership change
+B44_worldview_toponyms,5222,"126,25,141",天津,直沽,Tianjin,Zhigu,5222 - Tianjin.txt,Zhigu,remove the emperor-dependent Tianjin name,no pixel or membership change
+B44_worldview_toponyms,5228,"202,168,74",保山,永昌府,Baoshan,Yongchangfu,5228 - Baoshan.txt,Yongchang,restore the pre-Baoshan regional seat,no pixel or membership change
+B44_worldview_toponyms,5230,"239,194,127",玉溪,新兴州,Yuxi,Xinxingzhou,5230 - Yuxi.txt,Xinxing,remove the modern Yuxi county name,no pixel or membership change
+B44_worldview_toponyms,5232,"244,182,62",昭通,乌蒙,Zhaotong,Wumeng,5232 - Zhaotong.txt,Wumeng,remove the Qing conquest-era name,no pixel or membership change
+B44_worldview_toponyms,5233,"107,156,51",镇雄,芒部,Zhenxiong,Mangbu,5233 - Zhenxiong.txt,Mangbu,restore the pre-Zhenxiong polity name,no pixel or membership change
+B44_worldview_toponyms,5234,"25,130,90",宣威,沾益,Xuanwei,Zhanyi,5234 - Xuanwei.txt,Zhanyi,remove the late imperial prefectural name,no pixel or membership change
+B44_worldview_toponyms,5235,"145,202,55",临沧,勐缅,Lincang,Mengmian,5235 - Lincang.txt,Mengmian,remove the twentieth-century Lincang name,no pixel or membership change
+B44_worldview_toponyms,5271,"195,253,181",岐州,邠州,Binzhou,Binzhou,5271 - Binzhou.txt,Binzhou,fix the localisation/definition semantic mismatch,no pixel or membership change

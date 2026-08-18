@@ -1,12 +1,12 @@
-# 5232 - Zhaotong
+# 5232 - Wumeng
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = LSH
+controller = LSH
+add_core = LSH
 add_core = CDL
 culture = yi
 religion = animism
-capital = "Zhaotong"
+capital = "Wumeng"
 trade_goods = livestock
 base_tax = 2
 base_production = 2

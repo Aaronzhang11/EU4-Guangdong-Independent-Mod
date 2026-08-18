@@ -1,8 +1,8 @@
 # 5209 - Jinzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WUZ
+controller = WUZ
+add_core = WUZ
 culture = gdd_dongyi
 religion = confucianism
 capital = "Jinzhou"

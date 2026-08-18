@@ -1,7 +1,6 @@
 # 5012 - Huangzhou
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = CHC
+controller = CHC
 add_core = CHC
 culture = gdd_chu
 religion = confucianism

@@ -1,17 +1,16 @@
 # 4997 - Yiyang
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = CSA
+controller = CSA
+add_core = CSA
 culture = gdd_chu
 religion = confucianism
 capital = "Yiyang"
 trade_goods = naval_supplies
 hre = no
-base_tax = 4
-base_production = 4
-base_manpower = 4
+base_tax = 2
+base_production = 2
+base_manpower = 2
 is_city = yes
 
 discovered_by = chinese

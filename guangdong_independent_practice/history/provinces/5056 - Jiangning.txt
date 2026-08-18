@@ -1,10 +1,10 @@
-# 5056 - Jiangning (Nanjing)
-owner = MNG
-controller = MNG
-add_core = MNG
+# 5056 - Liuhe
+owner = HUA
+controller = HUA
+add_core = HUA
 culture = gdd_jianghuai
 religion = confucianism
-capital = "Nanjing"
+capital = "Liuhe"
 trade_goods = silk
 hre = no
 base_tax = 2

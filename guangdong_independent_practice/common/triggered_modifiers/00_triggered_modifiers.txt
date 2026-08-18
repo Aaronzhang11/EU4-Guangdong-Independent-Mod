@@ -598,7 +598,7 @@ ai_wants_chinese_capitals = {
 		ai = yes
 		OR = {
 			owns = 1816
-			owns = 5056
+			owns = 1821
 			owns = 667
 		}
 		has_dlc = "Mandate of Heaven"
@@ -608,7 +608,7 @@ ai_wants_chinese_capitals = {
 	}
 	trigger = {
 		owns = 1816
-		owns = 5056
+		owns = 1821
 		owns = 667
 	}
 
@@ -654,7 +654,7 @@ lost_control_of_nanjing = {
 
 	trigger = {
 		NOT = {
-			5056 = {
+			1821 = {
 				controller = {
 					OR = {
 						tag = ROOT

@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QSH
+controller = QSH
+add_core = QSH
 culture = gdd_jianghuai
 religion = confucianism
 capital = "Anqing"

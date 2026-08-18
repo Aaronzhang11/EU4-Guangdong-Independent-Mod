@@ -1,9 +1,8 @@
-# 5001 - Chenzhou (South Hunan)
+# 5001 - Chenzhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = HNG
+controller = HNG
+add_core = HNG
 culture = gdd_gui
 religion = confucianism
 capital = "Chenzhou"

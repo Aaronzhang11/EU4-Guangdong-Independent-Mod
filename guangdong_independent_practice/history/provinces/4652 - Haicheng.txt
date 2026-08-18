@@ -1,8 +1,8 @@
 # 4652 - Haicheng
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = LIO
+controller = LIO
+add_core = LIO
 culture = gdd_qi
 religion = confucianism
 capital = "Haicheng"

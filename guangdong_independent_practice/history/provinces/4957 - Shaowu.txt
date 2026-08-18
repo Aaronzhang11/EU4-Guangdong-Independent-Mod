@@ -1,10 +1,9 @@
 # 4957 - Shaowu
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = MIN
+owner = HAK
+controller = HAK
 add_core = NNG
+add_core = HAK
 culture = gdd_min
 religion = confucianism
 capital = "Shaowu"

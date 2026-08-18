@@ -1,8 +1,7 @@
 # 4981 - Hanyang
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = HYA
+controller = HYA
+add_core = HYA
 culture = gdd_chu
 religion = confucianism
 capital = "Hanyang"

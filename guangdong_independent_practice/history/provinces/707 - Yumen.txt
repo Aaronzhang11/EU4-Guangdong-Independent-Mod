@@ -1,9 +1,8 @@
 # 707 - Yumen
 
-owner = HMI
-controller = HMI
-add_core = HMI
-add_core = MNG
+owner = GZH
+controller = GZH
+add_core = GZH
 culture = oirats
 religion = vajrayana
 capital = "Yumen"

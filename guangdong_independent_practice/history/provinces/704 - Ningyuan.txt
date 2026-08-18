@@ -1,8 +1,8 @@
 # 704 - Ningyuan
 
-owner = YAN
-controller = YAN
-add_core = YAN
+owner = WUZ
+controller = WUZ
+add_core = WUZ
 culture = gdd_dongyi
 religion = confucianism
 capital = "Ningyuan"

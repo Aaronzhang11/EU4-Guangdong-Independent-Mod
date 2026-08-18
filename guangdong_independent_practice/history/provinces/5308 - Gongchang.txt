@@ -1,8 +1,8 @@
 # 5308 - Gongchang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WDU
+controller = WDU
+add_core = WDU
 culture = gdd_diqiang
 religion = confucianism
 capital = "Gongchang"

@@ -1,6 +1,6 @@
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = ZHA
+controller = ZHA
+add_core = ZHA
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Zhangde"

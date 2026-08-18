@@ -1,8 +1,8 @@
 # 673 - Duyun
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = WXM
+controller = WXM
 add_core = CMI
+add_core = WXM
 culture = miao
 religion = animism
 capital = "Duyun"

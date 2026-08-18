@@ -1,7 +1,7 @@
 # 5022 - Tongzhou
-owner = XU2
-controller = XU2
-add_core = XU2
+owner = WUU
+controller = WUU
+add_core = WUU
 culture = gdd_jianghuai
 religion = confucianism
 capital = "Tongzhou"

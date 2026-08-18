@@ -1,17 +1,16 @@
 # 4996 - Lizhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = WLM
+controller = WLM
+add_core = WLM
 culture = miao
 religion = confucianism
 capital = "Lizhou"
 trade_goods = grain
 hre = no
-base_tax = 2
-base_production = 4
-base_manpower = 4
+base_tax = 1
+base_production = 2
+base_manpower = 1
 is_city = yes
 
 discovered_by = chinese

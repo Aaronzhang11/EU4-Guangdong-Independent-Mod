@@ -2,9 +2,7 @@
 
 owner = CZC
 controller = CZC
-add_core = MNG
 add_core = CZC
-add_core = MIN
 culture = gdd_min
 religion = confucianism
 capital = "Puning"

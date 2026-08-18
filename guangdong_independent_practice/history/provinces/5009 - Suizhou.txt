@@ -1,8 +1,7 @@
 # 5009 - Suizhou
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = SUI
+controller = SUI
+add_core = SUI
 culture = gdd_chu
 religion = confucianism
 capital = "Suizhou"

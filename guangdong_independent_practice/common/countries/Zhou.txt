@@ -1,8 +1,7 @@
 #Country Name: Please see filename.
 
 graphical_culture = asiangfx
-
-color = { 209  212  126 }
+color = { 190 192 141 }
 revolutionary_colors = { 8 1 8 }
 
 historical_idea_groups = {

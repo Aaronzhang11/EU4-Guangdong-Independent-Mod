@@ -1,0 +1,510 @@
+{
+  "batch": "B49_eight_node_trade_network",
+  "marker": "GDD_B49_EIGHT_NODE_TRADE_NETWORK",
+  "purpose": "Replace the five oversized Chinese core nodes with eight balanced Spring-and-Autumn-themed nodes and a Wuyue sink.",
+  "backups": {
+    "trade_nodes": "planning/trade_nodes_b49/pre_b49_00_tradenodes.txt",
+    "trade_companies": "planning/trade_nodes_b49/pre_b49_user_fix_00_trade_companies.txt"
+  },
+  "node_labels": {
+    "hangzhou": "吴越",
+    "canton": "百越",
+    "huguang": "荆楚",
+    "chengdu": "巴蜀",
+    "yungui": "滇夜郎",
+    "xian": "秦陇",
+    "zhongyuan": "河济",
+    "beijing": "幽燕"
+  },
+  "node_area_policy": {
+    "hangzhou": [
+      "zhejiang_area",
+      "east_zhejiang_area",
+      "jinqu_chuzhou_area",
+      "wanjiang_area",
+      "huining_area",
+      "yingtian_area",
+      "jinling_wuhui_area",
+      "xuhuai_haizhou_area",
+      "huaiyang_tongtai_area",
+      "huaiying_area",
+      "jianghuai_area"
+    ],
+    "canton": [
+      "pearl_river_delta_area",
+      "guangdong_area",
+      "dongjiang_area",
+      "chaoshan_area",
+      "west_guangdong_area",
+      "hainan_area",
+      "fujian_area",
+      "minnan_area",
+      "west_fujian_area",
+      "taiwan_area",
+      "guangxi_area",
+      "guidong_area",
+      "youjiang_area"
+    ],
+    "huguang": [
+      "jiangxi_area",
+      "south_jiangxi_area",
+      "xunyang_area",
+      "gannan_area",
+      "dongting_area",
+      "hunan_area",
+      "southwest_hunan_area",
+      "wuling_hunan_area",
+      "lishui_area",
+      "hengchen_area",
+      "dean_qihuang_area",
+      "wuhan_enan_area",
+      "hanshang_area",
+      "yunmeng_jingmen_area",
+      "jingyi_area",
+      "yigui_area"
+    ],
+    "chengdu": [
+      "sichuan_area",
+      "chongqing_area",
+      "baqu_area",
+      "fuling_area",
+      "xiajiang_area",
+      "chuannan_area",
+      "chuanbei_area",
+      "liangshan_area",
+      "ganzi_area",
+      "aba_area",
+      "songmao_area",
+      "jiaya_area"
+    ],
+    "yungui": [
+      "yunnan_area",
+      "diannan_area",
+      "dianxinan_area",
+      "diandong_area",
+      "dianxi_area",
+      "dianxibei_area",
+      "qianxi_area",
+      "qiandong_area"
+    ],
+    "xian": [
+      "gansu_area",
+      "hexi_area",
+      "longnan_area",
+      "longyou_area",
+      "ningxia_area",
+      "shaanxi_area",
+      "xi_shaanxi_area",
+      "nan_shaanxi_area",
+      "bei_shaanxi_area",
+      "changan_area"
+    ],
+    "zhongyuan": [
+      "luxi_area",
+      "qizhou_area",
+      "denglai_area",
+      "lunan_area",
+      "guide_xuchen_area",
+      "chengzhou_area",
+      "hebei_zhangwei_area",
+      "wangji_area",
+      "wandeng_area",
+      "rucai_area"
+    ],
+    "beijing": [
+      "hebei_area",
+      "zhong_hebei_area",
+      "dong_hebei_area",
+      "yandu_area",
+      "shanxi_area",
+      "hedong_area",
+      "shangdang_area",
+      "yanmen_area",
+      "xi_liaoning_area",
+      "south_hebei_area"
+    ]
+  },
+  "core_routes": {
+    "hangzhou": [],
+    "canton": [
+      "huguang",
+      "hangzhou"
+    ],
+    "huguang": [
+      "zhongyuan",
+      "hangzhou"
+    ],
+    "chengdu": [
+      "xian",
+      "huguang",
+      "yungui"
+    ],
+    "yungui": [
+      "canton",
+      "huguang"
+    ],
+    "xian": [
+      "beijing",
+      "zhongyuan",
+      "huguang"
+    ],
+    "zhongyuan": [
+      "beijing",
+      "hangzhou"
+    ],
+    "beijing": [
+      "hangzhou"
+    ]
+  },
+  "external_reallocation": {
+    "yumen": [
+      701,
+      702,
+      709,
+      2114,
+      2191,
+      2747,
+      4223,
+      4670,
+      4671,
+      4676
+    ],
+    "girin": [
+      726,
+      2112,
+      2113,
+      4652,
+      5204,
+      5205
+    ],
+    "lhasa": [
+      2131,
+      2132
+    ]
+  },
+  "user_overrides": {
+    "zhaodi_area_to_youyan": {
+      "area": "south_hebei_area",
+      "province_ids": [
+        696,
+        2137,
+        4195,
+        5218,
+        5220,
+        5221
+      ]
+    },
+    "annam_to_baiyue": [
+      610,
+      613,
+      616,
+      1016,
+      2372,
+      2373,
+      4819,
+      4820,
+      4821
+    ]
+  },
+  "trade_company_by_node": {
+    "hangzhou": "trade_company_east_china",
+    "canton": "trade_company_south_china",
+    "huguang": "trade_company_huguang",
+    "chengdu": "trade_company_chengdu",
+    "yungui": "trade_company_yungui",
+    "xian": "trade_company_xian",
+    "zhongyuan": "trade_company_zhongyuan",
+    "beijing": "trade_company_north_china"
+  },
+  "external_company_by_node": {
+    "yumen": "trade_company_yumen",
+    "girin": "trade_company_girin",
+    "lhasa": "trade_company_lhasa"
+  },
+  "before_node_member_counts": {
+    "african_great_lakes": 30,
+    "kongo": 32,
+    "zambezi": 29,
+    "patagonia": 20,
+    "amazonas_node": 37,
+    "rio_grande": 42,
+    "james_bay": 53,
+    "california": 74,
+    "girin": 77,
+    "mississippi_river": 67,
+    "ohio": 67,
+    "mexico": 77,
+    "lhasa": 25,
+    "chengdu": 77,
+    "burma": 40,
+    "gulf_of_siam": 61,
+    "canton": 86,
+    "philippines": 24,
+    "cuiaba": 41,
+    "lima": 32,
+    "polynesia_node": 35,
+    "australia": 50,
+    "nippon": 69,
+    "hangzhou": 79,
+    "xian": 89,
+    "beijing": 74,
+    "the_moluccas": 58,
+    "siberia": 55,
+    "yumen": 57,
+    "malacca": 69,
+    "ganges_delta": 48,
+    "doab": 43,
+    "lahore": 39,
+    "deccan": 40,
+    "comorin_cape": 55,
+    "gujarat": 41,
+    "katsina": 37,
+    "ethiopia": 53,
+    "gulf_of_aden": 55,
+    "hormuz": 33,
+    "zanzibar": 37,
+    "cape_of_good_hope": 20,
+    "basra": 41,
+    "samarkand": 52,
+    "persia": 51,
+    "aleppo": 32,
+    "alexandria": 49,
+    "astrakhan": 29,
+    "crimea": 37,
+    "constantinople": 44,
+    "kiev": 46,
+    "kazan": 22,
+    "novgorod": 40,
+    "laplata": 34,
+    "brazil": 44,
+    "timbuktu": 54,
+    "ivory_coast": 40,
+    "tunis": 27,
+    "ragusa": 40,
+    "safi": 27,
+    "pest": 30,
+    "krakow": 31,
+    "wien": 35,
+    "saxony": 35,
+    "baltic_sea": 45,
+    "rheinland": 42,
+    "panama": 43,
+    "carribean_trade": 62,
+    "chesapeake_bay": 56,
+    "st_lawrence": 53,
+    "white_sea": 22,
+    "north_sea": 49,
+    "lubeck": 43,
+    "bordeaux": 29,
+    "sevilla": 53,
+    "champagne": 33,
+    "valencia": 22,
+    "genua": 42,
+    "venice": 26,
+    "english_channel": 55
+  },
+  "before_company_member_counts": {
+    "trade_company_west_africa": 40,
+    "trade_company_south_africa": 20,
+    "trade_company_east_africa": 36,
+    "trade_company_west_india": 41,
+    "trade_company_east_india": 47,
+    "trade_company_burma": 40,
+    "trade_company_coromandel": 54,
+    "trade_company_deccan": 40,
+    "trade_company_north_india": 43,
+    "trade_company_indonesia": 69,
+    "trade_company_philippines": 23,
+    "trade_company_moluccas": 58,
+    "trade_company_indochina": 61,
+    "trade_company_south_china": 86,
+    "trade_company_east_china": 79,
+    "trade_company_north_china": 48,
+    "trade_company_north_sea": 41,
+    "trade_company_white_sea": 19,
+    "trade_company_lubeck": 43,
+    "trade_company_baltic_sea": 44,
+    "trade_company_english_channel": 52,
+    "trade_company_bordeaux": 28,
+    "trade_company_sevilla": 52,
+    "trade_company_safi": 27,
+    "trade_company_timbuktu": 54,
+    "trade_company_valencia": 21,
+    "trade_company_champagne": 33,
+    "trade_company_genua": 41,
+    "trade_company_tunis": 27,
+    "trade_company_rheinland": 42,
+    "trade_company_saxony": 35,
+    "trade_company_wien": 35,
+    "trade_company_venice": 25,
+    "trade_company_krakow": 31,
+    "trade_company_pest": 30,
+    "trade_company_ragusa": 40,
+    "trade_company_constantinople": 42,
+    "trade_company_alexandria": 47,
+    "trade_company_katsina": 37,
+    "trade_company_ethiopia": 53,
+    "trade_company_kongo": 32,
+    "trade_company_great_lakes": 30,
+    "trade_company_zambezi": 29,
+    "trade_company_gulf_of_aden": 49,
+    "trade_company_kiev": 46,
+    "trade_company_novgorod": 40,
+    "trade_company_crimea": 35,
+    "trade_company_aleppo": 32,
+    "trade_company_kazan": 22,
+    "trade_company_astrakhan": 29,
+    "trade_company_basra": 38,
+    "trade_company_persia": 47,
+    "trade_company_hormuz": 30,
+    "trade_company_siberia": 55,
+    "trade_company_samarkand": 52,
+    "trade_company_girin": 77,
+    "trade_company_nippon": 68,
+    "trade_company_yumen": 57,
+    "trade_company_xian": 72,
+    "trade_company_chengdu": 77,
+    "trade_company_lhasa": 25,
+    "trade_company_lahore": 36,
+    "trade_company_polynesia": 26
+  },
+  "validation": {
+    "core_nodes": [
+      "hangzhou",
+      "canton",
+      "huguang",
+      "chengdu",
+      "yungui",
+      "xian",
+      "zhongyuan",
+      "beijing"
+    ],
+    "core_land_provinces": 382,
+    "node_land_counts": {
+      "hangzhou": 49,
+      "canton": 57,
+      "huguang": 62,
+      "chengdu": 48,
+      "yungui": 36,
+      "xian": 46,
+      "zhongyuan": 39,
+      "beijing": 45
+    },
+    "node_playable_counts": {
+      "hangzhou": 49,
+      "canton": 66,
+      "huguang": 62,
+      "chengdu": 48,
+      "yungui": 36,
+      "xian": 46,
+      "zhongyuan": 39,
+      "beijing": 45
+    },
+    "node_total_members": {
+      "hangzhou": 50,
+      "canton": 67,
+      "huguang": 63,
+      "chengdu": 48,
+      "yungui": 36,
+      "xian": 46,
+      "zhongyuan": 39,
+      "beijing": 46
+    },
+    "node_development": {
+      "hangzhou": 495,
+      "canton": 526,
+      "huguang": 494,
+      "chengdu": 343,
+      "yungui": 210,
+      "xian": 371,
+      "zhongyuan": 396,
+      "beijing": 460
+    },
+    "opening_centers": {
+      "hangzhou": {
+        "1": 2,
+        "2": 3
+      },
+      "canton": {
+        "1": 3,
+        "2": 1,
+        "3": 1
+      },
+      "huguang": {
+        "1": 4,
+        "2": 1
+      },
+      "chengdu": {
+        "1": 3,
+        "2": 1
+      },
+      "yungui": {
+        "1": 2
+      },
+      "xian": {
+        "1": 2
+      },
+      "zhongyuan": {
+        "1": 1,
+        "2": 1
+      },
+      "beijing": {
+        "1": 2,
+        "2": 1
+      }
+    },
+    "external_reallocated": {
+      "yumen": 10,
+      "girin": 6,
+      "lhasa": 2
+    },
+    "trade_company_by_node": {
+      "hangzhou": "trade_company_east_china",
+      "canton": "trade_company_south_china",
+      "huguang": "trade_company_huguang",
+      "chengdu": "trade_company_chengdu",
+      "yungui": "trade_company_yungui",
+      "xian": "trade_company_xian",
+      "zhongyuan": "trade_company_zhongyuan",
+      "beijing": "trade_company_north_china"
+    },
+    "trade_company_member_counts": {
+      "trade_company_east_china": 49,
+      "trade_company_south_china": 66,
+      "trade_company_huguang": 62,
+      "trade_company_chengdu": 48,
+      "trade_company_yungui": 36,
+      "trade_company_xian": 46,
+      "trade_company_zhongyuan": 39,
+      "trade_company_north_china": 45
+    },
+    "external_trade_company_policy": {
+      "trade_company_yumen": [
+        701,
+        702,
+        709,
+        2114,
+        2191,
+        2747,
+        4223,
+        4670,
+        4671,
+        4676
+      ],
+      "trade_company_girin": [
+        726,
+        2112,
+        2113,
+        4652,
+        5204,
+        5205
+      ],
+      "trade_company_lhasa": [
+        2131,
+        2132
+      ]
+    },
+    "wuyue_end_node": true,
+    "acyclic": true
+  }
+}

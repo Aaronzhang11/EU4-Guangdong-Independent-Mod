@@ -1,8 +1,7 @@
 # 5016 - Xingguo
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = EGU
+controller = EGU
+add_core = EGU
 culture = gdd_chu
 religion = confucianism
 capital = "Xingguo"

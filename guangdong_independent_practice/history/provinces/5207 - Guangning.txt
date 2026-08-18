@@ -1,8 +1,8 @@
 # 5207 - Guangning
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = YAN
+controller = YAN
+add_core = YAN
 culture = gdd_yan
 religion = confucianism
 capital = "Guangning"

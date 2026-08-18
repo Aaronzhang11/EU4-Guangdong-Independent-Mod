@@ -1,17 +1,17 @@
 # 683 - Nanchang
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = NCH
+controller = NCH
 add_core = NNG
+add_core = NCH
 culture = gdd_gan
 religion = confucianism
 capital = "Nanchang"
 trade_goods = paper
 hre = no
-base_tax = 9
-base_production = 10
-base_manpower = 6
+base_tax = 4
+base_production = 4
+base_manpower = 2
 is_city = yes
 
 discovered_by = chinese

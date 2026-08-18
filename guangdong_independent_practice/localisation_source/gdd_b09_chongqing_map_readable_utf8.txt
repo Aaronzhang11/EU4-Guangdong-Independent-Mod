@@ -10,6 +10,6 @@
  PROV5028:0 "夔州"
  PROV_ADJ5028:0 "夔州"
 
- chongqing_area:0 "巴郡"
- chongqing_area_name:0 "巴郡"
- chongqing_area_adj:0 "巴郡"
+ chongqing_area:0 "巴渝"
+ chongqing_area_name:0 "巴渝"
+ chongqing_area_adj:0 "巴渝"

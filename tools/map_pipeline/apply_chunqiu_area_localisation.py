@@ -41,6 +41,11 @@ AREA_NAMES = {
     "dongting_area": "云梦",
     "hunan_area": "长沙",
     "southwest_hunan_area": "湘沅",
+    "wuling_hunan_area": "黔中",
+    "lishui_area": "澧水",
+    "hengchen_area": "衡湘",
+    "xunyang_area": "艾邑",
+    "gannan_area": "南野",
     "guangxi_area": "桂林",
     "guidong_area": "苍梧",
     "youjiang_area": "象郡",
@@ -62,6 +67,9 @@ AREA_NAMES = {
     "aba_area": "冉駹",
     "songmao_area": "湔氐",
     "jiaya_area": "青衣",
+    "baqu_area": "巴渠",
+    "fuling_area": "枳涪",
+    "xiajiang_area": "巫峡",
     # North China mainland
     "hebei_area": "上谷",
     "zhong_hebei_area": "河间",
@@ -97,6 +105,9 @@ AREA_NAMES = {
     "huaiying_area": "淮颍",
     "jianghuai_area": "江淮",
 }
+if (ROOT / "planning/chuandongbei_chongqing_b46/batch_manifest.json").exists():
+    AREA_NAMES["chuanbei_area"] = "苴阆"
+    AREA_NAMES["chongqing_area"] = "巴渝"
 
 # These vanilla-derived areas did not previously have readable custom keys.
 OWNER_HINTS = {
@@ -112,7 +123,7 @@ def family(area: str) -> tuple[str, str, str]:
 
 
 def main() -> None:
-    assert len(AREA_NAMES) == 77
+    assert len(AREA_NAMES) == 85
     assert all(len(name) == 2 for name in AREA_NAMES.values())
 
     paths = sorted(path for path in SOURCE_DIR.glob("*.txt") if path != AUTHORITATIVE_SOURCE)

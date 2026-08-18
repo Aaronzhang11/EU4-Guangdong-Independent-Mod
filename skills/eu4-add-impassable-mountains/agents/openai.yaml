@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU4 不可通行山脉实装"
+  short_description: "安全绘制、登记、审计并测试 EU4 不可通行山脉省份"
+  default_prompt: "Use $eu4-add-impassable-mountains to add and validate an impassable mountain province in the current EU4 mod."

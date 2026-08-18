@@ -1,9 +1,9 @@
 # 694 - Pingyang
 
-owner = MNG
-controller = MNG
-add_core = MNG
-culture = gdd_jin
+owner = WEI
+controller = WEI
+add_core = WEI
+culture = gdd_yan
 religion = confucianism
 capital = "Pingyang"
 trade_goods = cloth

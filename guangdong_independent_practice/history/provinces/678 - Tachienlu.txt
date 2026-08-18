@@ -1,17 +1,17 @@
-# 678 - Kangding
+# 678 - Dajianlu
 
 owner = KAM
 controller = KAM
 add_core = KAM
 culture = tibetan
 religion = vajrayana
-capital = "Kangding"
+capital = "Dajianlu"
 trade_goods = tea
 base_tax = 3
 base_production = 4
 base_manpower = 2
 is_city = yes
-center_of_trade = 1
+center_of_trade = 1 # GDD_B48_TRADE_CENTER_REBALANCE
 discovered_by = chinese
 discovered_by = nomad_group
 discovered_by = indian

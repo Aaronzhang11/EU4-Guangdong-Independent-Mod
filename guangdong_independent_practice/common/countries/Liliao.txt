@@ -1,0 +1,53 @@
+# Default regional country template.
+graphical_culture = asiangfx
+color = { 156 204 158 }
+revolutionary_colors = { 0 1 0 }
+historical_score = 0
+
+historical_idea_groups = {
+	defensive_ideas
+	spy_ideas
+	trade_ideas
+	offensive_ideas
+	economic_ideas
+	diplomatic_ideas
+	religious_ideas
+	quantity_ideas
+}
+
+historical_units = {
+	chinese_longspear
+	eastern_bow
+	chinese_footsoldier
+	chinese_steppe
+	asian_arquebusier
+	asian_charge_cavalry
+	asian_mass_infantry
+	manchu_banner
+	han_banner
+	asian_musketeer
+	chinese_dragoon
+	reformed_asian_musketeer
+	reformed_asian_cavalry
+	reformed_manchu_rifle
+}
+
+monarch_names = {
+	"Li #0" = 10
+	"Chen #0" = 10
+	"Huang #0" = 10
+	"Liao #0" = 10
+	"Feng #0" = 10
+}
+
+leader_names = {
+	Li Chen Huang Liao Feng Liang Luo Deng
+}
+
+ship_names = {
+	Nanhai Lianzhou Gaozhou Leizhou
+}
+
+army_names = {
+	"$PROVINCE$ Army"
+}

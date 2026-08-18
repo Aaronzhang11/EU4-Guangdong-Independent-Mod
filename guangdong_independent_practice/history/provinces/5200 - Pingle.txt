@@ -1,8 +1,8 @@
 # 5200 - Pingle
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = GUI
+controller = GUI
+add_core = GUI
 culture = gdd_gui
 religion = confucianism
 capital = "Pingle"

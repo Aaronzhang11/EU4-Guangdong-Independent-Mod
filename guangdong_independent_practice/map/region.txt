@@ -887,8 +887,6 @@ south_china_region = {
         west_fujian_area
         jiangxi_area
         south_jiangxi_area
-        hanjiang_xiangyun_area
-        jingyi_shinan_area
         dean_qihuang_area
         wuhan_enan_area
         zhejiang_area
@@ -902,9 +900,18 @@ south_china_region = {
         dongting_area
         hunan_area
         southwest_hunan_area
+        wuling_hunan_area
+        lishui_area
+        hengchen_area
+        xunyang_area
+        gannan_area
         guangxi_area
         guidong_area
         youjiang_area
+        hanshang_area
+        yunmeng_jingmen_area
+        jingyi_area
+        yigui_area
     }
     monsoon = {
         00.05.01
@@ -916,6 +923,9 @@ xinan_region = {
     areas = {
         sichuan_area
         chongqing_area
+        baqu_area
+        fuling_area
+        xiajiang_area
         yunnan_area
         diannan_area
         dianxinan_area
@@ -947,7 +957,6 @@ north_china_region = {
         denglai_area
         lunan_area
         guide_xuchen_area
-        runing_nanyang_area
         shanxi_area
         hedong_area
         shangdang_area
@@ -970,6 +979,8 @@ north_china_region = {
         huaiyang_tongtai_area
         huaiying_area
         jianghuai_area
+        wandeng_area
+        rucai_area
     }
 }
 

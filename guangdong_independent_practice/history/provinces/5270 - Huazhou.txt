@@ -1,8 +1,8 @@
 # 5270 - Huazhou
 
-owner = MNG
-controller = MNG
-add_core = MNG
+owner = QIN
+controller = QIN
+add_core = QIN
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Huazhou"

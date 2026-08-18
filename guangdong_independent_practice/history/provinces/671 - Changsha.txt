@@ -1,17 +1,16 @@
 # 671 - Changsha
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CHC
+owner = CSA
+controller = CSA
+add_core = CSA
 culture = gdd_chu
 religion = confucianism
 capital = "Changsha"
 trade_goods = grain
 hre = no
-base_tax = 8
-base_production = 9
-base_manpower = 4
+base_tax = 4
+base_production = 4
+base_manpower = 2
 is_city = yes
 
 discovered_by = chinese

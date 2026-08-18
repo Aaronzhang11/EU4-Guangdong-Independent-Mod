@@ -84,6 +84,8 @@ CULTURE_DISPLAY = {
     **{key: value[0] for key, value in YINSHANG_CUSTOM_CULTURES.items()},
     **{key: value[0] for key, value in QIANG_CUSTOM_CULTURES.items()},
     **{key: value[0] for key, value in MOVED_INHERITED_CULTURES.items()},
+    "gdd_qiongli": "琼黎",
+    "gdd_khitan": "契丹",
 }
 ALL_NEW_CULTURES = set(CULTURE_DISPLAY)
 
@@ -164,8 +166,17 @@ OLD_TO_DEFAULT = {
 # dependency's old Latin spelling: EU4's VFS shadows files by relative path,
 # not by the numeric province ID embedded in that filename.
 PREFERRED_HISTORY_NAMES = {
-    2144: "2144 - Yingzhou.txt",
-    4197: "4197 - De'an.txt",
+    # B43's country implementation gives the Fuyang file the authoritative
+    # CHN/XU2 political history and the later QNG dated block.  It also matches
+    # the dependency's VFS filename, so keeping it avoids a second effective
+    # history for province 2144 while the displayed name remains localisation-
+    # driven Yingzhou.
+    2144: "2144 - Fuyang.txt",
+    # The culture merge can leave the dependency-canonical Ngaichow path with
+    # content misdetected from province 5015.  Select B43's political Yazhou
+    # history first, then canonicalise that content to Ngaichow's VFS path.
+    2160: "2160 - Yazhou.txt",
+    4197: "4197 - Huangzhou.txt",
     5009: "5009 - Suizhou.txt",
     5012: "5012 - Huangzhou.txt",
     5015: "5015 - Mianyang.txt",
@@ -183,27 +194,143 @@ COUNTRY_POLICY = {
     "MIN": ("gdd_min", ()),
     "SHU": ("gdd_shu", ()),
     "CHC": ("gdd_chu", ()),
+    "CDE": ("gdd_chu", ()),
+    "EGU": ("gdd_chu", ()),
+    "HYA": ("gdd_chu", ()),
+    "JJG": ("gdd_chu", ()),
+    "QVN": ("gdd_chu", ()),
+    "ZHU": ("gdd_chu", ()),
     "CXI": ("gdd_chu", ()),
     "NNG": ("gdd_gan", ()),
     "TNG": ("gdd_zhongyuan", ()),
     "LNG": ("gdd_zhongyuan", ()),
     "HUA": ("gdd_jianghuai", ()),
+    "LIO": ("gdd_khitan", ("manchu", "gdd_qi")),
+    "OUE": ("gdd_wu", ()),
+    "HYM": ("gdd_jianghuai", ()),
+    "WHU": ("gdd_wu", ()),
+    "ZHO": ("gdd_wu", ()),
     "CSH": ("gdd_long", ()),
     "LFA": ("gdd_hakka", ()),
     "FRM": ("gdd_min", ()),
     "CGS": ("gdd_zhuang", ()),
     "GDD": ("gdd_guangfu", ("gdd_hakka", "gdd_min")),
     "CZC": ("gdd_min", ("gdd_guangfu",)),
+    "HLI": ("gdd_qiongli", ()),
     "SNG": ("gdd_songwei", ()),
     "XU2": ("gdd_zhongyuan", ()),
+
+    # B42 regional states.  Their primary cultures follow the approved
+    # province-ID map; accepted cultures preserve the reviewed polity design.
+    "CSA": ("gdd_chu", ("gdd_gui", "gdd_guangfu")),
+    "CZM": ("miao", ()),
+    "DIA": ("gdd_dian", ("yi",)),
+    "GUI": ("gdd_gui", ("gdd_zhuang",)),
+    "HNG": ("gdd_chu", ("gdd_gui", "gdd_hakka")),
+    "GYA": ("gdd_shu", ("miao",)),
+    "HAK": ("gdd_hakka", ("gdd_min",)),
+    "LCH": ("gdd_gan", ()),
+    "LIL": ("gdd_zhuang", ("gdd_min",)),
+    "NCH": ("gdd_gan", ()),
+    "NUN": ("gdd_zhuang", ("yi",)),
+    "TZZ": ("gdd_zhuang", ()),
+    "WXM": ("miao", ()),
+    "YEL": ("yi", ()),
+
+    # B43 China-subcontinent states.  These are explicit rather than generic
+    # OLD_TO_DEFAULT replacements because several capitals belong to a more
+    # specific approved culture (for example WLM=miao and GUZ=gdd_dongyi).
+    "AMD": ("tibetan", ()),
+    "BAA": ("gdd_shu", ()),
+    "BD2": ("gdd_diqiang", ()),
+    "BMY": ("gdd_diqiang", ()),
+    "CAG": ("gdd_zhongyuan", ()),
+    "CAI": ("gdd_zhongyuan", ()),
+    "CCH": ("gdd_jianghuai", ()),
+    "CHN": ("gdd_zhongyuan", ()),
+    "DAE": ("gdd_jin", ()),
+    "DCH": ("gdd_diqiang", ()),
+    "DQU": ("gdd_shu", ("gdd_diqiang",)),
+    "DZH": ("gdd_diqiang", ()),
+    "GON": ("gdd_zhongyuan", ()),
+    "GUN": ("gdd_zhongyuan", ()),
+    "GUO": ("gdd_zhongyuan", ()),
+    "GUZ": ("gdd_dongyi", ()),
+    "GZH": ("gdd_long", ()),
+    "HZH": ("gdd_long", ()),
+    "JRG": ("tibetan", ()),
+    "JUU": ("gdd_shu", ()),
+    "LIU": ("gdd_jianghuai", ()),
+    "LSH": ("yi", ()),
+    "LUO": ("gdd_zhongyuan", ()),
+    "LUU": ("gdd_qi", ()),
+    "MDL": ("bai", ()),
+    "NZA": ("yi", ()),
+    "QSH": ("gdd_jianghuai", ("gdd_wu",)),
+    "QWO": ("gdd_jin", ()),
+    "SHE": ("gdd_zhongyuan", ("gdd_chu",)),
+    "SHZ": ("oirats", ()),
+    "SUI": ("gdd_chu", ()),
+    "TSF": ("gdd_gan", ()),
+    "WDU": ("gdd_diqiang", ()),
+    "WEI": ("gdd_yan", ("gdd_jin",)),
+    "WGS": ("mongol", ("gdd_long",)),
+    "WLM": ("miao", ()),
+    "WUZ": ("gdd_dongyi", ()),
+    "WVG": ("gdd_songwei", ()),
+    "WXG": ("gdd_diqiang", ()),
+    "YOU": ("gdd_jin", ()),
+    "YPG": ("gdd_long", ()),
+    "ZHA": ("gdd_jin", ("gdd_yan",)),
+    "ZHG": ("gdd_zhongyuan", ()),
+    "ZNG": ("gdd_zhongyuan", ()),
+    "ZSH": ("gdd_yan", ("gdd_jin",)),
+    "ZHI": ("miao", ("gdd_shu",)),
 }
 
-# User-approved post-document override: exchange only the three development
-# components between the former Nanjing slot (1821, now Liuhe) and Jiangning
-# (5056).  Culture is controlled by the approved ID table; goods, fort,
-# capital, ownership and religion intentionally remain on their current IDs.
+# B43 intentionally reuses several vanilla tags.  Ordinary localisation does
+# not reliably override an inherited first-loaded value, so these complete
+# name/adjective families are generated in localisation/replace instead.
+COUNTRY_NAME_OVERRIDES = {
+    "CHC": ("楚公国", "楚"),
+    "CZH": ("周天子", "周"),
+    "KAM": ("康巴", "康巴"),
+    "KSD": ("和硕特蒙古", "和硕特"),
+    "MIN": ("闽侯国", "闽侯"),
+    "QIN": ("秦公国", "秦"),
+    "SHU": ("蜀公国", "蜀"),
+    "WUU": ("吴公国", "吴"),
+    "YUE": ("越公国", "越"),
+}
+
+# Explicit non-culture terminal values retained by this transaction.  The
+# latest user correction resolves the two physical slots by numeric ID:
+# Jiangning 1821 retains former Nanjing's development, while the newly split
+# Liuhe 5056 keeps the minor north-bank values.
+# The other entries reconcile B41's province semantics with B43's political
+# histories: ownership, cores and dated blocks stay untouched.
 INITIAL_HISTORY_OVERRIDES = {
     1821: {"base_tax": "7", "base_production": "8", "base_manpower": "4"},
+    2144: {
+        "capital": '"Yingzhou"',
+        "base_tax": "4",
+        "base_production": "4",
+        "base_manpower": "2",
+    },
+    5012: {
+        "capital": '"Huangzhou"',
+        "base_tax": "4",
+        "base_production": "4",
+        "base_manpower": "2",
+    },
+    5015: {
+        "capital": '"Mianyang"',
+        # B47 split the former six-development province into Mianyang and
+        # Jianli; preserve the reviewed 1/1/1 retained half on replay.
+        "base_tax": "1",
+        "base_production": "1",
+        "base_manpower": "1",
+    },
     5056: {"base_tax": "2", "base_production": "2", "base_manpower": "1"},
 }
 
@@ -517,6 +644,18 @@ def culture_entry(key: str, primary: str | None) -> str:
     )
 
 
+def khitan_culture_entry() -> str:
+    """Dedicated Khitan names instead of the generic Sinitic fallback pool."""
+    return (
+        "\tgdd_khitan = {\n"
+        "\t\tprimary = LIO\n"
+        "\t\tdynasty_names = { Yelu Xiao Shulv Diela Bali Yishi Punu Nieliji }\n"
+        "\t\tmale_names = { Abaoji Deguang Ruan Jing Xian Zongzhen Hongji Yanxi Dashi Bei Longxu Xianshi }\n"
+        "\t\tfemale_names = { Shulu Chengtian Guanyin Yanyan Pusage Hutujin }\n"
+        "\t}"
+    )
+
+
 def matching_brace(text: str, opening: int) -> int:
     depth = 1
     quoted = False
@@ -674,6 +813,18 @@ def write_culture_definitions() -> None:
     inherited = rewrite_group(inherited, "southeastasian_group", {"vietnamese"})
     inherited = rewrite_group(inherited, "tibetan_group", {"miao", "bai", "yi"})
     inherited = rewrite_group(inherited, "thai_group", {"zhuang"})
+    inherited = rewrite_group(
+        inherited,
+        "malay",
+        {"gdd_qiongli"},
+        (culture_entry("gdd_qiongli", "HLI"),),
+    )
+    inherited = rewrite_group(
+        inherited,
+        "altaic",
+        {"gdd_khitan"},
+        (khitan_culture_entry(),),
+    )
     marker = f"# {MARKER}: shadows inherited common/cultures/00_cultures.txt and removes superseded cultures\n"
     (directory / "00_cultures.txt").write_bytes((marker + inherited).encode("latin-1"))
 
@@ -698,7 +849,7 @@ def write_culture_definitions() -> None:
     if remaining_old:
         raise ValueError(f"Inherited culture definitions survived replacement: {sorted(remaining_old)}")
     inherited_targets = direct_definitions(inherited, ALL_NEW_CULTURES)
-    expected_inherited = set(HAN_CULTURES) | set(YINSHANG_CUSTOM_CULTURES) | {"korean"}
+    expected_inherited = set(HAN_CULTURES) | set(YINSHANG_CUSTOM_CULTURES) | {"korean", "gdd_qiongli", "gdd_khitan"}
     if inherited_targets != expected_inherited:
         raise ValueError(
             "Unexpected target definitions left in 00_cultures.txt: "
@@ -742,8 +893,19 @@ def update_country_histories() -> None:
         )
         if count != 1:
             raise ValueError(f"Country {tag} lacks primary_culture in {path.name}")
+        policy_accepted = {
+            culture
+            for _policy_primary, policy_values in COUNTRY_POLICY.values()
+            for culture in policy_values
+        }
         managed_cultures = "|".join(
-            map(re.escape, sorted(set(OLD_TO_DEFAULT) | ALL_NEW_CULTURES, key=lambda value: (-len(value), value)))
+            map(
+                re.escape,
+                sorted(
+                    set(OLD_TO_DEFAULT) | ALL_NEW_CULTURES | policy_accepted,
+                    key=lambda value: (-len(value), value),
+                ),
+            )
         )
         text = re.sub(
             rf"(?m)^[ \t]*add_accepted_culture[ \t]*=[ \t]*(?:{managed_cultures})[ \t]*(?:\r?\n|$)",
@@ -1180,8 +1342,24 @@ def write_localisation() -> None:
     encode_file(source, target)
     verify_file(source, target)
 
+    country_source = MOD / "localisation_source/001_gdd_b43_country_name_overrides_readable_utf8.txt"
+    country_target = MOD / "localisation/replace/001_gdd_b43_country_name_overrides_l_english.yml"
+    country_lines = ["l_english:"]
+    for tag, (name, adjective) in COUNTRY_NAME_OVERRIDES.items():
+        country_lines.append(f' {tag}:0 "{name}"')
+        country_lines.append(f' {tag}_ADJ:0 "{adjective}"')
+    country_source.write_text("\n".join(country_lines) + "\n", encoding="utf-8-sig")
+    encode_file(country_source, country_target)
+    verify_file(country_source, country_target)
+
     main_source = MOD / "localisation_source/gdd_l_english_readable_utf8.txt"
     text = main_source.read_text(encoding="utf-8-sig")
+    for tag in COUNTRY_NAME_OVERRIDES:
+        text = re.sub(
+            rf'(?m)^[ \t]*{re.escape(tag)}(?:_ADJ)?:\d*[ \t]+"[^"]*"[ \t]*(?:\r?\n|$)',
+            "",
+            text,
+        )
     text = text.replace(
         "所有§Y广府§!、§Y客家§!、§Y潮汕§!或§Y闽§!文化的直属省份",
         "所有§Y粤§!、§Y客家§!或§Y闽越§!文化的直属省份",

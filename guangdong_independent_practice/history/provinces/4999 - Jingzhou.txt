@@ -1,18 +1,16 @@
-# 4999 - Jingzhou (Hunan)
+# 4999 - Jingzhou Hunan
 
-owner = MNG
-controller = MNG
-add_core = MNG
-add_core = CMI
-add_core = CHC
+owner = CZM
+controller = CZM
+add_core = CZM
 culture = miao
 religion = animism
 capital = "Jingzhou"
 trade_goods = livestock
 hre = no
-base_tax = 3
-base_production = 3
-base_manpower = 5
+base_tax = 2
+base_production = 2
+base_manpower = 3
 is_city = yes
 
 discovered_by = chinese

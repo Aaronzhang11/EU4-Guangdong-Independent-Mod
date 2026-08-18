@@ -1,3 +1,94 @@
 GDD = "countries/Guangdong.txt"
 XU2  = "countries/Xu2.txt"
 SNG = "countries/SNG.txt"
+LIL = "countries/Liliao.txt"
+NUN = "countries/Nong.txt"
+HAK = "countries/Hakka.txt"
+GUI = "countries/Guilin.txt"
+CSA = "countries/Changsha.txt"
+TZZ = "countries/Tianzhou.txt"
+DIA = "countries/Dian.txt"
+YEL = "countries/Yelang.txt"
+WXM = "countries/Wuxi_Miao.txt"
+CZM = "countries/Chenzhou_Miao.txt"
+LCH = "countries/Linchuan.txt"
+NCH = "countries/Nanchang.txt"
+GYA = "countries/Guiyang.txt"
+
+# B43: user-confirmed Chunqiu polity map. CHC/WUU/YUE/CZH/QIC/YAN reuse
+# vanilla tags; XU2 and SNG are declared above.
+LSH = "countries/B43_Liangshan.txt"
+MDL = "countries/B43_Mongol_Dali.txt"
+NZA = "countries/B43_Nanzhao.txt"
+QSH = "countries/B43_Qunshu.txt"
+CCH = "countries/B43_Chao.txt"
+BAA = "countries/B43_Ba.txt"
+BD2 = "countries/B43_Badi.txt"
+WLM = "countries/B43_Wuling.txt"
+BMY = "countries/B43_Baima_Miyao.txt"
+DZH = "countries/B43_Dengzhi.txt"
+LUU = "countries/B43_Lu.txt"
+CAG = "countries/B43_Cao.txt"
+CAI = "countries/B43_Cai.txt"
+CHN = "countries/B43_Chen.txt"
+GUN = "countries/B43_Guan.txt"
+SUI = "countries/B43_Sui.txt"
+LUO = "countries/B43_Luo.txt"
+GON = "countries/B43_Gong.txt"
+ZSH = "countries/B43_Zhongshan.txt"
+ZHA = "countries/B43_Zhao.txt"
+WEI = "countries/B43_Wei.txt"
+DAE = "countries/B43_Dai.txt"
+YOU = "countries/B43_Yiqu.txt"
+ZNG = "countries/B43_Zheng.txt"
+JUU = "countries/B43_Ju.txt"
+WDU = "countries/B43_Wudu.txt"
+DCH = "countries/B43_Dangchang.txt"
+WGS = "countries/B43_Wanggu_Russia.txt"
+GZH = "countries/B43_Ganzhou.txt"
+SHZ = "countries/B43_Shazhou.txt"
+HZH = "countries/B43_Hezhou_Huihui.txt"
+YPG = "countries/B43_Yinping.txt"
+QWO = "countries/B43_Quwo.txt"
+WVG = "countries/B43_Wei_State.txt"
+GUO = "countries/B43_Guo.txt"
+LIU = "countries/B43_Liu.txt"
+WXG = "countries/B43_Wuxing.txt"
+AMD = "countries/B43_Amdo_Golog.txt"
+JRG = "countries/B43_Jiarong.txt"
+TSF = "countries/B43_Tianshi_Fu.txt"
+ZHG = "countries/B43_Zhougong.txt"
+SHE = "countries/B43_Shen.txt"
+GUZ = "countries/B43_Guzhu.txt"
+WUZ = "countries/B43_Wuzhong.txt"
+HNG = "countries/B45_Heng.txt"
+DQU = "countries/B46_Dangqu.txt"
+ZHI = "countries/B46_Zhi.txt"
+
+# B50: eastern balance states and one-character commercial city names.
+
+# GDD_B50_EASTERN_BALANCE_BEGIN
+HUA = "countries/B50_Huai.txt"
+OUE = "countries/B50_Ou.txt"
+HYM = "countries/B50_Yang.txt"
+WHU = "countries/B50_Wuhu.txt"
+ZHO = "countries/B50_Zhou.txt"
+# GDD_B50_EASTERN_BALANCE_END
+
+# GDD_B51_LIAO_POLITY_BEGIN
+LIO = "countries/B51_Liao.txt"
+# GDD_B51_LIAO_POLITY_END
+# GDD_B54_CHANGSHA_PUBLIC_CITIES_BEGIN
+CDE = "countries/B54_Changde.txt"
+JJG = "countries/B54_Jiujiang.txt"
+HYA = "countries/B54_Hanyang.txt"
+# GDD_B54_CHANGSHA_PUBLIC_CITIES_END
+# GDD_B56_HAINAN_AUSTRONESIAN_BEGIN
+HLI = "countries/B56_Li.txt"
+# GDD_B56_HAINAN_AUSTRONESIAN_END
+
+# GDD_B52_CHU_VASSALS_BEGIN
+EGU = "countries/B52_E.txt"
+QVN = "countries/B52_Quan.txt"
+ZHU = "countries/B52_Zhou.txt"
+# GDD_B52_CHU_VASSALS_END

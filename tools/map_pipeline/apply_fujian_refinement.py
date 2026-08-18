@@ -34,13 +34,13 @@ class Province:
 
 
 P = (
-    Province(669, "闽侯", "Minhou", "fujian_area", (230,137,66), (223,90,255), (4665,963), "tea", (7,7,3), 1, True),
+    Province(669, "福州", "Fuzhou", "fujian_area", (230,137,66), (223,90,255), (4665,963), "tea", (7,7,3), 1, True),
     Province(5096, "福宁", "Funing", "fujian_area", (80,156,200), (80,156,200), (4675,954), "tea", (4,4,2)),
     Province(5097, "福清", "Fuqing", "fujian_area", (220,184,69), (220,184,69), (4665,976), "fish", (5,5,2)),
     Province(4952, "兴化", "Xinghua", "fujian_area", (77,170,118), (226,189,60), (4664,982), "fish", (5,5,2)),
     Province(1829, "泉州", "Quanzhou", "minnan_area", (201,92,78), (79,116,126), (4658,990), "chinaware", (8,8,3), 2),
     Province(5098, "永春", "Yongchun", "minnan_area", (151,103,190), (151,103,190), (4648,986), "tea", (3,4,2)),
-    Province(4958, "厦门", "Xiamen", "minnan_area", (135,45,225), (135,45,225), (4648,997), "fish", (4,6,2), 2),
+    Province(4958, "厦门", "Xiamen", "minnan_area", (135,45,225), (135,45,225), (4648,997), "fish", (4,6,2)),
     Province(4953, "漳州", "Zhangzhou", "minnan_area", (69,157,151), (45,180,190), (4641,1004), "sugar", (5,5,2)),
     Province(2152, "建宁", "Jianning", "west_fujian_area", (105,145,76), (144,37,37), (4648,942), "paper", (3,3,2)),
     Province(4957, "邵武", "Shaowu", "west_fujian_area", (198,137,57), (230,110,35), (4629,950), "paper", (3,3,2)),
@@ -193,7 +193,7 @@ def update_memberships() -> None:
         path=MAP/filename; text=path.read_text(encoding="cp1252")
         if marker not in text: path.write_text(append_ids(text,block_name,new_ids,marker),encoding="cp1252")
     node_path=MOD/"common/tradenodes/00_tradenodes.txt"; text=node_path.read_text(encoding="cp1252")
-    start=text.index("hangzhou={"); depth=0; end=None
+    start=text.index("canton={"); depth=0; end=None
     for i in range(text.find("{",start),len(text)):
         if text[i]=="{":depth+=1
         elif text[i]=="}":

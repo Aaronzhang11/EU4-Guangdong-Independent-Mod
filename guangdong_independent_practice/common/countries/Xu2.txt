@@ -1,9 +1,7 @@
 #Country Name: Please see filename.
 
 graphical_culture = asiangfx
-
-color = { 179  128  104 }
-
+color = { 150 156 104 }
 revolutionary_colors = { 5  8  1 } #Inspired by the Five Color Flag
 
 historical_idea_groups = {

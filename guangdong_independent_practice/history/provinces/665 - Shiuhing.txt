@@ -2,7 +2,6 @@
 
 owner = GDD
 controller = GDD
-add_core = MNG
 add_core = GDD
 culture = gdd_guangfu
 religion = confucianism
@@ -13,10 +12,6 @@ base_tax = 3
 base_production = 3
 base_manpower = 2
 is_city = yes
-add_core = YUE
-
-
-
 discovered_by = chinese
 discovered_by = indian
 discovered_by = muslim
