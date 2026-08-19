@@ -1,4 +1,4 @@
-gdd_punish_defiant_enfeoffed_subject_wargoal = {
+gdd_recover_china_cores_wargoal = {
     type = take_core
 
     attacker = {
@@ -22,7 +22,7 @@ gdd_punish_defiant_enfeoffed_subject_wargoal = {
         }
 
         deny_annex = yes
-        prov_desc = GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES
+        prov_desc = GDD_RECOVER_CHINA_CORES
     }
 
     defender = {
@@ -35,5 +35,5 @@ gdd_punish_defiant_enfeoffed_subject_wargoal = {
         }
     }
 
-    war_name = GDD_PUNISH_DEFIANT_ENFEOFFED_SUBJECT_WAR_NAME
+    war_name = GDD_PUNISH_GUANGDONG_WAR_NAME
 }

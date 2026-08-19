@@ -3,8 +3,8 @@
 
 The batch does not alter province geometry.  It assigns the seven Korean
 areas to Jizi Joseon, Liao, Helan Jurchens, and Goryeo; installs the two new
-country tags; and keeps Jizi Joseon and Liao inside the current Zhou subject
-prototype.
+country tags; and records Jizi Joseon and Liao as politically Zhou-aligned but
+engine-independent states.
 """
 
 from __future__ import annotations
@@ -58,7 +58,7 @@ HLD = "countries/B60_Helan.txt"
 def write_country_definitions() -> None:
     write_text(
         "common/countries/B60_Jizi_Joseon.txt",
-        '''# B60: Jizi-descended Zhou feudatory in northern Korea.
+        '''# B60: Jizi-descended Zhou-aligned state in northern Korea.
 graphical_culture = asiangfx
 color = { 47 91 102 }
 revolutionary_colors = { 1 7 5 }''',
@@ -94,9 +94,9 @@ gdd_samhan_group = {
 def write_country_histories() -> None:
     write_text(
         "history/countries/JIZ - Jizi Joseon.txt",
-        '''# B60: Jizi Joseon, a ritually invested Zhou feudatory.
+        '''# B60: Jizi Joseon, an independent state that observes Zhou rites.
 government = monarchy
-add_government_reform = gdd_local_fiefdom_reform
+add_government_reform = feudalism_reform
 government_rank = 1
 technology_group = chinese
 religion = confucianism
@@ -199,30 +199,6 @@ capital = 735
     )
 
 
-def write_diplomacy() -> None:
-    write_text(
-        "history/diplomacy/gdd_b60_korea_polities.txt",
-        '''# Jizi Joseon and Liao are separate Zhou feudatories.  Goryeo and
-# Helan remain independent countries outside the Zhou system.
-dependency = {
-    subject_type = gdd_invested_tributary
-    first = CZH
-    second = JIZ
-    start_date = 1444.11.11
-    end_date = 1821.1.2
-}
-
-dependency = {
-    subject_type = gdd_invested_tributary
-    first = CZH
-    second = LIO
-    start_date = 1444.11.11
-    end_date = 1821.1.2
-}''',
-        "latin-1",
-    )
-
-
 def block_bounds(text: str, name: str, start: int = 0) -> tuple[int, int]:
     match = re.search(rf"(?m)^\s*{re.escape(name)}\s*=\s*\{{", text[start:])
     if not match:
@@ -298,7 +274,7 @@ def write_localisation() -> None:
  gdd_samhan_group:0 "三韩"
  gdd_samhan:0 "韩"
  gdd_korea.1.t:0 "海东四国"
- gdd_korea.1.d:0 "海东旧有四种秩序。平壤的箕氏朝鲜自称殷商遗裔，奉周天子礼制而列于诸侯；契丹辽国越过鸭绿，占据浿水三城，也持有天子的封册。咸镜山海之间，曷懒女真结成部落联盟，不受周礼约束。汉城以南则由王氏高丽统合三韩故地，以本土之国自立于天下之外。"
+ gdd_korea.1.d:0 "海东旧有四种秩序。平壤的箕氏朝鲜自称殷商遗裔，以独立之国奉周礼而列于诸侯；契丹辽国越过鸭绿，占据浿水三城，也在政治上尊奉周室，但不构成游戏中的属国关系。咸镜山海之间，曷懒女真结成部落联盟，不受周礼约束。汉城以南则由王氏高丽统合三韩故地，以本土之国自立于天下之外。"
  gdd_korea.1.a:0 "海东形势，自此而始。"
 ''',
         encoding="utf-8",
@@ -329,7 +305,7 @@ def flag_bytes(background: tuple[int, int, int], ink: tuple[int, int, int], glyp
 def write_flags() -> None:
     flags = MOD / "gfx/flags"
     flags.mkdir(parents=True, exist_ok=True)
-    # 箕子朝鲜属于诸夏封邦，继续使用礼制汉字旗。曷懒是诸夏之外的
+    # 箕子朝鲜是奉周礼的独立诸夏成员，继续使用礼制汉字旗。曷懒是诸夏之外的
     # 女真联盟，其猎鹰旗自 B61 起由 generate_frontier_polity_flags.py
     # 单独维护；这里不得再用汉字临时旗覆盖它。
     (flags / "JIZ.tga").write_bytes(flag_bytes((47, 91, 102), (232, 218, 164), "箕"))
@@ -384,13 +360,12 @@ def main() -> None:
     write_country_definitions()
     write_samhan_culture()
     write_country_histories()
-    write_diplomacy()
     register_startup_event()
     write_event()
     write_localisation()
     write_flags()
     validate(config)
-    print("B60_KOREA_APPLIED; polities=4; provinces=30; zhou_feudatories=2; geometry_changed=no")
+    print("B60_KOREA_APPLIED; polities=4; provinces=30; zhou_aligned_independent=2; geometry_changed=no")
 
 
 if __name__ == "__main__":

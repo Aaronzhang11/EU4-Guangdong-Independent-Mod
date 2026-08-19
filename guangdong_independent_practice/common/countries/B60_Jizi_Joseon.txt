@@ -1,4 +1,4 @@
-# B60: Jizi-descended Zhou feudatory in northern Korea.
+# B60: Jizi-descended Zhou-aligned state in northern Korea.
 graphical_culture = asiangfx
 color = { 47 91 102 }
 revolutionary_colors = { 1 7 5 }

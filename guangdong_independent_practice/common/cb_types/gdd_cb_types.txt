@@ -1,7 +1,7 @@
-gdd_cb_punish_defiant_enfeoffed_subject = {
-    # Triggered by subject/event content; it is not tied to any country tag.
+gdd_cb_punish_guangdong_secession = {
+    # Triggered by the opening Guangdong-Ming treaty chain.
     valid_for_subject = no
     is_triggered_only = yes
     months = 240
-    war_goal = gdd_punish_defiant_enfeoffed_subject_wargoal
+    war_goal = gdd_recover_china_cores_wargoal
 }

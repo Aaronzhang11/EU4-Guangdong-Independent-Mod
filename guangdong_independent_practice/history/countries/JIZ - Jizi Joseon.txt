@@ -1,6 +1,6 @@
-# B60: Jizi Joseon, a ritually invested Zhou feudatory.
+# B60: Jizi Joseon, an independent state that observes Zhou rites.
 government = monarchy
-add_government_reform = gdd_local_fiefdom_reform
+add_government_reform = feudalism_reform
 government_rank = 1
 technology_group = chinese
 religion = confucianism

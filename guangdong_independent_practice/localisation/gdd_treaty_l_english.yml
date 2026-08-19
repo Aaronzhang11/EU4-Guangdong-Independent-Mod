@@ -25,12 +25,12 @@
  gdd_ming_preparing_southward:0 "ÆQYWSV"
  gdd_envoys_to_ming_estate_influence:0 "ôucùRfŒT®‹"
 
- gdd_cb_punish_defiant_enfeoffed_subject:0 "¨‹OÝ6Ré…ýV"
- gdd_cb_punish_defiant_enfeoffed_subject_desc:0 "“¨‹OÝ6Ré…ýV”±RbPãS¥cãSòTÝOYuÿwQSOHg6RS(WTíuHr,gÍ‘°e¾‹¡‹0"
- gdd_punish_defiant_enfeoffed_subject_wargoal:0 "6eY-NNS8hÃV"
- gdd_punish_defiant_enfeoffed_subject_wargoal_desc:0 "b‰Nîvh=f`S†˜Ý6Ré…ýVNbc	g„v-NNS8hÃVwýN0"
- GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES:0 "MOŽN-NNS'YHS„vb¹e8hÃVwýN"
- GDD_PUNISH_DEFIANT_ENFEOFFED_SUBJECT_WAR_NAME:0 "$ORDER$$FIRST$¨‹O$SECOND$KNb"
+ gdd_cb_punish_guangdong_secession:0 "¨‹O­SWSrRnc"
+ gdd_cb_punish_guangdong_secession_desc:0 "^NÒbÝuíu¢‹ŒT¦uv^lQVte›Qÿf÷^ïSåNPdkÑS¨Ré`bb‰N0"
+ gdd_recover_china_cores_wargoal:0 "6eY-NNS8hÃV"
+ gdd_recover_china_cores_wargoal_desc:0 "b‰Nîvh=f`S†˜ùR¹eµc6R„vb¹e-NNS8hÃVwýN0"
+ GDD_RECOVER_CHINA_CORES:0 "MOŽN-NNS'YHS„vb¹e8hÃVwýN"
+ GDD_PUNISH_GUANGDONG_WAR_NAME:0 "$ORDER$$FIRST$¨‹O$SECOND$KNb"
 
  gdd_liang_shouqian_prestige_personality:0 "gO"
  desc_gdd_liang_shouqian_prestige_personality:0 "ÙMOTINñm—Vãlåb4bÿvQZgNåeñOžX0"

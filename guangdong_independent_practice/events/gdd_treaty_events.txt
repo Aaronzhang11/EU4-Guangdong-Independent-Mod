@@ -110,7 +110,7 @@ country_event = {
         }
         add_casus_belli = {
             target = GDD
-            type = gdd_cb_punish_defiant_enfeoffed_subject
+            type = gdd_cb_punish_guangdong_secession
             months = 240
         }
     }

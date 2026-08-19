@@ -25,12 +25,12 @@ l_english:
  gdd_ming_preparing_southward:0 "准备南征"
  gdd_envoys_to_ming_estate_influence:0 "维持对明和议"
 
- gdd_cb_punish_defiant_enfeoffed_subject:0 "讨伐违制藩国"
- gdd_cb_punish_defiant_enfeoffed_subject_desc:0 "“讨伐违制藩国”宣战借口接口已保留，具体机制将在后续版本重新设计。"
- gdd_punish_defiant_enfeoffed_subject_wargoal:0 "收复中华核心"
- gdd_punish_defiant_enfeoffed_subject_wargoal_desc:0 "战争目标是占领违制藩国所持有的中华核心省份。"
- GDD_DEFIANT_ENFEOFFED_SUBJECT_CORES:0 "位于中华大区的我方核心省份"
- GDD_PUNISH_DEFIANT_ENFEOFFED_SUBJECT_WAR_NAME:0 "$ORDER$$FIRST$讨伐$SECOND$之战"
+ gdd_cb_punish_guangdong_secession:0 "讨伐岭南割据"
+ gdd_cb_punish_guangdong_secession_desc:0 "广东拒绝续订和约并公开整军，明廷可以借此发动惩戒战争。"
+ gdd_recover_china_cores_wargoal:0 "收复中华核心"
+ gdd_recover_china_cores_wargoal_desc:0 "战争目标是占领对方控制的我方中华核心省份。"
+ GDD_RECOVER_CHINA_CORES:0 "位于中华大区的我方核心省份"
+ GDD_PUNISH_GUANGDONG_WAR_NAME:0 "$ORDER$$FIRST$讨伐$SECOND$之战"
 
  gdd_liang_shouqian_prestige_personality:0 "服众"
  desc_gdd_liang_shouqian_prestige_personality:0 "这位君主深得臣民拥戴，其威望与日俱增。"
