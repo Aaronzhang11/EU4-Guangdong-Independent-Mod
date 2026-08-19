@@ -7,7 +7,9 @@
       "Celestial empire on which the sun never sets (Workshop 1728520255)"
     ],
     "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
-    "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071"
+    "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071",
+    "mongolian_dali": "ᠳᠠᠯᠢ; HarfBuzz-shaped Noto Sans Mongolian fixed mask",
+    "liao": "B57 Khitan Large Script U+E23D / ninefold-seal U+F012 asset"
   },
   "flags": {
     "AMD": {
@@ -133,12 +135,12 @@
     "LIO": {
       "name": "辽",
       "culture": "gdd_khitan",
-      "motif": "white_deer",
-      "bg": "243d62",
-      "ink": "e8ddbd",
-      "accent": "c79b42",
-      "reason": "契丹白鹿传说、草原金日和辽河蓝。",
-      "field": "roundel"
+      "motif": "khitan_seal_original",
+      "bg": "b89748",
+      "ink": "273036",
+      "accent": "273036",
+      "reason": "恢复 B57 原旗：使用契丹大字九叠篆官印字形，研究资料将其视为可能表示辽或契丹国家专称的字符。",
+      "field": "legacy_exact"
     },
     "LSH": {
       "name": "凉山",
@@ -153,12 +155,12 @@
     "MDL": {
       "name": "蒙古大理",
       "culture": "bai",
-      "motif": "pagoda_lake",
-      "bg": "e9e1bf",
-      "ink": "233d55",
-      "accent": "b24a35",
-      "reason": "崇圣塔、苍山与洱海，兼顾大理本土而非蒙古通用旗。",
-      "field": "bordered"
+      "motif": "mongolian_dali",
+      "bg": "ffffff",
+      "ink": "000000",
+      "accent": "000000",
+      "reason": "纯白旗面中央竖书黑色传统蒙古文“ᠳᠠᠯᠢ”（Dali／大理），以蒙古统治身份覆盖旧塔湖纹样。",
+      "field": "plain_exact"
     },
     "NUN": {
       "name": "侬国",

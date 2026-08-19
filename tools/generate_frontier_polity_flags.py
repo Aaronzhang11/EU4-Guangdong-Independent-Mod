@@ -11,6 +11,7 @@ EU4 masks them into small shields.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import math
 import random
@@ -18,6 +19,8 @@ import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
+from map_pipeline.apply_b57_changsha_khitan import liao_flag_bytes
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +31,7 @@ OUTPUT = ROOT / "planning/frontier_polity_flags_b62"
 ASSETS = ROOT / "tools/assets/frontier_flags"
 GORYEO_REFERENCE = ASSETS / "goryeo_phoenix_reference.png"
 TANGUT_XIA_MASK = ASSETS / "tangut_xia_u17d32_mask.png"
+MONGOLIAN_DALI_MASK = ASSETS / "mongolian_dali_mask.png"
 SCALE = 4
 SIZE = 128
 
@@ -45,9 +49,9 @@ DESIGNS = {
     "HZH": {"name": "河州回回", "culture": "gdd_long", "motif": "caravan_star", "bg": "245348", "ink": "ead9a5", "accent": "b66a38", "reason": "八角星、河桥与商路门廊，表现河州回回的河湟商贸共同体。"},
     "JRG": {"name": "嘉绒", "culture": "tibetan", "motif": "stone_tower", "bg": "753b34", "ink": "e5d5b4", "accent": "4e7580", "reason": "嘉绒碉楼立于横断山地。"},
     "LIL": {"name": "俚寮", "culture": "gdd_zhuang", "motif": "bronze_drum", "bg": "315d4c", "ink": "dfbd63", "accent": "ad4e35", "reason": "岭南铜鼓与红土色，替代无图案的临时旗。"},
-    "LIO": {"name": "辽", "culture": "gdd_khitan", "motif": "white_deer", "bg": "243d62", "ink": "e8ddbd", "accent": "c79b42", "reason": "契丹白鹿传说、草原金日和辽河蓝。"},
+    "LIO": {"name": "辽", "culture": "gdd_khitan", "motif": "khitan_seal_original", "bg": "b89748", "ink": "273036", "accent": "273036", "reason": "恢复 B57 原旗：使用契丹大字九叠篆官印字形，研究资料将其视为可能表示辽或契丹国家专称的字符。"},
     "LSH": {"name": "凉山", "culture": "yi", "motif": "three_flames", "bg": "171b21", "ink": "e0b342", "accent": "ae3534", "reason": "黑底、赤焰与金边取彝族传统强对比色。"},
-    "MDL": {"name": "蒙古大理", "culture": "bai", "motif": "pagoda_lake", "bg": "e9e1bf", "ink": "233d55", "accent": "b24a35", "reason": "崇圣塔、苍山与洱海，兼顾大理本土而非蒙古通用旗。"},
+    "MDL": {"name": "蒙古大理", "culture": "bai", "motif": "mongolian_dali", "bg": "ffffff", "ink": "000000", "accent": "000000", "reason": "纯白旗面中央竖书黑色传统蒙古文“ᠳᠠᠯᠢ”（Dali／大理），以蒙古统治身份覆盖旧塔湖纹样。"},
     "NUN": {"name": "侬国", "culture": "gdd_zhuang", "motif": "drum_spear", "bg": "285d52", "ink": "e6c36b", "accent": "b53d32", "reason": "铜鼓配交叉长矛，表现侬氏边寨军事联盟。"},
     "NZA": {"name": "南诏", "culture": "yi", "motif": "sun_bird", "bg": "6e2934", "ink": "edc45b", "accent": "2d5754", "reason": "金日神鸟与洱海山色，参考西南鸟纹而非汉字印章。"},
     "SHZ": {"name": "沙州", "culture": "oirats", "motif": "oasis", "bg": "80532d", "ink": "edcf87", "accent": "27777a", "reason": "沙丘、月牙泉与驿路星，表现河西绿洲政权。"},
@@ -71,8 +75,8 @@ FIELDS = {
     "CZM": "textile_roundel", "DCH": "chevron", "DZH": "split",
     "GUZ": "brocade_roundel", "HLD": "sun_disc", "HLI": "horizontal",
     "HZH": "arched", "JRG": "quartered", "KOR": "reference",
-    "LIL": "textile_roundel", "LIO": "roundel", "LSH": "vertical",
-    "MDL": "bordered", "NUN": "saltire", "NZA": "sunburst",
+    "LIL": "textile_roundel", "LIO": "legacy_exact", "LSH": "vertical",
+    "MDL": "plain_exact", "NUN": "saltire", "NZA": "sunburst",
     "SHZ": "diagonal", "TZZ": "bordered", "WDU": "river",
     "WGS": "plain", "WLM": "sun_disc", "WUZ": "sunburst",
     "WXG": "chevron", "WXM": "textile", "YEL": "roundel",
@@ -393,6 +397,22 @@ def tangut_xia_layer(ink) -> Image.Image:
     return layer
 
 
+def mongolian_dali_flag() -> Image.Image:
+    """Render a white flag with the connected vertical Mongolian word ᠳᠠᠯᠢ.
+
+    The fixed mask was shaped from Noto Sans Mongolian with HarfBuzz before
+    being rotated into the script's traditional top-to-bottom direction.  It
+    is stored as an asset so future regeneration does not depend on the host's
+    font or shaping engine.
+    """
+    if not MONGOLIAN_DALI_MASK.exists():
+        raise FileNotFoundError(f"missing Mongolian Dali glyph mask: {MONGOLIAN_DALI_MASK}")
+    mask = Image.open(MONGOLIAN_DALI_MASK).convert("L")
+    image = Image.new("RGB", mask.size, (255, 255, 255))
+    image.paste((0, 0, 0), (0, 0, mask.width, mask.height), mask)
+    return image.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
+
+
 def goryeo_phoenix_layer() -> Image.Image:
     """Extract the connected parchment background from the user reference."""
     if not GORYEO_REFERENCE.exists():
@@ -455,6 +475,9 @@ def antique_texture(image: Image.Image, tag: str) -> Image.Image:
 
 
 def render_flag(tag: str, design: dict[str, str]) -> Image.Image:
+    if design["motif"] == "mongolian_dali":
+        return mongolian_dali_flag()
+
     bg, ink, accent = (rgb(design[key]) for key in ("bg", "ink", "accent"))
     image = Image.new("RGBA", (SIZE * SCALE, SIZE * SCALE), (*bg, 255))
     draw_field(image, design["field"], bg, ink, accent)
@@ -522,10 +545,15 @@ def run(check: bool) -> None:
         actual_culture = history_culture(tag)
         if actual_culture != design["culture"]:
             raise ValueError(f"{tag}: expected {design['culture']}, found {actual_culture}")
-        image = render_flag(tag, design)
+        if tag == "LIO":
+            # Keep the earlier B57 Khitan seal asset byte-for-byte identical.
+            data = liao_flag_bytes()
+            image = Image.open(io.BytesIO(data)).convert("RGB")
+        else:
+            image = render_flag(tag, design)
+            data = expected_bytes(image)
         rendered[tag] = image
         target = FLAGS / f"{tag}.tga"
-        data = expected_bytes(image)
         if check:
             if not target.exists() or target.read_bytes() != data:
                 raise ValueError(f"{tag}: stale frontier flag")
@@ -542,12 +570,13 @@ def run(check: bool) -> None:
             "style": ["EU4 1.37.5 vanilla flags", "Celestial empire on which the sun never sets (Workshop 1728520255)"],
             "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
             "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071",
+            "mongolian_dali": "ᠳᠠᠯᠢ; HarfBuzz-shaped Noto Sans Mongolian fixed mask",
+            "liao": "B57 Khitan Large Script U+E23D / ninefold-seal U+F012 asset",
         },
         "flags": DESIGNS,
     }
     manifest_bytes = (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     if check:
-        import io
         stream = io.BytesIO()
         sheet.save(stream, format="PNG")
         if not sheet_target.exists() or sheet_target.read_bytes() != stream.getvalue():
