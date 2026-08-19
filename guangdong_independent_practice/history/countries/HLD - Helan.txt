@@ -1,0 +1,29 @@
+# B60: the Helandian Jurchen federation in Hamgyong.
+government = tribal
+add_government_reform = tribal_federation
+government_rank = 1
+technology_group = nomad_group
+religion = tengri_pagan_reformed
+secondary_religion = confucianism
+primary_culture = manchu
+capital = 732
+
+1444.1.1 = {
+    monarch = {
+        name = "Mongke Temur"
+        dynasty = "Odoli"
+        adm = 3
+        dip = 3
+        mil = 4
+    }
+    heir = {
+        name = "Cungsan"
+        monarch_name = "Cungsan"
+        dynasty = "Odoli"
+        birth_date = 1428.1.1
+        claim = 70
+        adm = 2
+        dip = 3
+        mil = 4
+    }
+}

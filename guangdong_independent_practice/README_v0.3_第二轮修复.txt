@@ -12,7 +12,7 @@
 - 修复外交历史中无效的truce语法，并移除开局事件中无效的fixed字段。
 - 补足广东随机舰船名称，避免国家定义日志报错。
 - 11k陆军和8艘船保持不变。
-- 奉贡藩国机制本轮不修改。
+- 历史说明：该版本曾保留奉贡藩国机制；当前地图开发分支已经将其完整移除。
 
 安装：
 把压缩包里的guangdong_independent_practice.mod和guangdong_independent_practice文件夹

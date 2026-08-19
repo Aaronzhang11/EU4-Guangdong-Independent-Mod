@@ -468,13 +468,13 @@ def update_countries() -> None:
         "color = { 161 86 151 }\nrevolutionary_colors = { 6 3 6 }\n", "miao"
     ))
     (COUNTRY_HISTORY / "DQU - Dangqu.txt").write_text(
-        "# B46 Dangqu polity.\ngovernment = monarchy\nadd_government_reform = gdd_local_fiefdom_reform\n"
+        "# B46 Dangqu polity.\ngovernment = monarchy\nadd_government_reform = feudalism_reform\n"
         "government_rank = 1\ntechnology_group = chinese\nreligion = confucianism\n"
         "primary_culture = gdd_shu\nadd_accepted_culture = gdd_diqiang\ncapital = 5333\nfixed_capital = 5333\n",
         encoding="cp1252",
     )
     (COUNTRY_HISTORY / "ZHI - Zhi.txt").write_text(
-        "# B46 Zhi polity.\ngovernment = monarchy\nadd_government_reform = gdd_local_fiefdom_reform\n"
+        "# B46 Zhi polity.\ngovernment = monarchy\nadd_government_reform = feudalism_reform\n"
         "government_rank = 1\ntechnology_group = chinese\nreligion = animism\n"
         "primary_culture = miao\nadd_accepted_culture = gdd_shu\ncapital = 5027\nfixed_capital = 5027\n",
         encoding="cp1252",

@@ -1,0 +1,258 @@
+{
+  "batch": "B61",
+  "policy": "non-Zhuxia frontier heraldry",
+  "flags": {
+    "AMD": {
+      "name": "安多果洛",
+      "culture": "tibetan",
+      "motif": "snow_peak",
+      "bg": "633b73",
+      "ink": "f2e7cf",
+      "accent": "d89b35",
+      "reason": "雪山、日轮与高原紫，表现果洛部落和安多高地。"
+    },
+    "BD2": {
+      "name": "巴氐",
+      "culture": "gdd_diqiang",
+      "motif": "ram",
+      "bg": "355f68",
+      "ink": "ead8b4",
+      "accent": "ba6236",
+      "reason": "盘羊角与山口，强调氐羌山地联盟。"
+    },
+    "BMY": {
+      "name": "白马弥药",
+      "culture": "gdd_diqiang",
+      "motif": "white_horse",
+      "bg": "274b45",
+      "ink": "f1ead7",
+      "accent": "c7513f",
+      "reason": "白马图腾配红色额饰，对应白马部传统。"
+    },
+    "CZM": {
+      "name": "辰州苗蛮",
+      "culture": "miao",
+      "motif": "bronze_drum",
+      "bg": "7d294f",
+      "ink": "e8c36a",
+      "accent": "50a79a",
+      "reason": "八芒铜鼓纹与苗疆织锦色。"
+    },
+    "DCH": {
+      "name": "宕昌",
+      "culture": "gdd_diqiang",
+      "motif": "mountain_fort",
+      "bg": "704b2f",
+      "ink": "e5d2a0",
+      "accent": "9f3c32",
+      "reason": "层山上的石寨，表现宕昌羌的谷地堡寨。"
+    },
+    "DZH": {
+      "name": "邓至",
+      "culture": "gdd_diqiang",
+      "motif": "twin_peaks",
+      "bg": "4b6476",
+      "ink": "e6dfc5",
+      "accent": "d27b38",
+      "reason": "双峰夹日，取邓至位于岷山交通孔道之意。"
+    },
+    "GUZ": {
+      "name": "孤竹",
+      "culture": "gdd_dongyi",
+      "motif": "bronze_owl",
+      "bg": "5b4934",
+      "ink": "d8b65d",
+      "accent": "324f4b",
+      "reason": "商式青铜鸮与竹节边纹，表现孤竹的殷商遗绪。"
+    },
+    "HLD": {
+      "name": "曷懒",
+      "culture": "manchu",
+      "motif": "falcon",
+      "bg": "244f3e",
+      "ink": "e9dfbb",
+      "accent": "b33c35",
+      "reason": "海东青、森林绿与赤日，表现东北女真猎鹰传统。"
+    },
+    "HLI": {
+      "name": "黎",
+      "culture": "gdd_qiongli",
+      "motif": "sun_waves",
+      "bg": "173c57",
+      "ink": "e8b843",
+      "accent": "63a96a",
+      "reason": "黎锦式日轮、海浪与五指山色带。"
+    },
+    "HZH": {
+      "name": "河州回回",
+      "culture": "gdd_long",
+      "motif": "caravan_star",
+      "bg": "245348",
+      "ink": "ead9a5",
+      "accent": "b66a38",
+      "reason": "八角星、河桥与商路门廊，表现河州回回的河湟商贸共同体。"
+    },
+    "JRG": {
+      "name": "嘉绒",
+      "culture": "tibetan",
+      "motif": "stone_tower",
+      "bg": "753b34",
+      "ink": "e5d5b4",
+      "accent": "4e7580",
+      "reason": "嘉绒碉楼立于横断山地。"
+    },
+    "LIL": {
+      "name": "俚寮",
+      "culture": "gdd_zhuang",
+      "motif": "bronze_drum",
+      "bg": "315d4c",
+      "ink": "dfbd63",
+      "accent": "ad4e35",
+      "reason": "岭南铜鼓与红土色，替代无图案的临时旗。"
+    },
+    "LIO": {
+      "name": "辽",
+      "culture": "gdd_khitan",
+      "motif": "white_deer",
+      "bg": "243d62",
+      "ink": "e8ddbd",
+      "accent": "c79b42",
+      "reason": "契丹白鹿传说、草原金日和辽河蓝。"
+    },
+    "LSH": {
+      "name": "凉山",
+      "culture": "yi",
+      "motif": "three_flames",
+      "bg": "171b21",
+      "ink": "e0b342",
+      "accent": "ae3534",
+      "reason": "黑底、赤焰与金边取彝族传统强对比色。"
+    },
+    "MDL": {
+      "name": "蒙古大理",
+      "culture": "bai",
+      "motif": "pagoda_lake",
+      "bg": "e9e1bf",
+      "ink": "233d55",
+      "accent": "b24a35",
+      "reason": "崇圣塔、苍山与洱海，兼顾大理本土而非蒙古通用旗。"
+    },
+    "NUN": {
+      "name": "侬国",
+      "culture": "gdd_zhuang",
+      "motif": "drum_spear",
+      "bg": "285d52",
+      "ink": "e6c36b",
+      "accent": "b53d32",
+      "reason": "铜鼓配交叉长矛，表现侬氏边寨军事联盟。"
+    },
+    "NZA": {
+      "name": "南诏",
+      "culture": "yi",
+      "motif": "sun_bird",
+      "bg": "6e2934",
+      "ink": "edc45b",
+      "accent": "2d5754",
+      "reason": "金日神鸟与洱海山色，参考西南鸟纹而非汉字印章。"
+    },
+    "SHZ": {
+      "name": "沙州",
+      "culture": "oirats",
+      "motif": "oasis",
+      "bg": "80532d",
+      "ink": "edcf87",
+      "accent": "27777a",
+      "reason": "沙丘、月牙泉与驿路星，表现河西绿洲政权。"
+    },
+    "TZZ": {
+      "name": "田州寨",
+      "culture": "gdd_zhuang",
+      "motif": "mountain_fort",
+      "bg": "4e6d35",
+      "ink": "e8d28c",
+      "accent": "a34833",
+      "reason": "右江山寨与铜鼓色，强调土司堡寨。"
+    },
+    "WDU": {
+      "name": "武都",
+      "culture": "gdd_diqiang",
+      "motif": "river_peak",
+      "bg": "37566b",
+      "ink": "e6d7ae",
+      "accent": "4ea6a1",
+      "reason": "白龙江穿行山谷，构成武都的地理徽记。"
+    },
+    "WGS": {
+      "name": "汪古罗斯",
+      "culture": "mongol",
+      "motif": "steppe_tamga",
+      "bg": "285c79",
+      "ink": "e3c36d",
+      "accent": "d9e3df",
+      "reason": "草原塔木加与北辰，表现汪古—罗斯混合边疆传统。"
+    },
+    "WLM": {
+      "name": "武陵蛮",
+      "culture": "miao",
+      "motif": "sun_bird",
+      "bg": "294f43",
+      "ink": "e0bd58",
+      "accent": "b84545",
+      "reason": "武陵山神鸟与织锦菱纹。"
+    },
+    "WUZ": {
+      "name": "无终",
+      "culture": "gdd_dongyi",
+      "motif": "black_bird",
+      "bg": "c58c42",
+      "ink": "20272a",
+      "accent": "eee0b7",
+      "reason": "玄鸟负日，呼应燕山以东的古老族源叙事。"
+    },
+    "WXG": {
+      "name": "武兴",
+      "culture": "gdd_diqiang",
+      "motif": "mountain_gate",
+      "bg": "4e6550",
+      "ink": "e3d5ad",
+      "accent": "ad5638",
+      "reason": "三峰与关门，表现汉水上游山地要塞。"
+    },
+    "WXM": {
+      "name": "五溪苗蛮",
+      "culture": "miao",
+      "motif": "five_streams",
+      "bg": "216c68",
+      "ink": "e6c15d",
+      "accent": "173e66",
+      "reason": "五道曲水织成苗锦式连续纹。"
+    },
+    "YEL": {
+      "name": "夜郎",
+      "culture": "yi",
+      "motif": "sun_serpent",
+      "bg": "4b2768",
+      "ink": "ebc24f",
+      "accent": "58a07a",
+      "reason": "日轮与盘蛇取西南青铜器动物纹意象。"
+    },
+    "ZHI": {
+      "name": "枳",
+      "culture": "miao",
+      "motif": "river_fort",
+      "bg": "74315d",
+      "ink": "ead39a",
+      "accent": "4fa69a",
+      "reason": "江峡、城门和巴地织纹组合。"
+    },
+    "KOR": {
+      "name": "高丽",
+      "culture": "gdd_samhan",
+      "motif": "goryeo",
+      "bg": "497d72",
+      "ink": "e7e2c9",
+      "accent": "b34b43",
+      "reason": "青瓷绿、三峰、海浪与日轮，避免直接套用近现代太极旗。"
+    }
+  }
+}

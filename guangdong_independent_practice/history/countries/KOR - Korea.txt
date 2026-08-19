@@ -1,0 +1,29 @@
+# B60: independent native Goryeo in southern Korea.
+government = monarchy
+add_government_reform = korean_monarchy
+government_rank = 2
+technology_group = chinese
+religion = confucianism
+add_harmonized_religion = mahayana
+primary_culture = gdd_samhan
+capital = 735
+
+1444.1.1 = {
+    monarch = {
+        name = "Wang Hyeon"
+        dynasty = "Wang"
+        adm = 4
+        dip = 5
+        mil = 3
+    }
+    heir = {
+        name = "Wang U"
+        monarch_name = "U"
+        dynasty = "Wang"
+        birth_date = 1427.1.1
+        claim = 85
+        adm = 3
+        dip = 3
+        mil = 3
+    }
+}

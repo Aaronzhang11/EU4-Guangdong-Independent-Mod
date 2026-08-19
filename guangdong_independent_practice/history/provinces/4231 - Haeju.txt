@@ -1,16 +1,16 @@
-#4231 - Haeju
-owner = KOR
-controller = KOR
+# 4231 - Haeju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
+owner = JIZ
+controller = JIZ
 culture = korean
 religion = confucianism
-capital = "wmÞT" 	# Haeju
+capital = "Haeju"# Haeju
 trade_goods = naval_supplies
 hre = no
-base_tax = 2
-base_production = 2
-base_manpower = 1
+base_tax = 4
+base_production = 4
+base_manpower = 3
 is_city = yes
-add_core = KOR
+add_core = JIZ
 discovered_by = chinese
 discovered_by = nomad_group
 1519.1.1 = {

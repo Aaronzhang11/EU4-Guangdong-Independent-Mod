@@ -1,16 +1,16 @@
-#4232 - Ganggye
-owner = KOR
-controller = KOR
+# 4232 - Ganggye - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
+owner = LIO
+controller = LIO
 culture = korean
 religion = confucianism
-capital = "mlLu" 	# Ganggye
+capital = "Ganggye"# Ganggye
 trade_goods = fur
 hre = no
 base_tax = 2
 base_production = 2
-base_manpower = 1
+base_manpower = 2
 is_city = yes
-add_core = KOR
+add_core = LIO
 add_local_autonomy = 35
 fort_15th = yes
 discovered_by = chinese
@@ -40,3 +40,4 @@ discovered_by = nomad_group
 1653.1.1 = {
   discovered_by = NED
 } 	#  Hendrick Hamel
+add_core = JIZ # GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS

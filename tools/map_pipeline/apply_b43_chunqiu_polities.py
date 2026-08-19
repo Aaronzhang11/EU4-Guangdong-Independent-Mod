@@ -778,7 +778,7 @@ def country_history(
     religion: str,
     accepted: tuple[str, ...] = (),
     government: str = "monarchy",
-    reform: str = "gdd_local_fiefdom_reform",
+    reform: str = "feudalism_reform",
     comment: str = "# B43 Chunqiu polity history.",
 ) -> str:
     return (
@@ -1127,7 +1127,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
                 config["capital"], config["rank"], culture, religion,
                 tuple(config.get("accepted", ())),
                 str(config.get("government", "monarchy")),
-                str(config.get("reform", "gdd_local_fiefdom_reform")),
+                str(config.get("reform", "feudalism_reform")),
                 str(config.get("history_comment", "# B43 Chunqiu polity history.")),
             ),
             encoding="utf-8",

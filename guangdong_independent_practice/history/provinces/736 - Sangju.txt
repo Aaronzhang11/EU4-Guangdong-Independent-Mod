@@ -1,14 +1,14 @@
-#736 - Sangju
+# 736 - Gyeongju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
+culture = gdd_samhan
 religion = confucianism
-capital = "SÞT" 	# Sangju
+capital = "Gyeongju"# Sangju
 trade_goods = cotton
 hre = no
-base_tax = 4
-base_production = 3
-base_manpower = 2
+base_tax = 5
+base_production = 4
+base_manpower = 3
 is_city = yes
 add_core = KOR
 discovered_by = chinese

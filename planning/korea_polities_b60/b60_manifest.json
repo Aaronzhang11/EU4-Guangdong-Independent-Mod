@@ -1,0 +1,43 @@
+{
+  "batch": "GDD_B60_KOREA_FOUR_POLITIES",
+  "geometry": "unchanged",
+  "mountains": {
+    "5375": "狼林山脉",
+    "5376": "太白山脉"
+  },
+  "polities": {
+    "JIZ": {
+      "name": "朝鲜",
+      "long_name": "箕氏朝鲜",
+      "capital": 1845,
+      "primary_culture": "korean",
+      "provinces": [733, 1845, 4231, 5360, 5361, 5362, 5363, 5364],
+      "zhou_member": true,
+      "engine_subject": false
+    },
+    "LIO": {
+      "name": "辽",
+      "capital": 5204,
+      "primary_culture": "gdd_khitan",
+      "new_korea_provinces": [2744, 4232, 5359],
+      "zhou_member": true,
+      "engine_subject": false
+    },
+    "HLD": {
+      "name": "曷懒",
+      "capital": 732,
+      "primary_culture": "manchu",
+      "provinces": [732, 2742, 2743, 5356, 5357, 5358],
+      "zhou_member": false,
+      "engine_subject": false
+    },
+    "KOR": {
+      "name": "高丽",
+      "capital": 735,
+      "primary_culture": "gdd_samhan",
+      "provinces": [734, 735, 736, 737, 1013, 2694, 2741, 2745, 4227, 4228, 4229, 4230, 5365],
+      "zhou_member": false,
+      "engine_subject": false
+    }
+  }
+}

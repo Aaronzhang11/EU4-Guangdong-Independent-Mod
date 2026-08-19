@@ -1,0 +1,21 @@
+namespace = gdd_korea
+
+country_event = {
+    id = gdd_korea.1
+    title = gdd_korea.1.t
+    desc = gdd_korea.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        OR = { tag = JIZ tag = LIO tag = HLD tag = KOR }
+        NOT = { has_country_flag = gdd_b60_korea_world_explained }
+    }
+
+    immediate = { set_country_flag = gdd_b60_korea_world_explained }
+
+    option = {
+        name = gdd_korea.1.a
+    }
+}

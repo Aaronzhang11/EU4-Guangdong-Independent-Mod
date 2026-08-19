@@ -676,14 +676,15 @@ manchuria_region = {
         furdan_area
     }
 }
-
 korea_region = {
     areas = {
-        pyongan_area
-        hamgyeong_area
-        western_korea_area
-        eastern_korea_area
-        south_korea_area
+        zhuxia_xuantu_area
+        zhuxia_paesu_area
+        zhuxia_lolang_area
+        zhuxia_daifang_area
+        samhan_gyeonggi_area
+        samhan_gangwon_area
+        samhan_samnam_area
     }
     monsoon = {
         00.06.01

@@ -786,7 +786,8 @@ zhx_migrate_tianxia_system_v5_to_v6 = {
 }
 
 # 第一版政治成员表使用明确 TAG 清单，避免文化转变、征服或政体改变悄悄重写天下秩序。
-# 名单包含 1444 年所有非少数民族诸夏国家、安南、辽，以及明确纳入的延安义渠（YOU）。
+# 名单包含 1444 年所有非少数民族诸夏国家、安南、辽、箕子朝鲜，
+# 以及明确纳入的延安义渠（YOU）。南部高丽（KOR）仍是周天下之外的本土政权。
 # 甘州（GZH）与其他被排除的少数民族政权不会进入周天下。
 zhx_initialise_tianxia_system = {
     CZH = {
@@ -844,6 +845,7 @@ zhx_initialise_tianxia_system = {
                 tag = HYA
                 tag = HYM
                 tag = JJG
+                tag = JIZ
                 tag = JUU
                 tag = LCH
                 tag = LIO

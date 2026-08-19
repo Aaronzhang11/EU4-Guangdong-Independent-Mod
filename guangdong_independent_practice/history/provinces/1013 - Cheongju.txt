@@ -1,14 +1,14 @@
-#1013 - Cheongju
+# 1013 - Cheongju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
+culture = gdd_samhan
 religion = confucianism
-capital = "nÞT" 	# Cheongju
+capital = "Cheongju"# Cheongju
 trade_goods = grain
 hre = no
-base_tax = 3
+base_tax = 4
 base_production = 3
-base_manpower = 2
+base_manpower = 3
 is_city = yes
 add_core = KOR
 discovered_by = chinese

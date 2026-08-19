@@ -45,7 +45,7 @@
     "trade_centres": "unchanged",
     "province_development": "unchanged",
     "culture_and_religion": "gdd_chu and confucianism retained",
-    "subject_government": "existing gdd_local_fiefdom_reform; no new reform"
+    "subject_government": "ordinary vassals use their normal tier-one government reforms"
   },
   "b43_validation": {
     "province_count": 309,

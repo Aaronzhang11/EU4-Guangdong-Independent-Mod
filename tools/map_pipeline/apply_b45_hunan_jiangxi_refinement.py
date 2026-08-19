@@ -607,7 +607,7 @@ def update_country() -> None:
     (COUNTRY_HISTORY / "HNG - Heng.txt").write_text(
         "# B45 balanced Hunan polity history.\n"
         "government = monarchy\n"
-        "add_government_reform = gdd_local_fiefdom_reform\n"
+        "add_government_reform = feudalism_reform\n"
         "government_rank = 1\n"
         "technology_group = chinese\n"
         "religion = confucianism\n"
