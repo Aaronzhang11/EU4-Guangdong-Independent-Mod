@@ -1,4 +1,4 @@
-gdd_punish_defiant_enfeoffed_subject_wargoal = {
+gdd_punish_southern_defiance_wargoal = {
     type = take_core
 
     attacker = {

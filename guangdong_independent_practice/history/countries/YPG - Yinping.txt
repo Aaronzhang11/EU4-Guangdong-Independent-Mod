@@ -1,6 +1,6 @@
 # B43 Chunqiu polity history.
 government = monarchy
-add_government_reform = gdd_local_fiefdom_reform
+add_government_reform = feudalism_reform
 government_rank = 1
 technology_group = chinese
 religion = confucianism

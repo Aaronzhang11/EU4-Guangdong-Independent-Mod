@@ -627,13 +627,7 @@ lost_control_of_beijing = {
 		NOT = {
 			1816 = {
 				controller = {
-					OR = {
-						tag = ROOT
-						AND = {
-							is_subject_of = ROOT
-							is_subject_of_type = gdd_invested_tributary
-						}
-					}
+					tag = ROOT
 				}
 			}
 		}
@@ -656,13 +650,7 @@ lost_control_of_nanjing = {
 		NOT = {
 			1821 = {
 				controller = {
-					OR = {
-						tag = ROOT
-						AND = {
-							is_subject_of = ROOT
-							is_subject_of_type = gdd_invested_tributary
-						}
-					}
+					tag = ROOT
 				}
 			}
 		}
@@ -685,13 +673,7 @@ lost_control_of_canton = {
 		NOT = {
 			667 = {
 				controller = {
-					OR = {
-						tag = ROOT
-						AND = {
-							is_subject_of = ROOT
-							is_subject_of_type = gdd_invested_tributary
-						}
-					}
+					tag = ROOT
 				}
 			}
 		}

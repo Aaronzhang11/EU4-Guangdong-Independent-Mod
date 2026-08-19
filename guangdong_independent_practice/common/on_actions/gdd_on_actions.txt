@@ -2,7 +2,6 @@ on_startup = {
     events = {
         gdd_startup.1
         gdd_heir.1
-        gdd_subject.108
         gdd_celestial_test.100
     }
 
@@ -22,15 +21,9 @@ on_startup = {
     }
 }
 
-# The scheduled five-year checker handles normal 1444 starts. The treaty check
-# is also called monthly for old saves and console date jumps. Tribute is
-# checked here in January so its date cannot drift across leap years.
 on_monthly_pulse = {
     events = {
-        gdd_subject.108
         gdd_treaty.100
-        gdd_subject.105
-        gdd_subject.106
         gdd_celestial_test.110
         gdd_celestial_test.111
     }

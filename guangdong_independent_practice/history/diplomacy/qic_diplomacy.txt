@@ -1,8 +1,0 @@
-dependency = {
-    subject_type = gdd_invested_tributary
-    first = CZH
-    second = QIC
-    start_date = 1444.11.11
-    end_date = 1821.1.2
-}
-

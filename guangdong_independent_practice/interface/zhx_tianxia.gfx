@@ -1,0 +1,118 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_zhx_tianxia_bg"
+		texturefile = "gfx/interface/zhx_tianxia_bg.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_zhx_tianxia_drag_surface"
+		texturefile = "gfx/interface/zhx_tianxia_drag_surface.tga"
+		transparencecheck = no
+		loadType = "INGAME"
+	}
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m100"
+        texturefile = "gfx/interface/zhx_ritual_bar_m100.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m090"
+        texturefile = "gfx/interface/zhx_ritual_bar_m090.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m080"
+        texturefile = "gfx/interface/zhx_ritual_bar_m080.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m070"
+        texturefile = "gfx/interface/zhx_ritual_bar_m070.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m060"
+        texturefile = "gfx/interface/zhx_ritual_bar_m060.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m050"
+        texturefile = "gfx/interface/zhx_ritual_bar_m050.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m040"
+        texturefile = "gfx/interface/zhx_ritual_bar_m040.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m030"
+        texturefile = "gfx/interface/zhx_ritual_bar_m030.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m020"
+        texturefile = "gfx/interface/zhx_ritual_bar_m020.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_m010"
+        texturefile = "gfx/interface/zhx_ritual_bar_m010.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_zero"
+        texturefile = "gfx/interface/zhx_ritual_bar_zero.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p010"
+        texturefile = "gfx/interface/zhx_ritual_bar_p010.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p020"
+        texturefile = "gfx/interface/zhx_ritual_bar_p020.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p030"
+        texturefile = "gfx/interface/zhx_ritual_bar_p030.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p040"
+        texturefile = "gfx/interface/zhx_ritual_bar_p040.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p050"
+        texturefile = "gfx/interface/zhx_ritual_bar_p050.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p060"
+        texturefile = "gfx/interface/zhx_ritual_bar_p060.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p070"
+        texturefile = "gfx/interface/zhx_ritual_bar_p070.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p080"
+        texturefile = "gfx/interface/zhx_ritual_bar_p080.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p090"
+        texturefile = "gfx/interface/zhx_ritual_bar_p090.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_ritual_bar_p100"
+        texturefile = "gfx/interface/zhx_ritual_bar_p100.tga"
+        loadType = "INGAME"
+    }
+}
