@@ -33,6 +33,8 @@ GORYEO_REFERENCE = ASSETS / "goryeo_phoenix_reference.png"
 TANGUT_XIA_MASK = ASSETS / "tangut_xia_u17d32_mask.png"
 MONGOLIAN_DALI_MASK = ASSETS / "mongolian_dali_mask.png"
 MANCHU_HELAN_MASK = ASSETS / "manchu_helan_mask.png"
+YI_LIANGSHAN_MASK = ASSETS / "yi_liangshan_nimu_mask.png"
+YI_YELANG_MASK = ASSETS / "yi_yelang_yina_mask.png"
 SCALE = 4
 SIZE = 128
 
@@ -51,19 +53,19 @@ DESIGNS = {
     "JRG": {"name": "嘉绒", "culture": "tibetan", "motif": "stone_tower", "bg": "753b34", "ink": "e5d5b4", "accent": "4e7580", "reason": "嘉绒碉楼立于横断山地。"},
     "LIL": {"name": "俚寮", "culture": "gdd_zhuang", "motif": "bronze_drum", "bg": "315d4c", "ink": "dfbd63", "accent": "ad4e35", "reason": "岭南铜鼓与红土色，替代无图案的临时旗。"},
     "LIO": {"name": "辽", "culture": "gdd_khitan", "motif": "khitan_seal_original", "bg": "b89748", "ink": "273036", "accent": "273036", "reason": "恢复 B57 原旗：使用契丹大字九叠篆官印字形，研究资料将其视为可能表示辽或契丹国家专称的字符。"},
-    "LSH": {"name": "凉山", "culture": "yi", "motif": "three_flames", "bg": "171b21", "ink": "e0b342", "accent": "ae3534", "reason": "黑底、赤焰与金边取彝族传统强对比色。"},
+    "LSH": {"name": "凉山", "culture": "yi", "motif": "yi_liangshan_wordmark", "bg": "171b21", "ink": "e0b342", "accent": "ae3534", "reason": "以凉山本地自称“ꆀꃅ”（Nimu）为竖排彝文徽记，保留彝族传统黑、赤、金强对比色。"},
     "MDL": {"name": "蒙古大理", "culture": "bai", "motif": "mongolian_dali", "bg": "ffffff", "ink": "000000", "accent": "000000", "reason": "纯白旗面中央竖书黑色传统蒙古文“ᠳᠠᠯᠢ”（Dali／大理），以蒙古统治身份覆盖旧塔湖纹样。"},
     "NUN": {"name": "侬国", "culture": "gdd_zhuang", "motif": "drum_spear", "bg": "285d52", "ink": "e6c36b", "accent": "b53d32", "reason": "铜鼓配交叉长矛，表现侬氏边寨军事联盟。"},
-    "NZA": {"name": "南诏", "culture": "yi", "motif": "sun_bird", "bg": "6e2934", "ink": "edc45b", "accent": "2d5754", "reason": "金日神鸟与洱海山色，参考西南鸟纹而非汉字印章。"},
-    "SHZ": {"name": "沙州", "culture": "oirats", "motif": "oasis", "bg": "80532d", "ink": "edcf87", "accent": "27777a", "reason": "沙丘、月牙泉与驿路星，表现河西绿洲政权。"},
+    "NZA": {"name": "南诏", "culture": "yi", "motif": "nanzhao_guanyin", "bg": "6e2934", "ink": "edc45b", "accent": "2d5754", "reason": "以《南诏图传》的阿嵯耶观音为核心，配合莲座与护国光轮，取代泛化的日鸟图腾。"},
+    "SHZ": {"name": "沙州", "culture": "oirats", "motif": "dunhuang_banner", "bg": "80532d", "ink": "edcf87", "accent": "27777a", "reason": "按敦煌藏经洞九世纪丝绸幡的三角旗首、窄幅画心、侧带与尾旒重构沙州徽记。"},
     "TZZ": {"name": "田州寨", "culture": "gdd_zhuang", "motif": "mountain_fort", "bg": "4e6d35", "ink": "e8d28c", "accent": "a34833", "reason": "右江山寨与铜鼓色，强调土司堡寨。"},
     "WDU": {"name": "武都", "culture": "gdd_diqiang", "motif": "river_peak", "bg": "37566b", "ink": "e6d7ae", "accent": "4ea6a1", "reason": "白龙江穿行山谷，构成武都的地理徽记。"},
-    "WGS": {"name": "汪古罗斯", "culture": "mongol", "motif": "steppe_tamga", "bg": "285c79", "ink": "e3c36d", "accent": "d9e3df", "reason": "草原塔木加与北辰，表现汪古—罗斯混合边疆传统。"},
+    "WGS": {"name": "汪古罗斯", "culture": "mongol", "motif": "ongud_nestorian_cross", "bg": "285c79", "ink": "e3c36d", "accent": "d9e3df", "reason": "使用元代内蒙古景教墓志常见的莲台十字，直接对应汪古部十三至十四世纪景教传统。"},
     "WLM": {"name": "武陵蛮", "culture": "miao", "motif": "sun_bird", "bg": "294f43", "ink": "e0bd58", "accent": "b84545", "reason": "武陵山神鸟与织锦菱纹。"},
     "WUZ": {"name": "无终", "culture": "gdd_dongyi", "motif": "black_bird", "bg": "c58c42", "ink": "20272a", "accent": "eee0b7", "reason": "玄鸟负日，呼应燕山以东的古老族源叙事。"},
     "WXG": {"name": "武兴", "culture": "gdd_diqiang", "motif": "mountain_gate", "bg": "4e6550", "ink": "e3d5ad", "accent": "ad5638", "reason": "三峰与关门，表现汉水上游山地要塞。"},
     "WXM": {"name": "五溪苗蛮", "culture": "miao", "motif": "five_streams", "bg": "216c68", "ink": "e6c15d", "accent": "173e66", "reason": "五道曲水织成苗锦式连续纹。"},
-    "YEL": {"name": "夜郎", "culture": "yi", "motif": "sun_serpent", "bg": "4b2768", "ink": "ebc24f", "accent": "58a07a", "reason": "日轮与盘蛇取西南青铜器动物纹意象。"},
+    "YEL": {"name": "夜郎", "culture": "yi", "motif": "yi_yelang_wordmark", "bg": "4b2768", "ink": "ebc24f", "accent": "58a07a", "reason": "采用彝语研究所释“yi-na”音形的规范彝文“ꑳꆅ”竖排，并以紫、金、绿保留夜郎的西南青铜感。"},
     "ZHI": {"name": "枳", "culture": "miao", "motif": "river_fort", "bg": "74315d", "ink": "ead39a", "accent": "4fa69a", "reason": "江峡、城门和巴地织纹组合。"},
     "KOR": {"name": "高丽", "culture": "gdd_samhan", "motif": "goryeo_phoenix", "bg": "f8d98d", "ink": "202229", "accent": "426764", "reason": "直接采用用户参考图中的凤凰主体，以高丽青瓷绿、朱红和绢黄金构成宫廷纹样。"},
 }
@@ -77,9 +79,9 @@ FIELDS = {
     "GUZ": "brocade_roundel", "HLD": "manchu_frame", "HLI": "horizontal",
     "HZH": "arched", "JRG": "quartered", "KOR": "reference",
     "LIL": "textile_roundel", "LIO": "legacy_exact", "LSH": "vertical",
-    "MDL": "plain_exact", "NUN": "saltire", "NZA": "sunburst",
-    "SHZ": "diagonal", "TZZ": "bordered", "WDU": "river",
-    "WGS": "plain", "WLM": "sun_disc", "WUZ": "sunburst",
+    "MDL": "plain_exact", "NUN": "saltire", "NZA": "sun_disc",
+    "SHZ": "plain", "TZZ": "bordered", "WDU": "river",
+    "WGS": "roundel", "WLM": "sun_disc", "WUZ": "sunburst",
     "WXG": "chevron", "WXM": "textile", "YEL": "roundel",
     "ZHI": "horizontal",
 }
@@ -363,6 +365,63 @@ def draw_motif(draw, motif, ink, accent):
         ellipse(draw, (44, 16, 84, 56), ink)
         line(draw, [(22, 97), (39, 76), (57, 93), (75, 70), (96, 89), (110, 73)], accent, 9)
         polygon(draw, [(105, 65), (121, 70), (109, 82)], accent)
+    elif motif == "ongud_nestorian_cross":
+        # Yuan-period Inner Mongolian Christian epitaphs repeatedly place a
+        # flared cross above a lotus.  The pale under-stroke gives the small
+        # EU4 shield the incised, metal-inlay appearance of those objects.
+        line(draw, [(64, 27), (64, 84)], accent, 15)
+        line(draw, [(38, 48), (90, 48)], accent, 15)
+        line(draw, [(64, 27), (64, 84)], ink, 9)
+        line(draw, [(38, 48), (90, 48)], ink, 9)
+        for points in (
+            [(64, 18), (55, 31), (73, 31)],
+            [(29, 48), (42, 39), (42, 57)],
+            [(99, 48), (86, 39), (86, 57)],
+        ):
+            polygon(draw, points, ink)
+        # Lotus pedestal taken from the Chifeng bilingual epitaph type.
+        polygon(draw, [(64, 103), (48, 82), (64, 88), (80, 82)], accent)
+        polygon(draw, [(64, 105), (35, 91), (49, 110)], ink)
+        polygon(draw, [(64, 105), (93, 91), (79, 110)], ink)
+        polygon(draw, [(64, 107), (49, 85), (64, 91), (79, 85)], ink)
+        line(draw, [(39, 112), (89, 112)], accent, 3)
+    elif motif == "dunhuang_banner":
+        # Compressed reconstruction of a Cave 17 silk banner: triangular
+        # headpiece, narrow painted body, moss-green side streamers, lower
+        # weighting board and four tail streamers.
+        coral = (177, 79, 58)
+        rose = (207, 125, 105)
+        deep = (72, 42, 35)
+        polygon(draw, [(64, 7), (34, 30), (94, 30)], rose)
+        line(draw, [(64, 7), (34, 30), (94, 30), (64, 7)], coral, 3)
+        rect(draw, (31, 29, 97, 95), ink, deep, 3)
+        rect(draw, (38, 34, 90, 91), coral, accent, 2)
+        polygon(draw, [(23, 28), (34, 31), (34, 96), (24, 105)], accent)
+        polygon(draw, [(105, 28), (94, 31), (94, 96), (104, 105)], accent)
+        # A lotus-and-halo devotional image remains legible without copying a
+        # particular sacred figure from the source painting.
+        ellipse(draw, (50, 39, 78, 67), ink, deep, 2)
+        ellipse(draw, (57, 45, 71, 59), (236, 210, 159))
+        polygon(draw, [(64, 59), (51, 79), (57, 89), (64, 80), (71, 89), (77, 79)], accent)
+        polygon(draw, [(64, 90), (49, 82), (55, 94)], ink)
+        polygon(draw, [(64, 90), (79, 82), (73, 94)], ink)
+        rect(draw, (31, 94, 97, 100), deep)
+        for x, color in ((37, accent), (51, rose), (65, accent), (79, rose)):
+            polygon(draw, [(x, 100), (x + 10, 100), (x + 8, 121), (x + 5, 115), (x + 2, 121)], color)
+    elif motif == "nanzhao_guanyin":
+        # Stylised Ācārya Avalokiteśvara from the 899 Nanzhao Tuzhuan: tall,
+        # frontal, crowned, haloed and standing on a lotus pedestal.
+        pale = (244, 224, 174)
+        ellipse(draw, (38, 10, 90, 62), ink, accent, 3)
+        polygon(draw, [(52, 31), (57, 18), (64, 25), (71, 18), (76, 31)], accent)
+        ellipse(draw, (54, 28, 74, 48), pale, accent, 2)
+        polygon(draw, [(57, 47), (48, 76), (55, 101), (64, 91), (73, 101), (80, 76), (71, 47)], pale)
+        polygon(draw, [(59, 50), (50, 71), (38, 82), (44, 87), (57, 75)], accent)
+        polygon(draw, [(69, 50), (78, 71), (90, 82), (84, 87), (71, 75)], accent)
+        line(draw, [(64, 48), (64, 94)], ink, 4)
+        polygon(draw, [(64, 109), (43, 96), (54, 113)], ink)
+        polygon(draw, [(64, 109), (85, 96), (74, 113)], ink)
+        polygon(draw, [(64, 110), (53, 91), (64, 97), (75, 91)], pale)
     elif motif == "river_fort":
         waves(draw, accent, 91, 3)
         rect(draw, (35, 38, 93, 82), ink)
@@ -395,6 +454,24 @@ def tangut_xia_layer(ink) -> Image.Image:
     color = Image.new("RGBA", mask.size, (*ink, 255))
     color.putalpha(mask)
     layer.alpha_composite(color, (x, y))
+    return layer
+
+
+def yi_wordmark_layer(mask_path: Path, ink, accent) -> Image.Image:
+    """Colour a fixed two-glyph Yi wordmark with a narrow manuscript edge."""
+    if not mask_path.exists():
+        raise FileNotFoundError(f"missing Yi wordmark mask: {mask_path}")
+    mask = fitted_mask(Image.open(mask_path).convert("L"), 66 * SCALE, 90 * SCALE)
+    layer = Image.new("RGBA", (SIZE * SCALE, SIZE * SCALE), (0, 0, 0, 0))
+    x = (layer.width - mask.width) // 2
+    y = (layer.height - mask.height) // 2 + SCALE
+    outline_mask = mask.filter(ImageFilter.MaxFilter(3 * SCALE + 1))
+    outline = Image.new("RGBA", outline_mask.size, (*accent, 255))
+    outline.putalpha(outline_mask)
+    layer.alpha_composite(outline, (x, y))
+    glyph = Image.new("RGBA", mask.size, (*ink, 255))
+    glyph.putalpha(mask)
+    layer.alpha_composite(glyph, (x, y))
     return layer
 
 
@@ -504,6 +581,10 @@ def render_flag(tag: str, design: dict[str, str]) -> Image.Image:
         emblem = goryeo_phoenix_layer()
     elif design["motif"] == "tangut_xia":
         emblem = tangut_xia_layer(ink)
+    elif design["motif"] == "yi_liangshan_wordmark":
+        emblem = yi_wordmark_layer(YI_LIANGSHAN_MASK, ink, accent)
+    elif design["motif"] == "yi_yelang_wordmark":
+        emblem = yi_wordmark_layer(YI_YELANG_MASK, ink, accent)
     else:
         emblem = Image.new("RGBA", image.size, (0, 0, 0, 0))
         draw_motif(ImageDraw.Draw(emblem), design["motif"], ink, accent)
@@ -591,6 +672,10 @@ def run(check: bool) -> None:
             "mongolian_dali": "ᠳᠠᠯᠢ; HarfBuzz-shaped Noto Sans Mongolian fixed mask",
             "manchu_helan": "ᡥᡝᠯᠠᠨ; phonetic Helan rendering shaped with HarfBuzz, framed after vanilla MJZ/MHX flags",
             "liao": "B57 Khitan Large Script U+E23D / ninefold-seal U+F012 asset",
+            "ongud_cross": "Yuan-period Inner Mongolian Church of the East epitaphs with cross-on-lotus imagery",
+            "dunhuang_banner": "British Museum 1919,0101,0.120; 9th-century Cave 17 silk banner construction",
+            "nanzhao": "899 Nanzhao Tuzhuan; Acuoye Guanyin as dynastic foundation image",
+            "yi_wordmarks": "ꆀꃅ (Nimu, vernacular Liangshan) and ꑳꆅ (Yi-na, researched Yelang reading); fixed Noto Sans Yi masks",
         },
         "flags": DESIGNS,
     }
