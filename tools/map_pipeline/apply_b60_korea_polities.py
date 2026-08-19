@@ -12,12 +12,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import re
-import struct
 import subprocess
 import sys
-
-from PIL import Image, ImageDraw, ImageFont
-
 
 ROOT = Path(__file__).resolve().parents[2]
 MOD = ROOT / "guangdong_independent_practice"
@@ -288,28 +284,24 @@ def write_localisation() -> None:
     )
 
 
-def flag_bytes(background: tuple[int, int, int], ink: tuple[int, int, int], glyph: str) -> bytes:
-    image = Image.new("RGB", (128, 128), background)
-    draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("/System/Library/Fonts/STHeiti Medium.ttc", 82)
-    box = draw.textbbox((0, 0), glyph, font=font)
-    x = (128 - (box[2] - box[0])) / 2 - box[0]
-    y = (128 - (box[3] - box[1])) / 2 - box[1] - 3
-    draw.ellipse((7, 7, 120, 120), outline=ink, width=4)
-    draw.text((x, y), glyph, font=font, fill=ink)
-    rgb = image.tobytes("raw", "BGR")
-    header = struct.pack("<BBBHHBHHHHBB", 0, 0, 2, 0, 0, 0, 0, 0, 128, 128, 24, 0x20)
-    return header + rgb
-
-
 def write_flags() -> None:
+    sys.path.insert(0, str(ROOT / "tools"))
+    from shang_flag_emblems import shang_flag_bytes
+
     flags = MOD / "gfx/flags"
     flags.mkdir(parents=True, exist_ok=True)
-    # 箕子朝鲜是奉周礼的独立诸夏成员，继续使用礼制汉字旗。曷懒是诸夏之外的
-    # 女真联盟，其猎鹰旗自 B61 起由 generate_frontier_polity_flags.py
-    # 生成，并在 B62 统一改为原版纹章化旗面。
-    # 单独维护；这里不得再用汉字临时旗覆盖它。
-    (flags / "JIZ.tga").write_bytes(flag_bytes((47, 91, 102), (232, 218, 164), "箕"))
+    # 箕子朝鲜是奉周礼的独立诸夏成员。其旗使用甲骨文“箕”的簸箕格纹象形，
+    # 并与 B62 的孤竹、无终共享一套离线矢量生成逻辑；不得退回现代楷书字形。
+    # 曷懒旗则仍由后续边疆旗批次维护，这里不覆盖。
+    (flags / "JIZ.tga").write_bytes(
+        shang_flag_bytes(
+            "JIZ",
+            "ji",
+            (47, 91, 102),
+            (232, 218, 164),
+            (169, 117, 62),
+        )
+    )
 
 
 def first_value(text: str, key: str) -> str:

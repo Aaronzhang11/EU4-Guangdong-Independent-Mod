@@ -1,6 +1,6 @@
 {
   "batch": "B62",
-  "policy": "vanilla-style non-Zhuxia frontier heraldry",
+  "policy": "vanilla-style frontier, external, and Shang-heritage heraldry",
   "references": {
     "style": [
       "EU4 1.37.5 vanilla flags",
@@ -14,7 +14,8 @@
     "ongud_cross": "Yuan-period Inner Mongolian Church of the East epitaphs with cross-on-lotus imagery",
     "dunhuang_banner": "British Museum 1919,0101,0.120; 9th-century Cave 17 silk banner construction",
     "nanzhao": "899 Nanzhao Tuzhuan; Acuoye Guanyin as dynastic foundation image",
-    "yi_wordmarks": "ꆀꃅ (Nimu, vernacular Liangshan) and ꑳꆅ (Yi-na, researched Yelang reading); fixed Noto Sans Yi masks"
+    "yi_wordmarks": "ꆀꃅ (Nimu, vernacular Liangshan) and ꑳꆅ (Yi-na, researched Yelang reading); fixed Noto Sans Yi masks",
+    "shang_inscriptions": "箕 oracle pictograph; 竹侯 oracle/bronze clan emblem; Middle Shang Wuzhong dagger compound clan inscription"
   },
   "flags": {
     "AMD": {
@@ -80,12 +81,12 @@
     "GUZ": {
       "name": "孤竹",
       "culture": "gdd_dongyi",
-      "motif": "bronze_owl",
+      "motif": "shang_zhu",
       "bg": "5b4934",
       "ink": "d8b65d",
       "accent": "324f4b",
-      "reason": "商式青铜鸮与竹节边纹，表现孤竹的殷商遗绪。",
-      "field": "brocade_roundel"
+      "reason": "殷墟卜辞称孤竹为“竹侯”，故直接以商代两枝垂叶的“竹”族徽为中央徽记。",
+      "field": "shang_inscription"
     },
     "HLD": {
       "name": "曷懒",
@@ -126,6 +127,16 @@
       "accent": "4e7580",
       "reason": "嘉绒碉楼立于横断山地。",
       "field": "quartered"
+    },
+    "JIZ": {
+      "name": "箕氏朝鲜",
+      "culture": "korean",
+      "motif": "shang_ji",
+      "bg": "2f5b66",
+      "ink": "e8daa4",
+      "accent": "a9753e",
+      "reason": "以商代甲骨文“箕”的簸箕格纹象形替代现代楷书“箕”，强调箕氏殷商遗绪。",
+      "field": "shang_inscription"
     },
     "LIL": {
       "name": "俚寮",
@@ -240,12 +251,12 @@
     "WUZ": {
       "name": "无终",
       "culture": "gdd_dongyi",
-      "motif": "black_bird",
+      "motif": "shang_wuzhong",
       "bg": "c58c42",
       "ink": "20272a",
       "accent": "eee0b7",
-      "reason": "玄鸟负日，呼应燕山以东的古老族源叙事。",
-      "field": "sunburst"
+      "reason": "依据中商无终戈的双字族氏铭文，以舞人形“無”和结绳终止形组合成高辨识度商式族徽。",
+      "field": "shang_inscription"
     },
     "WXG": {
       "name": "武兴",

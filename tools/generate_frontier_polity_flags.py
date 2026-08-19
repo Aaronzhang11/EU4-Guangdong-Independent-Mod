@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate deterministic EU4-style flags for non-Zhuxia frontier polities.
+"""Generate deterministic EU4-style flags for frontier and ritual polities.
 
 The B62 pass follows the visual grammar used by vanilla EU4 and the local
 "Celestial empire on which the sun never sets" reference mod: a strong field,
@@ -21,6 +21,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 from map_pipeline.apply_b57_changsha_khitan import liao_flag_bytes
+from shang_flag_emblems import render_shang_flag
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,11 +47,12 @@ DESIGNS = {
     "CZM": {"name": "辰州苗蛮", "culture": "miao", "motif": "bronze_drum", "bg": "7d294f", "ink": "e8c36a", "accent": "50a79a", "reason": "八芒铜鼓纹与苗疆织锦色。"},
     "DCH": {"name": "宕昌", "culture": "gdd_diqiang", "motif": "mountain_fort", "bg": "704b2f", "ink": "e5d2a0", "accent": "9f3c32", "reason": "层山上的石寨，表现宕昌羌的谷地堡寨。"},
     "DZH": {"name": "邓至", "culture": "gdd_diqiang", "motif": "twin_peaks", "bg": "4b6476", "ink": "e6dfc5", "accent": "d27b38", "reason": "双峰夹日，取邓至位于岷山交通孔道之意。"},
-    "GUZ": {"name": "孤竹", "culture": "gdd_dongyi", "motif": "bronze_owl", "bg": "5b4934", "ink": "d8b65d", "accent": "324f4b", "reason": "商式青铜鸮与竹节边纹，表现孤竹的殷商遗绪。"},
+    "GUZ": {"name": "孤竹", "culture": "gdd_dongyi", "motif": "shang_zhu", "bg": "5b4934", "ink": "d8b65d", "accent": "324f4b", "reason": "殷墟卜辞称孤竹为“竹侯”，故直接以商代两枝垂叶的“竹”族徽为中央徽记。"},
     "HLD": {"name": "曷懒", "culture": "manchu", "motif": "manchu_helan", "bg": "24513f", "ink": "f0cf5a", "accent": "132f27", "reason": "仿原版建州、海西女真旗的框式构图，以竖排满文“ᡥᡝᠯᠠᠨ”（Helan／曷懒）取代猎鹰图腾。"},
     "HLI": {"name": "黎", "culture": "gdd_qiongli", "motif": "sun_waves", "bg": "173c57", "ink": "e8b843", "accent": "63a96a", "reason": "黎锦式日轮、海浪与五指山色带。"},
     "HZH": {"name": "河州回回", "culture": "gdd_long", "motif": "caravan_star", "bg": "245348", "ink": "ead9a5", "accent": "b66a38", "reason": "八角星、河桥与商路门廊，表现河州回回的河湟商贸共同体。"},
     "JRG": {"name": "嘉绒", "culture": "tibetan", "motif": "stone_tower", "bg": "753b34", "ink": "e5d5b4", "accent": "4e7580", "reason": "嘉绒碉楼立于横断山地。"},
+    "JIZ": {"name": "箕氏朝鲜", "culture": "korean", "motif": "shang_ji", "bg": "2f5b66", "ink": "e8daa4", "accent": "a9753e", "reason": "以商代甲骨文“箕”的簸箕格纹象形替代现代楷书“箕”，强调箕氏殷商遗绪。"},
     "LIL": {"name": "俚寮", "culture": "gdd_zhuang", "motif": "bronze_drum", "bg": "315d4c", "ink": "dfbd63", "accent": "ad4e35", "reason": "岭南铜鼓与红土色，替代无图案的临时旗。"},
     "LIO": {"name": "辽", "culture": "gdd_khitan", "motif": "khitan_seal_original", "bg": "b89748", "ink": "273036", "accent": "273036", "reason": "恢复 B57 原旗：使用契丹大字九叠篆官印字形，研究资料将其视为可能表示辽或契丹国家专称的字符。"},
     "LSH": {"name": "凉山", "culture": "yi", "motif": "yi_liangshan_wordmark", "bg": "171b21", "ink": "e0b342", "accent": "ae3534", "reason": "以凉山本地自称“ꆀꃅ”（Nimu）为竖排彝文徽记，保留彝族传统黑、赤、金强对比色。"},
@@ -62,7 +64,7 @@ DESIGNS = {
     "WDU": {"name": "武都", "culture": "gdd_diqiang", "motif": "river_peak", "bg": "37566b", "ink": "e6d7ae", "accent": "4ea6a1", "reason": "白龙江穿行山谷，构成武都的地理徽记。"},
     "WGS": {"name": "汪古罗斯", "culture": "mongol", "motif": "ongud_nestorian_cross", "bg": "285c79", "ink": "e3c36d", "accent": "d9e3df", "reason": "使用元代内蒙古景教墓志常见的莲台十字，直接对应汪古部十三至十四世纪景教传统。"},
     "WLM": {"name": "武陵蛮", "culture": "miao", "motif": "sun_bird", "bg": "294f43", "ink": "e0bd58", "accent": "b84545", "reason": "武陵山神鸟与织锦菱纹。"},
-    "WUZ": {"name": "无终", "culture": "gdd_dongyi", "motif": "black_bird", "bg": "c58c42", "ink": "20272a", "accent": "eee0b7", "reason": "玄鸟负日，呼应燕山以东的古老族源叙事。"},
+    "WUZ": {"name": "无终", "culture": "gdd_dongyi", "motif": "shang_wuzhong", "bg": "c58c42", "ink": "20272a", "accent": "eee0b7", "reason": "依据中商无终戈的双字族氏铭文，以舞人形“無”和结绳终止形组合成高辨识度商式族徽。"},
     "WXG": {"name": "武兴", "culture": "gdd_diqiang", "motif": "mountain_gate", "bg": "4e6550", "ink": "e3d5ad", "accent": "ad5638", "reason": "三峰与关门，表现汉水上游山地要塞。"},
     "WXM": {"name": "五溪苗蛮", "culture": "miao", "motif": "five_streams", "bg": "216c68", "ink": "e6c15d", "accent": "173e66", "reason": "五道曲水织成苗锦式连续纹。"},
     "YEL": {"name": "夜郎", "culture": "yi", "motif": "yi_yelang_wordmark", "bg": "4b2768", "ink": "ebc24f", "accent": "58a07a", "reason": "采用彝语研究所释“yi-na”音形的规范彝文“ꑳꆅ”竖排，并以紫、金、绿保留夜郎的西南青铜感。"},
@@ -76,12 +78,12 @@ DESIGNS = {
 FIELDS = {
     "AMD": "quartered", "BD2": "serrated", "BMY": "tangut",
     "CZM": "textile_roundel", "DCH": "chevron", "DZH": "split",
-    "GUZ": "brocade_roundel", "HLD": "manchu_frame", "HLI": "horizontal",
-    "HZH": "arched", "JRG": "quartered", "KOR": "reference",
+    "GUZ": "shang_inscription", "HLD": "manchu_frame", "HLI": "horizontal",
+    "HZH": "arched", "JRG": "quartered", "JIZ": "shang_inscription", "KOR": "reference",
     "LIL": "textile_roundel", "LIO": "legacy_exact", "LSH": "vertical",
     "MDL": "plain_exact", "NUN": "saltire", "NZA": "sun_disc",
     "SHZ": "plain", "TZZ": "bordered", "WDU": "river",
-    "WGS": "roundel", "WLM": "sun_disc", "WUZ": "sunburst",
+    "WGS": "roundel", "WLM": "sun_disc", "WUZ": "shang_inscription",
     "WXG": "chevron", "WXM": "textile", "YEL": "roundel",
     "ZHI": "horizontal",
 }
@@ -571,6 +573,8 @@ def render_flag(tag: str, design: dict[str, str]) -> Image.Image:
         return mongolian_dali_flag()
 
     bg, ink, accent = (rgb(design[key]) for key in ("bg", "ink", "accent"))
+    if design["motif"].startswith("shang_"):
+        return render_shang_flag(tag, design["motif"].removeprefix("shang_"), bg, ink, accent)
     if design["motif"] == "manchu_helan":
         return manchu_helan_flag(bg, ink, accent)
 
@@ -619,7 +623,7 @@ def contact_sheet(rendered: dict[str, Image.Image]) -> Image.Image:
     sheet = Image.new("RGB", (columns * cell_w, rows * cell_h + 64), (31, 32, 35))
     draw = ImageDraw.Draw(sheet)
     title_font, label_font, small_font = font(28), font(20), font(14)
-    draw.text((24, 15), "B62 边疆与域外政权旗帜 · 原版纹章化修订", fill=(242, 236, 216), font=title_font)
+    draw.text((24, 15), "B62 边疆、域外与殷商遗绪旗帜 · 原版纹章化修订", fill=(242, 236, 216), font=title_font)
     for index, tag in enumerate(sorted(rendered)):
         x, y = (index % columns) * cell_w, (index // columns) * cell_h + 64
         sheet.paste(rendered[tag], (x + 14, y + 14))
@@ -664,7 +668,7 @@ def run(check: bool) -> None:
     manifest_target = OUTPUT / "batch_manifest.json"
     manifest = {
         "batch": "B62",
-        "policy": "vanilla-style non-Zhuxia frontier heraldry",
+        "policy": "vanilla-style frontier, external, and Shang-heritage heraldry",
         "references": {
             "style": ["EU4 1.37.5 vanilla flags", "Celestial empire on which the sun never sets (Workshop 1728520255)"],
             "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
@@ -676,6 +680,7 @@ def run(check: bool) -> None:
             "dunhuang_banner": "British Museum 1919,0101,0.120; 9th-century Cave 17 silk banner construction",
             "nanzhao": "899 Nanzhao Tuzhuan; Acuoye Guanyin as dynastic foundation image",
             "yi_wordmarks": "ꆀꃅ (Nimu, vernacular Liangshan) and ꑳꆅ (Yi-na, researched Yelang reading); fixed Noto Sans Yi masks",
+            "shang_inscriptions": "箕 oracle pictograph; 竹侯 oracle/bronze clan emblem; Middle Shang Wuzhong dagger compound clan inscription",
         },
         "flags": DESIGNS,
     }
