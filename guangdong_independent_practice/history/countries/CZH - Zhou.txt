@@ -26,3 +26,4 @@ fixed_capital = 688
                 claim = 100
 
 }
+}

@@ -1,0 +1,32 @@
+# 隐藏初始化事件只会在周国（CZH）作用域中通过，并按存档版本旗标只执行一次。
+# 初始化完成后，再由它为人类玩家安排可见的开局总览事件。
+on_startup = {
+    events = {
+        zhx_system.1
+    }
+}
+
+# 年度脉冲会把事件发给所有国家，但事件触发器只允许已登记的天子通过。
+# 因而每年实际只结算一次，不需要也不存在常驻的 while true 循环。
+on_yearly_pulse = {
+    events = {
+        zhx_system.10
+    }
+}
+
+# 战争结束时 ROOT 是胜方战争领袖，FROM 是败方战争领袖。
+# 只有周天下国家击败周天下以外的国家才奖励一次；诸侯内战和天子讨伐诸侯均不触发。
+on_war_ended = {
+    if = {
+        limit = {
+            has_global_flag = zhx_system_initialised_v4
+            zhx_is_tianxia_polity = yes
+            FROM = {
+                NOT = { zhx_is_tianxia_polity = yes }
+            }
+        }
+        event_target:zhx_tianzi = {
+            zhx_reward_external_war_victory = yes
+        }
+    }
+}

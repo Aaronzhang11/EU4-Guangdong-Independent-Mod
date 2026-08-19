@@ -624,9 +624,12 @@ lost_control_of_beijing = {
 	}
 
 	trigger = {
-		OR = {
-			NOT = { owns = 1816 }
-			NOT = { controls = 1816 }
+		NOT = {
+			1816 = {
+				controller = {
+					tag = ROOT
+				}
+			}
 		}
 	}
 
@@ -644,9 +647,12 @@ lost_control_of_nanjing = {
 	}
 
 	trigger = {
-		OR = {
-			NOT = { owns = 1821 }
-			NOT = { controls = 1821 }
+		NOT = {
+			1821 = {
+				controller = {
+					tag = ROOT
+				}
+			}
 		}
 	}
 
@@ -664,9 +670,12 @@ lost_control_of_canton = {
 	}
 
 	trigger = {
-		OR = {
-			NOT = { owns = 667 }
-			NOT = { controls = 667 }
+		NOT = {
+			667 = {
+				controller = {
+					tag = ROOT
+				}
+			}
 		}
 	}
 

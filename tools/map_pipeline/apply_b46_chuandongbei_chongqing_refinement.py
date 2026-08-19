@@ -18,9 +18,12 @@ from pathlib import Path
 import re
 import shutil
 import struct
+import sys
 
 import numpy as np
 from PIL import Image
+
+from country_name_pool_support import country_definition_bytes
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -456,14 +459,14 @@ def update_countries() -> None:
         text = re.sub(rf"(?m)^{tag}\s*=.*$\n?", "", text)
     text = text.rstrip() + '\nDQU = "countries/B46_Dangqu.txt"\nZHI = "countries/B46_Zhi.txt"\n'
     tags.write_text(text, encoding="cp1252")
-    (COUNTRIES / "B46_Dangqu.txt").write_text(
+    (COUNTRIES / "B46_Dangqu.txt").write_bytes(country_definition_bytes(
         "# B46 GeoJSON-guided northeast Sichuan polity.\ngraphical_culture = asiangfx\n\n"
-        "color = { 74 150 105 }\nrevolutionary_colors = { 3 6 4 }\n", encoding="cp1252"
-    )
-    (COUNTRIES / "B46_Zhi.txt").write_text(
+        "color = { 74 150 105 }\nrevolutionary_colors = { 3 6 4 }\n", "gdd_shu"
+    ))
+    (COUNTRIES / "B46_Zhi.txt").write_bytes(country_definition_bytes(
         "# B46 GeoJSON-guided Chongqing polity.\ngraphical_culture = asiangfx\n\n"
-        "color = { 161 86 151 }\nrevolutionary_colors = { 6 3 6 }\n", encoding="cp1252"
-    )
+        "color = { 161 86 151 }\nrevolutionary_colors = { 6 3 6 }\n", "miao"
+    ))
     (COUNTRY_HISTORY / "DQU - Dangqu.txt").write_text(
         "# B46 Dangqu polity.\ngovernment = monarchy\nadd_government_reform = feudalism_reform\n"
         "government_rank = 1\ntechnology_group = chinese\nreligion = confucianism\n"

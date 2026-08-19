@@ -1,0 +1,928 @@
+# 将 ROOT 设为唯一的天子，并刷新供后续规则与 GUI 使用的全局事件目标。
+# 天子身份只由周天下系统管理，刻意不依赖任何属国类型。
+zhx_set_tianzi = {
+    every_country = {
+        limit = {
+            has_country_flag = zhx_tianzi
+        }
+        clr_country_flag = zhx_tianzi
+    }
+    clr_country_flag = zhx_member
+    clr_country_flag = zhx_major_feudatory
+    clr_country_flag = zhx_ritual_tier_ordered
+    clr_country_flag = zhx_ritual_tier_stable
+    clr_country_flag = zhx_ritual_tier_balanced
+    clr_country_flag = zhx_ritual_tier_fractured
+    clr_country_flag = zhx_ritual_tier_collapsed
+    set_country_flag = zhx_tianzi
+    save_global_event_target_as = zhx_tianzi
+}
+
+# 只移除五个互斥的礼乐档位修正；已经通过的盟约等其他周天下修正会被保留。
+zhx_clear_ritual_order_modifier = {
+    remove_country_modifier = zhx_ritual_order_ordered
+    remove_country_modifier = zhx_ritual_order_stable
+    remove_country_modifier = zhx_ritual_order_balanced
+    remove_country_modifier = zhx_ritual_order_fractured
+    remove_country_modifier = zhx_ritual_order_collapsed
+}
+
+# 按天子当前礼乐值档位，把相应国家修正施加给 ROOT。
+# 初始化之后新加入周天下的国家也通过这个公共效果同步修正。
+zhx_apply_current_ritual_order_modifier = {
+    zhx_clear_ritual_order_modifier = yes
+
+    if = {
+        limit = {
+            event_target:zhx_tianzi = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 60
+                }
+            }
+        }
+        add_country_modifier = {
+            name = zhx_ritual_order_ordered
+            duration = -1
+        }
+    }
+    else_if = {
+        limit = {
+            event_target:zhx_tianzi = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 20
+                }
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = 60
+                    }
+                }
+            }
+        }
+        add_country_modifier = {
+            name = zhx_ritual_order_stable
+            duration = -1
+        }
+    }
+    else_if = {
+        limit = {
+            event_target:zhx_tianzi = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -20
+                }
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = 20
+                    }
+                }
+            }
+        }
+        add_country_modifier = {
+            name = zhx_ritual_order_balanced
+            duration = -1
+        }
+    }
+    else_if = {
+        limit = {
+            event_target:zhx_tianzi = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -60
+                }
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = -20
+                    }
+                }
+            }
+        }
+        add_country_modifier = {
+            name = zhx_ritual_order_fractured
+            duration = -1
+        }
+    }
+    else = {
+        add_country_modifier = {
+            name = zhx_ritual_order_collapsed
+            duration = -1
+        }
+    }
+
+    if = {
+        limit = {
+            has_global_flag = zhx_reform_reaffirmed_covenant
+            NOT = { has_country_modifier = zhx_reaffirmed_covenant_modifier }
+        }
+        add_country_modifier = {
+            name = zhx_reaffirmed_covenant_modifier
+            duration = -1
+        }
+    }
+}
+
+# 只在礼乐值跨越档位边界时重建成员修正，避免每年无意义地遍历所有国家。
+# 礼乐值本身连续取值 -100 到 100；静态玩法修正以 -60/-20/20/60 为界分成五档。
+zhx_refresh_ritual_order = {
+    if = {
+        limit = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 60
+            }
+            NOT = { has_country_flag = zhx_ritual_tier_ordered }
+        }
+        clr_country_flag = zhx_ritual_tier_stable
+        clr_country_flag = zhx_ritual_tier_balanced
+        clr_country_flag = zhx_ritual_tier_fractured
+        clr_country_flag = zhx_ritual_tier_collapsed
+        set_country_flag = zhx_ritual_tier_ordered
+        every_country = {
+            limit = { zhx_is_tianxia_polity = yes }
+            zhx_apply_current_ritual_order_modifier = yes
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 20
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 60
+                }
+            }
+            NOT = { has_country_flag = zhx_ritual_tier_stable }
+        }
+        clr_country_flag = zhx_ritual_tier_ordered
+        clr_country_flag = zhx_ritual_tier_balanced
+        clr_country_flag = zhx_ritual_tier_fractured
+        clr_country_flag = zhx_ritual_tier_collapsed
+        set_country_flag = zhx_ritual_tier_stable
+        every_country = {
+            limit = { zhx_is_tianxia_polity = yes }
+            zhx_apply_current_ritual_order_modifier = yes
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -20
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 20
+                }
+            }
+            NOT = { has_country_flag = zhx_ritual_tier_balanced }
+        }
+        clr_country_flag = zhx_ritual_tier_ordered
+        clr_country_flag = zhx_ritual_tier_stable
+        clr_country_flag = zhx_ritual_tier_fractured
+        clr_country_flag = zhx_ritual_tier_collapsed
+        set_country_flag = zhx_ritual_tier_balanced
+        every_country = {
+            limit = { zhx_is_tianxia_polity = yes }
+            zhx_apply_current_ritual_order_modifier = yes
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = -60
+            }
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -20
+                }
+            }
+            NOT = { has_country_flag = zhx_ritual_tier_fractured }
+        }
+        clr_country_flag = zhx_ritual_tier_ordered
+        clr_country_flag = zhx_ritual_tier_stable
+        clr_country_flag = zhx_ritual_tier_balanced
+        clr_country_flag = zhx_ritual_tier_collapsed
+        set_country_flag = zhx_ritual_tier_fractured
+        every_country = {
+            limit = { zhx_is_tianxia_polity = yes }
+            zhx_apply_current_ritual_order_modifier = yes
+        }
+    }
+    else_if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -60
+                }
+            }
+            NOT = { has_country_flag = zhx_ritual_tier_collapsed }
+        }
+        clr_country_flag = zhx_ritual_tier_ordered
+        clr_country_flag = zhx_ritual_tier_stable
+        clr_country_flag = zhx_ritual_tier_balanced
+        clr_country_flag = zhx_ritual_tier_fractured
+        set_country_flag = zhx_ritual_tier_collapsed
+        every_country = {
+            limit = { zhx_is_tianxia_polity = yes }
+            zhx_apply_current_ritual_order_modifier = yes
+        }
+    }
+}
+
+zhx_clamp_ritual_authority = {
+    if = {
+        limit = {
+            check_variable = {
+                which = zhx_ritual_authority
+                value = 100
+            }
+        }
+        set_variable = {
+            which = zhx_ritual_authority
+            value = 100
+        }
+    }
+    else_if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -100
+                }
+            }
+        }
+        set_variable = {
+            which = zhx_ritual_authority
+            value = -100
+        }
+    }
+}
+
+zhx_clamp_merit = {
+    if = {
+        limit = {
+            check_variable = {
+                which = zhx_merit
+                value = 100
+            }
+        }
+        set_variable = {
+            which = zhx_merit
+            value = 100
+        }
+    }
+    else_if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_merit
+                    value = 0
+                }
+            }
+        }
+        set_variable = {
+            which = zhx_merit
+            value = 0
+        }
+    }
+}
+
+# 统计当前仍在进行的诸侯内战，并把结果缓存到天子变量中。
+# 外层国家是进攻方战争领袖，内层国家是防守方战争领袖；双方都必须是诸侯。
+# 因此天子主动攻击诸侯、诸侯对外战争以及仅作为盟友参战都不会被误算为诸侯内战。
+zhx_refresh_internal_war_count = {
+    set_variable = {
+        which = zhx_internal_war_count_cache
+        value = 0
+    }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_member = yes
+            is_at_war = yes
+        }
+        every_country = {
+            limit = {
+                exists = yes
+                zhx_is_tianxia_member = yes
+                defensive_war_with = PREV
+                is_in_war = {
+                    attacker_leader = PREV
+                    defender_leader = THIS
+                }
+            }
+            event_target:zhx_tianzi = {
+                change_variable = {
+                    which = zhx_internal_war_count_cache
+                    value = 1
+                }
+            }
+        }
+    }
+}
+
+# 周天下国家作为战争胜方击败周天下以外的战争领袖时，由天子统一获得一次 +5 礼乐值。
+# 此效果只负责改变共享状态；胜负与内外之别由 on_war_ended 的 ROOT/FROM 作用域判断。
+zhx_reward_external_war_victory = {
+    change_variable = {
+        which = zhx_ritual_authority
+        value = 5
+    }
+    zhx_clamp_ritual_authority = yes
+    zhx_refresh_ritual_order = yes
+}
+
+# 清除 ROOT 的旧票，并同步修正天子侧的展示计数。
+# 所有投票入口都先调用它，因而同一诸侯改票时不会制造重复票。
+zhx_clear_current_ritual_breakdown_vote = {
+    if = {
+        limit = { has_country_flag = zhx_incident_vote_support }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_incident_support_count
+                value = -1
+            }
+        }
+    }
+    if = {
+        limit = { has_country_flag = zhx_incident_vote_oppose }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_incident_oppose_count
+                value = -1
+            }
+        }
+    }
+    clr_country_flag = zhx_incident_vote_support
+    clr_country_flag = zhx_incident_vote_oppose
+    clr_country_flag = zhx_incident_vote_abstain
+    # 兼容旧版事变留下的旗标。
+    clr_country_flag = zhx_incident_supporter
+}
+
+zhx_cast_ritual_breakdown_support_vote = {
+    zhx_clear_current_ritual_breakdown_vote = yes
+    set_country_flag = zhx_incident_vote_support
+    event_target:zhx_tianzi = {
+        change_variable = {
+            which = zhx_incident_support_count
+            value = 1
+        }
+    }
+}
+
+zhx_cast_ritual_breakdown_oppose_vote = {
+    zhx_clear_current_ritual_breakdown_vote = yes
+    set_country_flag = zhx_incident_vote_oppose
+    event_target:zhx_tianzi = {
+        change_variable = {
+            which = zhx_incident_oppose_count
+            value = 1
+        }
+    }
+}
+
+zhx_cast_ritual_breakdown_abstain_vote = {
+    zhx_clear_current_ritual_breakdown_vote = yes
+    set_country_flag = zhx_incident_vote_abstain
+}
+
+# 开始或迁移事变时的硬重置。计数是 GUI 缓存，成员国家上的票旗标才是真源。
+zhx_reset_ritual_breakdown_incident_votes = {
+    set_variable = {
+        which = zhx_incident_support_count
+        value = 0
+    }
+    set_variable = {
+        which = zhx_incident_oppose_count
+        value = 0
+    }
+    set_variable = {
+        which = zhx_incident_vote_balance
+        value = 0
+    }
+    every_country = {
+        limit = {
+            OR = {
+                has_country_flag = zhx_incident_vote_support
+                has_country_flag = zhx_incident_vote_oppose
+                has_country_flag = zhx_incident_vote_abstain
+                has_country_flag = zhx_incident_supporter
+            }
+        }
+        clr_country_flag = zhx_incident_vote_support
+        clr_country_flag = zhx_incident_vote_oppose
+        clr_country_flag = zhx_incident_vote_abstain
+        clr_country_flag = zhx_incident_supporter
+    }
+}
+
+# 结算前按“仍是成员且仍然存在”的国家重新点票。
+# vote_balance = 赞同票 - 反对票；至少为 1 才表示赞同方严格胜出。
+zhx_recount_ritual_breakdown_incident_votes = {
+    set_variable = {
+        which = zhx_incident_support_count
+        value = 0
+    }
+    set_variable = {
+        which = zhx_incident_oppose_count
+        value = 0
+    }
+    set_variable = {
+        which = zhx_incident_vote_balance
+        value = 0
+    }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_member = yes
+            has_country_flag = zhx_incident_vote_support
+        }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_incident_support_count
+                value = 1
+            }
+            change_variable = {
+                which = zhx_incident_vote_balance
+                value = 1
+            }
+        }
+    }
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_member = yes
+            has_country_flag = zhx_incident_vote_oppose
+        }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_incident_oppose_count
+                value = 1
+            }
+            change_variable = {
+                which = zhx_incident_vote_balance
+                value = -1
+            }
+        }
+    }
+}
+
+# 两种结果共享同一个收尾入口：先结束活动状态，再启动五年同类事变冷却，
+# 最后清除所有票旗标及展示缓存。已经排入队列的重复结算事件会因 trigger 失败而无效。
+zhx_finish_ritual_breakdown_incident = {
+    clr_country_flag = zhx_ritual_breakdown_incident_active
+    add_country_modifier = {
+        name = zhx_ritual_breakdown_incident_cooldown
+        duration = 1825
+    }
+    zhx_reset_ritual_breakdown_incident_votes = yes
+}
+
+# 礼乐值的低频年度结算，只在天子作用域中每年执行一次。
+# 第一版使用少量、整数且便于玩家理解的因素；专属战争目标暂不产生额外影响。
+zhx_yearly_ritual_authority_tick = {
+    # 时间流逝会缓慢恢复礼制：固定每年 +1。
+    change_variable = { which = zhx_ritual_authority value = 1 }
+
+    # 每年重算一次内战数量，不建立每日或每月轮询。
+    zhx_refresh_internal_war_count = yes
+
+    # 第一版“天下无战事”包括对外战争：所有周天下国家都未参战时额外 +2。
+    if = {
+        limit = { zhx_tianxia_is_at_peace = yes }
+        change_variable = { which = zhx_ritual_authority value = 2 }
+    }
+
+    # 诸侯内战按规模分档：1—2场 -1，3—5场 -2，6场及以上 -3。
+    # Clausewitz 的 check_variable 是“至少达到该值”，所以必须从最高档向下判断。
+    if = {
+        limit = {
+            check_variable = {
+                which = zhx_internal_war_count_cache
+                value = 6
+            }
+        }
+        change_variable = { which = zhx_ritual_authority value = -3 }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_internal_war_count_cache
+                value = 3
+            }
+        }
+        change_variable = { which = zhx_ritual_authority value = -2 }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_internal_war_count_cache
+                value = 1
+            }
+        }
+        change_variable = { which = zhx_ritual_authority value = -1 }
+    }
+
+    # Clausewitz 的数值触发器是下限判断：stability = 1 表示稳定度 >= 1。
+    # NOT = { stability = 0 } 因而表示稳定度 < 0。
+    if = {
+        limit = { stability = 1 }
+        change_variable = { which = zhx_ritual_authority value = 1 }
+    }
+    else_if = {
+        limit = { NOT = { stability = 0 } }
+        change_variable = { which = zhx_ritual_authority value = -2 }
+    }
+
+    # 同理，prestige = 50 表示威望 >= 50；NOT prestige = -25 表示威望 < -25。
+    if = {
+        limit = { prestige = 50 }
+        change_variable = { which = zhx_ritual_authority value = 1 }
+    }
+    else_if = {
+        limit = { NOT = { prestige = -25 } }
+        change_variable = { which = zhx_ritual_authority value = -1 }
+    }
+
+    # 天子的厌战度达到 5 时，每年额外 -1。
+    if = {
+        limit = { war_exhaustion = 5 }
+        change_variable = { which = zhx_ritual_authority value = -1 }
+    }
+
+    # 进入 capital_scope 后当前作用域变为首都省份，但 ROOT 仍指向外层的天子国家。
+    # 首都不受天子本人控制时，每年额外 -5。
+    if = {
+        limit = {
+            capital_scope = {
+                NOT = { controlled_by = ROOT }
+            }
+        }
+        change_variable = { which = zhx_ritual_authority value = -5 }
+    }
+
+    # 先把礼乐值钳制在 -100..100，再根据最终数值刷新档位旗标、成员修正和 GUI 状态。
+    zhx_clamp_ritual_authority = yes
+    zhx_refresh_ritual_order = yes
+
+    # 礼乐值跌破 -50，且当前没有正在进行或处于冷却期的同类事变时，触发“王命不行”。
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -50
+                }
+            }
+            NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+            NOT = { has_country_modifier = zhx_ritual_breakdown_incident_cooldown }
+        }
+        country_event = { id = zhx_system.20 }
+    }
+}
+
+# 把 ROOT 登记为正式诸侯。成员国家自身的 zhx_member 旗标是唯一真相；
+# 天子保存的成员数量只是可随时重建的 GUI/显示缓存。
+zhx_register_tianxia_member = {
+    if = {
+        limit = {
+            exists = yes
+            NOT = { has_country_flag = zhx_tianzi }
+            NOT = { has_country_flag = zhx_member }
+        }
+        set_country_flag = zhx_member
+        set_variable = {
+            which = zhx_merit
+            value = 0
+        }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_member_count_cache
+                value = 1
+            }
+        }
+        zhx_apply_current_ritual_order_modifier = yes
+        if = {
+            limit = { has_global_flag = zhx_gui_roster_initialised }
+            event_target:zhx_tianzi = {
+                zhx_build_gui_roster = yes
+            }
+        }
+    }
+}
+
+zhx_register_major_feudatory = {
+    if = {
+        limit = {
+            exists = yes
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+        zhx_register_tianxia_member = yes
+        set_country_flag = zhx_major_feudatory
+    }
+}
+
+zhx_remove_tianxia_member = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = zhx_incident_vote_support
+                has_country_flag = zhx_incident_vote_oppose
+                has_country_flag = zhx_incident_vote_abstain
+            }
+        }
+        zhx_clear_current_ritual_breakdown_vote = yes
+    }
+    if = {
+        limit = {
+            has_country_flag = zhx_member
+        }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_member_count_cache
+                value = -1
+            }
+        }
+    }
+    clr_country_flag = zhx_member
+    clr_country_flag = zhx_major_feudatory
+    clr_country_flag = zhx_incident_supporter
+    set_variable = {
+        which = zhx_merit
+        value = 0
+    }
+    zhx_clear_ritual_order_modifier = yes
+    remove_country_modifier = zhx_reaffirmed_covenant_modifier
+    if = {
+        limit = { has_global_flag = zhx_gui_roster_initialised }
+        event_target:zhx_tianzi = {
+            zhx_build_gui_roster = yes
+        }
+    }
+}
+
+# 在存档迁移、控制台改动或未来天子更替后修复成员数量缓存。
+# 这是修复工具，不应作为每月或每日循环使用。
+zhx_rebuild_tianxia_member_cache = {
+    event_target:zhx_tianzi = {
+        set_variable = {
+            which = zhx_member_count_cache
+            value = 0
+        }
+    }
+    every_country = {
+        limit = {
+            has_country_flag = zhx_member
+        }
+        event_target:zhx_tianzi = {
+            change_variable = {
+                which = zhx_member_count_cache
+                value = 1
+            }
+        }
+    }
+}
+
+# 将早期只有身份登记的旧存档迁移到 v3：保留既有成员旗标，建立礼乐状态，
+# 最后只重建可派生的计数缓存与国家修正。
+zhx_migrate_tianxia_system_v2_to_v3 = {
+    CZH = {
+        zhx_set_tianzi = yes
+        set_variable = {
+            which = zhx_ritual_authority
+            value = 50
+        }
+        set_variable = {
+            which = zhx_incident_support_count
+            value = 0
+        }
+    }
+
+    every_country = {
+        limit = { has_country_flag = zhx_member }
+        set_variable = {
+            which = zhx_merit
+            value = 0
+        }
+    }
+
+    zhx_rebuild_tianxia_member_cache = yes
+    CZH = { zhx_refresh_ritual_order = yes }
+    set_global_flag = zhx_system_initialised_v3
+
+    every_country = {
+        limit = {
+            exists = yes
+            ai = no
+        }
+        clr_country_flag = zhx_startup_overview_seen
+        country_event = { id = zhx_system.2 }
+    }
+}
+
+# 将 v3 旧存档的 0..100 礼乐值线性迁移到对称的 -100..100 轴。
+# 旧边界 20/40/60/80 会准确对应到新边界 -60/-20/20/60。
+zhx_migrate_tianxia_system_v3_to_v4 = {
+    CZH = {
+        multiply_variable = {
+            which = zhx_ritual_authority
+            value = 2
+        }
+        change_variable = {
+            which = zhx_ritual_authority
+            value = -100
+        }
+        clr_country_flag = zhx_ritual_tier_ordered
+        clr_country_flag = zhx_ritual_tier_stable
+        clr_country_flag = zhx_ritual_tier_balanced
+        clr_country_flag = zhx_ritual_tier_fractured
+        clr_country_flag = zhx_ritual_tier_collapsed
+        zhx_clamp_ritual_authority = yes
+        zhx_refresh_ritual_order = yes
+    }
+    set_global_flag = zhx_system_initialised_v4
+}
+
+# 把以延安为首都的义渠（YOU）补入已有存档，而不从头重建整个成员表。
+# 公共登记效果会同时刷新成员计数、礼乐修正和 GUI 盾徽名册。
+zhx_migrate_tianxia_system_v4_to_v5 = {
+    if = {
+        limit = {
+            YOU = {
+                exists = yes
+                NOT = { has_country_flag = zhx_tianzi }
+                NOT = { has_country_flag = zhx_member }
+            }
+        }
+        YOU = { zhx_register_tianxia_member = yes }
+    }
+    set_global_flag = zhx_system_initialised_v5
+}
+
+# v6 把旧版“立即投票、30 天结算”的事变迁移为一年期公议。
+# 旧版已经排队的结算事件无法从队列中删除，因此先关闭活动旗标；
+# 它日后触发时会因事件 trigger 不成立而自动失效。
+zhx_migrate_tianxia_system_v5_to_v6 = {
+    CZH = {
+        clr_country_flag = zhx_ritual_breakdown_incident_active
+        remove_country_modifier = zhx_ritual_breakdown_incident_cooldown
+        zhx_reset_ritual_breakdown_incident_votes = yes
+    }
+    set_global_flag = zhx_system_initialised_v6
+}
+
+# 第一版政治成员表使用明确 TAG 清单，避免文化转变、征服或政体改变悄悄重写天下秩序。
+# 名单包含 1444 年所有非少数民族诸夏国家、安南、辽、箕子朝鲜，
+# 以及明确纳入的延安义渠（YOU）。南部高丽（KOR）仍是周天下之外的本土政权。
+# 甘州（GZH）与其他被排除的少数民族政权不会进入周天下。
+zhx_initialise_tianxia_system = {
+    CZH = {
+        zhx_set_tianzi = yes
+        set_variable = {
+            which = zhx_ritual_authority
+            value = 50
+        }
+        set_variable = {
+            which = zhx_member_count_cache
+            value = 0
+        }
+        set_variable = {
+            which = zhx_incident_support_count
+            value = 0
+        }
+        set_variable = {
+            which = zhx_incident_oppose_count
+            value = 0
+        }
+        set_variable = {
+            which = zhx_incident_vote_balance
+            value = 0
+        }
+    }
+
+    # 这是最小内核唯一的一次全世界扫描：只在开局执行，随后把身份保存为各国旗标。
+    every_country = {
+        limit = {
+            OR = {
+                tag = BAA
+                tag = CAG
+                tag = CAI
+                tag = CCH
+                tag = CDE
+                tag = CHC
+                tag = CHN
+                tag = CSA
+                tag = CZC
+                tag = DAE
+                tag = DAI
+                tag = DIA
+                tag = DQU
+                tag = EGU
+                tag = GDD
+                tag = GON
+                tag = GUI
+                tag = GUN
+                tag = GUO
+                tag = GUZ
+                tag = GYA
+                tag = HAK
+                tag = HNG
+                tag = HUA
+                tag = HYA
+                tag = HYM
+                tag = JJG
+                tag = JIZ
+                tag = JUU
+                tag = LCH
+                tag = LIO
+                tag = LIU
+                tag = LUO
+                tag = LUU
+                tag = MIN
+                tag = MNG
+                tag = NCH
+                tag = OUE
+                tag = QIC
+                tag = QIN
+                tag = QSH
+                tag = QVN
+                tag = QWO
+                tag = SHE
+                tag = SHU
+                tag = SNG
+                tag = SUI
+                tag = TSF
+                tag = WEI
+                tag = WHU
+                tag = WUU
+                tag = WUZ
+                tag = WVG
+                tag = XU2
+                tag = YAN
+                tag = YOU
+                tag = YPG
+                tag = YUE
+                tag = ZHA
+                tag = ZHG
+                tag = ZHO
+                tag = ZHU
+                tag = ZNG
+                tag = ZSH
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    tag = QIN
+                    tag = YAN
+                    tag = QIC
+                    tag = CHC
+                    tag = SHU
+                    tag = BAA
+                    tag = WUU
+                    tag = YUE
+                    tag = MIN
+                    tag = GDD
+                    tag = DAI
+                    tag = LIO
+                }
+            }
+            zhx_register_major_feudatory = yes
+        }
+        else = {
+            zhx_register_tianxia_member = yes
+        }
+    }
+
+    zhx_rebuild_tianxia_member_cache = yes
+    CZH = { zhx_refresh_ritual_order = yes }
+    clr_global_flag = zhx_system_initialised_v1
+    clr_global_flag = zhx_system_initialised_v2
+    set_global_flag = zhx_system_initialised_v3
+
+    # 每个人类玩家各收到一次开局总览；单人游戏中恰好只弹一次。
+    every_country = {
+        limit = {
+            exists = yes
+            ai = no
+            NOT = { has_country_flag = zhx_startup_overview_seen }
+        }
+        country_event = {
+            id = zhx_system.2
+        }
+    }
+}

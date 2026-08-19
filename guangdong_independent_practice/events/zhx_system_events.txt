@@ -1,0 +1,428 @@
+namespace = zhx_system
+
+# 隐藏的初始化入口。固定由 CZH 承载，使后续代码拥有稳定的国家锚点，
+# 不必为了寻找天子而进行每日或每月的全世界扫描。
+country_event = {
+    id = zhx_system.1
+    title = zhx_system.1.t
+    desc = zhx_system.1.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = CZH
+        exists = yes
+        OR = {
+            NOT = { has_global_flag = zhx_system_initialised_v3 }
+            NOT = { has_global_flag = zhx_system_initialised_v4 }
+            NOT = { has_global_flag = zhx_system_initialised_v5 }
+            NOT = { has_global_flag = zhx_system_initialised_v6 }
+            NOT = { has_global_flag = zhx_gui_roster_initialised }
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v3 }
+            }
+            if = {
+                limit = { has_global_flag = zhx_system_initialised_v2 }
+                zhx_migrate_tianxia_system_v2_to_v3 = yes
+            }
+            else = {
+                zhx_initialise_tianxia_system = yes
+            }
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v4 }
+            }
+            zhx_migrate_tianxia_system_v3_to_v4 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v5 }
+            }
+            zhx_migrate_tianxia_system_v4_to_v5 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v6 }
+            }
+            zhx_migrate_tianxia_system_v5_to_v6 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_gui_roster_initialised }
+            }
+            zhx_build_gui_roster = yes
+        }
+    }
+
+    option = {
+        name = OK
+    }
+}
+
+# 玩家可见的首次系统说明。这个事件不保存状态，只读取隐藏初始化器写入的旗标。
+country_event = {
+    id = zhx_system.2
+    title = zhx_system.2.t
+    desc = zhx_system.2.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        has_global_flag = zhx_system_initialised_v4
+        NOT = { has_country_flag = zhx_startup_overview_seen }
+    }
+
+    immediate = {
+        set_country_flag = zhx_startup_overview_seen
+    }
+
+    option = {
+        name = zhx_system.2.a
+    }
+}
+
+# 只读总览。五段条件描述是专属 GUI 不可用时的事件式后备显示。
+country_event = {
+    id = zhx_system.3
+    title = zhx_system.3.t
+    desc = {
+        trigger = {
+            CZH = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 60
+                }
+            }
+        }
+        desc = zhx_system.3.d.ordered
+    }
+    desc = {
+        trigger = {
+            CZH = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = 20
+                }
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = 60
+                    }
+                }
+            }
+        }
+        desc = zhx_system.3.d.stable
+    }
+    desc = {
+        trigger = {
+            CZH = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -20
+                }
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = 20
+                    }
+                }
+            }
+        }
+        desc = zhx_system.3.d.balanced
+    }
+    desc = {
+        trigger = {
+            CZH = {
+                check_variable = {
+                    which = zhx_ritual_authority
+                    value = -60
+                }
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = -20
+                    }
+                }
+            }
+        }
+        desc = zhx_system.3.d.fractured
+    }
+    desc = {
+        trigger = {
+            CZH = {
+                NOT = {
+                    check_variable = {
+                        which = zhx_ritual_authority
+                        value = -60
+                    }
+                }
+            }
+        }
+        desc = zhx_system.3.d.collapsed
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = zhx_system.3.a
+    }
+}
+
+country_event = {
+    id = zhx_system.4
+    title = zhx_system.4.t
+    desc = zhx_system.4.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = { zhx_is_tianzi = yes }
+
+    option = {
+        name = zhx_system.4.a
+    }
+}
+
+country_event = {
+    id = zhx_system.5
+    title = zhx_system.5.t
+    desc = zhx_system.5.d
+    picture = DIPLOMACY_eventPicture
+    major = yes
+    is_triggered_only = yes
+
+    trigger = { zhx_is_tianzi = yes }
+
+    option = {
+        name = zhx_system.5.a
+    }
+}
+
+# 年度状态结算。on_yearly_pulse 会向所有国家调用此事件，
+# 但触发器只放行已经登记的天子，因此全局每年只会真正结算一次。
+country_event = {
+    id = zhx_system.10
+    title = zhx_system.10.t
+    desc = zhx_system.10.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_global_flag = zhx_system_initialised_v4
+        zhx_is_tianzi = yes
+    }
+
+    immediate = {
+        zhx_yearly_ritual_authority_tick = yes
+        # 低频修复：处理吞并、TAG 变化或外部脚本绕过公共登记接口造成的名册偏差。
+        zhx_build_gui_roster = yes
+    }
+
+    option = { name = OK }
+}
+
+# 天下事变原型：复现原版帝国事变“先议论、后裁断”的生命周期，
+# 但不尝试创建第二个硬编码帝国容器。延迟事件会被写入存档，
+# 因而无需每日轮询，也不会因为读档而丢失一年后的结算。
+country_event = {
+    id = zhx_system.20
+    title = zhx_system.20.t
+    desc = zhx_system.20.d
+    picture = DIPLOMACY_eventPicture
+    major = yes
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_tianzi = yes
+        NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        NOT = { has_country_modifier = zhx_ritual_breakdown_incident_cooldown }
+    }
+
+    immediate = {
+        hidden_effect = {
+            # 新一轮公议开始前清理旧票，防止中途升级模组或异常结束留下脏状态。
+            zhx_reset_ritual_breakdown_incident_votes = yes
+            set_country_flag = zhx_ritual_breakdown_incident_active
+        }
+    }
+
+    option = {
+        name = zhx_system.20.a
+        custom_tooltip = zhx_system.20.a.tt
+        hidden_effect = {
+            # 所有当前诸侯收到一张选票；AI 会立即表态，人类玩家可以在一年内改票。
+            every_country = {
+                limit = { zhx_is_tianxia_member = yes }
+                country_event = { id = zhx_system.21 }
+            }
+
+            # 365 天后重新扫描仍然存在的成员及其最终票，不信任过程计数缓存。
+            country_event = {
+                id = zhx_system.22
+                days = 365
+            }
+        }
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = {
+    id = zhx_system.21
+    title = zhx_system.21.t
+    desc = zhx_system.21.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_tianxia_member = yes
+        event_target:zhx_tianzi = {
+            has_country_flag = zhx_ritual_breakdown_incident_active
+        }
+    }
+
+    option = {
+        name = zhx_system.21.a
+        custom_tooltip = zhx_system.21.a.tt
+        hidden_effect = {
+            zhx_cast_ritual_breakdown_support_vote = yes
+        }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 2
+                stability = 1
+                is_in_deficit = no
+            }
+            modifier = {
+                factor = 0.5
+                is_at_war = yes
+            }
+            modifier = {
+                factor = 0.5
+                event_target:zhx_tianzi = { is_rival = ROOT }
+            }
+        }
+    }
+
+    option = {
+        name = zhx_system.21.b
+        custom_tooltip = zhx_system.21.b.tt
+        hidden_effect = {
+            zhx_cast_ritual_breakdown_abstain_vote = yes
+        }
+        ai_chance = { factor = 30 }
+    }
+
+    option = {
+        name = zhx_system.21.c
+        custom_tooltip = zhx_system.21.c.tt
+        hidden_effect = {
+            zhx_cast_ritual_breakdown_oppose_vote = yes
+        }
+        ai_chance = {
+            factor = 20
+            modifier = {
+                factor = 2
+                is_at_war = yes
+            }
+            modifier = {
+                factor = 4
+                event_target:zhx_tianzi = { is_rival = ROOT }
+            }
+            modifier = {
+                factor = 2
+                NOT = { stability = 0 }
+            }
+        }
+    }
+}
+
+country_event = {
+    id = zhx_system.22
+    title = zhx_system.22.t
+    desc = {
+        trigger = {
+            check_variable = {
+                which = zhx_incident_vote_balance
+                value = 1
+            }
+        }
+        desc = zhx_system.22.d.success
+    }
+    desc = {
+        trigger = {
+            NOT = {
+                check_variable = {
+                    which = zhx_incident_vote_balance
+                    value = 1
+                }
+            }
+        }
+        desc = zhx_system.22.d.failure
+    }
+    picture = DIPLOMACY_eventPicture
+    major = yes
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_tianzi = yes
+        has_country_flag = zhx_ritual_breakdown_incident_active
+    }
+
+    immediate = {
+        hidden_effect = {
+            # 成员可能在公议期间被吞并、退出或加入，因此结算前以旗标真源重新点票。
+            zhx_recount_ritual_breakdown_incident_votes = yes
+        }
+    }
+
+    option = {
+        name = zhx_system.22.a
+        trigger = {
+            check_variable = {
+                which = zhx_incident_vote_balance
+                value = 1
+            }
+        }
+        add_prestige = 10
+        change_variable = {
+            which = zhx_ritual_authority
+            value = 10
+        }
+        hidden_effect = {
+            zhx_finish_ritual_breakdown_incident = yes
+        }
+        zhx_clamp_ritual_authority = yes
+        zhx_refresh_ritual_order = yes
+    }
+
+    option = {
+        name = zhx_system.22.b
+        trigger = {
+            NOT = {
+                check_variable = {
+                    which = zhx_incident_vote_balance
+                    value = 1
+                }
+            }
+        }
+        add_prestige = -10
+        change_variable = {
+            which = zhx_ritual_authority
+            value = -5
+        }
+        hidden_effect = {
+            zhx_finish_ritual_breakdown_incident = yes
+        }
+        zhx_clamp_ritual_authority = yes
+        zhx_refresh_ritual_order = yes
+    }
+}
