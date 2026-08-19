@@ -1,26 +1,33 @@
 #!/usr/bin/env python3
-"""Generate deterministic heraldic flags for non-Zhuxia frontier polities.
+"""Generate deterministic EU4-style flags for non-Zhuxia frontier polities.
 
-The designs deliberately avoid the small-seal-script visual language used by
-Zhuxia states.  Every emblem is built from broad geometric shapes so it remains
-legible in EU4's shield-sized presentation.
+The B62 pass follows the visual grammar used by vanilla EU4 and the local
+"Celestial empire on which the sun never sets" reference mod: a strong field,
+one historically grounded central device, and enough internal detail to read
+as heraldry rather than a modern flat icon.  All flags remain legible after
+EU4 masks them into small shields.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import math
+import random
 import re
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / "guangdong_independent_practice"
 FLAGS = MOD / "gfx/flags"
 HISTORY = MOD / "history/countries"
-OUTPUT = ROOT / "planning/frontier_polity_flags_b61"
+OUTPUT = ROOT / "planning/frontier_polity_flags_b62"
+ASSETS = ROOT / "tools/assets/frontier_flags"
+GORYEO_REFERENCE = ASSETS / "goryeo_phoenix_reference.png"
+TANGUT_XIA_MASK = ASSETS / "tangut_xia_u17d32_mask.png"
 SCALE = 4
 SIZE = 128
 
@@ -28,7 +35,7 @@ SIZE = 128
 DESIGNS = {
     "AMD": {"name": "安多果洛", "culture": "tibetan", "motif": "snow_peak", "bg": "633b73", "ink": "f2e7cf", "accent": "d89b35", "reason": "雪山、日轮与高原紫，表现果洛部落和安多高地。"},
     "BD2": {"name": "巴氐", "culture": "gdd_diqiang", "motif": "ram", "bg": "355f68", "ink": "ead8b4", "accent": "ba6236", "reason": "盘羊角与山口，强调氐羌山地联盟。"},
-    "BMY": {"name": "白马弥药", "culture": "gdd_diqiang", "motif": "white_horse", "bg": "274b45", "ink": "f1ead7", "accent": "c7513f", "reason": "白马图腾配红色额饰，对应白马部传统。"},
+    "BMY": {"name": "白马弥药", "culture": "gdd_diqiang", "motif": "tangut_xia", "bg": "f0bd32", "ink": "17140f", "accent": "a62f2b", "reason": "党项弥药政权以西夏文“𗴲”（夏，U+17D32）为国徽，使用西夏常见的金、黑、赤强对比。"},
     "CZM": {"name": "辰州苗蛮", "culture": "miao", "motif": "bronze_drum", "bg": "7d294f", "ink": "e8c36a", "accent": "50a79a", "reason": "八芒铜鼓纹与苗疆织锦色。"},
     "DCH": {"name": "宕昌", "culture": "gdd_diqiang", "motif": "mountain_fort", "bg": "704b2f", "ink": "e5d2a0", "accent": "9f3c32", "reason": "层山上的石寨，表现宕昌羌的谷地堡寨。"},
     "DZH": {"name": "邓至", "culture": "gdd_diqiang", "motif": "twin_peaks", "bg": "4b6476", "ink": "e6dfc5", "accent": "d27b38", "reason": "双峰夹日，取邓至位于岷山交通孔道之意。"},
@@ -53,12 +60,39 @@ DESIGNS = {
     "WXM": {"name": "五溪苗蛮", "culture": "miao", "motif": "five_streams", "bg": "216c68", "ink": "e6c15d", "accent": "173e66", "reason": "五道曲水织成苗锦式连续纹。"},
     "YEL": {"name": "夜郎", "culture": "yi", "motif": "sun_serpent", "bg": "4b2768", "ink": "ebc24f", "accent": "58a07a", "reason": "日轮与盘蛇取西南青铜器动物纹意象。"},
     "ZHI": {"name": "枳", "culture": "miao", "motif": "river_fort", "bg": "74315d", "ink": "ead39a", "accent": "4fa69a", "reason": "江峡、城门和巴地织纹组合。"},
-    "KOR": {"name": "高丽", "culture": "gdd_samhan", "motif": "goryeo", "bg": "497d72", "ink": "e7e2c9", "accent": "b34b43", "reason": "青瓷绿、三峰、海浪与日轮，避免直接套用近现代太极旗。"},
+    "KOR": {"name": "高丽", "culture": "gdd_samhan", "motif": "goryeo_phoenix", "bg": "f8d98d", "ink": "202229", "accent": "426764", "reason": "直接采用用户参考图中的凤凰主体，以高丽青瓷绿、朱红和绢黄金构成宫廷纹样。"},
 }
+
+
+# 旗面结构刻意轮换，避免二十八国都落入“底色 + 白框 + 扁平图标”的
+# 现代徽标模板。结构只负责底纹，中央徽记仍由各国的历史设定决定。
+FIELDS = {
+    "AMD": "quartered", "BD2": "serrated", "BMY": "tangut",
+    "CZM": "textile_roundel", "DCH": "chevron", "DZH": "split",
+    "GUZ": "brocade_roundel", "HLD": "sun_disc", "HLI": "horizontal",
+    "HZH": "arched", "JRG": "quartered", "KOR": "reference",
+    "LIL": "textile_roundel", "LIO": "roundel", "LSH": "vertical",
+    "MDL": "bordered", "NUN": "saltire", "NZA": "sunburst",
+    "SHZ": "diagonal", "TZZ": "bordered", "WDU": "river",
+    "WGS": "plain", "WLM": "sun_disc", "WUZ": "sunburst",
+    "WXG": "chevron", "WXM": "textile", "YEL": "roundel",
+    "ZHI": "horizontal",
+}
+
+for _tag, _field in FIELDS.items():
+    DESIGNS[_tag]["field"] = _field
 
 
 def rgb(value: str) -> tuple[int, int, int]:
     return tuple(int(value[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def mix(a, b, amount: float):
+    return tuple(round(left * (1 - amount) + right * amount) for left, right in zip(a, b))
+
+
+def alpha(color, opacity: int):
+    return (*color, opacity)
 
 
 def sc(points):
@@ -82,7 +116,6 @@ def rect(draw, box, fill, outline=None, width=1):
 
 
 def star(cx, cy, r1, r2, rays=8):
-    import math
     points = []
     for index in range(rays * 2):
         radius = r1 if index % 2 == 0 else r2
@@ -93,6 +126,105 @@ def star(cx, cy, r1, r2, rays=8):
 
 def border(draw, ink):
     rect(draw, (5, 5, 123, 123), None, ink, 3)
+
+
+def draw_field(image: Image.Image, field: str, bg, ink, accent) -> None:
+    """Paint a heraldic field behind the polity emblem."""
+    draw = ImageDraw.Draw(image)
+    pale = mix(bg, (255, 246, 218), 0.28)
+    deep = mix(bg, (20, 17, 15), 0.30)
+    muted = mix(bg, accent, 0.45)
+
+    if field in {"plain", "reference"}:
+        return
+    if field == "quartered":
+        rect(draw, (0, 0, 64, 64), muted)
+        rect(draw, (64, 64, 128, 128), muted)
+        line(draw, [(0, 64), (128, 64)], pale, 3)
+        line(draw, [(64, 0), (64, 128)], pale, 3)
+    elif field == "serrated":
+        rect(draw, (0, 0, 24, 128), deep)
+        for y in range(-8, 136, 16):
+            polygon(draw, [(22, y), (40, y + 8), (22, y + 16)], deep)
+        line(draw, [(24, 0), (24, 128)], accent, 3)
+    elif field == "tangut":
+        rect(draw, (0, 0, 128, 18), deep)
+        rect(draw, (0, 110, 128, 128), deep)
+        for x in range(10, 128, 24):
+            polygon(draw, [(x, 18), (x + 10, 28), (x + 20, 18)], accent)
+            polygon(draw, [(x, 110), (x + 10, 100), (x + 20, 110)], accent)
+    elif field == "textile_roundel":
+        overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
+        od = ImageDraw.Draw(overlay)
+        for x in range(-24, 152, 24):
+            od.line(sc([(x, 0), (x + 128, 128)]), fill=alpha(pale, 42), width=2 * SCALE)
+            od.line(sc([(x, 128), (x + 128, 0)]), fill=alpha(pale, 42), width=2 * SCALE)
+        image.alpha_composite(overlay)
+        draw = ImageDraw.Draw(image)
+        ellipse(draw, (18, 18, 110, 110), muted, pale, 4)
+        ellipse(draw, (25, 25, 103, 103), bg, accent, 2)
+    elif field == "chevron":
+        polygon(draw, [(0, 0), (32, 0), (64, 42), (96, 0), (128, 0), (128, 25), (64, 69), (0, 25)], muted)
+        polygon(draw, [(0, 128), (0, 106), (64, 69), (128, 106), (128, 128)], deep)
+        line(draw, [(0, 106), (64, 69), (128, 106)], pale, 3)
+    elif field == "split":
+        polygon(draw, [(0, 0), (128, 0), (0, 128)], muted)
+        line(draw, [(0, 128), (128, 0)], pale, 4)
+    elif field == "brocade_roundel":
+        ellipse(draw, (10, 10, 118, 118), muted, accent, 4)
+        for radius in (45, 34, 24):
+            polygon(draw, star(64, 64, radius, radius - 7, 12), None)
+            line(draw, star(64, 64, radius, radius - 7, 12) + [star(64, 64, radius, radius - 7, 12)[0]], pale, 1)
+        ellipse(draw, (26, 26, 102, 102), bg, pale, 2)
+    elif field == "sun_disc":
+        ellipse(draw, (14, 14, 114, 114), muted, pale, 4)
+        ellipse(draw, (25, 25, 103, 103), bg, accent, 2)
+    elif field == "horizontal":
+        rect(draw, (0, 0, 128, 24), muted)
+        rect(draw, (0, 104, 128, 128), deep)
+        line(draw, [(0, 25), (128, 25)], pale, 3)
+        line(draw, [(0, 103), (128, 103)], pale, 3)
+    elif field == "arched":
+        rect(draw, (0, 0, 128, 22), deep)
+        line(draw, [(15, 112), (15, 54), (40, 28), (64, 54), (88, 28), (113, 54), (113, 112)], muted, 9)
+        line(draw, [(14, 116), (114, 116)], pale, 4)
+    elif field == "roundel":
+        ellipse(draw, (12, 12, 116, 116), muted, pale, 4)
+        ellipse(draw, (23, 23, 105, 105), bg, accent, 2)
+    elif field == "vertical":
+        rect(draw, (0, 0, 38, 128), deep)
+        rect(draw, (90, 0, 128, 128), deep)
+        line(draw, [(38, 0), (38, 128)], accent, 3)
+        line(draw, [(90, 0), (90, 128)], accent, 3)
+    elif field == "bordered":
+        rect(draw, (0, 0, 128, 128), deep)
+        rect(draw, (10, 10, 118, 118), bg, pale, 3)
+        rect(draw, (17, 17, 111, 111), None, accent, 2)
+    elif field == "saltire":
+        polygon(draw, [(0, 0), (18, 0), (128, 110), (128, 128), (110, 128), (0, 18)], muted)
+        polygon(draw, [(110, 0), (128, 0), (128, 18), (18, 128), (0, 128), (0, 110)], muted)
+        line(draw, [(0, 0), (128, 128)], pale, 2)
+        line(draw, [(128, 0), (0, 128)], pale, 2)
+    elif field == "sunburst":
+        center = (64, 64)
+        for ray in range(16):
+            a1 = ray * math.tau / 16
+            a2 = (ray + 1) * math.tau / 16
+            color = muted if ray % 2 == 0 else bg
+            polygon(draw, [center, (64 + 100 * math.cos(a1), 64 + 100 * math.sin(a1)), (64 + 100 * math.cos(a2), 64 + 100 * math.sin(a2))], color)
+        ellipse(draw, (20, 20, 108, 108), None, pale, 3)
+    elif field == "diagonal":
+        polygon(draw, [(0, 0), (42, 0), (128, 86), (128, 128), (86, 128), (0, 42)], muted)
+        line(draw, [(0, 42), (86, 128)], pale, 3)
+        line(draw, [(42, 0), (128, 86)], pale, 3)
+    elif field == "river":
+        polygon(draw, [(0, 91), (31, 70), (62, 86), (92, 60), (128, 79), (128, 128), (0, 128)], muted)
+        line(draw, [(0, 103), (28, 84), (59, 101), (91, 75), (128, 94)], pale, 4)
+    elif field == "textile":
+        for row in range(-8, 136, 18):
+            line(draw, [(0, row), (16, row + 9), (32, row), (48, row + 9), (64, row), (80, row + 9), (96, row), (112, row + 9), (128, row)], muted, 3)
+    else:
+        raise ValueError(f"unknown field: {field}")
 
 
 def mountains(draw, ink, accent, y=92):
@@ -239,13 +371,109 @@ def draw_motif(draw, motif, ink, accent):
         raise ValueError(f"unknown motif: {motif}")
 
 
+def fitted_mask(mask: Image.Image, width: int, height: int) -> Image.Image:
+    bbox = mask.getbbox()
+    if not bbox:
+        raise ValueError("empty motif mask")
+    mask = mask.crop(bbox)
+    scale = min(width / mask.width, height / mask.height)
+    return mask.resize((round(mask.width * scale), round(mask.height * scale)), Image.Resampling.LANCZOS)
+
+
+def tangut_xia_layer(ink) -> Image.Image:
+    if not TANGUT_XIA_MASK.exists():
+        raise FileNotFoundError(f"missing Tangut glyph mask: {TANGUT_XIA_MASK}")
+    mask = fitted_mask(Image.open(TANGUT_XIA_MASK).convert("L"), 78 * SCALE, 82 * SCALE)
+    layer = Image.new("RGBA", (SIZE * SCALE, SIZE * SCALE), (0, 0, 0, 0))
+    x = (layer.width - mask.width) // 2
+    y = (layer.height - mask.height) // 2 + 2 * SCALE
+    color = Image.new("RGBA", mask.size, (*ink, 255))
+    color.putalpha(mask)
+    layer.alpha_composite(color, (x, y))
+    return layer
+
+
+def goryeo_phoenix_layer() -> Image.Image:
+    """Extract the connected parchment background from the user reference."""
+    if not GORYEO_REFERENCE.exists():
+        raise FileNotFoundError(f"missing Goryeo reference: {GORYEO_REFERENCE}")
+    reference = Image.open(GORYEO_REFERENCE).convert("RGB")
+    width, height = reference.size
+    # Relative coordinates make the extraction stable if the supplied preview
+    # is losslessly rescaled.  They exclude the black hoist and four colour
+    # bars while retaining the complete phoenix and its surrounding clouds.
+    motif = reference.crop((round(width * 0.34), round(height * 0.12), round(width * 0.89), round(height * 0.91)))
+    work = motif.copy()
+    marker = (1, 2, 3)
+    for seed in ((0, 0), (work.width - 1, 0), (0, work.height - 1), (work.width - 1, work.height - 1)):
+        ImageDraw.floodfill(work, seed, marker, thresh=34)
+    mask = Image.new("L", work.size, 255)
+    source_pixels = work.get_flattened_data() if hasattr(work, "get_flattened_data") else work.getdata()
+    mask.putdata([0 if pixel == marker else 255 for pixel in source_pixels])
+    # A one-pixel soften removes the pale fringe created by the reference PNG's
+    # antialiasing without eroding the phoenix's dark contour.
+    mask = mask.filter(ImageFilter.GaussianBlur(0.65))
+    bbox = mask.getbbox()
+    motif = motif.crop(bbox)
+    mask = mask.crop(bbox)
+    scale = min((116 * SCALE) / motif.width, (112 * SCALE) / motif.height)
+    size = (round(motif.width * scale), round(motif.height * scale))
+    motif = motif.resize(size, Image.Resampling.LANCZOS)
+    mask = mask.resize(size, Image.Resampling.LANCZOS)
+    layer = Image.new("RGBA", (SIZE * SCALE, SIZE * SCALE), (0, 0, 0, 0))
+    x = (layer.width - motif.width) // 2 + 2 * SCALE
+    y = (layer.height - motif.height) // 2
+    motif.putalpha(mask)
+    layer.alpha_composite(motif, (x, y))
+    return layer
+
+
+def add_emblem(image: Image.Image, emblem: Image.Image, bg) -> None:
+    mask = emblem.getchannel("A")
+    shadow_mask = mask.filter(ImageFilter.GaussianBlur(1.3 * SCALE))
+    shadow = Image.new("RGBA", image.size, (*mix(bg, (0, 0, 0), 0.72), 255))
+    shadow.putalpha(shadow_mask.point(lambda value: round(value * 0.52)))
+    shifted = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    shifted.paste(shadow, (2 * SCALE, 2 * SCALE), shadow)
+    image.alpha_composite(shifted)
+    image.alpha_composite(emblem)
+
+
+def antique_texture(image: Image.Image, tag: str) -> Image.Image:
+    """Apply a restrained, deterministic dye-and-cloth texture at final size."""
+    image = image.convert("RGB")
+    rng = random.Random(f"frontier-flag-b62:{tag}")
+    pixels = image.load()
+    cx = cy = (SIZE - 1) / 2
+    for y in range(SIZE):
+        for x in range(SIZE):
+            edge = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5 / 91
+            weave = 1 if (x % 4 == 0 or y % 5 == 0) else 0
+            delta = rng.choice((-2, -1, 0, 0, 0, 1, 2)) - round(max(0, edge - 0.55) * 5) + weave
+            pixels[x, y] = tuple(max(0, min(255, channel + delta)) for channel in pixels[x, y])
+    return image
+
+
 def render_flag(tag: str, design: dict[str, str]) -> Image.Image:
     bg, ink, accent = (rgb(design[key]) for key in ("bg", "ink", "accent"))
-    image = Image.new("RGB", (SIZE * SCALE, SIZE * SCALE), bg)
+    image = Image.new("RGBA", (SIZE * SCALE, SIZE * SCALE), (*bg, 255))
+    draw_field(image, design["field"], bg, ink, accent)
+
+    if design["motif"] == "goryeo_phoenix":
+        emblem = goryeo_phoenix_layer()
+    elif design["motif"] == "tangut_xia":
+        emblem = tangut_xia_layer(ink)
+    else:
+        emblem = Image.new("RGBA", image.size, (0, 0, 0, 0))
+        draw_motif(ImageDraw.Draw(emblem), design["motif"], ink, accent)
+    add_emblem(image, emblem, bg)
+
+    # A dark edge survives EU4's shield mask better than the old universal
+    # cream card frame and mirrors the native game's flag assets.
     draw = ImageDraw.Draw(image)
-    border(draw, ink)
-    draw_motif(draw, design["motif"], ink, accent)
-    return image.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
+    rect(draw, (1, 1, 127, 127), None, mix(bg, ink, 0.72), 2)
+    rendered = image.convert("RGB").resize((SIZE, SIZE), Image.Resampling.LANCZOS)
+    return antique_texture(rendered, tag)
 
 
 def history_culture(tag: str) -> str | None:
@@ -269,7 +497,7 @@ def contact_sheet(rendered: dict[str, Image.Image]) -> Image.Image:
     sheet = Image.new("RGB", (columns * cell_w, rows * cell_h + 64), (31, 32, 35))
     draw = ImageDraw.Draw(sheet)
     title_font, label_font, small_font = font(28), font(20), font(14)
-    draw.text((24, 15), "B61 边疆与域外政权旗帜", fill=(242, 236, 216), font=title_font)
+    draw.text((24, 15), "B62 边疆与域外政权旗帜 · 原版纹章化修订", fill=(242, 236, 216), font=title_font)
     for index, tag in enumerate(sorted(rendered)):
         x, y = (index % columns) * cell_w, (index // columns) * cell_h + 64
         sheet.paste(rendered[tag], (x + 14, y + 14))
@@ -307,16 +535,25 @@ def run(check: bool) -> None:
     sheet = contact_sheet(rendered)
     sheet_target = OUTPUT / "contact_sheet.png"
     manifest_target = OUTPUT / "batch_manifest.json"
-    manifest = {"batch": "B61", "policy": "non-Zhuxia frontier heraldry", "flags": DESIGNS}
+    manifest = {
+        "batch": "B62",
+        "policy": "vanilla-style non-Zhuxia frontier heraldry",
+        "references": {
+            "style": ["EU4 1.37.5 vanilla flags", "Celestial empire on which the sun never sets (Workshop 1728520255)"],
+            "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
+            "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071",
+        },
+        "flags": DESIGNS,
+    }
     manifest_bytes = (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     if check:
         import io
         stream = io.BytesIO()
         sheet.save(stream, format="PNG")
         if not sheet_target.exists() or sheet_target.read_bytes() != stream.getvalue():
-            raise ValueError("B61 contact sheet is stale")
+            raise ValueError("B62 contact sheet is stale")
         if not manifest_target.exists() or manifest_target.read_bytes() != manifest_bytes:
-            raise ValueError("B61 manifest is stale")
+            raise ValueError("B62 manifest is stale")
     else:
         sheet.save(sheet_target)
         manifest_target.write_bytes(manifest_bytes)
