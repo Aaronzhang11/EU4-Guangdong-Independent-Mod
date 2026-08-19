@@ -1,0 +1,214 @@
+# Shared authorization used by every replacement decree and reform row.
+# YAN remains the temporary principal-vassal test country; the Emperor keeps
+# access until the future authority-balance mechanic decides between them.
+gdd_celestial_action_authorized_trigger = {
+    OR = {
+        tag = YAN
+        is_emperor_of_china = yes
+    }
+}
+
+gdd_can_enact_proxy_establish_gaituguiliu_trigger = {
+    NOT = { gdd_reform_establish_gaituguiliu_passed = yes }
+    if = {
+        limit = { has_estate = estate_eunuchs }
+        OR = {
+            estate_loyalty = {
+                estate = estate_eunuchs
+                loyalty = 60
+            }
+            NOT = { corruption = 1 }
+        }
+    }
+    else = { NOT = { corruption = 1 } }
+}
+
+gdd_can_enact_proxy_seaban_trigger = {
+    NOT = { gdd_reform_seaban_passed = yes }
+}
+
+gdd_can_enact_proxy_land_tax_trigger = {
+    NOT = { gdd_reform_land_tax_passed = yes }
+    OR = {
+        crown_land_share = 35
+        adm = 5
+        AND = {
+            treasurer = 3
+            reform_level = 7
+        }
+    }
+}
+
+gdd_can_enact_proxy_military_governors_trigger = {
+    NOT = { gdd_reform_military_governors_passed = yes }
+    OR = {
+        monthly_mil = 10
+        national_focus = MIL
+        mil = 6
+    }
+}
+
+gdd_can_enact_proxy_centralizing_government_trigger = {
+    NOT = { gdd_reform_centralizing_government_passed = yes }
+    crown_land_share = 65
+}
+
+gdd_can_enact_proxy_vassalize_tributaries_trigger = {
+    NOT = { gdd_reform_vassalize_tributaries_passed = yes }
+    gdd_eight_celestial_reforms_passed = yes
+}
+
+gdd_can_enact_proxy_single_whip_trigger = {
+    NOT = { gdd_reform_single_whip_passed = yes }
+    gdd_reform_land_tax_passed = yes
+    OR = {
+        mission_completed = mng_single_whip_law
+        full_idea_group = economic_ideas
+        reform_level = 7
+    }
+}
+
+gdd_can_enact_proxy_reign_in_estates_trigger = {
+    NOT = { gdd_reform_reign_in_estates_passed = yes }
+    OR = {
+        crown_land_share = 90
+        absolutism = 75
+    }
+}
+
+gdd_can_enact_proxy_civil_registration_trigger = {
+    NOT = { gdd_reform_civil_registration_passed = yes }
+}
+
+gdd_can_enact_proxy_silver_standard_trigger = {
+    NOT = { gdd_reform_silver_standard_passed = yes }
+    NOT = { inflation = 1 }
+    OR = {
+        monthly_adm = 10
+        adm = 5
+        national_focus = ADM
+    }
+    is_in_deficit = no
+    gdd_reform_single_whip_passed = yes
+}
+
+gdd_can_enact_proxy_kanhe_trigger = {
+    NOT = { gdd_reform_kanhe_passed = yes }
+    OR = {
+        full_idea_group = trade_ideas
+        any_subject_country = { is_colonial_nation = yes }
+        num_of_merchants = 4
+        national_focus = DIP
+    }
+}
+
+gdd_can_enact_proxy_keju_trigger = {
+    NOT = { gdd_reform_keju_passed = yes }
+    OR = {
+        has_reform = examination_system_reform
+        full_idea_group = administrative_ideas
+    }
+    OR = {
+        adm = 4
+        monthly_adm = 9
+    }
+}
+
+gdd_can_enact_proxy_inclusive_monarchy_trigger = {
+    NOT = { gdd_reform_inclusive_monarchy_passed = yes }
+    OR = {
+        full_idea_group = humanist_ideas
+        harmony = 80
+        theologian = 2
+    }
+    stability = 1
+}
+
+gdd_can_enact_proxy_bureaucratic_faction_trigger = {
+    NOT = { gdd_reform_bureaucratic_faction_passed = yes }
+    NOT = { gdd_reform_military_faction_passed = yes }
+}
+
+gdd_can_enact_proxy_military_faction_trigger = {
+    NOT = { gdd_reform_military_faction_passed = yes }
+    NOT = { gdd_reform_bureaucratic_faction_passed = yes }
+}
+
+gdd_can_enact_proxy_unified_market_trigger = {
+    NOT = { gdd_reform_unified_market_passed = yes }
+    gdd_reform_seaban_passed = yes
+    gdd_reform_kanhe_passed = yes
+    OR = {
+        mission_completed = mng_improve_haijin_policy
+        mission_completed = mng_repeal_haijin_policy
+        mercantilism = 50
+        dip = 6
+    }
+    OR = {
+        full_idea_group = trade_ideas
+        trade_income_percentage = 0.35
+        home_trade_node = {
+            highest_value_trade_node = yes
+            is_strongest_trade_power = PREV
+        }
+    }
+}
+
+gdd_can_enact_proxy_military_branch_trigger = {
+    NOT = { gdd_reform_military_branch_passed = yes }
+    if = {
+        limit = { has_dlc = "Cradle of Civilization" }
+        OR = {
+            army_tradition = 60
+            army_professionalism = 0.40
+        }
+    }
+    else = { army_tradition = 60 }
+    monthly_mil = 10
+}
+
+gdd_can_enact_proxy_modernize_banners_trigger = {
+    NOT = { gdd_reform_modernize_banners_passed = yes }
+    OR = {
+        num_of_banners = 25
+        has_global_modifier_value = {
+            which = cavalry_power
+            value = 0.15
+        }
+    }
+}
+
+gdd_can_enact_proxy_foreign_ship_designs_trigger = {
+    NOT = { gdd_reform_foreign_ship_designs_passed = yes }
+    navy_tradition = 50
+    OR = {
+        num_of_heavy_ship = 50
+        full_idea_group = naval_ideas
+        full_idea_group = quality_ideas
+    }
+}
+
+gdd_can_enact_proxy_tributary_embassies_trigger = {
+    NOT = { gdd_reform_tributary_embassies_passed = yes }
+    calc_true_if = {
+        NOT = {
+            any_subject_country = {
+                is_subject_of_type = tributary_state
+                liberty_desire = 50
+            }
+        }
+        amount = 1
+    }
+    OR = {
+        full_idea_group = diplomatic_ideas
+        full_idea_group = influence_ideas
+        crown_land_share = 50
+        dip = 5
+    }
+}
+
+gdd_can_enact_proxy_new_world_trigger = {
+    NOT = { gdd_reform_new_world_passed = yes }
+    num_of_explorers = 1
+    num_of_light_ship = 50
+}

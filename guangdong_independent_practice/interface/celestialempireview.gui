@@ -39,13 +39,13 @@ guiTypes = {
 
 		# Left column: the original meritocracy display and decree list.
 		instantTextBoxType = {
-			name = "decree_label"
-			position = { x = 127 y = 92 }
+			name = "decrees_label"
+			position = { x = 104 y = 91 }
 			textureFile = ""
 			font = "vic_22"
 			borderSize = { x = 4 y = 0 }
 			text = "CELESTIAL_DECREES"
-			maxWidth = 194
+			maxWidth = 220
 			maxHeight = 32
 			format = centre
 		}
@@ -71,14 +71,565 @@ guiTypes = {
 
 		listboxType = {
 			name = "decree_listbox"
-			position = { x = 104 y = 150 }
+			# Required by the hard-coded window, but deliberately kept off-screen:
+			# the visible rows below are the script-controlled replacements.
+			position = { x = -3000 y = -3000 }
 			backGround = ""
-			size = { x = 220 y = 620 }
+			size = { x = 1 y = 1 }
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 0
 			scrollbartype = "standardlistbox_slider"
 			borderSize = { x = 5 y = 5 }
+		}
+
+		# Visible replacement decree rows. The two upgraded decrees share their
+		# original positions with the corresponding base decree.
+
+		guiButtonType = {
+			name = "gdd_decree_expand_bureaucracy_button"
+			scripted = yes
+			position = { x = 104 y = 150 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "expand_bureaucracy_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_improved_expand_bureaucracy_button"
+			scripted = yes
+			position = { x = 104 y = 150 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "improved_expand_bureaucracy_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_conduct_census_button"
+			scripted = yes
+			position = { x = 104 y = 188 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "conduct_census_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_improved_conduct_census_button"
+			scripted = yes
+			position = { x = 104 y = 188 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "improved_conduct_census_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_promote_naval_officers_button"
+			scripted = yes
+			position = { x = 104 y = 226 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "promote_naval_officers_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_increase_tariff_control_button"
+			scripted = yes
+			position = { x = 104 y = 264 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "increase_tariff_control_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_improve_defence_effort_button"
+			scripted = yes
+			position = { x = 104 y = 302 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "improve_defence_effort_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_boost_officer_corps_button"
+			scripted = yes
+			position = { x = 104 y = 340 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "boost_officer_corps_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_fund_new_centers_of_education_button"
+			scripted = yes
+			position = { x = 104 y = 378 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "fund_new_centers_of_education_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_proclaim_dynastic_name_button"
+			scripted = yes
+			position = { x = 104 y = 416 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "proclaim_dynastic_name_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_issue_the_great_warnings_button"
+			scripted = yes
+			position = { x = 104 y = 454 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "issue_the_great_warnings_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_six_ordinances_button"
+			scripted = yes
+			position = { x = 104 y = 492 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "six_ordinances_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_sacred_edict_of_confucianism_button"
+			scripted = yes
+			position = { x = 104 y = 530 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "sacred_edict_of_confucianism_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_promote_taoist_studies_button"
+			scripted = yes
+			position = { x = 104 y = 568 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "promote_taoist_studies_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_appoint_entrusted_eunuchs_button"
+			scripted = yes
+			position = { x = 104 y = 606 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "appoint_entrusted_eunuchs_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_increase_trade_cooperation_button"
+			scripted = yes
+			position = { x = 104 y = 644 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "increase_trade_cooperation_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_reinforce_the_inner_guard_button"
+			scripted = yes
+			position = { x = 104 y = 682 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "reinforce_the_inner_guard_decree_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		guiButtonType = {
+			name = "gdd_decree_issue_bureaucratic_imperial_seal_button"
+			scripted = yes
+			position = { x = 104 y = 720 }
+			quadTextureSprite = "GFX_decree_button"
+			buttonText = "issue_bureaucratic_imperial_seal_title"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.95
+		}
+
+		# Decorative seals are shared by the base/upgraded rows.
+
+		iconType = {
+			name = "gdd_decree_row_1_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 152 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_2_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 190 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_3_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 228 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_4_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 266 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_5_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 304 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_6_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 342 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_7_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 380 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_8_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 418 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_9_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 456 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_10_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 494 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_11_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 532 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_12_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 570 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_13_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 608 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_14_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 646 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_15_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 684 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_row_16_seal"
+			spriteType = "GFX_decree_button_seal"
+			alwaystransparent = yes
+			position = { x = 259 y = 722 }
+			scale = 0.8
+		}
+
+		# Active-decree checks render after the decorative seals.
+
+		iconType = {
+			name = "gdd_decree_expand_bureaucracy_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 160 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_improved_expand_bureaucracy_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 160 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_conduct_census_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 198 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_improved_conduct_census_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 198 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_promote_naval_officers_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 236 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_increase_tariff_control_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 274 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_improve_defence_effort_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 312 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_boost_officer_corps_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 350 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_fund_new_centers_of_education_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 388 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_proclaim_dynastic_name_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 426 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_issue_the_great_warnings_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 464 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_six_ordinances_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 502 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_sacred_edict_of_confucianism_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 540 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_promote_taoist_studies_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 578 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_appoint_entrusted_eunuchs_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 616 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_increase_trade_cooperation_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 654 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_reinforce_the_inner_guard_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 692 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "gdd_decree_issue_bureaucratic_imperial_seal_active"
+			scripted = yes
+			spriteType = "GFX_decree_button_check"
+			alwaystransparent = yes
+			position = { x = 269 y = 730 }
+			scale = 0.8
 		}
 
 		# Centre-top: emperor shield, the two original action icons and status.
@@ -157,6 +708,118 @@ guiTypes = {
 			hint_tag = "hint_imperialauthority"
 		}
 
+		# Vassal hierarchy interface. The principal slot is currently bound to YAN
+		# for interface testing; the six lower slots remain unassigned placeholders.
+		instantTextBoxType = {
+			name = "gdd_principal_vassal_label"
+			position = { x = 420 y = 448 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = { x = 4 y = 0 }
+			text = "GDD_CELESTIAL_PRINCIPAL_VASSAL"
+			maxWidth = 194
+			maxHeight = 24
+			format = centre
+		}
+
+		guiButtonType = {
+			name = "gdd_principal_vassal_slot"
+			scripted = yes
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 485 y = 470 }
+			size = { x = 64 y = 64 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_PRINCIPAL_VASSAL_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "gdd_vassal_slot_1"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 346 y = 550 }
+			size = { x = 55 y = 55 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_VASSAL_SLOT_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			scale = 0.85
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "gdd_vassal_slot_2"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 403 y = 550 }
+			size = { x = 55 y = 55 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_VASSAL_SLOT_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			scale = 0.85
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "gdd_vassal_slot_3"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 460 y = 550 }
+			size = { x = 55 y = 55 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_VASSAL_SLOT_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			scale = 0.85
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "gdd_vassal_slot_4"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 517 y = 550 }
+			size = { x = 55 y = 55 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_VASSAL_SLOT_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			scale = 0.85
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "gdd_vassal_slot_5"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 574 y = 550 }
+			size = { x = 55 y = 55 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_VASSAL_SLOT_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			scale = 0.85
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "gdd_vassal_slot_6"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 631 y = 550 }
+			size = { x = 55 y = 55 }
+			tooltip = ""
+			tooltipText = "GDD_CELESTIAL_VASSAL_SLOT_TT"
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			clicksound = click
+			scale = 0.85
+			Orientation = "UPPER_LEFT"
+		}
+
 		# Centre-bottom: the original tributary list, with no added controls.
 		instantTextBoxType = {
 			name = "tributary_label"
@@ -181,29 +844,532 @@ guiTypes = {
 			borderSize = { x = 10 y = 10 }
 		}
 
-		# Right column: only reforms provided by the active game/mod data.
+		# Right column: script-controlled replacements for all 21 reforms.
 		instantTextBoxType = {
 			name = "decisions_label"
-			position = { x = 714 y = 92 }
+			position = { x = 695 y = 91 }
 			textureFile = ""
 			font = "vic_22"
 			borderSize = { x = 4 y = 0 }
 			text = "CELESTIAL_DECISIONS"
-			maxWidth = 162
+			maxWidth = 210
 			maxHeight = 32
 			format = centre
 		}
 
 		listboxType = {
 			name = "decisions_listbox"
-			position = { x = 701 y = 135 }
+			# Kept only because the engine expects this named control.
+			position = { x = -3000 y = -3000 }
 			backGround = ""
-			size = { x = 204 y = 635 }
+			size = { x = 1 y = 1 }
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 0
 			scrollbartype = "standardlistbox_slider"
 			borderSize = { x = 5 y = 5 }
+		}
+
+		# Visible replacement reform rows. Passed reforms receive the original
+		# check overlay; the two faction reforms keep the yellow conflict marks.
+
+		guiButtonType = {
+			name = "gdd_reform_establish_gaituguiliu_button"
+			scripted = yes
+			position = { x = 701 y = 135 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "establish_gaituguiliu_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_establish_gaituguiliu_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 142 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_seaban_button"
+			scripted = yes
+			position = { x = 701 y = 164 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "seaban_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_seaban_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 171 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_land_tax_button"
+			scripted = yes
+			position = { x = 701 y = 193 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "reform_land_tax_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_land_tax_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 200 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_military_governors_button"
+			scripted = yes
+			position = { x = 701 y = 222 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "military_governors_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_military_governors_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 229 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_centralizing_government_button"
+			scripted = yes
+			position = { x = 701 y = 251 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "centralizing_top_government_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_centralizing_government_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 258 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vassalize_tributaries_button"
+			scripted = yes
+			position = { x = 701 y = 280 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "vassalize_tributaries_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_vassalize_tributaries_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 287 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_single_whip_button"
+			scripted = yes
+			position = { x = 701 y = 309 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "codify_single_whip_law_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_single_whip_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 316 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_reign_in_estates_button"
+			scripted = yes
+			position = { x = 701 y = 338 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "reign_in_estates_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_reign_in_estates_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 345 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_civil_registration_button"
+			scripted = yes
+			position = { x = 701 y = 367 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "reform_civil_registration_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_civil_registration_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 374 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_silver_standard_button"
+			scripted = yes
+			position = { x = 701 y = 396 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "establish_silver_standard_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_silver_standard_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 403 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_kanhe_button"
+			scripted = yes
+			position = { x = 701 y = 425 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "kanhe_certificate_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_kanhe_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 432 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_keju_button"
+			scripted = yes
+			position = { x = 701 y = 454 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "new_keju_formats_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_keju_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 461 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_inclusive_monarchy_button"
+			scripted = yes
+			position = { x = 701 y = 483 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "inclusive_monarchy_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_inclusive_monarchy_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 490 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_bureaucratic_faction_button"
+			scripted = yes
+			position = { x = 701 y = 512 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "promote_bureaucratic_faction_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_bureaucratic_faction_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 519 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_military_faction_button"
+			scripted = yes
+			position = { x = 701 y = 541 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "promote_military_faction_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_military_faction_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 548 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_unified_market_button"
+			scripted = yes
+			position = { x = 701 y = 570 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "unifed_trade_market_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_unified_market_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 577 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_military_branch_button"
+			scripted = yes
+			position = { x = 701 y = 599 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "reform_the_military_branch_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_military_branch_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 606 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_modernize_banners_button"
+			scripted = yes
+			position = { x = 701 y = 628 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "modernize_the_banners_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_modernize_banners_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 635 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_foreign_ship_designs_button"
+			scripted = yes
+			position = { x = 701 y = 657 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "study_foreign_ship_designs_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_foreign_ship_designs_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 664 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_tributary_embassies_button"
+			scripted = yes
+			position = { x = 701 y = 686 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "tributary_embassies_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_tributary_embassies_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 693 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_new_world_button"
+			scripted = yes
+			position = { x = 701 y = 715 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "new_world_discovery_decision_title"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_new_world_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 707 y = 722 }
+			scale = 0.75
+		}
+
+		iconType = {
+			name = "gdd_bureaucratic_faction_conflict_mark"
+			spriteType = "GFX_mutualy_exclusive_reforms"
+			alwaystransparent = yes
+			position = { x = 697 y = 512 }
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_military_faction_conflict_mark"
+			spriteType = "GFX_mutualy_exclusive_reforms"
+			alwaystransparent = yes
+			position = { x = 697 y = 541 }
+			scale = 0.9
 		}
 
 		guiButtonType = {

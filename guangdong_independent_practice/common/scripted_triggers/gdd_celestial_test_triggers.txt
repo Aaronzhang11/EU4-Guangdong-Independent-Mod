@@ -1,0 +1,134 @@
+gdd_has_active_proxy_decree_trigger = {
+    OR = {
+        has_country_modifier = gdd_proxy_decree_expand_bureaucracy
+        has_country_modifier = gdd_proxy_decree_improved_expand_bureaucracy
+        has_country_modifier = gdd_proxy_decree_conduct_census
+        has_country_modifier = gdd_proxy_decree_improved_conduct_census
+        has_country_modifier = gdd_proxy_decree_promote_naval_officers
+        has_country_modifier = gdd_proxy_decree_increase_tariff_control
+        has_country_modifier = gdd_proxy_decree_improve_defence_effort
+        has_country_modifier = gdd_proxy_decree_boost_officer_corps
+        has_country_modifier = gdd_proxy_decree_fund_new_centers_of_education
+        has_country_modifier = gdd_proxy_decree_proclaim_dynastic_name
+        has_country_modifier = gdd_proxy_decree_issue_the_great_warnings
+        has_country_modifier = gdd_proxy_decree_six_ordinances
+        has_country_modifier = gdd_proxy_decree_sacred_edict_of_confucianism
+        has_country_modifier = gdd_proxy_decree_promote_taoist_studies
+        has_country_modifier = gdd_proxy_decree_appoint_entrusted_eunuchs
+        has_country_modifier = gdd_proxy_decree_increase_trade_cooperation
+        has_country_modifier = gdd_proxy_decree_reinforce_the_inner_guard
+        has_country_modifier = gdd_proxy_decree_issue_bureaucratic_imperial_seal
+    }
+}
+
+gdd_proxy_decree_base_trigger = {
+    event_target:EmperorOfChina = {
+        exists = yes
+        is_emperor_of_china = yes
+        meritocracy = 20
+        NOT = { empire_of_china_has_active_decree = yes }
+        NOT = { gdd_has_active_proxy_decree_trigger = yes }
+    }
+}
+
+gdd_proxy_celestial_reform_base_trigger = {
+    event_target:EmperorOfChina = {
+        exists = yes
+        is_emperor_of_china = yes
+        imperial_mandate = 80
+        stability = -2
+    }
+}
+
+# A custom reform is treated as passed if either the script-side flag or the
+# native reform state exists. This keeps old saves compatible with the proxy.
+gdd_reform_establish_gaituguiliu_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_establish_gaituguiliu empire_of_china_reform_passed = establish_gaituguiliu_decision }
+}
+gdd_reform_seaban_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_seaban empire_of_china_reform_passed = seaban_decision }
+}
+gdd_reform_land_tax_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_land_tax empire_of_china_reform_passed = reform_land_tax_decision }
+}
+gdd_reform_military_governors_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_military_governors empire_of_china_reform_passed = military_governors_decision }
+}
+gdd_reform_centralizing_government_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_centralizing_government empire_of_china_reform_passed = centralizing_top_government_decision }
+}
+gdd_reform_vassalize_tributaries_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_vassalize_tributaries empire_of_china_reform_passed = vassalize_tributaries_decision }
+}
+gdd_reform_single_whip_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_single_whip empire_of_china_reform_passed = codify_single_whip_law_decision }
+}
+gdd_reform_reign_in_estates_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_reign_in_estates empire_of_china_reform_passed = reign_in_estates_decision }
+}
+gdd_reform_civil_registration_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_civil_registration empire_of_china_reform_passed = reform_civil_registration_decision }
+}
+gdd_reform_silver_standard_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_silver_standard empire_of_china_reform_passed = establish_silver_standard_decision }
+}
+gdd_reform_kanhe_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_kanhe empire_of_china_reform_passed = kanhe_certificate_decision }
+}
+gdd_reform_keju_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_keju empire_of_china_reform_passed = new_keju_formats_decision }
+}
+gdd_reform_inclusive_monarchy_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_inclusive_monarchy empire_of_china_reform_passed = inclusive_monarchy_decision }
+}
+gdd_reform_bureaucratic_faction_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_bureaucratic_faction empire_of_china_reform_passed = promote_bureaucratic_faction_decision }
+}
+gdd_reform_military_faction_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_military_faction empire_of_china_reform_passed = promote_military_faction_decision }
+}
+gdd_reform_unified_market_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_unified_market empire_of_china_reform_passed = unifed_trade_market_decision }
+}
+gdd_reform_military_branch_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_military_branch empire_of_china_reform_passed = reform_the_military_branch_decision }
+}
+gdd_reform_modernize_banners_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_modernize_banners empire_of_china_reform_passed = modernize_the_banners_decision }
+}
+gdd_reform_foreign_ship_designs_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_foreign_ship_designs empire_of_china_reform_passed = study_foreign_ship_designs_decision }
+}
+gdd_reform_tributary_embassies_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_tributary_embassies empire_of_china_reform_passed = tributary_embassies_decision }
+}
+gdd_reform_new_world_passed = {
+    OR = { has_global_flag = gdd_proxy_reform_new_world empire_of_china_reform_passed = new_world_discovery_decision }
+}
+
+gdd_eight_celestial_reforms_passed = {
+    calc_true_if = {
+        gdd_reform_establish_gaituguiliu_passed = yes
+        gdd_reform_seaban_passed = yes
+        gdd_reform_land_tax_passed = yes
+        gdd_reform_military_governors_passed = yes
+        gdd_reform_centralizing_government_passed = yes
+        gdd_reform_vassalize_tributaries_passed = yes
+        gdd_reform_single_whip_passed = yes
+        gdd_reform_reign_in_estates_passed = yes
+        gdd_reform_civil_registration_passed = yes
+        gdd_reform_silver_standard_passed = yes
+        gdd_reform_kanhe_passed = yes
+        gdd_reform_keju_passed = yes
+        gdd_reform_inclusive_monarchy_passed = yes
+        gdd_reform_bureaucratic_faction_passed = yes
+        gdd_reform_military_faction_passed = yes
+        gdd_reform_unified_market_passed = yes
+        gdd_reform_military_branch_passed = yes
+        gdd_reform_modernize_banners_passed = yes
+        gdd_reform_foreign_ship_designs_passed = yes
+        gdd_reform_tributary_embassies_passed = yes
+        gdd_reform_new_world_passed = yes
+        amount = 8
+    }
+}

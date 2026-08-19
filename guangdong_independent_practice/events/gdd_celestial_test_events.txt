@@ -1,0 +1,818 @@
+namespace = gdd_celestial_test
+
+# Refresh the country target used by the scripted principal-vassal shield.
+country_event = {
+    id = gdd_celestial_test.100
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+    }
+
+    immediate = {
+        save_global_event_target_as = gdd_principal_vassal
+    }
+
+    option = { name = OK }
+}
+
+# Event A: choose which part of the Emperor of China interface to test.
+country_event = {
+    id = gdd_celestial_test.1
+    title = gdd_celestial_test.1.t
+    desc = gdd_celestial_test.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = gdd_celestial_test.1.a
+        country_event = { id = gdd_celestial_test.2 }
+    }
+
+    option = {
+        name = gdd_celestial_test.1.b
+        country_event = { id = gdd_celestial_test.3 }
+    }
+
+    option = {
+        name = gdd_celestial_test.1.c
+    }
+}
+
+# Event B: enact script-side equivalents of the vanilla decrees on the current
+# Emperor of China. The native emperor, Mandate and tributary systems remain.
+country_event = {
+    id = gdd_celestial_test.2
+    title = gdd_celestial_test.2.t
+    desc = gdd_celestial_test.2.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = expand_bureaucracy_decree
+        trigger = {
+            gdd_proxy_decree_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { has_country_flag = mng_expanded_palace_bureaucracy_flag }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_expand_bureaucracy }
+        }
+    }
+
+    option = {
+        name = improved_expand_bureaucracy_decree
+        trigger = {
+            gdd_proxy_decree_base_trigger = yes
+            event_target:EmperorOfChina = {
+                has_country_flag = mng_expanded_palace_bureaucracy_flag
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improved_expand_bureaucracy }
+        }
+    }
+
+    option = {
+        name = conduct_census_decree
+        trigger = {
+            gdd_proxy_decree_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { has_country_flag = mng_empowered_pop_census_flag }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_conduct_census }
+        }
+    }
+
+    option = {
+        name = improved_conduct_census_decree
+        trigger = {
+            gdd_proxy_decree_base_trigger = yes
+            event_target:EmperorOfChina = {
+                has_country_flag = mng_empowered_pop_census_flag
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improved_conduct_census }
+        }
+    }
+
+    option = {
+        name = promote_naval_officers_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_promote_naval_officers }
+        }
+    }
+
+    option = {
+        name = increase_tariff_control_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_increase_tariff_control }
+        }
+    }
+
+    option = {
+        name = improve_defence_effort_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improve_defence_effort }
+        }
+    }
+
+    option = {
+        name = boost_officer_corps_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_boost_officer_corps }
+        }
+    }
+
+    option = {
+        name = fund_new_centers_of_education_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_fund_new_centers_of_education }
+        }
+    }
+
+    option = {
+        name = proclaim_dynastic_name_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_proclaim_dynastic_name }
+        }
+    }
+
+    option = {
+        name = issue_the_great_warnings_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_issue_the_great_warnings }
+        }
+    }
+
+    option = {
+        name = six_ordinances_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_six_ordinances }
+        }
+    }
+
+    option = {
+        name = sacred_edict_of_confucianism_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_sacred_edict_of_confucianism }
+        }
+    }
+
+    option = {
+        name = promote_taoist_studies_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_promote_taoist_studies }
+        }
+    }
+
+    option = {
+        name = appoint_entrusted_eunuchs_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_appoint_entrusted_eunuchs }
+        }
+    }
+
+    option = {
+        name = increase_trade_cooperation_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_increase_trade_cooperation }
+        }
+    }
+
+    option = {
+        name = reinforce_the_inner_guard_decree
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_reinforce_the_inner_guard }
+        }
+    }
+
+    option = {
+        name = issue_bureaucratic_imperial_seal
+        trigger = { gdd_proxy_decree_base_trigger = yes }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_issue_bureaucratic_imperial_seal }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.return
+        country_event = { id = gdd_celestial_test.1 }
+    }
+}
+
+# AI replacement for the native decree chooser. The native AI threshold was 99
+# Meritocracy, so the scripted replacement keeps the same cadence.
+country_event = {
+    id = gdd_celestial_test.110
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        ai = yes
+        is_emperor_of_china = yes
+        meritocracy = 99
+        gdd_proxy_decree_base_trigger = yes
+    }
+
+    immediate = {
+        random_list = {
+            10 = {
+                trigger = { NOT = { has_country_flag = mng_expanded_palace_bureaucracy_flag } }
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_expand_bureaucracy }
+            }
+            10 = {
+                trigger = { has_country_flag = mng_expanded_palace_bureaucracy_flag }
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improved_expand_bureaucracy }
+            }
+            10 = {
+                trigger = { NOT = { has_country_flag = mng_empowered_pop_census_flag } }
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_conduct_census }
+            }
+            10 = {
+                trigger = { has_country_flag = mng_empowered_pop_census_flag }
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improved_conduct_census }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_promote_naval_officers }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_increase_tariff_control }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improve_defence_effort }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_boost_officer_corps }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_fund_new_centers_of_education }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_proclaim_dynastic_name }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_issue_the_great_warnings }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_six_ordinances }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_sacred_edict_of_confucianism }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_promote_taoist_studies }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_appoint_entrusted_eunuchs }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_increase_trade_cooperation }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_reinforce_the_inner_guard }
+            }
+            10 = {
+                gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_issue_bureaucratic_imperial_seal }
+            }
+        }
+    }
+}
+
+# AI replacement for the native celestial-reform chooser. A fallback weight
+# lets the event exit cleanly when no remaining reform currently qualifies.
+country_event = {
+    id = gdd_celestial_test.111
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        ai = yes
+        is_emperor_of_china = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+    }
+
+    immediate = {
+        random_list = {
+            1 = { }
+            10 = {
+                trigger = { gdd_can_enact_proxy_establish_gaituguiliu_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_establish_gaituguiliu }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_seaban_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_seaban }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_land_tax_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_land_tax }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_military_governors_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_governors }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_centralizing_government_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_centralizing_government }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_vassalize_tributaries_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_vassalize_tributaries }
+                set_global_flag = eoc_vassalize_tributaries
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_single_whip_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_single_whip }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_reign_in_estates_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_reign_in_estates }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_civil_registration_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_civil_registration }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_silver_standard_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_silver_standard }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_kanhe_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_kanhe }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_keju_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_keju }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_inclusive_monarchy_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_inclusive_monarchy }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_bureaucratic_faction_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_bureaucratic_faction }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_military_faction_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_faction }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_unified_market_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_unified_market }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_military_branch_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_branch }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_modernize_banners_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_modernize_banners }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_foreign_ship_designs_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_foreign_ship_designs }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_tributary_embassies_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_tributary_embassies }
+            }
+            10 = {
+                trigger = { gdd_can_enact_proxy_new_world_trigger = yes }
+                gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_new_world }
+            }
+        }
+    }
+}
+
+
+# Event C: every option mirrors its vanilla trigger, but records and applies
+# the reform through script-side flags and triggered modifiers.
+country_event = {
+    id = gdd_celestial_test.3
+    title = gdd_celestial_test.3.t
+    desc = gdd_celestial_test.3.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = establish_gaituguiliu_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_establish_gaituguiliu_passed = yes }
+                if = {
+                    limit = { has_estate = estate_eunuchs }
+                    OR = {
+                        estate_loyalty = {
+                            estate = estate_eunuchs
+                            loyalty = 60
+                        }
+                        NOT = { corruption = 1 }
+                    }
+                }
+                else = {
+                    NOT = { corruption = 1 }
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_establish_gaituguiliu }
+        }
+    }
+
+    option = {
+        name = seaban_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_seaban_passed = yes }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_seaban }
+        }
+    }
+
+    option = {
+        name = reform_land_tax_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_land_tax_passed = yes }
+                OR = {
+                    crown_land_share = 35
+                    adm = 5
+                    AND = {
+                        treasurer = 3
+                        reform_level = 7
+                    }
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_land_tax }
+        }
+    }
+
+    option = {
+        name = military_governors_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_military_governors_passed = yes }
+                OR = {
+                    monthly_mil = 10
+                    national_focus = MIL
+                    mil = 6
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_governors }
+        }
+    }
+
+    option = {
+        name = centralizing_top_government_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_centralizing_government_passed = yes }
+                crown_land_share = 65
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_centralizing_government }
+        }
+    }
+
+    option = {
+        name = vassalize_tributaries_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_vassalize_tributaries_passed = yes }
+                gdd_eight_celestial_reforms_passed = yes
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_vassalize_tributaries }
+            set_global_flag = eoc_vassalize_tributaries
+        }
+    }
+
+    option = {
+        name = codify_single_whip_law_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_single_whip_passed = yes }
+                gdd_reform_land_tax_passed = yes
+                OR = {
+                    mission_completed = mng_single_whip_law
+                    full_idea_group = economic_ideas
+                    reform_level = 7
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_single_whip }
+        }
+    }
+
+    option = {
+        name = reign_in_estates_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_reign_in_estates_passed = yes }
+                OR = {
+                    crown_land_share = 90
+                    absolutism = 75
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_reign_in_estates }
+        }
+    }
+
+    option = {
+        name = reform_civil_registration_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_civil_registration_passed = yes }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_civil_registration }
+        }
+    }
+
+    option = {
+        name = establish_silver_standard_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_silver_standard_passed = yes }
+                NOT = { inflation = 1 }
+                OR = {
+                    monthly_adm = 10
+                    adm = 5
+                    national_focus = ADM
+                }
+                is_in_deficit = no
+                gdd_reform_single_whip_passed = yes
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_silver_standard }
+        }
+    }
+
+    option = {
+        name = kanhe_certificate_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_kanhe_passed = yes }
+                OR = {
+                    full_idea_group = trade_ideas
+                    any_subject_country = { is_colonial_nation = yes }
+                    num_of_merchants = 4
+                    national_focus = DIP
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_kanhe }
+        }
+    }
+
+    option = {
+        name = new_keju_formats_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_keju_passed = yes }
+                OR = {
+                    has_reform = examination_system_reform
+                    full_idea_group = administrative_ideas
+                }
+                OR = {
+                    adm = 4
+                    monthly_adm = 9
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_keju }
+        }
+    }
+
+    option = {
+        name = inclusive_monarchy_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_inclusive_monarchy_passed = yes }
+                OR = {
+                    full_idea_group = humanist_ideas
+                    harmony = 80
+                    theologian = 2
+                }
+                stability = 1
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_inclusive_monarchy }
+        }
+    }
+
+    option = {
+        name = promote_bureaucratic_faction_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_bureaucratic_faction_passed = yes }
+                NOT = { gdd_reform_military_faction_passed = yes }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_bureaucratic_faction }
+        }
+    }
+
+    option = {
+        name = promote_military_faction_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_military_faction_passed = yes }
+                NOT = { gdd_reform_bureaucratic_faction_passed = yes }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_faction }
+        }
+    }
+
+    option = {
+        name = unifed_trade_market_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_unified_market_passed = yes }
+                gdd_reform_seaban_passed = yes
+                gdd_reform_kanhe_passed = yes
+                OR = {
+                    mission_completed = mng_improve_haijin_policy
+                    mission_completed = mng_repeal_haijin_policy
+                    mercantilism = 50
+                    dip = 6
+                }
+                OR = {
+                    full_idea_group = trade_ideas
+                    trade_income_percentage = 0.35
+                    home_trade_node = {
+                        highest_value_trade_node = yes
+                        is_strongest_trade_power = PREV
+                    }
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_unified_market }
+        }
+    }
+
+    option = {
+        name = reform_the_military_branch_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_military_branch_passed = yes }
+                if = {
+                    limit = { has_dlc = "Cradle of Civilization" }
+                    OR = {
+                        army_tradition = 60
+                        army_professionalism = 0.40
+                    }
+                }
+                else = {
+                    army_tradition = 60
+                }
+                monthly_mil = 10
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_branch }
+        }
+    }
+
+    option = {
+        name = modernize_the_banners_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_modernize_banners_passed = yes }
+                OR = {
+                    num_of_banners = 25
+                    has_global_modifier_value = {
+                        which = cavalry_power
+                        value = 0.15
+                    }
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_modernize_banners }
+        }
+    }
+
+    option = {
+        name = study_foreign_ship_designs_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_foreign_ship_designs_passed = yes }
+                navy_tradition = 50
+                OR = {
+                    num_of_heavy_ship = 50
+                    full_idea_group = naval_ideas
+                    full_idea_group = quality_ideas
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_foreign_ship_designs }
+        }
+    }
+
+    option = {
+        name = tributary_embassies_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_tributary_embassies_passed = yes }
+                calc_true_if = {
+                    NOT = {
+                        any_subject_country = {
+                            is_subject_of_type = tributary_state
+                            liberty_desire = 50
+                        }
+                    }
+                    amount = 1
+                }
+                OR = {
+                    full_idea_group = diplomatic_ideas
+                    full_idea_group = influence_ideas
+                    crown_land_share = 50
+                    dip = 5
+                }
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_tributary_embassies }
+        }
+    }
+
+    option = {
+        name = new_world_discovery_decision_title
+        trigger = {
+            gdd_proxy_celestial_reform_base_trigger = yes
+            event_target:EmperorOfChina = {
+                NOT = { gdd_reform_new_world_passed = yes }
+                num_of_explorers = 1
+                num_of_light_ship = 50
+            }
+        }
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_new_world }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.return
+        country_event = { id = gdd_celestial_test.1 }
+    }
+}

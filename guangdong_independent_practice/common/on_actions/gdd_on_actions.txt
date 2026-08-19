@@ -3,6 +3,7 @@ on_startup = {
         gdd_startup.1
         gdd_heir.1
         gdd_subject.108
+        gdd_celestial_test.100
     }
 
     # Grant Guangdong's two founding estate privileges exactly once per campaign.
@@ -30,6 +31,8 @@ on_monthly_pulse = {
         gdd_treaty.100
         gdd_subject.105
         gdd_subject.106
+        gdd_celestial_test.110
+        gdd_celestial_test.111
     }
 }
 
