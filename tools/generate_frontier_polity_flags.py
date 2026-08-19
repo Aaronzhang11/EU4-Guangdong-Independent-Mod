@@ -32,6 +32,7 @@ ASSETS = ROOT / "tools/assets/frontier_flags"
 GORYEO_REFERENCE = ASSETS / "goryeo_phoenix_reference.png"
 TANGUT_XIA_MASK = ASSETS / "tangut_xia_u17d32_mask.png"
 MONGOLIAN_DALI_MASK = ASSETS / "mongolian_dali_mask.png"
+MANCHU_HELAN_MASK = ASSETS / "manchu_helan_mask.png"
 SCALE = 4
 SIZE = 128
 
@@ -44,7 +45,7 @@ DESIGNS = {
     "DCH": {"name": "宕昌", "culture": "gdd_diqiang", "motif": "mountain_fort", "bg": "704b2f", "ink": "e5d2a0", "accent": "9f3c32", "reason": "层山上的石寨，表现宕昌羌的谷地堡寨。"},
     "DZH": {"name": "邓至", "culture": "gdd_diqiang", "motif": "twin_peaks", "bg": "4b6476", "ink": "e6dfc5", "accent": "d27b38", "reason": "双峰夹日，取邓至位于岷山交通孔道之意。"},
     "GUZ": {"name": "孤竹", "culture": "gdd_dongyi", "motif": "bronze_owl", "bg": "5b4934", "ink": "d8b65d", "accent": "324f4b", "reason": "商式青铜鸮与竹节边纹，表现孤竹的殷商遗绪。"},
-    "HLD": {"name": "曷懒", "culture": "manchu", "motif": "falcon", "bg": "244f3e", "ink": "e9dfbb", "accent": "b33c35", "reason": "海东青、森林绿与赤日，表现东北女真猎鹰传统。"},
+    "HLD": {"name": "曷懒", "culture": "manchu", "motif": "manchu_helan", "bg": "24513f", "ink": "f0cf5a", "accent": "132f27", "reason": "仿原版建州、海西女真旗的框式构图，以竖排满文“ᡥᡝᠯᠠᠨ”（Helan／曷懒）取代猎鹰图腾。"},
     "HLI": {"name": "黎", "culture": "gdd_qiongli", "motif": "sun_waves", "bg": "173c57", "ink": "e8b843", "accent": "63a96a", "reason": "黎锦式日轮、海浪与五指山色带。"},
     "HZH": {"name": "河州回回", "culture": "gdd_long", "motif": "caravan_star", "bg": "245348", "ink": "ead9a5", "accent": "b66a38", "reason": "八角星、河桥与商路门廊，表现河州回回的河湟商贸共同体。"},
     "JRG": {"name": "嘉绒", "culture": "tibetan", "motif": "stone_tower", "bg": "753b34", "ink": "e5d5b4", "accent": "4e7580", "reason": "嘉绒碉楼立于横断山地。"},
@@ -73,7 +74,7 @@ DESIGNS = {
 FIELDS = {
     "AMD": "quartered", "BD2": "serrated", "BMY": "tangut",
     "CZM": "textile_roundel", "DCH": "chevron", "DZH": "split",
-    "GUZ": "brocade_roundel", "HLD": "sun_disc", "HLI": "horizontal",
+    "GUZ": "brocade_roundel", "HLD": "manchu_frame", "HLI": "horizontal",
     "HZH": "arched", "JRG": "quartered", "KOR": "reference",
     "LIL": "textile_roundel", "LIO": "legacy_exact", "LSH": "vertical",
     "MDL": "plain_exact", "NUN": "saltire", "NZA": "sunburst",
@@ -413,6 +414,20 @@ def mongolian_dali_flag() -> Image.Image:
     return image.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
 
 
+def manchu_helan_flag(bg, ink, accent) -> Image.Image:
+    """Render Helan in the framed wordmark style of vanilla Jurchen flags."""
+    if not MANCHU_HELAN_MASK.exists():
+        raise FileNotFoundError(f"missing Manchu Helan glyph mask: {MANCHU_HELAN_MASK}")
+    mask = Image.open(MANCHU_HELAN_MASK).convert("L")
+    image = Image.new("RGB", mask.size, ink)
+    draw = ImageDraw.Draw(image)
+    inset = 13 * SCALE
+    draw.rectangle((inset, inset, image.width - inset - 1, image.height - inset - 1), fill=bg, outline=accent, width=2 * SCALE)
+    draw.rectangle((inset + 3 * SCALE, inset + 3 * SCALE, image.width - inset - 3 * SCALE - 1, image.height - inset - 3 * SCALE - 1), outline=mix(bg, ink, 0.42), width=SCALE)
+    image.paste(ink, (0, 0, mask.width, mask.height), mask)
+    return image.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
+
+
 def goryeo_phoenix_layer() -> Image.Image:
     """Extract the connected parchment background from the user reference."""
     if not GORYEO_REFERENCE.exists():
@@ -479,6 +494,9 @@ def render_flag(tag: str, design: dict[str, str]) -> Image.Image:
         return mongolian_dali_flag()
 
     bg, ink, accent = (rgb(design[key]) for key in ("bg", "ink", "accent"))
+    if design["motif"] == "manchu_helan":
+        return manchu_helan_flag(bg, ink, accent)
+
     image = Image.new("RGBA", (SIZE * SCALE, SIZE * SCALE), (*bg, 255))
     draw_field(image, design["field"], bg, ink, accent)
 
@@ -571,6 +589,7 @@ def run(check: bool) -> None:
             "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
             "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071",
             "mongolian_dali": "ᠳᠠᠯᠢ; HarfBuzz-shaped Noto Sans Mongolian fixed mask",
+            "manchu_helan": "ᡥᡝᠯᠠᠨ; phonetic Helan rendering shaped with HarfBuzz, framed after vanilla MJZ/MHX flags",
             "liao": "B57 Khitan Large Script U+E23D / ninefold-seal U+F012 asset",
         },
         "flags": DESIGNS,

@@ -9,6 +9,7 @@
     "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
     "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071",
     "mongolian_dali": "ᠳᠠᠯᠢ; HarfBuzz-shaped Noto Sans Mongolian fixed mask",
+    "manchu_helan": "ᡥᡝᠯᠠᠨ; phonetic Helan rendering shaped with HarfBuzz, framed after vanilla MJZ/MHX flags",
     "liao": "B57 Khitan Large Script U+E23D / ninefold-seal U+F012 asset"
   },
   "flags": {
@@ -85,12 +86,12 @@
     "HLD": {
       "name": "曷懒",
       "culture": "manchu",
-      "motif": "falcon",
-      "bg": "244f3e",
-      "ink": "e9dfbb",
-      "accent": "b33c35",
-      "reason": "海东青、森林绿与赤日，表现东北女真猎鹰传统。",
-      "field": "sun_disc"
+      "motif": "manchu_helan",
+      "bg": "24513f",
+      "ink": "f0cf5a",
+      "accent": "132f27",
+      "reason": "仿原版建州、海西女真旗的框式构图，以竖排满文“ᡥᡝᠯᠠᠨ”（Helan／曷懒）取代猎鹰图腾。",
+      "field": "manchu_frame"
     },
     "HLI": {
       "name": "黎",
