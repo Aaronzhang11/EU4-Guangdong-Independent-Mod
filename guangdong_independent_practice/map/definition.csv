@@ -4009,7 +4009,7 @@ province;red;green;blue;x;x
 4008;100;14;108;RNW;
 4009;100;14;109;RNW;
 4010;100;14;110;Weishan Lake;x
-4011;100;14;111;RNW;
+4011;100;14;111;Chaohu Lake;x
 4012;100;14;112;RNW;
 4013;100;14;113;RNW;
 4014;100;14;114;RNW;
@@ -5201,8 +5201,8 @@ province;red;green;blue;x;x
 5307;171;163;193;Lintao;x
 5308;219;0;220;Gongchang;x
 5309;0;211;220;Wudu;x
-5310;37;173;211;Nanling West;x
-5311;198;52;122;Nanling East;x
+5310;48;63;86;Nanling West;x
+5311;118;0;175;Nanling East;x
 5312;233;147;191;Yongshun;x
 5313;50;42;134;Baojing;x
 5314;123;193;77;Yuanzhou Hunan;x
@@ -5259,3 +5259,6 @@ province;red;green;blue;x;x
 5365;35;23;195;Jinju;x
 5375;224;180;209;Rangrim Mountains;x
 5376;84;175;101;Taebaek Mountains;x
+5377;24;11;27;Jiulian Mountains;x
+5378;64;130;53;Zhe-Min Mountains;x
+5379;16;71;7;Wuyi Mountains;x

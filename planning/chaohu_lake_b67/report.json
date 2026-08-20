@@ -1,0 +1,46 @@
+{
+  "current": "guangdong_independent_practice/map/provinces.bmp",
+  "reference": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/1728520255/map/provinces.bmp",
+  "current_size": [
+    5632,
+    2048
+  ],
+  "reference_size": [
+    6400,
+    2560
+  ],
+  "patch_box": [
+    4638,
+    865,
+    4652,
+    874
+  ],
+  "changed_pixels": 22,
+  "repaired_groups": 0,
+  "repaired_land_pixels": 0,
+  "absorbed_enclosed_pixels": 0,
+  "features": [
+    {
+      "name": "Chaohu Lake",
+      "rgb": [
+        100,
+        14,
+        111
+      ],
+      "source_components": [
+        22
+      ],
+      "target_size": [
+        10,
+        5
+      ],
+      "target_pixels_before_cleanup": 22
+    }
+  ],
+  "playable_connectivity": {
+    "232,181,97": {
+      "before": 1,
+      "after": 1
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "batch": "jingzhou_gongan_crossing_fix",
+  "purpose": "Make Gongan the only special river destination reachable directly from Jingzhou.",
+  "status": "implemented",
+  "bitmap": {
+    "modified": false,
+    "sha256_at_review": "126da8efbd8aadbff977c8c0e605593defef58ae615241983b8529ed2098167a"
+  },
+  "provinces": {
+    "2172": {"name": "Jingzhou", "rgb": [81, 48, 64]},
+    "5014": {"name": "Gongan", "rgb": [95, 210, 175]},
+    "5036": {"name": "Jingzhou Reach", "rgb": [230, 199, 86]},
+    "681": {"name": "Yiling", "rgb": [225, 114, 64]},
+    "5013": {"name": "Shizhou", "rgb": [205, 75, 105]}
+  },
+  "required_special_adjacency": {
+    "from": 2172,
+    "to": 5014,
+    "type": "sea",
+    "through": 5036
+  },
+  "forbidden_special_adjacencies": [[2172, 681], [2172, 5013]],
+  "geometry_assertions": [
+    "2172 and 5014 both touch 5036",
+    "2172 and 5014 do not share a direct land border",
+    "2172 shares no direct land border with 681 or 5013"
+  ],
+  "apply_script": "tools/map_pipeline/fix_jingzhou_crossing.py"
+}

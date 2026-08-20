@@ -1,0 +1,184 @@
+{
+  "batch": "GDD_B63_GUZHU_POSITION_SYNC",
+  "purpose": "Recenter Guzhu city/fort, unit, text, port, trade and combat anchors after manual borders.",
+  "bitmap": {
+    "path": "guangdong_independent_practice/map/provinces.bmp",
+    "sha256": "464b22a7a743a7f55bfefc2a077363f193d4b7a85000fb6084496a504f573a0b",
+    "size": [
+      5632,
+      2048
+    ],
+    "editable_pixel_mask": "none; current target masks are read-only authority",
+    "locked_exterior": "entire provinces.bmp",
+    "changed_pixels_by_batch": 0,
+    "exterior_changed_pixels": 0
+  },
+  "map_membership_policy": {
+    "area": "dong_hebei_area (unchanged)",
+    "region": "north_china_region (unchanged)",
+    "history": "unchanged",
+    "trade_and_terrain": "unchanged"
+  },
+  "backup": "planning/guzhu_positions_b63/positions_before_blocks.txt",
+  "preview": "planning/guzhu_positions_b63/positions_preview.png",
+  "targets": {
+    "4194": {
+      "name": "Yongping",
+      "rgb": [
+        94,
+        52,
+        48
+      ],
+      "pixel_count": 76,
+      "bbox": [
+        4662,
+        715,
+        4672,
+        726
+      ],
+      "components_4way": [
+        76
+      ],
+      "port_sea_id": 4233,
+      "positions_bitmap": {
+        "city_and_fort": [
+          4668,
+          719
+        ],
+        "standing_unit": [
+          4665,
+          718
+        ],
+        "province_text": [
+          4668,
+          720
+        ],
+        "port": [
+          4672,
+          725
+        ],
+        "trade_route": [
+          4668,
+          720
+        ],
+        "combat_unit": [
+          4665,
+          718
+        ],
+        "trade_wind": [
+          4668,
+          720
+        ]
+      },
+      "positions_game": {
+        "city_and_fort": [
+          4668,
+          1329
+        ],
+        "standing_unit": [
+          4665,
+          1330
+        ],
+        "province_text": [
+          4668,
+          1328
+        ],
+        "port": [
+          4672,
+          1323
+        ],
+        "trade_route": [
+          4668,
+          1328
+        ],
+        "combat_unit": [
+          4665,
+          1330
+        ],
+        "trade_wind": [
+          4668,
+          1328
+        ]
+      }
+    },
+    "5211": {
+      "name": "Linyuguan",
+      "rgb": [
+        169,
+        93,
+        189
+      ],
+      "pixel_count": 37,
+      "bbox": [
+        4672,
+        716,
+        4677,
+        724
+      ],
+      "components_4way": [
+        37
+      ],
+      "port_sea_id": 4233,
+      "positions_bitmap": {
+        "city_and_fort": [
+          4674,
+          721
+        ],
+        "standing_unit": [
+          4676,
+          722
+        ],
+        "province_text": [
+          4674,
+          720
+        ],
+        "port": [
+          4675,
+          724
+        ],
+        "trade_route": [
+          4674,
+          720
+        ],
+        "combat_unit": [
+          4676,
+          722
+        ],
+        "trade_wind": [
+          4674,
+          720
+        ]
+      },
+      "positions_game": {
+        "city_and_fort": [
+          4674,
+          1327
+        ],
+        "standing_unit": [
+          4676,
+          1326
+        ],
+        "province_text": [
+          4674,
+          1328
+        ],
+        "port": [
+          4675,
+          1324
+        ],
+        "trade_route": [
+          4674,
+          1328
+        ],
+        "combat_unit": [
+          4676,
+          1326
+        ],
+        "trade_wind": [
+          4674,
+          1328
+        ]
+      }
+    }
+  }
+}
