@@ -479,9 +479,9 @@
       2160
     ]
   },
-  "reset_owners": {
-    "2154": "MNG"
-  },
+  "unowned_provinces": [
+    2154
+  ],
   "created_from_vanilla": [],
   "changed_history_files": [],
   "removed_legacy_artifacts": [],

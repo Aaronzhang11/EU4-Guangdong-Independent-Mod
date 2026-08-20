@@ -1137,3 +1137,1231 @@ custom_icon = {
     }
     tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
 }
+
+# The original tributary list is engine-bound. These scripted controls provide
+# the Mandate-window copy of the Zhou-member roster without changing the Council.
+custom_text_box = {
+    name = gdd_eoc_member_count
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        CZH = { exists = yes }
+    }
+    tooltip = GDD_EOC_MEMBER_COUNT_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_member_scroll_thumb_page_1
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+    }
+    tooltip = GDD_EOC_MEMBER_SCROLL_PAGE_1_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_member_scroll_thumb_page_2
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+    }
+    tooltip = GDD_EOC_MEMBER_SCROLL_PAGE_2_TT
+}
+
+custom_button = {
+    name = gdd_eoc_member_scroll_up
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+    }
+    trigger = { always = yes }
+    effect = {
+        clr_country_flag = gdd_eoc_member_roster_page_2
+    }
+    tooltip = GDD_EOC_MEMBER_SCROLL_UP_TT
+}
+
+custom_button = {
+    name = gdd_eoc_member_scroll_down
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_49
+    }
+    trigger = { always = yes }
+    effect = {
+        set_country_flag = gdd_eoc_member_roster_page_2
+    }
+    tooltip = GDD_EOC_MEMBER_SCROLL_DOWN_TT
+}
+
+# GDD_EOC_MEMBER_BINDINGS_BEGIN
+custom_shield = {
+    name = gdd_eoc_member_shield_01
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_01
+        event_target:gdd_eoc_member_roster_01 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_01
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_02
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_02
+        event_target:gdd_eoc_member_roster_02 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_02
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_03
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_03
+        event_target:gdd_eoc_member_roster_03 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_03
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_04
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_04
+        event_target:gdd_eoc_member_roster_04 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_04
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_05
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_05
+        event_target:gdd_eoc_member_roster_05 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_05
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_06
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_06
+        event_target:gdd_eoc_member_roster_06 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_06
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_07
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_07
+        event_target:gdd_eoc_member_roster_07 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_07
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_08
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_08
+        event_target:gdd_eoc_member_roster_08 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_08
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_09
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_09
+        event_target:gdd_eoc_member_roster_09 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_09
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_10
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_10
+        event_target:gdd_eoc_member_roster_10 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_10
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_11
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_11
+        event_target:gdd_eoc_member_roster_11 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_11
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_12
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_12
+        event_target:gdd_eoc_member_roster_12 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_12
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_13
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_13
+        event_target:gdd_eoc_member_roster_13 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_13
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_14
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_14
+        event_target:gdd_eoc_member_roster_14 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_14
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_15
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_15
+        event_target:gdd_eoc_member_roster_15 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_15
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_16
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_16
+        event_target:gdd_eoc_member_roster_16 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_16
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_17
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_17
+        event_target:gdd_eoc_member_roster_17 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_17
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_18
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_18
+        event_target:gdd_eoc_member_roster_18 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_18
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_19
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_19
+        event_target:gdd_eoc_member_roster_19 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_19
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_20
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_20
+        event_target:gdd_eoc_member_roster_20 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_20
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_21
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_21
+        event_target:gdd_eoc_member_roster_21 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_21
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_22
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_22
+        event_target:gdd_eoc_member_roster_22 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_22
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_23
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_23
+        event_target:gdd_eoc_member_roster_23 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_23
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_24
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_24
+        event_target:gdd_eoc_member_roster_24 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_24
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_25
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_25
+        event_target:gdd_eoc_member_roster_25 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_25
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_26
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_26
+        event_target:gdd_eoc_member_roster_26 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_26
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_27
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_27
+        event_target:gdd_eoc_member_roster_27 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_27
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_28
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_28
+        event_target:gdd_eoc_member_roster_28 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_28
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_29
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_29
+        event_target:gdd_eoc_member_roster_29 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_29
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_30
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_30
+        event_target:gdd_eoc_member_roster_30 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_30
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_31
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_31
+        event_target:gdd_eoc_member_roster_31 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_31
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_32
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_32
+        event_target:gdd_eoc_member_roster_32 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_32
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_33
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_33
+        event_target:gdd_eoc_member_roster_33 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_33
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_34
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_34
+        event_target:gdd_eoc_member_roster_34 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_34
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_35
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_35
+        event_target:gdd_eoc_member_roster_35 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_35
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_36
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_36
+        event_target:gdd_eoc_member_roster_36 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_36
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_37
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_37
+        event_target:gdd_eoc_member_roster_37 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_37
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_38
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_38
+        event_target:gdd_eoc_member_roster_38 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_38
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_39
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_39
+        event_target:gdd_eoc_member_roster_39 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_39
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_40
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_40
+        event_target:gdd_eoc_member_roster_40 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_40
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_41
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_41
+        event_target:gdd_eoc_member_roster_41 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_41
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_42
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_42
+        event_target:gdd_eoc_member_roster_42 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_42
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_43
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_43
+        event_target:gdd_eoc_member_roster_43 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_43
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_44
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_44
+        event_target:gdd_eoc_member_roster_44 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_44
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_45
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_45
+        event_target:gdd_eoc_member_roster_45 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_45
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_46
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_46
+        event_target:gdd_eoc_member_roster_46 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_46
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_47
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_47
+        event_target:gdd_eoc_member_roster_47 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_47
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_48
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
+        has_saved_global_event_target = gdd_eoc_member_roster_48
+        event_target:gdd_eoc_member_roster_48 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_48
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_49
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_49
+        event_target:gdd_eoc_member_roster_49 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_49
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_50
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_50
+        event_target:gdd_eoc_member_roster_50 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_50
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_51
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_51
+        event_target:gdd_eoc_member_roster_51 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_51
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_52
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_52
+        event_target:gdd_eoc_member_roster_52 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_52
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_53
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_53
+        event_target:gdd_eoc_member_roster_53 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_53
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_54
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_54
+        event_target:gdd_eoc_member_roster_54 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_54
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_55
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_55
+        event_target:gdd_eoc_member_roster_55 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_55
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_56
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_56
+        event_target:gdd_eoc_member_roster_56 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_56
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_57
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_57
+        event_target:gdd_eoc_member_roster_57 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_57
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_58
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_58
+        event_target:gdd_eoc_member_roster_58 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_58
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_59
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_59
+        event_target:gdd_eoc_member_roster_59 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_59
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_60
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_60
+        event_target:gdd_eoc_member_roster_60 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_60
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_61
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_61
+        event_target:gdd_eoc_member_roster_61 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_61
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_62
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_62
+        event_target:gdd_eoc_member_roster_62 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_62
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_63
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_63
+        event_target:gdd_eoc_member_roster_63 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_63
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_64
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_64
+        event_target:gdd_eoc_member_roster_64 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_64
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_eoc_member_shield_65
+    potential = {
+        has_global_flag = gdd_eoc_member_roster_initialised
+        has_country_flag = gdd_eoc_member_roster_page_2
+        has_saved_global_event_target = gdd_eoc_member_roster_65
+        event_target:gdd_eoc_member_roster_65 = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+    }
+    trigger = { always = yes }
+    tooltip = GDD_EOC_MEMBER_SHIELD_TT
+    global_event_target = gdd_eoc_member_roster_65
+    open_country = yes
+}
+# GDD_EOC_MEMBER_BINDINGS_END

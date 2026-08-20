@@ -10,16 +10,16 @@ capital = 735
 
 1444.1.1 = {
     monarch = {
-        name = "Wang Hyeon"
-        dynasty = "Wang"
+        name = "„s"
+        dynasty = "‹s"
         adm = 4
         dip = 5
         mil = 3
     }
     heir = {
-        name = "Wang U"
-        monarch_name = "U"
-        dynasty = "Wang"
+        name = "Py"
+        monarch_name = "Py"
+        dynasty = "‹s"
         birth_date = 1427.1.1
         claim = 85
         adm = 3

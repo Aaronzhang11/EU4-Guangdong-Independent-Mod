@@ -24,6 +24,7 @@ CULTURE_DIRECTORY = ROOT / "guangdong_independent_practice/common/cultures"
 CULTURE_FILES = (
     CULTURE_DIRECTORY / "00_cultures.txt",
     CULTURE_DIRECTORY / "99_gdd_culture_overhaul.txt",
+    CULTURE_DIRECTORY / "gdd_b60_samhan_culture.txt",
 )
 GENERATED_COMMENT = b"# Culture-specific Chinese dynasty and personal names."
 OLD_INHERITED_COMMENT = b"# Inherited name pools below are preserved verbatim."

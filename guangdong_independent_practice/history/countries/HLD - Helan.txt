@@ -10,16 +10,16 @@ capital = 732
 
 1444.1.1 = {
     monarch = {
-        name = "Mongke Temur"
-        dynasty = "Odoli"
+        name = "mRyrFz"
+        dynasty = "¡e5gÌ‘"
         adm = 3
         dip = 3
         mil = 4
     }
     heir = {
-        name = "Cungsan"
-        monarch_name = "Cungsan"
-        dynasty = "Odoli"
+        name = "EQ„U"
+        monarch_name = "EQ„U"
+        dynasty = "¡e5gÌ‘"
         birth_date = 1428.1.1
         claim = 70
         adm = 2

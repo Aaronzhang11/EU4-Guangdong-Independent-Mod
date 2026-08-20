@@ -1616,4 +1616,558 @@ zhx_build_gui_roster = {
         zhx_allocate_gui_roster_slot = yes
     }
     set_global_flag = zhx_gui_roster_initialised
+    gdd_build_eoc_member_roster = yes
+}
+
+# Independent compact cache for the Mandate-window copy.
+# MNG is deliberately excluded without changing the Zhou Council roster.
+gdd_clear_eoc_member_roster = {
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_01 }
+        clear_global_event_target = gdd_eoc_member_roster_01
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_02 }
+        clear_global_event_target = gdd_eoc_member_roster_02
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_03 }
+        clear_global_event_target = gdd_eoc_member_roster_03
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_04 }
+        clear_global_event_target = gdd_eoc_member_roster_04
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_05 }
+        clear_global_event_target = gdd_eoc_member_roster_05
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_06 }
+        clear_global_event_target = gdd_eoc_member_roster_06
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_07 }
+        clear_global_event_target = gdd_eoc_member_roster_07
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_08 }
+        clear_global_event_target = gdd_eoc_member_roster_08
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_09 }
+        clear_global_event_target = gdd_eoc_member_roster_09
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_10 }
+        clear_global_event_target = gdd_eoc_member_roster_10
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_11 }
+        clear_global_event_target = gdd_eoc_member_roster_11
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_12 }
+        clear_global_event_target = gdd_eoc_member_roster_12
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_13 }
+        clear_global_event_target = gdd_eoc_member_roster_13
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_14 }
+        clear_global_event_target = gdd_eoc_member_roster_14
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_15 }
+        clear_global_event_target = gdd_eoc_member_roster_15
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_16 }
+        clear_global_event_target = gdd_eoc_member_roster_16
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_17 }
+        clear_global_event_target = gdd_eoc_member_roster_17
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_18 }
+        clear_global_event_target = gdd_eoc_member_roster_18
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_19 }
+        clear_global_event_target = gdd_eoc_member_roster_19
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_20 }
+        clear_global_event_target = gdd_eoc_member_roster_20
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_21 }
+        clear_global_event_target = gdd_eoc_member_roster_21
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_22 }
+        clear_global_event_target = gdd_eoc_member_roster_22
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_23 }
+        clear_global_event_target = gdd_eoc_member_roster_23
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_24 }
+        clear_global_event_target = gdd_eoc_member_roster_24
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_25 }
+        clear_global_event_target = gdd_eoc_member_roster_25
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_26 }
+        clear_global_event_target = gdd_eoc_member_roster_26
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_27 }
+        clear_global_event_target = gdd_eoc_member_roster_27
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_28 }
+        clear_global_event_target = gdd_eoc_member_roster_28
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_29 }
+        clear_global_event_target = gdd_eoc_member_roster_29
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_30 }
+        clear_global_event_target = gdd_eoc_member_roster_30
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_31 }
+        clear_global_event_target = gdd_eoc_member_roster_31
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_32 }
+        clear_global_event_target = gdd_eoc_member_roster_32
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_33 }
+        clear_global_event_target = gdd_eoc_member_roster_33
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_34 }
+        clear_global_event_target = gdd_eoc_member_roster_34
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_35 }
+        clear_global_event_target = gdd_eoc_member_roster_35
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_36 }
+        clear_global_event_target = gdd_eoc_member_roster_36
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_37 }
+        clear_global_event_target = gdd_eoc_member_roster_37
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_38 }
+        clear_global_event_target = gdd_eoc_member_roster_38
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_39 }
+        clear_global_event_target = gdd_eoc_member_roster_39
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_40 }
+        clear_global_event_target = gdd_eoc_member_roster_40
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_41 }
+        clear_global_event_target = gdd_eoc_member_roster_41
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_42 }
+        clear_global_event_target = gdd_eoc_member_roster_42
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_43 }
+        clear_global_event_target = gdd_eoc_member_roster_43
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_44 }
+        clear_global_event_target = gdd_eoc_member_roster_44
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_45 }
+        clear_global_event_target = gdd_eoc_member_roster_45
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_46 }
+        clear_global_event_target = gdd_eoc_member_roster_46
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_47 }
+        clear_global_event_target = gdd_eoc_member_roster_47
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_48 }
+        clear_global_event_target = gdd_eoc_member_roster_48
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_49 }
+        clear_global_event_target = gdd_eoc_member_roster_49
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_50 }
+        clear_global_event_target = gdd_eoc_member_roster_50
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_51 }
+        clear_global_event_target = gdd_eoc_member_roster_51
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_52 }
+        clear_global_event_target = gdd_eoc_member_roster_52
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_53 }
+        clear_global_event_target = gdd_eoc_member_roster_53
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_54 }
+        clear_global_event_target = gdd_eoc_member_roster_54
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_55 }
+        clear_global_event_target = gdd_eoc_member_roster_55
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_56 }
+        clear_global_event_target = gdd_eoc_member_roster_56
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_57 }
+        clear_global_event_target = gdd_eoc_member_roster_57
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_58 }
+        clear_global_event_target = gdd_eoc_member_roster_58
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_59 }
+        clear_global_event_target = gdd_eoc_member_roster_59
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_60 }
+        clear_global_event_target = gdd_eoc_member_roster_60
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_61 }
+        clear_global_event_target = gdd_eoc_member_roster_61
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_62 }
+        clear_global_event_target = gdd_eoc_member_roster_62
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_63 }
+        clear_global_event_target = gdd_eoc_member_roster_63
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_64 }
+        clear_global_event_target = gdd_eoc_member_roster_64
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_member_roster_65 }
+        clear_global_event_target = gdd_eoc_member_roster_65
+    }
+}
+
+gdd_allocate_eoc_member_roster_slot = {
+    if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_01 } }
+        save_global_event_target_as = gdd_eoc_member_roster_01
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_02 } }
+        save_global_event_target_as = gdd_eoc_member_roster_02
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_03 } }
+        save_global_event_target_as = gdd_eoc_member_roster_03
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_04 } }
+        save_global_event_target_as = gdd_eoc_member_roster_04
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_05 } }
+        save_global_event_target_as = gdd_eoc_member_roster_05
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_06 } }
+        save_global_event_target_as = gdd_eoc_member_roster_06
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_07 } }
+        save_global_event_target_as = gdd_eoc_member_roster_07
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_08 } }
+        save_global_event_target_as = gdd_eoc_member_roster_08
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_09 } }
+        save_global_event_target_as = gdd_eoc_member_roster_09
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_10 } }
+        save_global_event_target_as = gdd_eoc_member_roster_10
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_11 } }
+        save_global_event_target_as = gdd_eoc_member_roster_11
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_12 } }
+        save_global_event_target_as = gdd_eoc_member_roster_12
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_13 } }
+        save_global_event_target_as = gdd_eoc_member_roster_13
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_14 } }
+        save_global_event_target_as = gdd_eoc_member_roster_14
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_15 } }
+        save_global_event_target_as = gdd_eoc_member_roster_15
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_16 } }
+        save_global_event_target_as = gdd_eoc_member_roster_16
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_17 } }
+        save_global_event_target_as = gdd_eoc_member_roster_17
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_18 } }
+        save_global_event_target_as = gdd_eoc_member_roster_18
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_19 } }
+        save_global_event_target_as = gdd_eoc_member_roster_19
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_20 } }
+        save_global_event_target_as = gdd_eoc_member_roster_20
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_21 } }
+        save_global_event_target_as = gdd_eoc_member_roster_21
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_22 } }
+        save_global_event_target_as = gdd_eoc_member_roster_22
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_23 } }
+        save_global_event_target_as = gdd_eoc_member_roster_23
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_24 } }
+        save_global_event_target_as = gdd_eoc_member_roster_24
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_25 } }
+        save_global_event_target_as = gdd_eoc_member_roster_25
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_26 } }
+        save_global_event_target_as = gdd_eoc_member_roster_26
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_27 } }
+        save_global_event_target_as = gdd_eoc_member_roster_27
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_28 } }
+        save_global_event_target_as = gdd_eoc_member_roster_28
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_29 } }
+        save_global_event_target_as = gdd_eoc_member_roster_29
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_30 } }
+        save_global_event_target_as = gdd_eoc_member_roster_30
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_31 } }
+        save_global_event_target_as = gdd_eoc_member_roster_31
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_32 } }
+        save_global_event_target_as = gdd_eoc_member_roster_32
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_33 } }
+        save_global_event_target_as = gdd_eoc_member_roster_33
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_34 } }
+        save_global_event_target_as = gdd_eoc_member_roster_34
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_35 } }
+        save_global_event_target_as = gdd_eoc_member_roster_35
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_36 } }
+        save_global_event_target_as = gdd_eoc_member_roster_36
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_37 } }
+        save_global_event_target_as = gdd_eoc_member_roster_37
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_38 } }
+        save_global_event_target_as = gdd_eoc_member_roster_38
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_39 } }
+        save_global_event_target_as = gdd_eoc_member_roster_39
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_40 } }
+        save_global_event_target_as = gdd_eoc_member_roster_40
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_41 } }
+        save_global_event_target_as = gdd_eoc_member_roster_41
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_42 } }
+        save_global_event_target_as = gdd_eoc_member_roster_42
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_43 } }
+        save_global_event_target_as = gdd_eoc_member_roster_43
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_44 } }
+        save_global_event_target_as = gdd_eoc_member_roster_44
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_45 } }
+        save_global_event_target_as = gdd_eoc_member_roster_45
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_46 } }
+        save_global_event_target_as = gdd_eoc_member_roster_46
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_47 } }
+        save_global_event_target_as = gdd_eoc_member_roster_47
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_48 } }
+        save_global_event_target_as = gdd_eoc_member_roster_48
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_49 } }
+        save_global_event_target_as = gdd_eoc_member_roster_49
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_50 } }
+        save_global_event_target_as = gdd_eoc_member_roster_50
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_51 } }
+        save_global_event_target_as = gdd_eoc_member_roster_51
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_52 } }
+        save_global_event_target_as = gdd_eoc_member_roster_52
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_53 } }
+        save_global_event_target_as = gdd_eoc_member_roster_53
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_54 } }
+        save_global_event_target_as = gdd_eoc_member_roster_54
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_55 } }
+        save_global_event_target_as = gdd_eoc_member_roster_55
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_56 } }
+        save_global_event_target_as = gdd_eoc_member_roster_56
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_57 } }
+        save_global_event_target_as = gdd_eoc_member_roster_57
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_58 } }
+        save_global_event_target_as = gdd_eoc_member_roster_58
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_59 } }
+        save_global_event_target_as = gdd_eoc_member_roster_59
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_60 } }
+        save_global_event_target_as = gdd_eoc_member_roster_60
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_61 } }
+        save_global_event_target_as = gdd_eoc_member_roster_61
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_62 } }
+        save_global_event_target_as = gdd_eoc_member_roster_62
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_63 } }
+        save_global_event_target_as = gdd_eoc_member_roster_63
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_64 } }
+        save_global_event_target_as = gdd_eoc_member_roster_64
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_member_roster_65 } }
+        save_global_event_target_as = gdd_eoc_member_roster_65
+    }
+}
+
+gdd_build_eoc_member_roster = {
+    gdd_clear_eoc_member_roster = yes
+    CZH = {
+        set_variable = {
+            which = gdd_eoc_member_count_cache
+            value = 0
+        }
+    }
+    every_country = {
+        limit = {
+            exists = yes
+            has_country_flag = zhx_member
+            NOT = { tag = MNG }
+        }
+        gdd_allocate_eoc_member_roster_slot = yes
+        CZH = {
+            change_variable = {
+                which = gdd_eoc_member_count_cache
+                value = 1
+            }
+        }
+    }
+    set_global_flag = gdd_eoc_member_roster_initialised
 }

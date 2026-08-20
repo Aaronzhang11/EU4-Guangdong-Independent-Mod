@@ -16,6 +16,17 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+TOOLS = ROOT / "tools"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from apply_culture_name_pools import readable_culture_name_blocks  # noqa: E402
+from country_name_pool_support import country_definition_bytes  # noqa: E402
+from encode_eu4_chinese_localisation import (  # noqa: E402
+    from_escaped_bytes,
+    to_escaped_bytes,
+)
+
 MOD = ROOT / "guangdong_independent_practice"
 PLAN = ROOT / "planning/korea_polities_b60"
 MANIFEST = PLAN / "b60_manifest.json"
@@ -36,6 +47,13 @@ def write_text(relative: str, content: str, encoding: str = "utf-8") -> None:
     path.write_text(content.rstrip() + "\n", encoding=encoding)
 
 
+def write_eu4_chinese_script(relative: str, content: str) -> None:
+    """Write Chinese character data in the installed EU4dll byte format."""
+    path = MOD / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(to_escaped_bytes(content.rstrip() + "\n"))
+
+
 def update_country_tags() -> None:
     path = MOD / "common/country_tags/gdd_country_tags.txt"
     text = path.read_text(encoding="latin-1")
@@ -52,43 +70,44 @@ HLD = "countries/B60_Helan.txt"
 
 
 def write_country_definitions() -> None:
-    write_text(
-        "common/countries/B60_Jizi_Joseon.txt",
-        '''# B60: Jizi-descended Zhou-aligned state in northern Korea.
+    (MOD / "common/countries/B60_Jizi_Joseon.txt").write_bytes(
+        country_definition_bytes(
+            '''# B60: Jizi-descended Zhou-aligned state in northern Korea.
 graphical_culture = asiangfx
 color = { 47 91 102 }
 revolutionary_colors = { 1 7 5 }''',
-        "latin-1",
+            "korean",
+        )
     )
-    write_text(
-        "common/countries/B60_Helan.txt",
-        '''# B60: Jurchen tribal federation of Helandian and Hamgyong.
+    (MOD / "common/countries/B60_Helan.txt").write_bytes(
+        country_definition_bytes(
+            '''# B60: Jurchen tribal federation of Helandian and Hamgyong.
 graphical_culture = asiangfx
 color = { 78 116 72 }
 revolutionary_colors = { 3 8 1 }''',
-        "latin-1",
+            "manchu",
+        )
     )
 
 
 def write_samhan_culture() -> None:
-    write_text(
+    name_blocks = readable_culture_name_blocks("gdd_samhan", "      ")
+    write_eu4_chinese_script(
         "common/cultures/gdd_b60_samhan_culture.txt",
         '''# B60: the native southern Han culture is distinct from Jizi Joseon.
 gdd_samhan_group = {
     graphical_culture = asiangfx
     gdd_samhan = {
         primary = KOR
-        dynasty_names = { Wang Kim Pak Shin Song Chae Gang Jeong Jang Yun Han Hong Yu }
-        male_names = { Hyeon U Jun Mu Seong Jin Gyeom Won Chung Hwan Yeong }
-        female_names = { Seonhui Myeonghui Jeonghwa Sukhui Yeonghwa }
+
+''' + name_blocks + '''
     }
 }''',
-        "latin-1",
     )
 
 
 def write_country_histories() -> None:
-    write_text(
+    write_eu4_chinese_script(
         "history/countries/JIZ - Jizi Joseon.txt",
         '''# B60: Jizi Joseon, an independent state that observes Zhou rites.
 government = monarchy
@@ -102,16 +121,16 @@ fixed_capital = 1845
 
 1444.1.1 = {
     monarch = {
-        name = "Gi Hyeon"
-        dynasty = "Gi"
+        name = "玄"
+        dynasty = "箕"
         adm = 4
         dip = 4
         mil = 3
     }
     heir = {
-        name = "Gi Jun"
-        monarch_name = "Jun"
-        dynasty = "Gi"
+        name = "准"
+        monarch_name = "准"
+        dynasty = "箕"
         birth_date = 1426.1.1
         claim = 80
         adm = 3
@@ -123,9 +142,8 @@ fixed_capital = 1845
 1444.10.29 = {
     add_truce_with = LIO
 }''',
-        "latin-1",
     )
-    write_text(
+    write_eu4_chinese_script(
         "history/countries/HLD - Helan.txt",
         '''# B60: the Helandian Jurchen federation in Hamgyong.
 government = tribal
@@ -139,16 +157,16 @@ capital = 732
 
 1444.1.1 = {
     monarch = {
-        name = "Mongke Temur"
-        dynasty = "Odoli"
+        name = "孟特穆"
+        dynasty = "斡朵里"
         adm = 3
         dip = 3
         mil = 4
     }
     heir = {
-        name = "Cungsan"
-        monarch_name = "Cungsan"
-        dynasty = "Odoli"
+        name = "充善"
+        monarch_name = "充善"
+        dynasty = "斡朵里"
         birth_date = 1428.1.1
         claim = 70
         adm = 2
@@ -156,11 +174,10 @@ capital = 732
         mil = 4
     }
 }''',
-        "latin-1",
     )
     # Exact vanilla filename shadows the inherited Joseon history.  This KOR
     # is the independent southern Goryeo state, not the Jizi polity.
-    write_text(
+    write_eu4_chinese_script(
         "history/countries/KOR - Korea.txt",
         '''# B60: independent native Goryeo in southern Korea.
 government = monarchy
@@ -174,16 +191,16 @@ capital = 735
 
 1444.1.1 = {
     monarch = {
-        name = "Wang Hyeon"
-        dynasty = "Wang"
+        name = "玄"
+        dynasty = "王"
         adm = 4
         dip = 5
         mil = 3
     }
     heir = {
-        name = "Wang U"
-        monarch_name = "U"
-        dynasty = "Wang"
+        name = "祐"
+        monarch_name = "祐"
+        dynasty = "王"
         birth_date = 1427.1.1
         claim = 85
         adm = 3
@@ -191,7 +208,6 @@ capital = 735
         mil = 3
     }
 }''',
-        "latin-1",
     )
 
 
@@ -340,6 +356,18 @@ def validate(config: dict) -> None:
     for tag in ("JIZ", "HLD"):
         if not (MOD / f"gfx/flags/{tag}.tga").exists():
             raise ValueError(f"missing {tag} flag")
+    expected_opening_characters = {
+        "JIZ - Jizi Joseon.txt": ("玄", "准", "箕"),
+        "HLD - Helan.txt": ("孟特穆", "充善", "斡朵里"),
+        "KOR - Korea.txt": ("玄", "祐", "王"),
+    }
+    for filename, expected_names in expected_opening_characters.items():
+        history = from_escaped_bytes((MOD / "history/countries" / filename).read_bytes())
+        for expected_name in expected_names:
+            if f'"{expected_name}"' not in history:
+                raise ValueError(f"{filename}: missing Chinese opening character {expected_name}")
+        if re.search(r'(?m)^\s*(?:name|monarch_name)\s*=\s*"[^"]+\s+[IVX]+"', history):
+            raise ValueError(f"{filename}: European regnal numeral remains")
     localisation = (MOD / "localisation_source/012_gdd_b59_korea_consolidation_readable_utf8.txt").read_text(encoding="utf-8")
     for name in ("狼林山脉", "太白山脉"):
         if name not in localisation:

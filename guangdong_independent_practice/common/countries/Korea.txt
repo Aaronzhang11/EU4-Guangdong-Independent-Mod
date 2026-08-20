@@ -1,0 +1,456 @@
+#Country Name: Please see filename.
+
+graphical_culture = asiangfx
+
+color = { 26  53  177 }
+revolutionary_colors = { 0 5 13 }
+
+historical_idea_groups = {
+	naval_ideas
+	offensive_ideas
+	maritime_ideas
+	trade_ideas
+	spy_ideas
+	diplomatic_ideas
+	economic_ideas
+	quality_ideas
+}
+
+historical_units = {
+	east_asian_spearmen
+	eastern_bow
+	asian_arquebusier
+	asian_charge_cavalry
+	asian_mass_infantry
+	asian_musketeer
+	reformed_asian_musketeer
+	reformed_asian_cavalry
+}
+
+
+
+ship_names = {
+	Baekdu Baekje Buyeo
+	Chilbosan
+	Duman Daedeok Dongmyeongseong
+	"Eulji Mundeok"
+	Gayasan Geumgang Geumho Goguryeo Gumiho "Gyeon Hwon"
+	Imjingang Inmyeonjo
+	Jangbaek "Jang Bogo" Jirisan Jeongjong
+	Kumgangsan
+	Myohyangsan
+	Nakdong
+	Samjogo Sincheon Silla Sobaek
+	Taebaek Taejo
+	Hanseong Haemosu Habaek Hwaeomsa
+	Worak
+	Yuhwa Yeong "Yeon Gaesomun"
+	"Jeong Do-jeon" "Yi Seong-gye"
+}
+
+# Culture-specific Chinese personal names (gdd_samhan).
+monarch_names = {
+    "˙^" = 10
+    "fk" = 10
+    "-f" = 10
+    "Ìe" = 10
+    "Lf" = 10
+    "¶î" = 10
+    "Py" = 10
+    "„O" = 10
+    "wi" = 10
+    "if" = 10
+    "ìv" = 10
+    "mf" = 10
+    "âV" = 10
+    "éf" = 10
+    "∫y" = 10
+    "f" = 10
+    "vt" = 10
+    "l" = 10
+    "Üñ" = 10
+    "ÀR" = 10
+    "IN" = 10
+    "V" = 10
+    "Vf" = 10
+    "ãt" = 10
+    "˙^∑V" = 10
+    "˙^¡N" = 10
+    "˙^IN" = 10
+    "˙^Jy" = 10
+    "˙^zf" = 10
+    "˙^·O" = 10
+    "˙^âR" = 10
+    "˙^åT" = 10
+    "˙^f" = 10
+    "˙^CQ" = 10
+    "˙^b" = 10
+    "˙^f" = 10
+    "˙^l" = 10
+    "˙^Üñ" = 10
+    "˙^Py" = 10
+    "˙^Lf" = 10
+    "˙^ÀR" = 10
+    "˙^ãt" = 10
+    "˙^Vf" = 10
+    "˙^Fz" = 10
+    "fk∑V" = 10
+    "fk¡N" = 10
+    "fkIN" = 10
+    "fkJy" = 10
+    "fkzf" = 10
+    "fk·O" = 10
+    "fkâR" = 10
+    "fkåT" = 10
+    "fkf" = 10
+    "fkCQ" = 10
+    "fkb" = 10
+    "fkf" = 10
+    "fkl" = 10
+    "fkÜñ" = 10
+    "fkPy" = 10
+    "fkLf" = 10
+    "fkÀR" = 10
+    "fkãt" = 10
+    "fkVf" = 10
+    "fkFz" = 10
+    "-f∑V" = 10
+    "-f¡N" = 10
+    "-fIN" = 10
+    "-fJy" = 10
+    "-fzf" = 10
+    "-f·O" = 10
+    "-fâR" = 10
+    "-fåT" = 10
+    "-ff" = 10
+    "-fCQ" = 10
+    "-fb" = 10
+    "-ff" = 10
+    "-fl" = 10
+    "-fÜñ" = 10
+    "-fPy" = 10
+    "-fLf" = 10
+    "-fÀR" = 10
+    "-fãt" = 10
+    "-fVf" = 10
+    "-fFz" = 10
+    "Ìe∑V" = 10
+    "Ìe¡N" = 10
+    "ÌeIN" = 10
+    "ÌeJy" = 10
+    "Ìezf" = 10
+    "Ìe·O" = 10
+    "ÌeâR" = 10
+    "ÌeåT" = 10
+    "Ìef" = 10
+    "ÌeCQ" = 10
+    "Ìeb" = 10
+    "Ìef" = 10
+    "Ìel" = 10
+    "ÌeÜñ" = 10
+    "ÌePy" = 10
+    "ÌeLf" = 10
+    "ÌeÀR" = 10
+    "Ìeãt" = 10
+    "ÌeVf" = 10
+    "ÌeFz" = 10
+    "Lf∑V" = 10
+    "Lf¡N" = 10
+    "LfIN" = 10
+    "LfJy" = 10
+    "Lfzf" = 10
+    "Lf·O" = 10
+    "LfâR" = 10
+    "LfåT" = 10
+    "Lff" = 10
+    "LfCQ" = 10
+    "Lfb" = 10
+    "Lff" = 10
+    "Lfl" = 10
+    "LfÜñ" = 10
+    "LfPy" = 10
+    "LfÀR" = 10
+    "Lfãt" = 10
+    "LfVf" = 10
+    "LfFz" = 10
+    "¶î∑V" = 10
+    "¶î¡N" = 10
+    "¶îIN" = 10
+    "¶îJy" = 10
+    "¶îzf" = 10
+    "¶î·O" = 10
+    "¶îâR" = 10
+    "¶îåT" = 10
+    "¶îf" = 10
+    "¶îCQ" = 10
+    "¶îb" = 10
+    "¶îf" = 10
+    "¶îl" = 10
+    "¶îÜñ" = 10
+    "¶îPy" = 10
+    "¶îLf" = 10
+    "¶îÀR" = 10
+    "¶îãt" = 10
+    "¶îVf" = 10
+    "¶îFz" = 10
+    "Py∑V" = 10
+    "Py¡N" = 10
+    "PyIN" = 10
+    "PyJy" = 10
+    "Pyzf" = 10
+    "Py·O" = 10
+    "PyâR" = 10
+    "PyåT" = 10
+    "Pyf" = 10
+    "PyCQ" = 10
+    "Pyb" = 10
+    "Pyf" = 10
+    "Pyl" = 10
+    "PyÜñ" = 10
+    "PyLf" = 10
+    "PyÀR" = 10
+    "Pyãt" = 10
+    "PyVf" = 10
+    "PyFz" = 10
+    "„O∑V" = 10
+    "„O¡N" = 10
+    "„OIN" = 10
+    "„OJy" = 10
+    "„Ozf" = 10
+    "„O·O" = 10
+    "„OâR" = 10
+    "„OåT" = 10
+    "„Of" = 10
+    "„OCQ" = 10
+    "„Ob" = 10
+    "„Of" = 10
+    "„Ol" = 10
+    "„OÜñ" = 10
+    "„OPy" = 10
+    "„OLf" = 10
+    "„OÀR" = 10
+    "„Oãt" = 10
+    "„OVf" = 10
+    "„OFz" = 10
+    "wi∑V" = 10
+    "wi¡N" = 10
+    "wiIN" = 10
+    "wiJy" = 10
+    "wizf" = 10
+    "wi·O" = 10
+    "wiâR" = 10
+    "wiåT" = 10
+    "wif" = 10
+    "wiCQ" = 10
+    "wib" = 10
+    "wif" = 10
+    "wil" = 10
+    "wiÜñ" = 10
+    "wiPy" = 10
+    "wiLf" = 10
+    "wiÀR" = 10
+    "wiãt" = 10
+    "wiVf" = 10
+    "wiFz" = 10
+    "if∑V" = 10
+    "if¡N" = 10
+    "ifIN" = 10
+    "ifJy" = 10
+    "ifzf" = 10
+    "if·O" = 10
+    "ifâR" = 10
+    "ifåT" = 10
+    "iff" = 10
+    "ifCQ" = 10
+    "ifb" = 10
+    "iff" = 10
+    "ifl" = 10
+    "ifÜñ" = 10
+    "ifPy" = 10
+    "ifLf" = 10
+    "ifÀR" = 10
+    "ifãt" = 10
+    "ifVf" = 10
+    "ifFz" = 10
+    "ìv∑V" = 10
+    "ìv¡N" = 10
+    "ìvIN" = 10
+    "ìvJy" = 10
+    "ìvzf" = 10
+    "ìv·O" = 10
+    "ìvâR" = 10
+    "ìvåT" = 10
+    "ìvf" = 10
+    "ìvCQ" = 10
+    "ìvb" = 10
+    "ìvf" = 10
+    "ìvl" = 10
+    "ìvÜñ" = 10
+    "ìvPy" = 10
+    "ìvLf" = 10
+    "ìvÀR" = 10
+    "ìvãt" = 10
+    "ìvVf" = 10
+    "ìvFz" = 10
+    "mf∑V" = 10
+    "mf¡N" = 10
+    "mfIN" = 10
+    "mfJy" = 10
+    "mfzf" = 10
+    "mf·O" = 10
+    "mfâR" = 10
+    "mfåT" = 10
+    "mff" = 10
+    "mfCQ" = 10
+    "mfb" = 10
+    "mff" = 10
+    "mfl" = 10
+    "mfÜñ" = 10
+    "zò∑V" = -1
+    "tQ≥Ç" = -1
+    "leåT" = -1
+    "CQç" = -1
+    "âR‡`" = -1
+    "¡Nw" = -1
+    "áe‡`" = -1
+    "YóFz" = -1
+    "±Rµy" = -1
+    "fèy" = -1
+    "åTzò" = -1
+    "∑VÅR" = -1
+    "zò≥Ç" = -1
+    "zòåT" = -1
+    "zòç" = -1
+    "zò‡`" = -1
+    "zòw" = -1
+    "zòFz" = -1
+    "zòµy" = -1
+    "zòèy" = -1
+    "zòÅR" = -1
+    "zòÍN" = -1
+    "tQ∑V" = -1
+    "tQåT" = -1
+    "tQç" = -1
+    "tQ‡`" = -1
+    "tQw" = -1
+    "tQFz" = -1
+    "tQµy" = -1
+    "tQèy" = -1
+    "tQzò" = -1
+    "tQÅR" = -1
+    "tQÍN" = -1
+    "le∑V" = -1
+    "le≥Ç" = -1
+    "leç" = -1
+    "le‡`" = -1
+    "lew" = -1
+    "leFz" = -1
+    "leµy" = -1
+    "leèy" = -1
+    "lezò" = -1
+    "leÅR" = -1
+    "leÍN" = -1
+    "CQ∑V" = -1
+    "CQ≥Ç" = -1
+    "CQåT" = -1
+    "CQ‡`" = -1
+    "CQw" = -1
+    "CQFz" = -1
+    "CQµy" = -1
+    "CQèy" = -1
+    "CQzò" = -1
+    "CQÅR" = -1
+    "CQÍN" = -1
+    "âR∑V" = -1
+    "âR≥Ç" = -1
+    "âRåT" = -1
+    "âRç" = -1
+    "âRw" = -1
+    "âRFz" = -1
+    "âRµy" = -1
+    "âRèy" = -1
+    "âRzò" = -1
+    "âRÅR" = -1
+    "âRÍN" = -1
+    "¡N∑V" = -1
+    "¡N≥Ç" = -1
+    "¡NåT" = -1
+    "¡Nç" = -1
+    "¡N‡`" = -1
+    "¡NFz" = -1
+    "¡Nµy" = -1
+    "¡Nèy" = -1
+    "¡Nzò" = -1
+    "¡NÅR" = -1
+    "¡NÍN" = -1
+    "áe∑V" = -1
+    "áe≥Ç" = -1
+    "áeåT" = -1
+    "áeç" = -1
+    "áew" = -1
+    "áeFz" = -1
+    "áeµy" = -1
+    "áeèy" = -1
+    "áezò" = -1
+    "áeÅR" = -1
+    "áeÍN" = -1
+    "Yó∑V" = -1
+    "Yó≥Ç" = -1
+    "YóåT" = -1
+    "Yóç" = -1
+    "Yó‡`" = -1
+    "Yów" = -1
+    "Yóµy" = -1
+    "Yóèy" = -1
+    "Yózò" = -1
+    "YóÅR" = -1
+    "YóÍN" = -1
+    "±R∑V" = -1
+    "±R≥Ç" = -1
+    "±RåT" = -1
+    "±Rç" = -1
+    "±R‡`" = -1
+    "±Rw" = -1
+    "±RFz" = -1
+    "±Rèy" = -1
+    "±Rzò" = -1
+    "±RÅR" = -1
+    "±RÍN" = -1
+    "f∑V" = -1
+    "f≥Ç" = -1
+    "fåT" = -1
+    "fç" = -1
+    "f‡`" = -1
+    "fw" = -1
+    "fFz" = -1
+    "fµy" = -1
+    "fzò" = -1
+    "fÅR" = -1
+    "fÍN" = -1
+    "åT∑V" = -1
+    "åT≥Ç" = -1
+    "åTç" = -1
+    "åT‡`" = -1
+    "åTw" = -1
+    "åTFz" = -1
+    "åTµy" = -1
+}
+
+leader_names = {
+    "ãs"
+    "—ë"
+    "4g"
+    "T"
+    "—ê"
+    "Ng"
+    "‹Y"
+    "9S"
+    ".V"
+    "óg"
+    "3u"
+    "Èó"
+    "ãR"
+    "8m"
+    "Ûg"
+    "âR"
+}

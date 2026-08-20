@@ -164,15 +164,45 @@ GIVEN_NAME_SETS_BASE: dict[str, dict[str, tuple[str, ...]]] = {
             "银花", "娥娘", "兰妹", "亚兰", "阿玉", "美燕",
         ),
     },
+    "korean": {
+        "male": (
+            "玄", "准", "祐", "禺", "瑀", "昭", "穆", "皓",
+            "晟", "昱", "珣", "璟", "询", "颙", "楷", "俣",
+            "晛", "昌", "元", "忠", "孝", "仁", "义", "成",
+        ),
+        "female": (
+            "贞姬", "敬惠", "淑仪", "仁粹", "定顺", "昭惠",
+            "端敬", "文定", "仁显", "明圣", "和敬", "德惠",
+        ),
+    },
+    "samhan": {
+        "male": (
+            "建", "武", "昭", "旭", "显", "钦", "祐", "俣",
+            "楷", "晛", "皓", "晟", "彻", "暀", "禺", "昌",
+            "瑶", "泰", "隆", "勋", "义", "弘", "晖", "璋",
+        ),
+        "female": (
+            "顺德", "兴芳", "敬和", "元贞", "安惠", "仁睿",
+            "文惠", "静穆", "宣禧", "明福", "和顺", "德宁",
+        ),
+    },
+    "manchu": {
+        "male": (
+            "孟特穆", "充善", "塔克世", "努尔哈赤", "舒尔哈齐",
+            "褚英", "代善", "阿敏", "莽古尔泰", "皇太极", "多尔衮",
+            "多铎", "豪格", "福临", "玄烨", "胤秛", "弘历", "阿济格",
+        ),
+        "female": (
+            "东哥", "阿巴亥", "哲哲", "布木布泰", "海兰珠", "孟古",
+            "衮代", "巴特玛", "阿巴泰", "宁古塔", "英格", "乌云珠",
+        ),
+    },
 }
 
 
-# EU4 assigns regnal numbers when a country draws the same monarch given name
-# more than once.  Small hand-written pools therefore produce many "I/II/III"
-# rulers over a long campaign.  Keep the historical seed names above, then add
-# deterministic culture-specific combinations.  Two-character Han names and
-# transliterated non-Han names give substantially more variety without mixing
-# unrelated naming traditions.
+# Keep broad deterministic pools for advisers, envoys, rulers and heirs.  The
+# generated country entries deliberately omit EU4's ``#N`` regnal-number token,
+# so repeated East Asian names never become European-style I/II/III rulers.
 TARGET_MALE_NAMES = 256
 TARGET_FEMALE_NAMES = 128
 
@@ -417,6 +447,54 @@ NAME_COMPONENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "妹", "燕", "娘", "花", "兰", "玉", "香", "云", "英", "珍", "月", "美",
         ),
     },
+    "korean": {
+        "male_left": (
+            "玄", "准", "祐", "昭", "景", "成", "忠", "孝", "仁", "义",
+            "文", "武", "元", "昌", "世", "宗", "显", "德", "承", "弘",
+        ),
+        "male_right": (
+            "祐", "准", "玄", "珣", "璟", "昱", "晟", "皓", "昌", "成",
+            "仁", "义", "忠", "孝", "贤", "明", "德", "元", "宗", "和",
+        ),
+        "female_left": (
+            "贞", "敬", "淑", "仁", "定", "昭", "端", "文", "明", "和", "德", "惠",
+        ),
+        "female_right": (
+            "姬", "惠", "仪", "粹", "顺", "仁", "敬", "定", "显", "圣", "和", "德",
+        ),
+    },
+    "samhan": {
+        "male_left": (
+            "建", "武", "昭", "旭", "显", "钦", "祐", "俣", "楷", "晛",
+            "皓", "晟", "彻", "暀", "禺", "昌", "泰", "隆", "弘", "景",
+        ),
+        "male_right": (
+            "德", "仁", "义", "礼", "智", "信", "安", "和", "明", "元",
+            "成", "昌", "泰", "隆", "祐", "显", "勋", "璋", "晖", "穆",
+        ),
+        "female_left": (
+            "顺", "兴", "敬", "元", "安", "仁", "文", "静", "宣", "明", "和", "德",
+        ),
+        "female_right": (
+            "德", "芳", "和", "贞", "惠", "睿", "穆", "禧", "福", "顺", "宁", "仪",
+        ),
+    },
+    "manchu": {
+        "male_left": (
+            "阿", "巴", "博", "布", "楚", "多", "额", "费", "富", "葛",
+            "哈", "和", "胡", "济", "觉", "喀", "穆", "纳", "努", "塔",
+        ),
+        "male_right": (
+            "海", "齐", "善", "泰", "图", "禄", "保", "春", "贵", "福",
+            "宁", "安", "成", "德", "林", "隆", "明", "全", "顺", "祥",
+        ),
+        "female_left": (
+            "东", "阿", "布", "孟", "哲", "海", "衮", "宁", "英", "乌", "萨", "富",
+        ),
+        "female_right": (
+            "哥", "巴亥", "木布泰", "古", "兰珠", "代", "娜", "福", "玉", "珠", "格格", "云",
+        ),
+    },
 }
 
 
@@ -500,6 +578,9 @@ CULTURE_SPECS: dict[str, tuple[str, tuple[str, ...]]] = {
     # adopted surnames, supplemented here with established Hainan Li surnames
     # and clan labels instead of the generic Han pool used by the remote draft.
     "gdd_qiongli": ("qiongli", ("符", "王", "吉", "羊", "韩", "黎", "林", "高")),
+    "korean": ("korean", ("箕", "奇", "李", "金", "朴", "崔", "郑", "尹", "姜", "赵", "宋", "张", "韩", "洪", "柳", "申")),
+    "gdd_samhan": ("samhan", ("王", "金", "朴", "崔", "郑", "李", "姜", "尹", "张", "林", "申", "韩", "宋", "洪", "柳", "安")),
+    "manchu": ("manchu", ("爱新觉罗", "叶赫那拉", "乌拉那拉", "辉发那拉", "完颜", "瓜尔佳", "富察", "赫舍里", "佟佳", "纽祜禄", "舒穆禄", "索绰罗", "马佳", "斡朵里")),
 }
 
 
@@ -508,6 +589,9 @@ PRIMARY_CULTURE_PATTERN = re.compile(r"^\s*primary_culture\s*=\s*(\S+)", re.MULT
 GENERATED_COMMENT_PATTERN = re.compile(
     rb"(?m)^[ \t]*# Culture-specific Chinese personal names \([^\r\n]+\)\.\r?\n"
 )
+# HUA now points to B50_Huai.txt, but keep its older local override normalized
+# as well so no dormant file can reintroduce European regnal numerals later.
+LEGACY_LOCAL_COUNTRY_CULTURES = {"Huai.txt": "gdd_jianghuai"}
 
 
 def country_tag_map(vanilla_root: Path) -> dict[str, str]:
@@ -582,8 +666,10 @@ def readable_name_block(culture: str, newline: str) -> str:
         f"# Culture-specific Chinese personal names ({culture}).",
         "monarch_names = {",
     ]
-    lines.extend(f'    "{name} #0" = 10' for name in given["male"])
-    lines.extend(f'    "{name} #0" = -1' for name in given["female"])
+    # No ``#N`` suffix: East Asian rulers retain their personal names without
+    # EU4 appending European-style regnal numerals on later repetitions.
+    lines.extend(f'    "{name}" = 10' for name in given["male"])
+    lines.extend(f'    "{name}" = -1' for name in given["female"])
     lines.extend(("}", "", "leader_names = {"))
     lines.extend(f'    "{surname}"' for surname in surnames)
     lines.extend(("}", ""))
@@ -621,11 +707,16 @@ def generated_country_data(data: bytes, culture: str) -> bytes:
 
 
 def apply(vanilla_root: Path, check: bool) -> dict[str, object]:
-    assignments = active_country_files(vanilla_root)
+    active_assignments = active_country_files(vanilla_root)
+    assignments = dict(active_assignments)
+    for country_file, culture in LEGACY_LOCAL_COUNTRY_CULTURES.items():
+        if (COUNTRIES / country_file).exists():
+            assignments.setdefault(country_file, culture)
     cultures: Counter[str] = Counter()
     changed: list[str] = []
     for country_file, culture in sorted(assignments.items()):
-        cultures[culture] += 1
+        if country_file in active_assignments:
+            cultures[culture] += 1
         source = source_country_path(country_file, vanilla_root)
         current = source.read_bytes()
         expected = generated_country_data(current, culture)
@@ -636,6 +727,8 @@ def apply(vanilla_root: Path, check: bool) -> dict[str, object]:
             actual = target.read_bytes()
             if actual != generated_country_data(actual, culture):
                 raise ValueError(f"{country_file}: Chinese name pool is stale or malformed")
+            if re.search(rb"#[0-9]+", actual):
+                raise ValueError(f"{country_file}: European regnal-number token remains")
             for assignment in (b"monarch_names", b"leader_names"):
                 if len(re.findall(rb"(?m)^\s*" + assignment + rb"\s*=", actual)) != 1:
                     raise ValueError(f"{country_file}: expected exactly one {assignment.decode()} block")
@@ -644,8 +737,9 @@ def apply(vanilla_root: Path, check: bool) -> dict[str, object]:
                 target.write_bytes(expected)
                 changed.append(country_file)
     return {
-        "active_country_definitions": len(assignments),
+        "active_country_definitions": len(active_assignments),
         "generated_name_pools": len(assignments),
+        "legacy_local_overrides": len(assignments) - len(active_assignments),
         "male_names_per_pool": TARGET_MALE_NAMES,
         "female_names_per_pool": TARGET_FEMALE_NAMES,
         "changed_files": changed,

@@ -19,6 +19,7 @@ country_event = {
             NOT = { has_global_flag = zhx_system_initialised_v5 }
             NOT = { has_global_flag = zhx_system_initialised_v6 }
             NOT = { has_global_flag = zhx_gui_roster_initialised }
+            NOT = { has_global_flag = gdd_eoc_member_roster_initialised }
         }
     }
 
@@ -55,7 +56,10 @@ country_event = {
         }
         if = {
             limit = {
-                NOT = { has_global_flag = zhx_gui_roster_initialised }
+                OR = {
+                    NOT = { has_global_flag = zhx_gui_roster_initialised }
+                    NOT = { has_global_flag = gdd_eoc_member_roster_initialised }
+                }
             }
             zhx_build_gui_roster = yes
         }

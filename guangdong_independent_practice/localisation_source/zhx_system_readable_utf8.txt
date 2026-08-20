@@ -118,6 +118,13 @@ l_english:
  zhx_gui_reform_tt:0 "重申成周盟书是当前原型中已实现的第一项盟约改革。"
  zhx_gui_member_shield_tt:0 "周天下诸侯。点击打开该国外交界面。"
  zhx_gui_overview_button_tt:0 "打开只读的周天下详细总览，不改变任何系统状态。"
+ gdd_eoc_member_count:0 "§Y[CZH.gdd_eoc_member_count_cache.GetValue]§!个成员国"
+ GDD_EOC_MEMBER_COUNT_TT:0 "当前天命界面登记的周天下现存成员国数量；已删除的大明不计入。"
+ GDD_EOC_MEMBER_SHIELD_TT:0 "周天下成员国。点击打开该国外交界面。"
+ GDD_EOC_MEMBER_SCROLL_PAGE_1_TT:0 "成员国名册第一页。"
+ GDD_EOC_MEMBER_SCROLL_PAGE_2_TT:0 "成员国名册第二页。"
+ GDD_EOC_MEMBER_SCROLL_UP_TT:0 "向上滚动成员国名册。"
+ GDD_EOC_MEMBER_SCROLL_DOWN_TT:0 "向下滚动成员国名册。"
 
  zhx_vote_support_ritual_breakdown_title:0 "公议投票：赞同王命"
  zhx_vote_support_ritual_breakdown_desc:0 "把本国在“王命不行”事变中的最终立场改为赞同。原有反对票或弃权票会被替换。"

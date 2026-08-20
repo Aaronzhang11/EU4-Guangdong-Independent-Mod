@@ -10,16 +10,16 @@ fixed_capital = 1845
 
 1444.1.1 = {
     monarch = {
-        name = "Gi Hyeon"
-        dynasty = "Gi"
+        name = "„s"
+        dynasty = "•r"
         adm = 4
         dip = 4
         mil = 3
     }
     heir = {
-        name = "Gi Jun"
-        monarch_name = "Jun"
-        dynasty = "Gi"
+        name = "ÆQ"
+        monarch_name = "ÆQ"
+        dynasty = "•r"
         birth_date = 1426.1.1
         claim = 80
         adm = 3

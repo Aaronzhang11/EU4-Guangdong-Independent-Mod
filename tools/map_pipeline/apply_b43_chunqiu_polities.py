@@ -129,7 +129,8 @@ TAG_PROVINCES = {
 # Low-saturation palette approved from the real-boundary political-map preview.
 # Reused vanilla tags retain their original hue families, while every other
 # country uses a restrained gray-toned color chosen against its actual map
-# neighbors.
+# neighbors. The second-pass frontier and Central Plains corrections separate
+# visually adjacent states with muted European- and Indian-map hue families.
 MUTED_COUNTRY_COLORS = {
     "AMD": (115, 118, 158),
     "BAA": (109, 150, 116),
@@ -149,14 +150,14 @@ MUTED_COUNTRY_COLORS = {
     "DCH": (128, 149, 109),
     "DQU": (74, 150, 105),
     "DIA": (126, 130, 159),
-    "DZH": (145, 120, 142),
+    "DZH": (96, 101, 137),
     "EGU": (72, 129, 122),
     "GDD": (190, 72, 72),
-    "GON": (115, 118, 158),
+    "GON": (132, 91, 76),
     "GUI": (65, 120, 158),
     "GUN": (232, 232, 220),
     "GUZ": (35, 37, 40),
-    "GUO": (96, 143, 139),
+    "GUO": (149, 126, 82),
     "GYA": (48, 76, 120),
     "GZH": (133, 148, 154),
     "HAK": (181, 151, 101),
@@ -168,7 +169,7 @@ MUTED_COUNTRY_COLORS = {
     "HYA": (48, 77, 135),
     "JRG": (176, 130, 103),
     "JJG": (164, 82, 43),
-    "JUU": (139, 113, 153),
+    "JUU": (145, 116, 72),
     "KAM": (64, 146, 106),
     "KSD": (209, 120, 83),
     "LCH": (193, 166, 82),
@@ -196,7 +197,7 @@ MUTED_COUNTRY_COLORS = {
     "SUI": (159, 129, 111),
     "TSF": (171, 136, 146),
     "TZZ": (184, 213, 228),
-    "WDU": (176, 130, 103),
+    "WDU": (72, 108, 96),
     "WEI": (176, 130, 103),
     "WGS": (150, 156, 104),
     "WLM": (159, 129, 111),
@@ -214,7 +215,7 @@ MUTED_COUNTRY_COLORS = {
     "YPG": (126, 130, 159),
     "YUE": (116, 130, 194),
     "ZHA": (116, 150, 163),
-    "ZHG": (96, 143, 139),
+    "ZHG": (122, 84, 104),
     "ZNG": (181, 151, 101),
     "ZSH": (74, 122, 168),
     "ZHI": (161, 86, 151),
@@ -328,9 +329,9 @@ EXISTING_COUNTRY_COLORS = {
     "HNG": {"file": "B45_Heng.txt", "color": MUTED_COUNTRY_COLORS["HNG"]},
 }
 
-RESET_OWNERS: dict[int, str] = {
-    2154: "MNG",  # Tamsui
-}
+# These provinces must remain colonizable.  Keep this in the generator so a
+# full B43 replay cannot restore the former one-province Ming start in Taiwan.
+UNOWNED_PROVINCES = {2154}  # Kelang
 
 # User-confirmed core cleanup. Major and B50 eastern tags retain cores only
 # on their intended opening territory.
@@ -445,6 +446,21 @@ def apply_owner(text: str, owner: str) -> str:
     return initial + dated
 
 
+def clear_initial_ownership(text: str) -> str:
+    initial, dated = initial_section(text)
+    initial = re.sub(
+        r"(?m)^[ \t]*(?:owner|controller)[ \t]*=[ \t]*\S+[ \t]*(?:\r?\n)?",
+        "",
+        initial,
+    )
+    initial = re.sub(
+        r"(?m)^[ \t]*add_core[ \t]*=[ \t]*MNG[ \t]*(?:\r?\n)?",
+        "",
+        initial,
+    )
+    return initial + dated
+
+
 def add_initial_core(text: str, core: str) -> str:
     initial, dated = initial_section(text)
     if core in initial_cores(initial):
@@ -515,8 +531,8 @@ def assigned_owner(province_id: int, vanilla_root: Path) -> str | None:
     for tag, provinces in PRESERVED_OWNERSHIP.items():
         if province_id in provinces:
             return tag
-    if province_id in RESET_OWNERS:
-        return RESET_OWNERS[province_id]
+    if province_id in UNOWNED_PROVINCES:
+        return None
     for history_root in (
         PROVINCE_HISTORY,
         vanilla_root / "history/provinces",
@@ -916,10 +932,13 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
             raise ValueError(
                 f"{tag}: exact ownership mismatch; actual={sorted(actual)}, expected={sorted(expected)}"
             )
-    for province_id, owner in RESET_OWNERS.items():
+    for province_id in UNOWNED_PROVINCES:
         for path in ensure_province_history(province_id, vanilla_root, write=False):
-            if initial_value(read_text(path), "owner") != owner:
-                raise ValueError(f"{path.name}: reset owner is not {owner}")
+            initial, _dated = initial_section(read_text(path))
+            if re.search(r"(?m)^\s*(?:owner|controller)\s*=", initial):
+                raise ValueError(f"{path.name}: colonizable province has an initial owner")
+            if re.search(r"(?m)^\s*add_core\s*=\s*MNG\s*$", initial):
+                raise ValueError(f"{path.name}: colonizable province retains an MNG core")
     for tag, expected in PRESERVED_OWNERSHIP.items():
         actual = current_owned_ids(tag)
         if actual != expected:
@@ -1057,10 +1076,10 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
                     path.write_text(new, encoding="utf-8")
                     changed_history_files.append(path.name)
 
-    for province_id, owner in RESET_OWNERS.items():
+    for province_id in UNOWNED_PROVINCES:
         for path in ensure_province_history(province_id, vanilla_root, write=True):
             old = read_text(path)
-            new = apply_owner(old, owner)
+            new = clear_initial_ownership(old)
             if new != old:
                 path.write_text(new, encoding="utf-8")
                 changed_history_files.append(path.name)
@@ -1198,7 +1217,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             "southern_ming_core_cleanup": [663, 666, 2162, 2164, 4949, 5217, 5303],
         },
         "policy": {tag: list(provinces) for tag, provinces in TAG_PROVINCES.items()},
-        "reset_owners": {str(province_id): owner for province_id, owner in RESET_OWNERS.items()},
+        "unowned_provinces": sorted(UNOWNED_PROVINCES),
         "created_from_vanilla": sorted(set(created_from_vanilla)),
         "changed_history_files": sorted(set(changed_history_files)),
         "removed_legacy_artifacts": sorted(set(removed_legacy_artifacts)),

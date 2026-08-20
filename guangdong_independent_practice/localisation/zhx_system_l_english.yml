@@ -118,6 +118,13 @@
  zhx_gui_reform_tt:0 "Í‘3ubhTßvfN=fSVMRŸS‹W-NòTžR°s„v,rNy˜ßv¦u9ei—0"
  zhx_gui_member_shield_tt:0 "hT)YNø‹¯O0¹pûQSbVå‹ýVY²NLub—0"
  zhx_gui_overview_button_tt:0 "SbVêSû‹„vhT)YNæ‹ÆuI`È‰ÿN9eØSûNUOûsßu¶r`0"
+ gdd_eoc_member_count:0 "§Y[CZH.gdd_eoc_member_count_cache.GetValue]§!8NbXTýV"
+ GDD_EOC_MEMBER_COUNT_TT:0 "SVMR)Y‹TLub—‰v°‹„vhT)YN°sXRbXTýVpeÏ‘ÿòT.Rd–„v'YfN¡‹eQ0"
+ GDD_EOC_MEMBER_SHIELD_TT:0 "hT)YNbXTýV0¹pûQSbVå‹ýVY²NLub—0"
+ GDD_EOC_MEMBER_SCROLL_PAGE_1_TT:0 "bXTýVTŒQ,rNu˜0"
+ GDD_EOC_MEMBER_SCROLL_PAGE_2_TT:0 "bXTýVTŒQ,rŒNu˜0"
+ GDD_EOC_MEMBER_SCROLL_UP_TT:0 "TNÚn¨RbXTýVTŒQ0"
+ GDD_EOC_MEMBER_SCROLL_DOWN_TT:0 "TNÚn¨RbXTýVTŒQ0"
 
  zhx_vote_support_ritual_breakdown_title:0 "lQ®‹•bhyÿ^T‹s‹T"
  zhx_vote_support_ritual_breakdown_desc:0 "Šb,gýV(W“‹s‹TNLˆ”‹NØS-N„vgÈuËzHW9eHN^T0ŸS	gÍSùRhybVCghyO«ˆÿfbc0"

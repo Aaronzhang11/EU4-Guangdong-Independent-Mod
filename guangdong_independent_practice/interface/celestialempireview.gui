@@ -820,29 +820,689 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 		}
 
-		# Centre-bottom: the original tributary list, with no added controls.
+		# Centre-bottom: retain the hard-coded tributary controls off-screen, then
+		# show an independent scripted copy of the Zhou-member dynamic roster.
 		instantTextBoxType = {
 			name = "tributary_label"
-			position = { x = 411 y = 633 }
+			position = { x = -3000 y = -3000 }
 			textureFile = ""
 			font = "vic_22"
-			borderSize = { x = 4 y = 0 }
+			borderSize = { x = 0 y = 0 }
 			text = "CELESTIAL_TRIBUTARIES"
-			maxWidth = 194
-			maxHeight = 32
+			maxWidth = 1
+			maxHeight = 1
 			format = centre
 		}
 
 		listboxType = {
 			name = "tributary_shield_box"
-			position = { x = 341 y = 660 }
+			position = { x = -3000 y = -3000 }
 			backGround = ""
-			size = { x = 360 y = 120 }
+			size = { x = 1 y = 1 }
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 0
-			borderSize = { x = 10 y = 10 }
+			borderSize = { x = 0 y = 0 }
 		}
+
+		instantTextBoxType = {
+			name = "gdd_eoc_member_count"
+			position = { x = 423 y = 637 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = { x = 4 y = 0 }
+			text = ""
+			maxWidth = 194
+			maxHeight = 32
+			format = centre
+			scripted = yes
+		}
+
+		# The vanilla tributary list is engine-populated and cannot scroll
+		# scripted shields. This two-position control pages the copied roster
+		# while retaining the visual language of the vanilla scrollbar.
+		guiButtonType = {
+			name = "gdd_eoc_member_scroll_track"
+			quadTextureSprite = "GFX_scroll_track"
+			position = { x = 678 y = 682 }
+			size = { x = 12 y = 80 }
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "gdd_eoc_member_scroll_thumb_page_1"
+			scripted = yes
+			spriteType = "GFX_scroll_drager"
+			position = { x = 676 y = 686 }
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "gdd_eoc_member_scroll_thumb_page_2"
+			scripted = yes
+			spriteType = "GFX_scroll_drager"
+			position = { x = 676 y = 742 }
+			alwaystransparent = yes
+		}
+
+		# Static arrow backdrops keep both ends of the track visually complete.
+		# The scripted copies below receive clicks only on the usable direction.
+		guiButtonType = {
+			name = "gdd_eoc_member_scroll_up_backdrop"
+			quadTextureSprite = "GFX_scroll_up"
+			position = { x = 676 y = 666 }
+			alwaystransparent = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_scroll_down_backdrop"
+			quadTextureSprite = "GFX_scroll_down"
+			position = { x = 676 y = 762 }
+			alwaystransparent = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_scroll_up"
+			quadTextureSprite = "GFX_scroll_up"
+			position = { x = 676 y = 666 }
+			clicksound = click
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_scroll_down"
+			quadTextureSprite = "GFX_scroll_down"
+			position = { x = 676 y = 762 }
+			clicksound = click
+			scripted = yes
+		}
+
+		# GDD_EOC_MEMBER_SHIELDS_BEGIN
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_01"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 347 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_02"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 374 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_03"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 401 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_04"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 428 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_05"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 455 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_06"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 482 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_07"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 509 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_08"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 536 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_09"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 563 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_10"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 590 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_11"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 617 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_12"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 644 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_13"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 347 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_14"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 374 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_15"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 401 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_16"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 428 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_17"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 455 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_18"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 482 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_19"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 509 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_20"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 536 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_21"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 563 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_22"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 590 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_23"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 617 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_24"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 644 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_25"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 347 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_26"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 374 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_27"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 401 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_28"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 428 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_29"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 455 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_30"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 482 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_31"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 509 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_32"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 536 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_33"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 563 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_34"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 590 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_35"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 617 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_36"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 644 y = 723 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_37"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 347 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_38"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 374 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_39"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 401 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_40"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 428 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_41"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 455 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_42"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 482 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_43"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 509 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_44"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 536 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_45"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 563 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_46"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 590 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_47"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 617 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_48"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 644 y = 749 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_49"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 347 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_50"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 374 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_51"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 401 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_52"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 428 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_53"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 455 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_54"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 482 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_55"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 509 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_56"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 536 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_57"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 563 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_58"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 590 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_59"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 617 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_60"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 644 y = 671 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_61"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 347 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_62"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 374 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_63"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 401 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_64"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 428 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+
+		guiButtonType = {
+			name = "gdd_eoc_member_shield_65"
+			quadTextureSprite = "GFX_shield_small"
+			position = { x = 455 y = 697 }
+			clicksound = click
+			scale = 0.75
+			scripted = yes
+		}
+		# GDD_EOC_MEMBER_SHIELDS_END
 
 		# Right column: script-controlled replacements for all 21 reforms.
 		instantTextBoxType = {
