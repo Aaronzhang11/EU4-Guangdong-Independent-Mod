@@ -1,0 +1,19 @@
+# Script-side replacements for the two hard-coded Empire of China actions.
+# These are intentionally limited to decrees and reforms; the native emperor,
+# Mandate, tributary and disaster systems remain active.
+
+gdd_enact_proxy_decree_effect = {
+    add_meritocracy = -20
+    add_country_modifier = {
+        name = $which$
+        duration = 3650
+    }
+}
+
+gdd_enact_proxy_celestial_reform_effect = {
+    add_mandate = -70
+    add_stability = -1
+    hidden_effect = {
+        set_global_flag = $which$
+    }
+}

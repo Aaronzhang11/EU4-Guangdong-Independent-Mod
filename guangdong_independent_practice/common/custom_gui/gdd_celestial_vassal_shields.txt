@@ -1,0 +1,1139 @@
+custom_shield = {
+    name = gdd_principal_vassal_slot
+    potential = {
+        YAN = { exists = yes }
+    }
+    trigger = {
+        YAN = { exists = yes }
+    }
+    effect = { }
+    tooltip = GDD_CELESTIAL_PRINCIPAL_VASSAL_TT
+    global_event_target = gdd_principal_vassal
+    open_country = yes
+}
+
+# Replacement decree rows. All rows write to the same script-side state,
+# regardless of whether YAN or the Emperor clicks them.
+
+custom_button = {
+    name = gdd_decree_expand_bureaucracy_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+        event_target:EmperorOfChina = { NOT = { has_country_flag = mng_expanded_palace_bureaucracy_flag } }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_expand_bureaucracy }
+        }
+    }
+    tooltip = expand_bureaucracy_decree
+}
+
+custom_icon = {
+    name = gdd_decree_expand_bureaucracy_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_expand_bureaucracy
+        }
+    }
+    tooltip = gdd_proxy_decree_expand_bureaucracy
+}
+
+custom_button = {
+    name = gdd_decree_improved_expand_bureaucracy_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+        event_target:EmperorOfChina = { has_country_flag = mng_expanded_palace_bureaucracy_flag }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improved_expand_bureaucracy }
+        }
+    }
+    tooltip = improved_expand_bureaucracy_decree
+}
+
+custom_icon = {
+    name = gdd_decree_improved_expand_bureaucracy_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_improved_expand_bureaucracy
+        }
+    }
+    tooltip = gdd_proxy_decree_improved_expand_bureaucracy
+}
+
+custom_button = {
+    name = gdd_decree_conduct_census_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+        event_target:EmperorOfChina = { NOT = { has_country_flag = mng_empowered_pop_census_flag } }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_conduct_census }
+        }
+    }
+    tooltip = conduct_census_decree
+}
+
+custom_icon = {
+    name = gdd_decree_conduct_census_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_conduct_census
+        }
+    }
+    tooltip = gdd_proxy_decree_conduct_census
+}
+
+custom_button = {
+    name = gdd_decree_improved_conduct_census_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+        event_target:EmperorOfChina = { has_country_flag = mng_empowered_pop_census_flag }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improved_conduct_census }
+        }
+    }
+    tooltip = improved_conduct_census_decree
+}
+
+custom_icon = {
+    name = gdd_decree_improved_conduct_census_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_improved_conduct_census
+        }
+    }
+    tooltip = gdd_proxy_decree_improved_conduct_census
+}
+
+custom_button = {
+    name = gdd_decree_promote_naval_officers_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_promote_naval_officers }
+        }
+    }
+    tooltip = promote_naval_officers_decree
+}
+
+custom_icon = {
+    name = gdd_decree_promote_naval_officers_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_promote_naval_officers
+        }
+    }
+    tooltip = gdd_proxy_decree_promote_naval_officers
+}
+
+custom_button = {
+    name = gdd_decree_increase_tariff_control_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_increase_tariff_control }
+        }
+    }
+    tooltip = increase_tariff_control_decree
+}
+
+custom_icon = {
+    name = gdd_decree_increase_tariff_control_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_increase_tariff_control
+        }
+    }
+    tooltip = gdd_proxy_decree_increase_tariff_control
+}
+
+custom_button = {
+    name = gdd_decree_improve_defence_effort_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_improve_defence_effort }
+        }
+    }
+    tooltip = improve_defence_effort_decree
+}
+
+custom_icon = {
+    name = gdd_decree_improve_defence_effort_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_improve_defence_effort
+        }
+    }
+    tooltip = gdd_proxy_decree_improve_defence_effort
+}
+
+custom_button = {
+    name = gdd_decree_boost_officer_corps_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_boost_officer_corps }
+        }
+    }
+    tooltip = boost_officer_corps_decree
+}
+
+custom_icon = {
+    name = gdd_decree_boost_officer_corps_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_boost_officer_corps
+        }
+    }
+    tooltip = gdd_proxy_decree_boost_officer_corps
+}
+
+custom_button = {
+    name = gdd_decree_fund_new_centers_of_education_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_fund_new_centers_of_education }
+        }
+    }
+    tooltip = fund_new_centers_of_education_decree
+}
+
+custom_icon = {
+    name = gdd_decree_fund_new_centers_of_education_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_fund_new_centers_of_education
+        }
+    }
+    tooltip = gdd_proxy_decree_fund_new_centers_of_education
+}
+
+custom_button = {
+    name = gdd_decree_proclaim_dynastic_name_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_proclaim_dynastic_name }
+        }
+    }
+    tooltip = proclaim_dynastic_name_decree
+}
+
+custom_icon = {
+    name = gdd_decree_proclaim_dynastic_name_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_proclaim_dynastic_name
+        }
+    }
+    tooltip = gdd_proxy_decree_proclaim_dynastic_name
+}
+
+custom_button = {
+    name = gdd_decree_issue_the_great_warnings_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_issue_the_great_warnings }
+        }
+    }
+    tooltip = issue_the_great_warnings_decree
+}
+
+custom_icon = {
+    name = gdd_decree_issue_the_great_warnings_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_issue_the_great_warnings
+        }
+    }
+    tooltip = gdd_proxy_decree_issue_the_great_warnings
+}
+
+custom_button = {
+    name = gdd_decree_six_ordinances_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_six_ordinances }
+        }
+    }
+    tooltip = six_ordinances_decree
+}
+
+custom_icon = {
+    name = gdd_decree_six_ordinances_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_six_ordinances
+        }
+    }
+    tooltip = gdd_proxy_decree_six_ordinances
+}
+
+custom_button = {
+    name = gdd_decree_sacred_edict_of_confucianism_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_sacred_edict_of_confucianism }
+        }
+    }
+    tooltip = sacred_edict_of_confucianism_decree
+}
+
+custom_icon = {
+    name = gdd_decree_sacred_edict_of_confucianism_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_sacred_edict_of_confucianism
+        }
+    }
+    tooltip = gdd_proxy_decree_sacred_edict_of_confucianism
+}
+
+custom_button = {
+    name = gdd_decree_promote_taoist_studies_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_promote_taoist_studies }
+        }
+    }
+    tooltip = promote_taoist_studies_decree
+}
+
+custom_icon = {
+    name = gdd_decree_promote_taoist_studies_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_promote_taoist_studies
+        }
+    }
+    tooltip = gdd_proxy_decree_promote_taoist_studies
+}
+
+custom_button = {
+    name = gdd_decree_appoint_entrusted_eunuchs_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_appoint_entrusted_eunuchs }
+        }
+    }
+    tooltip = appoint_entrusted_eunuchs_decree
+}
+
+custom_icon = {
+    name = gdd_decree_appoint_entrusted_eunuchs_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_appoint_entrusted_eunuchs
+        }
+    }
+    tooltip = gdd_proxy_decree_appoint_entrusted_eunuchs
+}
+
+custom_button = {
+    name = gdd_decree_increase_trade_cooperation_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_increase_trade_cooperation }
+        }
+    }
+    tooltip = increase_trade_cooperation_decree
+}
+
+custom_icon = {
+    name = gdd_decree_increase_trade_cooperation_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_increase_trade_cooperation
+        }
+    }
+    tooltip = gdd_proxy_decree_increase_trade_cooperation
+}
+
+custom_button = {
+    name = gdd_decree_reinforce_the_inner_guard_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_reinforce_the_inner_guard }
+        }
+    }
+    tooltip = reinforce_the_inner_guard_decree
+}
+
+custom_icon = {
+    name = gdd_decree_reinforce_the_inner_guard_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_reinforce_the_inner_guard
+        }
+    }
+    tooltip = gdd_proxy_decree_reinforce_the_inner_guard
+}
+
+custom_button = {
+    name = gdd_decree_issue_bureaucratic_imperial_seal_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_decree_base_trigger = yes
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_decree_effect = { which = gdd_proxy_decree_issue_bureaucratic_imperial_seal }
+        }
+    }
+    tooltip = issue_bureaucratic_imperial_seal
+}
+
+custom_icon = {
+    name = gdd_decree_issue_bureaucratic_imperial_seal_active
+    potential = {
+        event_target:EmperorOfChina = {
+            has_country_modifier = gdd_proxy_decree_issue_bureaucratic_imperial_seal
+        }
+    }
+    tooltip = gdd_proxy_decree_issue_bureaucratic_imperial_seal
+}
+
+# Replacement celestial-reform rows and enacted-state overlays.
+
+custom_button = {
+    name = gdd_reform_establish_gaituguiliu_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_establish_gaituguiliu_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_establish_gaituguiliu }
+        }
+    }
+    tooltip = GDD_REFORM_ESTABLISH_GAITUGUILIU_TT
+}
+
+custom_icon = {
+    name = gdd_reform_establish_gaituguiliu_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_establish_gaituguiliu_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_seaban_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_seaban_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_seaban }
+        }
+    }
+    tooltip = GDD_REFORM_SEABAN_TT
+}
+
+custom_icon = {
+    name = gdd_reform_seaban_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_seaban_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_land_tax_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_land_tax_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_land_tax }
+        }
+    }
+    tooltip = GDD_REFORM_LAND_TAX_TT
+}
+
+custom_icon = {
+    name = gdd_reform_land_tax_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_land_tax_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_military_governors_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_military_governors_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_governors }
+        }
+    }
+    tooltip = GDD_REFORM_MILITARY_GOVERNORS_TT
+}
+
+custom_icon = {
+    name = gdd_reform_military_governors_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_military_governors_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_centralizing_government_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_centralizing_government_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_centralizing_government }
+        }
+    }
+    tooltip = GDD_REFORM_CENTRALIZING_GOVERNMENT_TT
+}
+
+custom_icon = {
+    name = gdd_reform_centralizing_government_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_centralizing_government_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_vassalize_tributaries_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_vassalize_tributaries_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_vassalize_tributaries }
+            set_global_flag = eoc_vassalize_tributaries
+        }
+    }
+    tooltip = GDD_REFORM_VASSALIZE_TRIBUTARIES_TT
+}
+
+custom_icon = {
+    name = gdd_reform_vassalize_tributaries_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_vassalize_tributaries_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_single_whip_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_single_whip_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_single_whip }
+        }
+    }
+    tooltip = GDD_REFORM_SINGLE_WHIP_TT
+}
+
+custom_icon = {
+    name = gdd_reform_single_whip_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_single_whip_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_reign_in_estates_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_reign_in_estates_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_reign_in_estates }
+        }
+    }
+    tooltip = GDD_REFORM_REIGN_IN_ESTATES_TT
+}
+
+custom_icon = {
+    name = gdd_reform_reign_in_estates_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_reign_in_estates_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_civil_registration_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_civil_registration_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_civil_registration }
+        }
+    }
+    tooltip = GDD_REFORM_CIVIL_REGISTRATION_TT
+}
+
+custom_icon = {
+    name = gdd_reform_civil_registration_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_civil_registration_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_silver_standard_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_silver_standard_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_silver_standard }
+        }
+    }
+    tooltip = GDD_REFORM_SILVER_STANDARD_TT
+}
+
+custom_icon = {
+    name = gdd_reform_silver_standard_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_silver_standard_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_kanhe_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_kanhe_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_kanhe }
+        }
+    }
+    tooltip = GDD_REFORM_KANHE_TT
+}
+
+custom_icon = {
+    name = gdd_reform_kanhe_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_kanhe_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_keju_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_keju_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_keju }
+        }
+    }
+    tooltip = GDD_REFORM_KEJU_TT
+}
+
+custom_icon = {
+    name = gdd_reform_keju_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_keju_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_inclusive_monarchy_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_inclusive_monarchy_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_inclusive_monarchy }
+        }
+    }
+    tooltip = GDD_REFORM_INCLUSIVE_MONARCHY_TT
+}
+
+custom_icon = {
+    name = gdd_reform_inclusive_monarchy_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_inclusive_monarchy_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_bureaucratic_faction_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_bureaucratic_faction_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_bureaucratic_faction }
+        }
+    }
+    tooltip = GDD_REFORM_BUREAUCRATIC_FACTION_TT
+}
+
+custom_icon = {
+    name = gdd_reform_bureaucratic_faction_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_bureaucratic_faction_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_military_faction_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_military_faction_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_faction }
+        }
+    }
+    tooltip = GDD_REFORM_MILITARY_FACTION_TT
+}
+
+custom_icon = {
+    name = gdd_reform_military_faction_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_military_faction_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_unified_market_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_unified_market_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_unified_market }
+        }
+    }
+    tooltip = GDD_REFORM_UNIFIED_MARKET_TT
+}
+
+custom_icon = {
+    name = gdd_reform_unified_market_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_unified_market_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_military_branch_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_military_branch_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_military_branch }
+        }
+    }
+    tooltip = GDD_REFORM_MILITARY_BRANCH_TT
+}
+
+custom_icon = {
+    name = gdd_reform_military_branch_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_military_branch_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_modernize_banners_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_modernize_banners_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_modernize_banners }
+        }
+    }
+    tooltip = GDD_REFORM_MODERNIZE_BANNERS_TT
+}
+
+custom_icon = {
+    name = gdd_reform_modernize_banners_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_modernize_banners_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_foreign_ship_designs_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_foreign_ship_designs_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_foreign_ship_designs }
+        }
+    }
+    tooltip = GDD_REFORM_FOREIGN_SHIP_DESIGNS_TT
+}
+
+custom_icon = {
+    name = gdd_reform_foreign_ship_designs_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_foreign_ship_designs_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_tributary_embassies_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_tributary_embassies_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_tributary_embassies }
+        }
+    }
+    tooltip = GDD_REFORM_TRIBUTARY_EMBASSIES_TT
+}
+
+custom_icon = {
+    name = gdd_reform_tributary_embassies_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_tributary_embassies_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}
+
+custom_button = {
+    name = gdd_reform_new_world_button
+    potential = {
+        event_target:EmperorOfChina = { exists = yes }
+    }
+    trigger = {
+        gdd_celestial_action_authorized_trigger = yes
+        gdd_proxy_celestial_reform_base_trigger = yes
+        event_target:EmperorOfChina = {
+            gdd_can_enact_proxy_new_world_trigger = yes
+        }
+    }
+    effect = {
+        event_target:EmperorOfChina = {
+            gdd_enact_proxy_celestial_reform_effect = { which = gdd_proxy_reform_new_world }
+        }
+    }
+    tooltip = GDD_REFORM_NEW_WORLD_TT
+}
+
+custom_icon = {
+    name = gdd_reform_new_world_passed
+    potential = {
+        event_target:EmperorOfChina = {
+            gdd_reform_new_world_passed = yes
+        }
+    }
+    tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
+}

@@ -1,0 +1,94 @@
+# Ten-year script-side equivalents of the native decrees.
+
+gdd_proxy_decree_expand_bureaucracy = {
+    development_cost = -0.1
+    core_creation = -0.1
+}
+
+gdd_proxy_decree_improved_expand_bureaucracy = {
+    development_cost = -0.1
+    core_creation = -0.1
+    advisor_cost = -0.2
+}
+
+gdd_proxy_decree_conduct_census = {
+    global_tax_modifier = 0.25
+    state_governing_cost = -0.1
+}
+
+gdd_proxy_decree_improved_conduct_census = {
+    global_tax_modifier = 0.25
+    state_governing_cost = -0.1
+    country_admin_power = 1
+}
+
+gdd_proxy_decree_promote_naval_officers = {
+    ship_durability = 0.1
+    naval_morale = 0.1
+}
+
+gdd_proxy_decree_increase_tariff_control = {
+    global_prov_trade_power_modifier = 0.25
+    global_own_trade_power = 0.1
+}
+
+gdd_proxy_decree_improve_defence_effort = {
+    defensiveness = 0.25
+    fort_maintenance_modifier = -0.1
+}
+
+gdd_proxy_decree_boost_officer_corps = {
+    infantry_power = 0.1
+    reinforce_speed = 0.25
+}
+
+gdd_proxy_decree_fund_new_centers_of_education = {
+    technology_cost = -0.1
+    global_institution_spread = 0.25
+}
+
+gdd_proxy_decree_proclaim_dynastic_name = {
+    imperial_mandate = 0.05
+    all_estate_loyalty_equilibrium = 0.1
+}
+
+gdd_proxy_decree_issue_the_great_warnings = {
+    all_estate_influence_modifier = -0.1
+    yearly_corruption = -0.1
+}
+
+gdd_proxy_decree_six_ordinances = {
+    reduced_liberty_desire = 10
+    global_unrest = -2
+}
+
+gdd_proxy_decree_sacred_edict_of_confucianism = {
+    harmonization_speed = 0.25
+    monthly_karma = -0.05
+    years_of_nationalism = -5
+}
+
+gdd_proxy_decree_promote_taoist_studies = {
+    church_loyalty_modifier = 0.1
+    monarch_lifespan = 0.25
+}
+
+gdd_proxy_decree_appoint_entrusted_eunuchs = {
+    eunuchs_loyalty_modifier = 0.1
+    advisor_cost = -0.15
+}
+
+gdd_proxy_decree_increase_trade_cooperation = {
+    reduced_trade_penalty_on_non_main_tradenode = 0.25
+    innovativeness_gain = 0.5
+}
+
+gdd_proxy_decree_reinforce_the_inner_guard = {
+    global_spy_defence = 0.33
+    improve_relation_modifier = 0.2
+}
+
+gdd_proxy_decree_issue_bureaucratic_imperial_seal = {
+    min_autonomy = -5
+    global_autonomy = -0.05
+}

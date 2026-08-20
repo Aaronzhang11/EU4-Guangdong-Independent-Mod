@@ -1,0 +1,240 @@
+# Permanent reform effects driven by custom global flags.  Emperor and member
+# bonuses are separated so a later change of dynasty automatically transfers
+# the correct effects to the new holder of the Mandate.
+
+gdd_proxy_reform_establish_gaituguiliu_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_establish_gaituguiliu }
+    trigger = { is_emperor_of_china = yes }
+    meritocracy = 0.5
+}
+gdd_proxy_reform_establish_gaituguiliu_member = {
+    potential = { has_global_flag = gdd_proxy_reform_establish_gaituguiliu }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    advisor_pool = 1
+}
+
+gdd_proxy_reform_seaban_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_seaban }
+    trigger = { is_emperor_of_china = yes }
+    diplomats = 1
+    trade_efficiency = 0.05
+}
+
+gdd_proxy_reform_land_tax_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_land_tax }
+    trigger = { is_emperor_of_china = yes }
+    global_autonomy = -0.05
+}
+gdd_proxy_reform_land_tax_member = {
+    potential = { has_global_flag = gdd_proxy_reform_land_tax }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    state_maintenance_modifier = -0.25
+}
+
+gdd_proxy_reform_military_governors_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_military_governors }
+    trigger = { is_emperor_of_china = yes }
+    nobles_loyalty_modifier = 0.1
+    core_creation = -0.1
+}
+gdd_proxy_reform_military_governors_member = {
+    potential = { has_global_flag = gdd_proxy_reform_military_governors }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    autonomy_change_time = -0.2
+}
+
+gdd_proxy_reform_centralizing_government_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_centralizing_government }
+    trigger = { is_emperor_of_china = yes }
+    monarch_admin_power = 1
+}
+gdd_proxy_reform_centralizing_government_member = {
+    potential = { has_global_flag = gdd_proxy_reform_centralizing_government }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    all_estate_influence_modifier = -0.05
+}
+
+gdd_proxy_reform_vassalize_tributaries_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_vassalize_tributaries }
+    trigger = { is_emperor_of_china = yes }
+    imperial_mandate = 0.05
+    liberty_desire_from_subject_development = -0.33
+}
+
+gdd_proxy_reform_single_whip_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_single_whip }
+    trigger = { is_emperor_of_china = yes }
+    vassal_income = 0.25
+    global_tax_modifier = 0.1
+}
+gdd_proxy_reform_single_whip_member = {
+    potential = { has_global_flag = gdd_proxy_reform_single_whip }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    yearly_corruption = -0.05
+}
+
+gdd_proxy_reform_reign_in_estates_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_reign_in_estates }
+    trigger = { is_emperor_of_china = yes }
+    administrative_efficiency = 0.025
+    all_estate_influence_modifier = -0.05
+}
+gdd_proxy_reform_reign_in_estates_member = {
+    potential = { has_global_flag = gdd_proxy_reform_reign_in_estates }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    max_absolutism = 5
+}
+
+gdd_proxy_reform_civil_registration_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_civil_registration }
+    trigger = { is_emperor_of_china = yes }
+    development_cost = -0.05
+    autonomy_change_time = -0.2
+}
+gdd_proxy_reform_civil_registration_member = {
+    potential = { has_global_flag = gdd_proxy_reform_civil_registration }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    global_tax_modifier = 0.1
+}
+
+gdd_proxy_reform_silver_standard_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_silver_standard }
+    trigger = { is_emperor_of_china = yes }
+    monthly_gold_inflation_modifier = -0.1
+    inflation_reduction = 0.05
+}
+gdd_proxy_reform_silver_standard_member = {
+    potential = { has_global_flag = gdd_proxy_reform_silver_standard }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    interest = -0.25
+}
+
+gdd_proxy_reform_kanhe_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_kanhe }
+    trigger = { is_emperor_of_china = yes }
+    merchants = 1
+    placed_merchant_power = 10
+}
+gdd_proxy_reform_kanhe_member = {
+    potential = { has_global_flag = gdd_proxy_reform_kanhe }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    trade_efficiency = 0.05
+}
+
+gdd_proxy_reform_keju_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_keju }
+    trigger = { is_emperor_of_china = yes }
+    reform_progress_growth = 0.1
+    imperial_mandate = 0.03
+}
+gdd_proxy_reform_keju_member = {
+    potential = { has_global_flag = gdd_proxy_reform_keju }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    governing_capacity_modifier = 0.05
+}
+
+gdd_proxy_reform_inclusive_monarchy_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_inclusive_monarchy }
+    trigger = { is_emperor_of_china = yes }
+    tolerance_of_heathens_capacity = 1
+    tolerance_heathen = 1
+}
+gdd_proxy_reform_inclusive_monarchy_member = {
+    potential = { has_global_flag = gdd_proxy_reform_inclusive_monarchy }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    tolerance_heathen = 1
+}
+
+gdd_proxy_reform_bureaucratic_faction_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_bureaucratic_faction }
+    trigger = { is_emperor_of_china = yes }
+    church_loyalty_modifier = 0.1
+    tolerance_own = 1
+}
+gdd_proxy_reform_bureaucratic_faction_member = {
+    potential = { has_global_flag = gdd_proxy_reform_bureaucratic_faction }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    church_loyalty_modifier = 0.05
+}
+
+gdd_proxy_reform_military_faction_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_military_faction }
+    trigger = { is_emperor_of_china = yes }
+    nobles_loyalty_modifier = 0.1
+    army_tradition = 0.5
+}
+gdd_proxy_reform_military_faction_member = {
+    potential = { has_global_flag = gdd_proxy_reform_military_faction }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    nobles_loyalty_modifier = 0.05
+}
+
+gdd_proxy_reform_unified_market_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_unified_market }
+    trigger = { is_emperor_of_china = yes }
+    merchants = 1
+    global_trade_goods_size_modifier = 0.05
+}
+gdd_proxy_reform_unified_market_member = {
+    potential = { has_global_flag = gdd_proxy_reform_unified_market }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    global_trade_power = 0.1
+}
+
+gdd_proxy_reform_military_branch_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_military_branch }
+    trigger = { is_emperor_of_china = yes }
+    movement_speed = 0.1
+    drill_decay_modifier = -0.25
+}
+gdd_proxy_reform_military_branch_member = {
+    potential = { has_global_flag = gdd_proxy_reform_military_branch }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    yearly_army_professionalism = 0.0025
+}
+
+gdd_proxy_reform_modernize_banners_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_modernize_banners }
+    trigger = { is_emperor_of_china = yes }
+    cav_to_inf_ratio = 0.1
+    cavalry_power = 0.05
+}
+gdd_proxy_reform_modernize_banners_member = {
+    potential = { has_global_flag = gdd_proxy_reform_modernize_banners }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    cavalry_cost = -0.1
+}
+
+gdd_proxy_reform_foreign_ship_designs_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_foreign_ship_designs }
+    trigger = { is_emperor_of_china = yes }
+    heavy_ship_power = 0.1
+}
+gdd_proxy_reform_foreign_ship_designs_member = {
+    potential = { has_global_flag = gdd_proxy_reform_foreign_ship_designs }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    global_ship_cost = -0.05
+}
+
+gdd_proxy_reform_tributary_embassies_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_tributary_embassies }
+    trigger = { is_emperor_of_china = yes }
+    monthly_favor_modifier = 0.25
+    diplomatic_reputation = 1
+}
+gdd_proxy_reform_tributary_embassies_member = {
+    potential = { has_global_flag = gdd_proxy_reform_tributary_embassies }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    diplomatic_upkeep = 1
+}
+
+gdd_proxy_reform_new_world_emperor = {
+    potential = { has_global_flag = gdd_proxy_reform_new_world }
+    trigger = { is_emperor_of_china = yes }
+    colonists = 1
+}
+gdd_proxy_reform_new_world_member = {
+    potential = { has_global_flag = gdd_proxy_reform_new_world }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
+    global_colonial_growth = 10
+}
