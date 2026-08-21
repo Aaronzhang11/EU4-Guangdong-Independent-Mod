@@ -1,7 +1,7 @@
 # Area connectivity audit
 
-- Total areas: 939
-- Strict bitmap-disconnected: 72
+- Total areas: 941
+- Strict bitmap-disconnected: 73
 - Still disconnected after explicit adjacencies: 41
 - Areas containing empty province references: 0
 - Han-region areas checked: 90
@@ -18,6 +18,7 @@
 |---|---|---:|---|
 | `east_zhejiang_area` | 会稽 | 2 | 温州(1824)、明州(2149)、台州(4951)、宁海(5005) ｜ 昌国(5004) |
 | `jingyi_area` | 荆郢 | 2 | 荆州(2172)、枝江(5345) ｜ 施州(5013)、公安(5014) |
+| `wanjiang_area` | 皖江 | 2 | 安庆(686)、池州(5065) ｜ 无为(5062) |
 | `wuhan_enan_area` | 江夏 | 2 | 武昌(682)、兴国(5016) ｜ 汉阳(4981)、汉口(5011) |
 | `yingtian_area` | 金陵 | 2 | 江宁(1821)、溧水(5057) ｜ 六合(5056) |
 
@@ -63,10 +64,10 @@ These include intentional archipelagos and vanilla layouts; review before changi
 | `northern_polynesia_area` | northern_polynesia_area | 2 | 1240(1240)、4934(4934)、4935(4935)、4936(4936) ｜ 1997(1997) |
 | `palawan_area` | palawan_area | 2 | 655(655)、4356(4356) ｜ 651(651) |
 | `polynesia_area` | polynesia_area | 4 | 1243(1243) ｜ 1989(1989) ｜ 1990(1990) ｜ 1992(1992) |
+| `samhan_samnam_area` | 三南 | 2 | 全州(737)、大邱(4227)、罗州(4228)、晋州(5365) ｜ 济州(2741) |
 | `sao_tome_area` | sao_tome_area | 2 | 1097(1097) ｜ 1306(1306) |
 | `sicily_area` | sicily_area | 2 | 124(124)、2982(2982) ｜ 126(126) |
 | `south_atlantic_islands_area` | south_atlantic_islands_area | 2 | 1095(1095) ｜ 2025(2025) |
-| `south_korea_area` | south_korea_area | 2 | 737(737)、1013(1013)、4228(4228)、4229(4229) ｜ 2741(2741) |
 | `south_sumatra_area` | south_sumatra_area | 2 | 621(621)、622(622)、623(623)、2678(2678) ｜ 2679(2679) |
 | `southern_luzon_area` | southern_luzon_area | 2 | 656(656)、2697(2697)、2699(2699)、4349(4349) ｜ 4350(4350) |
 | `subarctic_islands_area` | subarctic_islands_area | 3 | 370(370)、371(371) ｜ 1978(1978) ｜ 1979(1979) |

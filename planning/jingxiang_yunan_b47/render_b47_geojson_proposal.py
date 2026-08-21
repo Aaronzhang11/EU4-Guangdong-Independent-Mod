@@ -595,7 +595,7 @@ def main() -> None:
         "changed_pixels_outside_editable_mask": exterior,
         "development_total": sum(cell.development for cell in CELLS),
         "connectivity_policy": {
-            "jingyi_area": "strictly river-separated; gameplay-connected by existing 2172-5013 crossing through navigable river 5037",
+            "jingyi_area": "strictly river-separated; gameplay-connected only by 2172-5014 through navigable river 5036",
             "other_areas": "strictly land-connected in the reviewed preview",
             "new_synthetic_crossings": 0,
         },

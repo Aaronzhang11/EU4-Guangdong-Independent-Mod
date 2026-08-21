@@ -1,0 +1,16 @@
+{
+  "features": [
+    {
+      "name": "Huangshan source silhouette (DMI uses 22,50,32)",
+      "rgb": [22, 50, 32],
+      "target_rgb": [22, 50, 31],
+      "source_bbox": [5078, 908, 5120, 937],
+      "target_xy": [4632, 889],
+      "scale": 1.0
+    }
+  ],
+  "patch_box": [4624, 881, 4682, 926],
+  "cleanup_fragments": true,
+  "absorb_enclosed_pockets": false,
+  "preview_zoom": 8
+}

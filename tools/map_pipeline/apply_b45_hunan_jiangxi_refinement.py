@@ -842,8 +842,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         land_components = len(components(mask))
         if area == "jingyi_shinan_area":
             adjacency_text = (MAP / "adjacencies.csv").read_text(encoding="cp1252")
-            if land_components != 2 or not re.search(r"(?m)^2172;5013;sea;5037;", adjacency_text):
-                raise ValueError("jingyi_shinan_area must be two land components joined by the reviewed Yichang crossing")
+            if land_components != 2 or not re.search(r"(?m)^(2172;5014|5014;2172);sea;5036;", adjacency_text):
+                raise ValueError("jingyi_shinan_area must be two land components joined by the reviewed Jingzhou-Gongan crossing")
         elif land_components != 1:
             raise ValueError(f"Area {area} is not four-way land-connected")
     for province_id in NEW_IDS:
@@ -874,7 +874,7 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         "area_components": (
             "10 B45 areas land-connected; B47 owns the successor Jingxiang areas"
             if B47_MANIFEST.exists()
-            else "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5013 through 5037"
+            else "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5014 through 5036"
         ),
         "country_development_in_scope": dict(sorted(country_dev.items())),
         "changsha_constraint": {"province_ids": changsha_ids, "development": country_dev["CSA"]},
