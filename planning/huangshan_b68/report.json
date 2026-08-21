@@ -1,0 +1,86 @@
+{
+  "current": "guangdong_independent_practice/map/provinces.bmp",
+  "reference": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/1728520255/map/provinces.bmp",
+  "current_size": [
+    5632,
+    2048
+  ],
+  "reference_size": [
+    6400,
+    2560
+  ],
+  "patch_box": [
+    4624,
+    881,
+    4682,
+    926
+  ],
+  "changed_pixels": 229,
+  "repaired_groups": 9,
+  "repaired_land_pixels": 25,
+  "absorbed_enclosed_pixels": 0,
+  "features": [
+    {
+      "name": "Huangshan source silhouette (DMI uses 22,50,32)",
+      "rgb": [
+        22,
+        50,
+        31
+      ],
+      "source_components": [
+        86,
+        71,
+        47
+      ],
+      "target_size": [
+        42,
+        29
+      ],
+      "target_pixels_before_cleanup": 204,
+      "source_rgb": [
+        22,
+        50,
+        32
+      ],
+      "target_rgb": [
+        22,
+        50,
+        31
+      ]
+    }
+  ],
+  "playable_connectivity": {
+    "24,170,230": {
+      "before": 1,
+      "after": 1
+    },
+    "38,197,155": {
+      "before": 1,
+      "after": 1
+    },
+    "75,175,235": {
+      "before": 1,
+      "after": 1
+    },
+    "97,120,255": {
+      "before": 1,
+      "after": 1
+    },
+    "150,42,42": {
+      "before": 1,
+      "after": 1
+    },
+    "185,197,39": {
+      "before": 1,
+      "after": 1
+    },
+    "190,91,163": {
+      "before": 1,
+      "after": 1
+    },
+    "231,213,161": {
+      "before": 1,
+      "after": 1
+    }
+  }
+}

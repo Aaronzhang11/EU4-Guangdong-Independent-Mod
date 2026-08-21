@@ -717,7 +717,7 @@
   "localisation_target": "localisation/gdd_b45_hunan_jiangxi_refinement_l_english.yml",
   "validation": {
     "province_components": "all one component",
-    "area_components": "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5013 through 5037",
+    "area_components": "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5014 through 5036",
     "country_development_in_scope": {
       "CHC": 31,
       "CDE": 15,

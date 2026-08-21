@@ -1,0 +1,168 @@
+{
+  "batch": "B66_zhemin_northern_segment_adjacency_reconciliation",
+  "marker": "GDD_B66_ZHEMIN_ADJACENCY_RECONCILIATION",
+  "status": "implemented",
+  "mountain_id": 5378,
+  "mountain_rgb": [
+    64,
+    130,
+    53
+  ],
+  "new_segment": {
+    "pixels": 166,
+    "bbox": [
+      4662,
+      912,
+      4694,
+      937
+    ],
+    "components": [
+      166
+    ]
+  },
+  "bitmap_pixels_changed_by_script": 0,
+  "blocked_direct_land_routes": {
+    "绍兴—台州": {
+      "province_pair": [
+        2148,
+        4951
+      ],
+      "before": 11,
+      "after": 0
+    },
+    "绍兴—宁海": {
+      "province_pair": [
+        2148,
+        5005
+      ],
+      "before": 2,
+      "after": 0
+    },
+    "金华—台州": {
+      "province_pair": [
+        2150,
+        4951
+      ],
+      "before": 1,
+      "after": 0
+    },
+    "金华—处州": {
+      "province_pair": [
+        2150,
+        5007
+      ],
+      "before": 24,
+      "after": 0
+    },
+    "台州—义乌": {
+      "province_pair": [
+        4951,
+        5006
+      ],
+      "before": 18,
+      "after": 0
+    }
+  },
+  "preserved_direct_land_routes": {
+    "绍兴—明州": {
+      "province_pair": [
+        2148,
+        2149
+      ],
+      "before": 19,
+      "after": 15
+    },
+    "绍兴—义乌": {
+      "province_pair": [
+        2148,
+        5006
+      ],
+      "before": 34,
+      "after": 32
+    },
+    "明州—宁海": {
+      "province_pair": [
+        2149,
+        5005
+      ],
+      "before": 17,
+      "after": 15
+    },
+    "台州—宁海": {
+      "province_pair": [
+        4951,
+        5005
+      ],
+      "before": 20,
+      "after": 18
+    },
+    "台州—处州": {
+      "province_pair": [
+        4951,
+        5007
+      ],
+      "before": 12,
+      "after": 7
+    },
+    "衢州—处州": {
+      "province_pair": [
+        4956,
+        5007
+      ],
+      "before": 4,
+      "after": 2
+    },
+    "金华—衢州": {
+      "province_pair": [
+        2150,
+        4956
+      ],
+      "before": 12,
+      "after": 10
+    },
+    "金华—义乌": {
+      "province_pair": [
+        2150,
+        5006
+      ],
+      "before": 20,
+      "after": 16
+    }
+  },
+  "affected_playable_connectivity": {
+    "2148": [
+      257
+    ],
+    "2149": [
+      262
+    ],
+    "2150": [
+      80
+    ],
+    "4951": [
+      133
+    ],
+    "4956": [
+      155
+    ],
+    "5005": [
+      93
+    ],
+    "5006": [
+      100
+    ],
+    "5007": [
+      204
+    ]
+  },
+  "removed_explicit_bypass_rows": [],
+  "validation_notes": {
+    "province_2149_localisation": "明州的 PROV/PROV_ADJ 已由 localisation/replace/002_gdd_b44_worldview_toponyms_l_english.yml 提供；audit_eu4_mod.py 仅使用非递归 glob，故会产生假阳性",
+    "east_zhejiang_area": "长国(5004)为岛屿，通过既有明州—长国海峡连接；crossing_connected 属于预期结构"
+  },
+  "backups": {
+    "bitmap": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/zhemin_northern_segment_b66/pre_b66_provinces.bmp",
+    "adjacencies": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/zhemin_northern_segment_b66/pre_b66_adjacencies.csv"
+  },
+  "canonical_bitmap_sha256": "a02825fbc189ec5083e0c3f4a51b1faf3edf37991ad291e2db00d4fd895db50e"
+}

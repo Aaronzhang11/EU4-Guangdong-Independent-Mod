@@ -1,0 +1,114 @@
+{
+  "mod_root": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice",
+  "areas": [
+    {
+      "area": "east_zhejiang_area",
+      "classification": "crossing_connected",
+      "province_ids": [
+        2149,
+        5004,
+        5005,
+        4951,
+        1824
+      ],
+      "strict_components": [
+        [
+          1824,
+          2149,
+          4951,
+          5005
+        ],
+        [
+          5004
+        ]
+      ],
+      "gameplay_components": [
+        [
+          1824,
+          2149,
+          4951,
+          5004,
+          5005
+        ]
+      ]
+    },
+    {
+      "area": "jinqu_chuzhou_area",
+      "classification": "connected",
+      "province_ids": [
+        2150,
+        5006,
+        4956,
+        5007
+      ],
+      "strict_components": [
+        [
+          2150,
+          4956,
+          5006,
+          5007
+        ]
+      ],
+      "gameplay_components": [
+        [
+          2150,
+          4956,
+          5006,
+          5007
+        ]
+      ]
+    },
+    {
+      "area": "zhejiang_area",
+      "classification": "connected",
+      "province_ids": [
+        4950,
+        5002,
+        684,
+        5003,
+        2148
+      ],
+      "strict_components": [
+        [
+          684,
+          2148,
+          4950,
+          5002,
+          5003
+        ]
+      ],
+      "gameplay_components": [
+        [
+          684,
+          2148,
+          4950,
+          5002,
+          5003
+        ]
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    {
+      "code": "crossing_connected_area",
+      "area": "east_zhejiang_area",
+      "components": [
+        [
+          1824,
+          2149,
+          4951,
+          5005
+        ],
+        [
+          5004
+        ]
+      ]
+    }
+  ],
+  "summary": {
+    "areas_checked": 3,
+    "errors": 0,
+    "warnings": 1
+  }
+}

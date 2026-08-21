@@ -45,3 +45,5 @@
  huining_area:0 "丹阳"
  huining_area_name:0 "丹阳"
  huining_area_adj:0 "丹阳"
+ PROV5380:0 "黄山"
+ PROV_ADJ5380:0 "黄山"

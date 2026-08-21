@@ -1,0 +1,14 @@
+{
+  "batch": "B69_HUABEI_TERRAIN_NORMALIZATION",
+  "method": "explicit_terrain_override_and_province_mask_repaint",
+  "bitmap_changes": true,
+  "terrain_bitmap": {
+    "farmlands_index": 11,
+    "hills_index": 1,
+    "preserved_indices": [15, 17, 35],
+    "backup": "pre_b69_terrain.bmp",
+    "report": "terrain_bitmap_report.json"
+  },
+  "farmlands": [5115, 5116, 5212, 5222, 5223, 5219, 5221, 5220, 5101, 5102, 5103, 5111, 5104, 5107, 5109, 5110],
+  "hills": [5113, 5114, 5211, 5213, 5218, 5105, 5106, 5108, 5112]
+}

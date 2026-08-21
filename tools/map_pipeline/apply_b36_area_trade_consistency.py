@@ -46,7 +46,12 @@ YUNNAN_ALL = {
     5240, 5241, 663, 2165, 5237,
 }
 
-ADJACENCY = "2172;5013;sea;5037;-1;-1;-1;-1;Jingzhou-Shizhou Yichang crossing"
+ADJACENCY = "2172;5014;sea;5036;-1;-1;-1;-1;Jingzhou-Gongan Yangtze crossing"
+JINGZHOU_CROSSING_PAIR = frozenset((2172, 5014))
+OBSOLETE_JINGZHOU_PAIRS = {
+    frozenset((2172, 681)),
+    frozenset((2172, 5013)),
+}
 
 
 def block_bounds(text: str, key: str, start_at: int = 0) -> tuple[int, int]:
@@ -138,13 +143,14 @@ def update_trade_companies() -> None:
 def update_adjacency() -> None:
     path = MAP / "adjacencies.csv"
     text = path.read_text(encoding="cp1252", errors="strict")
-    lines = text.splitlines()
-    target_pair = {2172, 5013}
-    for line in lines:
+    lines: list[str] = []
+    for line in text.splitlines():
         fields = line.split(";")
         if len(fields) >= 2 and fields[0].isdigit() and fields[1].isdigit():
-            if {int(fields[0]), int(fields[1])} == target_pair:
-                return
+            pair = frozenset((int(fields[0]), int(fields[1])))
+            if pair == JINGZHOU_CROSSING_PAIR or pair in OBSOLETE_JINGZHOU_PAIRS:
+                continue
+        lines.append(line)
     sentinel = next((index for index, line in enumerate(lines) if line.startswith("-1;-1;")), len(lines))
     lines.insert(sentinel, ADJACENCY)
     path.write_text("\n".join(lines) + "\n", encoding="cp1252")
@@ -212,13 +218,15 @@ def verify() -> None:
         raise ValueError(f"Playable local provinces in multiple areas: {duplicate_areas}")
 
     adjacency_text = (MAP / "adjacencies.csv").read_text(encoding="cp1252", errors="strict")
-    pairs = {
+    pairs = [
         frozenset((int(fields[0]), int(fields[1])))
         for line in adjacency_text.splitlines()
         if len(fields := line.split(";")) >= 2 and fields[0].isdigit() and fields[1].isdigit()
-    }
-    if frozenset((2172, 5013)) not in pairs:
-        raise ValueError("Missing Jingzhou-Shizhou river crossing")
+    ]
+    if pairs.count(JINGZHOU_CROSSING_PAIR) != 1:
+        raise ValueError("Jingzhou-Gongan river crossing must exist exactly once")
+    if any(pair in pairs for pair in OBSOLETE_JINGZHOU_PAIRS):
+        raise ValueError("Obsolete Jingzhou-Yiling or Jingzhou-Shizhou crossing remains")
 
     company_text = (MOD / "common/trade_companies/00_trade_companies.txt").read_text(
         encoding="cp1252", errors="strict"

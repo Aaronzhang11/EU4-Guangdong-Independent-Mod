@@ -1,0 +1,39 @@
+{
+  "mod_root": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice",
+  "targets": [
+    2148,
+    2149,
+    2150,
+    4951,
+    4956,
+    5005,
+    5006,
+    5007
+  ],
+  "findings": [
+    {
+      "level": "error",
+      "code": "missing_game_localisation",
+      "message": "Province 2149 lacks game-loaded PROV or PROV_ADJ"
+    }
+  ],
+  "pixel_comparison": {
+    "changed": 166,
+    "outside_editable_mask": 0,
+    "editable_ids": [
+      2148,
+      2149,
+      2150,
+      4951,
+      4956,
+      5005,
+      5006,
+      5007
+    ]
+  },
+  "summary": {
+    "targets": 8,
+    "errors": 1,
+    "warnings": 0
+  }
+}
