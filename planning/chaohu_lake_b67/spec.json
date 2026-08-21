@@ -1,0 +1,15 @@
+{
+  "features": [
+    {
+      "name": "Chaohu Lake",
+      "rgb": [100, 14, 111],
+      "source_bbox": [5080, 890, 5090, 895],
+      "target_xy": [4640, 867],
+      "scale": 1.0
+    }
+  ],
+  "patch_box": [4638, 865, 4652, 874],
+  "cleanup_fragments": true,
+  "absorb_enclosed_pockets": false,
+  "preview_zoom": 12
+}

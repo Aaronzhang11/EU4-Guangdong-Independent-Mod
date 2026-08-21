@@ -1,0 +1,229 @@
+{
+  "status": "review_only",
+  "canonical_map_modified": false,
+  "canonical_sha256": "126da8efbd8aadbff977c8c0e605593defef58ae615241983b8529ed2098167a",
+  "source": {
+    "name": "1.37 Celestial empire on which the sun never sets",
+    "workshop_id": "1728520255",
+    "offset": [
+      438,
+      9
+    ]
+  },
+  "rgb_collision_check": {
+    "48,63,86": {
+      "definition_rows": 0,
+      "canonical_bitmap_pixels": 0
+    },
+    "118,0,175": {
+      "definition_rows": 0,
+      "canonical_bitmap_pixels": 0
+    },
+    "24,11,27": {
+      "definition_rows": 0,
+      "canonical_bitmap_pixels": 0
+    }
+  },
+  "current": [
+    {
+      "id": 5310,
+      "name": "南岭西段",
+      "rgb": [
+        37,
+        173,
+        211
+      ],
+      "pixels": 61,
+      "bbox": [
+        4553,
+        983,
+        4572,
+        992
+      ]
+    },
+    {
+      "id": 5311,
+      "name": "南岭东段",
+      "rgb": [
+        198,
+        52,
+        122
+      ],
+      "pixels": 83,
+      "bbox": [
+        4576,
+        966,
+        4589,
+        986
+      ]
+    }
+  ],
+  "proposal": [
+    {
+      "source_id": 5166,
+      "name": "南岭西段",
+      "source_rgb": [
+        48,
+        63,
+        86
+      ],
+      "source_pixels": 213,
+      "source_bbox": [
+        4543,
+        1001,
+        4571,
+        1028
+      ],
+      "translation": [
+        4,
+        -21
+      ],
+      "output_rgb": [
+        48,
+        63,
+        86
+      ],
+      "output_pixels": 213,
+      "output_bbox": [
+        4547,
+        980,
+        4575,
+        1007
+      ],
+      "component_sizes": [
+        177,
+        36
+      ],
+      "pixels_within_two_of_border": 193,
+      "border_share": 0.9061,
+      "shape_preserved_1_to_1": true
+    },
+    {
+      "source_id": 5163,
+      "name": "南岭东段",
+      "source_rgb": [
+        118,
+        1,
+        175
+      ],
+      "source_pixels": 84,
+      "source_bbox": [
+        4571,
+        996,
+        4597,
+        1007
+      ],
+      "translation": [
+        11,
+        -21
+      ],
+      "output_rgb": [
+        118,
+        0,
+        175
+      ],
+      "output_pixels": 84,
+      "output_bbox": [
+        4582,
+        975,
+        4608,
+        986
+      ],
+      "component_sizes": [
+        77,
+        7
+      ],
+      "pixels_within_two_of_border": 82,
+      "border_share": 0.9762,
+      "shape_preserved_1_to_1": true
+    },
+    {
+      "source_id": 5164,
+      "name": "九连山",
+      "source_rgb": [
+        24,
+        12,
+        27
+      ],
+      "source_pixels": 210,
+      "source_bbox": [
+        4583,
+        1006,
+        4621,
+        1043
+      ],
+      "translation": [
+        1,
+        -21
+      ],
+      "output_rgb": [
+        24,
+        11,
+        27
+      ],
+      "output_pixels": 210,
+      "output_bbox": [
+        4584,
+        985,
+        4622,
+        1022
+      ],
+      "component_sizes": [
+        115,
+        95
+      ],
+      "pixels_within_two_of_border": 199,
+      "border_share": 0.9476,
+      "shape_preserved_1_to_1": true
+    }
+  ],
+  "route_locks": [
+    {
+      "name": "湘粤通道",
+      "detail": "郴州—韶州",
+      "xy": [
+        4575,
+        989
+      ]
+    },
+    {
+      "name": "梅关古道",
+      "detail": "南雄—南安",
+      "xy": [
+        4590,
+        983
+      ]
+    },
+    {
+      "name": "东江北口",
+      "detail": "龙川—赣南",
+      "xy": [
+        4602,
+        995
+      ]
+    },
+    {
+      "name": "西江走廊",
+      "detail": "梧州—肇庆",
+      "xy": [
+        4548,
+        1024
+      ]
+    }
+  ],
+  "implementation_intent": {
+    "reuse_5310_as": "南岭西段，RGB 48,63,86，参考轮廓 1:1",
+    "reuse_5311_as": "南岭东段，RGB 118,0,175，参考轮廓 1:1",
+    "new_impassable_needed": "九连山，RGB 24,11,27，参考轮廓 1:1",
+    "ordinary_mountain_only": [
+      "罗浮山",
+      "莲花山"
+    ],
+    "deferred": [
+      "罗霄山",
+      "万洋山",
+      "越城岭",
+      "十万大山"
+    ]
+  }
+}

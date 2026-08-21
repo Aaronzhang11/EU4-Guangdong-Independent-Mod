@@ -1,0 +1,65 @@
+{
+  "features": [
+    {
+      "name": "南岭西段",
+      "rgb": [
+        48,
+        63,
+        86
+      ],
+      "source_bbox": [
+        4547,
+        980,
+        4575,
+        1007
+      ],
+      "target_xy": [
+        4547,
+        980
+      ],
+      "scale": 1.0
+    },
+    {
+      "name": "南岭东段",
+      "rgb": [
+        118,
+        0,
+        175
+      ],
+      "source_bbox": [
+        4582,
+        975,
+        4608,
+        986
+      ],
+      "target_xy": [
+        4582,
+        975
+      ],
+      "scale": 1.0
+    },
+    {
+      "name": "九连山",
+      "rgb": [
+        24,
+        11,
+        27
+      ],
+      "source_bbox": [
+        4584,
+        985,
+        4622,
+        1022
+      ],
+      "target_xy": [
+        4584,
+        985
+      ],
+      "scale": 1.0
+    }
+  ],
+  "cleanup_margin": 14,
+  "cleanup_fragments": true,
+  "absorb_enclosed_pockets": false,
+  "preview_zoom": 5
+}

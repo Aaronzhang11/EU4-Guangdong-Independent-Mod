@@ -1,0 +1,157 @@
+{
+  "current": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/provinces.bmp",
+  "reference": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/fujian_impassable_dmi_plan/fujian_impassable_candidate_full.bmp",
+  "current_size": [
+    5632,
+    2048
+  ],
+  "reference_size": [
+    5632,
+    2048
+  ],
+  "patch_box": [
+    4585,
+    914,
+    4686,
+    1016
+  ],
+  "changed_pixels": 1243,
+  "repaired_groups": 34,
+  "repaired_land_pixels": 261,
+  "absorbed_enclosed_pixels": 0,
+  "features": [
+    {
+      "name": "武夷山",
+      "rgb": [
+        0,
+        146,
+        38
+      ],
+      "source_components": [
+        178,
+        69
+      ],
+      "target_size": [
+        28,
+        49
+      ],
+      "target_pixels_before_cleanup": 247
+    },
+    {
+      "name": "浙闽丘陵",
+      "rgb": [
+        229,
+        105,
+        47
+      ],
+      "source_components": [
+        251,
+        179,
+        127
+      ],
+      "target_size": [
+        55,
+        61
+      ],
+      "target_pixels_before_cleanup": 557
+    },
+    {
+      "name": "杉岭",
+      "rgb": [
+        50,
+        12,
+        180
+      ],
+      "source_components": [
+        187
+      ],
+      "target_size": [
+        26,
+        15
+      ],
+      "target_pixels_before_cleanup": 187
+    }
+  ],
+  "playable_connectivity": {
+    "45,180,190": {
+      "before": 2,
+      "after": 2
+    },
+    "45,220,130": {
+      "before": 1,
+      "after": 1
+    },
+    "48,108,104": {
+      "before": 1,
+      "after": 1
+    },
+    "67,84,112": {
+      "before": 1,
+      "after": 1
+    },
+    "67,126,219": {
+      "before": 1,
+      "after": 1
+    },
+    "79,124,126": {
+      "before": 1,
+      "after": 1
+    },
+    "80,156,200": {
+      "before": 3,
+      "after": 3
+    },
+    "83,111,176": {
+      "before": 1,
+      "after": 1
+    },
+    "95,92,0": {
+      "before": 1,
+      "after": 1
+    },
+    "110,75,225": {
+      "before": 1,
+      "after": 1
+    },
+    "113,163,157": {
+      "before": 1,
+      "after": 1
+    },
+    "118,0,175": {
+      "before": 2,
+      "after": 2
+    },
+    "131,100,35": {
+      "before": 1,
+      "after": 1
+    },
+    "144,37,37": {
+      "before": 1,
+      "after": 1
+    },
+    "146,81,81": {
+      "before": 1,
+      "after": 1
+    },
+    "158,62,218": {
+      "before": 1,
+      "after": 1
+    },
+    "187,30,204": {
+      "before": 1,
+      "after": 1
+    },
+    "210,190,45": {
+      "before": 1,
+      "after": 1
+    },
+    "223,90,255": {
+      "before": 2,
+      "after": 2
+    },
+    "230,110,35": {
+      "before": 1,
+      "after": 1
+    }
+  }
+}
