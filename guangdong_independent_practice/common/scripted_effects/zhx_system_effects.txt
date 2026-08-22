@@ -333,12 +333,49 @@ zhx_refresh_internal_war_count = {
     }
 }
 
-# 周天下国家作为战争胜方击败周天下以外的战争领袖时，由天子统一获得一次 +5 礼乐值。
-# 此效果只负责改变共享状态；胜负与内外之别由 on_war_ended 的 ROOT/FROM 作用域判断。
+# 周天下国家作为战争胜方击败周天下以外的战争领袖时，当前天下显学改变
+# 这场胜利的国际评价。ROOT 仍是胜方战争领袖，当前作用域则是天子锚点。
 zhx_reward_external_war_victory = {
-    change_variable = {
-        which = zhx_ritual_authority
-        value = 5
+    if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_ru }
+        change_variable = { which = zhx_ritual_authority value = 3 }
+        ROOT = {
+            if = {
+                limit = { zhx_is_tianxia_member = yes }
+                change_variable = { which = zhx_merit value = 2 }
+                zhx_clamp_merit = yes
+            }
+        }
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_fa }
+        change_variable = { which = zhx_ritual_authority value = 5 }
+        ROOT = {
+            if = {
+                limit = { zhx_is_tianxia_member = yes }
+                change_variable = { which = zhx_merit value = 3 }
+                zhx_clamp_merit = yes
+            }
+        }
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_mo }
+        change_variable = { which = zhx_ritual_authority value = 1 }
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_plural }
+        change_variable = { which = zhx_ritual_authority value = 2 }
+        ROOT = {
+            if = {
+                limit = { zhx_is_tianxia_member = yes }
+                change_variable = { which = zhx_merit value = 1 }
+                zhx_clamp_merit = yes
+            }
+        }
+    }
+    else = {
+        # The pre-debate legacy rule remains intact until the first settlement.
+        change_variable = { which = zhx_ritual_authority value = 5 }
     }
     zhx_clamp_ritual_authority = yes
     zhx_refresh_ritual_order = yes
@@ -535,6 +572,52 @@ zhx_yearly_ritual_authority_tick = {
             }
         }
         change_variable = { which = zhx_ritual_authority value = -1 }
+    }
+
+    # The current international orthodoxy changes how the same world state is
+    # judged. These are shared-Tianxia norms, not domestic school bonuses.
+    if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_ru }
+        if = {
+            limit = { zhx_tianxia_is_at_peace = yes }
+            change_variable = { which = zhx_ritual_authority value = 1 }
+        }
+        if = {
+            limit = {
+                check_variable = { which = zhx_internal_war_count_cache value = 1 }
+            }
+            change_variable = { which = zhx_ritual_authority value = -1 }
+        }
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_fa }
+        if = {
+            limit = {
+                NOT = {
+                    check_variable = { which = zhx_internal_war_count_cache value = 1 }
+                }
+            }
+            change_variable = { which = zhx_ritual_authority value = 1 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { which = zhx_internal_war_count_cache value = 3 }
+            }
+            change_variable = { which = zhx_ritual_authority value = -2 }
+        }
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_tianxia_orthodoxy_mo }
+        if = {
+            limit = { zhx_tianxia_is_at_peace = yes }
+            change_variable = { which = zhx_ritual_authority value = 2 }
+        }
+        if = {
+            limit = {
+                check_variable = { which = zhx_internal_war_count_cache value = 1 }
+            }
+            change_variable = { which = zhx_ritual_authority value = -2 }
+        }
     }
 
     # Clausewitz 的数值触发器是下限判断：stability = 1 表示稳定度 >= 1。

@@ -1,0 +1,4 @@
+# Empty, visible and save-safe timer. A resolved Great Debate fixes the
+# international orthodoxy for fifteen years before another may convene.
+zhx_tianxia_debate_cooldown = {
+}

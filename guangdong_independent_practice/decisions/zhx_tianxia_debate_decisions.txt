@@ -1,0 +1,34 @@
+country_decisions = {
+    zhx_review_tianxia_orthodoxy = {
+        major = no
+
+        potential = {
+            has_global_flag = zhx_tianxia_debate_initialised_v1
+            zhx_is_tianxia_polity = yes
+        }
+
+        allow = { always = yes }
+        effect = { country_event = { id = zhx_debate.30 } }
+        ai_will_do = { factor = 0 }
+    }
+
+    # Manual test hook for the unverified prototype. It obeys the real
+    # candidate rule but deliberately ignores the fifteen-year cooldown.
+    zhx_debug_convene_tianxia_debate = {
+        major = no
+
+        potential = {
+            ai = no
+            zhx_is_tianzi = yes
+            has_global_flag = zhx_tianxia_debate_initialised_v1
+            NOT = { has_country_flag = zhx_tianxia_debate_active }
+        }
+
+        allow = { zhx_tianxia_has_two_proposals = yes }
+        effect = {
+            remove_country_modifier = zhx_tianxia_debate_cooldown
+            country_event = { id = zhx_debate.2 }
+        }
+        ai_will_do = { factor = 0 }
+    }
+}

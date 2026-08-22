@@ -78,10 +78,7 @@
  ZHX_GUI_INCIDENT_HEADER:0 ")YN‹NØS"
  ZHX_GUI_INCIDENT_DESCRIPTION:0 ")YN‹NØSOHQÏu†SRýV®‹º‹ÿgP–ÓumgTMbÓu—rÓuœg0"
  ZHX_GUI_INCIDENT_FOOTER:0 "ø‹¯OïS(WlQ®‹g…QÇýV¶R³Q®‹9eØS,gýV•bhy0"
- ZHX_GUI_REFORM_HEADER:0 "ßv¦u9ei—"
- ZHX_GUI_REFORM_DESCRIPTION:0 ")YPRïS(WŒTs^N3zšRöeÿåNJyPNJPÍ‘3ubhTßvfNÿwQSOagöNÍN1uýV¶R³Q®‹gbLˆ0"
  ZHX_GUI_ROSTER_HEADER:0 "IYhTø‹¯O · ¨R`TŒQ"
- ZHX_GUI_OVERVIEW_BUTTON:0 "æ‹ÆuI`È‰"
 
  zhx_gui_tianzi_name:0 "§Y[CZH.GetName]§!"
  zhx_gui_authority_value:0 "JyPNÿ§Y[CZH.zhx_ritual_authority.GetValue]§!ÿ-100ó100	ÿ"
@@ -105,19 +102,15 @@
  zhx_gui_incident_none:0 "§G)YNàe‹N§!"
  zhx_gui_incident_active_description:0 "RýVck(WÛLˆNt^lQ®‹ÿgánTÍ‘°e¹phy0\n^Tÿ§G[CZH.zhx_incident_support_count.GetValue]§!0ÍSùRÿ§R[CZH.zhx_incident_oppose_count.GetValue]§!"
  zhx_gui_incident_none_description:0 "SVMR¡l	gck(W®‹º‹„v)YN‹NØS0JyPNJPÌ4xè•Ûiöeÿ°e„v‹NØSïSýw1ut^¦^Óu—ræ‰ÑS0"
- zhx_gui_reform_enacted:0 "§GòT˜Lˆ§!\nÍ‘3ubhTßvfN"
- zhx_gui_reform_available:0 "§YS8g˜Lˆ§!\nÍ‘3ubhTßvfN"
 
  zhx_gui_tianzi_shield_tt:0 "SVMR)YPRHN§Y[CZH.GetName]§!0\n¹pûQSbVå‹ýVY²NLub—0"
- zhx_gui_authority_value_tt:0 "JyPNJPƒôVHN-100ó1000§Yt^¦^ØSSÿ§!úWNx§G+1§!ÿNb	ghT)YNýV¶RGW8gÂSb§G+2§!ÿø‹¯O…Qb1ó2HW§R-1§!03ó5HW§R-2§!06HWÊSåNN§R-3§!ÿ)YPR3zšRóS1öe§G+1§!03zšRHNöe§R-2§!ÿZgóS50öe§G+1§!0NOŽN-25öe§R-1§!ÿŒSbóS5öe§R-1§!ÿ)YPR–™ý1Yw–öe§R-5§!0hT)YNýV¶RSbbùRYb‰NöeN!k'`§G+5§!ÿgO0ø‹¯OIYJyN)YN‹NØSmNOsSöe9eØSJyPNJP0"
+ zhx_gui_authority_value_tt:0 "JyPNJPƒôVHN-100ó1000§Yt^¦^úWNxØSSÿ§!úWNx§G+1§!ÿNb	ghT)YNýV¶RGW8gÂSb§G+2§!ÿø‹¯O…Qb1ó2HW§R-1§!03ó5HW§R-2§!06HWÊSåNN§R-3§!ÿ)YPR3zšRóS1öe§G+1§!03zšRHNöe§R-2§!ÿZgóS50öe§G+1§!0NOŽN-25öe§R-1§!ÿŒSbóS5öe§R-1§!ÿ)YPR–™ý1Yw–öe§R-5§!0)YNLffROÛNek9eØSŒTs^0…QbNùRYb‰NÜw)R„vJyPNŒTßvŸRÓu—rÿgO0ø‹¯OIYJyN)YN‹NØSmNOsSöe9eØSJyPNJP0"
  zhx_gui_member_count_tt:0 "SVMR«ˆhT)YNTŒQb²‹HNø‹¯O„v°sXRýV¶RpeÏ‘0"
  zhx_gui_player_merit_tt:0 "ßvŸR°‹UV,gýV(WhT)YN‹N¡R-N„v!.s0^—bXTÂ‰ßRw8^HNö–0"
  zhx_gui_player_role_tt:0 ")YPRINchT)YNéy^ÿø‹¯OÂSNßv¦uN‹NØSÿvQÖNýV¶RêSýwågwlQV¶r`0"
  zhx_gui_order_tt:0 "SVMRJyPN6–µk³QšRhT)YNýV¶R·ƒ—V„vqQTîOck0ckJPOPÍ‘luFOÐcØšµOeuib.VÿJPOPÍ‘­‹Ãu¦^FOmc³R0W¹e6eÊv0"
  zhx_gui_incident_tt:0 ")YN‹NØSVËYTcíu¦u365)Y0bXTïS•b^T0ÍSùRbVCghyÿv^(WgP–…Q9ehyÿ0RgöeêSßu¡‹ÍN6qXR(WNÍN^ShT)YN„výV¶R0^Thy%NJhYŽNÍSùRhyöeÇÿs^hyÆ‰HN1Y%0"
- zhx_gui_reform_tt:0 "Í‘3ubhTßvfN=fSVMRŸS‹W-NòTžR°s„v,rNy˜ßv¦u9ei—0"
  zhx_gui_member_shield_tt:0 "hT)YNø‹¯O0¹pûQSbVå‹ýVY²NLub—0"
- zhx_gui_overview_button_tt:0 "SbVêSû‹„vhT)YNæ‹ÆuI`È‰ÿN9eØSûNUOûsßu¶r`0"
  gdd_eoc_member_count:0 "§Y[CZH.gdd_eoc_member_count_cache.GetValue]§!8NbXTýV"
  GDD_EOC_MEMBER_COUNT_TT:0 "SVMR)Y‹TLub—‰v°‹„vhT)YN°sXRbXTýVpeÏ‘ÿòT.Rd–„v'YfN¡‹eQ0"
  GDD_EOC_MEMBER_SHIELD_TT:0 "hT)YNbXTýV0¹pûQSbVå‹ýVY²NLub—0"

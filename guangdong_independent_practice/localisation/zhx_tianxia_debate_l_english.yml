@@ -1,0 +1,64 @@
+﻿l_english:
+ ZHX_GUI_DEBATE_HEADER:0 ")YN'Y©"
+ ZHX_GUI_DEBATE_DESCRIPTION:0 "LffRêS9eØShT)YN„výVE–ÆQRÿNOÿfbcTýVýVº‹bwýN—RYe0"
+ ZHX_GUI_DEBATE_REVIEW_BUTTON:0 "ågwÆQR"
+ ZHX_GUI_DEBATE_CONVENE_BUTTON:0 "ìSV'Y©"
+
+ zhx_gui_debate_orthodoxy_none:0 ")YNLffRÿ§gS8g®‹šR§!"
+ zhx_gui_debate_orthodoxy_ru:0 ")YNLffRÿ§YQ¶R§!"
+ zhx_gui_debate_orthodoxy_fa:0 ")YNLffRÿ§YÕl¶R§!"
+ zhx_gui_debate_orthodoxy_mo:0 ")YNLffRÿ§Y¨X¶R§!"
+ zhx_gui_debate_orthodoxy_plural:0 ")YNLffRÿ§YŒv¶Rv^Ëz§!"
+ zhx_gui_debate_status_active_ru_fa:0 "º‹-^ÿ§YQ¶RÿÕl¶R§!\nRýVck(W•b®‹ÿ¦uNt^TÓu—r0"
+ zhx_gui_debate_status_active_ru_mo:0 "º‹-^ÿ§YQ¶Rÿ¨X¶R§!\nRýVck(W•b®‹ÿ¦uNt^TÓu—r0"
+ zhx_gui_debate_status_active_fa_mo:0 "º‹-^ÿ§YÕl¶Rÿ¨X¶R§!\nRýVck(W•b®‹ÿ¦uNt^TÓu—r0"
+ zhx_gui_debate_status_settled:0 ",gJSLffRòTÏu®‹šRÿ§YAS”Nt^§!LˆgS8gJSán0"
+ zhx_gui_debate_status_ready:0 "òT	g2N¶R·ƒ—VÐcHhDJhÿ)YPR°s(WïSåNìSV'Y©0"
+ zhx_gui_debate_status_waiting:0 "SN³2N¶Råb	gõeS¾0R§Y70§!„vRýVxQƒ0"
+ zhx_gui_debate_tt:0 ")YN'Y©³QšRAS”Nt^…QLˆ„výVE–ÆQRÿêSÄ‹÷NŒTs^0ø‹¯O…Qb0ßWYb‰NÜw)R0JyPNJPNßvŸR0TýVýV…QýVº‹ŒTwýN—RYeÝOcNØS0"
+ zhx_gui_debate_review_button_tt:0 "ågwSVMR)YNLffRÊSvQýVE–Ä‰RÿN9eØSûNUO¶r`0"
+ zhx_gui_debate_convene_button_tt:0 ")YPRÎNòT	gRýVžRõ=e‘d„vTJhfRô‹-NŽ÷‹2N¶RÿVËYcíu¦uNt^„v)YN'Y©0"
+
+ zhx_debate.1.t:0 ")YN'Y©RËYS"
+ zhx_debate.1.d:0 ")YN'Y©¶r`òTÏuRËYS0"
+ zhx_debate.2.t:0 ")YN'Y©"
+ zhx_debate.2.d:0 "RýVKN-NòT	gNbkN¶RfRô‹—V0R•gõeSÿ³åNŠb,gýVýVº‹lSHNùR)YNéy^„vlQVIN.V0)YPRSÎNTJhfRô‹-NŽ÷‹2N¶Rº‹©ÿTýVÍNïSZWcêñT„výV…QýVº‹ÿFOÅV‰˜hˆfêTWYýVE–ÆQRôfJP—VhT)YNÇ‘(u0"
+ zhx_debate.2.a:0 "÷‹Q¶RNÕl¶Rº‹)YNKN»l"
+ zhx_debate.2.b:0 "÷‹Q¶RN¨X¶Rº‹ÁNINN^—Ie"
+ zhx_debate.2.c:0 "÷‹Õl¶RN¨X¶Rº‹b¦uNŠQ1r"
+
+ zhx_debate.10.t:0 ")YN'Y©ÿQÕlKN®‹"
+ zhx_debate.10.d:0 "QwIN.Vø‹¯O²NŽV”^åNTR0eS¦u0YýVŒTckSVKNbHN8hÃVÿÕl¶RR‰BlŠbßv¦u0Áˆ³QŒTqQTIN¡R™QbïSåNNôgbLˆ„vbÕl0RýVïSåN=ecvQ-NN¶RÿmNïSåNÒbÝuŠb)YNšRŽNNS0õeS¾0R75N•bT,gýVýVº‹wÿSåNžRõxQƒ«ŽýN˜Y!.sNhy0"
+ zhx_debate.11.t:0 ")YN'Y©ÿQ¨XKN®‹"
+ zhx_debate.11.d:0 "QwåNTR0Jy^Nøv’N1ûNôucø‹¯Oéy^ÿ¨Xw‰BlŠb^—Ie0QeˆR0‚‚(uŒTÝO²bSýVnŽNýVE–ÆQR-NÃV0RýVïSåN=ecvQ-NN¶RÿmNïSåNÝOYuŒv¶Rv^Ëz0õeS¾0R75N•bT,gýVýVº‹wÿSåNžRõxQƒ«ŽýN˜Y!.sNhy0"
+ zhx_debate.12.t:0 ")YN'Y©ÿÕl¨XKN®‹"
+ zhx_debate.12.d:0 "Õl¶R‰BlhT)YN%NJhgbLˆb¦u0Áˆ³QŒTqQTIN¡Rÿ¨XwRZWc6R¦^ÅV‰˜¥c×S^—Ie0QeˆRŒTlQqQ)RÊv„vÀhŒš0RýVïSåN=ecvQ-NN¶RÿmNïSåNÝOYuŒv¶Rv^Ëz0õeS¾0R75N•bT,gýVýVº‹wÿSåNžRõxQƒ«ŽýN˜Y!.sNhy0"
+ zhx_debate.vote_ru:0 "¨cLNQ¶RHN)YNLffR"
+ zhx_debate.vote_fa:0 "¨cLNÕl¶RHN)YNLffR"
+ zhx_debate.vote_mo:0 "¨cLN¨X¶RHN)YNLffR"
+ zhx_debate.vote_plural:0 "Œv¶Rv^ËzÿNšRNS"
+
+ zhx_debate.20.t:0 ")YN'Y©KNœg"
+ zhx_debate.20.d.ru:0 "Q¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0dkThT)YNSôfÍ‘Æ‰)YNŒTs^0TRNKQ6R…QbÿùRYb‰NÜw)RÍN	g÷NJPÿtSNQ«ˆÆ‰HN=UN„vßvŸRegn0\n\n,rNÐcHhÿ§Y[Root.zhx_tianxia_debate_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_tianxia_debate_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_tianxia_debate_plural_count.GetValue]§!"
+ zhx_debate.20.d.fa:0 "Õl¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0hT)YNSôfÍ‘Æ‰b¦ugbLˆ0jPbk…QbŒTùRYÜw)Rÿ	gýw›R=‰VqQTÁˆ³Q„výV¶RSôf¹Rf·ƒ—VßvŸR0\n\n,rNÐcHhÿ§Y[Root.zhx_tianxia_debate_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_tianxia_debate_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_tianxia_debate_plural_count.GetValue]§!"
+ zhx_debate.20.d.mo:0 "¨X¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0)YNŒTs^N6Rbkø‹¯O…QbS·ƒ—VôfØšÄ‹÷NÿUS¯uûQ%ßWYýV¶RNQ³åNÁ‹fIeOckSV0\n\n,rNÐcHhÿ§Y[Root.zhx_tianxia_debate_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_tianxia_debate_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_tianxia_debate_plural_count.GetValue]§!"
+ zhx_debate.20.d.plural:0 "¡l	gûNUON¶RTöe%NJh†˜HQæSY2NÍy	ébÿhT)YNàVwb²‹Œv¶Rv^Ëz0TýVïSåNçuíu(uNTfRô‹ã‰Ê‘ßv¦uÿ`ó`ôfHNImÃÿFOqQTÄ‰RNOyr+RVY±RûNUON¶R„vb‰Nbéy^Â‰0\n\n,rNÐcHhÿ§Y[Root.zhx_tianxia_debate_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_tianxia_debate_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_tianxia_debate_plural_count.GetValue]§!"
+ zhx_debate.20.a:0 "dk®‹Lˆ)YN"
+ zhx_debate_result_tt:0 "'Y©ÓuœgúVšRAS”Nt^0=ecÜwúQÓuœg„vø‹¯O·ƒ—VßvŸRÿTýVýV…QýVº‹ŒTwýN—RYeGWÝOcNØS0"
+
+ zhx_debate.30.t:0 ")YNLffRNýVE–ÆQR"
+ zhx_debate.30.d.ru:0 "§YSVMR)YNLffRÿQ¶R§!\n\nhT)YNŒRhQŒTs^öeÿJyPNJPÏkt^˜Y+1ÿÑSuø‹¯O…Qböe˜Y-10hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+3ÿÜw¹eæS—V2ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.fa:0 "§YSVMR)YNLffRÿÕl¶R§!\n\n¡l	gø‹¯O…QböeÿJyPNJPÏkt^˜Y+1ÿ	NHWbôfY…Qböe˜Y-20hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+5ÿÜw¹eæS—V3ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.mo:0 "§YSVMR)YNLffRÿ¨X¶R§!\n\nhT)YNŒRhQŒTs^öeÿJyPNJPÏkt^˜Y+2ÿÑSuø‹¯O…Qböe˜Y-20hT)YNýV¶RûQ%ßWYb‰N†˜–ˆöeêSOJyPNJP+1ÿNàVÜw)R,g«Ž·ƒ—VßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.plural:0 "§YSVMR¶r`ÿŒv¶Rv^Ëz§!\n\nhT)YNN˜YÇ‘(uÐgN¶RùRŒTs^b…Qb„vÄ‹÷N0hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+2ÿÜw¹e·ƒ—V1ßvŸR0\n\nTýVÍNïSZWcŠVdkNT„výV…QýVº‹0"
+ zhx_debate.30.d.none:0 "§YSVMRSàe)YNLffR§!\n\nóS2N¶RfRô‹R+Råb	gõeS¾0R70„vhT)YNýV¶RTÿ)YPRS(Wt^¦^Àhåg-NìSV,rN!k)YN'Y©0–™!kÓuœgµNuMRÿùRYb‰NÜw)Rçuíu¿l(uŸS	g„vJyPNJP+5Ä‰R0"
+ zhx_debate.30.a:0 "ýVº‹TVÿ)YNqQ®‹"
+ zhx_debate.90.t:0 ")YN'Y©t^¦^Àhåg"
+ zhx_debate.90.d:0 ")YN'Y©„vÐcHhDJhNAS”Nt^ûNgòTÏuÀhåg0"
+
+ zhx_review_tianxia_orthodoxy_title:0 "ågw)YNLffR"
+ zhx_review_tianxia_orthodoxy_desc:0 "ågwSVMR)YNLffRÊSvQùRŒTs^0ø‹¯O…Qb0ßWYb‰NÜw)R0ßvŸRŒTJyPNJP„vqVÍT0)YNLffRNO9eØS,gýVýV…QýVº‹0"
+ zhx_debug_convene_tianxia_debate_title:0 "§TŒÕ‹ÿìSV)YN'Y©§!"
+ zhx_debug_convene_tianxia_debate_desc:0 "ËzsSÀhågÐcHhDJhv^ìSV)YN'Y©ÿýVeuAS”Nt^ûNgÿÍN‰BlóS2N¶RfRô‹T	gõeS¾0R70„vhT)YNžRõýV0"
+ zhx_tianxia_debate_cooldown:0 ")YNLffRûNg"
+ zhx_tianxia_debate_cooldown_desc:0 "NNJS)YN'Y©„vÓuœgÍN(WAS”Nt^Lˆg…Q0TýVýV…QýVº‹N×Så‹ûNgP–6R0"

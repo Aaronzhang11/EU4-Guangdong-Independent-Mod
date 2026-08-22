@@ -1,0 +1,69 @@
+# Candidate eligibility for the first international Hundred Schools debate.
+# A school may enter only when at least one existing Tianxia polity has
+# practised that doctrine to 70 or above.
+
+zhx_tianxia_has_ru_proposal = {
+    any_country = {
+        exists = yes
+        zhx_is_tianxia_polity = yes
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_ru
+        check_variable = {
+            which = zhx_doctrine_practice
+            value = 70
+        }
+    }
+}
+
+zhx_tianxia_has_fa_proposal = {
+    any_country = {
+        exists = yes
+        zhx_is_tianxia_polity = yes
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_fa
+        check_variable = {
+            which = zhx_doctrine_practice
+            value = 70
+        }
+    }
+}
+
+zhx_tianxia_has_mo_proposal = {
+    any_country = {
+        exists = yes
+        zhx_is_tianxia_polity = yes
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_mo
+        check_variable = {
+            which = zhx_doctrine_practice
+            value = 70
+        }
+    }
+}
+
+zhx_tianxia_has_two_proposals = {
+    OR = {
+        AND = {
+            zhx_tianxia_has_ru_proposal = yes
+            zhx_tianxia_has_fa_proposal = yes
+        }
+        AND = {
+            zhx_tianxia_has_ru_proposal = yes
+            zhx_tianxia_has_mo_proposal = yes
+        }
+        AND = {
+            zhx_tianxia_has_fa_proposal = yes
+            zhx_tianxia_has_mo_proposal = yes
+        }
+    }
+}
+
+# Shared command-surface contract. The annual scheduler, event and custom GUI
+# all call this trigger so the visible button cannot drift from event rules.
+zhx_can_convene_tianxia_debate = {
+    zhx_is_tianzi = yes
+    has_global_flag = zhx_tianxia_debate_initialised_v1
+    zhx_tianxia_has_two_proposals = yes
+    NOT = { has_country_flag = zhx_tianxia_debate_active }
+    NOT = { has_country_modifier = zhx_tianxia_debate_cooldown }
+}

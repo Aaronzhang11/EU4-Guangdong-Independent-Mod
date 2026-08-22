@@ -1034,59 +1034,195 @@ guiTypes = {
 				fixedsize = yes
 			}
 
-			# Lower-right panel: first covenant reform and the detailed overview.
+			# Lower-right panel: Tianxia Great Debate. Reforms and decrees belong
+			# to the separate Mandate view; this council panel reads international
+			# orthodoxy and can only invoke the debate event state machine.
 			instantTextBoxType = {
-				name = "zhx_gui_reform_header"
+				name = "zhx_gui_debate_header"
 				position = { x = 527 y = 302 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 0 }
-				text = "ZHX_GUI_REFORM_HEADER"
+				text = "ZHX_GUI_DEBATE_HEADER"
 				maxWidth = 358
 				maxHeight = 32
 				format = centre
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_reform_enacted"
-				position = { x = 515 y = 331 }
+				name = "zhx_gui_debate_orthodoxy_none"
+				position = { x = 514 y = 331 }
 				font = "vic_22"
 				text = ""
-				maxWidth = 260
-				maxHeight = 48
-				format = centre
-				scripted = yes
-			}
-
-			instantTextBoxType = {
-				name = "zhx_gui_reform_available"
-				position = { x = 515 y = 331 }
-				font = "vic_22"
-				text = ""
-				maxWidth = 260
-				maxHeight = 48
-				format = centre
-				scripted = yes
-			}
-
-			instantTextBoxType = {
-				name = "zhx_gui_reform_description"
-				position = { x = 514 y = 390 }
-				font = "vic_18"
-				borderSize = { x = 5 y = 5 }
-				text = "ZHX_GUI_REFORM_DESCRIPTION"
 				maxWidth = 384
-				maxHeight = 54
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_ru"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_fa"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_mo"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_plural"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_active_ru_fa"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 44
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_active_ru_mo"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 44
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_active_fa_mo"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 44
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_settled"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 44
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_ready"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 44
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_waiting"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 44
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_description"
+				position = { x = 514 y = 414 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = "ZHX_GUI_DEBATE_DESCRIPTION"
+				maxWidth = 384
+				maxHeight = 30
 				format = centre
 				fixedsize = yes
 			}
 
+			# Centred fallback button when the viewer cannot convene a debate.
 			guiButtonType = {
-				name = "zhx_gui_overview_button"
+				name = "zhx_gui_debate_review_button_solo"
 				position = { x = 653 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
-				buttonText = "ZHX_GUI_OVERVIEW_BUTTON"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
 				buttonFont = "vic_18"
 				clicksound = click
+				scripted = yes
+			}
+
+			# When the Tianzi has two eligible proposals, split the row between
+			# a read-only rules button and the state-changing convene action.
+			guiButtonType = {
+				name = "zhx_gui_debate_review_button_split"
+				position = { x = 589 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_convene_button"
+				position = { x = 716 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_CONVENE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
 				scripted = yes
 			}
 

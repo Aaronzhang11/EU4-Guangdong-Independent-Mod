@@ -3,6 +3,7 @@
 on_startup = {
     events = {
         zhx_system.1
+        zhx_debate.1
     }
 }
 
@@ -12,11 +13,12 @@ on_yearly_pulse = {
     events = {
         zhx_system.10
         zhx_doctrine.90
+        zhx_debate.90
     }
 }
 
 # 战争结束时 ROOT 是胜方战争领袖，FROM 是败方战争领袖。
-# 只有周天下国家击败周天下以外的国家才奖励一次；诸侯内战和天子讨伐诸侯均不触发。
+# 只有周天下国家击败周天下以外的国家才结算一次；礼乐与盟功数值由当前天下显学决定。
 on_war_ended = {
     if = {
         limit = {

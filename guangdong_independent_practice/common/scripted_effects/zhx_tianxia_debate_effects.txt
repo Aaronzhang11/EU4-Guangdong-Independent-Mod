@@ -1,0 +1,341 @@
+# International Hundred Schools state machine. The Tianzi is the sole state
+# anchor; member countries retain their own independent domestic doctrines.
+
+zhx_clear_tianxia_orthodoxy_flags = {
+    clr_country_flag = zhx_tianxia_orthodoxy_ru
+    clr_country_flag = zhx_tianxia_orthodoxy_fa
+    clr_country_flag = zhx_tianxia_orthodoxy_mo
+    clr_country_flag = zhx_tianxia_orthodoxy_plural
+}
+
+zhx_clear_tianxia_debate_pair_flags = {
+    clr_country_flag = zhx_tianxia_debate_pair_ru_fa
+    clr_country_flag = zhx_tianxia_debate_pair_ru_mo
+    clr_country_flag = zhx_tianxia_debate_pair_fa_mo
+}
+
+zhx_clear_tianxia_debate_result_flags = {
+    clr_country_flag = zhx_tianxia_debate_result_a
+    clr_country_flag = zhx_tianxia_debate_result_b
+    clr_country_flag = zhx_tianxia_debate_result_plural
+}
+
+zhx_clear_current_tianxia_debate_vote = {
+    clr_country_flag = zhx_tianxia_debate_vote_a
+    clr_country_flag = zhx_tianxia_debate_vote_b
+    clr_country_flag = zhx_tianxia_debate_vote_plural
+}
+
+zhx_cast_tianxia_debate_vote_a = {
+    zhx_clear_current_tianxia_debate_vote = yes
+    set_country_flag = zhx_tianxia_debate_vote_a
+}
+
+zhx_cast_tianxia_debate_vote_b = {
+    zhx_clear_current_tianxia_debate_vote = yes
+    set_country_flag = zhx_tianxia_debate_vote_b
+}
+
+zhx_cast_tianxia_debate_vote_plural = {
+    zhx_clear_current_tianxia_debate_vote = yes
+    set_country_flag = zhx_tianxia_debate_vote_plural
+}
+
+zhx_reset_tianxia_debate_ballot = {
+    set_variable = { which = zhx_tianxia_debate_a_count value = 0 }
+    set_variable = { which = zhx_tianxia_debate_b_count value = 0 }
+    set_variable = { which = zhx_tianxia_debate_plural_count value = 0 }
+    set_variable = { which = zhx_tianxia_debate_a_vs_b value = 0 }
+    set_variable = { which = zhx_tianxia_debate_a_vs_plural value = 0 }
+    set_variable = { which = zhx_tianxia_debate_b_vs_a value = 0 }
+    set_variable = { which = zhx_tianxia_debate_b_vs_plural value = 0 }
+    every_country = {
+        limit = {
+            OR = {
+                has_country_flag = zhx_tianxia_debate_vote_a
+                has_country_flag = zhx_tianxia_debate_vote_b
+                has_country_flag = zhx_tianxia_debate_vote_plural
+            }
+        }
+        zhx_clear_current_tianxia_debate_vote = yes
+    }
+}
+
+zhx_begin_tianxia_debate = {
+    set_country_flag = zhx_tianxia_debate_active
+    zhx_clear_tianxia_debate_result_flags = yes
+    zhx_reset_tianxia_debate_ballot = yes
+}
+
+zhx_begin_tianxia_debate_ru_fa = {
+    zhx_clear_tianxia_debate_pair_flags = yes
+    set_country_flag = zhx_tianxia_debate_pair_ru_fa
+    zhx_begin_tianxia_debate = yes
+    every_country = {
+        limit = { zhx_is_tianxia_polity = yes }
+        country_event = { id = zhx_debate.10 }
+    }
+    country_event = { id = zhx_debate.20 days = 365 }
+}
+
+zhx_begin_tianxia_debate_ru_mo = {
+    zhx_clear_tianxia_debate_pair_flags = yes
+    set_country_flag = zhx_tianxia_debate_pair_ru_mo
+    zhx_begin_tianxia_debate = yes
+    every_country = {
+        limit = { zhx_is_tianxia_polity = yes }
+        country_event = { id = zhx_debate.11 }
+    }
+    country_event = { id = zhx_debate.20 days = 365 }
+}
+
+zhx_begin_tianxia_debate_fa_mo = {
+    zhx_clear_tianxia_debate_pair_flags = yes
+    set_country_flag = zhx_tianxia_debate_pair_fa_mo
+    zhx_begin_tianxia_debate = yes
+    every_country = {
+        limit = { zhx_is_tianxia_polity = yes }
+        country_event = { id = zhx_debate.12 }
+    }
+    country_event = { id = zhx_debate.20 days = 365 }
+}
+
+# Recount from country ballot flags at resolution time. A state that votes for
+# its own doctrine at 75+ practice contributes one additional exemplar vote.
+zhx_recount_tianxia_debate_ballot = {
+    set_variable = { which = zhx_tianxia_debate_a_count value = 0 }
+    set_variable = { which = zhx_tianxia_debate_b_count value = 0 }
+    set_variable = { which = zhx_tianxia_debate_plural_count value = 0 }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_polity = yes
+            has_country_flag = zhx_tianxia_debate_vote_a
+        }
+        event_target:zhx_tianzi = {
+            change_variable = { which = zhx_tianxia_debate_a_count value = 1 }
+        }
+        if = {
+            limit = {
+                check_variable = { which = zhx_doctrine_practice value = 75 }
+                OR = {
+                    AND = {
+                        has_country_flag = zhx_doctrine_ru
+                        event_target:zhx_tianzi = {
+                            OR = {
+                                has_country_flag = zhx_tianxia_debate_pair_ru_fa
+                                has_country_flag = zhx_tianxia_debate_pair_ru_mo
+                            }
+                        }
+                    }
+                    AND = {
+                        has_country_flag = zhx_doctrine_fa
+                        event_target:zhx_tianzi = {
+                            has_country_flag = zhx_tianxia_debate_pair_fa_mo
+                        }
+                    }
+                }
+            }
+            event_target:zhx_tianzi = {
+                change_variable = { which = zhx_tianxia_debate_a_count value = 1 }
+            }
+        }
+    }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_polity = yes
+            has_country_flag = zhx_tianxia_debate_vote_b
+        }
+        event_target:zhx_tianzi = {
+            change_variable = { which = zhx_tianxia_debate_b_count value = 1 }
+        }
+        if = {
+            limit = {
+                check_variable = { which = zhx_doctrine_practice value = 75 }
+                OR = {
+                    AND = {
+                        has_country_flag = zhx_doctrine_fa
+                        event_target:zhx_tianzi = {
+                            has_country_flag = zhx_tianxia_debate_pair_ru_fa
+                        }
+                    }
+                    AND = {
+                        has_country_flag = zhx_doctrine_mo
+                        event_target:zhx_tianzi = {
+                            OR = {
+                                has_country_flag = zhx_tianxia_debate_pair_ru_mo
+                                has_country_flag = zhx_tianxia_debate_pair_fa_mo
+                            }
+                        }
+                    }
+                }
+            }
+            event_target:zhx_tianzi = {
+                change_variable = { which = zhx_tianxia_debate_b_count value = 1 }
+            }
+        }
+    }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_polity = yes
+            has_country_flag = zhx_tianxia_debate_vote_plural
+        }
+        event_target:zhx_tianzi = {
+            change_variable = { which = zhx_tianxia_debate_plural_count value = 1 }
+        }
+    }
+
+    set_variable = {
+        which = zhx_tianxia_debate_a_vs_b
+        which = zhx_tianxia_debate_a_count
+    }
+    subtract_variable = {
+        which = zhx_tianxia_debate_a_vs_b
+        which = zhx_tianxia_debate_b_count
+    }
+    set_variable = {
+        which = zhx_tianxia_debate_a_vs_plural
+        which = zhx_tianxia_debate_a_count
+    }
+    subtract_variable = {
+        which = zhx_tianxia_debate_a_vs_plural
+        which = zhx_tianxia_debate_plural_count
+    }
+    set_variable = {
+        which = zhx_tianxia_debate_b_vs_a
+        which = zhx_tianxia_debate_b_count
+    }
+    subtract_variable = {
+        which = zhx_tianxia_debate_b_vs_a
+        which = zhx_tianxia_debate_a_count
+    }
+    set_variable = {
+        which = zhx_tianxia_debate_b_vs_plural
+        which = zhx_tianxia_debate_b_count
+    }
+    subtract_variable = {
+        which = zhx_tianxia_debate_b_vs_plural
+        which = zhx_tianxia_debate_plural_count
+    }
+}
+
+zhx_set_tianxia_orthodoxy_ru = {
+    zhx_clear_tianxia_orthodoxy_flags = yes
+    set_country_flag = zhx_tianxia_orthodoxy_ru
+}
+
+zhx_set_tianxia_orthodoxy_fa = {
+    zhx_clear_tianxia_orthodoxy_flags = yes
+    set_country_flag = zhx_tianxia_orthodoxy_fa
+}
+
+zhx_set_tianxia_orthodoxy_mo = {
+    zhx_clear_tianxia_orthodoxy_flags = yes
+    set_country_flag = zhx_tianxia_orthodoxy_mo
+}
+
+zhx_set_tianxia_orthodoxy_plural = {
+    zhx_clear_tianxia_orthodoxy_flags = yes
+    set_country_flag = zhx_tianxia_orthodoxy_plural
+}
+
+# Candidate A or B must strictly exceed both alternatives. Any tie for first
+# resolves to pluralism instead of inventing a hidden Tianzi tie-break.
+zhx_resolve_tianxia_debate = {
+    zhx_clear_tianxia_debate_result_flags = yes
+    if = {
+        limit = {
+            check_variable = { which = zhx_tianxia_debate_a_vs_b value = 1 }
+            check_variable = { which = zhx_tianxia_debate_a_vs_plural value = 1 }
+        }
+        set_country_flag = zhx_tianxia_debate_result_a
+        if = {
+            limit = { has_country_flag = zhx_tianxia_debate_pair_fa_mo }
+            zhx_set_tianxia_orthodoxy_fa = yes
+        }
+        else = { zhx_set_tianxia_orthodoxy_ru = yes }
+        change_variable = { which = zhx_ritual_authority value = 5 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { which = zhx_tianxia_debate_b_vs_a value = 1 }
+            check_variable = { which = zhx_tianxia_debate_b_vs_plural value = 1 }
+        }
+        set_country_flag = zhx_tianxia_debate_result_b
+        if = {
+            limit = { has_country_flag = zhx_tianxia_debate_pair_ru_fa }
+            zhx_set_tianxia_orthodoxy_fa = yes
+        }
+        else = { zhx_set_tianxia_orthodoxy_mo = yes }
+        change_variable = { which = zhx_ritual_authority value = 5 }
+    }
+    else = {
+        set_country_flag = zhx_tianxia_debate_result_plural
+        zhx_set_tianxia_orthodoxy_plural = yes
+        change_variable = { which = zhx_ritual_authority value = 2 }
+    }
+    zhx_clamp_ritual_authority = yes
+    zhx_refresh_ritual_order = yes
+}
+
+zhx_reward_tianxia_debate_alignment = {
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_member = yes
+            OR = {
+                AND = {
+                    event_target:zhx_tianzi = {
+                        has_country_flag = zhx_tianxia_debate_result_a
+                    }
+                    has_country_flag = zhx_tianxia_debate_vote_a
+                }
+                AND = {
+                    event_target:zhx_tianzi = {
+                        has_country_flag = zhx_tianxia_debate_result_b
+                    }
+                    has_country_flag = zhx_tianxia_debate_vote_b
+                }
+            }
+        }
+        change_variable = { which = zhx_merit value = 2 }
+        zhx_clamp_merit = yes
+    }
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_member = yes
+            has_country_flag = zhx_tianxia_debate_vote_plural
+            event_target:zhx_tianzi = {
+                has_country_flag = zhx_tianxia_debate_result_plural
+            }
+        }
+        change_variable = { which = zhx_merit value = 1 }
+        zhx_clamp_merit = yes
+    }
+}
+
+zhx_finish_tianxia_debate = {
+    zhx_reward_tianxia_debate_alignment = yes
+    clr_country_flag = zhx_tianxia_debate_active
+    add_country_modifier = {
+        name = zhx_tianxia_debate_cooldown
+        duration = 5475
+    }
+    zhx_clear_tianxia_debate_pair_flags = yes
+    zhx_clear_tianxia_debate_result_flags = yes
+    zhx_reset_tianxia_debate_ballot = yes
+}
+
+zhx_initialise_tianxia_debate = {
+    clr_country_flag = zhx_tianxia_debate_active
+    zhx_clear_tianxia_debate_pair_flags = yes
+    zhx_clear_tianxia_debate_result_flags = yes
+    zhx_reset_tianxia_debate_ballot = yes
+    set_global_flag = zhx_tianxia_debate_initialised_v1
+}
