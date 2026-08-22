@@ -1,7 +1,7 @@
 # Area connectivity audit
 
 - Total areas: 941
-- Strict bitmap-disconnected: 73
+- Strict bitmap-disconnected: 74
 - Still disconnected after explicit adjacencies: 41
 - Areas containing empty province references: 0
 - Han-region areas checked: 90
@@ -20,6 +20,7 @@
 | `jingyi_area` | 荆郢 | 2 | 荆州(2172)、枝江(5345) ｜ 施州(5013)、公安(5014) |
 | `wanjiang_area` | 皖江 | 2 | 安庆(686)、池州(5065) ｜ 无为(5062) |
 | `wuhan_enan_area` | 江夏 | 2 | 武昌(682)、兴国(5016) ｜ 汉阳(4981)、汉口(5011) |
+| `xuhuai_haizhou_area` | 徐泗 | 2 | 徐州(2141)、海州(4196)、宿迁(5018) ｜ 淮安(2142)、盐城(5020) |
 | `yingtian_area` | 金陵 | 2 | 江宁(1821)、溧水(5057) ｜ 六合(5056) |
 
 ## Han areas containing province IDs with no bitmap pixels
