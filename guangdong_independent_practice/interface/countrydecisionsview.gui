@@ -1110,7 +1110,7 @@ guiTypes = {
 				borderSize = { x = 4 y = 4 }
 				text = ""
 				maxWidth = 384
-				maxHeight = 44
+				maxHeight = 32
 				format = centre
 				fixedsize = yes
 				scripted = yes
@@ -1123,7 +1123,7 @@ guiTypes = {
 				borderSize = { x = 4 y = 4 }
 				text = ""
 				maxWidth = 384
-				maxHeight = 44
+				maxHeight = 32
 				format = centre
 				fixedsize = yes
 				scripted = yes
@@ -1136,7 +1136,7 @@ guiTypes = {
 				borderSize = { x = 4 y = 4 }
 				text = ""
 				maxWidth = 384
-				maxHeight = 44
+				maxHeight = 32
 				format = centre
 				fixedsize = yes
 				scripted = yes
@@ -1182,15 +1182,115 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_description"
+				name = "zhx_gui_debate_live_counts_ru_fa"
+				position = { x = 514 y = 397 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_live_counts_ru_mo"
+				position = { x = 514 y = 397 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_live_counts_fa_mo"
+				position = { x = 514 y = 397 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_description_idle"
 				position = { x = 514 y = 414 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 4 }
-				text = "ZHX_GUI_DEBATE_DESCRIPTION"
+				text = ""
 				maxWidth = 384
 				maxHeight = 30
 				format = centre
 				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_vote_none"
+				position = { x = 514 y = 421 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_vote_ru"
+				position = { x = 514 y = 421 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_vote_fa"
+				position = { x = 514 y = 421 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_vote_mo"
+				position = { x = 514 y = 421 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_vote_plural"
+				position = { x = 514 y = 421 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_vote_observer"
+				position = { x = 514 y = 421 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
 			}
 
 			# Centred fallback button when the viewer cannot convene a debate.
@@ -1221,6 +1321,59 @@ guiTypes = {
 				position = { x = 716 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
 				buttonText = "ZHX_GUI_DEBATE_CONVENE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			# During the one-year ballot, Tianxia polities may revise their vote.
+			# Pair-specific buttons overlap by design; custom_gui potentials expose
+			# exactly one first candidate, one second candidate and plurality.
+			guiButtonType = {
+				name = "zhx_gui_debate_vote_ru_a_button"
+				position = { x = 534 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_RU_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_vote_fa_a_button"
+				position = { x = 534 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_vote_fa_b_button"
+				position = { x = 653 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_vote_mo_b_button"
+				position = { x = 653 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_MO_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_vote_plural_button"
+				position = { x = 772 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_PLURAL_BUTTON"
 				buttonFont = "vic_18"
 				clicksound = decision
 				scripted = yes

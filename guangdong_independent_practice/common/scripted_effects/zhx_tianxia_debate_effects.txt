@@ -27,18 +27,30 @@ zhx_clear_current_tianxia_debate_vote = {
 }
 
 zhx_cast_tianxia_debate_vote_a = {
-    zhx_clear_current_tianxia_debate_vote = yes
-    set_country_flag = zhx_tianxia_debate_vote_a
+    if = {
+        limit = { zhx_can_vote_in_tianxia_debate = yes }
+        zhx_clear_current_tianxia_debate_vote = yes
+        set_country_flag = zhx_tianxia_debate_vote_a
+        zhx_recount_tianxia_debate_ballot = yes
+    }
 }
 
 zhx_cast_tianxia_debate_vote_b = {
-    zhx_clear_current_tianxia_debate_vote = yes
-    set_country_flag = zhx_tianxia_debate_vote_b
+    if = {
+        limit = { zhx_can_vote_in_tianxia_debate = yes }
+        zhx_clear_current_tianxia_debate_vote = yes
+        set_country_flag = zhx_tianxia_debate_vote_b
+        zhx_recount_tianxia_debate_ballot = yes
+    }
 }
 
 zhx_cast_tianxia_debate_vote_plural = {
-    zhx_clear_current_tianxia_debate_vote = yes
-    set_country_flag = zhx_tianxia_debate_vote_plural
+    if = {
+        limit = { zhx_can_vote_in_tianxia_debate = yes }
+        zhx_clear_current_tianxia_debate_vote = yes
+        set_country_flag = zhx_tianxia_debate_vote_plural
+        zhx_recount_tianxia_debate_ballot = yes
+    }
 }
 
 zhx_reset_tianxia_debate_ballot = {
@@ -100,12 +112,15 @@ zhx_begin_tianxia_debate_fa_mo = {
     country_event = { id = zhx_debate.20 days = 365 }
 }
 
-# Recount from country ballot flags at resolution time. A state that votes for
-# its own doctrine at 75+ practice contributes one additional exemplar vote.
+# Recount from country ballot flags after every ballot change and once more at
+# resolution. The saved Tianzi target owns every cached total, so this effect
+# is safe when called from either a voting country or the Tianzi event.
 zhx_recount_tianxia_debate_ballot = {
-    set_variable = { which = zhx_tianxia_debate_a_count value = 0 }
-    set_variable = { which = zhx_tianxia_debate_b_count value = 0 }
-    set_variable = { which = zhx_tianxia_debate_plural_count value = 0 }
+    event_target:zhx_tianzi = {
+        set_variable = { which = zhx_tianxia_debate_a_count value = 0 }
+        set_variable = { which = zhx_tianxia_debate_b_count value = 0 }
+        set_variable = { which = zhx_tianxia_debate_plural_count value = 0 }
+    }
 
     every_country = {
         limit = {
@@ -190,37 +205,39 @@ zhx_recount_tianxia_debate_ballot = {
         }
     }
 
-    set_variable = {
-        which = zhx_tianxia_debate_a_vs_b
-        which = zhx_tianxia_debate_a_count
-    }
-    subtract_variable = {
-        which = zhx_tianxia_debate_a_vs_b
-        which = zhx_tianxia_debate_b_count
-    }
-    set_variable = {
-        which = zhx_tianxia_debate_a_vs_plural
-        which = zhx_tianxia_debate_a_count
-    }
-    subtract_variable = {
-        which = zhx_tianxia_debate_a_vs_plural
-        which = zhx_tianxia_debate_plural_count
-    }
-    set_variable = {
-        which = zhx_tianxia_debate_b_vs_a
-        which = zhx_tianxia_debate_b_count
-    }
-    subtract_variable = {
-        which = zhx_tianxia_debate_b_vs_a
-        which = zhx_tianxia_debate_a_count
-    }
-    set_variable = {
-        which = zhx_tianxia_debate_b_vs_plural
-        which = zhx_tianxia_debate_b_count
-    }
-    subtract_variable = {
-        which = zhx_tianxia_debate_b_vs_plural
-        which = zhx_tianxia_debate_plural_count
+    event_target:zhx_tianzi = {
+        set_variable = {
+            which = zhx_tianxia_debate_a_vs_b
+            which = zhx_tianxia_debate_a_count
+        }
+        subtract_variable = {
+            which = zhx_tianxia_debate_a_vs_b
+            which = zhx_tianxia_debate_b_count
+        }
+        set_variable = {
+            which = zhx_tianxia_debate_a_vs_plural
+            which = zhx_tianxia_debate_a_count
+        }
+        subtract_variable = {
+            which = zhx_tianxia_debate_a_vs_plural
+            which = zhx_tianxia_debate_plural_count
+        }
+        set_variable = {
+            which = zhx_tianxia_debate_b_vs_a
+            which = zhx_tianxia_debate_b_count
+        }
+        subtract_variable = {
+            which = zhx_tianxia_debate_b_vs_a
+            which = zhx_tianxia_debate_a_count
+        }
+        set_variable = {
+            which = zhx_tianxia_debate_b_vs_plural
+            which = zhx_tianxia_debate_b_count
+        }
+        subtract_variable = {
+            which = zhx_tianxia_debate_b_vs_plural
+            which = zhx_tianxia_debate_plural_count
+        }
     }
 }
 

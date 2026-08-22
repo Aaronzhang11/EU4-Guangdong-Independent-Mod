@@ -81,9 +81,12 @@ EXPECTED_LOCALISATION = {
     "zhx_tianxia_debate_cooldown",
     "zhx_tianxia_debate_cooldown_desc",
     "ZHX_GUI_DEBATE_HEADER",
-    "ZHX_GUI_DEBATE_DESCRIPTION",
     "ZHX_GUI_DEBATE_REVIEW_BUTTON",
     "ZHX_GUI_DEBATE_CONVENE_BUTTON",
+    "ZHX_GUI_DEBATE_VOTE_RU_BUTTON",
+    "ZHX_GUI_DEBATE_VOTE_FA_BUTTON",
+    "ZHX_GUI_DEBATE_VOTE_MO_BUTTON",
+    "ZHX_GUI_DEBATE_VOTE_PLURAL_BUTTON",
     "zhx_gui_debate_orthodoxy_none",
     "zhx_gui_debate_orthodoxy_ru",
     "zhx_gui_debate_orthodoxy_fa",
@@ -95,9 +98,25 @@ EXPECTED_LOCALISATION = {
     "zhx_gui_debate_status_settled",
     "zhx_gui_debate_status_ready",
     "zhx_gui_debate_status_waiting",
+    "zhx_gui_debate_live_counts_ru_fa",
+    "zhx_gui_debate_live_counts_ru_mo",
+    "zhx_gui_debate_live_counts_fa_mo",
+    "zhx_gui_debate_description_idle",
+    "zhx_gui_debate_vote_none",
+    "zhx_gui_debate_vote_ru",
+    "zhx_gui_debate_vote_fa",
+    "zhx_gui_debate_vote_mo",
+    "zhx_gui_debate_vote_plural",
+    "zhx_gui_debate_vote_observer",
     "zhx_gui_debate_tt",
+    "zhx_gui_debate_live_counts_tt",
+    "zhx_gui_debate_vote_status_tt",
     "zhx_gui_debate_review_button_tt",
     "zhx_gui_debate_convene_button_tt",
+    "zhx_gui_debate_vote_ru_button_tt",
+    "zhx_gui_debate_vote_fa_button_tt",
+    "zhx_gui_debate_vote_mo_button_tt",
+    "zhx_gui_debate_vote_plural_button_tt",
 }
 GUI_BINDINGS = {
     "zhx_gui_debate_orthodoxy_none",
@@ -111,9 +130,24 @@ GUI_BINDINGS = {
     "zhx_gui_debate_status_settled",
     "zhx_gui_debate_status_ready",
     "zhx_gui_debate_status_waiting",
+    "zhx_gui_debate_live_counts_ru_fa",
+    "zhx_gui_debate_live_counts_ru_mo",
+    "zhx_gui_debate_live_counts_fa_mo",
+    "zhx_gui_debate_description_idle",
+    "zhx_gui_debate_vote_none",
+    "zhx_gui_debate_vote_ru",
+    "zhx_gui_debate_vote_fa",
+    "zhx_gui_debate_vote_mo",
+    "zhx_gui_debate_vote_plural",
+    "zhx_gui_debate_vote_observer",
     "zhx_gui_debate_review_button_solo",
     "zhx_gui_debate_review_button_split",
     "zhx_gui_debate_convene_button",
+    "zhx_gui_debate_vote_ru_a_button",
+    "zhx_gui_debate_vote_fa_a_button",
+    "zhx_gui_debate_vote_fa_b_button",
+    "zhx_gui_debate_vote_mo_b_button",
+    "zhx_gui_debate_vote_plural_button",
 }
 RETIRED_COUNCIL_GUI_TOKENS = {
     "zhx_gui_reform_enacted",
@@ -241,6 +275,10 @@ def main() -> None:
         "zhx_can_convene_tianxia_debate" in trigger_text,
         "missing shared Tianxia debate convening trigger",
     )
+    require(
+        "zhx_can_vote_in_tianxia_debate" in trigger_text,
+        "missing shared active-ballot voter trigger",
+    )
 
     effects = texts[EFFECTS]
     for school, flag in ORTHODOXY_FLAGS.items():
@@ -262,6 +300,21 @@ def main() -> None:
         "zhx_tianxia_debate_a_vs_b" in effects
         and "zhx_tianxia_debate_b_vs_a" in effects,
         "strict pairwise winner comparisons are required",
+    )
+    for ballot in ("a", "b", "plural"):
+        cast_body = top_level_body(effects, f"zhx_cast_tianxia_debate_vote_{ballot}")
+        require(
+            "zhx_can_vote_in_tianxia_debate" in cast_body,
+            f"{ballot} ballot must reject inactive or non-member voters",
+        )
+        require(
+            "zhx_recount_tianxia_debate_ballot" in cast_body,
+            f"{ballot} ballot must refresh live totals",
+        )
+    recount_body = top_level_body(effects, "zhx_recount_tianxia_debate_ballot")
+    require(
+        recount_body.count("event_target:zhx_tianzi") >= 6,
+        "live recount must store totals and comparisons on the Tianzi anchor",
     )
 
     combined_new = "\n".join(
@@ -322,6 +375,18 @@ def main() -> None:
     require(
         custom_gui_text.count("country_event = { id = zhx_debate.2 }") == 1,
         "the convene button must invoke zhx_debate.2 exactly once",
+    )
+    require(
+        custom_gui_text.count("effect = { zhx_cast_tianxia_debate_vote_a = yes }") == 2,
+        "exactly two pair-specific GUI buttons must cast candidate A",
+    )
+    require(
+        custom_gui_text.count("effect = { zhx_cast_tianxia_debate_vote_b = yes }") == 2,
+        "exactly two pair-specific GUI buttons must cast candidate B",
+    )
+    require(
+        custom_gui_text.count("effect = { zhx_cast_tianxia_debate_vote_plural = yes }") == 1,
+        "exactly one GUI button must cast plurality",
     )
     require(
         "zhx_can_convene_tianxia_debate = yes" in event_text,
