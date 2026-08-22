@@ -3,7 +3,6 @@
 owner = BAA
 controller = BAA
 add_core = BAA
-add_core = CXI
 culture = gdd_shu
 religion = confucianism
 capital = "Luzhou"

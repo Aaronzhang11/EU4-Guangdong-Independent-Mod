@@ -1,7 +1,6 @@
 owner = ZHG
 controller = ZHG
 add_core = ZHG
-add_core = LNG
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Shanzhou"

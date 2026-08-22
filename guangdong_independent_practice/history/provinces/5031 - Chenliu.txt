@@ -3,7 +3,6 @@
 owner = CAG
 controller = CAG
 add_core = CAG
-add_core = LNG
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Chenliu"

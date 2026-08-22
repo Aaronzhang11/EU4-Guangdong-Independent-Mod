@@ -3,7 +3,6 @@
 owner = SHE
 controller = SHE
 add_core = SHE
-add_core = LNG
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Zhengzhou"

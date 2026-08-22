@@ -2,7 +2,6 @@
 
 owner = NCH
 controller = NCH
-add_core = NNG
 add_core = NCH
 culture = gdd_gan
 religion = confucianism

@@ -2,7 +2,6 @@
 
 owner = LCH
 controller = LCH
-add_core = NNG
 add_core = LCH
 culture = gdd_gan
 religion = confucianism

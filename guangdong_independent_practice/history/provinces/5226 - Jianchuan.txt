@@ -3,7 +3,6 @@
 owner = MDL
 controller = MDL
 add_core = MDL
-add_core = CDL
 culture = bai
 religion = buddhism
 capital = "Jianchuan"
