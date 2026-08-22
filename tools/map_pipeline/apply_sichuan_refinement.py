@@ -253,7 +253,7 @@ def update_areas_and_region() -> None:
 def history_text(province: Province) -> str:
     if province.polity in {"shu", "ba"}:
         owner = "MNG"
-        cores = ("MNG", "CXI", "SHU")
+        cores = ("MNG", "SHU")
         late = """\n1644.10.1 = { owner = CXI controller = CXI }\n1655.1.1 = { discovered_by = SPA }\n1659.7.1 = { owner = QNG controller = QNG }\n1673.12.1 = { controller = CZH }\n1680.1.1 = { controller = QNG }\n"""
     elif province.polity == "kham":
         owner = "KAM"
@@ -261,11 +261,11 @@ def history_text(province: Province) -> str:
         late = "\n1709.1.1 = { discovered_by = SPA }\n1776.1.1 = { owner = QNG controller = QNG add_core = QNG }\n"
     elif province.polity == "liangshan":
         owner = "MNG"
-        cores = ("MNG", "CYI", "CDL", "CXI")
+        cores = ("MNG",)
         late = "\n1644.10.1 = { owner = CXI controller = CXI }\n1655.1.1 = { discovered_by = SPA }\n1662.4.1 = { owner = CZH controller = CZH add_core = CZH }\n1681.10.1 = { owner = QNG controller = QNG add_core = QNG }\n"
     else:
         owner = "MNG"
-        cores = ("MNG", "CXI")
+        cores = ("MNG",)
         late = "\n1644.10.1 = { owner = CXI controller = CXI }\n1646.12.1 = { owner = QNG controller = QNG add_core = QNG }\n1673.12.1 = { controller = CZH }\n1681.10.1 = { controller = QNG }\n"
     lines = [
         f"# {province.province_id} - {province.english}", "", f"owner = {owner}",

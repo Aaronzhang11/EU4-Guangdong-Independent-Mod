@@ -1,0 +1,4 @@
+﻿l_english:
+ korea:0 "朝鲜贸易区"
+ trade_company_korea:0 "朝鲜特许公司"
+ GDD_TRADE_COMPANY_KOREA:0 "朝鲜特许公司"

@@ -3,7 +3,6 @@
 owner = LSH
 controller = LSH
 add_core = LSH
-add_core = CDL
 culture = yi
 religion = animism
 capital = "Wumeng"

@@ -1,0 +1,70 @@
+{
+  "batch": "B64_guangdong_impassable_mountains",
+  "marker": "GDD_B64_GUANGDONG_IMPASSABLE_MOUNTAINS",
+  "status": "implemented_unvalidated_by_user_request",
+  "guarded_patch_box": [
+    4542,
+    961,
+    4627,
+    1027
+  ],
+  "guarded_patch_editable_pixels": 674,
+  "pixels_changed_this_run": 674,
+  "backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/guangdong_impassable_dmi_plan/implementation_b64/pre_b64_provinces.bmp",
+  "canonical_bitmap_sha256": "8374fcd6a2e4883f0ddb80c6cdab4f3ca10879b44c065d15dfeadd526b9fa550",
+  "features": {
+    "5310": {
+      "name": "南岭西段",
+      "rgb": [
+        48,
+        63,
+        86
+      ],
+      "pixels": 213
+    },
+    "5311": {
+      "name": "南岭东段",
+      "rgb": [
+        118,
+        0,
+        175
+      ],
+      "pixels": 84
+    },
+    "5377": {
+      "name": "九连山",
+      "rgb": [
+        24,
+        11,
+        27
+      ],
+      "pixels": 210
+    }
+  },
+  "consumers": {
+    "definition": [
+      5310,
+      5311,
+      5377
+    ],
+    "max_provinces": 5378,
+    "climate_impassable": [
+      5310,
+      5311,
+      5377
+    ],
+    "terrain_mountain_override": [
+      5310,
+      5311,
+      5377
+    ],
+    "continent_asia": [
+      5310,
+      5311,
+      5377
+    ],
+    "localisation_source": "gdd_b30_yuebei_chaoshan_map_readable_utf8.txt"
+  },
+  "static_validation": "deferred by user request",
+  "in_game_validation": "not run"
+}

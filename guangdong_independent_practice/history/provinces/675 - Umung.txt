@@ -2,7 +2,6 @@
 
 owner = DIA
 controller = DIA
-add_core = CDL
 add_core = DIA
 culture = gdd_dian
 religion = animism

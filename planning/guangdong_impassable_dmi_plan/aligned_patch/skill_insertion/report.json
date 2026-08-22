@@ -1,0 +1,145 @@
+{
+  "current": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/guangdong_impassable_dmi_plan/aligned_patch/old_nanling_reflowed_base.bmp",
+  "reference": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/guangdong_impassable_dmi_plan/guangdong_impassable_candidate_full.bmp",
+  "current_size": [
+    5632,
+    2048
+  ],
+  "reference_size": [
+    5632,
+    2048
+  ],
+  "patch_box": [
+    4533,
+    961,
+    4636,
+    1036
+  ],
+  "changed_pixels": 585,
+  "repaired_groups": 11,
+  "repaired_land_pixels": 78,
+  "absorbed_enclosed_pixels": 0,
+  "features": [
+    {
+      "name": "南岭西段",
+      "rgb": [
+        48,
+        63,
+        86
+      ],
+      "source_components": [
+        177,
+        36
+      ],
+      "target_size": [
+        28,
+        27
+      ],
+      "target_pixels_before_cleanup": 213
+    },
+    {
+      "name": "南岭东段",
+      "rgb": [
+        118,
+        0,
+        175
+      ],
+      "source_components": [
+        77,
+        7
+      ],
+      "target_size": [
+        26,
+        11
+      ],
+      "target_pixels_before_cleanup": 84
+    },
+    {
+      "name": "九连山",
+      "rgb": [
+        24,
+        11,
+        27
+      ],
+      "source_components": [
+        115,
+        95
+      ],
+      "target_size": [
+        38,
+        37
+      ],
+      "target_pixels_before_cleanup": 210
+    }
+  ],
+  "playable_connectivity": {
+    "41,163,188": {
+      "before": 1,
+      "after": 1
+    },
+    "65,46,176": {
+      "before": 1,
+      "after": 1
+    },
+    "65,52,224": {
+      "before": 1,
+      "after": 1
+    },
+    "67,219,198": {
+      "before": 1,
+      "after": 1
+    },
+    "69,150,92": {
+      "before": 1,
+      "after": 1
+    },
+    "83,24,236": {
+      "before": 1,
+      "after": 1
+    },
+    "90,50,220": {
+      "before": 1,
+      "after": 1
+    },
+    "95,92,0": {
+      "before": 1,
+      "after": 1
+    },
+    "146,81,81": {
+      "before": 2,
+      "after": 2
+    },
+    "187,30,204": {
+      "before": 1,
+      "after": 1
+    },
+    "190,128,45": {
+      "before": 1,
+      "after": 1
+    },
+    "202,132,60": {
+      "before": 1,
+      "after": 1
+    },
+    "210,190,45": {
+      "before": 1,
+      "after": 1
+    },
+    "213,91,149": {
+      "before": 1,
+      "after": 1
+    },
+    "220,70,70": {
+      "before": 1,
+      "after": 1
+    },
+    "223,82,0": {
+      "before": 1,
+      "after": 1
+    },
+    "223,86,128": {
+      "before": 1,
+      "after": 1
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch": "B69_HUABEI_TERRAIN_NORMALIZATION",
+  "farmlands_index": 11,
+  "hills_index": 1,
+  "preserved_indices": [
+    15,
+    17,
+    35
+  ],
+  "changed_this_run": 0,
+  "changed_from_backup": 4726,
+  "exterior_changed_pixels": 0,
+  "preserved_coastline_pixels": 103,
+  "target_province_pixels": 4847,
+  "province_pixels": {
+    "5115": 123,
+    "5116": 143,
+    "5212": 110,
+    "5222": 195,
+    "5223": 166,
+    "5219": 375,
+    "5221": 143,
+    "5220": 309,
+    "5101": 364,
+    "5102": 393,
+    "5103": 335,
+    "5111": 247,
+    "5104": 130,
+    "5107": 34,
+    "5109": 152,
+    "5110": 144,
+    "5113": 104,
+    "5114": 212,
+    "5211": 37,
+    "5213": 137,
+    "5218": 194,
+    "5105": 368,
+    "5106": 110,
+    "5108": 161,
+    "5112": 161
+  }
+}

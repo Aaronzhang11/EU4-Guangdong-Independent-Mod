@@ -1,0 +1,513 @@
+{
+  "batch": "B70_REMOVE_LEGACY_MAINLAND_CORES",
+  "policy": "remove top-level legacy cores when tag differs from initial owner",
+  "legacy_tags": [
+    "CDL",
+    "CMI",
+    "CSH",
+    "CXI",
+    "CYI",
+    "LNG",
+    "MNG",
+    "NNG"
+  ],
+  "expected_counts": {
+    "CXI": 23,
+    "CDL": 22,
+    "NNG": 20,
+    "CYI": 9,
+    "LNG": 8,
+    "CMI": 4,
+    "MNG": 6,
+    "CSH": 3
+  },
+  "removed_total": 95,
+  "removed_by_tag": {
+    "NNG": 20,
+    "LNG": 8,
+    "CDL": 22,
+    "MNG": 6,
+    "CYI": 9,
+    "CXI": 23,
+    "CMI": 4,
+    "CSH": 3
+  },
+  "remaining": [],
+  "removed_entries": [
+    {
+      "file": "1833 - Ji'an.txt",
+      "owner": "LCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "1836 - Luoyang.txt",
+      "owner": "CZH",
+      "tag": "LNG"
+    },
+    {
+      "file": "2151 - Poyang.txt",
+      "owner": "NCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "2152 - Jianning.txt",
+      "owner": "MIN",
+      "tag": "NNG"
+    },
+    {
+      "file": "2153 -Tingzhou.txt",
+      "owner": "HAK",
+      "tag": "NNG"
+    },
+    {
+      "file": "2165 - Pu'er.txt",
+      "owner": "NZA",
+      "tag": "CDL"
+    },
+    {
+      "file": "2166 - Dehong.txt",
+      "owner": "MMA",
+      "tag": "MNG"
+    },
+    {
+      "file": "2167 - Lijiang.txt",
+      "owner": "MDL",
+      "tag": "CDL"
+    },
+    {
+      "file": "2168 - Bozhou.txt",
+      "owner": "BAA",
+      "tag": "CYI"
+    },
+    {
+      "file": "2168 - Bozhou.txt",
+      "owner": "BAA",
+      "tag": "CXI"
+    },
+    {
+      "file": "2170 - Songqu.txt",
+      "owner": "BMY",
+      "tag": "CXI"
+    },
+    {
+      "file": "2748 - Jianchang.txt",
+      "owner": "LSH",
+      "tag": "CYI"
+    },
+    {
+      "file": "2748 - Jianchang.txt",
+      "owner": "LSH",
+      "tag": "CDL"
+    },
+    {
+      "file": "2748 - Jianchang.txt",
+      "owner": "LSH",
+      "tag": "CXI"
+    },
+    {
+      "file": "4199 - Tongren.txt",
+      "owner": "WXM",
+      "tag": "CMI"
+    },
+    {
+      "file": "4212 - Jiazhou.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "4213 - Luzhou.txt",
+      "owner": "BAA",
+      "tag": "CXI"
+    },
+    {
+      "file": "4957 - Shaowu.txt",
+      "owner": "HAK",
+      "tag": "NNG"
+    },
+    {
+      "file": "4966 - Xingyang.txt",
+      "owner": "GUN",
+      "tag": "LNG"
+    },
+    {
+      "file": "4967 - Shanzhou.txt",
+      "owner": "ZHG",
+      "tag": "LNG"
+    },
+    {
+      "file": "4980 - Linchuan.txt",
+      "owner": "LCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "4992 - Ruizhou.txt",
+      "owner": "CHC",
+      "tag": "NNG"
+    },
+    {
+      "file": "4993 - Guangxin.txt",
+      "owner": "TSF",
+      "tag": "NNG"
+    },
+    {
+      "file": "4994 - Yuanzhou.txt",
+      "owner": "CHC",
+      "tag": "NNG"
+    },
+    {
+      "file": "4995 - Nan'an.txt",
+      "owner": "HAK",
+      "tag": "NNG"
+    },
+    {
+      "file": "5030 - Zhengzhou.txt",
+      "owner": "SHE",
+      "tag": "LNG"
+    },
+    {
+      "file": "5031 - Chenliu.txt",
+      "owner": "CAG",
+      "tag": "LNG"
+    },
+    {
+      "file": "5045 - Mengjin.txt",
+      "owner": "GUO",
+      "tag": "LNG"
+    },
+    {
+      "file": "5046 - Yanshi.txt",
+      "owner": "CZH",
+      "tag": "LNG"
+    },
+    {
+      "file": "5069 - Wusa.txt",
+      "owner": "YEL",
+      "tag": "CYI"
+    },
+    {
+      "file": "5070 - Shuixi.txt",
+      "owner": "YEL",
+      "tag": "CYI"
+    },
+    {
+      "file": "5071 - Puding.txt",
+      "owner": "GYA",
+      "tag": "CYI"
+    },
+    {
+      "file": "5072 - Puan.txt",
+      "owner": "YEL",
+      "tag": "CYI"
+    },
+    {
+      "file": "5073 - Qingping.txt",
+      "owner": "WXM",
+      "tag": "CMI"
+    },
+    {
+      "file": "5074 - Liping.txt",
+      "owner": "WXM",
+      "tag": "CMI"
+    },
+    {
+      "file": "5075 - Guanzhou.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5076 - Qiongzhou.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5077 - Meizhou (Sichuan).txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5078 - Yazhou.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5079 - Lizhou (Sichuan).txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5083 - Zizhou.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5084 - Fushun.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5085 - Xuzhou (Sichuan).txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "5086 - Maozhou.txt",
+      "owner": "BMY",
+      "tag": "CXI"
+    },
+    {
+      "file": "5087 - Wenchuan.txt",
+      "owner": "BMY",
+      "tag": "CXI"
+    },
+    {
+      "file": "5088 - Nanping.txt",
+      "owner": "DZH",
+      "tag": "CXI"
+    },
+    {
+      "file": "5089 - Barkam.txt",
+      "owner": "JRG",
+      "tag": "CXI"
+    },
+    {
+      "file": "5090 - Jinchuan.txt",
+      "owner": "BMY",
+      "tag": "CXI"
+    },
+    {
+      "file": "5091 - Ngawa.txt",
+      "owner": "JRG",
+      "tag": "CXI"
+    },
+    {
+      "file": "5092 - Zoige.txt",
+      "owner": "DCH",
+      "tag": "CXI"
+    },
+    {
+      "file": "5094 - Huili.txt",
+      "owner": "LSH",
+      "tag": "CYI"
+    },
+    {
+      "file": "5094 - Huili.txt",
+      "owner": "LSH",
+      "tag": "CDL"
+    },
+    {
+      "file": "5094 - Huili.txt",
+      "owner": "LSH",
+      "tag": "CXI"
+    },
+    {
+      "file": "5095 - Yanyuan.txt",
+      "owner": "LSH",
+      "tag": "CYI"
+    },
+    {
+      "file": "5095 - Yanyuan.txt",
+      "owner": "LSH",
+      "tag": "CDL"
+    },
+    {
+      "file": "5095 - Yanyuan.txt",
+      "owner": "LSH",
+      "tag": "CXI"
+    },
+    {
+      "file": "5099 - Yanping.txt",
+      "owner": "MIN",
+      "tag": "NNG"
+    },
+    {
+      "file": "5100 - Longyan.txt",
+      "owner": "HAK",
+      "tag": "NNG"
+    },
+    {
+      "file": "5226 - Jianchuan.txt",
+      "owner": "MDL",
+      "tag": "CDL"
+    },
+    {
+      "file": "5228 - Baoshan.txt",
+      "owner": "NZA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5229 - Chuxiong.txt",
+      "owner": "MDL",
+      "tag": "CDL"
+    },
+    {
+      "file": "5230 - Yuxi.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5231 - Dongchuan.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5232 - Zhaotong.txt",
+      "owner": "LSH",
+      "tag": "CDL"
+    },
+    {
+      "file": "5233 - Zhenxiong.txt",
+      "owner": "YEL",
+      "tag": "CDL"
+    },
+    {
+      "file": "5234 - Xuanwei.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5235 - Lincang.txt",
+      "owner": "NZA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5236 - Gengma.txt",
+      "owner": "MMA",
+      "tag": "MNG"
+    },
+    {
+      "file": "5237 - Zhenyuan.txt",
+      "owner": "NZA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5238 - Menglian.txt",
+      "owner": "MMA",
+      "tag": "MNG"
+    },
+    {
+      "file": "5239 - Mengla.txt",
+      "owner": "MMA",
+      "tag": "MNG"
+    },
+    {
+      "file": "5240 - Mengzi.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5241 - Honghe.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "5298 - Guazhou.txt",
+      "owner": "HMI",
+      "tag": "MNG"
+    },
+    {
+      "file": "5323 - Fengcheng.txt",
+      "owner": "NCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "5324 - Fengxin.txt",
+      "owner": "NCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "5325 - Changnan.txt",
+      "owner": "NCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "5326 - Dexing.txt",
+      "owner": "TSF",
+      "tag": "NNG"
+    },
+    {
+      "file": "5327 - Ningdu.txt",
+      "owner": "HAK",
+      "tag": "NNG"
+    },
+    {
+      "file": "5328 - Anfu.txt",
+      "owner": "LCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "660 - Sibsongbanna.txt",
+      "owner": "MMA",
+      "tag": "MNG"
+    },
+    {
+      "file": "661 - Dali.txt",
+      "owner": "MDL",
+      "tag": "CDL"
+    },
+    {
+      "file": "662 - Yunnan.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "663 - Guangnan.txt",
+      "owner": "NUN",
+      "tag": "CDL"
+    },
+    {
+      "file": "670 - Ganzhou.txt",
+      "owner": "HAK",
+      "tag": "NNG"
+    },
+    {
+      "file": "673 - Zhenyuan.txt",
+      "owner": "WXM",
+      "tag": "CMI"
+    },
+    {
+      "file": "674 - Guiyang.txt",
+      "owner": "GYA",
+      "tag": "CYI"
+    },
+    {
+      "file": "674 - Guiyang.txt",
+      "owner": "GYA",
+      "tag": "CDL"
+    },
+    {
+      "file": "675 - Umung.txt",
+      "owner": "DIA",
+      "tag": "CDL"
+    },
+    {
+      "file": "679 - Chengdu.txt",
+      "owner": "SHU",
+      "tag": "CXI"
+    },
+    {
+      "file": "683 - Nanchang.txt",
+      "owner": "NCH",
+      "tag": "NNG"
+    },
+    {
+      "file": "688 - Kaifeng.txt",
+      "owner": "CZH",
+      "tag": "LNG"
+    },
+    {
+      "file": "4198 - Fengxiang.txt",
+      "owner": "QIN",
+      "tag": "CSH"
+    },
+    {
+      "file": "689 - Hanzhong.txt",
+      "owner": "JUU",
+      "tag": "CSH"
+    },
+    {
+      "file": "2181 - Pingliang.txt",
+      "owner": "QIN",
+      "tag": "CSH"
+    }
+  ]
+}

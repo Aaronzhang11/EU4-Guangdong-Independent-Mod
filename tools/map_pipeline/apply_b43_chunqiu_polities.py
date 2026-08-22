@@ -89,7 +89,9 @@ TAG_PROVINCES = {
     "LUO": (2171, 5342),
     "GON": (687, 5347, 5055, 5348),
     "ZSH": (2136, 696, 5218, 5351, 5352),
-    "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5220, 5221, 5048),
+    "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5221, 5048),
+    "XNG": (5220,),
+    "ACG": (5328,),
     "WEI": (4195, 5219, 2178, 5252, 694, 5256, 5249, 5253, 5254, 5269),
     "DAE": (702, 2177, 697, 5243, 5244, 5242),
     "YOU": (701, 5266, 5265, 5267, 2179, 5268),
@@ -207,6 +209,8 @@ MUTED_COUNTRY_COLORS = {
     "WXG": (96, 143, 139),
     "WXM": (139, 113, 153),
     "XU2": (150, 156, 104),
+    "XNG": (99, 72, 123),
+    "ACG": (63, 104, 128),
     "WUZ": (103, 137, 166),
     "YAN": (201, 68, 54),
     "YEL": (178, 142, 117),
@@ -258,6 +262,8 @@ POLITIES = {
     "GON": {"file": "B43_Gong.txt", "history": "GON - Gong.txt", "capital": 687, "rank": 1, "color": MUTED_COUNTRY_COLORS["GON"]},
     "ZSH": {"file": "B43_Zhongshan.txt", "history": "ZSH - Zhongshan.txt", "capital": 696, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZSH"]},
     "ZHA": {"file": "B43_Zhao.txt", "history": "ZHA - Zhao.txt", "capital": 693, "rank": 2, "color": MUTED_COUNTRY_COLORS["ZHA"]},
+    "XNG": {"file": "B71_Xing.txt", "history": "XNG - Xing.txt", "capital": 5220, "rank": 1, "color": MUTED_COUNTRY_COLORS["XNG"]},
+    "ACG": {"file": "B72_Ancheng.txt", "history": "ACG - Ancheng.txt", "capital": 5328, "rank": 1, "color": MUTED_COUNTRY_COLORS["ACG"]},
     "WEI": {"file": "B43_Wei.txt", "history": "WEI - Wei.txt", "capital": 4195, "rank": 2, "color": MUTED_COUNTRY_COLORS["WEI"]},
     "DAE": {"file": "B43_Dai.txt", "history": "DAE - Dai.txt", "capital": 5244, "rank": 1, "color": MUTED_COUNTRY_COLORS["DAE"]},
     "YOU": {"file": "B43_Yiqu.txt", "history": "YOU - Yiqu.txt", "capital": 2179, "rank": 1, "color": MUTED_COUNTRY_COLORS["YOU"]},
@@ -363,6 +369,8 @@ EXACT_CORE_TAGS = {
     "DQU": set(TAG_PROVINCES["DQU"]),
     "ZHI": set(TAG_PROVINCES["ZHI"]),
     "HLI": {666, 2160, 5301, 5302, 5303},
+    "XNG": set(TAG_PROVINCES["XNG"]),
+    "ACG": set(TAG_PROVINCES["ACG"]),
 }
 
 ADDITIONAL_CORES = {"HLI": {666, 5303}}
@@ -373,6 +381,8 @@ ADDITIONAL_CORES = {"HLI": {666, 5303}}
 EXCLUSIVE_CORE_OWNERS = {672: "CDE", 4979: "JJG", 4981: "HYA"}
 
 FORCED_CORE_REMOVALS = {
+    # B72: Anfu is restored as the one-province Ancheng state under Chu.
+    "LCH": {5328},
     "YUE": {
         665, 667, 668,
         2157, 2159,
@@ -384,6 +394,7 @@ FORCED_CORE_REMOVALS = {
     "HMI": {707, 2122, 5299, 5300},
     "QIN": {689, 2179},
     "WVG": {5048, 5270},
+    "ZHA": {5220},
     "MNG": {663, 666, 2160, 2162, 2164, 4949, 5217, 5301, 5302, 5303},
 }
 
@@ -909,8 +920,8 @@ def current_core_ids(tag: str) -> set[int]:
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     character_encoding_audit = normalize_country_history_files(check=True)
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 309 or len(set(all_ids)) != 309:
-        raise ValueError("Expanded polity policy must contain 309 unique provinces after B56")
+    if len(all_ids) != 310 or len(set(all_ids)) != 310:
+        raise ValueError("Expanded polity policy must contain 310 unique provinces after B72")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:

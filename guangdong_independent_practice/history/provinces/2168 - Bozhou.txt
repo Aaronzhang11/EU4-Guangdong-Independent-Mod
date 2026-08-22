@@ -2,8 +2,6 @@
 owner = BAA
 controller = BAA
 add_core = BAA
-add_core = CYI
-add_core = CXI
 culture = miao
 religion = animism
 capital = "Bozhou"

@@ -1,9 +1,8 @@
 # 5328 - Anfu
 
-owner = LCH
-controller = LCH
-add_core = NNG
-add_core = LCH
+owner = ACG
+controller = ACG
+add_core = ACG
 culture = gdd_gan
 religion = confucianism
 capital = "Anfu"

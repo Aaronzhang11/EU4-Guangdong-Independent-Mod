@@ -2293,6 +2293,27 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
         lambda block: append_to_named_block(
             block,
             "terrain_override",
+            "\t\t\t5115 5116 5212 5222 5223 5219 5221 5220 "
+            "5101 5102 5103 5111 5104 5107 5109 5110"
+            " # GDD_B69_HUABEI_TERRAIN_FARMLANDS",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "hills",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t5113 5114 5211 5213 5218 5105 5106 5108 5112"
+            " # GDD_B69_HUABEI_TERRAIN_HILLS",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "farmlands",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
             "\t\t\t688 5030 5031 # B03 Kaifeng, Zhengzhou and Chenliu plains",
         ),
     )
@@ -2379,7 +2400,7 @@ def build_adjacencies(vanilla_root: Path, output: Path) -> None:
         "5011;682;sea;5035;-1;-1;-1;-1;Hankou-Wuchang crossing",
         "4981;682;sea;5035;-1;-1;-1;-1;Hanyang-Wuchang crossing",
         "5012;682;sea;5035;-1;-1;-1;-1;Huangzhou-Wuchang crossing",
-        "2172;681;sea;5037;-1;-1;-1;-1;Jingzhou-Yichang crossing",
+        "2172;5014;sea;5036;-1;-1;-1;-1;Jingzhou-Gongan Yangtze crossing",
         "5055;2175;sea;5039;-1;-1;-1;-1;Dengzhou-Xinyang Huai crossing",
         "5053;2175;sea;5039;-1;-1;-1;-1;Ruzhou-Xinyang Huai crossing",
         "5054;2175;sea;5040;-1;-1;-1;-1;Runing-Xinyang Huai crossing",

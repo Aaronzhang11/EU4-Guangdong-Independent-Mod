@@ -643,8 +643,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
     if any(count != 1 for area, count in area_components.items() if area != "jingyi_area"):
         raise ValueError(f"Unexpected fragmented B47 area: {area_components}")
     adjacency = (MAP / "adjacencies.csv").read_text(encoding="cp1252")
-    if not re.search(r"(?m)^(2172;5013|5013;2172);sea;5037;", adjacency):
-        raise ValueError("jingyi_area lacks its real Jingzhou-Shizhou Yangtze crossing")
+    if not re.search(r"(?m)^(2172;5014|5014;2172);sea;5036;", adjacency):
+        raise ValueError("jingyi_area lacks its real Jingzhou-Gongan Yangtze crossing")
     actual_polity_dev = {
         tag: sum(sum(BY_ID[province_id].development) for province_id in members)
         for tag, members in POLITY_SCOPE.items()
@@ -686,7 +686,7 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
     return {
         "province_components": "23/23 one component",
         "area_land_components": area_components,
-        "jingyi_gameplay_connectivity": "crossing-connected via 2172-5013 through navigable river 5037",
+        "jingyi_gameplay_connectivity": "crossing-connected via 2172-5014 through navigable river 5036",
         "development_total": 133,
         "polity_development_in_scope": actual_polity_dev,
         "minimum_province_pixels": min(pixel_counts.values()),

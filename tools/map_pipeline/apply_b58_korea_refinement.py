@@ -224,16 +224,10 @@ def update_map_memberships(manifest):
 
 
 def update_trade(manifest):
-    new_ids = sorted(manifest["new_playable_ids"])
-    path = MOD / "common/tradenodes/00_tradenodes.txt"
-    text = remove_marker_lines(path.read_text(encoding="latin-1"))
-    text = append_nested(text, "nippon", "members", new_ids)
-    path.write_text(text, encoding="latin-1")
-
-    path = MOD / "common/trade_companies/00_trade_companies.txt"
-    text = remove_marker_lines(path.read_text(encoding="latin-1"))
-    text = append_nested(text, "trade_company_nippon", "provinces", new_ids)
-    path.write_text(text, encoding="latin-1")
+    # B73 is the terminal owner of all Korean trade-node and charter-company
+    # membership.  B58 must not put newly created Korean provinces back into
+    # Nippon when an older map batch is replayed.
+    return None
 
 
 def history_path(pid: int) -> Path:

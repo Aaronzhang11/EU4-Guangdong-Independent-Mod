@@ -1,6 +1,5 @@
 owner = GYA
 controller = GYA
-add_core = CYI
 add_core = GYA
 culture = miao
 religion = animism

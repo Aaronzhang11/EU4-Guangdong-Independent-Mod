@@ -1,0 +1,359 @@
+{
+  "status": "review_only",
+  "canonical_modified": false,
+  "canonical_sha256": "8374fcd6a2e4883f0ddb80c6cdab4f3ca10879b44c065d15dfeadd526b9fa550",
+  "source_mod": "/Users/xinanyapiao/Library/Application Support/Steam/steamapps/workshop/content/236850/1728520255",
+  "coastline_alignment": {
+    "base_translation": [
+      -438,
+      -9
+    ],
+    "local_translation": [
+      -15,
+      -18
+    ],
+    "final_translation": [
+      -453,
+      -27
+    ],
+    "method": "Fujian coastline edge correlation"
+  },
+  "features": [
+    {
+      "name": "武夷山",
+      "source_id": 5158,
+      "source_rgb": [
+        1,
+        146,
+        38
+      ],
+      "output_rgb": [
+        0,
+        146,
+        38
+      ],
+      "pixels": 247,
+      "component_sizes": [
+        178,
+        69
+      ],
+      "output_bbox": [
+        4601,
+        944,
+        4629,
+        993
+      ],
+      "translation": [
+        -15,
+        -18
+      ]
+    },
+    {
+      "name": "浙闽丘陵",
+      "source_id": 5156,
+      "source_rgb": [
+        230,
+        105,
+        47
+      ],
+      "output_rgb": [
+        229,
+        105,
+        47
+      ],
+      "pixels": 557,
+      "component_sizes": [
+        251,
+        179,
+        127
+      ],
+      "output_bbox": [
+        4615,
+        939,
+        4670,
+        1000
+      ],
+      "translation": [
+        -15,
+        -18
+      ]
+    },
+    {
+      "name": "杉岭",
+      "source_id": 5157,
+      "source_rgb": [
+        50,
+        13,
+        180
+      ],
+      "output_rgb": [
+        50,
+        12,
+        180
+      ],
+      "pixels": 187,
+      "component_sizes": [
+        187
+      ],
+      "output_bbox": [
+        4623,
+        930,
+        4649,
+        945
+      ],
+      "translation": [
+        -15,
+        -18
+      ]
+    }
+  ],
+  "rgb_collision_before": {
+    "0,146,38": 0,
+    "229,105,47": 0,
+    "50,12,180": 0
+  },
+  "guarded_patch": {
+    "current": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice/map/provinces.bmp",
+    "reference": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/fujian_impassable_dmi_plan/fujian_impassable_candidate_full.bmp",
+    "current_size": [
+      5632,
+      2048
+    ],
+    "reference_size": [
+      5632,
+      2048
+    ],
+    "patch_box": [
+      4585,
+      914,
+      4686,
+      1016
+    ],
+    "changed_pixels": 1243,
+    "repaired_groups": 34,
+    "repaired_land_pixels": 261,
+    "absorbed_enclosed_pixels": 0,
+    "features": [
+      {
+        "name": "武夷山",
+        "rgb": [
+          0,
+          146,
+          38
+        ],
+        "source_components": [
+          178,
+          69
+        ],
+        "target_size": [
+          28,
+          49
+        ],
+        "target_pixels_before_cleanup": 247
+      },
+      {
+        "name": "浙闽丘陵",
+        "rgb": [
+          229,
+          105,
+          47
+        ],
+        "source_components": [
+          251,
+          179,
+          127
+        ],
+        "target_size": [
+          55,
+          61
+        ],
+        "target_pixels_before_cleanup": 557
+      },
+      {
+        "name": "杉岭",
+        "rgb": [
+          50,
+          12,
+          180
+        ],
+        "source_components": [
+          187
+        ],
+        "target_size": [
+          26,
+          15
+        ],
+        "target_pixels_before_cleanup": 187
+      }
+    ],
+    "playable_connectivity": {
+      "45,180,190": {
+        "before": 2,
+        "after": 2
+      },
+      "45,220,130": {
+        "before": 1,
+        "after": 1
+      },
+      "48,108,104": {
+        "before": 1,
+        "after": 1
+      },
+      "67,84,112": {
+        "before": 1,
+        "after": 1
+      },
+      "67,126,219": {
+        "before": 1,
+        "after": 1
+      },
+      "79,124,126": {
+        "before": 1,
+        "after": 1
+      },
+      "80,156,200": {
+        "before": 3,
+        "after": 3
+      },
+      "83,111,176": {
+        "before": 1,
+        "after": 1
+      },
+      "95,92,0": {
+        "before": 1,
+        "after": 1
+      },
+      "110,75,225": {
+        "before": 1,
+        "after": 1
+      },
+      "113,163,157": {
+        "before": 1,
+        "after": 1
+      },
+      "118,0,175": {
+        "before": 2,
+        "after": 2
+      },
+      "131,100,35": {
+        "before": 1,
+        "after": 1
+      },
+      "144,37,37": {
+        "before": 1,
+        "after": 1
+      },
+      "146,81,81": {
+        "before": 1,
+        "after": 1
+      },
+      "158,62,218": {
+        "before": 1,
+        "after": 1
+      },
+      "187,30,204": {
+        "before": 1,
+        "after": 1
+      },
+      "210,190,45": {
+        "before": 1,
+        "after": 1
+      },
+      "223,90,255": {
+        "before": 2,
+        "after": 2
+      },
+      "230,110,35": {
+        "before": 1,
+        "after": 1
+      }
+    }
+  },
+  "geometry_validation": {
+    "武夷山": {
+      "pixels": 247,
+      "component_sizes": [
+        178,
+        69
+      ],
+      "bbox": [
+        4601,
+        944,
+        4629,
+        993
+      ],
+      "exact_source_geometry_preserved": true
+    },
+    "浙闽丘陵": {
+      "pixels": 557,
+      "component_sizes": [
+        251,
+        179,
+        127
+      ],
+      "bbox": [
+        4615,
+        939,
+        4670,
+        1000
+      ],
+      "exact_source_geometry_preserved": true
+    },
+    "杉岭": {
+      "pixels": 187,
+      "component_sizes": [
+        187
+      ],
+      "bbox": [
+        4623,
+        930,
+        4649,
+        945
+      ],
+      "exact_source_geometry_preserved": true
+    }
+  },
+  "route_locks": [
+    {
+      "name": "建宁—延平",
+      "province_pair": [
+        2152,
+        5099
+      ],
+      "before_border_pixels": 56,
+      "after_border_pixels": 24,
+      "open": true
+    },
+    {
+      "name": "延平—永春",
+      "province_pair": [
+        5099,
+        5098
+      ],
+      "before_border_pixels": 25,
+      "after_border_pixels": 25,
+      "open": true
+    },
+    {
+      "name": "汀州—龙岩",
+      "province_pair": [
+        2153,
+        5100
+      ],
+      "before_border_pixels": 46,
+      "after_border_pixels": 19,
+      "open": true
+    },
+    {
+      "name": "福宁—福州",
+      "province_pair": [
+        5096,
+        669
+      ],
+      "before_border_pixels": 21,
+      "after_border_pixels": 16,
+      "open": true
+    }
+  ],
+  "changed_pixels": 1243
+}

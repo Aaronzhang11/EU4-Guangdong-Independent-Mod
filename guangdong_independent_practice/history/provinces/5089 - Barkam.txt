@@ -3,7 +3,6 @@
 owner = JRG
 controller = JRG
 add_core = JRG
-add_core = CXI
 culture = tibetan
 religion = vajrayana
 capital = "Barkam"
