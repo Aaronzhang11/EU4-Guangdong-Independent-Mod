@@ -3,7 +3,6 @@
 owner = MMA
 controller = MMA
 add_core = MMA
-add_core = MNG
 culture = shan
 religion = buddhism
 capital = "Mengla"

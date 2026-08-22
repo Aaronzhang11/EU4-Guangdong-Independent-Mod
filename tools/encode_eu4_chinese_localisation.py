@@ -66,6 +66,7 @@ FILES = {
     "011_gdd_b58_korea_refinement_readable_utf8.txt": "replace/011_gdd_b58_korea_refinement_l_english.yml",
     "012_gdd_b59_korea_consolidation_readable_utf8.txt": "replace/012_gdd_b59_korea_consolidation_l_english.yml",
     "013_gdd_b60_korea_polities_readable_utf8.txt": "replace/013_gdd_b60_korea_polities_l_english.yml",
+    "014_gdd_b73_korea_trade_readable_utf8.txt": "replace/014_gdd_b73_korea_trade_l_english.yml",
     "gdd_zzz_chunqiu_area_overrides_readable_utf8.txt": "replace/zzz_gdd_chunqiu_area_overrides_l_english.yml",
     "gdd_yangtze_navigation_readable_utf8.txt": "gdd_yangtze_navigation_l_english.yml",
     "gdd_huai_navigation_readable_utf8.txt": "gdd_huai_navigation_l_english.yml",

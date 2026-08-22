@@ -7,7 +7,6 @@ latent_trade_goods = {
 owner = CZH
 controller = CZH
 add_core = CZH
-add_core = LNG
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Luoyang"

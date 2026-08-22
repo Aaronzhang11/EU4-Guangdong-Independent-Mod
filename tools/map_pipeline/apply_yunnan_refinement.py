@@ -250,12 +250,6 @@ def update_areas_region() -> None:
 
 def history_text(province: Province) -> str:
     cores = [province.owner]
-    if province.owner != "MNG" and province.province_id != 663:
-        cores.append("MNG")
-    if province.province_id == 663:
-        cores.append("CDL")
-    if province.owner == "MNG" and province.culture in {"bai", "yi"}:
-        cores.append("CDL")
     lines = [
         f"# {province.province_id} - {province.english}", "",
         f"owner = {province.owner}", f"controller = {province.owner}",

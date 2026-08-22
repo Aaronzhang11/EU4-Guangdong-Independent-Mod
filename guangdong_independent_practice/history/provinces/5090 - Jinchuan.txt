@@ -3,7 +3,6 @@
 owner = BMY
 controller = BMY
 add_core = BMY
-add_core = CXI
 culture = gdd_diqiang
 religion = vajrayana
 capital = "Jinchuan"

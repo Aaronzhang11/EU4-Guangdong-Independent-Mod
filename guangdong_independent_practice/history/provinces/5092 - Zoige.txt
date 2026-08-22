@@ -3,7 +3,6 @@
 owner = DCH
 controller = DCH
 add_core = DCH
-add_core = CXI
 culture = gdd_diqiang
 religion = vajrayana
 capital = "Zoige"

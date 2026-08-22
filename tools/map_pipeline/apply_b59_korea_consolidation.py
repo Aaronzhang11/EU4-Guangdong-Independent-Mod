@@ -204,8 +204,8 @@ def update_memberships(data):
     for terrain, ids in grouped.items(): categories = append_nested(categories, terrain, "terrain_override", ids)
     text = text[:bounds[0]] + categories + text[bounds[1]:]; path.write_text(text, encoding="latin-1")
 
-    path = MOD / "common/tradenodes/00_tradenodes.txt"; text = remove_transaction_lines(path.read_text(encoding="latin-1")); text = append_nested(text, "nippon", "members", new_ids); path.write_text(text, encoding="latin-1")
-    path = MOD / "common/trade_companies/00_trade_companies.txt"; text = remove_transaction_lines(path.read_text(encoding="latin-1")); text = append_nested(text, "trade_company_nippon", "provinces", new_ids); path.write_text(text, encoding="latin-1")
+    # B73 owns the terminal Korean trade node/company.  Do not restore the
+    # consolidated Korean provinces to Nippon when B59 is replayed.
 
 
 def history_matches(pid):

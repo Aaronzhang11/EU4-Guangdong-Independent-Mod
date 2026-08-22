@@ -3,9 +3,6 @@
 owner = LSH
 controller = LSH
 add_core = LSH
-add_core = CYI
-add_core = CDL
-add_core = CXI
 culture = yi
 religion = animism
 capital = "Yanjing"

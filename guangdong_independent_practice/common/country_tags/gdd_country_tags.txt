@@ -64,6 +64,8 @@ WUZ = "countries/B43_Wuzhong.txt"
 HNG = "countries/B45_Heng.txt"
 DQU = "countries/B46_Dangqu.txt"
 ZHI = "countries/B46_Zhi.txt"
+XNG = "countries/B71_Xing.txt"
+ACG = "countries/B72_Ancheng.txt"
 
 # B50: eastern balance states and one-character commercial city names.
 

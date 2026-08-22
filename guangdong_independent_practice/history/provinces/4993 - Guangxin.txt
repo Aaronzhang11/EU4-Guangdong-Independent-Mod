@@ -2,7 +2,6 @@
 
 owner = TSF
 controller = TSF
-add_core = NNG
 add_core = TSF
 culture = gdd_gan
 religion = confucianism

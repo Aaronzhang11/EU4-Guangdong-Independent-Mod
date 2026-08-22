@@ -408,7 +408,6 @@
         2
       ],
       "cores": [
-        "NNG",
         "NCH"
       ],
       "cot": 0,
@@ -442,7 +441,6 @@
         2
       ],
       "cores": [
-        "NNG",
         "NCH"
       ],
       "cot": 0,
@@ -475,7 +473,6 @@
         2
       ],
       "cores": [
-        "NNG",
         "NCH"
       ],
       "cot": 0,
@@ -509,7 +506,6 @@
         1
       ],
       "cores": [
-        "NNG",
         "TSF"
       ],
       "cot": 0,
@@ -544,7 +540,6 @@
         3
       ],
       "cores": [
-        "NNG",
         "HAK"
       ],
       "cot": 0,
@@ -566,7 +561,7 @@
         5303
       ],
       "area": "south_jiangxi_area",
-      "owner": "LCH",
+      "owner": "ACG",
       "culture": "gdd_gan",
       "religion": "confucianism",
       "capital": "Anfu",
@@ -577,8 +572,7 @@
         1
       ],
       "cores": [
-        "NNG",
-        "LCH"
+        "ACG"
       ],
       "cot": 0,
       "fort": false,
@@ -726,7 +720,7 @@
       "HAK": 18,
       "HNG": 52,
       "JJG": 20,
-      "LCH": 4,
+      "ACG": 4,
       "NCH": 45,
       "TSF": 14,
       "WLM": 16

@@ -1,36 +1,40 @@
 {
   "batch": "B52_chu_vassals",
-  "purpose": "Maintain four actual starting vassals of Chu without changing map geometry.",
+  "purpose": "Maintain five actual starting vassals of Chu without changing map geometry.",
   "worldview": {
     "EGU": "E, the eastern bronze-and-river gateway around Wuchang and Xingguo",
     "QVN": "Quan, restored around Anlu and Jingmen on the middle Han corridor",
     "ZHU": "Zhou, restored in the Mianyang-Jianli lake and marsh country",
-    "CSA": "Changsha, the southern Chu cadet state around the Xiang River"
+    "CSA": "Changsha, the southern Chu cadet state around the Xiang River",
+    "ACG": "Ancheng, a restored marquisate around Anfu on Chu's Jiangxi frontier"
   },
   "opening_territory": {
     "CHC": [4994, 4992, 4982, 5014, 2172, 5345, 5012, 4197, 5011, 5320],
     "EGU": [682, 5016],
     "QVN": [5010, 5343],
     "ZHU": [5015, 5344],
-    "CSA": [671, 4998, 5321, 4997, 5322]
+    "CSA": [671, 4998, 5321, 4997, 5322],
+    "ACG": [5328]
   },
   "opening_development": {
     "CHC": 105,
     "EGU": 27,
     "QVN": 8,
     "ZHU": 6,
-    "CSA": 39
+    "CSA": 39,
+    "ACG": 4
   },
   "capitals": {
     "CHC": 2172,
     "EGU": 682,
     "QVN": 5343,
     "ZHU": 5344,
-    "CSA": 671
+    "CSA": 671,
+    "ACG": 5328
   },
   "diplomacy": {
     "overlord": "CHC",
-    "subjects": ["EGU", "QVN", "ZHU", "CSA"],
+    "subjects": ["EGU", "QVN", "ZHU", "CSA", "ACG"],
     "relation": "vassal",
     "start_date": "1444.1.1",
     "end_date": "1821.1.1"
@@ -41,7 +45,7 @@
     "trade_nodes_and_routes": "unchanged",
     "trade_centres": "unchanged",
     "province_development": "unchanged",
-    "culture_and_religion": "gdd_chu and confucianism retained",
+    "culture_and_religion": "existing local cultures retained (gdd_chu; Ancheng gdd_gan), all subjects remain Confucian",
     "subject_government": "ordinary vassals use their normal tier-one government reforms"
   },
   "replay": "tools/map_pipeline/apply_b52_chu_vassals.py",

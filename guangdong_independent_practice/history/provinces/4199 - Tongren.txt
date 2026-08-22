@@ -1,7 +1,6 @@
 # 4199 - Sinan
 owner = WXM
 controller = WXM
-add_core = CMI
 add_core = WXM
 culture = miao
 religion = animism

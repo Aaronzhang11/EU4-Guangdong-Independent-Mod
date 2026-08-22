@@ -1,7 +1,6 @@
 owner = GUO
 controller = GUO
 add_core = GUO
-add_core = LNG
 culture = gdd_zhongyuan
 religion = confucianism
 capital = "Mengjin"
