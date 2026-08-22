@@ -31,6 +31,7 @@
 3. [广东与粤国设计](gameplay/02_guangdong_design.md)
 4. [周盟系统技术架构](gameplay/03_zhou_system_architecture.md)
 5. [分阶段实现路线](gameplay/04_implementation_roadmap.md)
+6. [礼教、百家与天下大辩机制](gameplay/05_ritual_hundred_schools_system.md)
 
 ### 地图设计
 
