@@ -1,0 +1,217 @@
+namespace = zhx_doctrine
+
+# First choose which two schools to invite. The debate event then determines
+# whether either becomes state doctrine or whether plurality continues.
+country_event = {
+    id = zhx_doctrine.1
+    title = zhx_doctrine.1.t
+    desc = zhx_doctrine.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = { zhx_is_lijiao_country = yes }
+
+    option = {
+        name = zhx_doctrine.1.a
+        country_event = { id = zhx_doctrine.10 }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 stability = 1 }
+        }
+    }
+    option = {
+        name = zhx_doctrine.1.b
+        country_event = { id = zhx_doctrine.11 }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 is_at_war = no }
+        }
+    }
+    option = {
+        name = zhx_doctrine.1.c
+        country_event = { id = zhx_doctrine.12 }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 corruption = 3 }
+        }
+    }
+    option = {
+        name = zhx_doctrine.1.e
+        custom_tooltip = zhx_doctrine_postpone_tt
+        hidden_effect = {
+            add_country_modifier = {
+                name = zhx_doctrine_change_cooldown
+                duration = 730
+            }
+        }
+        ai_chance = { factor = 0.05 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine.10
+    title = zhx_doctrine.10.t
+    desc = zhx_doctrine.10.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = zhx_doctrine.choose_ru
+        custom_tooltip = zhx_adopt_ru_doctrine_tt
+        hidden_effect = { zhx_adopt_ru_doctrine = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 stability = 1 }
+            modifier = { factor = 1.5 prestige = 25 }
+        }
+    }
+    option = {
+        name = zhx_doctrine.choose_fa
+        custom_tooltip = zhx_adopt_fa_doctrine_tt
+        hidden_effect = { zhx_adopt_fa_doctrine = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 corruption = 3 }
+            modifier = { factor = 1.5 average_autonomy_above_min = 35 }
+        }
+    }
+    option = {
+        name = zhx_doctrine.no_verdict
+        custom_tooltip = zhx_doctrine_inconclusive_tt
+        hidden_effect = {
+            add_country_modifier = {
+                name = zhx_doctrine_change_cooldown
+                duration = 1825
+            }
+        }
+        ai_chance = { factor = 0.10 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine.11
+    title = zhx_doctrine.11.t
+    desc = zhx_doctrine.11.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = zhx_doctrine.choose_ru
+        custom_tooltip = zhx_adopt_ru_doctrine_tt
+        hidden_effect = { zhx_adopt_ru_doctrine = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 stability = 1 }
+            modifier = { factor = 1.5 prestige = 25 }
+        }
+    }
+    option = {
+        name = zhx_doctrine.choose_mo
+        custom_tooltip = zhx_adopt_mo_doctrine_tt
+        hidden_effect = { zhx_adopt_mo_doctrine = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 is_at_war = no }
+            modifier = { factor = 1.5 NOT = { num_of_loans = 1 } }
+        }
+    }
+    option = {
+        name = zhx_doctrine.no_verdict
+        custom_tooltip = zhx_doctrine_inconclusive_tt
+        hidden_effect = {
+            add_country_modifier = {
+                name = zhx_doctrine_change_cooldown
+                duration = 1825
+            }
+        }
+        ai_chance = { factor = 0.10 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine.12
+    title = zhx_doctrine.12.t
+    desc = zhx_doctrine.12.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = zhx_doctrine.choose_fa
+        custom_tooltip = zhx_adopt_fa_doctrine_tt
+        hidden_effect = { zhx_adopt_fa_doctrine = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 corruption = 3 }
+            modifier = { factor = 1.5 average_autonomy_above_min = 35 }
+        }
+    }
+    option = {
+        name = zhx_doctrine.choose_mo
+        custom_tooltip = zhx_adopt_mo_doctrine_tt
+        hidden_effect = { zhx_adopt_mo_doctrine = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 2 is_at_war = no }
+            modifier = { factor = 1.5 NOT = { num_of_loans = 1 } }
+        }
+    }
+    option = {
+        name = zhx_doctrine.no_verdict
+        custom_tooltip = zhx_doctrine_inconclusive_tt
+        hidden_effect = {
+            add_country_modifier = {
+                name = zhx_doctrine_change_cooldown
+                duration = 1825
+            }
+        }
+        ai_chance = { factor = 0.10 }
+    }
+}
+
+# Event fallback for the current doctrine. This keeps the prototype legible
+# before a dedicated school or academy GUI exists.
+country_event = {
+    id = zhx_doctrine.20
+    title = zhx_doctrine.20.t
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_ru }
+        desc = zhx_doctrine.20.d.ru
+    }
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_fa }
+        desc = zhx_doctrine.20.d.fa
+    }
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_mo }
+        desc = zhx_doctrine.20.d.mo
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = { name = zhx_doctrine.20.a }
+}
+
+# The annual pulse sends this hidden event to every country, but only states
+# already carrying a doctrine pass. Countries leaving 礼教 are cleaned once.
+country_event = {
+    id = zhx_doctrine.90
+    title = zhx_doctrine.90.t
+    desc = zhx_doctrine.90.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = { zhx_has_doctrine = yes }
+
+    immediate = {
+        if = {
+            limit = { zhx_is_lijiao_country = yes }
+            zhx_yearly_doctrine_tick = yes
+        }
+        else = {
+            zhx_clear_doctrine_system = yes
+        }
+    }
+
+    option = { name = OK }
+}

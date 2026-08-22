@@ -1,0 +1,14 @@
+# Eligibility and authoritative doctrine-state checks for the first
+# Ritual Teaching / Hundred Schools vertical slice.
+
+zhx_is_lijiao_country = {
+    religion = confucianism
+}
+
+zhx_has_doctrine = {
+    OR = {
+        has_country_flag = zhx_doctrine_ru
+        has_country_flag = zhx_doctrine_fa
+        has_country_flag = zhx_doctrine_mo
+    }
+}

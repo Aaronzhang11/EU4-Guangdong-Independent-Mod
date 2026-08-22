@@ -1,0 +1,389 @@
+# Stateful kernel for the Ru, Fa and Mo doctrine prototype.
+# GUI and events only read or call these shared effects.
+
+zhx_remove_doctrine_tier_modifiers = {
+    remove_country_modifier = zhx_doctrine_practice_hollow
+    remove_country_modifier = zhx_doctrine_ru_established
+    remove_country_modifier = zhx_doctrine_ru_flourishing
+    remove_country_modifier = zhx_doctrine_ru_exemplary
+    remove_country_modifier = zhx_doctrine_fa_established
+    remove_country_modifier = zhx_doctrine_fa_flourishing
+    remove_country_modifier = zhx_doctrine_fa_exemplary
+    remove_country_modifier = zhx_doctrine_mo_established
+    remove_country_modifier = zhx_doctrine_mo_flourishing
+    remove_country_modifier = zhx_doctrine_mo_exemplary
+}
+
+zhx_clear_doctrine_flags = {
+    clr_country_flag = zhx_doctrine_ru
+    clr_country_flag = zhx_doctrine_fa
+    clr_country_flag = zhx_doctrine_mo
+}
+
+zhx_normalise_doctrine_flags = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_ru }
+        clr_country_flag = zhx_doctrine_fa
+        clr_country_flag = zhx_doctrine_mo
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_fa }
+        clr_country_flag = zhx_doctrine_mo
+    }
+}
+
+zhx_clamp_doctrine_practice = {
+    if = {
+        limit = {
+            check_variable = {
+                which = zhx_doctrine_practice
+                value = 100
+            }
+        }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 100
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_doctrine_practice
+                    value = 0
+                }
+            }
+        }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 0
+        }
+    }
+}
+
+zhx_refresh_doctrine_tier = {
+    zhx_remove_doctrine_tier_modifiers = yes
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_doctrine_practice
+                    value = 25
+                }
+            }
+        }
+        add_country_modifier = {
+            name = zhx_doctrine_practice_hollow
+            duration = -1
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_doctrine_practice
+                value = 75
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_exemplary
+                duration = -1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_doctrine_practice
+                value = 50
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_flourishing
+                duration = -1
+            }
+        }
+    }
+    else = {
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_established
+                duration = -1
+            }
+        }
+    }
+}
+
+zhx_finish_doctrine_adoption = {
+    set_country_flag = zhx_doctrine_practice_initialised
+    set_variable = {
+        which = zhx_doctrine_last_delta
+        value = 0
+    }
+    add_country_modifier = {
+        name = zhx_doctrine_change_cooldown
+        duration = 3650
+    }
+    zhx_clamp_doctrine_practice = yes
+    zhx_refresh_doctrine_tier = yes
+}
+
+zhx_adopt_ru_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_ru }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_ru
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_fa_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_fa }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_fa
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_mo_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_mo }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_mo
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_clear_doctrine_system = {
+    zhx_remove_doctrine_tier_modifiers = yes
+    zhx_clear_doctrine_flags = yes
+    clr_country_flag = zhx_doctrine_practice_initialised
+    remove_country_modifier = zhx_doctrine_change_cooldown
+    set_variable = {
+        which = zhx_doctrine_practice
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_last_delta
+        value = 0
+    }
+}
+
+zhx_yearly_doctrine_tick = {
+    zhx_normalise_doctrine_flags = yes
+    if = {
+        limit = {
+            NOT = { has_country_flag = zhx_doctrine_practice_initialised }
+        }
+        set_country_flag = zhx_doctrine_practice_initialised
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+
+    set_variable = {
+        which = zhx_doctrine_last_delta
+        value = 0
+    }
+
+    # Ru: orderly government, public standing and restraint of exhaustion.
+    if = {
+        limit = { has_country_flag = zhx_doctrine_ru }
+        if = {
+            limit = { stability = 1 }
+            change_variable = { which = zhx_doctrine_last_delta value = 2 }
+        }
+        else_if = {
+            limit = { NOT = { stability = 0 } }
+            change_variable = { which = zhx_doctrine_last_delta value = -3 }
+        }
+        if = {
+            limit = { prestige = 25 }
+            change_variable = { which = zhx_doctrine_last_delta value = 1 }
+        }
+        else_if = {
+            limit = { NOT = { prestige = -25 } }
+            change_variable = { which = zhx_doctrine_last_delta value = -1 }
+        }
+        if = {
+            limit = { NOT = { war_exhaustion = 3 } }
+            change_variable = { which = zhx_doctrine_last_delta value = 1 }
+        }
+        else_if = {
+            limit = { war_exhaustion = 5 }
+            change_variable = { which = zhx_doctrine_last_delta value = -2 }
+        }
+    }
+
+    # Fa: clear laws are measured through corruption, autonomy and overextension.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_fa }
+        if = {
+            limit = { NOT = { corruption = 2 } }
+            change_variable = { which = zhx_doctrine_last_delta value = 2 }
+        }
+        else_if = {
+            limit = { corruption = 5 }
+            change_variable = { which = zhx_doctrine_last_delta value = -3 }
+        }
+        if = {
+            limit = { NOT = { average_autonomy_above_min = 25 } }
+            change_variable = { which = zhx_doctrine_last_delta value = 1 }
+        }
+        else_if = {
+            limit = { average_autonomy_above_min = 50 }
+            change_variable = { which = zhx_doctrine_last_delta value = -2 }
+        }
+        if = {
+            limit = { NOT = { overextension_percentage = 0.10 } }
+            change_variable = { which = zhx_doctrine_last_delta value = 1 }
+        }
+        else_if = {
+            limit = { overextension_percentage = 0.25 }
+            change_variable = { which = zhx_doctrine_last_delta value = -2 }
+        }
+    }
+
+    # Mo: non-aggression, defensive war and frugality are concrete conduct.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_mo }
+        if = {
+            limit = {
+                is_in_war = { defender_leader = ROOT }
+            }
+            change_variable = { which = zhx_doctrine_last_delta value = 3 }
+        }
+        else_if = {
+            limit = { is_at_war = no }
+            change_variable = { which = zhx_doctrine_last_delta value = 2 }
+        }
+        if = {
+            limit = { NOT = { num_of_loans = 1 } }
+            change_variable = { which = zhx_doctrine_last_delta value = 1 }
+        }
+        else_if = {
+            limit = { num_of_loans = 3 }
+            change_variable = { which = zhx_doctrine_last_delta value = -2 }
+        }
+        if = {
+            limit = { NOT = { war_exhaustion = 3 } }
+            change_variable = { which = zhx_doctrine_last_delta value = 1 }
+        }
+        else_if = {
+            limit = { war_exhaustion = 5 }
+            change_variable = { which = zhx_doctrine_last_delta value = -2 }
+        }
+        if = {
+            limit = {
+                is_in_war = { attacker_leader = ROOT }
+            }
+            change_variable = { which = zhx_doctrine_last_delta value = -4 }
+        }
+    }
+
+    change_variable = {
+        which = zhx_doctrine_practice
+        which = zhx_doctrine_last_delta
+    }
+    zhx_clamp_doctrine_practice = yes
+    zhx_refresh_doctrine_tier = yes
+}

@@ -1,0 +1,66 @@
+# The 0-24 tier is a common mismatch penalty. Each doctrine then has three
+# increasingly strong tiers at 25, 50 and 75 practice.
+
+zhx_doctrine_practice_hollow = {
+    global_unrest = 1
+    advisor_cost = 0.05
+}
+
+zhx_doctrine_ru_established = {
+    advisor_cost = -0.025
+    stability_cost_modifier = -0.025
+}
+
+zhx_doctrine_ru_flourishing = {
+    advisor_cost = -0.05
+    stability_cost_modifier = -0.05
+    diplomatic_reputation = 0.5
+}
+
+zhx_doctrine_ru_exemplary = {
+    advisor_cost = -0.10
+    stability_cost_modifier = -0.10
+    diplomatic_reputation = 1
+    global_unrest = -1
+}
+
+zhx_doctrine_fa_established = {
+    global_autonomy = -0.025
+    core_creation = -0.025
+}
+
+zhx_doctrine_fa_flourishing = {
+    global_autonomy = -0.05
+    core_creation = -0.05
+    yearly_corruption = -0.05
+}
+
+zhx_doctrine_fa_exemplary = {
+    global_autonomy = -0.075
+    core_creation = -0.10
+    yearly_corruption = -0.10
+    discipline = 0.025
+}
+
+zhx_doctrine_mo_established = {
+    fort_maintenance_modifier = -0.05
+    defensiveness = 0.05
+}
+
+zhx_doctrine_mo_flourishing = {
+    fort_maintenance_modifier = -0.10
+    defensiveness = 0.10
+    diplomatic_reputation = 0.5
+}
+
+zhx_doctrine_mo_exemplary = {
+    fort_maintenance_modifier = -0.20
+    defensiveness = 0.20
+    diplomatic_reputation = 1
+    development_cost = -0.05
+}
+
+# Empty, visible and save-safe timer token for both successful and
+# inconclusive debates. Successful adoption uses ten years; no verdict uses five.
+zhx_doctrine_change_cooldown = {
+}

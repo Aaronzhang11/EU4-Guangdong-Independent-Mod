@@ -11,6 +11,7 @@ on_startup = {
 on_yearly_pulse = {
     events = {
         zhx_system.10
+        zhx_doctrine.90
     }
 }
 
