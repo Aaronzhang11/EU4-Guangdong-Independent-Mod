@@ -1,0 +1,29 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_gdd_eoc_bg_authority"
+		texturefile = "gfx/interface/gdd_eoc_bg_authority.tga"
+		transparencecheck = no
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_authority_track"
+		texturefile = "gfx/interface/gdd_eoc_authority_track.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_authority_marker"
+		# Exact black-and-gold value plaque used by the Muslim piety meter.
+		texturefile = "gfx/interface/war_overview_indicator.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_feudatory_prestige_icon"
+		texturefile = "gfx/interface/gdd_eoc_feudatory_prestige_icon.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_central_authority_icon"
+		texturefile = "gfx/interface/gdd_eoc_central_authority_icon.tga"
+		loadType = "INGAME"
+	}
+}

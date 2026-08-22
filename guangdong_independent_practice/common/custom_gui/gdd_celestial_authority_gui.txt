@@ -1,0 +1,882 @@
+# Script bindings for the authority-balance presentation inside the Mandate UI.
+# The exact value is stored on CZH; the 21 icons only quantize its rendering.
+
+custom_text_box = {
+    name = gdd_eoc_authority_value
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = { exists = yes }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m100
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -100
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -90
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m090
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -90
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -80
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m080
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -80
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -70
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m070
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -70
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -60
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m060
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -60
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -50
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m050
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -50
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -40
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m040
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -40
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -30
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m030
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -30
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -20
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m020
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -20
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -10
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_m010
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -10
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 0
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_zero
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 0
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 10
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p010
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 10
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 20
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p020
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 20
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 30
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p030
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 30
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 40
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p040
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 40
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 50
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p050
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 50
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 60
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p060
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 60
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 70
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p070
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 70
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 80
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p080
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 80
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 90
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p090
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 90
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 100
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_text_box = {
+    name = gdd_eoc_authority_value_p100
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 100
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m100
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -100
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -90
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m090
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -90
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -80
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m080
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -80
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -70
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m070
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -70
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -60
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m060
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -60
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -50
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m050
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -50
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -40
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m040
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -40
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -30
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m030
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -30
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -20
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m020
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -20
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -10
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_m010
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -10
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 0
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_zero
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 0
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 10
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p010
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 10
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 20
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p020
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 20
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 30
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p030
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 30
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 40
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p040
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 40
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 50
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p050
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 50
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 60
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p060
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 60
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 70
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p070
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 70
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 80
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p080
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 80
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 90
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p090
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 90
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 100
+                }
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_authority_bar_p100
+    potential = {
+        has_global_flag = zhx_system_initialised_v7
+        CZH = {
+            exists = yes
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 100
+            }
+        }
+    }
+    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+}

@@ -2150,6 +2150,10 @@ gdd_allocate_eoc_member_roster_slot = {
 gdd_build_eoc_member_roster = {
     gdd_clear_eoc_member_roster = yes
     CZH = {
+        # Membership changes compact the entire roster from slot 01 onward.
+        # Return to page one so a country pulled forward from slot 49 is
+        # immediately visible in the final slot of the first page.
+        clr_country_flag = gdd_eoc_member_roster_page_2
         set_variable = {
             which = gdd_eoc_member_count_cache
             value = 0

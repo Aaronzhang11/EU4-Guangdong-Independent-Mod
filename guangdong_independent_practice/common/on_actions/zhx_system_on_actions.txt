@@ -30,3 +30,25 @@ on_war_ended = {
         }
     }
 }
+
+# Full annexation and diplomatic integration must use the same authoritative
+# removal effect as an explicit expulsion. It clears the membership identity,
+# fixes the count cache, and rebuilds both GUI rosters without leaving a hole.
+# FROM is the country that is being removed in both on-actions.
+on_integrate = {
+    FROM = {
+        if = {
+            limit = { has_country_flag = zhx_member }
+            zhx_remove_tianxia_member = yes
+        }
+    }
+}
+
+on_annexed = {
+    FROM = {
+        if = {
+            limit = { has_country_flag = zhx_member }
+            zhx_remove_tianxia_member = yes
+        }
+    }
+}

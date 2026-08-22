@@ -7,6 +7,13 @@ zhx_set_tianzi = {
         }
         clr_country_flag = zhx_tianzi
     }
+    # If a future emperor was previously a normal member, remove it through
+    # the common exit path first so the compact GUI roster and count cache do
+    # not retain its former slot.
+    if = {
+        limit = { has_country_flag = zhx_member }
+        zhx_remove_tianxia_member = yes
+    }
     clr_country_flag = zhx_member
     clr_country_flag = zhx_major_feudatory
     clr_country_flag = zhx_ritual_tier_ordered
@@ -783,6 +790,19 @@ zhx_migrate_tianxia_system_v5_to_v6 = {
         zhx_reset_ritual_breakdown_incident_votes = yes
     }
     set_global_flag = zhx_system_initialised_v6
+}
+
+# v7 reserves an independent -100..100 authority balance for the Mandate UI.
+# Gameplay changes are intentionally deferred; existing meritocracy, decrees
+# and reforms continue to use their current rules.
+zhx_migrate_tianxia_system_v6_to_v7 = {
+    CZH = {
+        set_variable = {
+            which = gdd_central_authority_balance
+            value = 0
+        }
+    }
+    set_global_flag = zhx_system_initialised_v7
 }
 
 # 第一版政治成员表使用明确 TAG 清单，避免文化转变、征服或政体改变悄悄重写天下秩序。
