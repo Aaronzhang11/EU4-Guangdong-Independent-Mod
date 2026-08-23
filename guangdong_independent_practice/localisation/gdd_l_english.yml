@@ -16,6 +16,83 @@
  GDD_PROXY_REFORM_BUTTON:0 "¨c¨R9ei—"
  GDD_PROXY_REFORM_BUTTON_TT:0 "1u)YPRbSVMRKmÕ‹–™-^ø‹¯OSbVêšRIN)Yg9ei—Rhˆ0\n—‰-NNS^ýVXR(WN)Y‹TóS¾0R§Y80§!0Ç9ei—Sˆmw§R70§!)Y‹TN§R1§!3zšR¦^0"
 
+ gdd_test_central_authority_balance_title:0 "KmÕ‹-N.YCgZÛ¦^ag"
+ gdd_test_central_authority_balance_desc:0 "SbVN8NN¾‹b,gN·QtS„vKmÕ‹‹NöNÿ1uÕqôv¥cŒte)Y‹TLub—-N„v-N.YCgZNø‹¯OZáOÛ¦^ag0"
+ gdd_celestial_test.120.t:0 "-N.YCgZNø‹¯OZáOKmÕ‹"
+ gdd_celestial_test.120.d:0 "	ébÛ¦^ag„vØS¨R¹eT0ckJPãNhˆ-N.YCgZžXHVÿJPãNhˆø‹¯OZáOžXHV0\n\nSVMRÛ¦^JPÿ§Y[CZH.gdd_central_authority_balance.GetValue]§!"
+ gdd_celestial_test.120.a:0 "-N.YCgZNGSÿÛ¦^ag §G+10§!	ÿ"
+ gdd_celestial_test.120.b:0 "ø‹¯OZáONGSÿÛ¦^ag §R-10§!	ÿ"
+ gdd_test_remove_tianxia_member_title:0 "KmÕ‹ÿúQhT)YNbXT"
+ gdd_test_remove_tianxia_member_desc:0 "SbVSVMRhT)YNbXT„v¨R`TŒQ0	ébN8NýV¶RTÿå‹ýVOËzsSúQhT)YNÿv^7R°e)Y‹TLub—N¹e„vbXTýVþvËV0"
+ gdd_celestial_test.121.t:0 "úQhT)YNbXT"
+ gdd_celestial_test.121.d:0 "	ébN8NSVMR^SŽNhT)YN„výV¶RÿSvQÎNbXTTŒQ-NúQ0Õqê«ŽNhT)YPRNOúQ°s(WïS	y˜-N0"
+ gdd_celestial_test.121.slot_01:0 "S§Y[gdd_eoc_member_roster_01.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_02:0 "S§Y[gdd_eoc_member_roster_02.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_03:0 "S§Y[gdd_eoc_member_roster_03.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_04:0 "S§Y[gdd_eoc_member_roster_04.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_05:0 "S§Y[gdd_eoc_member_roster_05.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_06:0 "S§Y[gdd_eoc_member_roster_06.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_07:0 "S§Y[gdd_eoc_member_roster_07.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_08:0 "S§Y[gdd_eoc_member_roster_08.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_09:0 "S§Y[gdd_eoc_member_roster_09.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_10:0 "S§Y[gdd_eoc_member_roster_10.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_11:0 "S§Y[gdd_eoc_member_roster_11.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_12:0 "S§Y[gdd_eoc_member_roster_12.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_13:0 "S§Y[gdd_eoc_member_roster_13.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_14:0 "S§Y[gdd_eoc_member_roster_14.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_15:0 "S§Y[gdd_eoc_member_roster_15.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_16:0 "S§Y[gdd_eoc_member_roster_16.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_17:0 "S§Y[gdd_eoc_member_roster_17.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_18:0 "S§Y[gdd_eoc_member_roster_18.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_19:0 "S§Y[gdd_eoc_member_roster_19.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_20:0 "S§Y[gdd_eoc_member_roster_20.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_21:0 "S§Y[gdd_eoc_member_roster_21.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_22:0 "S§Y[gdd_eoc_member_roster_22.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_23:0 "S§Y[gdd_eoc_member_roster_23.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_24:0 "S§Y[gdd_eoc_member_roster_24.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_25:0 "S§Y[gdd_eoc_member_roster_25.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_26:0 "S§Y[gdd_eoc_member_roster_26.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_27:0 "S§Y[gdd_eoc_member_roster_27.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_28:0 "S§Y[gdd_eoc_member_roster_28.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_29:0 "S§Y[gdd_eoc_member_roster_29.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_30:0 "S§Y[gdd_eoc_member_roster_30.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_31:0 "S§Y[gdd_eoc_member_roster_31.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_32:0 "S§Y[gdd_eoc_member_roster_32.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_33:0 "S§Y[gdd_eoc_member_roster_33.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_34:0 "S§Y[gdd_eoc_member_roster_34.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_35:0 "S§Y[gdd_eoc_member_roster_35.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_36:0 "S§Y[gdd_eoc_member_roster_36.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_37:0 "S§Y[gdd_eoc_member_roster_37.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_38:0 "S§Y[gdd_eoc_member_roster_38.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_39:0 "S§Y[gdd_eoc_member_roster_39.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_40:0 "S§Y[gdd_eoc_member_roster_40.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_41:0 "S§Y[gdd_eoc_member_roster_41.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_42:0 "S§Y[gdd_eoc_member_roster_42.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_43:0 "S§Y[gdd_eoc_member_roster_43.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_44:0 "S§Y[gdd_eoc_member_roster_44.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_45:0 "S§Y[gdd_eoc_member_roster_45.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_46:0 "S§Y[gdd_eoc_member_roster_46.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_47:0 "S§Y[gdd_eoc_member_roster_47.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_48:0 "S§Y[gdd_eoc_member_roster_48.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_49:0 "S§Y[gdd_eoc_member_roster_49.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_50:0 "S§Y[gdd_eoc_member_roster_50.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_51:0 "S§Y[gdd_eoc_member_roster_51.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_52:0 "S§Y[gdd_eoc_member_roster_52.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_53:0 "S§Y[gdd_eoc_member_roster_53.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_54:0 "S§Y[gdd_eoc_member_roster_54.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_55:0 "S§Y[gdd_eoc_member_roster_55.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_56:0 "S§Y[gdd_eoc_member_roster_56.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_57:0 "S§Y[gdd_eoc_member_roster_57.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_58:0 "S§Y[gdd_eoc_member_roster_58.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_59:0 "S§Y[gdd_eoc_member_roster_59.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_60:0 "S§Y[gdd_eoc_member_roster_60.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_61:0 "S§Y[gdd_eoc_member_roster_61.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_62:0 "S§Y[gdd_eoc_member_roster_62.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_63:0 "S§Y[gdd_eoc_member_roster_63.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_64:0 "S§Y[gdd_eoc_member_roster_64.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.slot_65:0 "S§Y[gdd_eoc_member_roster_65.GetName]§!úQhT)YN"
+ gdd_celestial_test.121.cancel:0 "‚fNúQûNUOýV¶R"
+
  gdd_celestial_test.1.t:0 "ø‹¯Or^„˜)Y‹T"
  gdd_celestial_test.1.d:0 "jOHNSVMRKmÕ‹(u„v–™-^ø‹¯OÿÕqïSåNSÕ‹ãN)YPRÑS^1Wèeÿb¨c¨RNy˜án³°sLˆagöN„v)Yg9ei—0"
  gdd_celestial_test.1.a:0 "ãNÑS1Wèe"

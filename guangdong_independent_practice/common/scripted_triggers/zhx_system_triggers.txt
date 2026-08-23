@@ -24,6 +24,24 @@ zhx_is_tianxia_polity = {
     }
 }
 
+# The three Mandate-city modifiers are evaluated before on_startup events.
+# During that brief pre-initialisation window the authoritative membership
+# flags do not exist yet, so recognise the three known 1444 member controllers.
+# Once v7 is initialised, the normal dynamic Zhou flags are the only authority.
+zhx_is_tianxia_city_controller = {
+    OR = {
+        zhx_is_tianxia_polity = yes
+        AND = {
+            NOT = { has_global_flag = zhx_system_initialised_v7 }
+            OR = {
+                tag = YAN
+                tag = WUU
+                tag = GDD
+            }
+        }
+    }
+}
+
 # 第一版的“天下无战事”：任何仍然存在的周天下国家都没有参加战争。
 # 目前连对外战争也会打破和平；后续战争层再细分诸侯内战、对外进攻与对外防御。
 zhx_tianxia_is_at_peace = {

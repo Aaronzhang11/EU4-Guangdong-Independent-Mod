@@ -627,7 +627,7 @@ lost_control_of_beijing = {
 		NOT = {
 			1816 = {
 				controller = {
-					tag = ROOT
+					zhx_is_tianxia_city_controller = yes
 				}
 			}
 		}
@@ -638,6 +638,27 @@ lost_control_of_beijing = {
 	}
 
 	imperial_mandate = -0.05
+}
+
+gdd_tianxia_control_of_beijing = {
+	potential = {
+		has_reform = celestial_empire
+		has_dlc = "Mandate of Heaven"
+	}
+
+	trigger = {
+		1816 = {
+			controller = {
+				zhx_is_tianxia_city_controller = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 100
+	}
+
+	imperial_mandate = 0.05
 }
 
 lost_control_of_nanjing = {
@@ -650,7 +671,7 @@ lost_control_of_nanjing = {
 		NOT = {
 			1821 = {
 				controller = {
-					tag = ROOT
+					zhx_is_tianxia_city_controller = yes
 				}
 			}
 		}
@@ -663,6 +684,27 @@ lost_control_of_nanjing = {
 	imperial_mandate = -0.05
 }
 
+gdd_tianxia_control_of_nanjing = {
+	potential = {
+		has_reform = celestial_empire
+		has_dlc = "Mandate of Heaven"
+	}
+
+	trigger = {
+		1821 = {
+			controller = {
+				zhx_is_tianxia_city_controller = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 100
+	}
+
+	imperial_mandate = 0.05
+}
+
 lost_control_of_canton = {
 	potential = {
 		has_reform = celestial_empire
@@ -673,7 +715,7 @@ lost_control_of_canton = {
 		NOT = {
 			667 = {
 				controller = {
-					tag = ROOT
+					zhx_is_tianxia_city_controller = yes
 				}
 			}
 		}
@@ -684,6 +726,27 @@ lost_control_of_canton = {
 	}
 
 	imperial_mandate = -0.05
+}
+
+gdd_tianxia_control_of_canton = {
+	potential = {
+		has_reform = celestial_empire
+		has_dlc = "Mandate of Heaven"
+	}
+
+	trigger = {
+		667 = {
+			controller = {
+				zhx_is_tianxia_city_controller = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 100
+	}
+
+	imperial_mandate = 0.05
 }
 
 waging_war_for_china = {
