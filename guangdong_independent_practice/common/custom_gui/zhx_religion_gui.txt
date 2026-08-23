@@ -1,0 +1,34 @@
+# The engine-owned school name and emblem already present the selected doctrine.
+# This compact, read-only text box adds only the authoritative practice value in
+# the open slot of the native school row. Tier and annual change live in its
+# tooltip, so no custom card can overlap Defender of the Faith or province rows.
+custom_icon = {
+    name = zhx_lijiao_school_button_overlay
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        has_religious_school = yes
+    }
+}
+
+# The engine has no true "clear school" effect. When the invisible lifecycle
+# sentinel is active, this neutral plate hides the otherwise hard-coded Islamic
+# invite-scholar artwork without presenting a false doctrine emblem.
+custom_icon = {
+    name = zhx_no_doctrine_school_button_overlay
+    potential = {
+        religious_school = {
+            group = eastern
+            school = zhx_no_doctrine_school
+        }
+    }
+}
+
+custom_text_box = {
+    name = zhx_religion_practice_value
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+    }
+    tooltip = zhx_religion_practice_value_tt
+}

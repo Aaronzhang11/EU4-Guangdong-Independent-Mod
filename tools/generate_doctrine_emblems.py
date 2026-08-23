@@ -15,6 +15,7 @@ MOD = ROOT / "guangdong_independent_practice"
 ASSETS = ROOT / "tools/assets/doctrine"
 GFX = MOD / "gfx/interface"
 PREVIEW = ASSETS / "zhx_doctrine_emblems_preview.png"
+NO_DOCTRINE_TARGET = GFX / "zhx_no_doctrine_school.tga"
 
 SCHOOLS = {
     "ru": ("Ru", "jade gui + bamboo slips"),
@@ -24,7 +25,7 @@ SCHOOLS = {
     "bing": ("Bing", "bronze tiger tally"),
     "zongheng": ("Zongheng", "crossed envoy tallies"),
 }
-SIZES = {"": 64, "_small": 32}
+SIZES = {"": 64, "_school": 52, "_small": 32}
 
 
 def source_path(slug: str) -> Path:
@@ -55,7 +56,7 @@ def validate_source(path: Path) -> Image.Image:
 def emblem(slug: str, size: int) -> Image.Image:
     source = validate_source(source_path(slug))
     source = source.crop(alpha_bbox(source))
-    padding = 3 if size == 64 else 2
+    padding = 3 if size >= 52 else 2
     available = size - 2 * padding
     scale = min(available / source.width, available / source.height)
     dimensions = (
@@ -70,7 +71,7 @@ def emblem(slug: str, size: int) -> Image.Image:
     source = ImageEnhance.Contrast(source).enhance(1.08)
     source = source.filter(
         ImageFilter.UnsharpMask(
-            radius=0.8 if size == 64 else 0.55,
+            radius=0.8 if size >= 52 else 0.55,
             percent=125,
             threshold=2,
         )
@@ -80,7 +81,7 @@ def emblem(slug: str, size: int) -> Image.Image:
     y = (size - source.height) // 2
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     shadow_alpha = source.getchannel("A").filter(
-        ImageFilter.GaussianBlur(1.1 if size == 64 else 0.6)
+        ImageFilter.GaussianBlur(1.1 if size >= 52 else 0.6)
     )
     shadow_alpha = shadow_alpha.point(lambda value: value * 70 // 255)
     shadow = Image.new("RGBA", source.size, (0, 0, 0, 0))
@@ -99,7 +100,7 @@ def tga_bytes(image: Image.Image) -> bytes:
 def preview(rendered: dict[tuple[str, int], Image.Image]) -> Image.Image:
     canvas = Image.new("RGBA", (1200, 390), (27, 31, 35, 255))
     draw = ImageDraw.Draw(canvas)
-    draw.text((18, 14), "Hundred Schools doctrine emblems · source / 64 px / 32 px", fill="white")
+    draw.text((18, 14), "Hundred Schools doctrine emblems · source / 64 px / 52 px / 32 px", fill="white")
     card_width = 190
     for index, (slug, (label, motif)) in enumerate(SCHOOLS.items()):
         x = 16 + index * (card_width + 7)
@@ -109,9 +110,10 @@ def preview(rendered: dict[tuple[str, int], Image.Image]) -> Image.Image:
         source = validate_source(source_path(slug)).crop(alpha_bbox(validate_source(source_path(slug))))
         source.thumbnail((164, 205), Image.Resampling.LANCZOS)
         canvas.alpha_composite(source, (x + (card_width - source.width) // 2, 102 + (205 - source.height) // 2))
-        canvas.alpha_composite(rendered[(slug, 64)], (x + 34, 298))
+        canvas.alpha_composite(rendered[(slug, 64)], (x + 12, 298))
+        canvas.alpha_composite(rendered[(slug, 52)], (x + 76, 304))
         icon32 = rendered[(slug, 32)].resize((64, 64), Image.Resampling.NEAREST)
-        canvas.alpha_composite(icon32, (x + 104, 298))
+        canvas.alpha_composite(icon32, (x + 126, 298))
     return canvas
 
 
@@ -130,6 +132,19 @@ def run(check: bool) -> None:
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(data)
 
+    # EU4 has no clear_religious_school effect. This fully transparent sprite
+    # retires an obsolete display mirror without showing a substitute doctrine.
+    no_doctrine_data = tga_bytes(Image.new("RGBA", (52, 52), (0, 0, 0, 0)))
+    if check:
+        if (
+            not NO_DOCTRINE_TARGET.exists()
+            or NO_DOCTRINE_TARGET.read_bytes() != no_doctrine_data
+        ):
+            raise ValueError("transparent no-doctrine school sprite is stale")
+    else:
+        NO_DOCTRINE_TARGET.parent.mkdir(parents=True, exist_ok=True)
+        NO_DOCTRINE_TARGET.write_bytes(no_doctrine_data)
+
     preview_image = preview(rendered)
     buffer = io.BytesIO()
     preview_image.save(buffer, format="PNG")
@@ -138,7 +153,10 @@ def run(check: bool) -> None:
             raise ValueError("doctrine emblem preview is stale")
     else:
         PREVIEW.write_bytes(buffer.getvalue())
-    print(f"{'checked' if check else 'generated'} 12 doctrine sprites and preview")
+    print(
+        f"{'checked' if check else 'generated'} 18 doctrine sprites, "
+        "one transparent sentinel and preview"
+    )
 
 
 def main() -> None:

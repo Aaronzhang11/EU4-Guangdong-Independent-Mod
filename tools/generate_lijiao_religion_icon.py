@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Replace only the Confucian (frame 9) religion emblem with the 礼鼎 icon."""
+"""Generate the 礼鼎 religion emblem sheets and school-row button overlay."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import io
 from pathlib import Path
 
@@ -14,11 +15,16 @@ ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / "guangdong_independent_practice"
 SOURCE = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_source.png"
 PREVIEW = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_preview.png"
+SCHOOL_BUTTON = MOD / "gfx/interface/zhx_lijiao_school_button.dds"
+NO_DOCTRINE_BUTTON = MOD / "gfx/interface/zhx_no_doctrine_school_button.dds"
 DEFAULT_VANILLA = (
     Path.home()
     / "Library/Application Support/Steam/steamapps/common/Europa Universalis IV"
 )
 FRAME_INDEX = 8  # zero-based; religion definition icon = 9
+EXPECTED_SCHOOL_BUTTON_SHA256 = (
+    "091cac9c434db23d43bd90a79128c4abe6b5b0073d8a6bfb7a06965fe3c24036"
+)
 SHEETS = {
     "icon_religion.dds": 64,
     "country_icon_religion.dds": 64,
@@ -81,6 +87,44 @@ def dds_bytes(image: Image.Image) -> bytes:
     return buffer.getvalue()
 
 
+def school_button_plate(vanilla_root: Path) -> Image.Image:
+    """Return the native 42 px ring with its Islamic centre fully covered."""
+    source_path = vanilla_root / "gfx/interface/muslim_school_button.dds"
+    data = source_path.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != EXPECTED_SCHOOL_BUTTON_SHA256:
+        raise ValueError(
+            "unsupported EU4 scholar-button baseline: "
+            f"{digest}; expected {EXPECTED_SCHOOL_BUTTON_SHA256}"
+        )
+
+    button = Image.open(io.BytesIO(data)).convert("RGBA")
+    if button.size != (42, 42):
+        raise ValueError(f"unexpected scholar-button dimensions: {button.size}")
+
+    # Keep the native outer gold ring, but fully cover its Islamic centre so no
+    # crescent can bleed through the transparent 礼鼎 silhouette.
+    scale = 4
+    plate = Image.new("RGBA", (42 * scale, 42 * scale), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(plate)
+    draw.ellipse(
+        (5 * scale, 5 * scale, 36 * scale, 36 * scale),
+        fill=(58, 31, 23, 255),
+        outline=(191, 142, 53, 255),
+        width=2 * scale,
+    )
+    plate = plate.resize(button.size, Image.Resampling.LANCZOS)
+    button.alpha_composite(plate)
+    return button
+
+
+def school_button(vanilla_root: Path) -> Image.Image:
+    """Re-skin the neutral native plate with the established 礼鼎."""
+    button = school_button_plate(vanilla_root)
+    button.alpha_composite(emblem(28), (7, 7))
+    return button
+
+
 def patched_sheet(vanilla_root: Path, name: str, frame_size: int) -> Image.Image:
     source_path = vanilla_root / "gfx/interface" / name
     sheet = Image.open(source_path).convert("RGBA")
@@ -133,6 +177,30 @@ def run(vanilla_root: Path, check: bool) -> None:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
 
+    button = school_button(vanilla_root)
+    button_data = dds_bytes(button)
+    if check:
+        if not SCHOOL_BUTTON.exists() or SCHOOL_BUTTON.read_bytes() != button_data:
+            raise ValueError("礼教 school-button overlay is stale")
+    else:
+        SCHOOL_BUTTON.parent.mkdir(parents=True, exist_ok=True)
+        SCHOOL_BUTTON.write_bytes(button_data)
+
+    # The transparent native-school sentinel still makes EU4 draw the fixed
+    # invite-scholar button. Cover its Islamic crescent with the same neutral
+    # ritual plate, but omit the 礼鼎 because no doctrine is currently active.
+    no_doctrine_button = school_button_plate(vanilla_root)
+    no_doctrine_button_data = dds_bytes(no_doctrine_button)
+    if check:
+        if (
+            not NO_DOCTRINE_BUTTON.exists()
+            or NO_DOCTRINE_BUTTON.read_bytes() != no_doctrine_button_data
+        ):
+            raise ValueError("no-doctrine school-button overlay is stale")
+    else:
+        NO_DOCTRINE_BUTTON.parent.mkdir(parents=True, exist_ok=True)
+        NO_DOCTRINE_BUTTON.write_bytes(no_doctrine_button_data)
+
     preview_image = preview(rendered)
     if check:
         buffer = io.BytesIO()
@@ -142,7 +210,10 @@ def run(vanilla_root: Path, check: bool) -> None:
     else:
         preview_image.save(PREVIEW)
 
-    print(f"{'checked' if check else 'generated'} four religion sheets; frame 9 only")
+    print(
+        f"{'checked' if check else 'generated'} four religion sheets plus "
+        "two 42 px school-button overlays"
+    )
 
 
 def main() -> None:

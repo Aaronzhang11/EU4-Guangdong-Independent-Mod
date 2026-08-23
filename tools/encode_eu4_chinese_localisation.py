@@ -76,6 +76,7 @@ FILES = {
     "gdd_characters_readable_utf8.txt": "gdd_characters_l_english.yml",
     "zhx_system_readable_utf8.txt": "zhx_system_l_english.yml",
     "zhx_doctrine_readable_utf8.txt": "zhx_doctrine_l_english.yml",
+    "zhx_native_schools_readable_utf8.txt": "zhx_native_schools_l_english.yml",
     "zhx_tianxia_debate_readable_utf8.txt": "zhx_tianxia_debate_l_english.yml",
 }
 

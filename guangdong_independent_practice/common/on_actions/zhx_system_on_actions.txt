@@ -7,6 +7,15 @@ on_startup = {
     }
 }
 
+# ROOT is the country after its religion has changed. The cleanup event clears
+# doctrine gameplay state immediately and replaces same-group eastern mirrors
+# with a transparent no-doctrine sentinel.
+on_religion_change = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
 # 年度脉冲会把事件发给所有国家，但事件触发器只允许已登记的天子通过。
 # 因而每年实际只结算一次，不需要也不存在常驻的 while true 循环。
 on_yearly_pulse = {

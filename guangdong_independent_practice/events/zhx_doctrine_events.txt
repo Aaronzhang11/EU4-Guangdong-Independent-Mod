@@ -192,7 +192,9 @@ country_event = {
 }
 
 # The annual pulse sends this hidden event to every country, but only states
-# already carrying a doctrine pass. Countries leaving 礼教 are cleaned once.
+# already carrying a playable doctrine pass. The religion-change hook normally
+# retires a departed state immediately; this branch remains a low-frequency
+# safety net for ordinary gameplay.
 country_event = {
     id = zhx_doctrine.90
     title = zhx_doctrine.90.t
@@ -209,7 +211,118 @@ country_event = {
             zhx_yearly_doctrine_tick = yes
         }
         else = {
-            zhx_clear_doctrine_system = yes
+            zhx_retire_doctrine_system = yes
+        }
+    }
+
+    option = { name = OK }
+}
+
+# Conversion lifecycle cleanup. EU4 exposes no clear-school effect, so
+# an obsolete eastern display mirror is replaced with a transparent sentinel.
+# Keep the literal set here: nested scripted effects are not post-validated
+# reliably by EU4 1.37.5 on macOS. Authoritative flags/variables are then reset.
+country_event = {
+    id = zhx_doctrine.92
+    title = zhx_doctrine.90.t
+    desc = zhx_doctrine.90.d
+    picture = RELIGIOUS_CONVERSION_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        OR = {
+            AND = {
+                NOT = { zhx_is_lijiao_country = yes }
+                zhx_has_any_doctrine_flag = yes
+            }
+            AND = {
+                zhx_is_lijiao_country = yes
+                NOT = { zhx_has_any_doctrine_flag = yes }
+                has_religious_school = yes
+            }
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = { religion_group = eastern }
+            set_religious_school = {
+                group = eastern
+                school = zhx_no_doctrine_school
+            }
+        }
+        zhx_clear_doctrine_system = yes
+    }
+
+    option = { name = OK }
+}
+
+# Presentation-only compatibility event. The six literal school references
+# must stay directly in this loaded event so EU4 post-validates them. Doctrine
+# flags and practice variables remain the authoritative gameplay state.
+country_event = {
+    id = zhx_doctrine.91
+    title = zhx_doctrine.90.t
+    desc = zhx_doctrine.90.d
+    picture = RELIGIOUS_CONVERSION_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_lijiao_country = yes
+        OR = {
+            has_country_flag = zhx_doctrine_ru
+            has_country_flag = zhx_doctrine_fa
+            has_country_flag = zhx_doctrine_mo
+            has_country_flag = zhx_doctrine_dao
+            has_country_flag = zhx_doctrine_bing
+            has_country_flag = zhx_doctrine_zongheng
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            set_religious_school = {
+                group = eastern
+                school = zhx_ru_school
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            set_religious_school = {
+                group = eastern
+                school = zhx_fa_school
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            set_religious_school = {
+                group = eastern
+                school = zhx_mo_school
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            set_religious_school = {
+                group = eastern
+                school = zhx_dao_school
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            set_religious_school = {
+                group = eastern
+                school = zhx_bing_school
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            set_religious_school = {
+                group = eastern
+                school = zhx_zongheng_school
+            }
         }
     }
 

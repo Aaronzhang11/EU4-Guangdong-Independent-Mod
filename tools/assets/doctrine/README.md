@@ -16,14 +16,27 @@ characters so they remain distinct from country flags.
 
 The sources were generated with built-in ImageGen on a flat magenta key and
 converted to RGBA with the standard chroma-key helper. Rebuild and verify the
-64 px and 32 px RLE-TGA sprites with:
+64 px, 52 px native-school, and 32 px RLE-TGA sprites with:
 
 ```sh
 python3 tools/generate_doctrine_emblems.py
 python3 tools/generate_doctrine_emblems.py --check
 ```
 
-The registered sprite names are `GFX_zhx_doctrine_<key>` and
-`GFX_zhx_doctrine_<key>_small`. They are intentionally not bound to a specific
-GUI widget yet, so the next UI pass can use the same assets in the debate panel,
-country presentation, or a sect-style selector without duplicating textures.
+The generator requires Pillow; it is already listed in
+`tools/map_pipeline/requirements.txt`. The doctrine contract validator also
+checks the committed 52 px TGA headers and sprite bindings without importing
+Pillow, so missing or malformed runtime textures cannot pass silently.
+
+The registered sprite names are `GFX_zhx_doctrine_<key>`,
+`GFX_zhx_doctrine_<key>_school`, and `GFX_zhx_doctrine_<key>_small`. The 52 px
+variant is used by the native `religious_school` mirror, so the same emblem
+appears in the religion screen, foreign diplomacy header, and at the country's
+capital in religion map mode.
+The 64 px and 32 px variants remain available for the debate panel and compact
+country presentation without duplicating source artwork.
+
+The generator also writes a fully transparent 52 px
+`zhx_no_doctrine_school.tga`. EU4 1.37 has no scripted clear-school effect, so
+the religion-change lifecycle uses this sentinel to retire an obsolete eastern
+display mirror without showing a false doctrine emblem.

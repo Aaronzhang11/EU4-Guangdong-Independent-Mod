@@ -18,6 +18,9 @@ zhx_clear_doctrine_flags = {
     clr_country_flag = zhx_doctrine_ru
     clr_country_flag = zhx_doctrine_fa
     clr_country_flag = zhx_doctrine_mo
+    clr_country_flag = zhx_doctrine_dao
+    clr_country_flag = zhx_doctrine_bing
+    clr_country_flag = zhx_doctrine_zongheng
 }
 
 zhx_normalise_doctrine_flags = {
@@ -25,11 +28,47 @@ zhx_normalise_doctrine_flags = {
         limit = { has_country_flag = zhx_doctrine_ru }
         clr_country_flag = zhx_doctrine_fa
         clr_country_flag = zhx_doctrine_mo
+        clr_country_flag = zhx_doctrine_dao
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
     }
     else_if = {
         limit = { has_country_flag = zhx_doctrine_fa }
         clr_country_flag = zhx_doctrine_mo
+        clr_country_flag = zhx_doctrine_dao
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
     }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_mo }
+        clr_country_flag = zhx_doctrine_dao
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_dao }
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_bing }
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+}
+
+# Display-only mirror for the engine's diplomacy and religion-map school icons.
+# Doctrine flags remain authoritative. Keep the literal school references in a
+# directly loaded event: EU4 1.37.5 does not post-validate them reliably when
+# they are nested in this scripted effect.
+zhx_sync_native_doctrine_school = {
+    country_event = { id = zhx_doctrine.91 }
+}
+
+# The engine has no clear_religious_school effect. Dispatch a directly loaded
+# event which can replace an obsolete eastern mirror with the transparent
+# no-doctrine sentinel before clearing authoritative gameplay state.
+zhx_retire_doctrine_system = {
+    country_event = { id = zhx_doctrine.92 }
 }
 
 zhx_clamp_doctrine_practice = {
@@ -170,6 +209,7 @@ zhx_finish_doctrine_adoption = {
         name = zhx_doctrine_change_cooldown
         duration = 3650
     }
+    zhx_sync_native_doctrine_school = yes
     zhx_clamp_doctrine_practice = yes
     zhx_refresh_doctrine_tier = yes
 }
@@ -269,6 +309,7 @@ zhx_clear_doctrine_system = {
 
 zhx_yearly_doctrine_tick = {
     zhx_normalise_doctrine_flags = yes
+    zhx_sync_native_doctrine_school = yes
     if = {
         limit = {
             NOT = { has_country_flag = zhx_doctrine_practice_initialised }

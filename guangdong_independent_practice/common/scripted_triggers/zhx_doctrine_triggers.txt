@@ -12,3 +12,17 @@ zhx_has_doctrine = {
         has_country_flag = zhx_doctrine_mo
     }
 }
+
+# All six reserved doctrine flags. Only Ru, Fa and Mo are playable in the
+# current vertical slice; the broader trigger keeps conversion cleanup complete
+# as the other three schools come online.
+zhx_has_any_doctrine_flag = {
+    OR = {
+        has_country_flag = zhx_doctrine_ru
+        has_country_flag = zhx_doctrine_fa
+        has_country_flag = zhx_doctrine_mo
+        has_country_flag = zhx_doctrine_dao
+        has_country_flag = zhx_doctrine_bing
+        has_country_flag = zhx_doctrine_zongheng
+    }
+}
