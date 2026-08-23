@@ -298,15 +298,15 @@ COUNTRY_POLICY = {
 # not reliably override an inherited first-loaded value, so these complete
 # name/adjective families are generated in localisation/replace instead.
 COUNTRY_NAME_OVERRIDES = {
-    "CHC": ("楚公国", "楚"),
+    "CHC": ("楚", "楚"),
     "CZH": ("周天子", "周"),
     "KAM": ("康巴", "康巴"),
     "KSD": ("和硕特蒙古", "和硕特"),
-    "MIN": ("闽侯国", "闽侯"),
-    "QIN": ("秦公国", "秦"),
-    "SHU": ("蜀公国", "蜀"),
-    "WUU": ("吴公国", "吴"),
-    "YUE": ("越公国", "越"),
+    "MIN": ("闽", "闽"),
+    "QIN": ("秦", "秦"),
+    "SHU": ("蜀", "蜀"),
+    "WUU": ("吴", "吴"),
+    "YUE": ("越", "越"),
 }
 
 # Explicit non-culture terminal values retained by this transaction.  The

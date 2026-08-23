@@ -179,7 +179,7 @@
       "field": "plain_exact"
     },
     "NUN": {
-      "name": "侬国",
+      "name": "侬",
       "culture": "gdd_zhuang",
       "motif": "drum_spear",
       "bg": "285d52",
@@ -209,7 +209,7 @@
       "field": "plain"
     },
     "TZZ": {
-      "name": "田州寨",
+      "name": "田州",
       "culture": "gdd_zhuang",
       "motif": "mountain_fort",
       "bg": "4e6d35",

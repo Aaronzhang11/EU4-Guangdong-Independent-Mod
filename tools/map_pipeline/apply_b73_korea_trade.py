@@ -220,7 +220,7 @@ def update_companies(land: set[int]) -> dict[str, int]:
 def write_localisation() -> None:
     SOURCE.write_text(
         'l_english:\n'
-        ' korea:0 "朝鲜贸易区"\n'
+        ' korea:0 "朝鲜"\n'
         ' trade_company_korea:0 "朝鲜特许公司"\n'
         ' GDD_TRADE_COMPANY_KOREA:0 "朝鲜特许公司"\n',
         encoding="utf-8-sig",
@@ -313,7 +313,7 @@ def validate(land: set[int]) -> dict[str, object]:
         raise ValueError(f"Korean company contains zero-pixel provinces: {zero_pixel}")
     return {
         "node": KOREA_NODE,
-        "node_label": "朝鲜贸易区",
+        "node_label": "朝鲜",
         "company": KOREA_COMPANY,
         "company_label": "朝鲜特许公司",
         "land_provinces": sorted(land),

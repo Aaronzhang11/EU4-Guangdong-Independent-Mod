@@ -170,7 +170,7 @@
   },
   "validation": {
     "node": "korea",
-    "node_label": "朝鲜贸易区",
+    "node_label": "朝鲜",
     "company": "trade_company_korea",
     "company_label": "朝鲜特许公司",
     "land_provinces": [

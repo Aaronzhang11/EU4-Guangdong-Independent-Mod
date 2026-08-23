@@ -85,7 +85,7 @@ NODE_LABELS = {
     "canton": "百越",
     "huguang": "荆楚",
     "chengdu": "巴蜀",
-    "yungui": "滇夜郎",
+    "yungui": "夜郎",
     "xian": "秦陇",
     "zhongyuan": "河济",
     "beijing": "幽燕",
@@ -130,6 +130,12 @@ TRADE_COMPANY_BY_NODE = {
     "xian": "trade_company_xian",
     "zhongyuan": "trade_company_zhongyuan",
     "beijing": "trade_company_north_china",
+}
+
+# 夜郎的节点与特许公司均使用裸地名；其余地区继续保留能够区分
+# 地图区域和公司组织的后缀。
+TRADE_COMPANY_LABEL_OVERRIDES = {
+    "yungui": ("夜郎", "夜郎"),
 }
 
 EXTERNAL_COMPANY_BY_NODE = {
@@ -571,8 +577,11 @@ def write_localisation() -> None:
         # The raw company key labels the charter region in the map mode; the
         # GDD key names the actual trade-company organisation. Both consumers
         # must be localized or one of the two screens falls back to English.
-        lines.append(f' {company}:0 "{value}特许贸易区"')
-        lines.append(f' GDD_TRADE_COMPANY_{node.upper()}:0 "{value}贸易公司"')
+        company_region, company_name = TRADE_COMPANY_LABEL_OVERRIDES.get(
+            node, (f"{value}特许贸易区", f"{value}贸易公司")
+        )
+        lines.append(f' {company}:0 "{company_region}"')
+        lines.append(f' GDD_TRADE_COMPANY_{node.upper()}:0 "{company_name}"')
     SOURCE.write_text("\n".join(lines) + "\n", encoding="utf-8-sig")
     encoder = load_encoder()
     encoder.encode_file(SOURCE, TARGET)
@@ -679,10 +688,13 @@ def validate(mod_root: Path = MOD) -> dict[str, object]:
     source_text = source.read_text(encoding="utf-8-sig")
     for node, label in NODE_LABELS.items():
         company = TRADE_COMPANY_BY_NODE[node]
+        company_region, company_name = TRADE_COMPANY_LABEL_OVERRIDES.get(
+            node, (f"{label}特许贸易区", f"{label}贸易公司")
+        )
         required_lines = (
             f' {node}:0 "{label}"',
-            f' {company}:0 "{label}特许贸易区"',
-            f' GDD_TRADE_COMPANY_{node.upper()}:0 "{label}贸易公司"',
+            f' {company}:0 "{company_region}"',
+            f' GDD_TRADE_COMPANY_{node.upper()}:0 "{company_name}"',
         )
         missing_lines = [line for line in required_lines if line not in source_text]
         if missing_lines:
