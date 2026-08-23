@@ -1,82 +1,17 @@
-# International Hundred Schools state machine. The Tianzi is the sole state
-# anchor; member countries retain their own independent domestic doctrines.
+# Great Debate hooks layered on the shared Tianxia public-council kernel.
+# Domestic doctrine and province religion remain independent state layers.
 
 zhx_clear_tianxia_orthodoxy_flags = {
     clr_country_flag = zhx_tianxia_orthodoxy_ru
     clr_country_flag = zhx_tianxia_orthodoxy_fa
     clr_country_flag = zhx_tianxia_orthodoxy_mo
+    clr_country_flag = zhx_tianxia_orthodoxy_dao
+    clr_country_flag = zhx_tianxia_orthodoxy_bing
+    clr_country_flag = zhx_tianxia_orthodoxy_zongheng
     clr_country_flag = zhx_tianxia_orthodoxy_plural
 }
 
-zhx_clear_tianxia_debate_pair_flags = {
-    clr_country_flag = zhx_tianxia_debate_pair_ru_fa
-    clr_country_flag = zhx_tianxia_debate_pair_ru_mo
-    clr_country_flag = zhx_tianxia_debate_pair_fa_mo
-}
-
-zhx_clear_tianxia_debate_result_flags = {
-    clr_country_flag = zhx_tianxia_debate_result_a
-    clr_country_flag = zhx_tianxia_debate_result_b
-    clr_country_flag = zhx_tianxia_debate_result_plural
-}
-
-zhx_clear_current_tianxia_debate_vote = {
-    clr_country_flag = zhx_tianxia_debate_vote_a
-    clr_country_flag = zhx_tianxia_debate_vote_b
-    clr_country_flag = zhx_tianxia_debate_vote_plural
-}
-
-zhx_cast_tianxia_debate_vote_a = {
-    if = {
-        limit = { zhx_can_vote_in_tianxia_debate = yes }
-        zhx_clear_current_tianxia_debate_vote = yes
-        set_country_flag = zhx_tianxia_debate_vote_a
-        zhx_recount_tianxia_debate_ballot = yes
-    }
-}
-
-zhx_cast_tianxia_debate_vote_b = {
-    if = {
-        limit = { zhx_can_vote_in_tianxia_debate = yes }
-        zhx_clear_current_tianxia_debate_vote = yes
-        set_country_flag = zhx_tianxia_debate_vote_b
-        zhx_recount_tianxia_debate_ballot = yes
-    }
-}
-
-zhx_cast_tianxia_debate_vote_plural = {
-    if = {
-        limit = { zhx_can_vote_in_tianxia_debate = yes }
-        zhx_clear_current_tianxia_debate_vote = yes
-        set_country_flag = zhx_tianxia_debate_vote_plural
-        zhx_recount_tianxia_debate_ballot = yes
-    }
-}
-
-zhx_reset_tianxia_debate_ballot = {
-    set_variable = { which = zhx_tianxia_debate_a_count value = 0 }
-    set_variable = { which = zhx_tianxia_debate_b_count value = 0 }
-    set_variable = { which = zhx_tianxia_debate_plural_count value = 0 }
-    set_variable = { which = zhx_tianxia_debate_a_vs_b value = 0 }
-    set_variable = { which = zhx_tianxia_debate_a_vs_plural value = 0 }
-    set_variable = { which = zhx_tianxia_debate_b_vs_a value = 0 }
-    set_variable = { which = zhx_tianxia_debate_b_vs_plural value = 0 }
-    every_country = {
-        limit = {
-            OR = {
-                has_country_flag = zhx_tianxia_debate_vote_a
-                has_country_flag = zhx_tianxia_debate_vote_b
-                has_country_flag = zhx_tianxia_debate_vote_plural
-            }
-        }
-        zhx_clear_current_tianxia_debate_vote = yes
-    }
-}
-
-# Read-only, on-demand Six Schools proposal ledger. The viewing country owns
-# twelve display variables; no yearly or monthly pulse caches these values.
-# One scan counts all existing Tianxia Lijiao adopters, then records how many
-# have reached the 70-practice threshold used by formal proposal eligibility.
+# Read-only, on-demand Six Schools ledger. Nothing is cached on a pulse.
 zhx_refresh_tianxia_proposal_ledger = {
     set_variable = { which = zhx_tianxia_school_ru_total_count value = 0 }
     set_variable = { which = zhx_tianxia_school_fa_total_count value = 0 }
@@ -99,299 +34,142 @@ zhx_refresh_tianxia_proposal_ledger = {
         }
         if = {
             limit = { has_country_flag = zhx_doctrine_ru }
-            ROOT = {
-                change_variable = { which = zhx_tianxia_school_ru_total_count value = 1 }
-            }
+            ROOT = { change_variable = { which = zhx_tianxia_school_ru_total_count value = 1 } }
             if = {
                 limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
-                ROOT = {
-                    change_variable = { which = zhx_tianxia_proposal_ru_count value = 1 }
-                }
+                ROOT = { change_variable = { which = zhx_tianxia_proposal_ru_count value = 1 } }
             }
         }
         if = {
             limit = { has_country_flag = zhx_doctrine_fa }
-            ROOT = {
-                change_variable = { which = zhx_tianxia_school_fa_total_count value = 1 }
-            }
+            ROOT = { change_variable = { which = zhx_tianxia_school_fa_total_count value = 1 } }
             if = {
                 limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
-                ROOT = {
-                    change_variable = { which = zhx_tianxia_proposal_fa_count value = 1 }
-                }
+                ROOT = { change_variable = { which = zhx_tianxia_proposal_fa_count value = 1 } }
             }
         }
         if = {
             limit = { has_country_flag = zhx_doctrine_mo }
-            ROOT = {
-                change_variable = { which = zhx_tianxia_school_mo_total_count value = 1 }
-            }
+            ROOT = { change_variable = { which = zhx_tianxia_school_mo_total_count value = 1 } }
             if = {
                 limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
-                ROOT = {
-                    change_variable = { which = zhx_tianxia_proposal_mo_count value = 1 }
-                }
+                ROOT = { change_variable = { which = zhx_tianxia_proposal_mo_count value = 1 } }
             }
         }
         if = {
             limit = { has_country_flag = zhx_doctrine_dao }
-            ROOT = {
-                change_variable = { which = zhx_tianxia_school_dao_total_count value = 1 }
-            }
+            ROOT = { change_variable = { which = zhx_tianxia_school_dao_total_count value = 1 } }
             if = {
                 limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
-                ROOT = {
-                    change_variable = { which = zhx_tianxia_proposal_dao_count value = 1 }
-                }
+                ROOT = { change_variable = { which = zhx_tianxia_proposal_dao_count value = 1 } }
             }
         }
         if = {
             limit = { has_country_flag = zhx_doctrine_bing }
-            ROOT = {
-                change_variable = { which = zhx_tianxia_school_bing_total_count value = 1 }
-            }
+            ROOT = { change_variable = { which = zhx_tianxia_school_bing_total_count value = 1 } }
             if = {
                 limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
-                ROOT = {
-                    change_variable = { which = zhx_tianxia_proposal_bing_count value = 1 }
-                }
+                ROOT = { change_variable = { which = zhx_tianxia_proposal_bing_count value = 1 } }
             }
         }
         if = {
             limit = { has_country_flag = zhx_doctrine_zongheng }
-            ROOT = {
-                change_variable = { which = zhx_tianxia_school_zongheng_total_count value = 1 }
-            }
+            ROOT = { change_variable = { which = zhx_tianxia_school_zongheng_total_count value = 1 } }
             if = {
                 limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
-                ROOT = {
-                    change_variable = { which = zhx_tianxia_proposal_zongheng_count value = 1 }
-                }
+                ROOT = { change_variable = { which = zhx_tianxia_proposal_zongheng_count value = 1 } }
             }
         }
     }
 }
 
-zhx_begin_tianxia_debate = {
-    set_country_flag = zhx_tianxia_debate_active
-    zhx_clear_tianxia_debate_result_flags = yes
-    zhx_reset_tianxia_debate_ballot = yes
+# Prototype pair choices now populate generic A/B slots. The mature petition
+# layer may select any two of all six without adding pair-specific state.
+zhx_set_council_candidate_a_ru = { zhx_clear_tianxia_council_candidate_a = yes set_country_flag = zhx_council_candidate_a_ru }
+zhx_set_council_candidate_a_fa = { zhx_clear_tianxia_council_candidate_a = yes set_country_flag = zhx_council_candidate_a_fa }
+zhx_set_council_candidate_a_mo = { zhx_clear_tianxia_council_candidate_a = yes set_country_flag = zhx_council_candidate_a_mo }
+zhx_set_council_candidate_a_dao = { zhx_clear_tianxia_council_candidate_a = yes set_country_flag = zhx_council_candidate_a_dao }
+zhx_set_council_candidate_a_bing = { zhx_clear_tianxia_council_candidate_a = yes set_country_flag = zhx_council_candidate_a_bing }
+zhx_set_council_candidate_a_zongheng = { zhx_clear_tianxia_council_candidate_a = yes set_country_flag = zhx_council_candidate_a_zongheng }
+
+zhx_set_council_candidate_b_ru = { zhx_clear_tianxia_council_candidate_b = yes set_country_flag = zhx_council_candidate_b_ru }
+zhx_set_council_candidate_b_fa = { zhx_clear_tianxia_council_candidate_b = yes set_country_flag = zhx_council_candidate_b_fa }
+zhx_set_council_candidate_b_mo = { zhx_clear_tianxia_council_candidate_b = yes set_country_flag = zhx_council_candidate_b_mo }
+zhx_set_council_candidate_b_dao = { zhx_clear_tianxia_council_candidate_b = yes set_country_flag = zhx_council_candidate_b_dao }
+zhx_set_council_candidate_b_bing = { zhx_clear_tianxia_council_candidate_b = yes set_country_flag = zhx_council_candidate_b_bing }
+zhx_set_council_candidate_b_zongheng = { zhx_clear_tianxia_council_candidate_b = yes set_country_flag = zhx_council_candidate_b_zongheng }
+
+zhx_prepare_council_candidates_ru_fa = {
+    zhx_clear_tianxia_council_candidates = yes
+    zhx_set_council_candidate_a_ru = yes
+    zhx_set_council_candidate_b_fa = yes
+    zhx_begin_tianxia_debate_council = yes
 }
 
-zhx_begin_tianxia_debate_ru_fa = {
-    zhx_clear_tianxia_debate_pair_flags = yes
-    set_country_flag = zhx_tianxia_debate_pair_ru_fa
-    zhx_begin_tianxia_debate = yes
-    every_country = {
-        limit = { zhx_is_tianxia_polity = yes }
-        country_event = { id = zhx_debate.10 }
-    }
-    country_event = { id = zhx_debate.20 days = 365 }
+zhx_prepare_council_candidates_ru_mo = {
+    zhx_clear_tianxia_council_candidates = yes
+    zhx_set_council_candidate_a_ru = yes
+    zhx_set_council_candidate_b_mo = yes
+    zhx_begin_tianxia_debate_council = yes
 }
 
-zhx_begin_tianxia_debate_ru_mo = {
-    zhx_clear_tianxia_debate_pair_flags = yes
-    set_country_flag = zhx_tianxia_debate_pair_ru_mo
-    zhx_begin_tianxia_debate = yes
-    every_country = {
-        limit = { zhx_is_tianxia_polity = yes }
-        country_event = { id = zhx_debate.11 }
-    }
-    country_event = { id = zhx_debate.20 days = 365 }
+zhx_prepare_council_candidates_fa_mo = {
+    zhx_clear_tianxia_council_candidates = yes
+    zhx_set_council_candidate_a_fa = yes
+    zhx_set_council_candidate_b_mo = yes
+    zhx_begin_tianxia_debate_council = yes
 }
 
-zhx_begin_tianxia_debate_fa_mo = {
-    zhx_clear_tianxia_debate_pair_flags = yes
-    set_country_flag = zhx_tianxia_debate_pair_fa_mo
-    zhx_begin_tianxia_debate = yes
-    every_country = {
-        limit = { zhx_is_tianxia_polity = yes }
-        country_event = { id = zhx_debate.12 }
-    }
-    country_event = { id = zhx_debate.20 days = 365 }
+zhx_set_tianxia_orthodoxy_ru = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_ru }
+zhx_set_tianxia_orthodoxy_fa = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_fa }
+zhx_set_tianxia_orthodoxy_mo = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_mo }
+zhx_set_tianxia_orthodoxy_dao = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_dao }
+zhx_set_tianxia_orthodoxy_bing = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_bing }
+zhx_set_tianxia_orthodoxy_zongheng = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_zongheng }
+zhx_set_tianxia_orthodoxy_plural = { zhx_clear_tianxia_orthodoxy_flags = yes set_country_flag = zhx_tianxia_orthodoxy_plural }
+
+zhx_apply_council_candidate_a_as_orthodoxy = {
+    if = { limit = { has_country_flag = zhx_council_candidate_a_ru } zhx_set_tianxia_orthodoxy_ru = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_a_fa } zhx_set_tianxia_orthodoxy_fa = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_a_mo } zhx_set_tianxia_orthodoxy_mo = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_a_dao } zhx_set_tianxia_orthodoxy_dao = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_a_bing } zhx_set_tianxia_orthodoxy_bing = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_a_zongheng } zhx_set_tianxia_orthodoxy_zongheng = yes }
 }
 
-# Recount from country ballot flags after every ballot change and once more at
-# resolution. The saved Tianzi target owns every cached total, so this effect
-# is safe when called from either a voting country or the Tianzi event.
-zhx_recount_tianxia_debate_ballot = {
-    event_target:zhx_tianzi = {
-        set_variable = { which = zhx_tianxia_debate_a_count value = 0 }
-        set_variable = { which = zhx_tianxia_debate_b_count value = 0 }
-        set_variable = { which = zhx_tianxia_debate_plural_count value = 0 }
-    }
-
-    every_country = {
-        limit = {
-            exists = yes
-            zhx_is_tianxia_polity = yes
-            has_country_flag = zhx_tianxia_debate_vote_a
-        }
-        event_target:zhx_tianzi = {
-            change_variable = { which = zhx_tianxia_debate_a_count value = 1 }
-        }
-        if = {
-            limit = {
-                check_variable = { which = zhx_doctrine_practice value = 75 }
-                OR = {
-                    AND = {
-                        has_country_flag = zhx_doctrine_ru
-                        event_target:zhx_tianzi = {
-                            OR = {
-                                has_country_flag = zhx_tianxia_debate_pair_ru_fa
-                                has_country_flag = zhx_tianxia_debate_pair_ru_mo
-                            }
-                        }
-                    }
-                    AND = {
-                        has_country_flag = zhx_doctrine_fa
-                        event_target:zhx_tianzi = {
-                            has_country_flag = zhx_tianxia_debate_pair_fa_mo
-                        }
-                    }
-                }
-            }
-            event_target:zhx_tianzi = {
-                change_variable = { which = zhx_tianxia_debate_a_count value = 1 }
-            }
-        }
-    }
-
-    every_country = {
-        limit = {
-            exists = yes
-            zhx_is_tianxia_polity = yes
-            has_country_flag = zhx_tianxia_debate_vote_b
-        }
-        event_target:zhx_tianzi = {
-            change_variable = { which = zhx_tianxia_debate_b_count value = 1 }
-        }
-        if = {
-            limit = {
-                check_variable = { which = zhx_doctrine_practice value = 75 }
-                OR = {
-                    AND = {
-                        has_country_flag = zhx_doctrine_fa
-                        event_target:zhx_tianzi = {
-                            has_country_flag = zhx_tianxia_debate_pair_ru_fa
-                        }
-                    }
-                    AND = {
-                        has_country_flag = zhx_doctrine_mo
-                        event_target:zhx_tianzi = {
-                            OR = {
-                                has_country_flag = zhx_tianxia_debate_pair_ru_mo
-                                has_country_flag = zhx_tianxia_debate_pair_fa_mo
-                            }
-                        }
-                    }
-                }
-            }
-            event_target:zhx_tianzi = {
-                change_variable = { which = zhx_tianxia_debate_b_count value = 1 }
-            }
-        }
-    }
-
-    every_country = {
-        limit = {
-            exists = yes
-            zhx_is_tianxia_polity = yes
-            has_country_flag = zhx_tianxia_debate_vote_plural
-        }
-        event_target:zhx_tianzi = {
-            change_variable = { which = zhx_tianxia_debate_plural_count value = 1 }
-        }
-    }
-
-    event_target:zhx_tianzi = {
-        set_variable = {
-            which = zhx_tianxia_debate_a_vs_b
-            which = zhx_tianxia_debate_a_count
-        }
-        subtract_variable = {
-            which = zhx_tianxia_debate_a_vs_b
-            which = zhx_tianxia_debate_b_count
-        }
-        set_variable = {
-            which = zhx_tianxia_debate_a_vs_plural
-            which = zhx_tianxia_debate_a_count
-        }
-        subtract_variable = {
-            which = zhx_tianxia_debate_a_vs_plural
-            which = zhx_tianxia_debate_plural_count
-        }
-        set_variable = {
-            which = zhx_tianxia_debate_b_vs_a
-            which = zhx_tianxia_debate_b_count
-        }
-        subtract_variable = {
-            which = zhx_tianxia_debate_b_vs_a
-            which = zhx_tianxia_debate_a_count
-        }
-        set_variable = {
-            which = zhx_tianxia_debate_b_vs_plural
-            which = zhx_tianxia_debate_b_count
-        }
-        subtract_variable = {
-            which = zhx_tianxia_debate_b_vs_plural
-            which = zhx_tianxia_debate_plural_count
-        }
-    }
+zhx_apply_council_candidate_b_as_orthodoxy = {
+    if = { limit = { has_country_flag = zhx_council_candidate_b_ru } zhx_set_tianxia_orthodoxy_ru = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_b_fa } zhx_set_tianxia_orthodoxy_fa = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_b_mo } zhx_set_tianxia_orthodoxy_mo = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_b_dao } zhx_set_tianxia_orthodoxy_dao = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_b_bing } zhx_set_tianxia_orthodoxy_bing = yes }
+    else_if = { limit = { has_country_flag = zhx_council_candidate_b_zongheng } zhx_set_tianxia_orthodoxy_zongheng = yes }
 }
 
-zhx_set_tianxia_orthodoxy_ru = {
-    zhx_clear_tianxia_orthodoxy_flags = yes
-    set_country_flag = zhx_tianxia_orthodoxy_ru
-}
-
-zhx_set_tianxia_orthodoxy_fa = {
-    zhx_clear_tianxia_orthodoxy_flags = yes
-    set_country_flag = zhx_tianxia_orthodoxy_fa
-}
-
-zhx_set_tianxia_orthodoxy_mo = {
-    zhx_clear_tianxia_orthodoxy_flags = yes
-    set_country_flag = zhx_tianxia_orthodoxy_mo
-}
-
-zhx_set_tianxia_orthodoxy_plural = {
-    zhx_clear_tianxia_orthodoxy_flags = yes
-    set_country_flag = zhx_tianxia_orthodoxy_plural
-}
-
-# Candidate A or B must strictly exceed both alternatives. Any tie for first
-# resolves to pluralism instead of inventing a hidden Tianzi tie-break.
+# A or B must strictly lead both alternatives. Every tie for first becomes C,
+# the positive settlement that multiple schools remain legitimate.
 zhx_resolve_tianxia_debate = {
-    zhx_clear_tianxia_debate_result_flags = yes
+    zhx_clear_tianxia_council_results = yes
     if = {
         limit = {
-            check_variable = { which = zhx_tianxia_debate_a_vs_b value = 1 }
-            check_variable = { which = zhx_tianxia_debate_a_vs_plural value = 1 }
+            check_variable = { which = zhx_council_a_vs_b value = 1 }
+            check_variable = { which = zhx_council_a_vs_c value = 1 }
         }
-        set_country_flag = zhx_tianxia_debate_result_a
-        if = {
-            limit = { has_country_flag = zhx_tianxia_debate_pair_fa_mo }
-            zhx_set_tianxia_orthodoxy_fa = yes
-        }
-        else = { zhx_set_tianxia_orthodoxy_ru = yes }
+        set_country_flag = zhx_council_result_a
+        zhx_apply_council_candidate_a_as_orthodoxy = yes
         change_variable = { which = zhx_ritual_authority value = 5 }
     }
     else_if = {
         limit = {
-            check_variable = { which = zhx_tianxia_debate_b_vs_a value = 1 }
-            check_variable = { which = zhx_tianxia_debate_b_vs_plural value = 1 }
+            check_variable = { which = zhx_council_b_vs_a value = 1 }
+            check_variable = { which = zhx_council_b_vs_c value = 1 }
         }
-        set_country_flag = zhx_tianxia_debate_result_b
-        if = {
-            limit = { has_country_flag = zhx_tianxia_debate_pair_ru_fa }
-            zhx_set_tianxia_orthodoxy_fa = yes
-        }
-        else = { zhx_set_tianxia_orthodoxy_mo = yes }
+        set_country_flag = zhx_council_result_b
+        zhx_apply_council_candidate_b_as_orthodoxy = yes
         change_variable = { which = zhx_ritual_authority value = 5 }
     }
     else = {
-        set_country_flag = zhx_tianxia_debate_result_plural
+        set_country_flag = zhx_council_result_c
         zhx_set_tianxia_orthodoxy_plural = yes
         change_variable = { which = zhx_ritual_authority value = 2 }
     }
@@ -405,18 +183,8 @@ zhx_reward_tianxia_debate_alignment = {
             exists = yes
             zhx_is_tianxia_member = yes
             OR = {
-                AND = {
-                    event_target:zhx_tianzi = {
-                        has_country_flag = zhx_tianxia_debate_result_a
-                    }
-                    has_country_flag = zhx_tianxia_debate_vote_a
-                }
-                AND = {
-                    event_target:zhx_tianzi = {
-                        has_country_flag = zhx_tianxia_debate_result_b
-                    }
-                    has_country_flag = zhx_tianxia_debate_vote_b
-                }
+                AND = { ROOT = { has_country_flag = zhx_council_result_a } has_country_flag = zhx_council_vote_a }
+                AND = { ROOT = { has_country_flag = zhx_council_result_b } has_country_flag = zhx_council_vote_b }
             }
         }
         change_variable = { which = zhx_merit value = 2 }
@@ -426,10 +194,8 @@ zhx_reward_tianxia_debate_alignment = {
         limit = {
             exists = yes
             zhx_is_tianxia_member = yes
-            has_country_flag = zhx_tianxia_debate_vote_plural
-            event_target:zhx_tianzi = {
-                has_country_flag = zhx_tianxia_debate_result_plural
-            }
+            ROOT = { has_country_flag = zhx_council_result_c }
+            has_country_flag = zhx_council_vote_c
         }
         change_variable = { which = zhx_merit value = 1 }
         zhx_clamp_merit = yes
@@ -438,20 +204,9 @@ zhx_reward_tianxia_debate_alignment = {
 
 zhx_finish_tianxia_debate = {
     zhx_reward_tianxia_debate_alignment = yes
-    clr_country_flag = zhx_tianxia_debate_active
     add_country_modifier = {
         name = zhx_tianxia_debate_cooldown
         duration = 5475
     }
-    zhx_clear_tianxia_debate_pair_flags = yes
-    zhx_clear_tianxia_debate_result_flags = yes
-    zhx_reset_tianxia_debate_ballot = yes
-}
-
-zhx_initialise_tianxia_debate = {
-    clr_country_flag = zhx_tianxia_debate_active
-    zhx_clear_tianxia_debate_pair_flags = yes
-    zhx_clear_tianxia_debate_result_flags = yes
-    zhx_reset_tianxia_debate_ballot = yes
-    set_global_flag = zhx_tianxia_debate_initialised_v1
+    zhx_finish_tianxia_council = yes
 }

@@ -964,18 +964,18 @@ guiTypes = {
 
 			# Lower-left panel: incident status and explanation.
 			instantTextBoxType = {
-				name = "zhx_gui_incident_header"
+				name = "zhx_gui_council_header"
 				position = { x = 95 y = 302 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 0 }
-				text = "ZHX_GUI_INCIDENT_HEADER"
+				text = "ZHX_GUI_COUNCIL_HEADER"
 				maxWidth = 358
 				maxHeight = 32
 				format = centre
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_active"
+				name = "zhx_gui_council_ritual"
 				position = { x = 95 y = 338 }
 				font = "vic_22"
 				text = ""
@@ -986,7 +986,7 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_none"
+				name = "zhx_gui_council_idle"
 				position = { x = 95 y = 338 }
 				font = "vic_22"
 				text = ""
@@ -997,7 +997,20 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_active_description"
+				name = "zhx_gui_council_ritual_description"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				borderSize = { x = 5 y = 5 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 30
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_idle_description"
 				position = { x = 82 y = 370 }
 				font = "vic_18"
 				borderSize = { x = 5 y = 5 }
@@ -1010,26 +1023,13 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_none_description"
-				position = { x = 82 y = 370 }
-				font = "vic_18"
-				borderSize = { x = 5 y = 5 }
-				text = ""
-				maxWidth = 384
-				maxHeight = 60
-				format = centre
-				fixedsize = yes
-				scripted = yes
-			}
-
-			instantTextBoxType = {
-				name = "zhx_gui_incident_footer"
-				position = { x = 82 y = 446 }
+				name = "zhx_gui_council_footer"
+				position = { x = 82 y = 480 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 4 }
-				text = "ZHX_GUI_INCIDENT_FOOTER"
+				text = "ZHX_GUI_COUNCIL_FOOTER"
 				maxWidth = 384
-				maxHeight = 28
+				maxHeight = 22
 				format = centre
 				fixedsize = yes
 			}
@@ -1093,6 +1093,39 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_dao"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_bing"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_zongheng"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
 				name = "zhx_gui_debate_orthodoxy_plural"
 				position = { x = 514 y = 331 }
 				font = "vic_22"
@@ -1104,8 +1137,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_status_active_ru_fa"
-				position = { x = 514 y = 365 }
+				name = "zhx_gui_council_debate_ru_fa"
+				position = { x = 82 y = 338 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 4 }
 				text = ""
@@ -1117,8 +1150,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_status_active_ru_mo"
-				position = { x = 514 y = 365 }
+				name = "zhx_gui_council_debate_ru_mo"
+				position = { x = 82 y = 338 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 4 }
 				text = ""
@@ -1130,8 +1163,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_status_active_fa_mo"
-				position = { x = 514 y = 365 }
+				name = "zhx_gui_council_debate_fa_mo"
+				position = { x = 82 y = 338 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 4 }
 				text = ""
@@ -1182,8 +1215,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_live_counts_ru_fa"
-				position = { x = 514 y = 397 }
+				name = "zhx_gui_council_counts_ru_fa"
+				position = { x = 82 y = 370 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1193,8 +1226,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_live_counts_ru_mo"
-				position = { x = 514 y = 397 }
+				name = "zhx_gui_council_counts_ru_mo"
+				position = { x = 82 y = 370 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1204,8 +1237,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_live_counts_fa_mo"
-				position = { x = 514 y = 397 }
+				name = "zhx_gui_council_counts_fa_mo"
+				position = { x = 82 y = 370 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1228,8 +1261,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_vote_none"
-				position = { x = 514 y = 421 }
+				name = "zhx_gui_council_vote_none"
+				position = { x = 82 y = 407 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1239,8 +1272,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_vote_ru"
-				position = { x = 514 y = 421 }
+				name = "zhx_gui_council_vote_ru"
+				position = { x = 82 y = 407 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1250,8 +1283,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_vote_fa"
-				position = { x = 514 y = 421 }
+				name = "zhx_gui_council_vote_fa"
+				position = { x = 82 y = 407 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1261,8 +1294,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_vote_mo"
-				position = { x = 514 y = 421 }
+				name = "zhx_gui_council_vote_mo"
+				position = { x = 82 y = 407 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1272,8 +1305,8 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_vote_plural"
-				position = { x = 514 y = 421 }
+				name = "zhx_gui_council_vote_plural"
+				position = { x = 82 y = 407 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1283,8 +1316,41 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_debate_vote_observer"
-				position = { x = 514 y = 421 }
+				name = "zhx_gui_council_vote_support"
+				position = { x = 82 y = 407 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_oppose"
+				position = { x = 82 y = 407 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_abstain"
+				position = { x = 82 y = 407 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_observer"
+				position = { x = 82 y = 407 }
 				font = "vic_18"
 				text = ""
 				maxWidth = 384
@@ -1330,8 +1396,8 @@ guiTypes = {
 			# Pair-specific buttons overlap by design; custom_gui potentials expose
 			# exactly one first candidate, one second candidate and plurality.
 			guiButtonType = {
-				name = "zhx_gui_debate_vote_ru_a_button"
-				position = { x = 534 y = 449 }
+				name = "zhx_gui_council_vote_ru_a_button"
+				position = { x = 102 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
 				buttonText = "ZHX_GUI_DEBATE_VOTE_RU_BUTTON"
 				buttonFont = "vic_18"
@@ -1340,8 +1406,8 @@ guiTypes = {
 			}
 
 			guiButtonType = {
-				name = "zhx_gui_debate_vote_fa_a_button"
-				position = { x = 534 y = 449 }
+				name = "zhx_gui_council_vote_fa_a_button"
+				position = { x = 102 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
 				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
 				buttonFont = "vic_18"
@@ -1350,8 +1416,8 @@ guiTypes = {
 			}
 
 			guiButtonType = {
-				name = "zhx_gui_debate_vote_fa_b_button"
-				position = { x = 653 y = 449 }
+				name = "zhx_gui_council_vote_fa_b_button"
+				position = { x = 221 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
 				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
 				buttonFont = "vic_18"
@@ -1360,8 +1426,8 @@ guiTypes = {
 			}
 
 			guiButtonType = {
-				name = "zhx_gui_debate_vote_mo_b_button"
-				position = { x = 653 y = 449 }
+				name = "zhx_gui_council_vote_mo_b_button"
+				position = { x = 221 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
 				buttonText = "ZHX_GUI_DEBATE_VOTE_MO_BUTTON"
 				buttonFont = "vic_18"
@@ -1370,10 +1436,40 @@ guiTypes = {
 			}
 
 			guiButtonType = {
-				name = "zhx_gui_debate_vote_plural_button"
-				position = { x = 772 y = 449 }
+				name = "zhx_gui_council_vote_plural_button"
+				position = { x = 340 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
 				buttonText = "ZHX_GUI_DEBATE_VOTE_PLURAL_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_support_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_SUPPORT_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_oppose_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_OPPOSE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_abstain_button"
+				position = { x = 340 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_ABSTAIN_BUTTON"
 				buttonFont = "vic_18"
 				clicksound = decision
 				scripted = yes

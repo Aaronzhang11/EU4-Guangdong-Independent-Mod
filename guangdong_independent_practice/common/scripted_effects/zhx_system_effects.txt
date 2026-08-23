@@ -381,153 +381,8 @@ zhx_reward_external_war_victory = {
     zhx_refresh_ritual_order = yes
 }
 
-# 清除 ROOT 的旧票，并同步修正天子侧的展示计数。
-# 所有投票入口都先调用它，因而同一诸侯改票时不会制造重复票。
-zhx_clear_current_ritual_breakdown_vote = {
-    if = {
-        limit = { has_country_flag = zhx_incident_vote_support }
-        event_target:zhx_tianzi = {
-            change_variable = {
-                which = zhx_incident_support_count
-                value = -1
-            }
-        }
-    }
-    if = {
-        limit = { has_country_flag = zhx_incident_vote_oppose }
-        event_target:zhx_tianzi = {
-            change_variable = {
-                which = zhx_incident_oppose_count
-                value = -1
-            }
-        }
-    }
-    clr_country_flag = zhx_incident_vote_support
-    clr_country_flag = zhx_incident_vote_oppose
-    clr_country_flag = zhx_incident_vote_abstain
-    # 兼容旧版事变留下的旗标。
-    clr_country_flag = zhx_incident_supporter
-}
-
-zhx_cast_ritual_breakdown_support_vote = {
-    zhx_clear_current_ritual_breakdown_vote = yes
-    set_country_flag = zhx_incident_vote_support
-    event_target:zhx_tianzi = {
-        change_variable = {
-            which = zhx_incident_support_count
-            value = 1
-        }
-    }
-}
-
-zhx_cast_ritual_breakdown_oppose_vote = {
-    zhx_clear_current_ritual_breakdown_vote = yes
-    set_country_flag = zhx_incident_vote_oppose
-    event_target:zhx_tianzi = {
-        change_variable = {
-            which = zhx_incident_oppose_count
-            value = 1
-        }
-    }
-}
-
-zhx_cast_ritual_breakdown_abstain_vote = {
-    zhx_clear_current_ritual_breakdown_vote = yes
-    set_country_flag = zhx_incident_vote_abstain
-}
-
-# 开始或迁移事变时的硬重置。计数是 GUI 缓存，成员国家上的票旗标才是真源。
-zhx_reset_ritual_breakdown_incident_votes = {
-    set_variable = {
-        which = zhx_incident_support_count
-        value = 0
-    }
-    set_variable = {
-        which = zhx_incident_oppose_count
-        value = 0
-    }
-    set_variable = {
-        which = zhx_incident_vote_balance
-        value = 0
-    }
-    every_country = {
-        limit = {
-            OR = {
-                has_country_flag = zhx_incident_vote_support
-                has_country_flag = zhx_incident_vote_oppose
-                has_country_flag = zhx_incident_vote_abstain
-                has_country_flag = zhx_incident_supporter
-            }
-        }
-        clr_country_flag = zhx_incident_vote_support
-        clr_country_flag = zhx_incident_vote_oppose
-        clr_country_flag = zhx_incident_vote_abstain
-        clr_country_flag = zhx_incident_supporter
-    }
-}
-
-# 结算前按“仍是成员且仍然存在”的国家重新点票。
-# vote_balance = 赞同票 - 反对票；至少为 1 才表示赞同方严格胜出。
-zhx_recount_ritual_breakdown_incident_votes = {
-    set_variable = {
-        which = zhx_incident_support_count
-        value = 0
-    }
-    set_variable = {
-        which = zhx_incident_oppose_count
-        value = 0
-    }
-    set_variable = {
-        which = zhx_incident_vote_balance
-        value = 0
-    }
-
-    every_country = {
-        limit = {
-            exists = yes
-            zhx_is_tianxia_member = yes
-            has_country_flag = zhx_incident_vote_support
-        }
-        event_target:zhx_tianzi = {
-            change_variable = {
-                which = zhx_incident_support_count
-                value = 1
-            }
-            change_variable = {
-                which = zhx_incident_vote_balance
-                value = 1
-            }
-        }
-    }
-    every_country = {
-        limit = {
-            exists = yes
-            zhx_is_tianxia_member = yes
-            has_country_flag = zhx_incident_vote_oppose
-        }
-        event_target:zhx_tianzi = {
-            change_variable = {
-                which = zhx_incident_oppose_count
-                value = 1
-            }
-            change_variable = {
-                which = zhx_incident_vote_balance
-                value = -1
-            }
-        }
-    }
-}
-
-# 两种结果共享同一个收尾入口：先结束活动状态，再启动五年同类事变冷却，
-# 最后清除所有票旗标及展示缓存。已经排入队列的重复结算事件会因 trigger 失败而无效。
-zhx_finish_ritual_breakdown_incident = {
-    clr_country_flag = zhx_ritual_breakdown_incident_active
-    add_country_modifier = {
-        name = zhx_ritual_breakdown_incident_cooldown
-        duration = 1825
-    }
-    zhx_reset_ritual_breakdown_incident_votes = yes
-}
+# 天下事变与天下大辩的票盘、改票、重点和收尾均由
+# zhx_council_effects.txt 的唯一公共内核负责。
 
 # 礼乐值的低频年度结算，只在天子作用域中每年执行一次。
 # 第一版使用少量、整数且便于玩家理解的因素；专属战争目标暂不产生额外影响。
@@ -662,7 +517,8 @@ zhx_yearly_ritual_authority_tick = {
     zhx_clamp_ritual_authority = yes
     zhx_refresh_ritual_order = yes
 
-    # 礼乐值跌破 -50，且当前没有正在进行或处于冷却期的同类事变时，触发“王命不行”。
+    # 礼乐值跌破 -50 时登记“王命不行”。若另一项公议正在进行，事变
+    # 进入待办而不是另开第二套票盘；当前公议结束后再启动。
     if = {
         limit = {
             NOT = {
@@ -671,10 +527,13 @@ zhx_yearly_ritual_authority_tick = {
                     value = -50
                 }
             }
-            NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
             NOT = { has_country_modifier = zhx_ritual_breakdown_incident_cooldown }
         }
-        country_event = { id = zhx_system.20 }
+        if = {
+            limit = { zhx_tianxia_council_is_busy = yes }
+            set_country_flag = zhx_council_pending_ritual_breakdown
+        }
+        else = { country_event = { id = zhx_system.20 } }
     }
 }
 
@@ -723,12 +582,18 @@ zhx_remove_tianxia_member = {
     if = {
         limit = {
             OR = {
-                has_country_flag = zhx_incident_vote_support
-                has_country_flag = zhx_incident_vote_oppose
-                has_country_flag = zhx_incident_vote_abstain
+                has_country_flag = zhx_council_vote_a
+                has_country_flag = zhx_council_vote_b
+                has_country_flag = zhx_council_vote_c
             }
         }
-        zhx_clear_current_ritual_breakdown_vote = yes
+        zhx_clear_current_tianxia_council_vote = yes
+        event_target:zhx_tianzi = {
+            if = {
+                limit = { has_country_flag = zhx_council_phase_ballot_open }
+                zhx_recount_tianxia_council_ballot = yes
+            }
+        }
     }
     if = {
         limit = {
@@ -743,7 +608,6 @@ zhx_remove_tianxia_member = {
     }
     clr_country_flag = zhx_member
     clr_country_flag = zhx_major_feudatory
-    clr_country_flag = zhx_incident_supporter
     set_variable = {
         which = zhx_merit
         value = 0
@@ -789,10 +653,9 @@ zhx_migrate_tianxia_system_v2_to_v3 = {
             which = zhx_ritual_authority
             value = 50
         }
-        set_variable = {
-            which = zhx_incident_support_count
-            value = 0
-        }
+        set_variable = { which = zhx_council_vote_a_count value = 0 }
+        set_variable = { which = zhx_council_vote_b_count value = 0 }
+        set_variable = { which = zhx_council_vote_c_count value = 0 }
     }
 
     every_country = {
@@ -856,14 +719,12 @@ zhx_migrate_tianxia_system_v4_to_v5 = {
     set_global_flag = zhx_system_initialised_v5
 }
 
-# v6 把旧版“立即投票、30 天结算”的事变迁移为一年期公议。
-# 旧版已经排队的结算事件无法从队列中删除，因此先关闭活动旗标；
-# 它日后触发时会因事件 trigger 不成立而自动失效。
+# v6 establishes the single public-council kernel. This project targets fresh
+# campaigns, so no parallel legacy ballot is retained.
 zhx_migrate_tianxia_system_v5_to_v6 = {
     CZH = {
-        clr_country_flag = zhx_ritual_breakdown_incident_active
         remove_country_modifier = zhx_ritual_breakdown_incident_cooldown
-        zhx_reset_ritual_breakdown_incident_votes = yes
+        zhx_initialise_tianxia_council = yes
     }
     set_global_flag = zhx_system_initialised_v6
 }
@@ -883,18 +744,9 @@ zhx_initialise_tianxia_system = {
             which = zhx_member_count_cache
             value = 0
         }
-        set_variable = {
-            which = zhx_incident_support_count
-            value = 0
-        }
-        set_variable = {
-            which = zhx_incident_oppose_count
-            value = 0
-        }
-        set_variable = {
-            which = zhx_incident_vote_balance
-            value = 0
-        }
+        set_variable = { which = zhx_council_vote_a_count value = 0 }
+        set_variable = { which = zhx_council_vote_b_count value = 0 }
+        set_variable = { which = zhx_council_vote_c_count value = 0 }
     }
 
     # 这是最小内核唯一的一次全世界扫描：只在开局执行，随后把身份保存为各国旗标。

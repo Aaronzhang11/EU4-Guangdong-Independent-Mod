@@ -197,9 +197,10 @@ country_decisions = {
             ai = no
             has_global_flag = zhx_system_initialised_v6
             zhx_is_tianxia_member = yes
-            NOT = { has_country_flag = zhx_incident_vote_support }
+            NOT = { has_country_flag = zhx_council_vote_a }
             event_target:zhx_tianzi = {
-                has_country_flag = zhx_ritual_breakdown_incident_active
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_kind_ritual_breakdown
             }
         }
 
@@ -208,7 +209,7 @@ country_decisions = {
         effect = {
             custom_tooltip = zhx_system.21.a.tt
             hidden_effect = {
-                zhx_cast_ritual_breakdown_support_vote = yes
+                zhx_cast_tianxia_council_vote_a = yes
             }
         }
 
@@ -222,9 +223,10 @@ country_decisions = {
             ai = no
             has_global_flag = zhx_system_initialised_v6
             zhx_is_tianxia_member = yes
-            NOT = { has_country_flag = zhx_incident_vote_oppose }
+            NOT = { has_country_flag = zhx_council_vote_b }
             event_target:zhx_tianzi = {
-                has_country_flag = zhx_ritual_breakdown_incident_active
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_kind_ritual_breakdown
             }
         }
 
@@ -233,7 +235,7 @@ country_decisions = {
         effect = {
             custom_tooltip = zhx_system.21.c.tt
             hidden_effect = {
-                zhx_cast_ritual_breakdown_oppose_vote = yes
+                zhx_cast_tianxia_council_vote_b = yes
             }
         }
 
@@ -247,9 +249,10 @@ country_decisions = {
             ai = no
             has_global_flag = zhx_system_initialised_v6
             zhx_is_tianxia_member = yes
-            NOT = { has_country_flag = zhx_incident_vote_abstain }
+            NOT = { has_country_flag = zhx_council_vote_c }
             event_target:zhx_tianzi = {
-                has_country_flag = zhx_ritual_breakdown_incident_active
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_kind_ritual_breakdown
             }
         }
 
@@ -258,7 +261,7 @@ country_decisions = {
         effect = {
             custom_tooltip = zhx_system.21.b.tt
             hidden_effect = {
-                zhx_cast_ritual_breakdown_abstain_vote = yes
+                zhx_cast_tianxia_council_vote_c = yes
             }
         }
 

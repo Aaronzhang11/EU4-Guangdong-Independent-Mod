@@ -3,7 +3,7 @@ country_decisions = {
         major = no
 
         potential = {
-            has_global_flag = zhx_tianxia_debate_initialised_v1
+            has_global_flag = zhx_council_initialised_v1
             zhx_is_tianxia_polity = yes
         }
 

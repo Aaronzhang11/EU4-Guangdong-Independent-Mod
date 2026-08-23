@@ -1,0 +1,98 @@
+# Shared eligibility and invariant checks for every Tianxia public council.
+# The Tianzi owns the phase, issue and candidate flags; each polity owns only
+# its current A/B/C ballot and the frozen exemplary-practice bonus.
+
+zhx_tianxia_council_is_busy = {
+    has_saved_global_event_target = zhx_tianzi
+    event_target:zhx_tianzi = {
+        OR = {
+            has_country_flag = zhx_council_phase_preparing
+            has_country_flag = zhx_council_phase_ballot_open
+            has_country_flag = zhx_council_phase_resolving
+        }
+    }
+}
+
+zhx_can_vote_in_tianxia_council = {
+    exists = yes
+    has_saved_global_event_target = zhx_tianzi
+    event_target:zhx_tianzi = {
+        has_country_flag = zhx_council_phase_ballot_open
+        OR = {
+            AND = {
+                has_country_flag = zhx_council_kind_ritual_breakdown
+                ROOT = { zhx_is_tianxia_member = yes }
+            }
+            AND = {
+                has_country_flag = zhx_council_kind_debate
+                ROOT = { zhx_is_tianxia_polity = yes }
+            }
+        }
+    }
+}
+
+zhx_council_vote_matches_candidate_a = {
+    OR = {
+        AND = { has_country_flag = zhx_doctrine_ru event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_ru } }
+        AND = { has_country_flag = zhx_doctrine_fa event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_fa } }
+        AND = { has_country_flag = zhx_doctrine_mo event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_mo } }
+        AND = { has_country_flag = zhx_doctrine_dao event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_dao } }
+        AND = { has_country_flag = zhx_doctrine_bing event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_bing } }
+        AND = { has_country_flag = zhx_doctrine_zongheng event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_zongheng } }
+    }
+}
+
+zhx_council_vote_matches_candidate_b = {
+    OR = {
+        AND = { has_country_flag = zhx_doctrine_ru event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_ru } }
+        AND = { has_country_flag = zhx_doctrine_fa event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_fa } }
+        AND = { has_country_flag = zhx_doctrine_mo event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_mo } }
+        AND = { has_country_flag = zhx_doctrine_dao event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_dao } }
+        AND = { has_country_flag = zhx_doctrine_bing event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_bing } }
+        AND = { has_country_flag = zhx_doctrine_zongheng event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_zongheng } }
+    }
+}
+
+# Exactly one A candidate and one different B candidate must be present.
+zhx_council_has_valid_candidates = {
+    OR = {
+        AND = {
+            has_country_flag = zhx_council_candidate_a_ru
+            NOT = { OR = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_a_mo has_country_flag = zhx_council_candidate_a_dao has_country_flag = zhx_council_candidate_a_bing has_country_flag = zhx_council_candidate_a_zongheng } }
+            NOT = { has_country_flag = zhx_council_candidate_b_ru }
+        }
+        AND = {
+            has_country_flag = zhx_council_candidate_a_fa
+            NOT = { OR = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_a_mo has_country_flag = zhx_council_candidate_a_dao has_country_flag = zhx_council_candidate_a_bing has_country_flag = zhx_council_candidate_a_zongheng } }
+            NOT = { has_country_flag = zhx_council_candidate_b_fa }
+        }
+        AND = {
+            has_country_flag = zhx_council_candidate_a_mo
+            NOT = { OR = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_a_dao has_country_flag = zhx_council_candidate_a_bing has_country_flag = zhx_council_candidate_a_zongheng } }
+            NOT = { has_country_flag = zhx_council_candidate_b_mo }
+        }
+        AND = {
+            has_country_flag = zhx_council_candidate_a_dao
+            NOT = { OR = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_a_mo has_country_flag = zhx_council_candidate_a_bing has_country_flag = zhx_council_candidate_a_zongheng } }
+            NOT = { has_country_flag = zhx_council_candidate_b_dao }
+        }
+        AND = {
+            has_country_flag = zhx_council_candidate_a_bing
+            NOT = { OR = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_a_mo has_country_flag = zhx_council_candidate_a_dao has_country_flag = zhx_council_candidate_a_zongheng } }
+            NOT = { has_country_flag = zhx_council_candidate_b_bing }
+        }
+        AND = {
+            has_country_flag = zhx_council_candidate_a_zongheng
+            NOT = { OR = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_a_mo has_country_flag = zhx_council_candidate_a_dao has_country_flag = zhx_council_candidate_a_bing } }
+            NOT = { has_country_flag = zhx_council_candidate_b_zongheng }
+        }
+    }
+    OR = {
+        AND = { has_country_flag = zhx_council_candidate_b_ru NOT = { OR = { has_country_flag = zhx_council_candidate_b_fa has_country_flag = zhx_council_candidate_b_mo has_country_flag = zhx_council_candidate_b_dao has_country_flag = zhx_council_candidate_b_bing has_country_flag = zhx_council_candidate_b_zongheng } } }
+        AND = { has_country_flag = zhx_council_candidate_b_fa NOT = { OR = { has_country_flag = zhx_council_candidate_b_ru has_country_flag = zhx_council_candidate_b_mo has_country_flag = zhx_council_candidate_b_dao has_country_flag = zhx_council_candidate_b_bing has_country_flag = zhx_council_candidate_b_zongheng } } }
+        AND = { has_country_flag = zhx_council_candidate_b_mo NOT = { OR = { has_country_flag = zhx_council_candidate_b_ru has_country_flag = zhx_council_candidate_b_fa has_country_flag = zhx_council_candidate_b_dao has_country_flag = zhx_council_candidate_b_bing has_country_flag = zhx_council_candidate_b_zongheng } } }
+        AND = { has_country_flag = zhx_council_candidate_b_dao NOT = { OR = { has_country_flag = zhx_council_candidate_b_ru has_country_flag = zhx_council_candidate_b_fa has_country_flag = zhx_council_candidate_b_mo has_country_flag = zhx_council_candidate_b_bing has_country_flag = zhx_council_candidate_b_zongheng } } }
+        AND = { has_country_flag = zhx_council_candidate_b_bing NOT = { OR = { has_country_flag = zhx_council_candidate_b_ru has_country_flag = zhx_council_candidate_b_fa has_country_flag = zhx_council_candidate_b_mo has_country_flag = zhx_council_candidate_b_dao has_country_flag = zhx_council_candidate_b_zongheng } } }
+        AND = { has_country_flag = zhx_council_candidate_b_zongheng NOT = { OR = { has_country_flag = zhx_council_candidate_b_ru has_country_flag = zhx_council_candidate_b_fa has_country_flag = zhx_council_candidate_b_mo has_country_flag = zhx_council_candidate_b_dao has_country_flag = zhx_council_candidate_b_bing } } }
+    }
+}

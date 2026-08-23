@@ -579,41 +579,46 @@ custom_text_box = {
 }
 
 custom_text_box = {
-    name = zhx_gui_incident_active
+    name = zhx_gui_council_ritual
     potential = {
-        has_global_flag = zhx_system_initialised_v3
-        CZH = { has_country_flag = zhx_ritual_breakdown_incident_active }
-    }
-    tooltip = zhx_gui_incident_tt
-}
-
-custom_text_box = {
-    name = zhx_gui_incident_none
-    potential = {
-        has_global_flag = zhx_system_initialised_v3
-        CZH = {
-            NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        has_global_flag = zhx_council_initialised_v1
+        event_target:zhx_tianzi = {
+            has_country_flag = zhx_council_kind_ritual_breakdown
+            OR = {
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_phase_resolving
+            }
         }
     }
     tooltip = zhx_gui_incident_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_incident_active_description
+    name = zhx_gui_council_idle
     potential = {
-        has_global_flag = zhx_system_initialised_v6
-        CZH = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        has_global_flag = zhx_council_initialised_v1
+        NOT = { zhx_tianxia_council_is_busy = yes }
     }
     tooltip = zhx_gui_incident_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_incident_none_description
+    name = zhx_gui_council_ritual_description
     potential = {
-        has_global_flag = zhx_system_initialised_v6
-        CZH = {
-            NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        has_global_flag = zhx_council_initialised_v1
+        event_target:zhx_tianzi = {
+            has_country_flag = zhx_council_kind_ritual_breakdown
+            has_country_flag = zhx_council_phase_ballot_open
         }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_council_idle_description
+    potential = {
+        has_global_flag = zhx_council_initialised_v1
+        NOT = { zhx_tianxia_council_is_busy = yes }
     }
     tooltip = zhx_gui_incident_tt
 }
@@ -621,13 +626,16 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_orthodoxy_none
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
             NOT = {
                 OR = {
                     has_country_flag = zhx_tianxia_orthodoxy_ru
                     has_country_flag = zhx_tianxia_orthodoxy_fa
                     has_country_flag = zhx_tianxia_orthodoxy_mo
+                    has_country_flag = zhx_tianxia_orthodoxy_dao
+                    has_country_flag = zhx_tianxia_orthodoxy_bing
+                    has_country_flag = zhx_tianxia_orthodoxy_zongheng
                     has_country_flag = zhx_tianxia_orthodoxy_plural
                 }
             }
@@ -639,7 +647,7 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_orthodoxy_ru
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_ru }
     }
     tooltip = zhx_gui_debate_tt
@@ -648,7 +656,7 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_orthodoxy_fa
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_fa }
     }
     tooltip = zhx_gui_debate_tt
@@ -657,8 +665,35 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_orthodoxy_mo
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_mo }
+    }
+    tooltip = zhx_gui_debate_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_debate_orthodoxy_dao
+    potential = {
+        has_global_flag = zhx_council_initialised_v1
+        event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_dao }
+    }
+    tooltip = zhx_gui_debate_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_debate_orthodoxy_bing
+    potential = {
+        has_global_flag = zhx_council_initialised_v1
+        event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_bing }
+    }
+    tooltip = zhx_gui_debate_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_debate_orthodoxy_zongheng
+    potential = {
+        has_global_flag = zhx_council_initialised_v1
+        event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_zongheng }
     }
     tooltip = zhx_gui_debate_tt
 }
@@ -666,43 +701,43 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_orthodoxy_plural
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = { has_country_flag = zhx_tianxia_orthodoxy_plural }
     }
     tooltip = zhx_gui_debate_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_status_active_ru_fa
+    name = zhx_gui_council_debate_ru_fa
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
-            has_country_flag = zhx_tianxia_debate_pair_ru_fa
+            has_country_flag = zhx_council_phase_ballot_open
+            AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_fa }
         }
     }
     tooltip = zhx_gui_debate_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_status_active_ru_mo
+    name = zhx_gui_council_debate_ru_mo
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
-            has_country_flag = zhx_tianxia_debate_pair_ru_mo
+            has_country_flag = zhx_council_phase_ballot_open
+            AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_mo }
         }
     }
     tooltip = zhx_gui_debate_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_status_active_fa_mo
+    name = zhx_gui_council_debate_fa_mo
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
-            has_country_flag = zhx_tianxia_debate_pair_fa_mo
+            has_country_flag = zhx_council_phase_ballot_open
+            AND = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_b_mo }
         }
     }
     tooltip = zhx_gui_debate_tt
@@ -711,9 +746,9 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_status_settled
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            NOT = { has_country_flag = zhx_tianxia_debate_active }
+            NOT = { zhx_tianxia_council_is_busy = yes }
             has_country_modifier = zhx_tianxia_debate_cooldown
         }
     }
@@ -723,9 +758,9 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_status_ready
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            NOT = { has_country_flag = zhx_tianxia_debate_active }
+            NOT = { zhx_tianxia_council_is_busy = yes }
             NOT = { has_country_modifier = zhx_tianxia_debate_cooldown }
             zhx_tianxia_has_two_proposals = yes
         }
@@ -736,9 +771,9 @@ custom_text_box = {
 custom_text_box = {
     name = zhx_gui_debate_status_waiting
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            NOT = { has_country_flag = zhx_tianxia_debate_active }
+            NOT = { zhx_tianxia_council_is_busy = yes }
             NOT = { has_country_modifier = zhx_tianxia_debate_cooldown }
             NOT = { zhx_tianxia_has_two_proposals = yes }
         }
@@ -747,138 +782,169 @@ custom_text_box = {
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_live_counts_ru_fa
+    name = zhx_gui_council_counts_ru_fa
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
-            has_country_flag = zhx_tianxia_debate_pair_ru_fa
+            has_country_flag = zhx_council_phase_ballot_open
+            AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_fa }
         }
     }
-    tooltip = zhx_gui_debate_live_counts_tt
+    tooltip = zhx_gui_council_counts_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_live_counts_ru_mo
+    name = zhx_gui_council_counts_ru_mo
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
-            has_country_flag = zhx_tianxia_debate_pair_ru_mo
+            has_country_flag = zhx_council_phase_ballot_open
+            AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_mo }
         }
     }
-    tooltip = zhx_gui_debate_live_counts_tt
+    tooltip = zhx_gui_council_counts_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_live_counts_fa_mo
+    name = zhx_gui_council_counts_fa_mo
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
-            has_country_flag = zhx_tianxia_debate_pair_fa_mo
+            has_country_flag = zhx_council_phase_ballot_open
+            AND = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_b_mo }
         }
     }
-    tooltip = zhx_gui_debate_live_counts_tt
+    tooltip = zhx_gui_council_counts_tt
 }
 
 custom_text_box = {
     name = zhx_gui_debate_description_idle
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            NOT = { has_country_flag = zhx_tianxia_debate_active }
+            NOT = { zhx_tianxia_council_is_busy = yes }
         }
     }
     tooltip = zhx_gui_debate_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_vote_none
+    name = zhx_gui_council_vote_none
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
+        zhx_can_vote_in_tianxia_council = yes
         NOT = {
             OR = {
-                has_country_flag = zhx_tianxia_debate_vote_a
-                has_country_flag = zhx_tianxia_debate_vote_b
-                has_country_flag = zhx_tianxia_debate_vote_plural
+                has_country_flag = zhx_council_vote_a
+                has_country_flag = zhx_council_vote_b
+                has_country_flag = zhx_council_vote_c
             }
         }
     }
-    tooltip = zhx_gui_debate_vote_status_tt
+    tooltip = zhx_gui_council_vote_status_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_vote_ru
+    name = zhx_gui_council_vote_ru
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
-        has_country_flag = zhx_tianxia_debate_vote_a
+        zhx_can_vote_in_tianxia_council = yes
+        has_country_flag = zhx_council_vote_a
         event_target:zhx_tianzi = {
             OR = {
-                has_country_flag = zhx_tianxia_debate_pair_ru_fa
-                has_country_flag = zhx_tianxia_debate_pair_ru_mo
+                AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_fa }
+                AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_mo }
             }
         }
     }
-    tooltip = zhx_gui_debate_vote_status_tt
+    tooltip = zhx_gui_council_vote_status_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_vote_fa
+    name = zhx_gui_council_vote_fa
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
+        zhx_can_vote_in_tianxia_council = yes
         OR = {
             AND = {
-                has_country_flag = zhx_tianxia_debate_vote_a
+                has_country_flag = zhx_council_vote_a
                 event_target:zhx_tianzi = {
-                    has_country_flag = zhx_tianxia_debate_pair_fa_mo
+                    AND = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_b_mo }
                 }
             }
             AND = {
-                has_country_flag = zhx_tianxia_debate_vote_b
+                has_country_flag = zhx_council_vote_b
                 event_target:zhx_tianzi = {
-                    has_country_flag = zhx_tianxia_debate_pair_ru_fa
+                    AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_fa }
                 }
             }
         }
     }
-    tooltip = zhx_gui_debate_vote_status_tt
+    tooltip = zhx_gui_council_vote_status_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_vote_mo
+    name = zhx_gui_council_vote_mo
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
-        has_country_flag = zhx_tianxia_debate_vote_b
+        zhx_can_vote_in_tianxia_council = yes
+        has_country_flag = zhx_council_vote_b
         event_target:zhx_tianzi = {
             OR = {
-                has_country_flag = zhx_tianxia_debate_pair_ru_mo
-                has_country_flag = zhx_tianxia_debate_pair_fa_mo
+                AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_mo }
+                AND = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_b_mo }
             }
         }
     }
-    tooltip = zhx_gui_debate_vote_status_tt
+    tooltip = zhx_gui_council_vote_status_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_vote_plural
+    name = zhx_gui_council_vote_plural
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
-        has_country_flag = zhx_tianxia_debate_vote_plural
+        zhx_can_vote_in_tianxia_council = yes
+        has_country_flag = zhx_council_vote_c
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_debate }
     }
-    tooltip = zhx_gui_debate_vote_status_tt
+    tooltip = zhx_gui_council_vote_status_tt
 }
 
 custom_text_box = {
-    name = zhx_gui_debate_vote_observer
+    name = zhx_gui_council_vote_support
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        zhx_can_vote_in_tianxia_council = yes
+        has_country_flag = zhx_council_vote_a
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_council_vote_oppose
+    potential = {
+        zhx_can_vote_in_tianxia_council = yes
+        has_country_flag = zhx_council_vote_b
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_council_vote_abstain
+    potential = {
+        zhx_can_vote_in_tianxia_council = yes
+        has_country_flag = zhx_council_vote_c
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
+    }
+    tooltip = zhx_gui_incident_tt
+}
+
+custom_text_box = {
+    name = zhx_gui_council_vote_observer
+    potential = {
+        has_global_flag = zhx_council_initialised_v1
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_active
+            has_country_flag = zhx_council_phase_ballot_open
         }
-        NOT = { zhx_can_vote_in_tianxia_debate = yes }
+        NOT = { zhx_can_vote_in_tianxia_council = yes }
     }
-    tooltip = zhx_gui_debate_vote_status_tt
+    tooltip = zhx_gui_council_vote_status_tt
 }
 
 # ZHX_ROSTER_BINDINGS_BEGIN
@@ -4086,12 +4152,12 @@ custom_shield = {
 custom_button = {
     name = zhx_gui_debate_review_button_solo
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         NOT = { zhx_can_convene_tianxia_debate = yes }
         OR = {
-            NOT = { zhx_can_vote_in_tianxia_debate = yes }
+            NOT = { zhx_can_vote_in_tianxia_council = yes }
             event_target:zhx_tianzi = {
-                NOT = { has_country_flag = zhx_tianxia_debate_active }
+                NOT = { zhx_tianxia_council_is_busy = yes }
             }
         }
     }
@@ -4105,7 +4171,7 @@ custom_button = {
 custom_button = {
     name = zhx_gui_debate_review_button_split
     potential = {
-        has_global_flag = zhx_tianxia_debate_initialised_v1
+        has_global_flag = zhx_council_initialised_v1
         zhx_can_convene_tianxia_debate = yes
     }
     trigger = { always = yes }
@@ -4126,69 +4192,105 @@ custom_button = {
 }
 
 custom_button = {
-    name = zhx_gui_debate_vote_ru_a_button
+    name = zhx_gui_council_vote_ru_a_button
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
+        zhx_can_vote_in_tianxia_council = yes
         event_target:zhx_tianzi = {
             OR = {
-                has_country_flag = zhx_tianxia_debate_pair_ru_fa
-                has_country_flag = zhx_tianxia_debate_pair_ru_mo
+                AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_fa }
+                AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_mo }
             }
         }
     }
-    trigger = { zhx_can_vote_in_tianxia_debate = yes }
-    effect = { zhx_cast_tianxia_debate_vote_a = yes }
-    tooltip = zhx_gui_debate_vote_ru_button_tt
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_a = yes }
+    tooltip = zhx_gui_council_vote_ru_button_tt
 }
 
 custom_button = {
-    name = zhx_gui_debate_vote_fa_a_button
+    name = zhx_gui_council_vote_fa_a_button
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
+        zhx_can_vote_in_tianxia_council = yes
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_pair_fa_mo
+            AND = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_b_mo }
         }
     }
-    trigger = { zhx_can_vote_in_tianxia_debate = yes }
-    effect = { zhx_cast_tianxia_debate_vote_a = yes }
-    tooltip = zhx_gui_debate_vote_fa_button_tt
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_a = yes }
+    tooltip = zhx_gui_council_vote_fa_button_tt
 }
 
 custom_button = {
-    name = zhx_gui_debate_vote_fa_b_button
+    name = zhx_gui_council_vote_fa_b_button
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
+        zhx_can_vote_in_tianxia_council = yes
         event_target:zhx_tianzi = {
-            has_country_flag = zhx_tianxia_debate_pair_ru_fa
+            AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_fa }
         }
     }
-    trigger = { zhx_can_vote_in_tianxia_debate = yes }
-    effect = { zhx_cast_tianxia_debate_vote_b = yes }
-    tooltip = zhx_gui_debate_vote_fa_button_tt
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_b = yes }
+    tooltip = zhx_gui_council_vote_fa_button_tt
 }
 
 custom_button = {
-    name = zhx_gui_debate_vote_mo_b_button
+    name = zhx_gui_council_vote_mo_b_button
     potential = {
-        zhx_can_vote_in_tianxia_debate = yes
+        zhx_can_vote_in_tianxia_council = yes
         event_target:zhx_tianzi = {
             OR = {
-                has_country_flag = zhx_tianxia_debate_pair_ru_mo
-                has_country_flag = zhx_tianxia_debate_pair_fa_mo
+                AND = { has_country_flag = zhx_council_candidate_a_ru has_country_flag = zhx_council_candidate_b_mo }
+                AND = { has_country_flag = zhx_council_candidate_a_fa has_country_flag = zhx_council_candidate_b_mo }
             }
         }
     }
-    trigger = { zhx_can_vote_in_tianxia_debate = yes }
-    effect = { zhx_cast_tianxia_debate_vote_b = yes }
-    tooltip = zhx_gui_debate_vote_mo_button_tt
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_b = yes }
+    tooltip = zhx_gui_council_vote_mo_button_tt
 }
 
 custom_button = {
-    name = zhx_gui_debate_vote_plural_button
-    potential = { zhx_can_vote_in_tianxia_debate = yes }
-    trigger = { zhx_can_vote_in_tianxia_debate = yes }
-    effect = { zhx_cast_tianxia_debate_vote_plural = yes }
-    tooltip = zhx_gui_debate_vote_plural_button_tt
+    name = zhx_gui_council_vote_plural_button
+    potential = {
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_debate }
+    }
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_c = yes }
+    tooltip = zhx_gui_council_vote_plural_button_tt
+}
+
+custom_button = {
+    name = zhx_gui_council_vote_support_button
+    potential = {
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
+    }
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_a = yes }
+    tooltip = zhx_system.21.a.tt
+}
+
+custom_button = {
+    name = zhx_gui_council_vote_oppose_button
+    potential = {
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
+    }
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_b = yes }
+    tooltip = zhx_system.21.c.tt
+}
+
+custom_button = {
+    name = zhx_gui_council_vote_abstain_button
+    potential = {
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
+    }
+    trigger = { zhx_can_vote_in_tianxia_council = yes }
+    effect = { zhx_cast_tianxia_council_vote_c = yes }
+    tooltip = zhx_system.21.b.tt
 }
 
 custom_button = {

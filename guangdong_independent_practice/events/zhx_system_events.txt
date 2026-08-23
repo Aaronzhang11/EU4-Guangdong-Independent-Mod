@@ -233,9 +233,8 @@ country_event = {
     option = { name = OK }
 }
 
-# 天下事变原型：复现原版帝国事变“先议论、后裁断”的生命周期，
-# 但不尝试创建第二个硬编码帝国容器。延迟事件会被写入存档，
-# 因而无需每日轮询，也不会因为读档而丢失一年后的结算。
+# “王命不行”只负责提出具体议题。公共票盘、期限、改票与结算
+# 调度全部复用天下公议内核，因此不能与天下大辩并发。
 country_event = {
     id = zhx_system.20
     title = zhx_system.20.t
@@ -246,33 +245,15 @@ country_event = {
 
     trigger = {
         zhx_is_tianzi = yes
-        NOT = { has_country_flag = zhx_ritual_breakdown_incident_active }
+        NOT = { zhx_tianxia_council_is_busy = yes }
         NOT = { has_country_modifier = zhx_ritual_breakdown_incident_cooldown }
-    }
-
-    immediate = {
-        hidden_effect = {
-            # 新一轮公议开始前清理旧票，防止中途升级模组或异常结束留下脏状态。
-            zhx_reset_ritual_breakdown_incident_votes = yes
-            set_country_flag = zhx_ritual_breakdown_incident_active
-        }
     }
 
     option = {
         name = zhx_system.20.a
         custom_tooltip = zhx_system.20.a.tt
         hidden_effect = {
-            # 所有当前诸侯收到一张选票；AI 会立即表态，人类玩家可以在一年内改票。
-            every_country = {
-                limit = { zhx_is_tianxia_member = yes }
-                country_event = { id = zhx_system.21 }
-            }
-
-            # 365 天后重新扫描仍然存在的成员及其最终票，不信任过程计数缓存。
-            country_event = {
-                id = zhx_system.22
-                days = 365
-            }
+            zhx_begin_ritual_breakdown_council = yes
         }
         ai_chance = { factor = 1 }
     }
@@ -286,17 +267,15 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
-        zhx_is_tianxia_member = yes
-        event_target:zhx_tianzi = {
-            has_country_flag = zhx_ritual_breakdown_incident_active
-        }
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_ritual_breakdown }
     }
 
     option = {
         name = zhx_system.21.a
         custom_tooltip = zhx_system.21.a.tt
         hidden_effect = {
-            zhx_cast_ritual_breakdown_support_vote = yes
+            zhx_cast_tianxia_council_vote_a = yes
         }
         ai_chance = {
             factor = 50
@@ -320,7 +299,7 @@ country_event = {
         name = zhx_system.21.b
         custom_tooltip = zhx_system.21.b.tt
         hidden_effect = {
-            zhx_cast_ritual_breakdown_abstain_vote = yes
+            zhx_cast_tianxia_council_vote_c = yes
         }
         ai_chance = { factor = 30 }
     }
@@ -329,7 +308,7 @@ country_event = {
         name = zhx_system.21.c
         custom_tooltip = zhx_system.21.c.tt
         hidden_effect = {
-            zhx_cast_ritual_breakdown_oppose_vote = yes
+            zhx_cast_tianxia_council_vote_b = yes
         }
         ai_chance = {
             factor = 20
@@ -355,7 +334,7 @@ country_event = {
     desc = {
         trigger = {
             check_variable = {
-                which = zhx_incident_vote_balance
+                which = zhx_council_a_vs_b
                 value = 1
             }
         }
@@ -365,7 +344,7 @@ country_event = {
         trigger = {
             NOT = {
                 check_variable = {
-                    which = zhx_incident_vote_balance
+                    which = zhx_council_a_vs_b
                     value = 1
                 }
             }
@@ -378,21 +357,15 @@ country_event = {
 
     trigger = {
         zhx_is_tianzi = yes
-        has_country_flag = zhx_ritual_breakdown_incident_active
-    }
-
-    immediate = {
-        hidden_effect = {
-            # 成员可能在公议期间被吞并、退出或加入，因此结算前以旗标真源重新点票。
-            zhx_recount_ritual_breakdown_incident_votes = yes
-        }
+        has_country_flag = zhx_council_phase_resolving
+        has_country_flag = zhx_council_kind_ritual_breakdown
     }
 
     option = {
         name = zhx_system.22.a
         trigger = {
             check_variable = {
-                which = zhx_incident_vote_balance
+                which = zhx_council_a_vs_b
                 value = 1
             }
         }
@@ -402,7 +375,8 @@ country_event = {
             value = 10
         }
         hidden_effect = {
-            zhx_finish_ritual_breakdown_incident = yes
+            add_country_modifier = { name = zhx_ritual_breakdown_incident_cooldown duration = 1825 }
+            zhx_finish_tianxia_council = yes
         }
         zhx_clamp_ritual_authority = yes
         zhx_refresh_ritual_order = yes
@@ -413,7 +387,7 @@ country_event = {
         trigger = {
             NOT = {
                 check_variable = {
-                    which = zhx_incident_vote_balance
+                    which = zhx_council_a_vs_b
                     value = 1
                 }
             }
@@ -424,9 +398,32 @@ country_event = {
             value = -5
         }
         hidden_effect = {
-            zhx_finish_ritual_breakdown_incident = yes
+            add_country_modifier = { name = zhx_ritual_breakdown_incident_cooldown duration = 1825 }
+            zhx_finish_tianxia_council = yes
         }
         zhx_clamp_ritual_authority = yes
         zhx_refresh_ritual_order = yes
     }
+}
+
+# The only delayed deadline event used by any public council. It carries no
+# issue-specific result logic and refuses to touch a stale or closed ballot.
+country_event = {
+    id = zhx_system.23
+    title = zhx_system.23.t
+    desc = zhx_system.23.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        zhx_is_tianzi = yes
+        has_country_flag = zhx_council_phase_ballot_open
+        has_country_flag = zhx_council_deadline_scheduled
+        OR = {
+            has_country_flag = zhx_council_kind_ritual_breakdown
+            has_country_flag = zhx_council_kind_debate
+        }
+    }
+    immediate = { zhx_resolve_tianxia_council = yes }
+    option = { name = OK }
 }

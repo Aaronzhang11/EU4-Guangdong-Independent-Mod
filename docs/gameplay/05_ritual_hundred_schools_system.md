@@ -444,7 +444,7 @@ python3 tools/build_zhx_religions.py --check
 python3 tools/generate_lijiao_religion_icon.py --check
 python3 tools/generate_doctrine_emblems.py --check
 python3 tools/validate_zhx_doctrine.py
-python3 tools/validate_zhx_tianxia_debate.py
+python3 tools/validate_zhx_council.py
 python3 tools/validate_zhx_opening_schools.py
 python3 tools/encode_eu4_chinese_localisation.py --check
 ```
