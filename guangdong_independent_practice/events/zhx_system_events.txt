@@ -359,6 +359,7 @@ country_event = {
         zhx_is_tianzi = yes
         has_country_flag = zhx_council_phase_resolving
         has_country_flag = zhx_council_kind_ritual_breakdown
+        has_country_flag = zhx_council_result_ready
     }
 
     option = {
@@ -424,6 +425,16 @@ country_event = {
             has_country_flag = zhx_council_kind_debate
         }
     }
-    immediate = { zhx_resolve_tianxia_council = yes }
+    immediate = {
+        zhx_resolve_tianxia_council = yes
+        if = {
+            limit = { has_country_flag = zhx_council_kind_ritual_breakdown }
+            country_event = { id = zhx_system.22 days = 1 }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_council_kind_debate }
+            country_event = { id = zhx_debate.20 days = 1 }
+        }
+    }
     option = { name = OK }
 }

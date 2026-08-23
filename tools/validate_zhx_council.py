@@ -46,6 +46,7 @@ RESET_EFFECT = "zhx_reset_tianxia_council_ballot"
 VALID_CANDIDATES_TRIGGER = "zhx_council_has_valid_candidates"
 DEADLINE_EVENT = "zhx_system.23"
 DEADLINE_FLAG = "zhx_council_deadline_scheduled"
+RESULT_READY_FLAG = "zhx_council_result_ready"
 
 PHASE_FLAGS = (
     "zhx_council_phase_preparing",
@@ -446,6 +447,10 @@ def validate_state_families(
             operation_count(open_block.text, "clr_country_flag", PHASE_FLAGS[0]) >= 1,
             f"`{OPEN_EFFECT}` must leave preparing before opening the ballot",
         )
+        report.check(
+            operation_count(open_block.text, "clr_country_flag", RESULT_READY_FLAG) >= 1,
+            f"`{OPEN_EFFECT}` must discard stale {RESULT_READY_FLAG} state",
+        )
 
     if resolve_block:
         report.check(
@@ -465,18 +470,14 @@ def validate_state_families(
             operation_count(script_text, "set_country_flag", PHASE_FLAGS[2]) == 1,
             f"{PHASE_FLAGS[2]} may only be set by `{RESOLVE_EFFECT}`",
         )
-        for kind in KIND_FLAGS:
-            report.check(
-                kind in resolve_block.text,
-                f"`{RESOLVE_EFFECT}` does not dispatch council kind {kind}",
-            )
         report.check(
-            "id = zhx_system.22" in resolve_block.text,
-            f"`{RESOLVE_EFFECT}` must dispatch ritual breakdown to zhx_system.22",
+            operation_count(resolve_block.text, "set_country_flag", RESULT_READY_FLAG) == 1,
+            f"`{RESOLVE_EFFECT}` must freeze the ballot with {RESULT_READY_FLAG}",
         )
         report.check(
-            "id = zhx_debate.20" in resolve_block.text,
-            f"`{RESOLVE_EFFECT}` must dispatch debate to zhx_debate.20",
+            "id = zhx_system.22" not in resolve_block.text
+            and "id = zhx_debate.20" not in resolve_block.text,
+            f"`{RESOLVE_EFFECT}` must not synchronously dispatch a visible result event",
         )
 
     if finish_block:
@@ -493,6 +494,10 @@ def validate_state_families(
         report.check(
             operation_count(finish_block.text, "clr_country_flag", DEADLINE_FLAG) >= 1,
             f"`{FINISH_EFFECT}` must clear {DEADLINE_FLAG}",
+        )
+        report.check(
+            operation_count(finish_block.text, "clr_country_flag", RESULT_READY_FLAG) >= 1,
+            f"`{FINISH_EFFECT}` must clear {RESULT_READY_FLAG}",
         )
         report.check(
             f"{RESET_EFFECT} = yes" in finish_block.text,
@@ -622,6 +627,20 @@ def validate_deadline(
         checks_kind_directly or checks_kind_via_trigger,
         f"`{DEADLINE_EVENT}` must reject a stale deadline without a valid council kind",
     )
+    for kind, result_id in zip(KIND_FLAGS, ("zhx_system.22", "zhx_debate.20")):
+        report.check(
+            kind in body,
+            f"`{DEADLINE_EVENT}` does not dispatch council kind {kind}",
+        )
+        delayed = re.compile(
+            rf"country_event\s*=\s*\{{\s*id\s*=\s*{re.escape(result_id)}\s+"
+            r"days\s*=\s*1\s*\}",
+            re.DOTALL,
+        )
+        report.check(
+            delayed.search(mask_clausewitz(body)) is not None,
+            f"`{DEADLINE_EVENT}` must dispatch {result_id} on the next day",
+        )
 
 
 def validate_candidates(
@@ -741,13 +760,21 @@ def validate_result_paths(
     effect_index: dict[str, list[Block]],
     report: Report,
 ) -> None:
-    for event_id in ("zhx_system.22", "zhx_debate.20"):
+    for event_id, kind in zip(
+        ("zhx_system.22", "zhx_debate.20"),
+        KIND_FLAGS,
+    ):
         blocks = events.get(event_id, [])
         if not report.check(
             len(blocks) == 1,
             f"expected exactly one issue-specific result event {event_id}, found {len(blocks)}",
         ):
             continue
+        for token in (PHASE_FLAGS[2], kind, RESULT_READY_FLAG):
+            report.check(
+                token in blocks[0].text,
+                f"result event {event_id} must require frozen state token {token}",
+            )
         options = direct_child_blocks(blocks[0].text, "option")
         if not report.check(options, f"result event {event_id} has no final option path"):
             continue

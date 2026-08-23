@@ -226,6 +226,7 @@ country_event = {
         if = {
             limit = { zhx_is_lijiao_country = yes }
             zhx_yearly_doctrine_tick = yes
+            zhx_ai_try_file_tianxia_debate_petition = yes
         }
         else = {
             zhx_retire_doctrine_system = yes

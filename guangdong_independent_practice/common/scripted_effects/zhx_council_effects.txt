@@ -24,6 +24,12 @@ zhx_clear_tianxia_council_candidates = {
     clr_country_flag = zhx_council_candidate_b_dao
     clr_country_flag = zhx_council_candidate_b_bing
     clr_country_flag = zhx_council_candidate_b_zongheng
+    clr_country_flag = zhx_debate_shortlist_ru
+    clr_country_flag = zhx_debate_shortlist_fa
+    clr_country_flag = zhx_debate_shortlist_mo
+    clr_country_flag = zhx_debate_shortlist_dao
+    clr_country_flag = zhx_debate_shortlist_bing
+    clr_country_flag = zhx_debate_shortlist_zongheng
 }
 
 zhx_clear_tianxia_council_candidate_a = {
@@ -179,6 +185,7 @@ zhx_cast_tianxia_council_vote_c = {
 }
 
 zhx_open_tianxia_council = {
+    clr_country_flag = zhx_council_result_ready
     zhx_clear_tianxia_council_phase = yes
     set_country_flag = zhx_council_phase_preparing
     zhx_clear_tianxia_council_results = yes
@@ -215,6 +222,7 @@ zhx_begin_ritual_breakdown_council = {
         }
         zhx_clear_tianxia_council_kind = yes
         zhx_clear_tianxia_council_candidates = yes
+        clr_country_flag = zhx_council_pending_ritual_breakdown
         set_country_flag = zhx_council_kind_ritual_breakdown
         zhx_open_tianxia_council = yes
     }
@@ -236,19 +244,12 @@ zhx_resolve_tianxia_council = {
     clr_country_flag = zhx_council_deadline_scheduled
     zhx_clear_tianxia_council_phase = yes
     set_country_flag = zhx_council_phase_resolving
+    set_country_flag = zhx_council_result_ready
     zhx_recount_tianxia_council_ballot = yes
-    if = {
-        limit = { has_country_flag = zhx_council_kind_ritual_breakdown }
-        country_event = { id = zhx_system.22 }
-    }
-    else_if = {
-        limit = { has_country_flag = zhx_council_kind_debate }
-        country_event = { id = zhx_debate.20 }
-    }
-    else = { zhx_finish_tianxia_council = yes }
 }
 
 zhx_finish_tianxia_council = {
+    clr_country_flag = zhx_council_result_ready
     zhx_reset_tianxia_council_ballot = yes
     zhx_clear_tianxia_council_phase = yes
     zhx_clear_tianxia_council_kind = yes
@@ -264,6 +265,13 @@ zhx_finish_tianxia_council = {
         clr_country_flag = zhx_council_pending_ritual_breakdown
         country_event = { id = zhx_system.20 days = 1 }
     }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_pending_ritual_breakdown
+            has_country_modifier = zhx_ritual_breakdown_incident_cooldown
+        }
+        clr_country_flag = zhx_council_pending_ritual_breakdown
+    }
 }
 
 zhx_initialise_tianxia_council = {
@@ -272,6 +280,7 @@ zhx_initialise_tianxia_council = {
     zhx_clear_tianxia_council_kind = yes
     zhx_clear_tianxia_council_candidates = yes
     zhx_clear_tianxia_council_results = yes
+    clr_country_flag = zhx_council_result_ready
     clr_country_flag = zhx_council_deadline_scheduled
     clr_country_flag = zhx_council_pending_ritual_breakdown
     set_global_flag = zhx_council_initialised_v1

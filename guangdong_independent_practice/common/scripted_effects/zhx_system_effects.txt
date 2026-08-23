@@ -337,44 +337,44 @@ zhx_refresh_internal_war_count = {
 # 这场胜利的国际评价。ROOT 仍是胜方战争领袖，当前作用域则是天子锚点。
 zhx_reward_external_war_victory = {
     if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_ru }
-        change_variable = { which = zhx_ritual_authority value = 3 }
-        ROOT = {
-            if = {
-                limit = { zhx_is_tianxia_member = yes }
-                change_variable = { which = zhx_merit value = 2 }
-                zhx_clamp_merit = yes
-            }
+        limit = {
+            has_country_modifier = zhx_tianxia_orthodoxy_term
+            zhx_tianxia_has_active_orthodoxy = yes
         }
-    }
-    else_if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_fa }
-        change_variable = { which = zhx_ritual_authority value = 5 }
-        ROOT = {
-            if = {
-                limit = { zhx_is_tianxia_member = yes }
-                change_variable = { which = zhx_merit value = 3 }
-                zhx_clamp_merit = yes
-            }
+        if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_ru }
+            change_variable = { which = zhx_ritual_authority value = 3 }
+            ROOT = { if = { limit = { zhx_is_tianxia_member = yes } change_variable = { which = zhx_merit value = 2 } zhx_clamp_merit = yes } }
         }
-    }
-    else_if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_mo }
-        change_variable = { which = zhx_ritual_authority value = 1 }
-    }
-    else_if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_plural }
-        change_variable = { which = zhx_ritual_authority value = 2 }
-        ROOT = {
-            if = {
-                limit = { zhx_is_tianxia_member = yes }
-                change_variable = { which = zhx_merit value = 1 }
-                zhx_clamp_merit = yes
-            }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_fa }
+            change_variable = { which = zhx_ritual_authority value = 5 }
+            ROOT = { if = { limit = { zhx_is_tianxia_member = yes } change_variable = { which = zhx_merit value = 3 } zhx_clamp_merit = yes } }
+        }
+        else_if = { limit = { has_country_flag = zhx_tianxia_orthodoxy_mo } change_variable = { which = zhx_ritual_authority value = 1 } }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_dao }
+            change_variable = { which = zhx_ritual_authority value = 1 }
+            ROOT = { if = { limit = { zhx_is_tianxia_member = yes } change_variable = { which = zhx_merit value = 1 } zhx_clamp_merit = yes } }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_bing }
+            change_variable = { which = zhx_ritual_authority value = 5 }
+            ROOT = { if = { limit = { zhx_is_tianxia_member = yes } change_variable = { which = zhx_merit value = 4 } zhx_clamp_merit = yes } }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_zongheng }
+            change_variable = { which = zhx_ritual_authority value = 3 }
+            ROOT = { if = { limit = { zhx_is_tianxia_member = yes } change_variable = { which = zhx_merit value = 2 } zhx_clamp_merit = yes } }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_plural }
+            change_variable = { which = zhx_ritual_authority value = 2 }
+            ROOT = { if = { limit = { zhx_is_tianxia_member = yes } change_variable = { which = zhx_merit value = 1 } zhx_clamp_merit = yes } }
         }
     }
     else = {
-        # The pre-debate legacy rule remains intact until the first settlement.
+        # No active fifteen-year settlement: use the neutral legacy baseline.
         change_variable = { which = zhx_ritual_authority value = 5 }
     }
     zhx_clamp_ritual_authority = yes
@@ -429,49 +429,48 @@ zhx_yearly_ritual_authority_tick = {
         change_variable = { which = zhx_ritual_authority value = -1 }
     }
 
-    # The current international orthodoxy changes how the same world state is
-    # judged. These are shared-Tianxia norms, not domestic school bonuses.
+    # The current fifteen-year international orthodoxy changes how the same
+    # world state is judged. These are international norms, not domestic buffs.
     if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_ru }
-        if = {
-            limit = { zhx_tianxia_is_at_peace = yes }
-            change_variable = { which = zhx_ritual_authority value = 1 }
+        limit = {
+            has_country_modifier = zhx_tianxia_orthodoxy_term
+            zhx_tianxia_has_active_orthodoxy = yes
         }
         if = {
-            limit = {
-                check_variable = { which = zhx_internal_war_count_cache value = 1 }
-            }
-            change_variable = { which = zhx_ritual_authority value = -1 }
-        }
-    }
-    else_if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_fa }
-        if = {
-            limit = {
-                NOT = {
-                    check_variable = { which = zhx_internal_war_count_cache value = 1 }
-                }
-            }
-            change_variable = { which = zhx_ritual_authority value = 1 }
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_ru }
+            if = { limit = { zhx_tianxia_is_at_peace = yes } change_variable = { which = zhx_ritual_authority value = 1 } }
+            if = { limit = { check_variable = { which = zhx_internal_war_count_cache value = 1 } } change_variable = { which = zhx_ritual_authority value = -1 } }
         }
         else_if = {
-            limit = {
-                check_variable = { which = zhx_internal_war_count_cache value = 3 }
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_fa }
+            if = {
+                limit = { NOT = { check_variable = { which = zhx_internal_war_count_cache value = 1 } } }
+                change_variable = { which = zhx_ritual_authority value = 1 }
             }
-            change_variable = { which = zhx_ritual_authority value = -2 }
-        }
-    }
-    else_if = {
-        limit = { has_country_flag = zhx_tianxia_orthodoxy_mo }
-        if = {
-            limit = { zhx_tianxia_is_at_peace = yes }
-            change_variable = { which = zhx_ritual_authority value = 2 }
-        }
-        if = {
-            limit = {
-                check_variable = { which = zhx_internal_war_count_cache value = 1 }
+            else_if = {
+                limit = { check_variable = { which = zhx_internal_war_count_cache value = 3 } }
+                change_variable = { which = zhx_ritual_authority value = -2 }
             }
-            change_variable = { which = zhx_ritual_authority value = -2 }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_mo }
+            if = { limit = { zhx_tianxia_is_at_peace = yes } change_variable = { which = zhx_ritual_authority value = 2 } }
+            if = { limit = { check_variable = { which = zhx_internal_war_count_cache value = 1 } } change_variable = { which = zhx_ritual_authority value = -2 } }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_dao }
+            if = { limit = { zhx_tianxia_is_at_peace = yes } change_variable = { which = zhx_ritual_authority value = 2 } }
+            if = { limit = { check_variable = { which = zhx_internal_war_count_cache value = 1 } } change_variable = { which = zhx_ritual_authority value = -1 } }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_bing }
+            if = { limit = { NOT = { check_variable = { which = zhx_internal_war_count_cache value = 1 } } } change_variable = { which = zhx_ritual_authority value = 1 } }
+            if = { limit = { check_variable = { which = zhx_internal_war_count_cache value = 3 } } change_variable = { which = zhx_ritual_authority value = -1 } }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_tianxia_orthodoxy_zongheng }
+            if = { limit = { NOT = { check_variable = { which = zhx_internal_war_count_cache value = 1 } } } change_variable = { which = zhx_ritual_authority value = 1 } }
+            if = { limit = { check_variable = { which = zhx_internal_war_count_cache value = 3 } } change_variable = { which = zhx_ritual_authority value = -1 } }
         }
     }
 
@@ -530,10 +529,19 @@ zhx_yearly_ritual_authority_tick = {
             NOT = { has_country_modifier = zhx_ritual_breakdown_incident_cooldown }
         }
         if = {
-            limit = { zhx_tianxia_council_is_busy = yes }
+            limit = {
+                zhx_tianxia_council_is_busy = yes
+                NOT = { has_country_flag = zhx_council_kind_ritual_breakdown }
+            }
             set_country_flag = zhx_council_pending_ritual_breakdown
         }
-        else = { country_event = { id = zhx_system.20 } }
+        else_if = {
+            limit = { NOT = { zhx_tianxia_council_is_busy = yes } }
+            # Reserve the queue before showing the proposal event. The yearly
+            # debate check runs later in the same pulse and must not overtake it.
+            set_country_flag = zhx_council_pending_ritual_breakdown
+            country_event = { id = zhx_system.20 }
+        }
     }
 }
 

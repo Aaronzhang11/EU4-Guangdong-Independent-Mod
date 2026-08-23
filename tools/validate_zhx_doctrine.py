@@ -1802,7 +1802,7 @@ def main() -> None:
         )
         == 6
         and localisation.count(
-            "为0即已达到践履门槛；仍需具备周天下身份"
+            "达到后仍需本派三国采用，并有另一同派国家践履50"
         )
         == 6
         and localisation.count("[Root.zhx_doctrine_last_delta.GetValue]") == 7,
