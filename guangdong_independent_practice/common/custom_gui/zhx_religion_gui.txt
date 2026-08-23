@@ -24,11 +24,111 @@ custom_icon = {
     }
 }
 
+# Four readouts share one 28x24 anchor. The ranges are mutually exclusive, so
+# exactly one tier colour is drawn and no text can stack over the school row.
+custom_text_box = {
+    name = zhx_religion_practice_hollow_value
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        NOT = {
+            check_variable = { which = zhx_doctrine_practice value = 25 }
+        }
+    }
+    tooltip = zhx_religion_practice_value_tt
+}
+
 custom_text_box = {
     name = zhx_religion_practice_value
     potential = {
         zhx_is_lijiao_country = yes
         zhx_has_doctrine = yes
+        check_variable = { which = zhx_doctrine_practice value = 25 }
+        NOT = {
+            check_variable = { which = zhx_doctrine_practice value = 50 }
+        }
     }
     tooltip = zhx_religion_practice_value_tt
+}
+
+custom_text_box = {
+    name = zhx_religion_practice_flourishing_value
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        check_variable = { which = zhx_doctrine_practice value = 50 }
+        NOT = {
+            check_variable = { which = zhx_doctrine_practice value = 75 }
+        }
+    }
+    tooltip = zhx_religion_practice_value_tt
+}
+
+custom_text_box = {
+    name = zhx_religion_practice_exemplary_value
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        check_variable = { which = zhx_doctrine_practice value = 75 }
+    }
+    tooltip = zhx_religion_practice_value_tt
+}
+
+# Transparent hit targets mirror the same four exclusive ranges. They sit over
+# the visible number, preserve its tier colour, and open the reusable ledger;
+# the event computes its projection only at that moment.
+custom_button = {
+    name = zhx_religion_practice_hollow_ledger_button
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        NOT = {
+            check_variable = { which = zhx_doctrine_practice value = 25 }
+        }
+    }
+    trigger = { always = yes }
+    effect = { country_event = { id = zhx_doctrine.20 } }
+    tooltip = zhx_religion_practice_ledger_button_tt
+}
+
+custom_button = {
+    name = zhx_religion_practice_established_ledger_button
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        check_variable = { which = zhx_doctrine_practice value = 25 }
+        NOT = {
+            check_variable = { which = zhx_doctrine_practice value = 50 }
+        }
+    }
+    trigger = { always = yes }
+    effect = { country_event = { id = zhx_doctrine.20 } }
+    tooltip = zhx_religion_practice_ledger_button_tt
+}
+
+custom_button = {
+    name = zhx_religion_practice_flourishing_ledger_button
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        check_variable = { which = zhx_doctrine_practice value = 50 }
+        NOT = {
+            check_variable = { which = zhx_doctrine_practice value = 75 }
+        }
+    }
+    trigger = { always = yes }
+    effect = { country_event = { id = zhx_doctrine.20 } }
+    tooltip = zhx_religion_practice_ledger_button_tt
+}
+
+custom_button = {
+    name = zhx_religion_practice_exemplary_ledger_button
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+        check_variable = { which = zhx_doctrine_practice value = 75 }
+    }
+    trigger = { always = yes }
+    effect = { country_event = { id = zhx_doctrine.20 } }
+    tooltip = zhx_religion_practice_ledger_button_tt
 }

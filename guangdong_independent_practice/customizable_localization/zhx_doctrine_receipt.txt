@@ -1,0 +1,109 @@
+# Dynamic text for the player-only yearly practice tier receipt.
+
+defined_text = {
+    name = GetZhxDoctrineReceiptSchool
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_ru
+        trigger = { has_country_flag = zhx_doctrine_ru }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_fa
+        trigger = { has_country_flag = zhx_doctrine_fa }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_mo
+        trigger = { has_country_flag = zhx_doctrine_mo }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_dao
+        trigger = { has_country_flag = zhx_doctrine_dao }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_bing
+        trigger = { has_country_flag = zhx_doctrine_bing }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_zongheng
+        trigger = { has_country_flag = zhx_doctrine_zongheng }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_unknown
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrineReceiptOldTier
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_exemplary
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_old_tier
+                value = 3
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_flourishing
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_old_tier
+                value = 2
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_established
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_old_tier
+                value = 1
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_hollow
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrineReceiptNewTier
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_exemplary
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_new_tier
+                value = 3
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_flourishing
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_new_tier
+                value = 2
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_established
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_new_tier
+                value = 1
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_hollow
+        trigger = { always = yes }
+    }
+}

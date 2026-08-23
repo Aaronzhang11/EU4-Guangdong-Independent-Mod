@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build EU4 1.37.5 religions with display-only ZHX religious schools."""
+"""Build EU4 1.37.5 religions with ZHX schools and adapted Nestorianism."""
 
 from __future__ import annotations
 
@@ -31,6 +31,136 @@ NO_DOCTRINE_SCHOOL = (
     "GFX_zhx_no_doctrine_school",
 )
 ALL_SCHOOLS = SCHOOLS + (NO_DOCTRINE_SCHOOL,)
+
+
+def build_nestorian_block() -> str:
+    """Return the adapted Ante Bellum patriarch/icon mechanic.
+
+    Five Orthodox entries are deliberately kept first and hidden.  EU4 uses
+    definition order to address ``GFX_russian_icons_strip`` frames, so the
+    visible Nestorian icons then map to frames 6-10 of our extended strip.
+    """
+    return r'''
+
+	# ZHX: adapted from Ante Bellum's Church-of-the-East implementation.
+	# The patriarch-authority shell and five-icon cadence are retained, while
+	# Ante Bellum-only missions, monuments and St Timur unlocks are excluded.
+	nestorian = {
+		flags_with_emblem_percentage = 0
+		flag_emblem_index_range = { 1 44 }
+		color = { 255 199 44 }
+		icon = 7
+
+		country = {
+			religious_unity = 0.15
+			missionaries = 1
+		}
+		allowed_center_conversion = {
+			catholic
+			protestant
+			hussite
+			anglican
+			reformed
+		}
+		country_as_secondary = {
+			religious_unity = 0.1
+			global_missionary_strength = 0.01
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+
+		has_patriarchs = yes
+		misguided_heretic = yes
+		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY ICONOCLAST }
+
+		orthodox_icons = {
+			# Hidden frame anchors preserve vanilla Orthodox art in frames 1-5.
+			icon_michael = {
+				discipline = 0.05
+				manpower_recovery_speed = 0.1
+				allow = { religion = orthodox }
+				visible = { religion = orthodox }
+				ai_will_do = { factor = 0 }
+			}
+			icon_eleusa = {
+				global_unrest = -3
+				harsh_treatment_cost = -0.25
+				allow = { religion = orthodox }
+				visible = { religion = orthodox }
+				ai_will_do = { factor = 0 }
+			}
+			icon_pancreator = {
+				development_cost = -0.10
+				build_cost = -0.1
+				allow = { religion = orthodox }
+				visible = { religion = orthodox }
+				ai_will_do = { factor = 0 }
+			}
+			icon_nicholas = {
+				improve_relation_modifier = 0.25
+				ae_impact = -0.1
+				allow = { religion = orthodox }
+				visible = { religion = orthodox }
+				ai_will_do = { factor = 0 }
+			}
+			icon_climacus = {
+				global_institution_spread = 0.25
+				embracement_cost = -0.2
+				allow = { religion = orthodox }
+				visible = { religion = orthodox }
+				ai_will_do = { factor = 0 }
+			}
+
+			icon_nestorius = {
+				diplomatic_reputation = 1
+				ae_impact = -0.1
+				allow = { religion = nestorian }
+				visible = { religion = nestorian }
+				ai_will_do = {
+					factor = 1
+					modifier = { factor = 0 is_at_war = no }
+					modifier = { factor = 3 is_in_important_war = yes }
+				}
+			}
+			icon_mar_yelv = {
+				global_unrest = -2
+				reform_progress_growth = 0.2
+				allow = { religion = nestorian }
+				visible = { religion = nestorian }
+				ai_will_do = {
+					factor = 1
+					modifier = { factor = 2 unrest = 4 }
+				}
+			}
+			icon_jinghui = {
+				global_missionary_strength = 0.02
+				missionary_maintenance_cost = -0.25
+				allow = { religion = nestorian }
+				visible = { religion = nestorian }
+				ai_will_do = { factor = 0 }
+			}
+			icon_thomas = {
+				stability_cost_modifier = -0.25
+				global_autonomy = -0.05
+				allow = { religion = nestorian }
+				visible = { religion = nestorian }
+				ai_will_do = { factor = 0.5 }
+			}
+			icon_anthony = {
+				land_morale = 0.1
+				warscore_cost_vs_other_religion = -0.1
+				allow = { religion = nestorian }
+				visible = { religion = nestorian }
+				ai_will_do = {
+					factor = 1
+					modifier = { factor = 0 is_at_war = no }
+					modifier = { factor = 3 is_in_important_war = yes }
+				}
+			}
+		}
+	}
+'''
 
 
 def matching_close(text: str, opening: int) -> int:
@@ -87,6 +217,18 @@ def build_school_block() -> str:
 '''
 
 
+def append_to_group(text: str, group: str, block: str, unique_key: str) -> str:
+    match = re.search(rf"(?m)^{re.escape(group)}\s*=\s*\{{", text)
+    if match is None:
+        raise ValueError(f'vanilla religions are missing top-level group "{group}"')
+    opening = text.find("{", match.start())
+    closing = matching_close(text, opening)
+    body = text[opening + 1 : closing]
+    if re.search(rf"(?m)^\s*{re.escape(unique_key)}\s*=\s*\{{", body):
+        raise ValueError(f'{group} already defines "{unique_key}"')
+    return text[:closing] + block + text[closing:]
+
+
 def render(vanilla_root: Path) -> str:
     source = vanilla_root / "common/religions/00_religion.txt"
     data = source.read_bytes()
@@ -97,9 +239,11 @@ def render(vanilla_root: Path) -> str:
             f"{digest}; expected EU4 1.37.5 {EXPECTED_VANILLA_SHA256}"
         )
     text = data.decode("utf-8")
+    text = append_to_group(text, "christian", build_nestorian_block(), "nestorian")
+
     match = re.search(r"(?m)^eastern\s*=\s*\{", text)
     if match is None:
-        raise ValueError('vanilla religions are missing top-level group "eastern"')
+        raise ValueError('generated religions are missing top-level group "eastern"')
     opening = text.find("{", match.start())
     closing = matching_close(text, opening)
     eastern_body = text[opening + 1 : closing]
@@ -118,7 +262,8 @@ def run(vanilla_root: Path, check: bool) -> None:
         TARGET.write_text(output, encoding="utf-8")
     print(
         f"{'checked' if check else 'built'} EU4 1.37.5 religions; "
-        f"visible eastern mirrors={len(SCHOOLS)}; transparent sentinels=1"
+        f"visible eastern mirrors={len(SCHOOLS)}; transparent sentinels=1; "
+        "Nestorian patriarch icons=5"
     )
 
 

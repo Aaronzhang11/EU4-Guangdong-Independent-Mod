@@ -13,5 +13,9 @@
  zhx_zongheng_school_desc:0 "åN8nô‹0Óußv0»yTNCgØShTËeRýV0—RLmËV°‹HN²N•O‚‚&r0"
  zhx_no_doctrine_school:0 "8gËzýVº‹"
  zhx_no_doctrine_school_desc:0 ",gýVSVMR¡l	gÇ‘(uûNUOŒv¶RýVº‹0dky˜êS1nd–çe—RLmËVàzÿNÐc›OHeœgÿmNNýwŽ÷‹fRw0"
+ zhx_religion_practice_hollow_value:0 "§R[Root.zhx_doctrine_practice.GetValue]§!"
  zhx_religion_practice_value:0 "§Y[Root.zhx_doctrine_practice.GetValue]§!"
+ zhx_religion_practice_flourishing_value:0 "§G[Root.zhx_doctrine_practice.GetValue]§!"
+ zhx_religion_practice_exemplary_value:0 "§O[Root.zhx_doctrine_practice.GetValue]§!"
  zhx_religion_practice_value_tt:0 "§YfRLmõeS§!ÿ§Y[Root.zhx_doctrine_practice.GetValue]§! / 100\nSVMRƒXLu1uõeS³QšRÿNOŽN25HN§RTžRNoR§!ÿ25wHN§YýVº‹RËz§!ÿ50wHN§GýVº‹ff§!ÿ75åNNHN§OžRõxQƒ§!0\nNt^ØSSÿ§Y[Root.zhx_doctrine_last_delta.GetValue]§!\n\nõeS	c,gýVžRE–LˆHNÏkt^ØSS0"
+ zhx_religion_practice_ledger_button_tt:0 "§Y¹pûQSbVýVº‹õeS&Ms§!\n&MsO(WSbV„vNIR8h—rSVMRõeS0ÝNNch„v¹ppeÿåNÊS	cSVMRýVÅ`„˜¡‹„v,gt^S+gØSSÿNO(WTðSgkbÏc0"

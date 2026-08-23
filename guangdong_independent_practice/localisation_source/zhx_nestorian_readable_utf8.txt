@@ -1,0 +1,22 @@
+l_english:
+ nestorian:0 "景教"
+ nestorian_desc:0 "景教是沿丝路东传的东方基督教传统。其教会由都主教与各地教区维系，在诸夏又吸收了译经、立碑与本土礼仪的表达方式。"
+ nestorian_religion_desc:0 "景教源自东方教会传统，经叙利亚、河中与草原商道传入诸夏。在这条世界线中，契丹贵族与辽东教团共同扶持了一个独立教会；游戏中它使用牧首权威与圣像机制。提高牧首权威可以巩固正信省份，并选择一尊圣像获得阶段性国策加成。"
+
+ icon_nestorius:0 "圣聂斯脱里像"
+ icon_nestorius_desc:0 "聂斯脱里曾任君士坦丁堡主教，其教义虽遭西方与帝国教会排斥，却经东方教会的传承沿丝路远播。"
+ icon_mar_yelv:0 "圣耶律明信像"
+ icon_mar_yelv_desc:0 "耶律明信是本世界线虚构的契丹籍景教都主教。他以契丹语、汉语与叙利亚语巡行辽东诸教区，调停部族、城邑与教团之间的争端。"
+ icon_jinghui:0 "圣景惠像"
+ icon_jinghui_desc:0 "景惠是本世界线虚构的诸夏籍景教译经士。她将东方教会经典译成雅驯汉文，并主张以本土词汇讲解教义，使景教得以越过商旅社群而进入城邑。"
+ icon_thomas:0 "圣多马宗徒像"
+ icon_thomas_desc:0 "圣多马被东方诸教会视为远行传道的典范。关于他前往印度的传统，使他的圣像在通往海东与诸夏的教会中格外受敬。"
+ icon_anthony:0 "圣安东尼像"
+ icon_anthony_desc:0 "埃及的圣安东尼被尊为隐修生活的先驱。辽东教团以他的克己与坚忍勉励边地修士和战乱中的信众。"
+
+ nestorian_rebels_demand:0 "使$COUNTRYNAME$皈依"
+ nestorian_rebels_demand_desc:0 "景教信众要求国家承认其信仰的正统地位，或至少停止压迫和强制改宗。"
+ nestorian_rebels_title:0 "景教信众"
+ nestorian_rebels_name:0 "$RELIGION$狂热者"
+ nestorian_rebels_desc:0 "景教信众会在异教国家统治的景教省份举事，试图传播信仰并迫使统治者改宗。"
+ nestorian_rebels_army:0 "景教军"

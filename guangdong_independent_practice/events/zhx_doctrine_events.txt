@@ -185,8 +185,25 @@ country_event = {
         trigger = { has_country_flag = zhx_doctrine_mo }
         desc = zhx_doctrine.20.d.mo
     }
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_dao }
+        desc = zhx_doctrine.20.d.dao
+    }
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_bing }
+        desc = zhx_doctrine.20.d.bing
+    }
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_zongheng }
+        desc = zhx_doctrine.20.d.zongheng
+    }
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
+
+    # Recalculate only when the reusable ledger is actually opened. The same
+    # formula also drives the real yearly settlement, so this is a projection
+    # rather than a second gameplay source of truth.
+    immediate = { zhx_prepare_doctrine_ledger = yes }
 
     option = { name = zhx_doctrine.20.a }
 }
@@ -216,6 +233,293 @@ country_event = {
     }
 
     option = { name = OK }
+}
+
+# Annual receipt calculator. The yearly scripted effect has already applied
+# and clamped practice before reaching this hidden event. It records the real
+# change, classifies both sides of the settlement, and opens player-only
+# receipts when a 25/50/75 tier or the 70-point proposal boundary was crossed.
+country_event = {
+    id = zhx_doctrine.93
+    title = zhx_doctrine.90.t
+    desc = zhx_doctrine.90.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = { zhx_has_doctrine = yes }
+
+    immediate = {
+        set_variable = {
+            which = zhx_doctrine_last_delta
+            which = zhx_doctrine_practice
+        }
+        subtract_variable = {
+            which = zhx_doctrine_last_delta
+            which = zhx_doctrine_receipt_old_practice
+        }
+
+        set_variable = { which = zhx_doctrine_receipt_old_tier value = 0 }
+        if = {
+            limit = {
+                check_variable = {
+                    which = zhx_doctrine_receipt_old_practice
+                    value = 75
+                }
+            }
+            set_variable = { which = zhx_doctrine_receipt_old_tier value = 3 }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = zhx_doctrine_receipt_old_practice
+                    value = 50
+                }
+            }
+            set_variable = { which = zhx_doctrine_receipt_old_tier value = 2 }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = zhx_doctrine_receipt_old_practice
+                    value = 25
+                }
+            }
+            set_variable = { which = zhx_doctrine_receipt_old_tier value = 1 }
+        }
+
+        set_variable = { which = zhx_doctrine_receipt_new_tier value = 0 }
+        if = {
+            limit = {
+                check_variable = { which = zhx_doctrine_practice value = 75 }
+            }
+            set_variable = { which = zhx_doctrine_receipt_new_tier value = 3 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { which = zhx_doctrine_practice value = 50 }
+            }
+            set_variable = { which = zhx_doctrine_receipt_new_tier value = 2 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { which = zhx_doctrine_practice value = 25 }
+            }
+            set_variable = { which = zhx_doctrine_receipt_new_tier value = 1 }
+        }
+
+        if = {
+            limit = {
+                ai = no
+                # Tianxia proposal qualification has the higher information
+                # priority. If this same settlement crosses 70, suppress the
+                # ordinary tier receipt and let the dedicated .95 fire below.
+                NOT = {
+                    AND = {
+                        zhx_is_tianxia_polity = yes
+                        OR = {
+                            AND = {
+                                NOT = {
+                                    check_variable = {
+                                        which = zhx_doctrine_receipt_old_practice
+                                        value = 70
+                                    }
+                                }
+                                check_variable = {
+                                    which = zhx_doctrine_practice
+                                    value = 70
+                                }
+                            }
+                            AND = {
+                                check_variable = {
+                                    which = zhx_doctrine_receipt_old_practice
+                                    value = 70
+                                }
+                                NOT = {
+                                    check_variable = {
+                                        which = zhx_doctrine_practice
+                                        value = 70
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                OR = {
+                    AND = {
+                        NOT = {
+                            check_variable = {
+                                which = zhx_doctrine_receipt_old_tier
+                                value = 1
+                            }
+                        }
+                        check_variable = {
+                            which = zhx_doctrine_receipt_new_tier
+                            value = 1
+                        }
+                    }
+                    AND = {
+                        check_variable = {
+                            which = zhx_doctrine_receipt_old_tier
+                            value = 1
+                        }
+                        NOT = {
+                            check_variable = {
+                                which = zhx_doctrine_receipt_old_tier
+                                value = 2
+                            }
+                        }
+                        OR = {
+                            NOT = {
+                                check_variable = {
+                                    which = zhx_doctrine_receipt_new_tier
+                                    value = 1
+                                }
+                            }
+                            check_variable = {
+                                which = zhx_doctrine_receipt_new_tier
+                                value = 2
+                            }
+                        }
+                    }
+                    AND = {
+                        check_variable = {
+                            which = zhx_doctrine_receipt_old_tier
+                            value = 2
+                        }
+                        NOT = {
+                            check_variable = {
+                                which = zhx_doctrine_receipt_old_tier
+                                value = 3
+                            }
+                        }
+                        OR = {
+                            NOT = {
+                                check_variable = {
+                                    which = zhx_doctrine_receipt_new_tier
+                                    value = 2
+                                }
+                            }
+                            check_variable = {
+                                which = zhx_doctrine_receipt_new_tier
+                                value = 3
+                            }
+                        }
+                    }
+                    AND = {
+                        check_variable = {
+                            which = zhx_doctrine_receipt_old_tier
+                            value = 3
+                        }
+                        NOT = {
+                            check_variable = {
+                                which = zhx_doctrine_receipt_new_tier
+                                value = 3
+                            }
+                        }
+                    }
+                }
+            }
+            set_country_flag = zhx_doctrine_tier_receipt_pending
+            country_event = { id = zhx_doctrine.94 }
+        }
+
+        # Proposal qualification is a separate international threshold. Clear
+        # both directions first so no stale marker can survive an unchanged
+        # year, then dispatch at most one direction through an exclusive chain.
+        clr_country_flag = zhx_doctrine_proposal_gained_pending
+        clr_country_flag = zhx_doctrine_proposal_lost_pending
+        if = {
+            limit = {
+                ai = no
+                zhx_is_tianxia_polity = yes
+                NOT = {
+                    check_variable = {
+                        which = zhx_doctrine_receipt_old_practice
+                        value = 70
+                    }
+                }
+                check_variable = { which = zhx_doctrine_practice value = 70 }
+            }
+            set_country_flag = zhx_doctrine_proposal_gained_pending
+            country_event = { id = zhx_doctrine.95 }
+        }
+        else_if = {
+            limit = {
+                ai = no
+                zhx_is_tianxia_polity = yes
+                check_variable = {
+                    which = zhx_doctrine_receipt_old_practice
+                    value = 70
+                }
+                NOT = {
+                    check_variable = { which = zhx_doctrine_practice value = 70 }
+                }
+            }
+            set_country_flag = zhx_doctrine_proposal_lost_pending
+            country_event = { id = zhx_doctrine.95 }
+        }
+    }
+
+    option = { name = OK }
+}
+
+# One compact visible receipt serves every school and every upward/downward
+# crossing. Custom localisation resolves the current school and both tier names.
+country_event = {
+    id = zhx_doctrine.94
+    title = zhx_doctrine.94.t
+    desc = zhx_doctrine.94.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        zhx_has_doctrine = yes
+        has_country_flag = zhx_doctrine_tier_receipt_pending
+    }
+
+    immediate = {
+        clr_country_flag = zhx_doctrine_tier_receipt_pending
+    }
+
+    option = { name = zhx_doctrine.94.a }
+}
+
+# One visible event handles both directions of the 70-point proposal boundary.
+# Direction markers remain until the player closes it because they select the
+# description, then both are cleared together in the sole option.
+country_event = {
+    id = zhx_doctrine.95
+    title = zhx_doctrine.95.t
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_proposal_gained_pending }
+        desc = zhx_doctrine.95.d.gained
+    }
+    desc = {
+        trigger = { has_country_flag = zhx_doctrine_proposal_lost_pending }
+        desc = zhx_doctrine.95.d.lost
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+        zhx_has_doctrine = yes
+        OR = {
+            has_country_flag = zhx_doctrine_proposal_gained_pending
+            has_country_flag = zhx_doctrine_proposal_lost_pending
+        }
+    }
+
+    option = {
+        name = zhx_doctrine.95.a
+        hidden_effect = {
+            clr_country_flag = zhx_doctrine_proposal_gained_pending
+            clr_country_flag = zhx_doctrine_proposal_lost_pending
+        }
+    }
 }
 
 # Conversion lifecycle cleanup. EU4 exposes no clear-school effect, so

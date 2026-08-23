@@ -3,8 +3,7 @@ government = monarchy
 add_government_reform = korean_monarchy
 government_rank = 2
 technology_group = chinese
-religion = confucianism
-add_harmonized_religion = mahayana
+religion = mahayana
 primary_culture = gdd_samhan
 capital = 735
 

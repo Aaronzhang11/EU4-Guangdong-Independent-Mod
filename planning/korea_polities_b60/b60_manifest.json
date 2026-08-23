@@ -11,6 +11,8 @@
       "long_name": "箕氏朝鲜",
       "capital": 1845,
       "primary_culture": "korean",
+      "country_religion": "confucianism",
+      "province_religion": "confucianism",
       "provinces": [733, 1845, 4231, 5360, 5361, 5362, 5363, 5364],
       "zhou_member": true,
       "engine_subject": false
@@ -19,6 +21,10 @@
       "name": "辽",
       "capital": 5204,
       "primary_culture": "gdd_khitan",
+      "country_religion": "nestorian",
+      "province_religion": "confucianism",
+      "liaodong_provinces": [726, 5204, 5205, 2112, 4652, 2113],
+      "liaodong_province_religion": "nestorian",
       "new_korea_provinces": [2744, 4232, 5359],
       "zhou_member": true,
       "engine_subject": false
@@ -27,6 +33,8 @@
       "name": "曷懒",
       "capital": 732,
       "primary_culture": "manchu",
+      "country_religion": "tengri_pagan_reformed",
+      "province_religion": "tengri_pagan_reformed",
       "provinces": [732, 2742, 2743, 5356, 5357, 5358],
       "zhou_member": false,
       "engine_subject": false
@@ -35,6 +43,8 @@
       "name": "高丽",
       "capital": 735,
       "primary_culture": "gdd_samhan",
+      "country_religion": "mahayana",
+      "province_religion": "mahayana",
       "provinces": [734, 735, 736, 737, 1013, 2694, 2741, 2745, 4227, 4228, 4229, 4230, 5365],
       "zhou_member": false,
       "engine_subject": false

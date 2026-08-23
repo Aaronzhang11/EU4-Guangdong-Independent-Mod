@@ -76,8 +76,10 @@ FILES = {
     "gdd_characters_readable_utf8.txt": "gdd_characters_l_english.yml",
     "zhx_system_readable_utf8.txt": "zhx_system_l_english.yml",
     "zhx_doctrine_readable_utf8.txt": "zhx_doctrine_l_english.yml",
+    "zhx_doctrine_expansion_readable_utf8.txt": "zhx_doctrine_expansion_l_english.yml",
     "zhx_native_schools_readable_utf8.txt": "zhx_native_schools_l_english.yml",
     "zhx_tianxia_debate_readable_utf8.txt": "zhx_tianxia_debate_l_english.yml",
+    "zhx_nestorian_readable_utf8.txt": "zhx_nestorian_l_english.yml",
 }
 
 # Bytes that the double-byte patch escapes inside either half of a UCS-2 code

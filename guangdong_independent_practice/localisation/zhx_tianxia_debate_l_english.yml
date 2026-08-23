@@ -72,12 +72,14 @@
  zhx_debate.30.d.plural:0 "§YSVMR¶r`ÿŒv¶Rv^Ëz§!\n\nhT)YNN˜YÇ‘(uÐgN¶RùRŒTs^b…Qb„vÄ‹÷N0hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+2ÿÜw¹e·ƒ—V1ßvŸR0\n\nTýVÍNïSZWcŠVdkNT„výV…QýVº‹0"
  zhx_debate.30.d.none:0 "§YSVMRSàe)YNLffR§!\n\nóS2N¶RfRô‹R+Råb	gõeS¾0R70„vhT)YNýV¶RTÿ)YPRS(Wt^¦^Àhåg-NìSV,rN!k)YN'Y©0–™!kÓuœgµNuMRÿùRYb‰NÜw)Rçuíu¿l(uŸS	g„vJyPNJP+5Ä‰R0"
  zhx_debate.30.a:0 "ýVº‹TVÿ)YNqQ®‹"
+ zhx_debate.30.b:0 "ågwmQ¶RT¿R"
+ zhx_debate.31.t:0 "mQ¶RT¿RNÐcHhDJh"
+ zhx_debate.31.d:0 "§YmQ¶RT¿RÿÐcHhDJh§!\n\nQ¶R §Y[Root.zhx_tianxia_school_ru_total_count.GetValue]§!ýVÿ¾h§Y[Root.zhx_tianxia_proposal_ru_count.GetValue]§!	ÿ0Õl¶R §Y[Root.zhx_tianxia_school_fa_total_count.GetValue]§!ýVÿ¾h§Y[Root.zhx_tianxia_proposal_fa_count.GetValue]§!	ÿ\n¨X¶R §Y[Root.zhx_tianxia_school_mo_total_count.GetValue]§!ýVÿ¾h§Y[Root.zhx_tianxia_proposal_mo_count.GetValue]§!	ÿ0S¶R §Y[Root.zhx_tianxia_school_dao_total_count.GetValue]§!ýVÿ¾h§Y[Root.zhx_tianxia_proposal_dao_count.GetValue]§!	ÿ\nuQ¶R §Y[Root.zhx_tianxia_school_bing_total_count.GetValue]§!ýVÿ¾h§Y[Root.zhx_tianxia_proposal_bing_count.GetValue]§!	ÿ0µu8j¶R §Y[Root.zhx_tianxia_school_zongheng_total_count.GetValue]§!ýVÿ¾h§Y[Root.zhx_tianxia_proposal_zongheng_count.GetValue]§!	ÿ\n\n§gI`peêSSìbhT)YN…QåNJyYeHNýVYev^åNå‹¶RHNSVMRýVº‹„v°sXRýV¶Rÿ¾hpeæS‰BlõeS¾0R700§!"
+ zhx_debate.31.a:0 "È‰Õk"
  zhx_debate.90.t:0 ")YN'Y©t^¦^Àhåg"
  zhx_debate.90.d:0 ")YN'Y©„vÐcHhDJhNAS”Nt^ûNgòTÏuÀhåg0"
 
  zhx_review_tianxia_orthodoxy_title:0 "ågw)YNLffR"
  zhx_review_tianxia_orthodoxy_desc:0 "ågwSVMR)YNLffRÊSvQùRŒTs^0ø‹¯O…Qb0ßWYb‰NÜw)R0ßvŸRŒTJyPNJP„vqVÍT0)YNLffRNO9eØS,gýVýV…QýVº‹0"
- zhx_debug_convene_tianxia_debate_title:0 "§TŒÕ‹ÿìSV)YN'Y©§!"
- zhx_debug_convene_tianxia_debate_desc:0 "ËzsSÀhågÐcHhDJhv^ìSV)YN'Y©ÿýVeuAS”Nt^ûNgÿÍN‰BlóS2N¶RfRô‹T	gõeS¾0R70„vhT)YNžRõýV0"
  zhx_tianxia_debate_cooldown:0 ")YNLffRûNg"
  zhx_tianxia_debate_cooldown_desc:0 "NNJS)YN'Y©„vÓuœgÍN(WAS”Nt^Lˆg…Q0TýVýV…QýVº‹N×Så‹ûNgP–6R0"

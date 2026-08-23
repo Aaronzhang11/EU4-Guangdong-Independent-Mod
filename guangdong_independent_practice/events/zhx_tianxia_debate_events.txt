@@ -344,6 +344,26 @@ country_event = {
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
     option = { name = zhx_debate.30.a }
+    option = {
+        name = zhx_debate.30.b
+        hidden_effect = { country_event = { id = zhx_debate.31 } }
+    }
+}
+
+# On-demand read-only ledger. The country scan runs only after the player asks
+# for the Six Schools overview from the international-norm review event.
+country_event = {
+    id = zhx_debate.31
+    title = zhx_debate.31.t
+    desc = zhx_debate.31.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = { zhx_refresh_tianxia_proposal_ledger = yes }
+    }
+
+    option = { name = zhx_debate.31.a }
 }
 
 # Annual scheduler: one Tianzi passes, and the event starts a debate only when

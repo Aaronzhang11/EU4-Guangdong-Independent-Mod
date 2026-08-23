@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Chinese 1.37 religion view with a compact practice readout."""
+"""Build the Chinese 1.37 religion view with tier-coloured practice readouts."""
 
 from __future__ import annotations
 
@@ -42,10 +42,22 @@ DOCTRINE_STATUS = r'''
 				scripted = yes
 			}
 
-			# GDD: Compact, read-only practice value in the native school row.
-			# The engine already renders the school name and emblem. Keeping this
-			# value in the gap before invite_scholar_button avoids both the
-			# Defender-of-Faith block and the province-conversion list.
+			# GDD: Four mutually-exclusive, tier-coloured practice values share
+			# the same native-school-row anchor. The engine already renders the
+			# school name and emblem; this 28x24 gap is clear of both the invite
+			# button and Defender of the Faith.
+			instantTextBoxType = {
+				name = "zhx_religion_practice_hollow_value"
+				position = { x = 151 y = 157 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 28
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
 			instantTextBoxType = {
 				name = "zhx_religion_practice_value"
 				position = { x = 151 y = 157 }
@@ -55,6 +67,77 @@ DOCTRINE_STATUS = r'''
 				maxWidth = 28
 				maxHeight = 24
 				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_religion_practice_flourishing_value"
+				position = { x = 151 y = 157 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 28
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_religion_practice_exemplary_value"
+				position = { x = 151 y = 157 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 28
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			# GDD: Four transparent hit targets sit over the four mutually-exclusive
+			# practice readouts. Only the matching tier is enabled by custom_gui, so
+			# clicking the visible number opens one reusable on-demand ledger event.
+			guiButtonType = {
+				name = "zhx_religion_practice_hollow_ledger_button"
+				position = { x = 151 y = 157 }
+				quadTextureSprite = "GFX_resource_transparent"
+				buttonText = ""
+				Orientation = "UPPER_LEFT"
+				clicksound = click
+				scale = 0.875
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_religion_practice_established_ledger_button"
+				position = { x = 151 y = 157 }
+				quadTextureSprite = "GFX_resource_transparent"
+				buttonText = ""
+				Orientation = "UPPER_LEFT"
+				clicksound = click
+				scale = 0.875
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_religion_practice_flourishing_ledger_button"
+				position = { x = 151 y = 157 }
+				quadTextureSprite = "GFX_resource_transparent"
+				buttonText = ""
+				Orientation = "UPPER_LEFT"
+				clicksound = click
+				scale = 0.875
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_religion_practice_exemplary_ledger_button"
+				position = { x = 151 y = 157 }
+				quadTextureSprite = "GFX_resource_transparent"
+				buttonText = ""
+				Orientation = "UPPER_LEFT"
+				clicksound = click
+				scale = 0.875
 				scripted = yes
 			}
 '''
@@ -125,7 +208,8 @@ def run(dependency_root: Path, check: bool) -> None:
         TARGET.write_text(output, encoding="utf-8")
     print(
         f"{'checked' if check else 'built'} Chinese 1.37 religion view; "
-        "school-button overlays=2; compact native-row practice display=1"
+        "school-button overlays=2; mutually-exclusive tier practice displays=4; "
+        "practice-ledger hit targets=4"
     )
 
 

@@ -73,6 +73,105 @@ zhx_reset_tianxia_debate_ballot = {
     }
 }
 
+# Read-only, on-demand Six Schools proposal ledger. The viewing country owns
+# twelve display variables; no yearly or monthly pulse caches these values.
+# One scan counts all existing Tianxia Lijiao adopters, then records how many
+# have reached the 70-practice threshold used by formal proposal eligibility.
+zhx_refresh_tianxia_proposal_ledger = {
+    set_variable = { which = zhx_tianxia_school_ru_total_count value = 0 }
+    set_variable = { which = zhx_tianxia_school_fa_total_count value = 0 }
+    set_variable = { which = zhx_tianxia_school_mo_total_count value = 0 }
+    set_variable = { which = zhx_tianxia_school_dao_total_count value = 0 }
+    set_variable = { which = zhx_tianxia_school_bing_total_count value = 0 }
+    set_variable = { which = zhx_tianxia_school_zongheng_total_count value = 0 }
+    set_variable = { which = zhx_tianxia_proposal_ru_count value = 0 }
+    set_variable = { which = zhx_tianxia_proposal_fa_count value = 0 }
+    set_variable = { which = zhx_tianxia_proposal_mo_count value = 0 }
+    set_variable = { which = zhx_tianxia_proposal_dao_count value = 0 }
+    set_variable = { which = zhx_tianxia_proposal_bing_count value = 0 }
+    set_variable = { which = zhx_tianxia_proposal_zongheng_count value = 0 }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_polity = yes
+            zhx_is_lijiao_country = yes
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            ROOT = {
+                change_variable = { which = zhx_tianxia_school_ru_total_count value = 1 }
+            }
+            if = {
+                limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
+                ROOT = {
+                    change_variable = { which = zhx_tianxia_proposal_ru_count value = 1 }
+                }
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            ROOT = {
+                change_variable = { which = zhx_tianxia_school_fa_total_count value = 1 }
+            }
+            if = {
+                limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
+                ROOT = {
+                    change_variable = { which = zhx_tianxia_proposal_fa_count value = 1 }
+                }
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            ROOT = {
+                change_variable = { which = zhx_tianxia_school_mo_total_count value = 1 }
+            }
+            if = {
+                limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
+                ROOT = {
+                    change_variable = { which = zhx_tianxia_proposal_mo_count value = 1 }
+                }
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            ROOT = {
+                change_variable = { which = zhx_tianxia_school_dao_total_count value = 1 }
+            }
+            if = {
+                limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
+                ROOT = {
+                    change_variable = { which = zhx_tianxia_proposal_dao_count value = 1 }
+                }
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            ROOT = {
+                change_variable = { which = zhx_tianxia_school_bing_total_count value = 1 }
+            }
+            if = {
+                limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
+                ROOT = {
+                    change_variable = { which = zhx_tianxia_proposal_bing_count value = 1 }
+                }
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            ROOT = {
+                change_variable = { which = zhx_tianxia_school_zongheng_total_count value = 1 }
+            }
+            if = {
+                limit = { check_variable = { which = zhx_doctrine_practice value = 70 } }
+                ROOT = {
+                    change_variable = { which = zhx_tianxia_proposal_zongheng_count value = 1 }
+                }
+            }
+        }
+    }
+}
+
 zhx_begin_tianxia_debate = {
     set_country_flag = zhx_tianxia_debate_active
     zhx_clear_tianxia_debate_result_flags = yes

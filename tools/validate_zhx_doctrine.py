@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static contract checks for the Ritual Teaching Ru/Fa/Mo prototype."""
+"""Static contract checks for the six-school Ritual Teaching prototype."""
 
 from __future__ import annotations
 
@@ -17,6 +17,8 @@ SCRIPT_PATHS = (
     MOD / "common/event_modifiers/zhx_doctrine_modifiers.txt",
     MOD / "decisions/zhx_doctrine_decisions.txt",
     MOD / "events/zhx_doctrine_events.txt",
+    MOD / "events/zhx_doctrine_expansion_events.txt",
+    MOD / "customizable_localization/zhx_doctrine_receipt.txt",
 )
 ON_ACTION_PATH = MOD / "common/on_actions/zhx_system_on_actions.txt"
 NATIVE_GFX_PATH = MOD / "interface/zhx_doctrine_icons.gfx"
@@ -31,16 +33,25 @@ NATIVE_DIPLOMACY_BUILDER_PATH = ROOT / "tools/build_zhx_countrydiplomacyview.py"
 LOCALISATION_PATH = (
     MOD / "localisation_source/zhx_doctrine_readable_utf8.txt"
 )
+EXPANSION_LOCALISATION_PATH = (
+    MOD / "localisation_source/zhx_doctrine_expansion_readable_utf8.txt"
+)
 NATIVE_LOCALISATION_PATH = (
     MOD / "localisation_source/zhx_native_schools_readable_utf8.txt"
 )
 TEMP_RUNTIME_EVENT_PATH = MOD / "events/zz_zhxtest_runtime.txt"
 
-EXPECTED_EVENT_IDS = {"1", "10", "11", "12", "20", "90", "91", "92"}
+EXPECTED_EVENT_IDS = {
+    "1", "10", "11", "12", "20", "90", "91", "92", "93", "94", "95"
+}
+EXPECTED_EXPANSION_EVENT_IDS = {"1", "10", "11", "12"}
 EXPECTED_FLAGS = {
     "ru": "zhx_doctrine_ru",
     "fa": "zhx_doctrine_fa",
     "mo": "zhx_doctrine_mo",
+    "dao": "zhx_doctrine_dao",
+    "bing": "zhx_doctrine_bing",
+    "zongheng": "zhx_doctrine_zongheng",
 }
 NATIVE_SCHOOLS = {
     "zhx_ru_school": "GFX_zhx_doctrine_ru_school",
@@ -63,7 +74,20 @@ NATIVE_SCHOOL_FLAGS = {
     "zhx_zongheng_school": "zhx_doctrine_zongheng",
 }
 NATIVE_STATUS_FIELDS = {
+    "zhx_religion_practice_hollow_value",
     "zhx_religion_practice_value",
+    "zhx_religion_practice_flourishing_value",
+    "zhx_religion_practice_exemplary_value",
+}
+PRACTICE_LEDGER_BUTTONS = {
+    "zhx_religion_practice_hollow_ledger_button":
+        "zhx_religion_practice_hollow_value",
+    "zhx_religion_practice_established_ledger_button":
+        "zhx_religion_practice_value",
+    "zhx_religion_practice_flourishing_ledger_button":
+        "zhx_religion_practice_flourishing_value",
+    "zhx_religion_practice_exemplary_ledger_button":
+        "zhx_religion_practice_exemplary_value",
 }
 REMOVED_RELIGION_CARD_CONTROLS = {
     "zhx_religion_school_none_window",
@@ -90,6 +114,15 @@ EXPECTED_MODIFIERS = {
     "zhx_doctrine_mo_established",
     "zhx_doctrine_mo_flourishing",
     "zhx_doctrine_mo_exemplary",
+    "zhx_doctrine_dao_established",
+    "zhx_doctrine_dao_flourishing",
+    "zhx_doctrine_dao_exemplary",
+    "zhx_doctrine_bing_established",
+    "zhx_doctrine_bing_flourishing",
+    "zhx_doctrine_bing_exemplary",
+    "zhx_doctrine_zongheng_established",
+    "zhx_doctrine_zongheng_flourishing",
+    "zhx_doctrine_zongheng_exemplary",
     "zhx_doctrine_change_cooldown",
 }
 EXPECTED_LOCALISATION = {
@@ -125,6 +158,48 @@ EXPECTED_LOCALISATION = {
     "zhx_doctrine.20.a",
     "zhx_doctrine.90.t",
     "zhx_doctrine.90.d",
+    "zhx_doctrine.94.t",
+    "zhx_doctrine.94.d",
+    "zhx_doctrine.94.a",
+    "zhx_doctrine.95.t",
+    "zhx_doctrine.95.d.gained",
+    "zhx_doctrine.95.d.lost",
+    "zhx_doctrine.95.a",
+    "zhx_doctrine_receipt_school_ru",
+    "zhx_doctrine_receipt_school_fa",
+    "zhx_doctrine_receipt_school_mo",
+    "zhx_doctrine_receipt_school_dao",
+    "zhx_doctrine_receipt_school_bing",
+    "zhx_doctrine_receipt_school_zongheng",
+    "zhx_doctrine_receipt_school_unknown",
+    "zhx_doctrine_receipt_tier_hollow",
+    "zhx_doctrine_receipt_tier_established",
+    "zhx_doctrine_receipt_tier_flourishing",
+    "zhx_doctrine_receipt_tier_exemplary",
+    "zhx_convene_later_schools_debate_title",
+    "zhx_convene_later_schools_debate_desc",
+    "zhx_doctrine_expansion.1.t",
+    "zhx_doctrine_expansion.1.d",
+    "zhx_doctrine_expansion.1.a",
+    "zhx_doctrine_expansion.1.b",
+    "zhx_doctrine_expansion.1.c",
+    "zhx_doctrine_expansion.1.e",
+    "zhx_doctrine_expansion_postpone_tt",
+    "zhx_doctrine_expansion.10.t",
+    "zhx_doctrine_expansion.10.d",
+    "zhx_doctrine_expansion.11.t",
+    "zhx_doctrine_expansion.11.d",
+    "zhx_doctrine_expansion.12.t",
+    "zhx_doctrine_expansion.12.d",
+    "zhx_doctrine.choose_dao",
+    "zhx_doctrine.choose_bing",
+    "zhx_doctrine.choose_zongheng",
+    "zhx_adopt_dao_doctrine_tt",
+    "zhx_adopt_bing_doctrine_tt",
+    "zhx_adopt_zongheng_doctrine_tt",
+    "zhx_doctrine.20.d.dao",
+    "zhx_doctrine.20.d.bing",
+    "zhx_doctrine.20.d.zongheng",
 }
 FORBIDDEN_TOKENS = {
     "add_treasury": "the doctrine must not be purchased with money",
@@ -261,6 +336,52 @@ def country_event_body(text: str, event_id: str) -> str:
     require(
         len(matching_bodies) == 1,
         f"expected exactly one directly loaded country_event {event_id}",
+    )
+    return matching_bodies[0]
+
+
+def defined_text_body(text: str, defined_name: str) -> str:
+    """Return one customizable-localisation defined_text body by its name."""
+    matching_bodies: list[str] = []
+    for match in re.finditer(r"(?m)^defined_text\s*=\s*\{", text):
+        opening = text.find("{", match.start())
+        depth = 0
+        in_string = False
+        in_comment = False
+        escaped = False
+        for index in range(opening, len(text)):
+            char = text[index]
+            if in_comment:
+                if char == "\n":
+                    in_comment = False
+                continue
+            if in_string:
+                if escaped:
+                    escaped = False
+                elif char == "\\":
+                    escaped = True
+                elif char == '"':
+                    in_string = False
+                continue
+            if char == "#":
+                in_comment = True
+            elif char == '"':
+                in_string = True
+            elif char == "{":
+                depth += 1
+            elif char == "}":
+                depth -= 1
+                if depth == 0:
+                    body = text[opening + 1:index]
+                    if re.search(
+                        rf"(?m)^\s*name\s*=\s*{re.escape(defined_name)}\s*$",
+                        body,
+                    ):
+                        matching_bodies.append(body)
+                    break
+    require(
+        len(matching_bodies) == 1,
+        f"expected exactly one defined_text {defined_name}",
     )
     return matching_bodies[0]
 
@@ -411,6 +532,43 @@ def named_instant_text_box_body(text: str, name: str) -> str:
     raise ValueError(f'instantTextBoxType "{name}" has no closing brace')
 
 
+def named_gui_button_body(text: str, name: str) -> str:
+    match = re.search(
+        rf'guiButtonType\s*=\s*\{{\s*name\s*=\s*"{re.escape(name)}"', text
+    )
+    require(match is not None, f'missing guiButtonType "{name}"')
+    opening = text.find("{", match.start())
+    depth = 0
+    in_string = False
+    in_comment = False
+    escaped = False
+    for index in range(opening, len(text)):
+        char = text[index]
+        if in_comment:
+            if char == "\n":
+                in_comment = False
+            continue
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == '"':
+                in_string = False
+            continue
+        if char == "#":
+            in_comment = True
+        elif char == '"':
+            in_string = True
+        elif char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return text[opening + 1:index]
+    raise ValueError(f'guiButtonType "{name}" has no closing brace')
+
+
 def named_custom_text_box_body(text: str, name: str) -> str:
     match = re.search(
         rf"custom_text_box\s*=\s*\{{\s*name\s*=\s*{re.escape(name)}\b", text
@@ -446,6 +604,43 @@ def named_custom_text_box_body(text: str, name: str) -> str:
             if depth == 0:
                 return text[opening + 1:index]
     raise ValueError(f'custom_text_box "{name}" has no closing brace')
+
+
+def named_custom_button_body(text: str, name: str) -> str:
+    match = re.search(
+        rf"custom_button\s*=\s*\{{\s*name\s*=\s*{re.escape(name)}\b", text
+    )
+    require(match is not None, f'missing custom_button "{name}"')
+    opening = text.find("{", match.start())
+    depth = 0
+    in_string = False
+    in_comment = False
+    escaped = False
+    for index in range(opening, len(text)):
+        char = text[index]
+        if in_comment:
+            if char == "\n":
+                in_comment = False
+            continue
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == '"':
+                in_string = False
+            continue
+        if char == "#":
+            in_comment = True
+        elif char == '"':
+            in_string = True
+        elif char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return text[opening + 1:index]
+    raise ValueError(f'custom_button "{name}" has no closing brace')
 
 
 def named_icon_body(text: str, name: str) -> str:
@@ -586,7 +781,11 @@ def decode_tga_alpha(texture: bytes, name: str) -> list[int]:
 def main() -> None:
     texts = {path: read(path) for path in SCRIPT_PATHS}
     on_action = read(ON_ACTION_PATH)
-    localisation = read(LOCALISATION_PATH)
+    localisation = (
+        read(LOCALISATION_PATH)
+        + "\n"
+        + read(EXPANSION_LOCALISATION_PATH)
+    )
     native_gfx = read(NATIVE_GFX_PATH)
     lijiao_gfx = read(LIJIAO_GFX_PATH)
     native_gui = read(NATIVE_GUI_PATH)
@@ -860,6 +1059,224 @@ def main() -> None:
         set(event_ids) == EXPECTED_EVENT_IDS,
         f"event ID contract changed: {sorted(event_ids)}",
     )
+    review_event = country_event_body(event_text, "zhx_doctrine.20")
+    for school in EXPECTED_FLAGS:
+        require(
+            f"has_country_flag = zhx_doctrine_{school}" in review_event
+            and f"desc = zhx_doctrine.20.d.{school}" in review_event,
+            f"current-doctrine review must describe {school}",
+        )
+    review_immediate = named_block_body(review_event, "immediate")
+    require(
+        re.fullmatch(
+            r"\s*zhx_prepare_doctrine_ledger\s*=\s*yes\s*",
+            review_immediate,
+            re.S,
+        )
+        is not None,
+        "the reusable doctrine-review event must prepare its ledger on open",
+    )
+
+    receipt_calculator = country_event_body(event_text, "zhx_doctrine.93")
+    receipt_calculator_trigger = named_block_body(receipt_calculator, "trigger")
+    receipt_calculator_immediate = named_block_body(receipt_calculator, "immediate")
+    require(
+        receipt_calculator.count("hidden = yes") == 1
+        and receipt_calculator.count("is_triggered_only = yes") == 1
+        and "zhx_has_doctrine = yes" in receipt_calculator_trigger
+        and receipt_calculator.count("option = {") == 1,
+        "zhx_doctrine.93 must remain one hidden, triggered-only annual receipt calculator",
+    )
+    require(
+        receipt_calculator_immediate.count("which = zhx_doctrine_last_delta") == 2
+        and receipt_calculator_immediate.count(
+            "which = zhx_doctrine_receipt_old_practice"
+        )
+        == 8
+        and receipt_calculator_immediate.count(
+            "which = zhx_doctrine_receipt_old_tier"
+        )
+        == 10
+        and receipt_calculator_immediate.count(
+            "which = zhx_doctrine_receipt_new_tier"
+        )
+        == 10
+        and all(
+            receipt_calculator_immediate.count(f"value = {threshold}") >= 2
+            for threshold in (25, 50, 75)
+        )
+        and "ai = no" in receipt_calculator_immediate
+        and receipt_calculator_immediate.count(
+            "set_country_flag = zhx_doctrine_tier_receipt_pending"
+        )
+        == 1
+        and receipt_calculator_immediate.count(
+            "country_event = { id = zhx_doctrine.94 }"
+        )
+        == 1
+        and receipt_calculator_immediate.count(
+            "clr_country_flag = zhx_doctrine_proposal_gained_pending"
+        )
+        == 1
+        and receipt_calculator_immediate.count(
+            "clr_country_flag = zhx_doctrine_proposal_lost_pending"
+        )
+        == 1
+        and receipt_calculator_immediate.count(
+            "set_country_flag = zhx_doctrine_proposal_gained_pending"
+        )
+        == 1
+        and receipt_calculator_immediate.count(
+            "set_country_flag = zhx_doctrine_proposal_lost_pending"
+        )
+        == 1
+        and receipt_calculator_immediate.count(
+            "country_event = { id = zhx_doctrine.95 }"
+        )
+        == 2
+        and receipt_calculator_immediate.count("value = 70") == 8
+        and receipt_calculator_immediate.count(
+            "zhx_is_tianxia_polity = yes"
+        )
+        == 3,
+        "annual receipt calculator must derive actual post-clamp change, classify "
+        "both 25/50/75 tiers, and dispatch player-only tier/proposal crossings; "
+        "proposal feedback must be limited to Tianxia polities",
+    )
+    tier_receipt_prefix = receipt_calculator_immediate.split(
+        "set_country_flag = zhx_doctrine_tier_receipt_pending", 1
+    )[0]
+    require(
+        re.search(
+            r"NOT\s*=\s*\{\s*AND\s*=\s*\{\s*"
+            r"zhx_is_tianxia_polity\s*=\s*yes\s*OR\s*=\s*\{\s*"
+            r"AND\s*=\s*\{\s*NOT\s*=\s*\{\s*check_variable\s*=\s*\{\s*"
+            r"which\s*=\s*zhx_doctrine_receipt_old_practice\s*value\s*=\s*70\s*\}\s*\}\s*"
+            r"check_variable\s*=\s*\{\s*which\s*=\s*zhx_doctrine_practice\s*value\s*=\s*70\s*\}\s*\}\s*"
+            r"AND\s*=\s*\{\s*check_variable\s*=\s*\{\s*which\s*=\s*zhx_doctrine_receipt_old_practice\s*value\s*=\s*70\s*\}\s*"
+            r"NOT\s*=\s*\{\s*check_variable\s*=\s*\{\s*which\s*=\s*zhx_doctrine_practice\s*value\s*=\s*70\s*\}",
+            tier_receipt_prefix,
+            re.S,
+        )
+        is not None,
+        "the ordinary tier receipt must exclude Tianxia settlements that cross "
+        "70 so the proposal-qualification receipt is the sole visible receipt",
+    )
+    require(
+        re.search(
+            r"set_country_flag\s*=\s*zhx_doctrine_proposal_gained_pending\s+"
+            r"country_event\s*=\s*\{\s*id\s*=\s*zhx_doctrine\.95\s*\}\s*"
+            r"\}\s*else_if\s*=\s*\{.*?"
+            r"set_country_flag\s*=\s*zhx_doctrine_proposal_lost_pending\s+"
+            r"country_event\s*=\s*\{\s*id\s*=\s*zhx_doctrine\.95\s*\}",
+            receipt_calculator_immediate,
+            re.S,
+        )
+        is not None,
+        "proposal qualification must dispatch gained/lost through one exclusive if chain",
+    )
+
+    receipt_event = country_event_body(event_text, "zhx_doctrine.94")
+    receipt_trigger = named_block_body(receipt_event, "trigger")
+    receipt_immediate = named_block_body(receipt_event, "immediate")
+    require(
+        "hidden = yes" not in receipt_event
+        and receipt_event.count("is_triggered_only = yes") == 1
+        and "ai = no" in receipt_trigger
+        and "zhx_has_doctrine = yes" in receipt_trigger
+        and "has_country_flag = zhx_doctrine_tier_receipt_pending"
+        in receipt_trigger
+        and re.fullmatch(
+            r"\s*clr_country_flag\s*=\s*zhx_doctrine_tier_receipt_pending\s*",
+            receipt_immediate,
+            re.S,
+        )
+        is not None
+        and receipt_event.count("option = {") == 1,
+        "zhx_doctrine.94 must be one visible, player-only, one-shot tier receipt",
+    )
+
+    proposal_receipt = country_event_body(event_text, "zhx_doctrine.95")
+    proposal_receipt_trigger = named_block_body(
+        proposal_receipt.split("is_triggered_only = yes", 1)[1], "trigger"
+    )
+    proposal_receipt_option = named_block_body(proposal_receipt, "option")
+    proposal_receipt_option_effect = named_block_body(
+        proposal_receipt_option, "hidden_effect"
+    )
+    require(
+        "hidden = yes" not in proposal_receipt
+        and proposal_receipt.count("is_triggered_only = yes") == 1
+        and "ai = no" in proposal_receipt_trigger
+        and "zhx_is_tianxia_polity = yes" in proposal_receipt_trigger
+        and "zhx_has_doctrine = yes" in proposal_receipt_trigger
+        and proposal_receipt_trigger.count(
+            "has_country_flag = zhx_doctrine_proposal_gained_pending"
+        )
+        == 1
+        and proposal_receipt_trigger.count(
+            "has_country_flag = zhx_doctrine_proposal_lost_pending"
+        )
+        == 1
+        and proposal_receipt.count("desc = zhx_doctrine.95.d.gained") == 1
+        and proposal_receipt.count("desc = zhx_doctrine.95.d.lost") == 1
+        and proposal_receipt.count("option = {") == 1,
+        "zhx_doctrine.95 must be one visible, player-only Tianxia proposal receipt "
+        "with mutually exclusive gained/lost descriptions",
+    )
+    require(
+        proposal_receipt_option_effect.count(
+            "clr_country_flag = zhx_doctrine_proposal_gained_pending"
+        )
+        == 1
+        and proposal_receipt_option_effect.count(
+            "clr_country_flag = zhx_doctrine_proposal_lost_pending"
+        )
+        == 1,
+        "closing the proposal receipt must clear both direction markers",
+    )
+
+    expansion_event_text = texts[
+        MOD / "events/zhx_doctrine_expansion_events.txt"
+    ]
+    expansion_event_ids = re.findall(
+        r"(?m)^\s*id\s*=\s*zhx_doctrine_expansion\.(\d+)\s*$",
+        expansion_event_text,
+    )
+    require(
+        len(expansion_event_ids) == len(set(expansion_event_ids))
+        and set(expansion_event_ids) == EXPECTED_EXPANSION_EVENT_IDS,
+        f"expansion event ID contract changed: {sorted(expansion_event_ids)}",
+    )
+    expansion_entry = country_event_body(
+        expansion_event_text, "zhx_doctrine_expansion.1"
+    )
+    require(
+        expansion_entry.count("is_triggered_only = yes") == 1
+        and "mean_time_to_happen" not in expansion_entry,
+        "Dao/Bing/Zongheng entry must be explicit, not a random court popup",
+    )
+    decisions_text = texts[MOD / "decisions/zhx_doctrine_decisions.txt"]
+    later_decision = named_block_body(
+        decisions_text, "zhx_convene_later_schools_debate"
+    )
+    require(
+        "zhx_is_lijiao_country = yes" in later_decision
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in later_decision
+        and "country_event = { id = zhx_doctrine_expansion.1 }" in later_decision,
+        "Dao/Bing/Zongheng must have a visible, cooldown-gated decision entry",
+    )
+    require(
+        decisions_text.count("NOT = { is_year = 1450 }") == 2
+        and len(
+            re.findall(
+                r"factor\s*=\s*0\s+NOT\s*=\s*\{\s*is_year\s*=\s*1450\s*\}",
+                decisions_text,
+            )
+        )
+        == 2,
+        "both doctrine debates must keep AI from erasing the authored 1444 school map before 1450",
+    )
     require(
         len(re.findall(r"(?m)^\s*zhx_doctrine\.90\s*$", on_action)) == 1,
         "on_yearly_pulse must contain zhx_doctrine.90 exactly once",
@@ -900,7 +1317,7 @@ def main() -> None:
     referenced_modifiers = set(
         re.findall(
             r"(?:name|has_country_modifier|remove_country_modifier)\s*=\s*"
-            r"(zhx_doctrine_[a-z0-9_]+)",
+            r"(zhx_doctrine_[a-z0-9_]+)\b(?!\.)",
             all_scripts,
         )
     )
@@ -937,11 +1354,75 @@ def main() -> None:
         in clear_system_effect
         and "remove_country_modifier = zhx_doctrine_change_cooldown"
         in clear_system_effect
-        and clear_system_effect.count("value = 0") == 2
+        and "clr_country_flag = zhx_doctrine_tier_receipt_pending"
+        in clear_system_effect
+        and "clr_country_flag = zhx_doctrine_proposal_gained_pending"
+        in clear_system_effect
+        and "clr_country_flag = zhx_doctrine_proposal_lost_pending"
+        in clear_system_effect
+        and clear_system_effect.count("value = 0") == 9
         and "which = zhx_doctrine_practice" in clear_system_effect
-        and "which = zhx_doctrine_last_delta" in clear_system_effect,
-        "doctrine cleanup must clear flags, tier/cooldown modifiers, practice and "
-        "annual delta",
+        and "which = zhx_doctrine_last_delta" in clear_system_effect
+        and "which = zhx_doctrine_ledger_to_proposal" in clear_system_effect,
+        "doctrine cleanup must clear flags, tier/cooldown modifiers, practice, "
+        "annual delta, ledger and tier-receipt scratch values",
+    )
+
+    calculator_effect = top_level_effect_body(
+        effect_text, "zhx_calculate_doctrine_yearly_delta"
+    )
+    ledger_effect = top_level_effect_body(effect_text, "zhx_prepare_doctrine_ledger")
+    yearly_effect = top_level_effect_body(effect_text, "zhx_yearly_doctrine_tick")
+    require(
+        calculator_effect.count("which = zhx_doctrine_calculated_delta") == 37
+        and calculator_effect.count("has_country_flag = zhx_doctrine_") == 6
+        and "zhx_doctrine_last_delta" not in calculator_effect
+        and "zhx_doctrine_practice" not in calculator_effect,
+        "the shared projection calculator must contain all six annual formulas "
+        "without applying practice or overwriting last year's result",
+    )
+    require(
+        ledger_effect.count("zhx_calculate_doctrine_yearly_delta = yes") == 1
+        and ledger_effect.count("which = zhx_doctrine_ledger_estimated_delta") == 7
+        and ledger_effect.count("which = zhx_doctrine_ledger_to_next_tier") == 7
+        and ledger_effect.count("which = zhx_doctrine_ledger_to_proposal") == 3
+        and ledger_effect.count("which = zhx_doctrine_practice") == 10
+        and ledger_effect.count("which = zhx_doctrine_calculated_delta") == 1
+        and ledger_effect.count("change_variable = {") == 1
+        and ledger_effect.count("subtract_variable = {") == 5
+        and all(f"value = {threshold}" in ledger_effect for threshold in (25, 50, 75))
+        and ledger_effect.count("value = 70") == 2
+        and ledger_effect.count("value = 100") == 2
+        and ledger_effect.count("value = 0") >= 3
+        and "country_event" not in ledger_effect,
+        "the on-demand ledger must reuse the annual calculator, cap its projected "
+        "change to 0-100, and derive the 25/50/75 next-tier gap plus "
+        "max(70-practice, 0) proposal gap without opening nested events",
+    )
+    require(
+        yearly_effect.count("zhx_calculate_doctrine_yearly_delta = yes") == 1
+        and yearly_effect.count("which = zhx_doctrine_calculated_delta") == 1
+        and "zhx_doctrine_last_delta" not in yearly_effect
+        and yearly_effect.count("which = zhx_doctrine_practice") == 3
+        and yearly_effect.count(
+            "which = zhx_doctrine_receipt_old_practice"
+        )
+        == 1
+        and yearly_effect.count("country_event = { id = zhx_doctrine.93 }") == 1
+        and yearly_effect.count("zhx_clamp_doctrine_practice = yes") == 1
+        and yearly_effect.count("zhx_refresh_doctrine_tier = yes") == 1
+        and all(
+            token not in yearly_effect
+            for token in (
+                "stability = 1",
+                "corruption = 2",
+                "defender_leader = ROOT",
+                "army_size_percentage = 0.80",
+                "num_of_allies = 2",
+            )
+        ),
+        "the actual yearly settlement must consume the same shared calculator "
+        "then route one post-clamp snapshot to the receipt calculator",
     )
 
     registered_sprites = set(
@@ -1017,35 +1498,113 @@ def main() -> None:
             f"obsolete overlapping religion card control remains: {removed_control}",
         )
 
-    text_box = "zhx_religion_practice_value"
+    practice_bindings: dict[str, str] = {}
+    for text_box in NATIVE_STATUS_FIELDS:
+        require(
+            religion_view_body.count(f'name = "{text_box}"') == 1,
+            f"{text_box} must occur exactly once inside countryreligionview",
+        )
+        practice_body = named_instant_text_box_body(religion_view_body, text_box)
+        require(
+            re.search(r'text\s*=\s*""', practice_body) is not None
+            and re.search(r"scripted\s*=\s*yes", practice_body) is not None
+            and re.search(r'font\s*=\s*"vic_18"', practice_body) is not None
+            and re.search(r"format\s*=\s*centre", practice_body) is not None,
+            f"{text_box} must be a centred, empty scripted text box",
+        )
+        x, y, width, height = instant_text_box_rectangle(native_gui, text_box)
+        require(
+            (x, y, width, height) == (151, 157, 28, 24),
+            f"{text_box} must share the 28x24 native-school-row anchor",
+        )
+        require(
+            native_custom_gui.count(f"name = {text_box}") == 1,
+            f"{text_box} must have exactly one custom-text binding",
+        )
+        custom_body = named_custom_text_box_body(native_custom_gui, text_box)
+        practice_bindings[text_box] = custom_body
+        require(
+            "zhx_is_lijiao_country = yes" in custom_body
+            and "zhx_has_doctrine = yes" in custom_body
+            and "tooltip = zhx_religion_practice_value_tt" in custom_body,
+            f"{text_box} must be doctrine-gated and expose the status tooltip",
+        )
+
     require(
-        religion_view_body.count(f'name = "{text_box}"') == 1,
-        f"{text_box} must occur exactly once inside countryreligionview",
+        practice_bindings["zhx_religion_practice_hollow_value"].count("value = 25")
+        == 1
+        and practice_bindings["zhx_religion_practice_hollow_value"].count("NOT = {")
+        == 1
+        and practice_bindings["zhx_religion_practice_value"].count("value = 25")
+        == 1
+        and practice_bindings["zhx_religion_practice_value"].count("value = 50")
+        == 1
+        and practice_bindings["zhx_religion_practice_flourishing_value"].count(
+            "value = 50"
+        )
+        == 1
+        and practice_bindings["zhx_religion_practice_flourishing_value"].count(
+            "value = 75"
+        )
+        == 1
+        and practice_bindings["zhx_religion_practice_exemplary_value"].count(
+            "value = 75"
+        )
+        == 1
+        and "NOT = {"
+        not in practice_bindings["zhx_religion_practice_exemplary_value"],
+        "practice tier ranges must be mutually exclusive at 25/50/75",
     )
-    practice_body = named_instant_text_box_body(religion_view_body, text_box)
-    require(
-        re.search(r'text\s*=\s*""', practice_body) is not None
-        and re.search(r"scripted\s*=\s*yes", practice_body) is not None
-        and re.search(r'font\s*=\s*"vic_18"', practice_body) is not None
-        and re.search(r"format\s*=\s*centre", practice_body) is not None,
-        f"{text_box} must be a centred, empty scripted text box",
-    )
-    x, y, width, height = instant_text_box_rectangle(native_gui, text_box)
-    require(
-        (x, y, width, height) == (151, 157, 28, 24),
-        f"{text_box} must stay in the 28x24 gap of the native school row",
-    )
-    require(
-        native_custom_gui.count(f"name = {text_box}") == 1,
-        f"{text_box} must have exactly one custom-text binding",
-    )
-    custom_body = named_custom_text_box_body(native_custom_gui, text_box)
-    require(
-        "zhx_is_lijiao_country = yes" in custom_body
-        and "zhx_has_doctrine = yes" in custom_body
-        and "tooltip = zhx_religion_practice_value_tt" in custom_body,
-        f"{text_box} must be doctrine-gated and expose its compact status tooltip",
-    )
+
+    for button, text_box in PRACTICE_LEDGER_BUTTONS.items():
+        require(
+            religion_view_body.count(f'name = "{button}"') == 1,
+            f"{button} must occur exactly once inside countryreligionview",
+        )
+        gui_button = named_gui_button_body(religion_view_body, button)
+        require(
+            re.search(
+                r"position\s*=\s*\{\s*x\s*=\s*151\s+y\s*=\s*157\s*\}",
+                gui_button,
+            )
+            is not None
+            and 'quadTextureSprite = "GFX_resource_transparent"' in gui_button
+            and re.search(r'buttonText\s*=\s*""', gui_button) is not None
+            and re.search(r"scale\s*=\s*0\.875", gui_button) is not None
+            and re.search(r"scripted\s*=\s*yes", gui_button) is not None
+            and "alwaystransparent" not in gui_button,
+            f"{button} must be a transparent but clickable hit target over the "
+            "28x24 practice value",
+        )
+        require(
+            native_custom_gui.count(f"name = {button}") == 1,
+            f"{button} must have exactly one custom-button binding",
+        )
+        custom_button = named_custom_button_body(native_custom_gui, button)
+        button_potential = named_block_body(custom_button, "potential")
+        text_potential = named_block_body(practice_bindings[text_box], "potential")
+        require(
+            re.sub(r"\s+", "", button_potential)
+            == re.sub(r"\s+", "", text_potential)
+            and re.fullmatch(
+                r"\s*always\s*=\s*yes\s*",
+                named_block_body(custom_button, "trigger"),
+                re.S,
+            )
+            is not None
+            and re.fullmatch(
+                r"\s*country_event\s*=\s*\{\s*id\s*=\s*"
+                r"zhx_doctrine\.20\s*\}\s*",
+                named_block_body(custom_button, "effect"),
+                re.S,
+            )
+            is not None
+            and "tooltip = zhx_religion_practice_ledger_button_tt"
+            in custom_button,
+            f"{button} must mirror {text_box}'s exclusive range and open the "
+            "reusable on-demand doctrine ledger",
+        )
+
     sync_body = top_level_effect_body(effect_text, "zhx_sync_native_doctrine_school")
     require(
         re.fullmatch(
@@ -1206,6 +1765,14 @@ def main() -> None:
     )
     require(event_text.count("duration = 1825") == 3, "each no-verdict path needs five years")
     require(event_text.count("duration = 730") == 1, "postponement needs two years")
+    require(
+        expansion_event_text.count("duration = 1825") == 3,
+        "each expansion no-verdict path needs five years",
+    )
+    require(
+        expansion_event_text.count("duration = 730") == 1,
+        "expansion postponement needs two years",
+    )
 
     localisation_keys = re.findall(r"(?m)^\s*([^\s:#]+):\d+\s+\"", localisation)
     require(
@@ -1220,6 +1787,104 @@ def main() -> None:
         expected_with_modifiers <= actual_localisation,
         f"missing doctrine localisation: {sorted(expected_with_modifiers - actual_localisation)}",
     )
+    require(
+        localisation.count("[Root.zhx_doctrine_practice.GetValue]") >= 6
+        and localisation.count(
+            "[Root.zhx_doctrine_ledger_to_next_tier.GetValue]"
+        )
+        == 6
+        and localisation.count(
+            "[Root.zhx_doctrine_ledger_estimated_delta.GetValue]"
+        )
+        == 6
+        and localisation.count(
+            "[Root.zhx_doctrine_ledger_to_proposal.GetValue]"
+        )
+        == 6
+        and localisation.count(
+            "为0即已达到践履门槛；仍需具备周天下身份"
+        )
+        == 6
+        and localisation.count("[Root.zhx_doctrine_last_delta.GetValue]") == 7,
+        "all six doctrine ledger descriptions must show current practice, the "
+        "next-tier and Tianxia-proposal gaps, the on-open year-end projection "
+        "and last year's result; the crossing receipt must show the same actual result",
+    )
+    for proposal_key in (
+        "zhx_doctrine.95.d.gained",
+        "zhx_doctrine.95.d.lost",
+    ):
+        proposal_line = re.search(
+            rf'(?m)^\s*{re.escape(proposal_key)}:\d+\s+"(.*)"\s*$',
+            localisation,
+        )
+        require(
+            proposal_line is not None
+            and "[Root.GetZhxDoctrineReceiptSchool]" in proposal_line.group(1)
+            and "周天下" in proposal_line.group(1)
+            and "礼教" in proposal_line.group(1),
+            f"{proposal_key} must show the current school and retain both identity conditions",
+        )
+
+    receipt_custom_localisation = texts[
+        MOD / "customizable_localization/zhx_doctrine_receipt.txt"
+    ]
+    receipt_school_text = defined_text_body(
+        receipt_custom_localisation, "GetZhxDoctrineReceiptSchool"
+    )
+    receipt_old_tier_text = defined_text_body(
+        receipt_custom_localisation, "GetZhxDoctrineReceiptOldTier"
+    )
+    receipt_new_tier_text = defined_text_body(
+        receipt_custom_localisation, "GetZhxDoctrineReceiptNewTier"
+    )
+    require(
+        receipt_custom_localisation.count("defined_text = {") == 3
+        and receipt_school_text.count("random = no") == 1
+        and all(
+            receipt_school_text.count(f"has_country_flag = {flag}") == 1
+            and receipt_school_text.count(
+                f"localisation_key = zhx_doctrine_receipt_school_{school}"
+            )
+            == 1
+            for school, flag in EXPECTED_FLAGS.items()
+        )
+        and receipt_school_text.count(
+            "localisation_key = zhx_doctrine_receipt_school_unknown"
+        )
+        == 1,
+        "tier receipt must resolve all six doctrine names through one deterministic defined_text",
+    )
+    for name, body, variable in (
+        (
+            "old",
+            receipt_old_tier_text,
+            "zhx_doctrine_receipt_old_tier",
+        ),
+        (
+            "new",
+            receipt_new_tier_text,
+            "zhx_doctrine_receipt_new_tier",
+        ),
+    ):
+        require(
+            body.count("random = no") == 1
+            and body.count(f"which = {variable}") == 3
+            and all(body.count(f"value = {tier}") == 1 for tier in (1, 2, 3))
+            and all(
+                body.count(
+                    f"localisation_key = zhx_doctrine_receipt_tier_{tier_name}"
+                )
+                == 1
+                for tier_name in (
+                    "hollow",
+                    "established",
+                    "flourishing",
+                    "exemplary",
+                )
+            ),
+            f"tier receipt {name}-tier text must map the four 25/50/75 bands exactly once",
+        )
 
     native_localisation_keys = re.findall(
         r'(?m)^\s*([^\s:#]+):\d+\s+"', native_localisation
@@ -1232,6 +1897,7 @@ def main() -> None:
         f"{school}_desc" for school in ALL_NATIVE_SCHOOLS
     } | NATIVE_STATUS_FIELDS | {
         "zhx_religion_practice_value_tt",
+        "zhx_religion_practice_ledger_button_tt",
     }
     require(
         set(native_localisation_keys) == expected_native_localisation,
@@ -1240,9 +1906,10 @@ def main() -> None:
 
     print("Ritual Teaching doctrine prototype static contract: PASS")
     print(f"  Clausewitz files: {len(SCRIPT_PATHS) + 1}")
-    print(f"  Events: {len(event_ids)}")
+    print(f"  Events: {len(event_ids) + len(expansion_event_ids)}")
     print(f"  Doctrine modifiers: {len(modifier_definitions)}")
-    print("  Compact native-row practice displays: 1")
+    print(f"  Mutually-exclusive tier practice displays: {len(NATIVE_STATUS_FIELDS)}")
+    print(f"  On-demand practice-ledger hit targets: {len(PRACTICE_LEDGER_BUTTONS)}")
     print(f"  Native visible school mirrors: {len(NATIVE_SCHOOLS)}")
     print(f"  Native no-doctrine sentinels: {len(NO_DOCTRINE_SCHOOL)}")
     print(f"  Readable localisation keys: {len(localisation_keys)}")

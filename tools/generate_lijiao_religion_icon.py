@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the 礼鼎 religion emblem sheets and school-row button overlay."""
+"""Generate the 礼教/景教 emblems, Nestorian saints and school overlays."""
 
 from __future__ import annotations
 
@@ -13,18 +13,39 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / "guangdong_independent_practice"
-SOURCE = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_source.png"
+LIJIAO_SOURCE = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_source.png"
+NESTORIAN_SOURCE = (
+    ROOT / "tools/assets/religion/zhx_nestorian_religion_icon_source.png"
+)
+NESTORIAN_PORTRAITS = (
+    ROOT / "tools/assets/religion/zhx_nestorian_nestorius_source.png",
+    ROOT / "tools/assets/religion/zhx_nestorian_yelv_source.png",
+    ROOT / "tools/assets/religion/zhx_nestorian_jinghui_source.png",
+    ROOT / "tools/assets/religion/zhx_nestorian_thomas_source.png",
+    ROOT / "tools/assets/religion/zhx_nestorian_anthony_source.png",
+)
 PREVIEW = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_preview.png"
 SCHOOL_BUTTON = MOD / "gfx/interface/zhx_lijiao_school_button.dds"
 NO_DOCTRINE_BUTTON = MOD / "gfx/interface/zhx_no_doctrine_school_button.dds"
+RUSSIAN_ICONS = MOD / "gfx/interface/russian_icons_strip.dds"
 DEFAULT_VANILLA = (
     Path.home()
     / "Library/Application Support/Steam/steamapps/common/Europa Universalis IV"
 )
-FRAME_INDEX = 8  # zero-based; religion definition icon = 9
+LIJIAO_FRAME_INDEX = 8  # zero-based; religion definition icon = 9
+NESTORIAN_FRAME_INDEX = 6  # zero-based; unused vanilla slot, icon = 7
 EXPECTED_SCHOOL_BUTTON_SHA256 = (
     "091cac9c434db23d43bd90a79128c4abe6b5b0073d8a6bfb7a06965fe3c24036"
 )
+EXPECTED_RUSSIAN_ICONS_SHA256 = (
+    "b1b78b69401223489ff9539eeb760db2a77b8bca4532b347a433a79660dbca1d"
+)
+EXPECTED_SHEET_SHA256 = {
+    "icon_religion.dds": "d9497a5995187bad5ef39d953b4771eecd88e1699cc0ee91c032ff2162772b70",
+    "country_icon_religion.dds": "1d8952f4e7979c6ad19b964823696edba5ac0c1a7d223210fb49c6a4ce7a5be9",
+    "icon_religion_small.dds": "fa1c7d812424430240a6d3c90b8cf9f7a1a43ff7c350d19ed0d6a3895918d4ff",
+    "province_view_religion.dds": "52954419a46bfd250a8bda6dda389494c1947b2a8bdf188da89b64976e22e772",
+}
 SHEETS = {
     "icon_religion.dds": 64,
     "country_icon_religion.dds": 64,
@@ -42,8 +63,8 @@ def alpha_bbox(image: Image.Image, threshold: int = 8) -> tuple[int, int, int, i
     return bbox
 
 
-def emblem(size: int) -> Image.Image:
-    source = Image.open(SOURCE).convert("RGBA")
+def lijiao_emblem(size: int) -> Image.Image:
+    source = Image.open(LIJIAO_SOURCE).convert("RGBA")
     source = source.crop(alpha_bbox(source))
     padding = 3 if size == 64 else 2
     available = size - 2 * padding
@@ -79,6 +100,69 @@ def emblem(size: int) -> Image.Image:
     canvas.alpha_composite(shadow, (x + 1, y + 1))
     canvas.alpha_composite(source, (x, y))
     return canvas
+
+
+def nestorian_emblem(size: int) -> Image.Image:
+    """Scale the original cross-and-lotus source for the shared religion atlas."""
+    source = Image.open(NESTORIAN_SOURCE).convert("RGBA")
+    source = source.crop(alpha_bbox(source))
+    padding = 2 if size == 64 else 1
+    available = size - 2 * padding
+    scale = min(available / source.width, available / source.height)
+    dimensions = (
+        max(1, round(source.width * scale)),
+        max(1, round(source.height * scale)),
+    )
+    source = source.convert("RGBa").resize(
+        dimensions, Image.Resampling.LANCZOS
+    ).convert("RGBA")
+    source = source.filter(
+        ImageFilter.UnsharpMask(
+            radius=0.7 if size == 64 else 0.45,
+            percent=135,
+            threshold=1,
+        )
+    )
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    canvas.alpha_composite(
+        source,
+        ((size - source.width) // 2, (size - source.height) // 2),
+    )
+    return canvas
+
+
+def portrait_frame(path: Path) -> Image.Image:
+    """Reduce one original square portrait to a crisp 58 px native icon."""
+    source = Image.open(path).convert("RGBA")
+    side = min(source.size)
+    left = (source.width - side) // 2
+    top = (source.height - side) // 2
+    source = source.crop((left, top, left + side, top + side))
+    source = source.convert("RGBa").resize(
+        (58, 58), Image.Resampling.LANCZOS
+    ).convert("RGBA")
+    return source.filter(
+        ImageFilter.UnsharpMask(radius=0.45, percent=135, threshold=1)
+    )
+
+
+def russian_icon_sheet(vanilla_root: Path) -> Image.Image:
+    source_path = vanilla_root / "gfx/interface/russian_icons_strip.dds"
+    data = source_path.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != EXPECTED_RUSSIAN_ICONS_SHA256:
+        raise ValueError(
+            "unsupported EU4 Orthodox-icon baseline: "
+            f"{digest}; expected {EXPECTED_RUSSIAN_ICONS_SHA256}"
+        )
+    vanilla = Image.open(io.BytesIO(data)).convert("RGBA")
+    if vanilla.size != (290, 58):
+        raise ValueError(f"unexpected Orthodox-icon dimensions: {vanilla.size}")
+    sheet = Image.new("RGBA", (580, 58), (0, 0, 0, 0))
+    sheet.alpha_composite(vanilla, (0, 0))
+    for index, path in enumerate(NESTORIAN_PORTRAITS, start=5):
+        sheet.alpha_composite(portrait_frame(path), (index * 58, 0))
+    return sheet
 
 
 def dds_bytes(image: Image.Image) -> bytes:
@@ -121,37 +205,61 @@ def school_button_plate(vanilla_root: Path) -> Image.Image:
 def school_button(vanilla_root: Path) -> Image.Image:
     """Re-skin the neutral native plate with the established 礼鼎."""
     button = school_button_plate(vanilla_root)
-    button.alpha_composite(emblem(28), (7, 7))
+    button.alpha_composite(lijiao_emblem(28), (7, 7))
     return button
 
 
 def patched_sheet(vanilla_root: Path, name: str, frame_size: int) -> Image.Image:
     source_path = vanilla_root / "gfx/interface" / name
-    sheet = Image.open(source_path).convert("RGBA")
+    data = source_path.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != EXPECTED_SHEET_SHA256[name]:
+        raise ValueError(
+            f"{name}: unsupported EU4 1.37.5 baseline {digest}; "
+            f"expected {EXPECTED_SHEET_SHA256[name]}"
+        )
+    sheet = Image.open(io.BytesIO(data)).convert("RGBA")
     if sheet.height != frame_size or sheet.width % frame_size:
         raise ValueError(f"{name}: unexpected sheet dimensions {sheet.size}")
-    if sheet.width // frame_size <= FRAME_INDEX:
+    if sheet.width // frame_size <= LIJIAO_FRAME_INDEX:
         raise ValueError(f"{name}: frame 9 is missing")
-    sheet.paste(emblem(frame_size), (FRAME_INDEX * frame_size, 0))
+    sheet.paste(
+        nestorian_emblem(frame_size),
+        (NESTORIAN_FRAME_INDEX * frame_size, 0),
+    )
+    sheet.paste(
+        lijiao_emblem(frame_size),
+        (LIJIAO_FRAME_INDEX * frame_size, 0),
+    )
     return sheet
 
 
-def preview(sheets: dict[str, Image.Image]) -> Image.Image:
-    canvas = Image.new("RGBA", (720, 470), (35, 38, 42, 255))
+def preview(
+    sheets: dict[str, Image.Image], russian_icons: Image.Image
+) -> Image.Image:
+    canvas = Image.new("RGBA", (900, 600), (35, 38, 42, 255))
     draw = ImageDraw.Draw(canvas)
-    draw.text((18, 12), "Ritual Teaching emblem · frame 9 only", fill="white")
+    draw.text(
+        (18, 12),
+        "Religion atlas · Nestorian frame 7 · Ritual Teaching frame 9",
+        fill="white",
+    )
     rows = [
         ("icon_religion.dds", 64, 42, 3),
         ("icon_religion_small.dds", 32, 270, 5),
     ]
     for name, frame_size, y, display_scale in rows:
         sheet = sheets[name]
-        draw.text((18, y), f"{name}: frames 8 / 9 / 10", fill=(210, 214, 220, 255))
+        draw.text(
+            (18, y),
+            f"{name}: frames 7 and 9",
+            fill=(210, 214, 220, 255),
+        )
         strip = sheet.crop(
             (
-                (FRAME_INDEX - 1) * frame_size,
+                NESTORIAN_FRAME_INDEX * frame_size,
                 0,
-                (FRAME_INDEX + 2) * frame_size,
+                (LIJIAO_FRAME_INDEX + 1) * frame_size,
                 frame_size,
             )
         )
@@ -160,6 +268,9 @@ def preview(sheets: dict[str, Image.Image]) -> Image.Image:
             Image.Resampling.NEAREST,
         )
         canvas.alpha_composite(strip, (18, y + 22))
+    draw.text((18, 488), "Patriarch icons: Orthodox 1-5 · Nestorian 6-10", fill="white")
+    scaled_icons = russian_icons.resize((580, 58), Image.Resampling.NEAREST)
+    canvas.alpha_composite(scaled_icons, (18, 516))
     return canvas
 
 
@@ -176,6 +287,15 @@ def run(vanilla_root: Path, check: bool) -> None:
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
+
+    russian_icons = russian_icon_sheet(vanilla_root)
+    russian_data = dds_bytes(russian_icons)
+    if check:
+        if not RUSSIAN_ICONS.exists() or RUSSIAN_ICONS.read_bytes() != russian_data:
+            raise ValueError("Nestorian patriarch-icon strip is stale")
+    else:
+        RUSSIAN_ICONS.parent.mkdir(parents=True, exist_ok=True)
+        RUSSIAN_ICONS.write_bytes(russian_data)
 
     button = school_button(vanilla_root)
     button_data = dds_bytes(button)
@@ -201,7 +321,7 @@ def run(vanilla_root: Path, check: bool) -> None:
         NO_DOCTRINE_BUTTON.parent.mkdir(parents=True, exist_ok=True)
         NO_DOCTRINE_BUTTON.write_bytes(no_doctrine_button_data)
 
-    preview_image = preview(rendered)
+    preview_image = preview(rendered, russian_icons)
     if check:
         buffer = io.BytesIO()
         preview_image.save(buffer, format="PNG")
@@ -211,8 +331,8 @@ def run(vanilla_root: Path, check: bool) -> None:
         preview_image.save(PREVIEW)
 
     print(
-        f"{'checked' if check else 'generated'} four religion sheets plus "
-        "two 42 px school-button overlays"
+        f"{'checked' if check else 'generated'} four religion sheets, "
+        "ten patriarch-icon frames and two 42 px school-button overlays"
     )
 
 

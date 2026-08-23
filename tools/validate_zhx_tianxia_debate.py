@@ -14,6 +14,7 @@ TRIGGERS = MOD / "common/scripted_triggers/zhx_tianxia_debate_triggers.txt"
 EFFECTS = MOD / "common/scripted_effects/zhx_tianxia_debate_effects.txt"
 EVENTS = MOD / "events/zhx_tianxia_debate_events.txt"
 DECISIONS = MOD / "decisions/zhx_tianxia_debate_decisions.txt"
+SYSTEM_DECISIONS = MOD / "decisions/zhx_system_decisions.txt"
 MODIFIERS = MOD / "common/event_modifiers/zhx_tianxia_debate_modifiers.txt"
 ON_ACTIONS = MOD / "common/on_actions/zhx_system_on_actions.txt"
 SYSTEM_EFFECTS = MOD / "common/scripted_effects/zhx_system_effects.txt"
@@ -27,13 +28,23 @@ CLAUSEWITZ_FILES = (
     EFFECTS,
     EVENTS,
     DECISIONS,
+    SYSTEM_DECISIONS,
     MODIFIERS,
     ON_ACTIONS,
     SYSTEM_EFFECTS,
     INTERFACE,
     CUSTOM_GUI,
 )
-EXPECTED_EVENT_IDS = {"1", "2", "10", "11", "12", "20", "30", "90"}
+EXPECTED_EVENT_IDS = {"1", "2", "10", "11", "12", "20", "30", "31", "90"}
+PROPOSAL_SCHOOLS = ("ru", "fa", "mo", "dao", "bing", "zongheng")
+PROPOSAL_COUNT_VARIABLES = {
+    school: f"zhx_tianxia_proposal_{school}_count"
+    for school in PROPOSAL_SCHOOLS
+}
+SCHOOL_TOTAL_VARIABLES = {
+    school: f"zhx_tianxia_school_{school}_total_count"
+    for school in PROPOSAL_SCHOOLS
+}
 ORTHODOXY_FLAGS = {
     "ru": "zhx_tianxia_orthodoxy_ru",
     "fa": "zhx_tianxia_orthodoxy_fa",
@@ -72,12 +83,14 @@ EXPECTED_LOCALISATION = {
     "zhx_debate.30.d.plural",
     "zhx_debate.30.d.none",
     "zhx_debate.30.a",
+    "zhx_debate.30.b",
+    "zhx_debate.31.t",
+    "zhx_debate.31.d",
+    "zhx_debate.31.a",
     "zhx_debate.90.t",
     "zhx_debate.90.d",
     "zhx_review_tianxia_orthodoxy_title",
     "zhx_review_tianxia_orthodoxy_desc",
-    "zhx_debug_convene_tianxia_debate_title",
-    "zhx_debug_convene_tianxia_debate_desc",
     "zhx_tianxia_debate_cooldown",
     "zhx_tianxia_debate_cooldown_desc",
     "ZHX_GUI_DEBATE_HEADER",
@@ -259,18 +272,76 @@ def main() -> None:
     event_ids = re.findall(r"(?m)^\s*id\s*=\s*zhx_debate\.(\d+)\s*$", event_text)
     require(len(event_ids) == len(set(event_ids)), "duplicate zhx_debate event ID")
     require(set(event_ids) == EXPECTED_EVENT_IDS, f"event contract changed: {event_ids}")
+    event_30_match = re.search(r"(?m)^    id = zhx_debate\.30$", event_text)
+    event_31_match = re.search(r"(?m)^    id = zhx_debate\.31$", event_text)
+    event_90_match = re.search(r"(?m)^    id = zhx_debate\.90$", event_text)
+    require(
+        event_30_match is not None
+        and event_31_match is not None
+        and event_90_match is not None,
+        "missing read-only debate event boundary",
+    )
+    event_30_start = event_30_match.start()
+    event_31_start = event_31_match.start()
+    event_90_start = event_90_match.start()
+    require(
+        0 <= event_30_start < event_31_start < event_90_start,
+        "could not isolate the read-only zhx_debate.30 and .31 events",
+    )
+    event_30_text = event_text[event_30_start:event_31_start]
+    event_31_text = event_text[event_31_start:event_90_start]
+    require(
+        "zhx_refresh_tianxia_proposal_ledger = yes" not in event_30_text,
+        "zhx_debate.30 must not scan the Six Schools ledger",
+    )
+    require(
+        event_30_text.count("country_event = { id = zhx_debate.31 }") == 1,
+        "zhx_debate.30 must offer the dedicated Six Schools ledger exactly once",
+    )
+    require(
+        event_31_text.count("zhx_refresh_tianxia_proposal_ledger = yes") == 1,
+        "zhx_debate.31 must refresh the Six Schools ledger exactly once",
+    )
 
     on_actions = texts[ON_ACTIONS]
     require(on_actions.count("zhx_debate.1") == 1, "startup initializer must occur once")
     require(on_actions.count("zhx_debate.90") == 1, "annual scheduler must occur once")
     require("on_yearly_pulse" in on_actions, "missing annual pulse")
+    require(
+        "zhx_refresh_tianxia_proposal_ledger" not in on_actions,
+        "the read-only proposal ledger must not run from an on-action",
+    )
 
     trigger_text = texts[TRIGGERS]
     require(
-        trigger_text.count("which = zhx_doctrine_practice") == 3
-        and trigger_text.count("value = 70") == 3,
-        "each of Ru, Fa and Mo must require one 70-practice exemplar",
+        trigger_text.count("which = zhx_doctrine_practice") == 6
+        and trigger_text.count("value = 70") == 6,
+        "each of the Six Schools must expose one 70-practice proposal check",
     )
+    for school in PROPOSAL_SCHOOLS:
+        proposal_body = top_level_body(
+            trigger_text, f"zhx_tianxia_has_{school}_proposal"
+        )
+        for token in (
+            "exists = yes",
+            "zhx_is_tianxia_polity = yes",
+            "zhx_is_lijiao_country = yes",
+            f"has_country_flag = zhx_doctrine_{school}",
+            "which = zhx_doctrine_practice",
+            "value = 70",
+        ):
+            require(
+                token in proposal_body,
+                f"{school} proposal check is missing eligibility token: {token}",
+            )
+    active_proposal_body = top_level_body(
+        trigger_text, "zhx_tianxia_has_two_proposals"
+    )
+    for school in ("dao", "bing", "zongheng"):
+        require(
+            f"zhx_tianxia_has_{school}_proposal" not in active_proposal_body,
+            f"{school} proposal must remain read-only until the debate is generalized",
+        )
     require(
         "zhx_can_convene_tianxia_debate" in trigger_text,
         "missing shared Tianxia debate convening trigger",
@@ -281,6 +352,36 @@ def main() -> None:
     )
 
     effects = texts[EFFECTS]
+    ledger_body = top_level_body(effects, "zhx_refresh_tianxia_proposal_ledger")
+    require(
+        ledger_body.count("every_country =") == 1,
+        "the on-demand Six Schools ledger must use exactly one country scan",
+    )
+    for token in (
+        "exists = yes",
+        "zhx_is_tianxia_polity = yes",
+        "zhx_is_lijiao_country = yes",
+    ):
+        require(token in ledger_body, f"proposal ledger is missing filter: {token}")
+    require(
+        ledger_body.count("which = zhx_doctrine_practice") == 6
+        and ledger_body.count("value = 70") == 6,
+        "each school branch must separately count its 70-practice adopters",
+    )
+    for school, variable in PROPOSAL_COUNT_VARIABLES.items():
+        require(
+            ledger_body.count(f"has_country_flag = zhx_doctrine_{school}") == 1,
+            f"proposal ledger must test {school} exactly once",
+        )
+        require(
+            ledger_body.count(f"which = {variable}") == 2,
+            f"proposal ledger must reset and increment {variable} exactly once",
+        )
+        total_variable = SCHOOL_TOTAL_VARIABLES[school]
+        require(
+            ledger_body.count(f"which = {total_variable}") == 2,
+            f"proposal ledger must reset and increment {total_variable} exactly once",
+        )
     for school, flag in ORTHODOXY_FLAGS.items():
         setters = re.findall(rf"set_country_flag\s*=\s*{re.escape(flag)}\b", effects)
         require(len(setters) == 1, f"{flag} must be set exactly once")
@@ -323,6 +424,21 @@ def main() -> None:
     for token, reason in FORBIDDEN.items():
         require(token not in combined_new, f"forbidden token {token}: {reason}")
 
+    production_decision_surface = "\n".join(
+        (
+            texts[DECISIONS],
+            texts[SYSTEM_DECISIONS],
+            localisation,
+            system_localisation,
+        )
+    )
+    require(
+        "zhx_debug_" not in production_decision_surface
+        and "调试：" not in production_decision_surface,
+        "player-visible Tianxia decisions must not ship debug value controls or "
+        "cooldown-bypass hooks",
+    )
+
     modifier_definitions = re.findall(
         r"(?m)^(zhx_tianxia_debate_[a-z0-9_]+)\s*=\s*\{",
         texts[MODIFIERS],
@@ -348,6 +464,16 @@ def main() -> None:
     require(len(keys) == len(set(keys)), "duplicate debate localisation keys")
     missing = EXPECTED_LOCALISATION - set(keys)
     require(not missing, f"missing debate localisation: {sorted(missing)}")
+    for variable in PROPOSAL_COUNT_VARIABLES.values():
+        require(
+            localisation.count(f"[Root.{variable}.GetValue]") == 1,
+            f"the dedicated ledger description must show {variable} exactly once",
+        )
+    for variable in SCHOOL_TOTAL_VARIABLES.values():
+        require(
+            localisation.count(f"[Root.{variable}.GetValue]") == 1,
+            f"the dedicated ledger description must show {variable} exactly once",
+        )
 
     interface_text = texts[INTERFACE]
     custom_gui_text = texts[CUSTOM_GUI]
@@ -400,6 +526,7 @@ def main() -> None:
     print(f"  Clausewitz files: {len(CLAUSEWITZ_FILES)}")
     print(f"  Events: {len(event_ids)}")
     print("  Candidate threshold: 70; exemplar threshold: 75")
+    print("  On-demand Six Schools proposal ledger: 12 counters, 1 country scan")
     print("  Debate duration: 365 days; settlement: 5475 days")
     print(f"  Council GUI bindings: {len(GUI_BINDINGS)}")
     print(f"  Readable localisation keys: {len(keys)}")

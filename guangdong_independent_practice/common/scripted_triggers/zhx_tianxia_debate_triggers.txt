@@ -41,6 +41,49 @@ zhx_tianxia_has_mo_proposal = {
     }
 }
 
+# These three proposal checks are exposed to the read-only Six Schools ledger.
+# They deliberately do not enter zhx_tianxia_has_two_proposals yet: the active
+# debate state machine remains the proven Ru/Fa/Mo prototype until its generic
+# candidate-A/candidate-B conversion is implemented separately.
+zhx_tianxia_has_dao_proposal = {
+    any_country = {
+        exists = yes
+        zhx_is_tianxia_polity = yes
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_dao
+        check_variable = {
+            which = zhx_doctrine_practice
+            value = 70
+        }
+    }
+}
+
+zhx_tianxia_has_bing_proposal = {
+    any_country = {
+        exists = yes
+        zhx_is_tianxia_polity = yes
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_bing
+        check_variable = {
+            which = zhx_doctrine_practice
+            value = 70
+        }
+    }
+}
+
+zhx_tianxia_has_zongheng_proposal = {
+    any_country = {
+        exists = yes
+        zhx_is_tianxia_polity = yes
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_zongheng
+        check_variable = {
+            which = zhx_doctrine_practice
+            value = 70
+        }
+    }
+}
+
 zhx_tianxia_has_two_proposals = {
     OR = {
         AND = {
