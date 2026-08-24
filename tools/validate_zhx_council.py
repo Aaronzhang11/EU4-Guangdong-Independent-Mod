@@ -59,6 +59,15 @@ KIND_FLAGS = (
 )
 VOTE_FLAGS = tuple(f"zhx_council_vote_{choice}" for choice in "abc")
 VOTE_COUNTS = tuple(f"zhx_council_vote_{choice}_count" for choice in "abc")
+TURNOUT_COUNTS = (
+    "zhx_council_eligible_country_count",
+    "zhx_council_voted_country_count",
+    "zhx_council_unvoted_country_count",
+    "zhx_council_eligible_ai_count",
+    "zhx_council_voted_ai_count",
+    "zhx_council_unvoted_ai_count",
+)
+PUBLIC_BALLOT_VARIABLES = VOTE_COUNTS + TURNOUT_COUNTS
 CAST_EFFECTS = tuple(f"zhx_cast_tianxia_council_vote_{choice}" for choice in "abc")
 SCHOOLS = ("ru", "fa", "mo", "dao", "bing", "zongheng")
 CANDIDATE_A_FLAGS = tuple(f"zhx_council_candidate_a_{school}" for school in SCHOOLS)
@@ -136,6 +145,8 @@ class Report:
         print("Shared Tianxia Council static contract: PASS")
         print("  One phase family; one issue-kind family; one A/B/C ballot")
         print("  Deadline: zhx_system.23 after 365 days")
+        print("  Public turnout: eligible/voted/unvoted countries and AI countries")
+        print("  Public counters are always mutated on event_target:zhx_tianzi")
         print("  Debate candidate slots: 6 schools in A and 6 schools in B")
         print("  GUI: current council on the left; orthodoxy on the right")
 
@@ -313,6 +324,19 @@ def operation_count(text: str, operation: str, flag: str) -> int:
         re.findall(
             rf"\b{re.escape(operation)}\s*=\s*{re.escape(flag)}\b",
             mask_clausewitz(text),
+        )
+    )
+
+
+def variable_operation_count(text: str, operation: str, variable: str) -> int:
+    """Count ``operation = { which = variable ... }`` mutations."""
+
+    return len(
+        re.findall(
+            rf"\b{re.escape(operation)}\s*=\s*\{{[^{{}}]*"
+            rf"\bwhich\s*=\s*{re.escape(variable)}\b",
+            mask_clausewitz(text),
+            re.DOTALL,
         )
     )
 
@@ -570,6 +594,72 @@ def validate_shared_ballot(
             f"{RECOUNT_EFFECT} = yes" in resolve[0].text,
             f"`{RESOLVE_EFFECT}` must recount authoritative vote flags before results",
         )
+
+
+def validate_public_turnout_and_counter_scope(
+    effect_index: dict[str, list[Block]], report: Report
+) -> None:
+    """Keep AI ballots visible on the Tianzi-owned public scoreboard.
+
+    A scripted effect called inside ``event_target:zhx_tianzi`` does not make
+    ``ROOT`` become the Tianzi: ROOT remains the country which cast the vote.
+    Mutating a public count through ROOT therefore creates one private count on
+    each AI country and leaves the panel looking like only the player voted.
+    """
+
+    recount = require_unique_definition(RECOUNT_EFFECT, effect_index, report, "effect")
+    reset = require_unique_definition(RESET_EFFECT, effect_index, report, "effect")
+    if not recount or not reset:
+        return
+
+    tianzi_scopes = list(iter_keyword_blocks(recount.text, "event_target:zhx_tianzi"))
+    tianzi_text = "\n".join(tianzi_scopes)
+    report.check(
+        bool(tianzi_scopes),
+        f"`{RECOUNT_EFFECT}` has no explicit event_target:zhx_tianzi scope",
+    )
+
+    root_blocks = list(iter_keyword_blocks(recount.text, "ROOT"))
+    for block in root_blocks:
+        for variable in PUBLIC_BALLOT_VARIABLES:
+            report.check(
+                not any(
+                    variable_operation_count(block, operation, variable)
+                    for operation in ("set_variable", "change_variable", "subtract_variable")
+                ),
+                f"`{RECOUNT_EFFECT}` mutates public variable {variable} through ROOT; "
+                "use event_target:zhx_tianzi explicitly",
+            )
+
+    for variable in PUBLIC_BALLOT_VARIABLES:
+        report.check(
+            occurrences(reset.text, variable) >= 1,
+            f"`{RESET_EFFECT}` does not reset public turnout variable {variable}",
+        )
+        report.check(
+            occurrences(recount.text, variable) >= 2,
+            f"`{RECOUNT_EFFECT}` does not rebuild public turnout variable {variable}",
+        )
+        for operation in ("set_variable", "change_variable", "subtract_variable"):
+            all_mutations = variable_operation_count(recount.text, operation, variable)
+            scoped_mutations = variable_operation_count(tianzi_text, operation, variable)
+            report.check(
+                all_mutations == scoped_mutations,
+                f"`{RECOUNT_EFFECT}` has {all_mutations - scoped_mutations} "
+                f"unscoped {operation} mutation(s) for {variable}; every public "
+                "counter mutation must be inside event_target:zhx_tianzi",
+            )
+
+    for variable in ("zhx_council_unvoted_country_count", "zhx_council_unvoted_ai_count"):
+        report.check(
+            variable_operation_count(recount.text, "subtract_variable", variable) == 1,
+            f"`{RECOUNT_EFFECT}` must derive {variable} as eligible minus voted",
+        )
+    report.check(
+        occurrences(recount.text, "ai") >= 2
+        and bool(re.search(r"\bai\s*=\s*yes\b", mask_clausewitz(recount.text))),
+        f"`{RECOUNT_EFFECT}` does not separately count eligible and voted AI countries",
+    )
 
 
 def validate_deadline(
@@ -947,6 +1037,7 @@ def main() -> None:
     validate_retired_identifiers(report)
     validate_state_families(script_text, effect_index, report)
     validate_shared_ballot(script_text, effect_index, report)
+    validate_public_turnout_and_counter_scope(effect_index, report)
     validate_deadline(script_text, effect_index, trigger_index, events, report)
     validate_candidates(script_text, effect_index, trigger_index, report)
     validate_result_paths(events, effect_index, report)

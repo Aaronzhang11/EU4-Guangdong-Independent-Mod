@@ -78,6 +78,7 @@ country_event = {
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
     trigger = {
+        ai = no
         zhx_can_vote_in_tianxia_council = yes
         event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_debate }
     }
@@ -105,6 +106,53 @@ country_event = {
             modifier = { factor = 2 NOT = { check_variable = { which = zhx_doctrine_practice value = 50 } } }
         }
     }
+}
+
+# One mid-term review lets diplomatic realignments change a country's ballot
+# without creating an unbounded pulse or self-scheduling event chain.
+country_event = {
+    id = zhx_debate.12
+    title = zhx_debate.2.t
+    desc = zhx_debate.2.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        ai = yes
+        has_country_flag = zhx_council_ai_review_pending
+        OR = {
+            has_country_flag = zhx_council_vote_a
+            has_country_flag = zhx_council_vote_b
+            has_country_flag = zhx_council_vote_c
+        }
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_debate }
+    }
+    immediate = {
+        clr_country_flag = zhx_council_ai_review_pending
+        zhx_choose_tianxia_council_ai_vote = yes
+    }
+    option = { name = OK }
+}
+
+# Deterministic safety net: day 61 catches any eligible polity which entered
+# the Tianxia after the synchronous opening ballot or otherwise lacks a vote.
+country_event = {
+    id = zhx_debate.14
+    title = zhx_debate.2.t
+    desc = zhx_debate.2.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        zhx_is_tianzi = yes
+        has_country_flag = zhx_council_phase_ballot_open
+        has_country_flag = zhx_council_kind_debate
+    }
+    immediate = {
+        zhx_fill_missing_tianxia_debate_ai_votes = yes
+    }
+    option = { name = OK }
 }
 
 country_event = {

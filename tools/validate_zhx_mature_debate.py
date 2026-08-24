@@ -99,6 +99,9 @@ EXACTLY_TWO_PETITIONS = "zhx_tianxia_has_exactly_two_petitions"
 THREE_PETITIONS = "zhx_tianxia_has_three_petitions"
 AUTO_SELECT = "zhx_auto_select_tianxia_debate_candidates"
 CLEAR_PETITIONS = "zhx_clear_tianxia_debate_petitions"
+SNAPSHOT_PROPOSERS = "zhx_snapshot_tianxia_council_candidate_proposers"
+CLEAR_CANDIDATE_PROPOSERS = "zhx_clear_tianxia_council_candidate_proposers"
+START_SELECTED = "zhx_start_selected_tianxia_debate"
 TRY_AI_PETITION = "zhx_ai_try_file_tianxia_debate_petition"
 CAN_CONVENE = "zhx_can_convene_tianxia_debate"
 RESOLVE_DEBATE = "zhx_resolve_tianxia_debate"
@@ -118,6 +121,11 @@ BONUS_FLAG = "zhx_council_vote_bonus"
 CAST_A = "zhx_cast_tianxia_council_vote_a"
 CAST_B = "zhx_cast_tianxia_council_vote_b"
 CAST_C = "zhx_cast_tianxia_council_vote_c"
+AI_REVIEW_EVENT = "zhx_debate.12"
+AI_SWEEP_EVENT = "zhx_debate.14"
+AI_CHOOSER_EFFECT = "zhx_choose_tianxia_council_ai_vote"
+AI_FILL_EFFECT = "zhx_fill_missing_tianxia_debate_ai_votes"
+AI_BATCH_FLAG = "zhx_council_batching_ai_votes"
 
 
 @dataclass
@@ -141,6 +149,8 @@ class Report:
         print("  Six coexisting 1095-day petitions; 3 adopters plus a 50-practice endorser")
         print("  Exactly two petitions auto-select; three or more use two-step A/B selection")
         print("  Shared frozen A/B/C ballot; ties preserve Hundred-Schools pluralism")
+        print("  AI: complete synchronous opening vote, day-61 sweep, one day 182-211 review")
+        print("  AI choice: school and proposer diplomacy shape deterministic priorities")
         print("  Deadline freezes once, marks result-ready, then dispatches next-day results")
         print("  Orthodoxy effects and new debates are bounded by one 5475-day term")
         print("  GUI: current council left; orthodoxy and six petition states right")
@@ -547,6 +557,51 @@ def validate_petition_cleanup(
                 f"`{CLEAR_PETITIONS}` does not clear {target}",
             )
 
+    snapshot = require_unique(
+        effect_index, SNAPSHOT_PROPOSERS, report, "scripted effect"
+    )
+    if snapshot:
+        report.check(
+            f"{CLEAR_CANDIDATE_PROPOSERS} = yes" in snapshot.text,
+            f"`{SNAPSHOT_PROPOSERS}` must clear stale A/B proposer slots first",
+        )
+        snapshot_branches = any_keyword_blocks(snapshot.text, "if")
+        snapshot_branches.extend(any_keyword_blocks(snapshot.text, "else_if"))
+        for school, source, candidate_a, candidate_b in zip(
+            SCHOOLS, PROPOSER_TARGETS, CANDIDATE_A_FLAGS, CANDIDATE_B_FLAGS
+        ):
+            report.check(
+                any(
+                    candidate_a in branch
+                    and source in branch
+                    and "save_global_event_target_as = zhx_council_candidate_a_proposer"
+                    in branch
+                    for branch in snapshot_branches
+                ),
+                f"`{SNAPSHOT_PROPOSERS}` cannot preserve the {school} A proposer",
+            )
+            report.check(
+                any(
+                    candidate_b in branch
+                    and source in branch
+                    and "save_global_event_target_as = zhx_council_candidate_b_proposer"
+                    in branch
+                    for branch in snapshot_branches
+                ),
+                f"`{SNAPSHOT_PROPOSERS}` cannot preserve the {school} B proposer",
+            )
+
+    selected = require_unique(effect_index, START_SELECTED, report, "scripted effect")
+    if selected:
+        snapshot_at = selected.text.find(SNAPSHOT_PROPOSERS)
+        clear_at = selected.text.find(CLEAR_PETITIONS)
+        begin_at = selected.text.find(SHARED_BEGIN)
+        report.check(
+            -1 < snapshot_at < clear_at < begin_at,
+            f"`{START_SELECTED}` must snapshot A/B proposer countries before "
+            "clearing petition targets, then open the shared council",
+        )
+
     launchers = [
         block
         for blocks in effect_index.values()
@@ -778,6 +833,231 @@ def validate_ai_yearly(
         )
 
 
+def _scheduled_event_calls(text: str, event_id: str) -> list[str]:
+    return [
+        body
+        for body in any_keyword_blocks(text, "country_event")
+        if re.search(
+            rf"\bid\s*=\s*{re.escape(event_id)}\b", mask_clausewitz(body)
+        )
+    ]
+
+
+def _modifier_factor(option: str, trigger_name: str) -> float | None:
+    factors: list[float] = []
+    for modifier in any_keyword_blocks(option, "modifier"):
+        masked = mask_clausewitz(modifier)
+        if trigger_name not in masked:
+            continue
+        match = re.search(r"\bfactor\s*=\s*([0-9]+(?:\.[0-9]+)?)\b", masked)
+        if match:
+            factors.append(float(match.group(1)))
+    return factors[0] if len(factors) == 1 else None
+
+
+def _ai_base_factor(option: str) -> float | None:
+    chances = any_keyword_blocks(option, "ai_chance")
+    if len(chances) != 1:
+        return None
+    match = re.search(
+        r"(?m)^\s*factor\s*=\s*([0-9]+(?:\.[0-9]+)?)\s*$",
+        mask_clausewitz(chances[0]),
+    )
+    return float(match.group(1)) if match else None
+
+
+def validate_ai_ballot_lifecycle(
+    effect_index: dict[str, list[Block]],
+    events: dict[str, list[Block]],
+    report: Report,
+) -> None:
+    """Opening the panel must synchronously record every eligible AI ballot."""
+
+    opener = require_unique(
+        effect_index, "zhx_open_tianxia_council", report, "scripted effect"
+    )
+    chooser = require_unique(
+        effect_index, AI_CHOOSER_EFFECT, report, "scripted effect"
+    )
+    fill = require_unique(effect_index, AI_FILL_EFFECT, report, "scripted effect")
+
+    if opener:
+        opener_masked = mask_clausewitz(opener.text)
+        report.check(
+            f"{AI_FILL_EFFECT} = yes" in opener_masked,
+            f"shared council opener must synchronously call {AI_FILL_EFFECT}",
+        )
+        fill_position = opener_masked.find(f"{AI_FILL_EFFECT} = yes")
+        player_position = opener_masked.find("id = zhx_debate.10")
+        report.check(
+            0 <= fill_position < player_position,
+            "AI opening ballots must finish before the human invitation is dispatched",
+        )
+        report.check(
+            operation_count(
+                opener.text, "set_country_flag", "zhx_council_ai_review_pending"
+            )
+            == 1,
+            "shared council opener must arm one bounded AI review",
+        )
+        report.check(
+            "zhx_council_ai_first_vote_pending" not in opener_masked,
+            "shared council opener still arms the retired delayed-first-vote path",
+        )
+        for event_id, days, random_days in (
+            (AI_SWEEP_EVENT, 61, None),
+            (AI_REVIEW_EVENT, 182, 30),
+        ):
+            calls = _scheduled_event_calls(opener.text, event_id)
+            if not report.check(
+                len(calls) == 1,
+                f"shared council opener must schedule {event_id} exactly once",
+            ):
+                continue
+            call = mask_clausewitz(calls[0])
+            report.check(
+                bool(re.search(rf"\bdays\s*=\s*{days}\b", call)),
+                f"{event_id} must start on day {days}",
+            )
+            if random_days is None:
+                report.check(
+                    "random =" not in call,
+                    f"{event_id} must remain a deterministic safety sweep",
+                )
+            else:
+                report.check(
+                    bool(re.search(rf"\brandom\s*=\s*{random_days}\b", call)),
+                    f"{event_id} must add a 0-{random_days}-day stagger",
+                )
+        report.check(
+            not _scheduled_event_calls(opener.text, "zhx_debate.11"),
+            "retired delayed AI first-vote event zhx_debate.11 is still scheduled",
+        )
+
+    for retired_event in ("zhx_debate.11", "zhx_debate.13"):
+        report.check(
+            retired_event not in events,
+            f"retired asynchronous AI event still exists: {retired_event}",
+        )
+
+    if fill:
+        fill_masked = mask_clausewitz(fill.text)
+        for token in (
+            "every_country",
+            "ai = yes",
+            "zhx_is_tianxia_polity = yes",
+            "zhx_council_vote_a",
+            "zhx_council_vote_b",
+            "zhx_council_vote_c",
+            "NOT",
+            f"{AI_CHOOSER_EFFECT} = yes",
+            f"{SHARED_RECOUNT} = yes",
+        ):
+            report.check(token in fill_masked, f"{AI_FILL_EFFECT} is missing {token}")
+        report.check(
+            operation_count(fill.text, "set_country_flag", AI_BATCH_FLAG) == 1
+            and operation_count(fill.text, "clr_country_flag", AI_BATCH_FLAG) == 1,
+            f"{AI_FILL_EFFECT} must bracket the country loop with {AI_BATCH_FLAG}",
+        )
+        report.check(
+            occurrences(fill.text, SHARED_RECOUNT) == 1,
+            f"{AI_FILL_EFFECT} must perform exactly one authoritative recount",
+        )
+
+    if chooser:
+        chooser_masked = mask_clausewitz(chooser.text)
+        for token in (
+            "ai = yes",
+            "zhx_can_vote_in_tianxia_council = yes",
+            "zhx_council_has_valid_candidates = yes",
+            "zhx_council_vote_matches_candidate_a",
+            "zhx_council_vote_matches_candidate_b",
+            "zhx_council_is_candidate_a_proposer",
+            "zhx_council_is_candidate_b_proposer",
+            "zhx_council_is_allied_to_candidate_a_proposer",
+            "zhx_council_is_allied_to_candidate_b_proposer",
+            "zhx_council_likes_candidate_a_proposer",
+            "zhx_council_likes_candidate_b_proposer",
+            "zhx_council_rivals_candidate_a_proposer",
+            "zhx_council_rivals_candidate_b_proposer",
+            "zhx_council_is_at_war_with_candidate_a_proposer",
+            "zhx_council_is_at_war_with_candidate_b_proposer",
+            "zhx_council_own_school_is_not_nominated",
+            "random_list",
+        ):
+            report.check(token in chooser_masked, f"{AI_CHOOSER_EFFECT} is missing {token}")
+        for cast in (CAST_A, CAST_B, CAST_C):
+            report.check(
+                occurrences(chooser.text, cast) >= 1,
+                f"{AI_CHOOSER_EFFECT} never records {cast}",
+            )
+        random_lists = any_keyword_blocks(chooser.text, "random_list")
+        report.check(
+            len(random_lists) == 1
+            and bool(re.search(r"\b40\s*=\s*\{", random_lists[0]))
+            and len(re.findall(r"\b40\s*=\s*\{", random_lists[0])) == 2
+            and bool(re.search(r"\b20\s*=\s*\{", random_lists[0])),
+            f"{AI_CHOOSER_EFFECT} neutral fallback must remain 40/40/20",
+        )
+        same_school_position = min(
+            chooser_masked.find("zhx_council_vote_matches_candidate_a"),
+            chooser_masked.find("zhx_council_vote_matches_candidate_b"),
+        )
+        diplomacy_positions = [
+            chooser_masked.find(token)
+            for token in (
+                "zhx_council_is_allied_to_candidate_a_proposer",
+                "zhx_council_likes_candidate_a_proposer",
+                "zhx_council_rivals_candidate_a_proposer",
+            )
+        ]
+        report.check(
+            same_school_position >= 0
+            and all(position > same_school_position for position in diplomacy_positions),
+            "same-school preference must be evaluated before ordinary diplomacy",
+        )
+
+    review = require_unique(events, AI_REVIEW_EVENT, report, "country event")
+    if review:
+        review_masked = mask_clausewitz(review.text)
+        for token in (
+            "ai = yes",
+            "zhx_can_vote_in_tianxia_council = yes",
+            "zhx_council_ai_review_pending",
+            "zhx_council_vote_a",
+            "zhx_council_vote_b",
+            "zhx_council_vote_c",
+            f"{AI_CHOOSER_EFFECT} = yes",
+        ):
+            report.check(token in review_masked, f"{AI_REVIEW_EVENT} is missing {token}")
+        report.check(
+            operation_count(
+                review.text, "clr_country_flag", "zhx_council_ai_review_pending"
+            )
+            == 1,
+            f"{AI_REVIEW_EVENT} must consume its review flag exactly once",
+        )
+
+    sweep = require_unique(events, AI_SWEEP_EVENT, report, "country event")
+    if sweep:
+        sweep_masked = mask_clausewitz(sweep.text)
+        for token in (
+            "zhx_is_tianzi = yes",
+            "zhx_council_phase_ballot_open",
+            "zhx_council_kind_debate",
+            f"{AI_FILL_EFFECT} = yes",
+        ):
+            report.check(token in sweep_masked, f"{AI_SWEEP_EVENT} is missing {token}")
+
+    resolver = require_unique(
+        effect_index, SHARED_RESOLVE, report, "scripted effect"
+    )
+    if resolver:
+        report.check(
+            f"{AI_FILL_EFFECT} = yes" in mask_clausewitz(resolver.text),
+            "deadline must fill any late eligible AI ballot before freezing results",
+        )
+
 def gui_objects(text: str) -> dict[str, list[str]]:
     objects: dict[str, list[str]] = {}
     for keyword in (
@@ -954,6 +1234,7 @@ def main() -> None:
     validate_result_handoff(effect_index, events, report)
     validate_plural_tie(effect_index, report)
     validate_ai_yearly(effect_index, events, texts.get(ON_ACTIONS, ""), report)
+    validate_ai_ballot_lifecycle(effect_index, events, report)
     validate_gui(texts.get(INTERFACE, ""), texts.get(CUSTOM_GUI, ""), report)
     report.finish()
 

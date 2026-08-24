@@ -104,6 +104,122 @@ zhx_clear_tianxia_debate_petitions = {
     clr_country_flag = zhx_debate_shortlist_zongheng
 }
 
+# Once the Tianzi has chosen A and B, the petition authors become part of the
+# ballot record. The original six petition targets are cleared at opening, so
+# the two selected authors must survive in generic slots until resolution.
+zhx_clear_tianxia_council_candidate_proposers = {
+    if = {
+        limit = { has_saved_global_event_target = zhx_council_candidate_a_proposer }
+        clear_global_event_target = zhx_council_candidate_a_proposer
+    }
+    if = {
+        limit = { has_saved_global_event_target = zhx_council_candidate_b_proposer }
+        clear_global_event_target = zhx_council_candidate_b_proposer
+    }
+}
+
+zhx_snapshot_tianxia_council_candidate_proposers = {
+    zhx_clear_tianxia_council_candidate_proposers = yes
+
+    if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_a_ru
+            has_saved_global_event_target = zhx_debate_proposer_ru
+            event_target:zhx_debate_proposer_ru = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_ru = { save_global_event_target_as = zhx_council_candidate_a_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_a_fa
+            has_saved_global_event_target = zhx_debate_proposer_fa
+            event_target:zhx_debate_proposer_fa = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_fa = { save_global_event_target_as = zhx_council_candidate_a_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_a_mo
+            has_saved_global_event_target = zhx_debate_proposer_mo
+            event_target:zhx_debate_proposer_mo = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_mo = { save_global_event_target_as = zhx_council_candidate_a_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_a_dao
+            has_saved_global_event_target = zhx_debate_proposer_dao
+            event_target:zhx_debate_proposer_dao = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_dao = { save_global_event_target_as = zhx_council_candidate_a_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_a_bing
+            has_saved_global_event_target = zhx_debate_proposer_bing
+            event_target:zhx_debate_proposer_bing = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_bing = { save_global_event_target_as = zhx_council_candidate_a_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_a_zongheng
+            has_saved_global_event_target = zhx_debate_proposer_zongheng
+            event_target:zhx_debate_proposer_zongheng = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_zongheng = { save_global_event_target_as = zhx_council_candidate_a_proposer }
+    }
+
+    if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_b_ru
+            has_saved_global_event_target = zhx_debate_proposer_ru
+            event_target:zhx_debate_proposer_ru = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_ru = { save_global_event_target_as = zhx_council_candidate_b_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_b_fa
+            has_saved_global_event_target = zhx_debate_proposer_fa
+            event_target:zhx_debate_proposer_fa = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_fa = { save_global_event_target_as = zhx_council_candidate_b_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_b_mo
+            has_saved_global_event_target = zhx_debate_proposer_mo
+            event_target:zhx_debate_proposer_mo = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_mo = { save_global_event_target_as = zhx_council_candidate_b_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_b_dao
+            has_saved_global_event_target = zhx_debate_proposer_dao
+            event_target:zhx_debate_proposer_dao = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_dao = { save_global_event_target_as = zhx_council_candidate_b_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_b_bing
+            has_saved_global_event_target = zhx_debate_proposer_bing
+            event_target:zhx_debate_proposer_bing = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_bing = { save_global_event_target_as = zhx_council_candidate_b_proposer }
+    }
+    else_if = {
+        limit = {
+            has_country_flag = zhx_council_candidate_b_zongheng
+            has_saved_global_event_target = zhx_debate_proposer_zongheng
+            event_target:zhx_debate_proposer_zongheng = { exists = yes }
+        }
+        event_target:zhx_debate_proposer_zongheng = { save_global_event_target_as = zhx_council_candidate_b_proposer }
+    }
+}
+
 # Freeze the available choices before opening the two-step Tianzi selector.
 # Timed petition modifiers may expire while an event is open; the shortlist
 # therefore remains stable until the Tianzi starts or cancels the debate.
@@ -239,6 +355,7 @@ zhx_start_selected_tianxia_debate = {
     if = {
         limit = { zhx_council_has_valid_candidates = yes }
         clr_country_flag = zhx_council_phase_preparing
+        zhx_snapshot_tianxia_council_candidate_proposers = yes
         zhx_clear_tianxia_debate_petitions = yes
         zhx_begin_tianxia_debate_council = yes
     }
