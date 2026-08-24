@@ -455,6 +455,8 @@ python3 tools/generate_doctrine_emblems.py --check
 python3 tools/validate_zhx_doctrine.py
 python3 tools/validate_zhx_council.py
 python3 tools/validate_zhx_mature_debate.py
+python3 tools/validate_zhx_debug_debate.py
+python3 tools/validate_zhx_debug_catalog.py
 python3 tools/validate_zhx_opening_schools.py
 python3 tools/encode_eu4_chinese_localisation.py --check
 ```
@@ -464,6 +466,45 @@ python3 tools/encode_eu4_chinese_localisation.py --check
 遮挡；查看外国时确认外交页徽章与国名不重叠；进入真正的宗教地图后确认首都徽章
 与国论同步。每轮检查加载日志中不得新增 `Invalid school in scope`、缺失纹理或本系统
 GUI 解析错误。
+
+### 9.1 维护中的开发预览入口
+
+正式模组保留一个永不被 `on_action` 或普通 GUI 自动调用的开发者预览事件，可从控制台
+或存档级调试目录手动打开：
+
+```txt
+event zhx_debug.100 CZH
+```
+
+第一项生成墨家、道家两份请辩并直接开票；第二项生成儒家、兵家、纵横家三份请辩，
+用于验证天子的两步择案。两项都调用正式的请辩、开票、实时改票、期限与结算状态机，
+没有复制第二套玩法逻辑。预览会清除当前显学任期，因此只能在临时存档使用。
+
+开发预览不能中止已经开票的公议。EU4 无法撤销已经排入队列的第 `365` 天期限事件；
+强行复位会让旧期限误撞以后新开的公议。应让本届正常结算，或在三家择案阶段选择
+“暂缓择案”，随后输入：
+
+```txt
+event zhx_debug.199 CZH
+```
+
+该命令只在公议空闲时清除预览标记、请辩、候选、显学任期和公议残余状态。它不会
+还原结算已经产生的礼乐值或列国盟功，因此预览存档不应继续作为正式游玩档。
+
+此外保留一个存档级开发者目录启用器：
+
+```txt
+event zhx_debug.1
+```
+
+确认后，本国决议栏会出现“调试”；点开后可在“天下公议”和“礼教学派”两页之间
+翻页，并从“调试天下大辩”进入上面的 `zhx_debug.100`。每页最多六个选项，关闭普通
+目录不会停用决议；第二页的“关闭并停用‘调试’决议”会清除本国启用旗标。
+
+EU4 `1.37.5` 的控制台 `debug_mode` 是硬编码界面开关，没有对应的脚本触发器；
+`is_debug = yes` 和 `debug_mode = yes` 都会产生 `Unknown trigger type`。所以模组无法
+诚实地让原生 `debug_mode` 单独控制决议可见性，必须用上面的控制台事件设置存档旗标。
+正常游戏没有任何 `on_action`、GUI 或普通决议会调用该启用器。
 
 临时 `zhxtest` 事件、启动注入、直接学校探针及断言日志不得进入正式模组；静态校验器
 会扫描整个生产模组并拒绝 `zhxtest`、`fatest`、`motest` 等测试夹具。开发期旧存档不在

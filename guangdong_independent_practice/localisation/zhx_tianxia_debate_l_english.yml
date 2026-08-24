@@ -148,6 +148,49 @@
  zhx_debate.90.t:0 ")YN'Y©t^¦^Àhåg"
  zhx_debate.90.d:0 ")YN'Y©„v÷‹©fN0P	¶r`NAS”Nt^ûNgòTÏuÀhåg0"
 
+ zhx_debug.100.t:0 "VÑS„˜È‰ÿ)YN'Y©"
+ zhx_debug.100.d:0 "Ù=f1uµc6RðSbXRchµuŒÕ‹îvUVKb¨RSbV„vVÑS„˜È‰eQãS0ƒRO(WlQ®‹zzò•öend–°s	g÷‹©fNNLffRûNgÿQ¿l(uckV¶r`HgìSVNJS)YN'Y©0÷‹(W4NöeXRch-NO(uÿòTÏuVhy„vlQ®‹NýwHV6R-Nbk0"
+ zhx_debug.100.a:0 "¨X¶RNS¶Rôv¥ceQ-^"
+ zhx_debug.100.a.tt:0 "ub¨X¶R0S¶R2NýN	Nt^÷‹©fNÿv^	cckV„vp`‹Y2N¶RAmzËzsSVhy0"
+ zhx_debug.100.b:0 "©‹Q0uQ0µu8j	N¶RP	"
+ zhx_debug.100.b.tt:0 "ubQ¶R0uQ¶R0µu8j¶R	NýN	Nt^÷‹©fNÿv^ÛeQ)YPRHQ	2uHh0Q	YNHh„vckVAmz0"
+ zhx_debug.100.c:0 "ntNNnVÑS„˜È‰"
+ zhx_debug.100.cancel:0 "‚fNÛLˆVÑS„˜È‰"
+ zhx_debug.199.t:0 "nt)YN'Y©VÑS„˜È‰"
+ zhx_debug.199.d:0 "nteQãSêSûyd–VÑS„˜È‰YuN„v÷‹©0P	0LffRûNgŒT®‹‹N¶r`0HNMQH–çegP–‹NöNï‹ždNNJSlQ®‹ÿòTÏuVhy„v„˜È‰ÅV‰˜HQck8^Óu—r0"
+ zhx_debug.199.a:0 "ntVÑS„˜È‰¶r`"
+ zhx_debug.199.b:0 "SVMRNýw‰RhQnt"
+
+ zhx_open_debug_catalog_title:0 "ŒÕ‹"
+ zhx_open_debug_catalog_desc:0 "SbVVÑSw‹NöNîvUV0å‹³Q®‹êS	g(W,gXRchÇµc6RðS‹NöN§Yevent zhx_debug.1§!=T(uTMbOúQ°sÿAI8lÜNOO(u0"
+ zhx_debug.1.t:0 "=T(uVÑSwŒÕ‹îvUV"
+ zhx_debug.1.d:0 "EU4 1.37.5v^8gŠbµc6RðS„vdebug_mode¶r`VLeÙu!jÄu,gÿàVdk,g‹NöNO(uìrËz„vXRch×eh=T(u“ŒÕ‹”³Q®‹0ck8^8n©sNOê¨RŒ(uÙ8NeQãS0"
+ zhx_debug.1.a:0 "=T(uv^SbVŒÕ‹îvUV"
+ zhx_debug.1.cancel:0 "‚fN=T(u"
+ zhx_debug.10.t:0 "ŒÕ‹îvUV · )YNlQ®‹"
+ zhx_debug.10.d:0 ",rNu˜6eUVhT)YNlQ®‹N)YN'Y©„v‰RhQVÑSeQãS0ck(WVhy0Ir…VÓu—rbòT	g)YN‹NØS…VžRöeÿïSýw4xOW¶r`Hg„v	y˜Oê¨R–Ï…0"
+ zhx_debug.20.t:0 "ŒÕ‹îvUV · JyYefRLm"
+ zhx_debug.20.d:0 ",rŒNu˜6eUVýVº‹	ébNêSû‹&Ms0ýVº‹	ébO8lENîO9eSVMRXRchÿ&MsŒT)YNLffRu˜b—êSû‹ÖSbÍ‘—rLfHyXR0"
+ zhx_debug.catalog.debate:0 "ŒÕ‹)YN'Y©"
+ zhx_debug.catalog.debate.tt:0 "nd–SVMR÷‹©NLffRûNgÿ6qTSbV¨XS2N¶RbQuQµu8j	N¶R„vckV„˜È‰eQãS0êSýw1ulQ®‹zzò•öe„v)YPRO(u0"
+ zhx_debug.catalog.debate_cleanup:0 "‰RhQnt'Y©„˜È‰"
+ zhx_debug.catalog.debate_cleanup.tt:0 "êS(WVÑS„˜È‰òTÏuÞV0Rzzò•¶r`öeLfHyÿNOHV6R-NbkòT’cg„v•bhy0"
+ zhx_debug.catalog.ritual_breakdown:0 "ŒÕ‹‹s‹TNLˆ"
+ zhx_debug.catalog.ritual_breakdown.tt:0 "(WlQ®‹ŒRhQzzò•N¡l	g·QtSöeÿ¿lckVAmz‰v°‹v^ÐcúQ“‹s‹TNLˆ”)YN‹NØS0"
+ zhx_debug.catalog.tianxia_overview:0 "ågwhT)YN¶r`"
+ zhx_debug.catalog.tianxia_overview.tt:0 "SbVêSû‹„vhT)YNJyPNNéy^I`È‰ÿNîO9eo—r¶r`0"
+ zhx_debug.catalog.next_page:0 "NNu˜ÿJyYefRLm"
+ zhx_debug.catalog.previous_page:0 "NNu˜ÿ)YNlQ®‹"
+ zhx_debug.catalog.close:0 "sQí•îvUV"
+ zhx_debug.catalog.doctrine_first_triad:0 "ŒÕ‹Q0Õl0¨XýVº‹"
+ zhx_debug.catalog.doctrine_second_triad:0 "ŒÕ‹S0uQ0µu8jýVº‹"
+ zhx_debug.catalog.doctrine_mutation.tt:0 "ôv¥cSbVýVº‹	ébŸS‹WÿjOúQ„v	ébO8lENîO9eSVMRXRchÿú^®‹êS(W4NöechO(u0"
+ zhx_debug.catalog.doctrine_ledger:0 "ågw,gýVýVº‹NõeS"
+ zhx_debug.catalog.doctrine_ledger.tt:0 "	cckVlQVsSöeÍ‘—rv^LfHy,gýVõeS&Ms0"
+ zhx_debug.catalog.orthodoxy:0 "ågw)YNLffR"
+ zhx_debug.catalog.orthodoxy.tt:0 "ågwSVMR)YNLffRÿv^ïSçuíuSbVmQ¶RT¿Ríwu˜0"
+ zhx_debug.catalog.disable:0 "sQí•v^jP(u“ŒÕ‹”³Q®‹"
+
  zhx_review_tianxia_orthodoxy_title:0 "ågw)YNLffR"
  zhx_review_tianxia_orthodoxy_desc:0 "ågwSVMR)YNLffRÊSvQùRŒTs^0ø‹¯O…Qb0ßWYb‰NÜw)R0ßvŸRŒTJyPNJP„vqVÍT0)YNLffRNO9eØS,gýVýV…QýVº‹0"
  zhx_file_tianxia_debate_petition_title:0 "NfN÷‹©"

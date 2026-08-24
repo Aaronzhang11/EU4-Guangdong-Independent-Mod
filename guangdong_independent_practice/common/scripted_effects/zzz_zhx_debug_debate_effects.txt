@@ -1,0 +1,47 @@
+# Maintained, developer-only Great Debate preview harness.
+# It deliberately refuses to abort an open ballot: the engine cannot cancel
+# its already-scheduled zhx_system.23 deadline without risking a stale timer.
+
+zhx_debug_clear_debate_preview_state = {
+    zhx_clear_tianxia_debate_petitions = yes
+    remove_country_modifier = zhx_tianxia_orthodoxy_term
+    zhx_clear_tianxia_orthodoxy_flags = yes
+    zhx_reset_tianxia_council_ballot = yes
+    zhx_clear_tianxia_council_phase = yes
+    zhx_clear_tianxia_council_kind = yes
+    zhx_clear_tianxia_council_candidates = yes
+    zhx_clear_tianxia_council_results = yes
+    clr_country_flag = zhx_council_result_ready
+    clr_country_flag = zhx_council_deadline_scheduled
+    clr_country_flag = zhx_debug_debate_preview_active
+}
+
+zhx_debug_start_two_school_debate_preview = {
+    if = {
+        limit = { zhx_debug_can_prepare_debate_preview = yes }
+        zhx_debug_clear_debate_preview_state = yes
+        set_country_flag = zhx_debug_debate_preview_active
+        add_country_modifier = { name = zhx_debate_petition_mo duration = 1095 }
+        add_country_modifier = { name = zhx_debate_petition_dao duration = 1095 }
+        country_event = { id = zhx_debate.2 }
+    }
+}
+
+zhx_debug_start_three_school_debate_preview = {
+    if = {
+        limit = { zhx_debug_can_prepare_debate_preview = yes }
+        zhx_debug_clear_debate_preview_state = yes
+        set_country_flag = zhx_debug_debate_preview_active
+        add_country_modifier = { name = zhx_debate_petition_ru duration = 1095 }
+        add_country_modifier = { name = zhx_debate_petition_bing duration = 1095 }
+        add_country_modifier = { name = zhx_debate_petition_zongheng duration = 1095 }
+        country_event = { id = zhx_debate.2 }
+    }
+}
+
+zhx_debug_cleanup_debate_preview = {
+    if = {
+        limit = { zhx_debug_can_cleanup_debate_preview = yes }
+        zhx_debug_clear_debate_preview_state = yes
+    }
+}

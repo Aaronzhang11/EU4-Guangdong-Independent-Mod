@@ -1,0 +1,119 @@
+namespace = zhx_debug
+
+# EU4 1.37.5 does not expose the console debug_mode byte to script. This
+# console-only event is therefore the authoritative, save-local opt-in gate.
+country_event = {
+    id = zhx_debug.1
+    title = zhx_debug.1.t
+    desc = zhx_debug.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = { ai = no }
+
+    option = {
+        name = zhx_debug.1.a
+        hidden_effect = {
+            set_country_flag = zhx_debug_catalog_enabled
+            country_event = { id = zhx_debug.10 }
+        }
+    }
+    option = { name = zhx_debug.1.cancel }
+}
+
+# Page 1: Tianxia council and Great Debate tools. Six options is the hard UI
+# budget for every catalog page, including navigation and close controls.
+country_event = {
+    id = zhx_debug.10
+    title = zhx_debug.10.t
+    desc = zhx_debug.10.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        has_country_flag = zhx_debug_catalog_enabled
+    }
+
+    option = {
+        name = zhx_debug.catalog.debate
+        trigger = { zhx_debug_can_prepare_debate_preview = yes }
+        custom_tooltip = zhx_debug.catalog.debate.tt
+        hidden_effect = { country_event = { id = zhx_debug.100 } }
+    }
+    option = {
+        name = zhx_debug.catalog.debate_cleanup
+        trigger = { zhx_debug_can_cleanup_debate_preview = yes }
+        custom_tooltip = zhx_debug.catalog.debate_cleanup.tt
+        hidden_effect = { country_event = { id = zhx_debug.199 } }
+    }
+    option = {
+        name = zhx_debug.catalog.ritual_breakdown
+        trigger = { zhx_debug_can_prepare_ritual_breakdown_preview = yes }
+        custom_tooltip = zhx_debug.catalog.ritual_breakdown.tt
+        hidden_effect = {
+            set_country_flag = zhx_council_pending_ritual_breakdown
+            country_event = { id = zhx_system.20 }
+        }
+    }
+    option = {
+        name = zhx_debug.catalog.tianxia_overview
+        custom_tooltip = zhx_debug.catalog.tianxia_overview.tt
+        hidden_effect = { country_event = { id = zhx_system.3 } }
+    }
+    option = {
+        name = zhx_debug.catalog.next_page
+        hidden_effect = { country_event = { id = zhx_debug.20 } }
+    }
+    option = { name = zhx_debug.catalog.close }
+}
+
+# Page 2: doctrine prototypes and read-only religion/debate ledgers.
+country_event = {
+    id = zhx_debug.20
+    title = zhx_debug.20.t
+    desc = zhx_debug.20.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        has_country_flag = zhx_debug_catalog_enabled
+    }
+
+    option = {
+        name = zhx_debug.catalog.doctrine_first_triad
+        trigger = { zhx_is_lijiao_country = yes }
+        custom_tooltip = zhx_debug.catalog.doctrine_mutation.tt
+        hidden_effect = { country_event = { id = zhx_doctrine.1 } }
+    }
+    option = {
+        name = zhx_debug.catalog.doctrine_second_triad
+        trigger = { zhx_is_lijiao_country = yes }
+        custom_tooltip = zhx_debug.catalog.doctrine_mutation.tt
+        hidden_effect = { country_event = { id = zhx_doctrine_expansion.1 } }
+    }
+    option = {
+        name = zhx_debug.catalog.doctrine_ledger
+        trigger = {
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
+        custom_tooltip = zhx_debug.catalog.doctrine_ledger.tt
+        hidden_effect = { country_event = { id = zhx_doctrine.20 } }
+    }
+    option = {
+        name = zhx_debug.catalog.orthodoxy
+        trigger = { has_saved_global_event_target = zhx_tianzi }
+        custom_tooltip = zhx_debug.catalog.orthodoxy.tt
+        hidden_effect = { country_event = { id = zhx_debate.30 } }
+    }
+    option = {
+        name = zhx_debug.catalog.previous_page
+        hidden_effect = { country_event = { id = zhx_debug.10 } }
+    }
+    option = {
+        name = zhx_debug.catalog.disable
+        hidden_effect = { clr_country_flag = zhx_debug_catalog_enabled }
+    }
+}
