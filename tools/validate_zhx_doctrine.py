@@ -79,15 +79,48 @@ NATIVE_STATUS_FIELDS = {
     "zhx_religion_practice_flourishing_value",
     "zhx_religion_practice_exemplary_value",
 }
-PRACTICE_LEDGER_BUTTONS = {
-    "zhx_religion_practice_hollow_ledger_button":
-        "zhx_religion_practice_hollow_value",
-    "zhx_religion_practice_established_ledger_button":
-        "zhx_religion_practice_value",
-    "zhx_religion_practice_flourishing_ledger_button":
-        "zhx_religion_practice_flourishing_value",
-    "zhx_religion_practice_exemplary_ledger_button":
-        "zhx_religion_practice_exemplary_value",
+PRACTICE_TIER_COLOURS = {
+    "zhx_religion_practice_hollow_value": "R",
+    "zhx_religion_practice_value": "Y",
+    "zhx_religion_practice_flourishing_value": "G",
+    "zhx_religion_practice_exemplary_value": "O",
+}
+HOVER_CACHE_FLAGS = {
+    "zhx_doctrine_hover_positive_1",
+    "zhx_doctrine_hover_positive_2",
+    "zhx_doctrine_hover_positive_3",
+    "zhx_doctrine_hover_negative_1",
+    "zhx_doctrine_hover_negative_2",
+    "zhx_doctrine_hover_negative_3",
+    "zhx_doctrine_hover_mo_defender",
+    "zhx_doctrine_hover_mo_peace",
+}
+HOVER_ROW_LOCALISATION = (
+    {
+        f"zhx_doctrine_hover_{school}_positive_1"
+        for school in ("ru", "fa", "dao", "bing", "zongheng")
+    }
+    | {"zhx_doctrine_hover_mo_defender", "zhx_doctrine_hover_mo_peace"}
+    | {
+        f"zhx_doctrine_hover_{school}_positive_{slot}"
+        for school in EXPECTED_FLAGS
+        for slot in (2, 3)
+    }
+    | {
+        f"zhx_doctrine_hover_{school}_negative_{slot}"
+        for school in EXPECTED_FLAGS
+        for slot in (1, 2)
+    }
+    | {
+        f"zhx_doctrine_hover_{school}_negative_3"
+        for school in ("ru", "fa", "mo", "bing", "zongheng")
+    }
+)
+REMOVED_PRACTICE_LEDGER_BUTTONS = {
+    "zhx_religion_practice_hollow_ledger_button",
+    "zhx_religion_practice_established_ledger_button",
+    "zhx_religion_practice_flourishing_ledger_button",
+    "zhx_religion_practice_exemplary_ledger_button",
 }
 REMOVED_RELIGION_CARD_CONTROLS = {
     "zhx_religion_school_none_window",
@@ -871,27 +904,30 @@ def main() -> None:
         and 'interface/countrydiplomacyview.gui' in native_diplomacy_builder,
         "diplomacy builder must remain pinned to the required Chinese 1.37 baseline",
     )
-    overlay_name = "zhx_lijiao_school_button_overlay"
-    overlay_sprite = "GFX_zhx_lijiao_school_button"
-    overlay_body = named_icon_body(religion_view_body, overlay_name)
+    rules_button_name = "zhx_lijiao_school_rules_button"
+    rules_button_sprite = "GFX_zhx_lijiao_school_button"
+    rules_button_body = named_gui_button_body(religion_view_body, rules_button_name)
     require(
-        religion_view_body.count(f'name = "{overlay_name}"') == 1
+        religion_view_body.count(f'name = "{rules_button_name}"') == 1
         and re.search(
             r"position\s*=\s*\{\s*x\s*=\s*180\s+y\s*=\s*148\s*\}",
-            overlay_body,
+            rules_button_body,
         )
         is not None
-        and f'spriteType = "{overlay_sprite}"' in overlay_body
-        and "alwaystransparent = yes" in overlay_body
-        and "scripted = yes" in overlay_body,
-        "礼教 scholar-button overlay must cover the native 42 px button without "
-        "intercepting its hitbox",
+        and f'quadTextureSprite = "{rules_button_sprite}"' in rules_button_body
+        and "clicksound = click" in rules_button_body
+        and "alwaystransparent" not in rules_button_body
+        and "scripted = yes" in rules_button_body,
+        "礼教 tripod must be a visible scripted 42 px rules button beside the "
+        "practice value",
     )
     require(
-        lijiao_gfx.count(f'name = "{overlay_sprite}"') == 1,
+        lijiao_gfx.count(f'name = "{rules_button_sprite}"') == 1,
         "礼教 scholar-button sprite must be registered exactly once",
     )
-    overlay_sprite_body = lijiao_gfx.split(f'name = "{overlay_sprite}"', 1)[1][:300]
+    overlay_sprite_body = lijiao_gfx.split(
+        f'name = "{rules_button_sprite}"', 1
+    )[1][:300]
     require(
         'texturefile = "gfx/interface/zhx_lijiao_school_button.dds"'
         in overlay_sprite_body
@@ -912,16 +948,32 @@ def main() -> None:
         "礼教 scholar-button DDS must match the native 42x42 button",
     )
     require(
-        native_custom_gui.count(f"name = {overlay_name}") == 1,
-        "礼教 scholar-button overlay must have exactly one custom-icon binding",
+        native_custom_gui.count(f"name = {rules_button_name}") == 1,
+        "礼教 tripod must have exactly one custom-button binding",
     )
-    overlay_custom_body = named_custom_icon_body(native_custom_gui, overlay_name)
+    rules_custom_body = named_custom_button_body(
+        native_custom_gui, rules_button_name
+    )
     require(
-        "zhx_is_lijiao_country = yes" in overlay_custom_body
-        and "zhx_has_doctrine = yes" in overlay_custom_body
-        and "has_religious_school = yes" in overlay_custom_body,
-        "礼教 scholar-button overlay must be limited to doctrine-bearing Ritual "
-        "Teaching countries with a native school",
+        "zhx_is_lijiao_country = yes" in rules_custom_body
+        and "zhx_has_doctrine = yes" in rules_custom_body
+        and "has_religious_school = yes" in rules_custom_body
+        and re.fullmatch(
+            r"\s*always\s*=\s*yes\s*",
+            named_block_body(rules_custom_body, "trigger"),
+            re.S,
+        )
+        is not None
+        and re.fullmatch(
+            r"\s*country_event\s*=\s*\{\s*id\s*=\s*"
+            r"zhx_doctrine\.20\s*\}\s*",
+            named_block_body(rules_custom_body, "effect"),
+            re.S,
+        )
+        is not None
+        and "tooltip = zhx_religion_practice_rules_button_tt"
+        in rules_custom_body,
+        "礼教 tripod must be doctrine-gated and open the complete practice-rule event",
     )
     sentinel_overlay_name = "zhx_no_doctrine_school_button_overlay"
     sentinel_overlay_sprite = "GFX_zhx_no_doctrine_school_button"
@@ -1069,12 +1121,14 @@ def main() -> None:
     review_immediate = named_block_body(review_event, "immediate")
     require(
         re.fullmatch(
-            r"\s*zhx_prepare_doctrine_ledger\s*=\s*yes\s*",
+            r"\s*hidden_effect\s*=\s*\{\s*"
+            r"zhx_prepare_doctrine_ledger\s*=\s*yes\s*\}\s*",
             review_immediate,
             re.S,
         )
         is not None,
-        "the reusable doctrine-review event must prepare its ledger on open",
+        "the optional doctrine-review event must refresh its ledger without "
+        "exposing cache-write script text",
     )
 
     receipt_calculator = country_event_body(event_text, "zhx_doctrine.93")
@@ -1288,6 +1342,14 @@ def main() -> None:
         and "zhxtest" not in startup_body.lower(),
         "new-game doctrine lifecycle must not carry startup migration or test events",
     )
+    require(
+        startup_body.count("zhx_prepare_doctrine_ledger = yes") == 1
+        and "ai = no" in startup_body
+        and "zhx_is_lijiao_country = yes" in startup_body
+        and "zhx_has_doctrine = yes" in startup_body,
+        "startup must refresh the human Ritual Teaching hover-ledger cache "
+        "without adding a migration event",
+    )
     religion_change_body = named_block_body(on_action, "on_religion_change")
     require(
         len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", religion_change_body))
@@ -1300,6 +1362,18 @@ def main() -> None:
         "zhx_doctrine.91" not in yearly_body
         and "zhx_doctrine.92" not in yearly_body,
         "the yearly pulse must reach school sync/retirement through shared effects",
+    )
+    monthly_body = named_block_body(on_action, "on_monthly_pulse")
+    require(
+        monthly_body.count("zhx_prepare_doctrine_ledger = yes") == 1
+        and "ai = no" in monthly_body
+        and "zhx_is_lijiao_country = yes" in monthly_body
+        and "zhx_has_doctrine = yes" in monthly_body
+        and "every_country" not in monthly_body
+        and "any_province" not in monthly_body
+        and "every_province" not in monthly_body,
+        "monthly hover-ledger refresh must be human-only, country-local and "
+        "free of world or province scans",
     )
 
     modifier_text = texts[MOD / "common/event_modifiers/zhx_doctrine_modifiers.txt"]
@@ -1346,10 +1420,27 @@ def main() -> None:
             and clear_flags_effect.count(f"clr_country_flag = {flag}") == 1,
             f"conversion lifecycle must detect and clear reserved doctrine flag {flag}",
         )
+    clear_hover_effect = top_level_effect_body(
+        effect_text, "zhx_clear_doctrine_hover_cache"
+    )
+    require(
+        clear_hover_effect.count("clr_country_flag = zhx_doctrine_hover_")
+        == len(HOVER_CACHE_FLAGS) + 1
+        and all(
+            clear_hover_effect.count(f"clr_country_flag = {flag}") == 1
+            for flag in HOVER_CACHE_FLAGS
+        )
+        and clear_hover_effect.count(
+            "clr_country_flag = zhx_doctrine_hover_cache_building"
+        )
+        == 1,
+        "hover-cache cleanup must clear every factor slot and its temporary build flag",
+    )
     clear_system_effect = top_level_effect_body(effect_text, "zhx_clear_doctrine_system")
     require(
         "zhx_remove_doctrine_tier_modifiers = yes" in clear_system_effect
         and "zhx_clear_doctrine_flags = yes" in clear_system_effect
+        and "zhx_clear_doctrine_hover_cache = yes" in clear_system_effect
         and "clr_country_flag = zhx_doctrine_practice_initialised"
         in clear_system_effect
         and "remove_country_modifier = zhx_doctrine_change_cooldown"
@@ -1375,29 +1466,76 @@ def main() -> None:
     yearly_effect = top_level_effect_body(effect_text, "zhx_yearly_doctrine_tick")
     require(
         calculator_effect.count("which = zhx_doctrine_calculated_delta") == 37
-        and calculator_effect.count("has_country_flag = zhx_doctrine_") == 6
+        and all(
+            calculator_effect.count(f"has_country_flag = {flag}") == 1
+            for flag in EXPECTED_FLAGS.values()
+        )
+        and calculator_effect.count(
+            "has_country_flag = zhx_doctrine_hover_cache_building"
+        )
+        == len(HOVER_ROW_LOCALISATION)
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_positive_1"
+        )
+        == 5
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_positive_2"
+        )
+        == 6
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_positive_3"
+        )
+        == 6
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_negative_1"
+        )
+        == 6
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_negative_2"
+        )
+        == 6
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_negative_3"
+        )
+        == 5
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_mo_defender"
+        )
+        == 1
+        and calculator_effect.count(
+            "set_country_flag = zhx_doctrine_hover_mo_peace"
+        )
+        == 1
         and "zhx_doctrine_last_delta" not in calculator_effect
         and "zhx_doctrine_practice" not in calculator_effect,
         "the shared projection calculator must contain all six annual formulas "
-        "without applying practice or overwriting last year's result",
+        "and mirror each contributing row only while a hover cache is being built",
     )
     require(
         ledger_effect.count("zhx_calculate_doctrine_yearly_delta = yes") == 1
-        and ledger_effect.count("which = zhx_doctrine_ledger_estimated_delta") == 7
+        and ledger_effect.count("zhx_clear_doctrine_hover_cache = yes") == 1
+        and ledger_effect.count(
+            "set_country_flag = zhx_doctrine_hover_cache_building"
+        )
+        == 1
+        and ledger_effect.count(
+            "clr_country_flag = zhx_doctrine_hover_cache_building"
+        )
+        == 1
+        and ledger_effect.count("which = zhx_doctrine_ledger_estimated_delta") == 1
         and ledger_effect.count("which = zhx_doctrine_ledger_to_next_tier") == 7
         and ledger_effect.count("which = zhx_doctrine_ledger_to_proposal") == 3
-        and ledger_effect.count("which = zhx_doctrine_practice") == 10
+        and ledger_effect.count("which = zhx_doctrine_practice") == 8
         and ledger_effect.count("which = zhx_doctrine_calculated_delta") == 1
-        and ledger_effect.count("change_variable = {") == 1
-        and ledger_effect.count("subtract_variable = {") == 5
+        and ledger_effect.count("change_variable = {") == 0
+        and ledger_effect.count("subtract_variable = {") == 4
         and all(f"value = {threshold}" in ledger_effect for threshold in (25, 50, 75))
         and ledger_effect.count("value = 70") == 2
-        and ledger_effect.count("value = 100") == 2
-        and ledger_effect.count("value = 0") >= 3
+        and "value = 100" not in ledger_effect
+        and ledger_effect.count("value = 0") >= 2
         and "country_event" not in ledger_effect,
-        "the on-demand ledger must reuse the annual calculator, cap its projected "
-        "change to 0-100, and derive the 25/50/75 next-tier gap plus "
-        "max(70-practice, 0) proposal gap without opening nested events",
+        "the hover cache must reuse the annual calculator, retain its raw row sum, "
+        "and derive the 25/50/75 next-tier gap plus max(70-practice, 0) proposal gap",
     )
     require(
         yearly_effect.count("zhx_calculate_doctrine_yearly_delta = yes") == 1
@@ -1411,6 +1549,7 @@ def main() -> None:
         and yearly_effect.count("country_event = { id = zhx_doctrine.93 }") == 1
         and yearly_effect.count("zhx_clamp_doctrine_practice = yes") == 1
         and yearly_effect.count("zhx_refresh_doctrine_tier = yes") == 1
+        and yearly_effect.count("zhx_prepare_doctrine_ledger = yes") == 1
         and all(
             token not in yearly_effect
             for token in (
@@ -1421,8 +1560,8 @@ def main() -> None:
                 "num_of_allies = 2",
             )
         ),
-        "the actual yearly settlement must consume the same shared calculator "
-        "then route one post-clamp snapshot to the receipt calculator",
+        "the actual yearly settlement must consume the same shared calculator, "
+        "refresh the post-clamp hover cache, then route one snapshot to the receipt calculator",
     )
 
     registered_sprites = set(
@@ -1556,54 +1695,18 @@ def main() -> None:
         "practice tier ranges must be mutually exclusive at 25/50/75",
     )
 
-    for button, text_box in PRACTICE_LEDGER_BUTTONS.items():
+    for button in REMOVED_PRACTICE_LEDGER_BUTTONS:
         require(
-            religion_view_body.count(f'name = "{button}"') == 1,
-            f"{button} must occur exactly once inside countryreligionview",
+            button not in religion_view_body
+            and button not in native_custom_gui
+            and button not in native_gui_builder,
+            f"obsolete transparent practice hit target remains: {button}",
         )
-        gui_button = named_gui_button_body(religion_view_body, button)
-        require(
-            re.search(
-                r"position\s*=\s*\{\s*x\s*=\s*151\s+y\s*=\s*157\s*\}",
-                gui_button,
-            )
-            is not None
-            and 'quadTextureSprite = "GFX_resource_transparent"' in gui_button
-            and re.search(r'buttonText\s*=\s*""', gui_button) is not None
-            and re.search(r"scale\s*=\s*0\.875", gui_button) is not None
-            and re.search(r"scripted\s*=\s*yes", gui_button) is not None
-            and "alwaystransparent" not in gui_button,
-            f"{button} must be a transparent but clickable hit target over the "
-            "28x24 practice value",
-        )
-        require(
-            native_custom_gui.count(f"name = {button}") == 1,
-            f"{button} must have exactly one custom-button binding",
-        )
-        custom_button = named_custom_button_body(native_custom_gui, button)
-        button_potential = named_block_body(custom_button, "potential")
-        text_potential = named_block_body(practice_bindings[text_box], "potential")
-        require(
-            re.sub(r"\s+", "", button_potential)
-            == re.sub(r"\s+", "", text_potential)
-            and re.fullmatch(
-                r"\s*always\s*=\s*yes\s*",
-                named_block_body(custom_button, "trigger"),
-                re.S,
-            )
-            is not None
-            and re.fullmatch(
-                r"\s*country_event\s*=\s*\{\s*id\s*=\s*"
-                r"zhx_doctrine\.20\s*\}\s*",
-                named_block_body(custom_button, "effect"),
-                re.S,
-            )
-            is not None
-            and "tooltip = zhx_religion_practice_ledger_button_tt"
-            in custom_button,
-            f"{button} must mirror {text_box}'s exclusive range and open the "
-            "reusable on-demand doctrine ledger",
-        )
+    require(
+        native_custom_gui.count("country_event = { id = zhx_doctrine.20 }") == 1,
+        "only the separate Ritual Teaching tripod may open the complete rules; "
+        "the practice number itself must remain hover-only",
+    )
 
     sync_body = top_level_effect_body(effect_text, "zhx_sync_native_doctrine_school")
     require(
@@ -1728,10 +1831,12 @@ def main() -> None:
         ),
         "native-school mirror event must not mutate authoritative doctrine gameplay state",
     )
+    finish_adoption = top_level_effect_body(effect_text, "zhx_finish_doctrine_adoption")
     require(
-        "zhx_sync_native_doctrine_school = yes"
-        in top_level_effect_body(effect_text, "zhx_finish_doctrine_adoption"),
-        "doctrine adoption must retain the compatibility hook",
+        "zhx_sync_native_doctrine_school = yes" in finish_adoption
+        and finish_adoption.count("zhx_prepare_doctrine_ledger = yes") == 1,
+        "doctrine adoption must sync its native mirror and immediately refresh "
+        "the hover-ledger cache",
     )
     require(
         "zhx_sync_native_doctrine_school = yes"
@@ -1794,10 +1899,6 @@ def main() -> None:
         )
         == 6
         and localisation.count(
-            "[Root.zhx_doctrine_ledger_estimated_delta.GetValue]"
-        )
-        == 6
-        and localisation.count(
             "[Root.zhx_doctrine_ledger_to_proposal.GetValue]"
         )
         == 6
@@ -1805,10 +1906,12 @@ def main() -> None:
             "达到后仍需本派三国采用，并有另一同派国家践履50"
         )
         == 6
-        and localisation.count("[Root.zhx_doctrine_last_delta.GetValue]") == 7,
+        and localisation.count("[Root.GetZhxDoctrinePracticeHoverTotal]") == 6
+        and localisation.count("§Y完整准则§!") == 6
+        and localisation.count("[Root.zhx_doctrine_last_delta.GetValue]") == 1,
         "all six doctrine ledger descriptions must show current practice, the "
-        "next-tier and Tianxia-proposal gaps, the on-open year-end projection "
-        "and last year's result; the crossing receipt must show the same actual result",
+        "next-tier and Tianxia-proposal gaps, the current raw factor total and the "
+        "complete rules without repeating last year's result",
     )
     for proposal_key in (
         "zhx_doctrine.95.d.gained",
@@ -1838,8 +1941,26 @@ def main() -> None:
     receipt_new_tier_text = defined_text_body(
         receipt_custom_localisation, "GetZhxDoctrineReceiptNewTier"
     )
+    hover_total_text = defined_text_body(
+        receipt_custom_localisation, "GetZhxDoctrinePracticeHoverTotal"
+    )
+    hover_slot_names = (
+        "GetZhxDoctrinePracticeHoverPositiveOne",
+        "GetZhxDoctrinePracticeHoverPositiveTwo",
+        "GetZhxDoctrinePracticeHoverPositiveThree",
+        "GetZhxDoctrinePracticeHoverNegativeOne",
+        "GetZhxDoctrinePracticeHoverNegativeTwo",
+        "GetZhxDoctrinePracticeHoverNegativeThree",
+    )
+    hover_slot_texts = {
+        name: defined_text_body(receipt_custom_localisation, name)
+        for name in hover_slot_names
+    }
+    hover_empty_text = defined_text_body(
+        receipt_custom_localisation, "GetZhxDoctrinePracticeHoverEmptyState"
+    )
     require(
-        receipt_custom_localisation.count("defined_text = {") == 3
+        receipt_custom_localisation.count("defined_text = {") == 11
         and receipt_school_text.count("random = no") == 1
         and all(
             receipt_school_text.count(f"has_country_flag = {flag}") == 1
@@ -1854,6 +1975,52 @@ def main() -> None:
         )
         == 1,
         "tier receipt must resolve all six doctrine names through one deterministic defined_text",
+    )
+    require(
+        hover_total_text.count("random = no") == 1
+        and hover_total_text.count(
+            "which = zhx_doctrine_ledger_estimated_delta"
+        )
+        == 2
+        and all(
+            hover_total_text.count(f"localisation_key = {key}") == 1
+            for key in (
+                "zhx_doctrine_practice_hover_total_positive",
+                "zhx_doctrine_practice_hover_total_negative",
+                "zhx_doctrine_practice_hover_total_zero",
+            )
+        ),
+        "practice hover total must deterministically format positive, negative and zero sums",
+    )
+    combined_hover_slots = "\n".join(hover_slot_texts.values())
+    require(
+        all(body.count("random = no") == 1 for body in hover_slot_texts.values())
+        and all(
+            combined_hover_slots.count(f"localisation_key = {key}") == 1
+            for key in HOVER_ROW_LOCALISATION
+        )
+        and all(
+            body.count("localisation_key = zhx_doctrine_practice_hover_blank") == 1
+            for body in hover_slot_texts.values()
+        ),
+        "six deterministic hover slots must list every possible positive row before "
+        "every possible negative row, with one blank fallback per slot",
+    )
+    require(
+        hover_empty_text.count("random = no") == 1
+        and all(
+            hover_empty_text.count(f"has_country_flag = {flag}") == 1
+            for flag in HOVER_CACHE_FLAGS
+        )
+        and hover_empty_text.count(
+            "localisation_key = zhx_doctrine_practice_hover_empty"
+        )
+        == 1
+        and hover_empty_text.count(
+            "localisation_key = zhx_doctrine_practice_hover_blank"
+        )
+        == 1,
+        "hover empty state must appear only when no cached factor row is active",
     )
     for name, body, variable in (
         (
@@ -1897,11 +2064,68 @@ def main() -> None:
         f"{school}_desc" for school in ALL_NATIVE_SCHOOLS
     } | NATIVE_STATUS_FIELDS | {
         "zhx_religion_practice_value_tt",
-        "zhx_religion_practice_ledger_button_tt",
-    }
+        "zhx_religion_practice_rules_button_tt",
+        "zhx_doctrine_practice_hover_total_positive",
+        "zhx_doctrine_practice_hover_total_negative",
+        "zhx_doctrine_practice_hover_total_zero",
+        "zhx_doctrine_practice_hover_blank",
+        "zhx_doctrine_practice_hover_empty",
+    } | HOVER_ROW_LOCALISATION
     require(
         set(native_localisation_keys) == expected_native_localisation,
         "native school localisation contract changed",
+    )
+    for field, colour in PRACTICE_TIER_COLOURS.items():
+        require(
+            re.search(
+                rf'(?m)^\s*{re.escape(field)}:0\s+"§{colour}\[Root\.zhx_doctrine_practice\.GetValue\]§!"\s*$',
+                native_localisation,
+            )
+            is not None,
+            f"{field} must retain its tier colour §{colour}",
+        )
+    tooltip_line = re.search(
+        r'(?m)^\s*zhx_religion_practice_value_tt:0\s+"(.*)"\s*$',
+        native_localisation,
+    )
+    require(
+        tooltip_line is not None
+        and "按本月国情触发合计" in tooltip_line.group(1)
+        and all(
+            tooltip_line.group(1).count(f"[Root.{name}]") == 1
+            for name in (
+                "GetZhxDoctrinePracticeHoverTotal",
+                *hover_slot_names,
+                "GetZhxDoctrinePracticeHoverEmptyState",
+            )
+        )
+        and tooltip_line.group(1).index(
+            "GetZhxDoctrinePracticeHoverPositiveThree"
+        )
+        < tooltip_line.group(1).index("GetZhxDoctrinePracticeHoverNegativeOne")
+        and "last_delta" not in tooltip_line.group(1)
+        and "GetZhxDoctrinePracticeLedger" not in tooltip_line.group(1),
+        "practice hover must show the monthly raw total, positive rows before "
+        "negative rows, and the empty state without embedding the full rulebook",
+    )
+    require(
+        all(
+            re.search(
+                rf'(?m)^\s*{re.escape(key)}:0\s+"\\n[^"\n]*：§B[+-]\d+§!"\s*$',
+                native_localisation,
+            )
+            is not None
+            for key in HOVER_ROW_LOCALISATION
+        ),
+        "every possible active factor must occupy one line and colour its signed value blue",
+    )
+    require(
+        re.search(
+            r'(?m)^\s*zhx_doctrine_practice_hover_empty:0\s+"\\n§g当前没有影响践履的已触发因素。§!"\s*$',
+            native_localisation,
+        )
+        is not None,
+        "zero-trigger hover must display an explicit empty-state line",
     )
 
     print("Ritual Teaching doctrine prototype static contract: PASS")
@@ -1909,7 +2133,9 @@ def main() -> None:
     print(f"  Events: {len(event_ids) + len(expansion_event_ids)}")
     print(f"  Doctrine modifiers: {len(modifier_definitions)}")
     print(f"  Mutually-exclusive tier practice displays: {len(NATIVE_STATUS_FIELDS)}")
-    print(f"  On-demand practice-ledger hit targets: {len(PRACTICE_LEDGER_BUTTONS)}")
+    print("  Transparent practice-ledger hit targets: 0")
+    print(f"  Tier-coloured hover-factor readouts: {len(NATIVE_STATUS_FIELDS)}")
+    print(f"  Blue signed factor rows: {len(HOVER_ROW_LOCALISATION)}")
     print(f"  Native visible school mirrors: {len(NATIVE_SCHOOLS)}")
     print(f"  Native no-doctrine sentinels: {len(NO_DOCTRINE_SCHOOL)}")
     print(f"  Readable localisation keys: {len(localisation_keys)}")

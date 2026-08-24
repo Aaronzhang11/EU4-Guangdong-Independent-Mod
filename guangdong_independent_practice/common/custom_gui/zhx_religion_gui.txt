@@ -1,14 +1,16 @@
-# The engine-owned school name and emblem already present the selected doctrine.
-# This compact, read-only text box adds only the authoritative practice value in
-# the open slot of the native school row. Tier and annual change live in its
-# tooltip, so no custom card can overlap Defender of the Faith or province rows.
-custom_icon = {
-    name = zhx_lijiao_school_button_overlay
+# The Ritual Teaching tripod replaces the native Islamic scholar control and is
+# the independent entry for the complete doctrine-practice rulebook. The number
+# itself remains hover-only and never needs a transparent click layer.
+custom_button = {
+    name = zhx_lijiao_school_rules_button
     potential = {
         zhx_is_lijiao_country = yes
         zhx_has_doctrine = yes
         has_religious_school = yes
     }
+    trigger = { always = yes }
+    effect = { country_event = { id = zhx_doctrine.20 } }
+    tooltip = zhx_religion_practice_rules_button_tt
 }
 
 # The engine has no true "clear school" effect. When the invisible lifecycle
@@ -25,7 +27,8 @@ custom_icon = {
 }
 
 # Four readouts share one 28x24 anchor. The ranges are mutually exclusive, so
-# exactly one tier colour is drawn and no text can stack over the school row.
+# exactly one tier-coloured value is drawn and no text can stack over the school
+# row. The text box itself owns the concise active-factor tooltip.
 custom_text_box = {
     name = zhx_religion_practice_hollow_value
     potential = {
@@ -72,63 +75,4 @@ custom_text_box = {
         check_variable = { which = zhx_doctrine_practice value = 75 }
     }
     tooltip = zhx_religion_practice_value_tt
-}
-
-# Transparent hit targets mirror the same four exclusive ranges. They sit over
-# the visible number, preserve its tier colour, and open the reusable ledger;
-# the event computes its projection only at that moment.
-custom_button = {
-    name = zhx_religion_practice_hollow_ledger_button
-    potential = {
-        zhx_is_lijiao_country = yes
-        zhx_has_doctrine = yes
-        NOT = {
-            check_variable = { which = zhx_doctrine_practice value = 25 }
-        }
-    }
-    trigger = { always = yes }
-    effect = { country_event = { id = zhx_doctrine.20 } }
-    tooltip = zhx_religion_practice_ledger_button_tt
-}
-
-custom_button = {
-    name = zhx_religion_practice_established_ledger_button
-    potential = {
-        zhx_is_lijiao_country = yes
-        zhx_has_doctrine = yes
-        check_variable = { which = zhx_doctrine_practice value = 25 }
-        NOT = {
-            check_variable = { which = zhx_doctrine_practice value = 50 }
-        }
-    }
-    trigger = { always = yes }
-    effect = { country_event = { id = zhx_doctrine.20 } }
-    tooltip = zhx_religion_practice_ledger_button_tt
-}
-
-custom_button = {
-    name = zhx_religion_practice_flourishing_ledger_button
-    potential = {
-        zhx_is_lijiao_country = yes
-        zhx_has_doctrine = yes
-        check_variable = { which = zhx_doctrine_practice value = 50 }
-        NOT = {
-            check_variable = { which = zhx_doctrine_practice value = 75 }
-        }
-    }
-    trigger = { always = yes }
-    effect = { country_event = { id = zhx_doctrine.20 } }
-    tooltip = zhx_religion_practice_ledger_button_tt
-}
-
-custom_button = {
-    name = zhx_religion_practice_exemplary_ledger_button
-    potential = {
-        zhx_is_lijiao_country = yes
-        zhx_has_doctrine = yes
-        check_variable = { which = zhx_doctrine_practice value = 75 }
-    }
-    trigger = { always = yes }
-    effect = { country_event = { id = zhx_doctrine.20 } }
-    tooltip = zhx_religion_practice_ledger_button_tt
 }

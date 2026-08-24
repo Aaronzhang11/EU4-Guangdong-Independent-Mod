@@ -216,6 +216,7 @@ country_event = {
             # apply its gameplay tier immediately instead of waiting for the
             # first January pulse.
             zhx_refresh_doctrine_tier = yes
+            zhx_prepare_doctrine_ledger = yes
             country_event = { id = zhx_doctrine.91 }
         }
 

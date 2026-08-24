@@ -261,6 +261,10 @@ def validate_event_projection(
         "opening event must apply the 25-practice tier before the first yearly pulse",
     )
     require(
+        every_country.count("zhx_prepare_doctrine_ledger = yes") == 1,
+        "opening event must prepare the hover-ledger cache before the first monthly pulse",
+    )
+    require(
         every_country.count("zhx_clear_doctrine_flags = yes") == 1,
         "opening event must clear stale doctrine flags before assignment",
     )

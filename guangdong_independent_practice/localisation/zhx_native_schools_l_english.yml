@@ -17,5 +17,46 @@
  zhx_religion_practice_value:0 "§Y[Root.zhx_doctrine_practice.GetValue]§!"
  zhx_religion_practice_flourishing_value:0 "§G[Root.zhx_doctrine_practice.GetValue]§!"
  zhx_religion_practice_exemplary_value:0 "§O[Root.zhx_doctrine_practice.GetValue]§!"
- zhx_religion_practice_value_tt:0 "§YfRLmõeS§!ÿ§Y[Root.zhx_doctrine_practice.GetValue]§! / 100\nSVMRƒXLu1uõeS³QšRÿNOŽN25HN§RTžRNoR§!ÿ25wHN§YýVº‹RËz§!ÿ50wHN§GýVº‹ff§!ÿ75åNNHN§OžRõxQƒ§!0\nNt^ØSSÿ§Y[Root.zhx_doctrine_last_delta.GetValue]§!\n\nõeS	c,gýVžRE–LˆHNÏkt^ØSS0"
- zhx_religion_practice_ledger_button_tt:0 "§Y¹pûQSbVýVº‹õeS&Ms§!\n&MsO(WSbV„vNIR8h—rSVMRõeS0ÝNNch„v¹ppeÿåNÊS	cSVMRýVÅ`„˜¡‹„v,gt^S+gØSSÿNO(WTðSgkbÏc0"
+ zhx_religion_practice_value_tt:0 "§YfRLmõeS§!\n	c,ggýVÅ`æ‰ÑST¡‹ÿ[Root.GetZhxDoctrinePracticeHoverTotal][Root.GetZhxDoctrinePracticeHoverPositiveOne][Root.GetZhxDoctrinePracticeHoverPositiveTwo][Root.GetZhxDoctrinePracticeHoverPositiveThree][Root.GetZhxDoctrinePracticeHoverNegativeOne][Root.GetZhxDoctrinePracticeHoverNegativeTwo][Root.GetZhxDoctrinePracticeHoverNegativeThree][Root.GetZhxDoctrinePracticeHoverEmptyState]"
+ zhx_religion_practice_rules_button_tt:0 "§YågwŒRteõeSÆQR§!\n¹pûQJyŸÿågw,gLmhQèckõeSagöN0"
+ zhx_doctrine_practice_hover_total_positive:0 "§B+[Root.zhx_doctrine_ledger_estimated_delta.GetValue]§!"
+ zhx_doctrine_practice_hover_total_negative:0 "§B[Root.zhx_doctrine_ledger_estimated_delta.GetValue]§!"
+ zhx_doctrine_practice_hover_total_zero:0 "§B0§!"
+ zhx_doctrine_practice_hover_blank:0 ""
+ zhx_doctrine_practice_hover_empty:0 "\n§gSVMR¡l	gqVÍTõeS„vòTæ‰ÑSàV.t0§!"
+ zhx_doctrine_hover_ru_positive_1:0 "\n3zšR¦^óSHN1ÿ§B+2§!"
+ zhx_doctrine_hover_ru_positive_2:0 "\nZgóSHN25ÿ§B+1§!"
+ zhx_doctrine_hover_ru_positive_3:0 "\nŒSbNOŽN3ÿ§B+1§!"
+ zhx_doctrine_hover_ru_negative_1:0 "\n3zšR¦^HNÿ§B-3§!"
+ zhx_doctrine_hover_ru_negative_2:0 "\nZgNOŽN-25ÿ§B-1§!"
+ zhx_doctrine_hover_ru_negative_3:0 "\nŒSbóSHN5ÿ§B-2§!"
+ zhx_doctrine_hover_fa_positive_1:0 "\nP%NOŽN2ÿ§B+2§!"
+ zhx_doctrine_hover_fa_positive_2:0 "\ns^GW…gNOê»lNOŽN25ÿ§B+1§!"
+ zhx_doctrine_hover_fa_positive_3:0 "\nÇ¦^ib.VNOŽN10%ÿ§B+1§!"
+ zhx_doctrine_hover_fa_negative_1:0 "\nP%óSHN5ÿ§B-3§!"
+ zhx_doctrine_hover_fa_negative_2:0 "\ns^GW…gNOê»lóSHN50ÿ§B-2§!"
+ zhx_doctrine_hover_fa_negative_3:0 "\nÇ¦^ib.VóSHN25%ÿ§B-2§!"
+ zhx_doctrine_hover_mo_defender:0 "\njOHN2–¡V¹eb‰N†˜–ˆÿ§B+3§!"
+ zhx_doctrine_hover_mo_peace:0 "\nYŽNŒTs^ÿ§B+2§!"
+ zhx_doctrine_hover_mo_positive_2:0 "\n¡l	gPLkÿ§B+1§!"
+ zhx_doctrine_hover_mo_positive_3:0 "\nŒSbNOŽN3ÿ§B+1§!"
+ zhx_doctrine_hover_mo_negative_1:0 "\njOHNÛIe¹eb‰N†˜–ˆÿ§B-4§!"
+ zhx_doctrine_hover_mo_negative_2:0 "\nóS	g	NrPLkÿ§B-2§!"
+ zhx_doctrine_hover_mo_negative_3:0 "\nŒSbóSHN5ÿ§B-2§!"
+ zhx_doctrine_hover_dao_positive_1:0 "\nYŽNŒTs^ÿ§B+2§!"
+ zhx_doctrine_hover_dao_positive_2:0 "\nŒSbNOŽN2ÿ§B+1§!"
+ zhx_doctrine_hover_dao_positive_3:0 "\nÇ¦^ib.VNOŽN5%ÿ§B+1§!"
+ zhx_doctrine_hover_dao_negative_1:0 "\nŒSbóSHN5ÿ§B-2§!"
+ zhx_doctrine_hover_dao_negative_2:0 "\nÇ¦^ib.VóSHN25%ÿ§B-2§!"
+ zhx_doctrine_hover_bing_positive_1:0 "\nF–›Q¾0RNP–80%ÿ§B+2§!"
+ zhx_doctrine_hover_bing_positive_2:0 "\nF–›Q.OßuóSHN40ÿ§B+1§!"
+ zhx_doctrine_hover_bing_positive_3:0 "\nºN›RóSHN50%ÿ§B+1§!"
+ zhx_doctrine_hover_bing_negative_1:0 "\nF–›QNOŽNNP–50%ÿ§B-2§!"
+ zhx_doctrine_hover_bing_negative_2:0 "\nF–›Q.OßuNOŽN20ÿ§B-2§!"
+ zhx_doctrine_hover_bing_negative_3:0 "\nºN›RNOŽN15%ÿ§B-2§!"
+ zhx_doctrine_hover_zongheng_positive_1:0 "\nóS	g2N8NßvËSÿ§B+2§!"
+ zhx_doctrine_hover_zongheng_positive_2:0 "\nY²NðX‰ŠóSHN1ÿ§B+1§!"
+ zhx_doctrine_hover_zongheng_positive_3:0 "\nZgóSHN25ÿ§B+1§!"
+ zhx_doctrine_hover_zongheng_negative_1:0 "\n¡l	gßvËSÿ§B-3§!"
+ zhx_doctrine_hover_zongheng_negative_2:0 "\nY²NðX‰ŠNOŽN0ÿ§B-2§!"
+ zhx_doctrine_hover_zongheng_negative_3:0 "\nZgNOŽN-25ÿ§B-1§!"

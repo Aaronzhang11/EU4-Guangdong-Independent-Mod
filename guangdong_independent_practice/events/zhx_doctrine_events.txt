@@ -168,8 +168,9 @@ country_event = {
     }
 }
 
-# Event fallback for the current doctrine. This keeps the prototype legible
-# before a dedicated school or academy GUI exists.
+# Complete-rules event opened by the Ritual Teaching tripod and retained for
+# decisions/debug callers. The practice number itself stays hover-only and
+# lists only factors which currently contribute to the monthly projection.
 country_event = {
     id = zhx_doctrine.20
     title = zhx_doctrine.20.t
@@ -200,10 +201,9 @@ country_event = {
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
 
-    # Recalculate only when the reusable ledger is actually opened. The same
-    # formula also drives the real yearly settlement, so this is a projection
-    # rather than a second gameplay source of truth.
-    immediate = { zhx_prepare_doctrine_ledger = yes }
+    # Refresh once more for callers which explicitly open the fallback event.
+    # Hide the cache writes so the event description never exposes script text.
+    immediate = { hidden_effect = { zhx_prepare_doctrine_ledger = yes } }
 
     option = { name = zhx_doctrine.20.a }
 }
