@@ -1,9 +1,41 @@
-# The 0-24 tier is a common mismatch penalty. Each doctrine then has three
-# increasingly strong tiers at 25, 50 and 75 practice.
+# At 0-24 practice, each doctrine now suffers its own strong contradiction
+# penalty: the state publicly claims one teaching while failing in precisely
+# the field that teaching promises to govern. Positive tiers begin at 25.
 
-zhx_doctrine_practice_hollow = {
-    global_unrest = 1
-    advisor_cost = 0.05
+zhx_doctrine_ru_hollow = {
+    global_unrest = 2
+    stability_cost_modifier = 0.15
+    diplomatic_reputation = -1
+}
+
+zhx_doctrine_fa_hollow = {
+    global_autonomy = 0.10
+    core_creation = 0.10
+    yearly_corruption = 0.10
+}
+
+zhx_doctrine_mo_hollow = {
+    fort_maintenance_modifier = 0.25
+    defensiveness = -0.20
+    development_cost = 0.10
+}
+
+zhx_doctrine_dao_hollow = {
+    global_unrest = 2
+    war_exhaustion = 0.03
+    development_cost = 0.10
+}
+
+zhx_doctrine_bing_hollow = {
+    manpower_recovery_speed = -0.20
+    army_tradition_decay = 0.01
+    land_morale = -0.10
+}
+
+zhx_doctrine_zongheng_hollow = {
+    improve_relation_modifier = -0.25
+    diplomatic_reputation = -1
+    diplomatic_upkeep = -1
 }
 
 zhx_doctrine_ru_established = {

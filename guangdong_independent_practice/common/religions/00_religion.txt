@@ -1573,44 +1573,279 @@ muslim = {
 }
 
 eastern = {
-	# ZHX display mirrors. Doctrine flags remain authoritative; the six visible
-	# schools and transparent no-doctrine sentinel have no numeric modifiers.
-	# Both invitation gates stay closed: no scholar can be browsed or invited.
+	# ZHX native school mirrors. Doctrine flags and practice remain authoritative.
+	# The six visible schools also expose the native scholar selector: a foreign
+	# school whose country knows us and has 150 opinion can grant one temporary,
+	# entry-tier modifier. The transparent no-doctrine sentinel remains inert.
 	religious_schools = {
 		zhx_ru_school = {
-			potential_invite_scholar = { always = no }
-			can_invite_scholar = { always = no }
-			on_invite_scholar = { }
+			# The native selector supplies FROM as a country whose permanent
+			# school matches this entry. The source must know and esteem THIS;
+			# the player's permanent doctrine and practice remain untouched.
+			potential_invite_scholar = {
+				religion = confucianism
+				has_religious_school = yes
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_no_doctrine_school
+					}
+				}
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_ru_school
+					}
+				}
+				knows_of_scholar_country_capital_trigger = yes
+			}
+			can_invite_scholar = {
+				reverse_has_opinion = { who = FROM value = 150 }
+				if = {
+					limit = { ai = yes }
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+			}
+			on_invite_scholar = {
+				zhx_clear_invited_school_modifiers = yes
+				custom_tooltip = zhx_invite_school_country_tt
+				add_country_modifier = { name = zhx_ru_invited_scholar_modifier duration = 7300 }
+				if = {
+					limit = { ai = yes }
+					add_country_modifier = {
+						name = has_invited_scholar_recently
+						duration = 7300
+						hidden = yes
+					}
+				}
+			}
+			invite_scholar_modifier_display = zhx_ru_invited_scholar_modifier
 			picture = "GFX_zhx_doctrine_ru_school"
 		}
 		zhx_fa_school = {
-			potential_invite_scholar = { always = no }
-			can_invite_scholar = { always = no }
-			on_invite_scholar = { }
+			# The native selector supplies FROM as a country whose permanent
+			# school matches this entry. The source must know and esteem THIS;
+			# the player's permanent doctrine and practice remain untouched.
+			potential_invite_scholar = {
+				religion = confucianism
+				has_religious_school = yes
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_no_doctrine_school
+					}
+				}
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_fa_school
+					}
+				}
+				knows_of_scholar_country_capital_trigger = yes
+			}
+			can_invite_scholar = {
+				reverse_has_opinion = { who = FROM value = 150 }
+				if = {
+					limit = { ai = yes }
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+			}
+			on_invite_scholar = {
+				zhx_clear_invited_school_modifiers = yes
+				custom_tooltip = zhx_invite_school_country_tt
+				add_country_modifier = { name = zhx_fa_invited_scholar_modifier duration = 7300 }
+				if = {
+					limit = { ai = yes }
+					add_country_modifier = {
+						name = has_invited_scholar_recently
+						duration = 7300
+						hidden = yes
+					}
+				}
+			}
+			invite_scholar_modifier_display = zhx_fa_invited_scholar_modifier
 			picture = "GFX_zhx_doctrine_fa_school"
 		}
 		zhx_mo_school = {
-			potential_invite_scholar = { always = no }
-			can_invite_scholar = { always = no }
-			on_invite_scholar = { }
+			# The native selector supplies FROM as a country whose permanent
+			# school matches this entry. The source must know and esteem THIS;
+			# the player's permanent doctrine and practice remain untouched.
+			potential_invite_scholar = {
+				religion = confucianism
+				has_religious_school = yes
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_no_doctrine_school
+					}
+				}
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_mo_school
+					}
+				}
+				knows_of_scholar_country_capital_trigger = yes
+			}
+			can_invite_scholar = {
+				reverse_has_opinion = { who = FROM value = 150 }
+				if = {
+					limit = { ai = yes }
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+			}
+			on_invite_scholar = {
+				zhx_clear_invited_school_modifiers = yes
+				custom_tooltip = zhx_invite_school_country_tt
+				add_country_modifier = { name = zhx_mo_invited_scholar_modifier duration = 7300 }
+				if = {
+					limit = { ai = yes }
+					add_country_modifier = {
+						name = has_invited_scholar_recently
+						duration = 7300
+						hidden = yes
+					}
+				}
+			}
+			invite_scholar_modifier_display = zhx_mo_invited_scholar_modifier
 			picture = "GFX_zhx_doctrine_mo_school"
 		}
 		zhx_dao_school = {
-			potential_invite_scholar = { always = no }
-			can_invite_scholar = { always = no }
-			on_invite_scholar = { }
+			# The native selector supplies FROM as a country whose permanent
+			# school matches this entry. The source must know and esteem THIS;
+			# the player's permanent doctrine and practice remain untouched.
+			potential_invite_scholar = {
+				religion = confucianism
+				has_religious_school = yes
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_no_doctrine_school
+					}
+				}
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_dao_school
+					}
+				}
+				knows_of_scholar_country_capital_trigger = yes
+			}
+			can_invite_scholar = {
+				reverse_has_opinion = { who = FROM value = 150 }
+				if = {
+					limit = { ai = yes }
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+			}
+			on_invite_scholar = {
+				zhx_clear_invited_school_modifiers = yes
+				custom_tooltip = zhx_invite_school_country_tt
+				add_country_modifier = { name = zhx_dao_invited_scholar_modifier duration = 7300 }
+				if = {
+					limit = { ai = yes }
+					add_country_modifier = {
+						name = has_invited_scholar_recently
+						duration = 7300
+						hidden = yes
+					}
+				}
+			}
+			invite_scholar_modifier_display = zhx_dao_invited_scholar_modifier
 			picture = "GFX_zhx_doctrine_dao_school"
 		}
 		zhx_bing_school = {
-			potential_invite_scholar = { always = no }
-			can_invite_scholar = { always = no }
-			on_invite_scholar = { }
+			# The native selector supplies FROM as a country whose permanent
+			# school matches this entry. The source must know and esteem THIS;
+			# the player's permanent doctrine and practice remain untouched.
+			potential_invite_scholar = {
+				religion = confucianism
+				has_religious_school = yes
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_no_doctrine_school
+					}
+				}
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_bing_school
+					}
+				}
+				knows_of_scholar_country_capital_trigger = yes
+			}
+			can_invite_scholar = {
+				reverse_has_opinion = { who = FROM value = 150 }
+				if = {
+					limit = { ai = yes }
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+			}
+			on_invite_scholar = {
+				zhx_clear_invited_school_modifiers = yes
+				custom_tooltip = zhx_invite_school_country_tt
+				add_country_modifier = { name = zhx_bing_invited_scholar_modifier duration = 7300 }
+				if = {
+					limit = { ai = yes }
+					add_country_modifier = {
+						name = has_invited_scholar_recently
+						duration = 7300
+						hidden = yes
+					}
+				}
+			}
+			invite_scholar_modifier_display = zhx_bing_invited_scholar_modifier
 			picture = "GFX_zhx_doctrine_bing_school"
 		}
 		zhx_zongheng_school = {
-			potential_invite_scholar = { always = no }
-			can_invite_scholar = { always = no }
-			on_invite_scholar = { }
+			# The native selector supplies FROM as a country whose permanent
+			# school matches this entry. The source must know and esteem THIS;
+			# the player's permanent doctrine and practice remain untouched.
+			potential_invite_scholar = {
+				religion = confucianism
+				has_religious_school = yes
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_no_doctrine_school
+					}
+				}
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_zongheng_school
+					}
+				}
+				knows_of_scholar_country_capital_trigger = yes
+			}
+			can_invite_scholar = {
+				reverse_has_opinion = { who = FROM value = 150 }
+				if = {
+					limit = { ai = yes }
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+			}
+			on_invite_scholar = {
+				zhx_clear_invited_school_modifiers = yes
+				custom_tooltip = zhx_invite_school_country_tt
+				add_country_modifier = { name = zhx_zongheng_invited_scholar_modifier duration = 7300 }
+				if = {
+					limit = { ai = yes }
+					add_country_modifier = {
+						name = has_invited_scholar_recently
+						duration = 7300
+						hidden = yes
+					}
+				}
+			}
+			invite_scholar_modifier_display = zhx_zongheng_invited_scholar_modifier
 			picture = "GFX_zhx_doctrine_zongheng_school"
 		}
 		zhx_no_doctrine_school = {

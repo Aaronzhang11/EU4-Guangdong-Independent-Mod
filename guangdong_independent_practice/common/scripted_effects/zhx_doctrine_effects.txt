@@ -2,25 +2,42 @@
 # GUI and events only read or call these shared effects.
 
 zhx_remove_doctrine_tier_modifiers = {
-    remove_country_modifier = zhx_doctrine_practice_hollow
+    remove_country_modifier = zhx_doctrine_ru_hollow
     remove_country_modifier = zhx_doctrine_ru_established
     remove_country_modifier = zhx_doctrine_ru_flourishing
     remove_country_modifier = zhx_doctrine_ru_exemplary
+    remove_country_modifier = zhx_doctrine_fa_hollow
     remove_country_modifier = zhx_doctrine_fa_established
     remove_country_modifier = zhx_doctrine_fa_flourishing
     remove_country_modifier = zhx_doctrine_fa_exemplary
+    remove_country_modifier = zhx_doctrine_mo_hollow
     remove_country_modifier = zhx_doctrine_mo_established
     remove_country_modifier = zhx_doctrine_mo_flourishing
     remove_country_modifier = zhx_doctrine_mo_exemplary
+    remove_country_modifier = zhx_doctrine_dao_hollow
     remove_country_modifier = zhx_doctrine_dao_established
     remove_country_modifier = zhx_doctrine_dao_flourishing
     remove_country_modifier = zhx_doctrine_dao_exemplary
+    remove_country_modifier = zhx_doctrine_bing_hollow
     remove_country_modifier = zhx_doctrine_bing_established
     remove_country_modifier = zhx_doctrine_bing_flourishing
     remove_country_modifier = zhx_doctrine_bing_exemplary
+    remove_country_modifier = zhx_doctrine_zongheng_hollow
     remove_country_modifier = zhx_doctrine_zongheng_established
     remove_country_modifier = zhx_doctrine_zongheng_flourishing
     remove_country_modifier = zhx_doctrine_zongheng_exemplary
+}
+
+# Native scholar invitations are temporary secondary teachings. Replacing one
+# removes the previous invited school but never touches the permanent doctrine,
+# its practice variable, or its tier modifier.
+zhx_clear_invited_school_modifiers = {
+    remove_country_modifier = zhx_ru_invited_scholar_modifier
+    remove_country_modifier = zhx_fa_invited_scholar_modifier
+    remove_country_modifier = zhx_mo_invited_scholar_modifier
+    remove_country_modifier = zhx_dao_invited_scholar_modifier
+    remove_country_modifier = zhx_bing_invited_scholar_modifier
+    remove_country_modifier = zhx_zongheng_invited_scholar_modifier
 }
 
 zhx_clear_doctrine_flags = {
@@ -120,9 +137,47 @@ zhx_refresh_doctrine_tier = {
                 }
             }
         }
-        add_country_modifier = {
-            name = zhx_doctrine_practice_hollow
-            duration = -1
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            add_country_modifier = {
+                name = zhx_doctrine_dao_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            add_country_modifier = {
+                name = zhx_doctrine_bing_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            add_country_modifier = {
+                name = zhx_doctrine_zongheng_hollow
+                duration = -1
+            }
         }
     }
     else_if = {
@@ -457,6 +512,7 @@ zhx_clear_doctrine_hover_cache = {
 
 zhx_clear_doctrine_system = {
     zhx_remove_doctrine_tier_modifiers = yes
+    zhx_clear_invited_school_modifiers = yes
     zhx_clear_doctrine_flags = yes
     zhx_clear_doctrine_hover_cache = yes
     clr_country_flag = zhx_doctrine_practice_initialised

@@ -19,20 +19,41 @@ EXPECTED_VANILLA_SHA256 = (
     "609e2d235f3441c64b895d9faf3927bbf1399149cffa955137ab2d070b9645a6"
 )
 SCHOOLS = (
-    ("zhx_ru_school", "GFX_zhx_doctrine_ru_school"),
-    ("zhx_fa_school", "GFX_zhx_doctrine_fa_school"),
-    ("zhx_mo_school", "GFX_zhx_doctrine_mo_school"),
-    ("zhx_dao_school", "GFX_zhx_doctrine_dao_school"),
-    ("zhx_bing_school", "GFX_zhx_doctrine_bing_school"),
-    ("zhx_zongheng_school", "GFX_zhx_doctrine_zongheng_school"),
+    (
+        "zhx_ru_school",
+        "GFX_zhx_doctrine_ru_school",
+        "zhx_ru_invited_scholar_modifier",
+    ),
+    (
+        "zhx_fa_school",
+        "GFX_zhx_doctrine_fa_school",
+        "zhx_fa_invited_scholar_modifier",
+    ),
+    (
+        "zhx_mo_school",
+        "GFX_zhx_doctrine_mo_school",
+        "zhx_mo_invited_scholar_modifier",
+    ),
+    (
+        "zhx_dao_school",
+        "GFX_zhx_doctrine_dao_school",
+        "zhx_dao_invited_scholar_modifier",
+    ),
+    (
+        "zhx_bing_school",
+        "GFX_zhx_doctrine_bing_school",
+        "zhx_bing_invited_scholar_modifier",
+    ),
+    (
+        "zhx_zongheng_school",
+        "GFX_zhx_doctrine_zongheng_school",
+        "zhx_zongheng_invited_scholar_modifier",
+    ),
 )
 NO_DOCTRINE_SCHOOL = (
     "zhx_no_doctrine_school",
     "GFX_zhx_no_doctrine_school",
 )
-ALL_SCHOOLS = SCHOOLS + (NO_DOCTRINE_SCHOOL,)
-
-
 def build_nestorian_block() -> str:
     """Return the adapted Ante Bellum patriarch/icon mechanic.
 
@@ -199,21 +220,70 @@ def build_school_block() -> str:
     definitions = "".join(
         f'''\
 \t\t{school} = {{
-\t\t\tpotential_invite_scholar = {{ always = no }}
-\t\t\tcan_invite_scholar = {{ always = no }}
-\t\t\ton_invite_scholar = {{ }}
+\t\t\t# The native selector supplies FROM as a country whose permanent
+\t\t\t# school matches this entry. The source must know and esteem THIS;
+\t\t\t# the player's permanent doctrine and practice remain untouched.
+\t\t\tpotential_invite_scholar = {{
+\t\t\t\treligion = confucianism
+\t\t\t\thas_religious_school = yes
+\t\t\t\tNOT = {{
+\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\tschool = zhx_no_doctrine_school
+\t\t\t\t\t}}
+\t\t\t\t}}
+\t\t\t\tNOT = {{
+\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\tschool = {school}
+\t\t\t\t\t}}
+\t\t\t\t}}
+\t\t\t\tknows_of_scholar_country_capital_trigger = yes
+\t\t\t}}
+\t\t\tcan_invite_scholar = {{
+\t\t\t\treverse_has_opinion = {{ who = FROM value = 150 }}
+\t\t\t\tif = {{
+\t\t\t\t\tlimit = {{ ai = yes }}
+\t\t\t\t\tNOT = {{ has_country_modifier = has_invited_scholar_recently }}
+\t\t\t\t}}
+\t\t\t\tNOT = {{ has_country_modifier = {modifier} }}
+\t\t\t}}
+\t\t\ton_invite_scholar = {{
+\t\t\t\tzhx_clear_invited_school_modifiers = yes
+\t\t\t\tcustom_tooltip = zhx_invite_school_country_tt
+\t\t\t\tadd_country_modifier = {{ name = {modifier} duration = 7300 }}
+\t\t\t\tif = {{
+\t\t\t\t\tlimit = {{ ai = yes }}
+\t\t\t\t\tadd_country_modifier = {{
+\t\t\t\t\t\tname = has_invited_scholar_recently
+\t\t\t\t\t\tduration = 7300
+\t\t\t\t\t\thidden = yes
+\t\t\t\t\t}}
+\t\t\t\t}}
+\t\t\t}}
+\t\t\tinvite_scholar_modifier_display = {modifier}
 \t\t\tpicture = "{picture}"
 \t\t}}
 '''
-        for school, picture in ALL_SCHOOLS
+        for school, picture, modifier in SCHOOLS
     )
+    no_doctrine, no_doctrine_picture = NO_DOCTRINE_SCHOOL
+    sentinel = f'''\
+\t\t{no_doctrine} = {{
+\t\t\tpotential_invite_scholar = {{ always = no }}
+\t\t\tcan_invite_scholar = {{ always = no }}
+\t\t\ton_invite_scholar = {{ }}
+\t\t\tpicture = "{no_doctrine_picture}"
+\t\t}}
+'''
     return f'''\
 
-\t# ZHX display mirrors. Doctrine flags remain authoritative; the six visible
-\t# schools and transparent no-doctrine sentinel have no numeric modifiers.
-\t# Both invitation gates stay closed: no scholar can be browsed or invited.
+\t# ZHX native school mirrors. Doctrine flags and practice remain authoritative.
+\t# The six visible schools also expose the native scholar selector: a foreign
+\t# school whose country knows us and has 150 opinion can grant one temporary,
+\t# entry-tier modifier. The transparent no-doctrine sentinel remains inert.
 \treligious_schools = {{
-{definitions}\t}}
+{definitions}{sentinel}\t}}
 '''
 
 

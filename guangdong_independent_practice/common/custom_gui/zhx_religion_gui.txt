@@ -1,16 +1,12 @@
-# The Ritual Teaching tripod replaces the native Islamic scholar control and is
-# the independent entry for the complete doctrine-practice rulebook. The number
-# itself remains hover-only and never needs a transparent click layer.
-custom_button = {
-    name = zhx_lijiao_school_rules_button
+# The Ritual Teaching tripod is only a mouse-transparent reskin of the native
+# invite-scholar button. Its click and future school list remain engine-owned.
+custom_icon = {
+    name = zhx_lijiao_school_button_overlay
     potential = {
         zhx_is_lijiao_country = yes
         zhx_has_doctrine = yes
         has_religious_school = yes
     }
-    trigger = { always = yes }
-    effect = { country_event = { id = zhx_doctrine.20 } }
-    tooltip = zhx_religion_practice_rules_button_tt
 }
 
 # The engine has no true "clear school" effect. When the invisible lifecycle
@@ -26,9 +22,173 @@ custom_icon = {
     }
 }
 
+# Native school icons hard-code a name-only tooltip. These transparent overlays
+# sit on the exact 26x26 religion-page icon and expose each complete school card.
+custom_icon = {
+    name = zhx_religion_school_ru_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_ru
+    }
+    tooltip = zhx_ru_school_desc
+}
+
+custom_icon = {
+    name = zhx_religion_school_fa_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_fa
+    }
+    tooltip = zhx_fa_school_desc
+}
+
+custom_icon = {
+    name = zhx_religion_school_mo_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_mo
+    }
+    tooltip = zhx_mo_school_desc
+}
+
+custom_icon = {
+    name = zhx_religion_school_dao_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_dao
+    }
+    tooltip = zhx_dao_school_desc
+}
+
+custom_icon = {
+    name = zhx_religion_school_bing_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_bing
+    }
+    tooltip = zhx_bing_school_desc
+}
+
+custom_icon = {
+    name = zhx_religion_school_zongheng_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_zongheng
+    }
+    tooltip = zhx_zongheng_school_desc
+}
+
+# Native religion sub-modifiers draw a generic effect icon. These six bindings
+# replace that visual in the second native slot with the invited school's real
+# emblem. The GUI overlays are mouse-transparent, so the engine-owned modifier
+# tooltip underneath still shows the live effects and expiry date.
+custom_icon = {
+    name = zhx_invited_school_ru_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_ru_invited_scholar_modifier
+    }
+}
+
+custom_icon = {
+    name = zhx_invited_school_fa_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_fa_invited_scholar_modifier
+    }
+}
+
+custom_icon = {
+    name = zhx_invited_school_mo_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_mo_invited_scholar_modifier
+    }
+}
+
+custom_icon = {
+    name = zhx_invited_school_dao_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_dao_invited_scholar_modifier
+    }
+}
+
+custom_icon = {
+    name = zhx_invited_school_bing_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_bing_invited_scholar_modifier
+    }
+}
+
+custom_icon = {
+    name = zhx_invited_school_zongheng_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_zongheng_invited_scholar_modifier
+    }
+}
+
+# Foreign diplomacy uses the same static cards, but reads the selected country
+# scope. The transparent targets cover the native 52px icon at 0.5 scale.
+custom_icon = {
+    name = zhx_diplomacy_school_ru_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_ru
+    }
+    tooltip = zhx_ru_school_desc
+}
+
+custom_icon = {
+    name = zhx_diplomacy_school_fa_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_fa
+    }
+    tooltip = zhx_fa_school_desc
+}
+
+custom_icon = {
+    name = zhx_diplomacy_school_mo_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_mo
+    }
+    tooltip = zhx_mo_school_desc
+}
+
+custom_icon = {
+    name = zhx_diplomacy_school_dao_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_dao
+    }
+    tooltip = zhx_dao_school_desc
+}
+
+custom_icon = {
+    name = zhx_diplomacy_school_bing_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_bing
+    }
+    tooltip = zhx_bing_school_desc
+}
+
+custom_icon = {
+    name = zhx_diplomacy_school_zongheng_tooltip_icon
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_flag = zhx_doctrine_zongheng
+    }
+    tooltip = zhx_zongheng_school_desc
+}
+
 # Four readouts share one 28x24 anchor. The ranges are mutually exclusive, so
 # exactly one tier-coloured value is drawn and no text can stack over the school
-# row. The text box itself owns the concise active-factor tooltip.
+# row. A later transparent custom button owns both hover and click input.
 custom_text_box = {
     name = zhx_religion_practice_hollow_value
     potential = {
@@ -38,6 +198,19 @@ custom_text_box = {
             check_variable = { which = zhx_doctrine_practice value = 25 }
         }
     }
+    tooltip = zhx_religion_practice_value_tt
+}
+
+# The hit target exactly matches the 28x24 practice slot. It adds no visible
+# frame, preserves the concise active-factor hover and opens the complete rules.
+custom_button = {
+    name = zhx_religion_practice_rules_button
+    potential = {
+        zhx_is_lijiao_country = yes
+        zhx_has_doctrine = yes
+    }
+    trigger = { always = yes }
+    effect = { country_event = { id = zhx_doctrine.20 } }
     tooltip = zhx_religion_practice_value_tt
 }
 

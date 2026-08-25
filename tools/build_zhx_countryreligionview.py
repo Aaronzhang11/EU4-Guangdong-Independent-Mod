@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Chinese 1.37 religion view with concise practice hover rows."""
+"""Build the Chinese 1.37 religion view with native-school doctrine controls."""
 
 from __future__ import annotations
 
@@ -18,15 +18,15 @@ DEFAULT_DEPENDENCY = (
 EXPECTED_DEPENDENCY_SHA256 = "ab1fd87cd2c54ba2fb334fd0353edfba84c8f223366bf64f048b76c4743cfd29"
 DOCTRINE_STATUS = r'''
 
-			# GDD: The Ritual Teaching tripod covers the native Islamic scholar
-			# button and becomes the independent full-rules entry. It sits beside,
-			# never over, the practice value and is enabled only by custom_gui.
-			guiButtonType = {
-				name = "zhx_lijiao_school_rules_button"
-				quadTextureSprite = "GFX_zhx_lijiao_school_button"
+			# GDD: The Ritual Teaching tripod is a mouse-transparent reskin of
+			# the engine-owned invite_scholar_button beneath it. The native button
+			# therefore remains the sole owner of future school invitations.
+			iconType = {
+				name = "zhx_lijiao_school_button_overlay"
+				spriteType = "GFX_zhx_lijiao_school_button"
 				position = { x = 180 y = 148 }
 				Orientation = "UPPER_LEFT"
-				clicksound = click
+				alwaystransparent = yes
 				scripted = yes
 			}
 
@@ -38,6 +38,123 @@ DOCTRINE_STATUS = r'''
 				spriteType = "GFX_zhx_no_doctrine_school_button"
 				position = { x = 180 y = 148 }
 				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			# GDD: The engine-owned school sub-modifier icon only exposes the
+			# school name. Six mutually-exclusive, fully transparent 26x26 icons
+			# sit on that exact slot and supply the complete school-card tooltip.
+			iconType = {
+				name = "zhx_religion_school_ru_tooltip_icon"
+				spriteType = "GFX_zhx_school_tooltip_hitbox"
+				position = { x = 93 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_religion_school_fa_tooltip_icon"
+				spriteType = "GFX_zhx_school_tooltip_hitbox"
+				position = { x = 93 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_religion_school_mo_tooltip_icon"
+				spriteType = "GFX_zhx_school_tooltip_hitbox"
+				position = { x = 93 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_religion_school_dao_tooltip_icon"
+				spriteType = "GFX_zhx_school_tooltip_hitbox"
+				position = { x = 93 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_religion_school_bing_tooltip_icon"
+				spriteType = "GFX_zhx_school_tooltip_hitbox"
+				position = { x = 93 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_religion_school_zongheng_tooltip_icon"
+				spriteType = "GFX_zhx_school_tooltip_hitbox"
+				position = { x = 93 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
+			# GDD: An invited scholar is a static religion sub-modifier, so the
+			# engine draws the icon of its first numeric effect rather than the
+			# source school's picture. These mutually-exclusive, mouse-transparent
+			# overlays cover that second native slot with the actual 52px school
+			# emblem at the same 0.5 scale. The native item underneath retains its
+			# exact modifier and expiry tooltip.
+			iconType = {
+				name = "zhx_invited_school_ru_icon"
+				spriteType = "GFX_zhx_doctrine_ru_school"
+				position = { x = 124 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.5
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_invited_school_fa_icon"
+				spriteType = "GFX_zhx_doctrine_fa_school"
+				position = { x = 124 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.5
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_invited_school_mo_icon"
+				spriteType = "GFX_zhx_doctrine_mo_school"
+				position = { x = 124 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.5
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_invited_school_dao_icon"
+				spriteType = "GFX_zhx_doctrine_dao_school"
+				position = { x = 124 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.5
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_invited_school_bing_icon"
+				spriteType = "GFX_zhx_doctrine_bing_school"
+				position = { x = 124 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.5
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_invited_school_zongheng_icon"
+				spriteType = "GFX_zhx_doctrine_zongheng_school"
+				position = { x = 124 y = 193 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.5
 				alwaystransparent = yes
 				scripted = yes
 			}
@@ -92,6 +209,18 @@ DOCTRINE_STATUS = r'''
 				maxWidth = 28
 				maxHeight = 24
 				format = centre
+				scripted = yes
+			}
+
+			# GDD: One fully transparent 28x24 button owns hover and click input
+			# for all four mutually-exclusive practice readouts. The coloured text
+			# remains visible underneath; clicking opens the complete rulebook.
+			guiButtonType = {
+				name = "zhx_religion_practice_rules_button"
+				quadTextureSprite = "GFX_zhx_practice_click_hitbox"
+				position = { x = 151 y = 157 }
+				Orientation = "UPPER_LEFT"
+				clicksound = click
 				scripted = yes
 			}
 '''
@@ -162,9 +291,11 @@ def run(dependency_root: Path, check: bool) -> None:
         TARGET.write_text(output, encoding="utf-8")
     print(
         f"{'checked' if check else 'built'} Chinese 1.37 religion view; "
-        "school-rules buttons=1; no-doctrine overlays=1; "
+        "native school-button overlays=1; school-tooltip hit targets=6; "
+        "invited-school emblem overlays=6; "
+        "no-doctrine overlays=1; "
         "mutually-exclusive tier practice displays=4; "
-        "practice-number hit targets=0; hover-factor readouts=4"
+        "practice-number hit targets=1; hover-factor readouts=4"
     )
 
 

@@ -9,4 +9,14 @@ spriteTypes = {
         texturefile = "gfx/interface/zhx_no_doctrine_school_button.dds"
         loadType = "INGAME"
     }
+    spriteType = {
+        name = "GFX_zhx_practice_click_hitbox"
+        texturefile = "gfx/interface/zhx_practice_click_hitbox.dds"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_school_tooltip_hitbox"
+        texturefile = "gfx/interface/zhx_school_tooltip_hitbox.dds"
+        loadType = "INGAME"
+    }
 }

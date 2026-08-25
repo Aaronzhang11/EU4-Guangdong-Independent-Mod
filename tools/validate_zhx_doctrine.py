@@ -15,6 +15,7 @@ SCRIPT_PATHS = (
     MOD / "common/scripted_triggers/zhx_doctrine_triggers.txt",
     MOD / "common/scripted_effects/zhx_doctrine_effects.txt",
     MOD / "common/event_modifiers/zhx_doctrine_modifiers.txt",
+    MOD / "common/static_modifiers/zhx_invited_school_modifiers.txt",
     MOD / "decisions/zhx_doctrine_decisions.txt",
     MOD / "events/zhx_doctrine_events.txt",
     MOD / "events/zhx_doctrine_expansion_events.txt",
@@ -73,6 +74,52 @@ NATIVE_SCHOOL_FLAGS = {
     "zhx_bing_school": "zhx_doctrine_bing",
     "zhx_zongheng_school": "zhx_doctrine_zongheng",
 }
+INVITED_SCHOOL_MODIFIERS = {
+    "zhx_ru_school": "zhx_ru_invited_scholar_modifier",
+    "zhx_fa_school": "zhx_fa_invited_scholar_modifier",
+    "zhx_mo_school": "zhx_mo_invited_scholar_modifier",
+    "zhx_dao_school": "zhx_dao_invited_scholar_modifier",
+    "zhx_bing_school": "zhx_bing_invited_scholar_modifier",
+    "zhx_zongheng_school": "zhx_zongheng_invited_scholar_modifier",
+}
+INVITED_SCHOOL_OVERLAY_ICONS = {
+    school: f"zhx_invited_school_{school.removeprefix('zhx_').removesuffix('_school')}_icon"
+    for school in NATIVE_SCHOOLS
+}
+INVITED_MODIFIER_VALUES = {
+    "zhx_ru_invited_scholar_modifier": {
+        "advisor_cost": "-0.025",
+        "stability_cost_modifier": "-0.025",
+    },
+    "zhx_fa_invited_scholar_modifier": {
+        "global_autonomy": "-0.025",
+        "core_creation": "-0.025",
+    },
+    "zhx_mo_invited_scholar_modifier": {
+        "fort_maintenance_modifier": "-0.05",
+        "defensiveness": "0.05",
+    },
+    "zhx_dao_invited_scholar_modifier": {
+        "global_unrest": "-0.5",
+        "war_exhaustion": "-0.01",
+    },
+    "zhx_bing_invited_scholar_modifier": {
+        "manpower_recovery_speed": "0.05",
+        "army_tradition_decay": "-0.005",
+    },
+    "zhx_zongheng_invited_scholar_modifier": {
+        "improve_relation_modifier": "0.10",
+        "diplomatic_reputation": "0.25",
+    },
+}
+RELIGION_SCHOOL_TOOLTIP_ICONS = {
+    school: f"zhx_religion_school_{school.removeprefix('zhx_').removesuffix('_school')}_tooltip_icon"
+    for school in NATIVE_SCHOOLS
+}
+DIPLOMACY_SCHOOL_TOOLTIP_ICONS = {
+    school: f"zhx_diplomacy_school_{school.removeprefix('zhx_').removesuffix('_school')}_tooltip_icon"
+    for school in NATIVE_SCHOOLS
+}
 NATIVE_STATUS_FIELDS = {
     "zhx_religion_practice_hollow_value",
     "zhx_religion_practice_value",
@@ -121,6 +168,45 @@ REMOVED_PRACTICE_LEDGER_BUTTONS = {
     "zhx_religion_practice_established_ledger_button",
     "zhx_religion_practice_flourishing_ledger_button",
     "zhx_religion_practice_exemplary_ledger_button",
+    "zhx_lijiao_school_rules_button",
+}
+SCHOOL_TOOLTIP_ROWS = {
+    "zhx_ru_school": (
+        "§R0-24 · 礼崩名乱§!：全国叛乱度 +2；稳定度花费 +15%；外交声誉 -1",
+        "§Y25-49 · 儒论初行§!：顾问花费 -2.5%；稳定度花费 -2.5%",
+        "§G50-74 · 礼治成章§!：顾问花费 -5%；稳定度花费 -5%；外交声誉 +0.5",
+        "§O75-100 · 仁政化成§!：顾问花费 -10%；稳定度花费 -10%；外交声誉 +1；全国叛乱度 -1",
+    ),
+    "zhx_fa_school": (
+        "§R0-24 · 法令不行§!：月度自治度变化 +0.10；造核花费 +10%；年度腐败 +0.10",
+        "§Y25-49 · 法令始定§!：月度自治度变化 -0.025；造核花费 -2.5%",
+        "§G50-74 · 法术势并行§!：月度自治度变化 -0.05；造核花费 -5%；年度腐败 -0.05",
+        "§O75-100 · 名实一贯§!：月度自治度变化 -0.075；造核花费 -10%；年度腐败 -0.10；训练度 +2.5%",
+    ),
+    "zhx_mo_school": (
+        "§R0-24 · 守义不修§!：要塞维护费 +25%；要塞防御 -20%；发展成本 +10%",
+        "§Y25-49 · 墨守有方§!：要塞维护费 -5%；要塞防御 +5%",
+        "§G50-74 · 兼爱尚贤§!：要塞维护费 -10%；要塞防御 +10%；外交声誉 +0.5",
+        "§O75-100 · 非攻成治§!：要塞维护费 -20%；要塞防御 +20%；外交声誉 +1；发展成本 -5%",
+    ),
+    "zhx_dao_school": (
+        "§R0-24 · 失道扰民§!：全国叛乱度 +2；月度厌战 +0.03；发展成本 +10%",
+        "§Y25-49 · 守静初行§!：全国叛乱度 -0.5；月度厌战 -0.01",
+        "§G50-74 · 清静成治§!：全国叛乱度 -1；月度厌战 -0.02；发展成本 -2.5%",
+        "§O75-100 · 自然化成§!：全国叛乱度 -2；月度厌战 -0.03；发展成本 -5%；稳定度花费 -5%",
+    ),
+    "zhx_bing_school": (
+        "§R0-24 · 武备弛废§!：人力恢复速度 -20%；陆军传统衰减 +1%；陆军士气 -10%",
+        "§Y25-49 · 讲武有备§!：人力恢复速度 +5%；陆军传统衰减 -0.5%",
+        "§G50-74 · 兵势相济§!：人力恢复速度 +10%；陆军传统衰减 -1%；陆军士气 +5%",
+        "§O75-100 · 师律精强§!：人力恢复速度 +15%；陆军传统衰减 -1%；陆军士气 +10%；训练度 +2.5%",
+    ),
+    "zhx_zongheng_school": (
+        "§R0-24 · 信义俱失§!：改善关系 -25%；外交声誉 -1；外交关系 -1",
+        "§Y25-49 · 行人通聘§!：改善关系 +10%；外交声誉 +0.25",
+        "§G50-74 · 合纵有方§!：改善关系 +15%；外交声誉 +0.5；外交关系 +1",
+        "§O75-100 · 从横捭阖§!：改善关系 +25%；外交声誉 +1；外交关系 +1；外交官 +1",
+    ),
 }
 REMOVED_RELIGION_CARD_CONTROLS = {
     "zhx_religion_school_none_window",
@@ -137,26 +223,63 @@ REMOVED_RELIGION_CARD_CONTROLS = {
     "zhx_religion_last_delta",
 }
 EXPECTED_MODIFIERS = {
-    "zhx_doctrine_practice_hollow",
+    "zhx_doctrine_ru_hollow",
     "zhx_doctrine_ru_established",
     "zhx_doctrine_ru_flourishing",
     "zhx_doctrine_ru_exemplary",
+    "zhx_doctrine_fa_hollow",
     "zhx_doctrine_fa_established",
     "zhx_doctrine_fa_flourishing",
     "zhx_doctrine_fa_exemplary",
+    "zhx_doctrine_mo_hollow",
     "zhx_doctrine_mo_established",
     "zhx_doctrine_mo_flourishing",
     "zhx_doctrine_mo_exemplary",
+    "zhx_doctrine_dao_hollow",
     "zhx_doctrine_dao_established",
     "zhx_doctrine_dao_flourishing",
     "zhx_doctrine_dao_exemplary",
+    "zhx_doctrine_bing_hollow",
     "zhx_doctrine_bing_established",
     "zhx_doctrine_bing_flourishing",
     "zhx_doctrine_bing_exemplary",
+    "zhx_doctrine_zongheng_hollow",
     "zhx_doctrine_zongheng_established",
     "zhx_doctrine_zongheng_flourishing",
     "zhx_doctrine_zongheng_exemplary",
     "zhx_doctrine_change_cooldown",
+}
+HOLLOW_MODIFIER_VALUES = {
+    "ru": {
+        "global_unrest": "2",
+        "stability_cost_modifier": "0.15",
+        "diplomatic_reputation": "-1",
+    },
+    "fa": {
+        "global_autonomy": "0.10",
+        "core_creation": "0.10",
+        "yearly_corruption": "0.10",
+    },
+    "mo": {
+        "fort_maintenance_modifier": "0.25",
+        "defensiveness": "-0.20",
+        "development_cost": "0.10",
+    },
+    "dao": {
+        "global_unrest": "2",
+        "war_exhaustion": "0.03",
+        "development_cost": "0.10",
+    },
+    "bing": {
+        "manpower_recovery_speed": "-0.20",
+        "army_tradition_decay": "0.01",
+        "land_morale": "-0.10",
+    },
+    "zongheng": {
+        "improve_relation_modifier": "-0.25",
+        "diplomatic_reputation": "-1",
+        "diplomatic_upkeep": "-1",
+    },
 }
 EXPECTED_LOCALISATION = {
     "zhx_convene_hundred_schools_debate_title",
@@ -326,6 +449,36 @@ def top_level_effect_body(text: str, effect: str) -> str:
             if depth == 0:
                 return text[opening + 1:index]
     raise ValueError(f"scripted effect {effect} has no closing brace")
+
+
+def top_level_assignment_keys(body: str) -> set[str]:
+    """Return assignment keys at depth zero inside an extracted block."""
+    keys: set[str] = set()
+    depth = 0
+    in_string = False
+    escaped = False
+    for raw_line in body.splitlines():
+        line = raw_line.split("#", 1)[0]
+        if depth == 0:
+            match = re.match(r"\s*([a-z_]+)\s*=", line)
+            if match is not None:
+                keys.add(match.group(1))
+        for char in line:
+            if in_string:
+                if escaped:
+                    escaped = False
+                elif char == "\\":
+                    escaped = True
+                elif char == '"':
+                    in_string = False
+            elif char == '"':
+                in_string = True
+            elif char == "{":
+                depth += 1
+            elif char == "}":
+                depth -= 1
+    require(depth == 0, "cannot read top-level keys from an unbalanced block")
+    return keys
 
 
 def country_event_body(text: str, event_id: str) -> str:
@@ -904,29 +1057,28 @@ def main() -> None:
         and 'interface/countrydiplomacyview.gui' in native_diplomacy_builder,
         "diplomacy builder must remain pinned to the required Chinese 1.37 baseline",
     )
-    rules_button_name = "zhx_lijiao_school_rules_button"
-    rules_button_sprite = "GFX_zhx_lijiao_school_button"
-    rules_button_body = named_gui_button_body(religion_view_body, rules_button_name)
+    tripod_overlay_name = "zhx_lijiao_school_button_overlay"
+    tripod_overlay_sprite = "GFX_zhx_lijiao_school_button"
+    tripod_overlay_body = named_icon_body(religion_view_body, tripod_overlay_name)
     require(
-        religion_view_body.count(f'name = "{rules_button_name}"') == 1
+        religion_view_body.count(f'name = "{tripod_overlay_name}"') == 1
         and re.search(
             r"position\s*=\s*\{\s*x\s*=\s*180\s+y\s*=\s*148\s*\}",
-            rules_button_body,
+            tripod_overlay_body,
         )
         is not None
-        and f'quadTextureSprite = "{rules_button_sprite}"' in rules_button_body
-        and "clicksound = click" in rules_button_body
-        and "alwaystransparent" not in rules_button_body
-        and "scripted = yes" in rules_button_body,
-        "礼教 tripod must be a visible scripted 42 px rules button beside the "
-        "practice value",
+        and f'spriteType = "{tripod_overlay_sprite}"' in tripod_overlay_body
+        and "alwaystransparent = yes" in tripod_overlay_body
+        and "scripted = yes" in tripod_overlay_body,
+        "礼教 tripod must be a mouse-transparent 42 px reskin of the native "
+        "invite-scholar button",
     )
     require(
-        lijiao_gfx.count(f'name = "{rules_button_sprite}"') == 1,
+        lijiao_gfx.count(f'name = "{tripod_overlay_sprite}"') == 1,
         "礼教 scholar-button sprite must be registered exactly once",
     )
     overlay_sprite_body = lijiao_gfx.split(
-        f'name = "{rules_button_sprite}"', 1
+        f'name = "{tripod_overlay_sprite}"', 1
     )[1][:300]
     require(
         'texturefile = "gfx/interface/zhx_lijiao_school_button.dds"'
@@ -948,32 +1100,35 @@ def main() -> None:
         "礼教 scholar-button DDS must match the native 42x42 button",
     )
     require(
-        native_custom_gui.count(f"name = {rules_button_name}") == 1,
-        "礼教 tripod must have exactly one custom-button binding",
+        native_custom_gui.count(f"name = {tripod_overlay_name}") == 1,
+        "礼教 tripod must have exactly one passive custom-icon binding",
     )
-    rules_custom_body = named_custom_button_body(
-        native_custom_gui, rules_button_name
+    tripod_custom_body = named_custom_icon_body(
+        native_custom_gui, tripod_overlay_name
     )
     require(
-        "zhx_is_lijiao_country = yes" in rules_custom_body
-        and "zhx_has_doctrine = yes" in rules_custom_body
-        and "has_religious_school = yes" in rules_custom_body
-        and re.fullmatch(
-            r"\s*always\s*=\s*yes\s*",
-            named_block_body(rules_custom_body, "trigger"),
-            re.S,
+        "zhx_is_lijiao_country = yes" in tripod_custom_body
+        and "zhx_has_doctrine = yes" in tripod_custom_body
+        and "has_religious_school = yes" in tripod_custom_body
+        and "trigger =" not in tripod_custom_body
+        and "effect =" not in tripod_custom_body
+        and "tooltip =" not in tripod_custom_body,
+        "礼教 tripod must remain decorative so the underlying native button "
+        "owns all invitation clicks",
+    )
+    native_invite_button_body = named_gui_button_body(
+        religion_view_body, "invite_scholar_button"
+    )
+    require(
+        religion_view_body.count('name ="invite_scholar_button"') == 1
+        and re.search(
+            r"position\s*=\s*\{\s*x\s*=\s*180\s+y\s*=\s*148\s*\}",
+            native_invite_button_body,
         )
         is not None
-        and re.fullmatch(
-            r"\s*country_event\s*=\s*\{\s*id\s*=\s*"
-            r"zhx_doctrine\.20\s*\}\s*",
-            named_block_body(rules_custom_body, "effect"),
-            re.S,
-        )
-        is not None
-        and "tooltip = zhx_religion_practice_rules_button_tt"
-        in rules_custom_body,
-        "礼教 tripod must be doctrine-gated and open the complete practice-rule event",
+        and 'quadTextureSprite = "GFX_muslim_school_button"'
+        in native_invite_button_body,
+        "the engine-owned invite-scholar button must remain intact beneath the tripod",
     )
     sentinel_overlay_name = "zhx_no_doctrine_school_button_overlay"
     sentinel_overlay_sprite = "GFX_zhx_no_doctrine_school_button"
@@ -1059,6 +1214,110 @@ def main() -> None:
         and re.search(r"maxWidth\s*=\s*160\b", fog_label) is not None,
         "foreign-country labels must leave a six-pixel gutter after the school icon",
     )
+    school_tooltip_sprite = "GFX_zhx_school_tooltip_hitbox"
+    require(
+        lijiao_gfx.count(f'name = "{school_tooltip_sprite}"') == 1,
+        "school-card tooltip hitbox sprite must be registered exactly once",
+    )
+    school_tooltip_sprite_body = lijiao_gfx.split(
+        f'name = "{school_tooltip_sprite}"', 1
+    )[1][:300]
+    require(
+        'texturefile = "gfx/interface/zhx_school_tooltip_hitbox.dds"'
+        in school_tooltip_sprite_body
+        and 'loadType = "INGAME"' in school_tooltip_sprite_body,
+        "school-card tooltip hitbox must load the generated in-game DDS",
+    )
+    school_tooltip_path = MOD / "gfx/interface/zhx_school_tooltip_hitbox.dds"
+    school_tooltip_texture = (
+        school_tooltip_path.read_bytes() if school_tooltip_path.is_file() else b""
+    )
+    require(
+        len(school_tooltip_texture) >= 128
+        and school_tooltip_texture[:4] == b"DDS ",
+        "missing or malformed school-card tooltip DDS",
+    )
+    school_tooltip_height, school_tooltip_width = struct.unpack_from(
+        "<II", school_tooltip_texture, 12
+    )
+    require(
+        (school_tooltip_width, school_tooltip_height) == (26, 26)
+        and not any(school_tooltip_texture[128:]),
+        "school-card tooltip DDS must be a fully transparent 26x26 image",
+    )
+    for school, doctrine_flag in NATIVE_SCHOOL_FLAGS.items():
+        for view_name, view_body, icon_name, x, y in (
+            (
+                "religion",
+                religion_view_body,
+                RELIGION_SCHOOL_TOOLTIP_ICONS[school],
+                93,
+                193,
+            ),
+            (
+                "diplomacy",
+                diplomacy_view_body,
+                DIPLOMACY_SCHOOL_TOOLTIP_ICONS[school],
+                110,
+                142,
+            ),
+        ):
+            icon_body = named_icon_body(view_body, icon_name)
+            require(
+                view_body.count(f'name = "{icon_name}"') == 1
+                and re.search(
+                    rf"position\s*=\s*\{{\s*x\s*=\s*{x}\s+y\s*=\s*{y}\s*\}}",
+                    icon_body,
+                )
+                is not None
+                and f'spriteType = "{school_tooltip_sprite}"' in icon_body
+                and "scripted = yes" in icon_body
+                and "alwaystransparent" not in icon_body,
+                f"{view_name} {school} card must own one interactive transparent "
+                "hit target on the native school emblem",
+            )
+            require(
+                native_custom_gui.count(f"name = {icon_name}") == 1,
+                f"{view_name} {school} card must have one custom-icon binding",
+            )
+            custom_icon_body = named_custom_icon_body(native_custom_gui, icon_name)
+            require(
+                "zhx_is_lijiao_country = yes" in custom_icon_body
+                and f"has_country_flag = {doctrine_flag}" in custom_icon_body
+                and f"tooltip = {school}_desc" in custom_icon_body,
+                f"{view_name} {school} card must follow the authoritative flag "
+                "and use the shared native-school description",
+            )
+    for school, modifier in INVITED_SCHOOL_MODIFIERS.items():
+        icon_name = INVITED_SCHOOL_OVERLAY_ICONS[school]
+        picture = NATIVE_SCHOOLS[school]
+        icon_body = named_icon_body(religion_view_body, icon_name)
+        require(
+            religion_view_body.count(f'name = "{icon_name}"') == 1
+            and re.search(
+                r"position\s*=\s*\{\s*x\s*=\s*124\s+y\s*=\s*193\s*\}",
+                icon_body,
+            )
+            is not None
+            and f'spriteType = "{picture}"' in icon_body
+            and re.search(r"scale\s*=\s*0\.5", icon_body) is not None
+            and "alwaystransparent = yes" in icon_body
+            and "scripted = yes" in icon_body,
+            f"{school} invited emblem must cover the second native sub-modifier "
+            "slot with the real 52px school picture at half scale",
+        )
+        require(
+            native_custom_gui.count(f"name = {icon_name}") == 1,
+            f"{school} invited emblem must have one custom-icon binding",
+        )
+        custom_icon_body = named_custom_icon_body(native_custom_gui, icon_name)
+        require(
+            "zhx_is_lijiao_country = yes" in custom_icon_body
+            and f"has_country_modifier = {modifier}" in custom_icon_body
+            and "tooltip =" not in custom_icon_body,
+            f"{school} invited emblem must follow only its temporary modifier "
+            "and leave the live native modifier tooltip clickable underneath",
+        )
     eastern_body = named_block_body(native_religion, "eastern")
     require(
         eastern_body.count("religious_schools = {") == 1,
@@ -1074,35 +1333,73 @@ def main() -> None:
         f"missing={sorted(set(ALL_NATIVE_SCHOOLS) - actual_native_schools)}, "
         f"extra={sorted(actual_native_schools - set(ALL_NATIVE_SCHOOLS))}",
     )
-    allowed_school_fields = {
+    invited_school_fields = {
         "potential_invite_scholar",
         "can_invite_scholar",
         "on_invite_scholar",
+        "invite_scholar_modifier_display",
         "picture",
     }
-    for school, picture in ALL_NATIVE_SCHOOLS.items():
+    for school, picture in NATIVE_SCHOOLS.items():
         require(
             school_definitions.count(f"{school} = {{") == 1,
             f"{school} must be defined exactly once in eastern",
         )
         school_body = named_block_body(school_definitions, school)
-        assigned_fields = set(
-            re.findall(r"(?m)^\s*([a-z_]+)\s*=", school_body)
-        )
+        assigned_fields = top_level_assignment_keys(school_body)
+        modifier = INVITED_SCHOOL_MODIFIERS[school]
         require(
-            assigned_fields == allowed_school_fields,
-            f"{school} must remain a presentation-only school; "
+            assigned_fields == invited_school_fields,
+            f"{school} must expose only the approved native invitation fields; "
             f"fields={sorted(assigned_fields)}",
         )
         require(
-            school_body.count("always = yes") == 0
-            and school_body.count("always = no") == 2
-            and re.search(r"on_invite_scholar\s*=\s*\{\s*\}", school_body)
-            is not None
+            school_body.count("religion = confucianism") == 1
+            and school_body.count("has_religious_school = yes") == 1
+            and school_body.count("group = eastern") == 2
+            and school_body.count("school = zhx_no_doctrine_school") == 1
+            and school_body.count(f"school = {school}") == 1
+            and "zhx_has_doctrine" not in school_body
+            and "has_country_flag = zhx_doctrine_" not in school_body
+            and school_body.count("knows_of_scholar_country_capital_trigger = yes") == 1
+            and school_body.count(
+                "reverse_has_opinion = { who = FROM value = 150 }"
+            )
+            == 1
+            and school_body.count("zhx_clear_invited_school_modifiers = yes") == 1
+            and school_body.count(
+                f"add_country_modifier = {{ name = {modifier} duration = 7300 }}"
+            )
+            == 1
+            and school_body.count(
+                f"invite_scholar_modifier_display = {modifier}"
+            )
+            == 1
+            and school_body.count("name = has_invited_scholar_recently") == 1
+            and school_body.count("duration = 7300") == 2
             and f'picture = "{picture}"' in school_body
             and "religion_sub_modifier" not in school_body,
-            f"{school} must be inert, non-invitable and use {picture}",
+            f"{school} must require a known 150-opinion foreign source, grant one "
+            f"20-year secondary modifier and use {picture}",
         )
+
+    no_doctrine = "zhx_no_doctrine_school"
+    no_doctrine_body = named_block_body(school_definitions, no_doctrine)
+    require(
+        top_level_assignment_keys(no_doctrine_body)
+        == {
+            "potential_invite_scholar",
+            "can_invite_scholar",
+            "on_invite_scholar",
+            "picture",
+        }
+        and no_doctrine_body.count("always = no") == 2
+        and re.search(r"on_invite_scholar\s*=\s*\{\s*\}", no_doctrine_body)
+        is not None
+        and f'picture = "{NO_DOCTRINE_SCHOOL[no_doctrine]}"'
+        in no_doctrine_body,
+        "no-doctrine sentinel must remain inert and non-invitable",
+    )
 
     event_text = texts[MOD / "events/zhx_doctrine_events.txt"]
     event_ids = re.findall(r"(?m)^\s*id\s*=\s*zhx_doctrine\.(\d+)\s*$", event_text)
@@ -1386,6 +1683,56 @@ def main() -> None:
         f"missing={sorted(EXPECTED_MODIFIERS - modifier_definitions)}, "
         f"extra={sorted(modifier_definitions - EXPECTED_MODIFIERS)}",
     )
+    for school, expected_values in HOLLOW_MODIFIER_VALUES.items():
+        modifier = f"zhx_doctrine_{school}_hollow"
+        modifier_body = top_level_effect_body(modifier_text, modifier)
+        actual_values = dict(
+            re.findall(
+                r"(?m)^\s*([a-z_]+)\s*=\s*(-?\d+(?:\.\d+)?)\s*$",
+                modifier_body,
+            )
+        )
+        require(
+            actual_values == expected_values,
+            f"{modifier} must retain its approved severe 0-24 contradiction "
+            f"penalty; expected={expected_values}, actual={actual_values}",
+        )
+
+    invited_modifier_text = texts[
+        MOD / "common/static_modifiers/zhx_invited_school_modifiers.txt"
+    ]
+    invited_modifier_definitions = set(
+        re.findall(
+            r"(?m)^(zhx_[a-z]+_invited_scholar_modifier)\s*=\s*\{",
+            invited_modifier_text,
+        )
+    )
+    require(
+        invited_modifier_definitions == set(INVITED_MODIFIER_VALUES),
+        "invited-school modifier contract changed: "
+        f"missing={sorted(set(INVITED_MODIFIER_VALUES) - invited_modifier_definitions)}, "
+        f"extra={sorted(invited_modifier_definitions - set(INVITED_MODIFIER_VALUES))}",
+    )
+    for modifier, expected_values in INVITED_MODIFIER_VALUES.items():
+        modifier_body = top_level_effect_body(invited_modifier_text, modifier)
+        actual_values = dict(
+            re.findall(
+                r"(?m)^\s*([a-z_]+)\s*=\s*(-?\d+(?:\.\d+)?)\s*$",
+                modifier_body,
+            )
+        )
+        require(
+            actual_values == expected_values
+            and modifier_body.count("religion_sub_modifier = yes") == 1
+            and modifier_body.count("religion = yes") == 1
+            and modifier_body.count("is_scholar_modifier = yes") == 1
+            and modifier_body.count(
+                'expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"'
+            )
+            == 1,
+            f"{modifier} must remain one visible entry-tier scholar modifier; "
+            f"expected={expected_values}, actual={actual_values}",
+        )
 
     all_scripts = "\n".join(texts.values())
     referenced_modifiers = set(
@@ -1401,6 +1748,51 @@ def main() -> None:
     )
 
     effect_text = texts[MOD / "common/scripted_effects/zhx_doctrine_effects.txt"]
+    clear_invited_effect = top_level_effect_body(
+        effect_text, "zhx_clear_invited_school_modifiers"
+    )
+    require(
+        all(
+            clear_invited_effect.count(f"remove_country_modifier = {modifier}")
+            == 1
+            for modifier in INVITED_MODIFIER_VALUES
+        )
+        and clear_invited_effect.count("remove_country_modifier =")
+        == len(INVITED_MODIFIER_VALUES),
+        "invited-school cleanup must remove exactly all six temporary modifiers",
+    )
+    remove_tiers_effect = top_level_effect_body(
+        effect_text, "zhx_remove_doctrine_tier_modifiers"
+    )
+    refresh_tier_effect = top_level_effect_body(
+        effect_text, "zhx_refresh_doctrine_tier"
+    )
+    tier_modifiers = EXPECTED_MODIFIERS - {"zhx_doctrine_change_cooldown"}
+    require(
+        all(
+            remove_tiers_effect.count(f"remove_country_modifier = {modifier}") == 1
+            for modifier in tier_modifiers
+        )
+        and "zhx_doctrine_practice_hollow" not in remove_tiers_effect,
+        "tier cleanup must remove all 24 school-specific tier modifiers and no "
+        "obsolete shared hollow modifier",
+    )
+    require(
+        all(
+            refresh_tier_effect.count(f"name = zhx_doctrine_{school}_hollow") == 1
+            and refresh_tier_effect.count(
+                f"has_country_flag = {EXPECTED_FLAGS[school]}"
+            )
+            == 4
+            for school in EXPECTED_FLAGS
+        )
+        and refresh_tier_effect.count("value = 25") == 1
+        and refresh_tier_effect.count("value = 50") == 1
+        and refresh_tier_effect.count("value = 75") == 1
+        and "zhx_doctrine_practice_hollow" not in refresh_tier_effect,
+        "0-24 refresh must select exactly one school-specific severe penalty; "
+        "25/50/75 must retain the three positive exclusive tiers",
+    )
     trigger_text = texts[MOD / "common/scripted_triggers/zhx_doctrine_triggers.txt"]
     for school, flag in EXPECTED_FLAGS.items():
         setters = re.findall(rf"set_country_flag\s*=\s*{re.escape(flag)}\b", effect_text)
@@ -1439,6 +1831,7 @@ def main() -> None:
     clear_system_effect = top_level_effect_body(effect_text, "zhx_clear_doctrine_system")
     require(
         "zhx_remove_doctrine_tier_modifiers = yes" in clear_system_effect
+        and "zhx_clear_invited_school_modifiers = yes" in clear_system_effect
         and "zhx_clear_doctrine_flags = yes" in clear_system_effect
         and "zhx_clear_doctrine_hover_cache = yes" in clear_system_effect
         and "clr_country_flag = zhx_doctrine_practice_initialised"
@@ -1702,10 +2095,83 @@ def main() -> None:
             and button not in native_gui_builder,
             f"obsolete transparent practice hit target remains: {button}",
         )
+
+    practice_button_name = "zhx_religion_practice_rules_button"
+    practice_button_sprite = "GFX_zhx_practice_click_hitbox"
+    practice_button_body = named_gui_button_body(
+        religion_view_body, practice_button_name
+    )
+    require(
+        religion_view_body.count(f'name = "{practice_button_name}"') == 1
+        and re.search(
+            r"position\s*=\s*\{\s*x\s*=\s*151\s+y\s*=\s*157\s*\}",
+            practice_button_body,
+        )
+        is not None
+        and f'quadTextureSprite = "{practice_button_sprite}"'
+        in practice_button_body
+        and "clicksound = click" in practice_button_body
+        and "scripted = yes" in practice_button_body
+        and "alwaystransparent" not in practice_button_body,
+        "practice number must have one interactive but visually transparent "
+        "28x24 scripted hit target",
+    )
+    require(
+        lijiao_gfx.count(f'name = "{practice_button_sprite}"') == 1,
+        "practice click-hitbox sprite must be registered exactly once",
+    )
+    practice_sprite_body = lijiao_gfx.split(
+        f'name = "{practice_button_sprite}"', 1
+    )[1][:300]
+    require(
+        'texturefile = "gfx/interface/zhx_practice_click_hitbox.dds"'
+        in practice_sprite_body
+        and 'loadType = "INGAME"' in practice_sprite_body,
+        "practice click-hitbox sprite must load the generated in-game DDS",
+    )
+    practice_hitbox_path = MOD / "gfx/interface/zhx_practice_click_hitbox.dds"
+    practice_hitbox = (
+        practice_hitbox_path.read_bytes() if practice_hitbox_path.is_file() else b""
+    )
+    require(
+        len(practice_hitbox) >= 128 and practice_hitbox[:4] == b"DDS ",
+        "missing or malformed practice click-hitbox DDS",
+    )
+    practice_height, practice_width = struct.unpack_from("<II", practice_hitbox, 12)
+    require(
+        (practice_width, practice_height) == (28, 24)
+        and not any(practice_hitbox[128:]),
+        "practice click-hitbox DDS must be a fully transparent 28x24 image",
+    )
+    require(
+        native_custom_gui.count(f"name = {practice_button_name}") == 1,
+        "practice number must have exactly one custom-button binding",
+    )
+    practice_custom_body = named_custom_button_body(
+        native_custom_gui, practice_button_name
+    )
+    require(
+        "zhx_is_lijiao_country = yes" in practice_custom_body
+        and "zhx_has_doctrine = yes" in practice_custom_body
+        and re.fullmatch(
+            r"\s*always\s*=\s*yes\s*",
+            named_block_body(practice_custom_body, "trigger"),
+            re.S,
+        )
+        is not None
+        and re.fullmatch(
+            r"\s*country_event\s*=\s*\{\s*id\s*=\s*"
+            r"zhx_doctrine\.20\s*\}\s*",
+            named_block_body(practice_custom_body, "effect"),
+            re.S,
+        )
+        is not None
+        and "tooltip = zhx_religion_practice_value_tt" in practice_custom_body,
+        "practice hit target must keep the concise hover and open the complete rules",
+    )
     require(
         native_custom_gui.count("country_event = { id = zhx_doctrine.20 }") == 1,
-        "only the separate Ritual Teaching tripod may open the complete rules; "
-        "the practice number itself must remain hover-only",
+        "only the practice-number hit target may open the complete rules",
     )
 
     sync_body = top_level_effect_body(effect_text, "zhx_sync_native_doctrine_school")
@@ -1893,6 +2359,12 @@ def main() -> None:
         f"missing doctrine localisation: {sorted(expected_with_modifiers - actual_localisation)}",
     )
     require(
+        "zhx_doctrine_practice_hollow" not in actual_localisation
+        and "zhx_doctrine_practice_hollow_desc" not in actual_localisation,
+        "obsolete shared 0-24 modifier localisation must not return; each school "
+        "now owns a distinct contradiction penalty",
+    )
+    require(
         localisation.count("[Root.zhx_doctrine_practice.GetValue]") >= 6
         and localisation.count(
             "[Root.zhx_doctrine_ledger_to_next_tier.GetValue]"
@@ -2062,9 +2534,11 @@ def main() -> None:
     )
     expected_native_localisation = set(ALL_NATIVE_SCHOOLS) | {
         f"{school}_desc" for school in ALL_NATIVE_SCHOOLS
+    } | set(INVITED_MODIFIER_VALUES) | {
+        f"{modifier}_desc" for modifier in INVITED_MODIFIER_VALUES
     } | NATIVE_STATUS_FIELDS | {
+        "zhx_invite_school_country_tt",
         "zhx_religion_practice_value_tt",
-        "zhx_religion_practice_rules_button_tt",
         "zhx_doctrine_practice_hover_total_positive",
         "zhx_doctrine_practice_hover_total_negative",
         "zhx_doctrine_practice_hover_total_zero",
@@ -2074,6 +2548,17 @@ def main() -> None:
     require(
         set(native_localisation_keys) == expected_native_localisation,
         "native school localisation contract changed",
+    )
+    invite_tooltip = re.search(
+        r'(?m)^\s*zhx_invite_school_country_tt:0\s+"(.*)"\s*$',
+        native_localisation,
+    )
+    require(
+        invite_tooltip is not None
+        and "[From.GetName]" in invite_tooltip.group(1)
+        and "二十年" in invite_tooltip.group(1)
+        and "不改变本国主学派或践履" in invite_tooltip.group(1),
+        "invitation tooltip must identify source, duration and doctrine boundary",
     )
     for field, colour in PRACTICE_TIER_COLOURS.items():
         require(
@@ -2109,6 +2594,37 @@ def main() -> None:
         "negative rows, and the empty state without embedding the full rulebook",
     )
     require(
+        tooltip_line is not None
+        and tooltip_line.group(1).endswith(
+            "\\n\\n§Y点击查看本派完整践履准则§!"
+        ),
+        "practice hover must advertise that the full 28x24 number slot is clickable",
+    )
+    for school, expected_rows in SCHOOL_TOOLTIP_ROWS.items():
+        description_match = re.search(
+            rf'(?m)^\s*{re.escape(school)}_desc:0\s+"(.*)"\s*$',
+            native_localisation,
+        )
+        require(
+            description_match is not None,
+            f"missing native-school description for {school}",
+        )
+        description = description_match.group(1)
+        separator = "\\n\\n§Y践履境界§!\\n"
+        require(
+            description.count(separator) == 1,
+            f"{school} tooltip must separate its short history from the four tiers",
+        )
+        introduction, tier_text = description.split(separator)
+        require(
+            introduction.count("。") == 2 and 50 <= len(introduction) <= 90,
+            f"{school} tooltip history must remain two concise real/worldline sentences",
+        )
+        require(
+            tuple(tier_text.split("\\n")) == expected_rows,
+            f"{school} tooltip must list the exact R/Y/G/O full-effect tier rows",
+        )
+    require(
         all(
             re.search(
                 rf'(?m)^\s*{re.escape(key)}:0\s+"\\n[^"\n]*：§B[+-]\d+§!"\s*$',
@@ -2133,10 +2649,13 @@ def main() -> None:
     print(f"  Events: {len(event_ids) + len(expansion_event_ids)}")
     print(f"  Doctrine modifiers: {len(modifier_definitions)}")
     print(f"  Mutually-exclusive tier practice displays: {len(NATIVE_STATUS_FIELDS)}")
-    print("  Transparent practice-ledger hit targets: 0")
+    print("  Transparent practice-ledger hit targets: 1")
     print(f"  Tier-coloured hover-factor readouts: {len(NATIVE_STATUS_FIELDS)}")
     print(f"  Blue signed factor rows: {len(HOVER_ROW_LOCALISATION)}")
+    print("  School-card tooltip hit targets: 12")
     print(f"  Native visible school mirrors: {len(NATIVE_SCHOOLS)}")
+    print(f"  Native invited-school modifiers: {len(INVITED_MODIFIER_VALUES)}")
+    print(f"  Invited-school emblem overlays: {len(INVITED_SCHOOL_OVERLAY_ICONS)}")
     print(f"  Native no-doctrine sentinels: {len(NO_DOCTRINE_SCHOOL)}")
     print(f"  Readable localisation keys: {len(localisation_keys)}")
 

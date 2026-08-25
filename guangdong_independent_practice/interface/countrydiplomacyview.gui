@@ -1598,6 +1598,58 @@ guiTypes = {
 				clicksound = back_click
 			}
 		}
+
+
+		# GDD: The native selected-country school icon exposes only its name.
+		# Six mutually-exclusive transparent targets add the same complete
+		# school-card tooltip used by the player's religion page.
+		iconType = {
+			name = "zhx_diplomacy_school_ru_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_fa_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_mo_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_dao_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_bing_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_zongheng_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
 	}
 
 	windowType = {

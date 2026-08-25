@@ -18,6 +18,59 @@ DEFAULT_DEPENDENCY = (
 EXPECTED_DEPENDENCY_SHA256 = (
     "74a02752cfc622ebcfbac1a359a7efe07fe6cbbec4a359987f67f205e113de4a"
 )
+SCHOOL_TOOLTIP_OVERLAYS = r'''
+
+		# GDD: The native selected-country school icon exposes only its name.
+		# Six mutually-exclusive transparent targets add the same complete
+		# school-card tooltip used by the player's religion page.
+		iconType = {
+			name = "zhx_diplomacy_school_ru_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_fa_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_mo_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_dao_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_bing_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+
+		iconType = {
+			name = "zhx_diplomacy_school_zongheng_tooltip_icon"
+			spriteType = "GFX_zhx_school_tooltip_hitbox"
+			position = { x = 110 y = 142 }
+			Orientation = "UPPER_LEFT"
+			scripted = yes
+		}
+'''
 
 
 def matching_close(text: str, opening: int) -> int:
@@ -132,6 +185,14 @@ def render(dependency_root: Path) -> str:
         old_width=170,
         new_width=160,
     )
+    _, root_end = named_block_span(text, "windowType", "countrydiplomacyview")
+    root_close = root_end - 1
+    root_close_line = text.rfind("\n", 0, root_close) + 1
+    text = (
+        text[:root_close_line]
+        + SCHOOL_TOOLTIP_OVERLAYS
+        + text[root_close_line:]
+    )
     return text
 
 
@@ -145,7 +206,7 @@ def run(dependency_root: Path, check: bool) -> None:
         TARGET.write_text(output, encoding="utf-8")
     print(
         f"{'checked' if check else 'built'} Chinese 1.37 diplomacy view; "
-        "school/name gutter=6px"
+        "school/name gutter=6px; school-tooltip hit targets=6"
     )
 
 

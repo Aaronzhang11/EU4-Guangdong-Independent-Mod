@@ -27,6 +27,8 @@ NESTORIAN_PORTRAITS = (
 PREVIEW = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_preview.png"
 SCHOOL_BUTTON = MOD / "gfx/interface/zhx_lijiao_school_button.dds"
 NO_DOCTRINE_BUTTON = MOD / "gfx/interface/zhx_no_doctrine_school_button.dds"
+PRACTICE_HITBOX = MOD / "gfx/interface/zhx_practice_click_hitbox.dds"
+SCHOOL_TOOLTIP_HITBOX = MOD / "gfx/interface/zhx_school_tooltip_hitbox.dds"
 RUSSIAN_ICONS = MOD / "gfx/interface/russian_icons_strip.dds"
 DEFAULT_VANILLA = (
     Path.home()
@@ -321,6 +323,36 @@ def run(vanilla_root: Path, check: bool) -> None:
         NO_DOCTRINE_BUTTON.parent.mkdir(parents=True, exist_ok=True)
         NO_DOCTRINE_BUTTON.write_bytes(no_doctrine_button_data)
 
+    # Scripted GUI buttons derive their mouse rectangle from the sprite. Keep
+    # the practice hit target exactly aligned with the 28x24 visible number and
+    # make every pixel fully transparent so it adds no frame or hover artwork.
+    practice_hitbox = Image.new("RGBA", (28, 24), (0, 0, 0, 0))
+    practice_hitbox_data = dds_bytes(practice_hitbox)
+    if check:
+        if (
+            not PRACTICE_HITBOX.exists()
+            or PRACTICE_HITBOX.read_bytes() != practice_hitbox_data
+        ):
+            raise ValueError("practice-number click hitbox is stale")
+    else:
+        PRACTICE_HITBOX.parent.mkdir(parents=True, exist_ok=True)
+        PRACTICE_HITBOX.write_bytes(practice_hitbox_data)
+
+    # Native school pictures are 52px and both target views render them at
+    # 0.5 scale. This invisible 26x26 icon replaces the hard-coded name-only
+    # hover area without drawing the school emblem a second time.
+    school_tooltip_hitbox = Image.new("RGBA", (26, 26), (0, 0, 0, 0))
+    school_tooltip_hitbox_data = dds_bytes(school_tooltip_hitbox)
+    if check:
+        if (
+            not SCHOOL_TOOLTIP_HITBOX.exists()
+            or SCHOOL_TOOLTIP_HITBOX.read_bytes() != school_tooltip_hitbox_data
+        ):
+            raise ValueError("school-card tooltip hitbox is stale")
+    else:
+        SCHOOL_TOOLTIP_HITBOX.parent.mkdir(parents=True, exist_ok=True)
+        SCHOOL_TOOLTIP_HITBOX.write_bytes(school_tooltip_hitbox_data)
+
     preview_image = preview(rendered, russian_icons)
     if check:
         buffer = io.BytesIO()
@@ -332,7 +364,9 @@ def run(vanilla_root: Path, check: bool) -> None:
 
     print(
         f"{'checked' if check else 'generated'} four religion sheets, "
-        "ten patriarch-icon frames and two 42 px school-button overlays"
+        "ten patriarch-icon frames, two 42 px school-button overlays and one "
+        "transparent 28x24 practice hitbox and one transparent 26x26 school "
+        "tooltip hitbox"
     )
 
 
