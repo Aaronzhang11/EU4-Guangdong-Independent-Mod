@@ -327,6 +327,9 @@ zhx_refresh_doctrine_tier = {
 }
 
 zhx_finish_doctrine_adoption = {
+    # Replacing or reaffirming the state doctrine closes the previous court's
+    # invitation. A former guest must not remain displayed after becoming main.
+    zhx_clear_invited_school_modifiers = yes
     set_country_flag = zhx_doctrine_practice_initialised
     set_variable = {
         which = zhx_doctrine_last_delta
