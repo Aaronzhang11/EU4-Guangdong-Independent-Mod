@@ -3,6 +3,41 @@
 on_startup = {
     events = {
         zhx_system.1
+        zhx_opening_school.1
+        zhx_debate.1
+    }
+    if = {
+        limit = {
+            ai = no
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
+        zhx_prepare_doctrine_ledger = yes
+    }
+}
+
+# ROOT is the country after its religion has changed. The cleanup event clears
+# doctrine gameplay state immediately and replaces same-group eastern mirrors
+# with a transparent no-doctrine sentinel.
+on_religion_change = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# The religion-page hover ledger is presentation cache, not a second gameplay
+# clock. Once per month, each human country with a live Ritual Teaching doctrine
+# recomputes only its own bounded factor rows, raw total and threshold gaps.
+# AI countries have no religion-page reader and need no cache refresh. There is
+# no every_country loop and no province scan.
+on_monthly_pulse = {
+    if = {
+        limit = {
+            ai = no
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
+        zhx_prepare_doctrine_ledger = yes
     }
 }
 
@@ -11,11 +46,13 @@ on_startup = {
 on_yearly_pulse = {
     events = {
         zhx_system.10
+        zhx_doctrine.90
+        zhx_debate.90
     }
 }
 
 # 战争结束时 ROOT 是胜方战争领袖，FROM 是败方战争领袖。
-# 只有周天下国家击败周天下以外的国家才奖励一次；诸侯内战和天子讨伐诸侯均不触发。
+# 只有周天下国家击败周天下以外的国家才结算一次；礼乐与盟功数值由当前天下显学决定。
 on_war_ended = {
     if = {
         limit = {

@@ -1,0 +1,97 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_zhx_doctrine_ru"
+        texturefile = "gfx/interface/zhx_doctrine_ru.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_ru_school"
+        texturefile = "gfx/interface/zhx_doctrine_ru_school.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_ru_small"
+        texturefile = "gfx/interface/zhx_doctrine_ru_small.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_fa"
+        texturefile = "gfx/interface/zhx_doctrine_fa.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_fa_school"
+        texturefile = "gfx/interface/zhx_doctrine_fa_school.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_fa_small"
+        texturefile = "gfx/interface/zhx_doctrine_fa_small.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_mo"
+        texturefile = "gfx/interface/zhx_doctrine_mo.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_mo_school"
+        texturefile = "gfx/interface/zhx_doctrine_mo_school.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_mo_small"
+        texturefile = "gfx/interface/zhx_doctrine_mo_small.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_dao"
+        texturefile = "gfx/interface/zhx_doctrine_dao.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_dao_school"
+        texturefile = "gfx/interface/zhx_doctrine_dao_school.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_dao_small"
+        texturefile = "gfx/interface/zhx_doctrine_dao_small.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_bing"
+        texturefile = "gfx/interface/zhx_doctrine_bing.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_bing_school"
+        texturefile = "gfx/interface/zhx_doctrine_bing_school.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_bing_small"
+        texturefile = "gfx/interface/zhx_doctrine_bing_small.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_zongheng"
+        texturefile = "gfx/interface/zhx_doctrine_zongheng.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_zongheng_school"
+        texturefile = "gfx/interface/zhx_doctrine_zongheng_school.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_doctrine_zongheng_small"
+        texturefile = "gfx/interface/zhx_doctrine_zongheng_small.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_no_doctrine_school"
+        texturefile = "gfx/interface/zhx_no_doctrine_school.tga"
+        loadType = "INGAME"
+    }
+}

@@ -1,0 +1,13 @@
+# Empty, visible and save-safe timer. All international orthodoxy effects
+# require this fifteen-year term token; domestic doctrine remains independent.
+zhx_tianxia_orthodoxy_term = {
+}
+
+# Independent three-year agenda items. A lone petition expires naturally and
+# never occupies or blocks the shared public-council ballot.
+zhx_debate_petition_ru = { }
+zhx_debate_petition_fa = { }
+zhx_debate_petition_mo = { }
+zhx_debate_petition_dao = { }
+zhx_debate_petition_bing = { }
+zhx_debate_petition_zongheng = { }

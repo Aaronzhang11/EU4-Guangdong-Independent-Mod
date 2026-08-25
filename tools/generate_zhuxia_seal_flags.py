@@ -36,7 +36,7 @@ INSCRIPTIONS = {
     "LNG": "梁", "LUO": "羅", "LUU": "魯", "MNG": "明", "NCH": "南昌",
     "NNG": "寧", "QIC": "齊", "QIN": "秦", "QSH": "舒", "QVN": "權",
     "QWO": "曲沃", "SHE": "申", "SHU": "蜀", "SNG": "宋", "SUI": "隨",
-    "TNG": "唐", "XNG": "邢", "ACG": "安成",
+    "TNG": "唐", "XNG": "邢", "ACG": "安成", "OUE": "甌", "WHU": "蕪",
     "TSF": "天師", "WEI": "魏", "XU2": "徐", "YAN": "燕", "YOU": "義渠",
     "YPG": "陰平", "WVG": "衞", "ZHA": "趙", "ZHG": "周公", "ZHU": "州",
     "ZNG": "鄭", "ZSH": "中山",
@@ -61,6 +61,7 @@ COLORS = {
     "QVN": (178,138,75), "QWO": (196,166,74), "SHE": (166,116,120),
     "SHU": (70,162,48), "SNG": (157,113,137), "SUI": (159,129,111),
     "TNG": (150,55,95), "XNG": (99,72,123), "ACG": (63,104,128),
+    "OUE": (174,101,74), "WHU": (202,151,70),
     "TSF": (171,136,146), "WEI": (176,130,103), "XU2": (179,128,104),
     "YAN": (168,86,187), "YOU": (157,113,137), "YPG": (126,130,159),
     "WVG": (109,150,116), "ZHA": (116,150,163), "ZHG": (96,143,139),
@@ -69,6 +70,9 @@ COLORS = {
 # 长沙保留既有诸夏参考旗；河州回回虽使用 gdd_long 文化，但其边疆政权
 # 旗由 generate_frontier_polity_flags.py 维护，不能被本生成器覆盖。
 PRESERVED = {"CSA", "HZH"}
+# 瓯、芜采用吴文化，但仍属于诸夏封国。显式纳入，避免把所有吴文化国家
+# 一并改造成篆字旗。
+ADDITIONAL_TARGETS = {"OUE", "WHU"}
 
 
 def masks() -> dict[str, str]:
@@ -85,7 +89,7 @@ def current_targets() -> set[str]:
         )
         if match and match.group(1) in ZHUXIA_CULTURES:
             targets.add(tag)
-    return targets
+    return targets | ADDITIONAL_TARGETS
 
 
 def tga_bytes(tag: str, glyph_masks: dict[str, str]) -> bytes:

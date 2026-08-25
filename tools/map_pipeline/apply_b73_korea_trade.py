@@ -11,6 +11,12 @@ import shutil
 import struct
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from apply_b49_eight_node_trade_network import (
+    assert_node_definition_order,
+    topologically_order_trade_nodes,
+)
+
 
 ROOT = Path(__file__).resolve().parents[2]
 MOD = ROOT / "guangdong_independent_practice"
@@ -199,6 +205,7 @@ def update_nodes(land: set[int]) -> dict[str, int]:
     text = set_nested_ids(text, "nippon", "members", nippon | {NIPPON_ANCHOR})
     text = set_scalar(text, "nippon", "location", NIPPON_ANCHOR)
     text = upsert_block(text, KOREA_NODE, render_korea_node(land))
+    text = topologically_order_trade_nodes(text)
     TRADE_NODES.write_text(text.rstrip() + "\n", encoding="latin-1")
     return before
 
@@ -220,7 +227,7 @@ def update_companies(land: set[int]) -> dict[str, int]:
 def write_localisation() -> None:
     SOURCE.write_text(
         'l_english:\n'
-        ' korea:0 "朝鲜贸易区"\n'
+        ' korea:0 "朝鲜"\n'
         ' trade_company_korea:0 "朝鲜特许公司"\n'
         ' GDD_TRADE_COMPANY_KOREA:0 "朝鲜特许公司"\n',
         encoding="utf-8-sig",
@@ -285,6 +292,7 @@ def validate(land: set[int]) -> dict[str, object]:
         raise ValueError("Nippon must continue to Hangzhou")
     if not re.search(rf"(?m)^\s*location\s*=\s*{NIPPON_ANCHOR}\s*$", nippon_block):
         raise ValueError("Nippon shield was not moved to Japan")
+    assert_node_definition_order(node_text)
 
     company_text = TRADE_COMPANIES.read_text(encoding="latin-1")
     companies = memberships(company_text, "provinces", "trade_company_")
@@ -313,7 +321,7 @@ def validate(land: set[int]) -> dict[str, object]:
         raise ValueError(f"Korean company contains zero-pixel provinces: {zero_pixel}")
     return {
         "node": KOREA_NODE,
-        "node_label": "朝鲜贸易区",
+        "node_label": "朝鲜",
         "company": KOREA_COMPANY,
         "company_label": "朝鲜特许公司",
         "land_provinces": sorted(land),

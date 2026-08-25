@@ -1,0 +1,1001 @@
+# Stateful kernel shared by all six playable Hundred Schools doctrines.
+# GUI and events only read or call these shared effects.
+
+zhx_remove_doctrine_tier_modifiers = {
+    remove_country_modifier = zhx_doctrine_ru_hollow
+    remove_country_modifier = zhx_doctrine_ru_established
+    remove_country_modifier = zhx_doctrine_ru_flourishing
+    remove_country_modifier = zhx_doctrine_ru_exemplary
+    remove_country_modifier = zhx_doctrine_fa_hollow
+    remove_country_modifier = zhx_doctrine_fa_established
+    remove_country_modifier = zhx_doctrine_fa_flourishing
+    remove_country_modifier = zhx_doctrine_fa_exemplary
+    remove_country_modifier = zhx_doctrine_mo_hollow
+    remove_country_modifier = zhx_doctrine_mo_established
+    remove_country_modifier = zhx_doctrine_mo_flourishing
+    remove_country_modifier = zhx_doctrine_mo_exemplary
+    remove_country_modifier = zhx_doctrine_dao_hollow
+    remove_country_modifier = zhx_doctrine_dao_established
+    remove_country_modifier = zhx_doctrine_dao_flourishing
+    remove_country_modifier = zhx_doctrine_dao_exemplary
+    remove_country_modifier = zhx_doctrine_bing_hollow
+    remove_country_modifier = zhx_doctrine_bing_established
+    remove_country_modifier = zhx_doctrine_bing_flourishing
+    remove_country_modifier = zhx_doctrine_bing_exemplary
+    remove_country_modifier = zhx_doctrine_zongheng_hollow
+    remove_country_modifier = zhx_doctrine_zongheng_established
+    remove_country_modifier = zhx_doctrine_zongheng_flourishing
+    remove_country_modifier = zhx_doctrine_zongheng_exemplary
+}
+
+# Native scholar invitations are temporary secondary teachings. Replacing one
+# removes the previous invited school but never touches the permanent doctrine,
+# its practice variable, or its tier modifier.
+zhx_clear_invited_school_modifiers = {
+    remove_country_modifier = zhx_ru_invited_scholar_modifier
+    remove_country_modifier = zhx_fa_invited_scholar_modifier
+    remove_country_modifier = zhx_mo_invited_scholar_modifier
+    remove_country_modifier = zhx_dao_invited_scholar_modifier
+    remove_country_modifier = zhx_bing_invited_scholar_modifier
+    remove_country_modifier = zhx_zongheng_invited_scholar_modifier
+}
+
+zhx_clear_doctrine_flags = {
+    clr_country_flag = zhx_doctrine_ru
+    clr_country_flag = zhx_doctrine_fa
+    clr_country_flag = zhx_doctrine_mo
+    clr_country_flag = zhx_doctrine_dao
+    clr_country_flag = zhx_doctrine_bing
+    clr_country_flag = zhx_doctrine_zongheng
+}
+
+zhx_normalise_doctrine_flags = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_ru }
+        clr_country_flag = zhx_doctrine_fa
+        clr_country_flag = zhx_doctrine_mo
+        clr_country_flag = zhx_doctrine_dao
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_fa }
+        clr_country_flag = zhx_doctrine_mo
+        clr_country_flag = zhx_doctrine_dao
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_mo }
+        clr_country_flag = zhx_doctrine_dao
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_dao }
+        clr_country_flag = zhx_doctrine_bing
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_bing }
+        clr_country_flag = zhx_doctrine_zongheng
+    }
+}
+
+# Display-only mirror for the engine's diplomacy and religion-map school icons.
+# Doctrine flags remain authoritative. Keep the literal school references in a
+# directly loaded event: EU4 1.37.5 does not post-validate them reliably when
+# they are nested in this scripted effect.
+zhx_sync_native_doctrine_school = {
+    country_event = { id = zhx_doctrine.91 }
+}
+
+# The engine has no clear_religious_school effect. Dispatch a directly loaded
+# event which can replace an obsolete eastern mirror with the transparent
+# no-doctrine sentinel before clearing authoritative gameplay state.
+zhx_retire_doctrine_system = {
+    country_event = { id = zhx_doctrine.92 }
+}
+
+zhx_clamp_doctrine_practice = {
+    if = {
+        limit = {
+            check_variable = {
+                which = zhx_doctrine_practice
+                value = 100
+            }
+        }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 100
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_doctrine_practice
+                    value = 0
+                }
+            }
+        }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 0
+        }
+    }
+}
+
+zhx_refresh_doctrine_tier = {
+    zhx_remove_doctrine_tier_modifiers = yes
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = zhx_doctrine_practice
+                    value = 25
+                }
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            add_country_modifier = {
+                name = zhx_doctrine_dao_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            add_country_modifier = {
+                name = zhx_doctrine_bing_hollow
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            add_country_modifier = {
+                name = zhx_doctrine_zongheng_hollow
+                duration = -1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_doctrine_practice
+                value = 75
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            add_country_modifier = {
+                name = zhx_doctrine_dao_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            add_country_modifier = {
+                name = zhx_doctrine_bing_exemplary
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            add_country_modifier = {
+                name = zhx_doctrine_zongheng_exemplary
+                duration = -1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = zhx_doctrine_practice
+                value = 50
+            }
+        }
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            add_country_modifier = {
+                name = zhx_doctrine_dao_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            add_country_modifier = {
+                name = zhx_doctrine_bing_flourishing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            add_country_modifier = {
+                name = zhx_doctrine_zongheng_flourishing
+                duration = -1
+            }
+        }
+    }
+    else = {
+        if = {
+            limit = { has_country_flag = zhx_doctrine_ru }
+            add_country_modifier = {
+                name = zhx_doctrine_ru_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_fa }
+            add_country_modifier = {
+                name = zhx_doctrine_fa_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_mo }
+            add_country_modifier = {
+                name = zhx_doctrine_mo_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_dao }
+            add_country_modifier = {
+                name = zhx_doctrine_dao_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_bing }
+            add_country_modifier = {
+                name = zhx_doctrine_bing_established
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = zhx_doctrine_zongheng }
+            add_country_modifier = {
+                name = zhx_doctrine_zongheng_established
+                duration = -1
+            }
+        }
+    }
+}
+
+zhx_finish_doctrine_adoption = {
+    # Replacing or reaffirming the state doctrine closes the previous court's
+    # invitation. A former guest must not remain displayed after becoming main.
+    zhx_clear_invited_school_modifiers = yes
+    set_country_flag = zhx_doctrine_practice_initialised
+    set_variable = {
+        which = zhx_doctrine_last_delta
+        value = 0
+    }
+    add_country_modifier = {
+        name = zhx_doctrine_change_cooldown
+        duration = 3650
+    }
+    zhx_sync_native_doctrine_school = yes
+    zhx_clamp_doctrine_practice = yes
+    zhx_refresh_doctrine_tier = yes
+    zhx_prepare_doctrine_ledger = yes
+}
+
+zhx_adopt_ru_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_ru }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_ru
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_fa_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_fa }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_fa
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_mo_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_mo }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_mo
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_dao_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_dao }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_dao
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_bing_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_bing }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_bing
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_adopt_zongheng_doctrine = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_zongheng }
+        change_variable = {
+            which = zhx_doctrine_practice
+            value = 5
+        }
+    }
+    else_if = {
+        limit = { zhx_has_doctrine = yes }
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 15
+        }
+    }
+    else = {
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+    zhx_clear_doctrine_flags = yes
+    set_country_flag = zhx_doctrine_zongheng
+    zhx_finish_doctrine_adoption = yes
+}
+
+zhx_clear_doctrine_hover_cache = {
+    clr_country_flag = zhx_doctrine_hover_cache_building
+    clr_country_flag = zhx_doctrine_hover_positive_1
+    clr_country_flag = zhx_doctrine_hover_positive_2
+    clr_country_flag = zhx_doctrine_hover_positive_3
+    clr_country_flag = zhx_doctrine_hover_negative_1
+    clr_country_flag = zhx_doctrine_hover_negative_2
+    clr_country_flag = zhx_doctrine_hover_negative_3
+    clr_country_flag = zhx_doctrine_hover_mo_defender
+    clr_country_flag = zhx_doctrine_hover_mo_peace
+}
+
+zhx_clear_doctrine_system = {
+    zhx_remove_doctrine_tier_modifiers = yes
+    zhx_clear_invited_school_modifiers = yes
+    zhx_clear_doctrine_flags = yes
+    zhx_clear_doctrine_hover_cache = yes
+    clr_country_flag = zhx_doctrine_practice_initialised
+    clr_country_flag = zhx_doctrine_tier_receipt_pending
+    clr_country_flag = zhx_doctrine_proposal_gained_pending
+    clr_country_flag = zhx_doctrine_proposal_lost_pending
+    remove_country_modifier = zhx_doctrine_change_cooldown
+    set_variable = {
+        which = zhx_doctrine_practice
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_last_delta
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_calculated_delta
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_ledger_estimated_delta
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_ledger_to_next_tier
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_ledger_to_proposal
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_receipt_old_practice
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_receipt_old_tier
+        value = 0
+    }
+    set_variable = {
+        which = zhx_doctrine_receipt_new_tier
+        value = 0
+    }
+}
+
+# One authoritative calculation serves both the real yearly settlement and the
+# read-only hover ledger. It only writes a scratch value; callers decide whether
+# to apply it to practice or merely cache it for presentation.
+zhx_calculate_doctrine_yearly_delta = {
+    set_variable = {
+        which = zhx_doctrine_calculated_delta
+        value = 0
+    }
+
+    # Ru: orderly government, public standing and restraint of exhaustion.
+    if = {
+        limit = { has_country_flag = zhx_doctrine_ru }
+        if = {
+            limit = { stability = 1 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_1
+            }
+        }
+        else_if = {
+            limit = { NOT = { stability = 0 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -3 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_1
+            }
+        }
+        if = {
+            limit = { prestige = 25 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_2
+            }
+        }
+        else_if = {
+            limit = { NOT = { prestige = -25 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_2
+            }
+        }
+        if = {
+            limit = { NOT = { war_exhaustion = 3 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_3
+            }
+        }
+        else_if = {
+            limit = { war_exhaustion = 5 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_3
+            }
+        }
+    }
+
+    # Fa: clear laws are measured through corruption, autonomy and overextension.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_fa }
+        if = {
+            limit = { NOT = { corruption = 2 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_1
+            }
+        }
+        else_if = {
+            limit = { corruption = 5 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -3 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_1
+            }
+        }
+        if = {
+            limit = { NOT = { average_autonomy_above_min = 25 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_2
+            }
+        }
+        else_if = {
+            limit = { average_autonomy_above_min = 50 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_2
+            }
+        }
+        if = {
+            limit = { NOT = { overextension_percentage = 0.10 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_3
+            }
+        }
+        else_if = {
+            limit = { overextension_percentage = 0.25 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_3
+            }
+        }
+    }
+
+    # Mo: non-aggression, defensive war and frugality are concrete conduct.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_mo }
+        if = {
+            limit = {
+                is_in_war = { defender_leader = ROOT }
+            }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 3 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_mo_defender
+            }
+        }
+        else_if = {
+            limit = { is_at_war = no }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_mo_peace
+            }
+        }
+        if = {
+            limit = { NOT = { num_of_loans = 1 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_2
+            }
+        }
+        else_if = {
+            limit = { num_of_loans = 3 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_2
+            }
+        }
+        if = {
+            limit = { NOT = { war_exhaustion = 3 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_3
+            }
+        }
+        else_if = {
+            limit = { war_exhaustion = 5 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_3
+            }
+        }
+        if = {
+            limit = {
+                is_in_war = { attacker_leader = ROOT }
+            }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -4 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_1
+            }
+        }
+    }
+
+    # Dao: restraint is measured through peace, low exhaustion and modest reach.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_dao }
+        if = {
+            limit = { is_at_war = no }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_1
+            }
+        }
+        if = {
+            limit = { NOT = { war_exhaustion = 2 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_2
+            }
+        }
+        else_if = {
+            limit = { war_exhaustion = 5 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_1
+            }
+        }
+        if = {
+            limit = { NOT = { overextension_percentage = 0.05 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_3
+            }
+        }
+        else_if = {
+            limit = { overextension_percentage = 0.25 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_2
+            }
+        }
+    }
+
+    # Bing: preparedness is visible in force strength, tradition and reserves.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_bing }
+        if = {
+            limit = { army_size_percentage = 0.80 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_1
+            }
+        }
+        else_if = {
+            limit = { NOT = { army_size_percentage = 0.50 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_1
+            }
+        }
+        if = {
+            limit = { army_tradition = 40 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_2
+            }
+        }
+        else_if = {
+            limit = { NOT = { army_tradition = 20 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_2
+            }
+        }
+        if = {
+            limit = { manpower_percentage = 0.50 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_3
+            }
+        }
+        else_if = {
+            limit = { NOT = { manpower_percentage = 0.15 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_3
+            }
+        }
+    }
+
+    # Zongheng: alliances, diplomatic standing and public credibility are its test.
+    else_if = {
+        limit = { has_country_flag = zhx_doctrine_zongheng }
+        if = {
+            limit = { num_of_allies = 2 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_1
+            }
+        }
+        else_if = {
+            limit = { NOT = { num_of_allies = 1 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -3 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_1
+            }
+        }
+        if = {
+            limit = { diplomatic_reputation = 1 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_2
+            }
+        }
+        else_if = {
+            limit = { NOT = { diplomatic_reputation = 0 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -2 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_2
+            }
+        }
+        if = {
+            limit = { prestige = 25 }
+            change_variable = { which = zhx_doctrine_calculated_delta value = 1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_positive_3
+            }
+        }
+        else_if = {
+            limit = { NOT = { prestige = -25 } }
+            change_variable = { which = zhx_doctrine_calculated_delta value = -1 }
+            if = {
+                limit = { has_country_flag = zhx_doctrine_hover_cache_building }
+                set_country_flag = zhx_doctrine_hover_negative_3
+            }
+        }
+    }
+}
+
+# Refresh the country-local hover ledger cache. The monthly pulse calls this
+# only for countries with a live doctrine; adoption, opening setup and annual
+# settlement also call it immediately so the religion view is never born stale.
+zhx_prepare_doctrine_ledger = {
+    zhx_clear_doctrine_hover_cache = yes
+    set_country_flag = zhx_doctrine_hover_cache_building
+    zhx_calculate_doctrine_yearly_delta = yes
+    clr_country_flag = zhx_doctrine_hover_cache_building
+
+    # The hover explains how the currently-triggered rows add up. Keep the raw
+    # formula total here instead of applying the 0-100 practice clamp; the UI
+    # intentionally omits a synthetic cap row, so its visible arithmetic must
+    # equal the sum of the listed factors.
+    set_variable = {
+        which = zhx_doctrine_ledger_estimated_delta
+        which = zhx_doctrine_calculated_delta
+    }
+    if = {
+        limit = {
+            NOT = {
+                check_variable = { which = zhx_doctrine_practice value = 25 }
+            }
+        }
+        set_variable = { which = zhx_doctrine_ledger_to_next_tier value = 25 }
+        subtract_variable = {
+            which = zhx_doctrine_ledger_to_next_tier
+            which = zhx_doctrine_practice
+        }
+    }
+    else_if = {
+        limit = {
+            NOT = {
+                check_variable = { which = zhx_doctrine_practice value = 50 }
+            }
+        }
+        set_variable = { which = zhx_doctrine_ledger_to_next_tier value = 50 }
+        subtract_variable = {
+            which = zhx_doctrine_ledger_to_next_tier
+            which = zhx_doctrine_practice
+        }
+    }
+    else_if = {
+        limit = {
+            NOT = {
+                check_variable = { which = zhx_doctrine_practice value = 75 }
+            }
+        }
+        set_variable = { which = zhx_doctrine_ledger_to_next_tier value = 75 }
+        subtract_variable = {
+            which = zhx_doctrine_ledger_to_next_tier
+            which = zhx_doctrine_practice
+        }
+    }
+    else = {
+        set_variable = { which = zhx_doctrine_ledger_to_next_tier value = 0 }
+    }
+
+    # A doctrine needs 70 practice before its state can support a Tianxia
+    # proposal. This is a read-only cached gap; polity eligibility remains a
+    # separate requirement owned by the Tianxia system.
+    set_variable = { which = zhx_doctrine_ledger_to_proposal value = 70 }
+    if = {
+        limit = {
+            check_variable = { which = zhx_doctrine_practice value = 70 }
+        }
+        set_variable = { which = zhx_doctrine_ledger_to_proposal value = 0 }
+    }
+    else = {
+        subtract_variable = {
+            which = zhx_doctrine_ledger_to_proposal
+            which = zhx_doctrine_practice
+        }
+    }
+}
+
+zhx_yearly_doctrine_tick = {
+    zhx_normalise_doctrine_flags = yes
+    zhx_sync_native_doctrine_school = yes
+    if = {
+        limit = {
+            NOT = { has_country_flag = zhx_doctrine_practice_initialised }
+        }
+        set_country_flag = zhx_doctrine_practice_initialised
+        set_variable = {
+            which = zhx_doctrine_practice
+            value = 25
+        }
+    }
+
+    # Preserve the pre-settlement value. The hidden receipt calculator uses it
+    # both to identify the old tier and to derive the real post-clamp change.
+    set_variable = {
+        which = zhx_doctrine_receipt_old_practice
+        which = zhx_doctrine_practice
+    }
+
+    zhx_calculate_doctrine_yearly_delta = yes
+    change_variable = {
+        which = zhx_doctrine_practice
+        which = zhx_doctrine_calculated_delta
+    }
+    zhx_clamp_doctrine_practice = yes
+    zhx_refresh_doctrine_tier = yes
+    zhx_prepare_doctrine_ledger = yes
+    country_event = { id = zhx_doctrine.93 }
+}

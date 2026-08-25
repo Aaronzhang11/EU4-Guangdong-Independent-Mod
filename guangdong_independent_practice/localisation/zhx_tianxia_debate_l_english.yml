@@ -1,0 +1,380 @@
+﻿l_english:
+ ZHX_GUI_DEBATE_HEADER:0 ")YNLffR"
+ ZHX_GUI_DEBATE_REVIEW_BUTTON:0 "ågwÆQR"
+ ZHX_GUI_DEBATE_CONVENE_BUTTON:0 "ìSV'Y©"
+ ZHX_GUI_DEBATE_PETITION_BUTTON:0 "NfN÷‹©"
+ ZHX_GUI_DEBATE_VOTE_RU_BUTTON:0 "Q¶R"
+ ZHX_GUI_DEBATE_VOTE_FA_BUTTON:0 "Õl¶R"
+ ZHX_GUI_DEBATE_VOTE_MO_BUTTON:0 "¨X¶R"
+ ZHX_GUI_DEBATE_VOTE_DAO_BUTTON:0 "S¶R"
+ ZHX_GUI_DEBATE_VOTE_BING_BUTTON:0 "uQ¶R"
+ ZHX_GUI_DEBATE_VOTE_ZONGHENG_BUTTON:0 "µu8j"
+ ZHX_GUI_DEBATE_VOTE_PLURAL_BUTTON:0 "v^Ëz"
+
+ zhx_gui_debate_orthodoxy_none:0 ")YNLffRÿ§gS8g®‹šR§!"
+ zhx_gui_debate_orthodoxy_ru:0 ")YNLffRÿ§YQ¶R§!"
+ zhx_gui_debate_orthodoxy_fa:0 ")YNLffRÿ§YÕl¶R§!"
+ zhx_gui_debate_orthodoxy_mo:0 ")YNLffRÿ§Y¨X¶R§!"
+ zhx_gui_debate_orthodoxy_dao:0 ")YNLffRÿ§YS¶R§!"
+ zhx_gui_debate_orthodoxy_bing:0 ")YNLffRÿ§YuQ¶R§!"
+ zhx_gui_debate_orthodoxy_zongheng:0 ")YNLffRÿ§Yµu8j¶R§!"
+ zhx_gui_debate_orthodoxy_plural:0 ")YNLffRÿ§YŒv¶Rv^Ëz§!"
+ zhx_gui_council_debate_ru_fa:0 "º‹-^ÿ§YQ¶RÿÕl¶R§!0RýV•b®‹-N"
+ zhx_gui_council_debate_ru_mo:0 "º‹-^ÿ§YQ¶Rÿ¨X¶R§!0RýV•b®‹-N"
+ zhx_gui_council_debate_fa_mo:0 "º‹-^ÿ§YÕl¶Rÿ¨X¶R§!0RýV•b®‹-N"
+ zhx_gui_debate_status_settled:0 "LffRòTšRÿ§YAS”Nt^§!ûNgS8gÓumg0"
+ zhx_gui_debate_status_ready:0 "÷‹©òTb2N¶Rÿ)YPRïSåNìSV'Y©0"
+ zhx_gui_debate_status_waiting:0 "÷‹©8gán2N¶RÿUSHh	Nt^T1YHe0"
+ zhx_gui_council_counts_ru_fa:0 "Q §Y[CZH.zhx_council_vote_a_count.GetValue]§!0Õl §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!"
+ zhx_gui_council_counts_ru_mo:0 "Q §Y[CZH.zhx_council_vote_a_count.GetValue]§!0¨X §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!"
+ zhx_gui_council_counts_fa_mo:0 "Õl §Y[CZH.zhx_council_vote_a_count.GetValue]§!0¨X §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!"
+ zhx_gui_debate_description_idle:0 "LffRêS9eØShT)YN„výVE–ÆQRÿNOÿfbcTýVýVº‹bwýN—RYe0"
+ zhx_gui_council_vote_none:0 ",gýVËzHWÿ§gS8g•b®‹§!"
+ zhx_gui_council_vote_ru:0 ",gýVËzHWÿ§YQ¶R§!"
+ zhx_gui_council_vote_fa:0 ",gýVËzHWÿ§YÕl¶R§!"
+ zhx_gui_council_vote_mo:0 ",gýVËzHWÿ§Y¨X¶R§!"
+ zhx_gui_council_vote_plural:0 ",gýVËzHWÿ§YŒv¶Rv^Ëz§!"
+ zhx_gui_council_vote_observer:0 ",gýVv^^—•b®‹RýVÿêSýwÂ‰Jy0"
+ zhx_gui_council_debate:0 "§Y)YN'Y©§! · RýV•b®‹-N"
+ zhx_gui_council_debate_resolving:0 "§Y)YN'Y©§! · ck(WšRº‹"
+ zhx_gui_council_candidate_a_ru:0 "2uHhÿ§YQ¶R§!"
+ zhx_gui_council_candidate_a_fa:0 "2uHhÿ§YÕl¶R§!"
+ zhx_gui_council_candidate_a_mo:0 "2uHhÿ§Y¨X¶R§!"
+ zhx_gui_council_candidate_a_dao:0 "2uHhÿ§YS¶R§!"
+ zhx_gui_council_candidate_a_bing:0 "2uHhÿ§YuQ¶R§!"
+ zhx_gui_council_candidate_a_zongheng:0 "2uHhÿ§Yµu8j¶R§!"
+ zhx_gui_council_candidate_b_ru:0 "YNHhÿ§YQ¶R§!"
+ zhx_gui_council_candidate_b_fa:0 "YNHhÿ§YÕl¶R§!"
+ zhx_gui_council_candidate_b_mo:0 "YNHhÿ§Y¨X¶R§!"
+ zhx_gui_council_candidate_b_dao:0 "YNHhÿ§YS¶R§!"
+ zhx_gui_council_candidate_b_bing:0 "YNHhÿ§YuQ¶R§!"
+ zhx_gui_council_candidate_b_zongheng:0 "YNHhÿ§Yµu8j¶R§!"
+ zhx_gui_council_counts:0 "2u §Y[CZH.zhx_council_vote_a_count.GetValue]§!0YN §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!"
+ zhx_gui_council_vote_a:0 ",gýVËzHWÿ§YÐcHh2u§!"
+ zhx_gui_council_vote_b:0 ",gýVËzHWÿ§YÐcHhYN§!"
+
+ zhx_gui_debate_petition_ru:0 "§YQ·÷‹§!"
+ zhx_gui_debate_petition_fa:0 "§YÕl·÷‹§!"
+ zhx_gui_debate_petition_mo:0 "§Y¨X·÷‹§!"
+ zhx_gui_debate_petition_dao:0 "§YS·÷‹§!"
+ zhx_gui_debate_petition_bing:0 "§YuQ·÷‹§!"
+ zhx_gui_debate_petition_zongheng:0 "§Yµu·÷‹§!"
+ zhx_gui_debate_petition_tt:0 "å‹¶RòT	gNýN	gHe„vckV÷‹©fN0÷‹©ìrËzXR(W	Nt^ÿêS	gNýNöeNO`S(u)YNlQ®‹ÿmNNOI–^XvQÖNfRLm0"
+ zhx_gui_debate_tt:0 ")YN'Y©³QšRAS”Nt^…QLˆ„výVE–ÆQRÿêSÄ‹÷NŒTs^0ø‹¯O…Qb0ßWYb‰NÜw)R0JyPNJPNßvŸR0TýVýV…QýVº‹ŒTwýN—RYeÝOcNØS0"
+ zhx_gui_council_counts_tt:0 "hype(WûNUORýV9eØSËzHWTÍ‘°e¹p—rÿõeS¾0R75N=ec,gýVýVº‹„výV¶RåNžRõxQƒ«ŽýN¡‹2Nhy0Óu—röeO	cÍN6qXR(WNÍN^ShT)YN„výV¶RQÛLˆN!kgÈu¹phy0"
+ zhx_gui_council_vote_status_tt:0 "Ù=f,gýV(W,gJS)YN'Y©-N„vgThˆ`0®‹gÓumgMRïSåNÎNN¹e	c®”9ehy0"
+ zhx_gui_debate_review_button_tt:0 "ågwSVMR)YNLffRÊSvQýVE–Ä‰RÿN9eØSûNUO¶r`0"
+ zhx_gui_debate_convene_button_tt:0 "2NýN÷‹©öe	cúVšR!k^ê¨ReQ-^ÿ	NýNåNNöe)YPRO!k	éb2uHhNYNHhÿ–TVËYNt^lQ®‹0"
+ zhx_file_tianxia_debate_petition_tt:0 "õeS¾0R70êSÖS—VNfNDJh0ckV÷‹©Ø‰Bl,gLmóS	NýVÇ‘(uÿv^	gæSNTLmýV¶RõeS¾0R500÷‹©	gHe	Nt^0"
+ zhx_gui_council_vote_ru_button_tt:0 "Šb,gýVgThˆ`9eHN=ecQ¶Rÿå‚Q¶RmN=f,gýVýVº‹NõeS¾0R75ÿ,gýV¡‹2Nhy0"
+ zhx_gui_council_vote_fa_button_tt:0 "Šb,gýVgThˆ`9eHN=ecÕl¶Rÿå‚Õl¶RmN=f,gýVýVº‹NõeS¾0R75ÿ,gýV¡‹2Nhy0"
+ zhx_gui_council_vote_mo_button_tt:0 "Šb,gýVgThˆ`9eHN=ec¨X¶Rÿå‚¨X¶RmN=f,gýVýVº‹NõeS¾0R75ÿ,gýV¡‹2Nhy0"
+ zhx_gui_council_vote_dao_button_tt:0 "Šb,gýVgThˆ`9eHN=ecS¶Rÿå‚S¶RmN=f,gýVýVº‹NõeS¾0R75ÿ,gýV¡‹2Nhy0"
+ zhx_gui_council_vote_bing_button_tt:0 "Šb,gýVgThˆ`9eHN=ecuQ¶Rÿå‚uQ¶RmN=f,gýVýVº‹NõeS¾0R75ÿ,gýV¡‹2Nhy0"
+ zhx_gui_council_vote_zongheng_button_tt:0 "Šb,gýVgThˆ`9eHN=ecµu8j¶Rÿå‚µu8j¶RmN=f,gýVýVº‹NõeS¾0R75ÿ,gýV¡‹2Nhy0"
+ zhx_gui_council_vote_plural_button_tt:0 "Šb,gýVgThˆ`9eHNŒv¶Rv^Ëz0Œv¶Rv^ËzhyN·ƒ—VžRõxQƒ„v˜Yhy0"
+
+# ZHX_COUNCIL_VOTE_TOOLTIPS_BEGIN
+ zhx_council_vote_roster_entry_empty:0 ""
+ zhx_council_vote_roster_zhx_tianzi_entry_1:0 "§Y[zhx_tianzi.GetName]§!×10"
+ zhx_council_vote_roster_zhx_tianzi_entry_2:0 "§Y[zhx_tianzi.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_01_entry_1:0 "§Y[zhx_roster_01.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_01_entry_2:0 "§Y[zhx_roster_01.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_02_entry_1:0 "§Y[zhx_roster_02.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_02_entry_2:0 "§Y[zhx_roster_02.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_03_entry_1:0 "§Y[zhx_roster_03.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_03_entry_2:0 "§Y[zhx_roster_03.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_04_entry_1:0 "§Y[zhx_roster_04.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_04_entry_2:0 "§Y[zhx_roster_04.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_05_entry_1:0 "§Y[zhx_roster_05.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_05_entry_2:0 "§Y[zhx_roster_05.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_06_entry_1:0 "§Y[zhx_roster_06.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_06_entry_2:0 "§Y[zhx_roster_06.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_07_entry_1:0 "§Y[zhx_roster_07.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_07_entry_2:0 "§Y[zhx_roster_07.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_08_entry_1:0 "§Y[zhx_roster_08.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_08_entry_2:0 "§Y[zhx_roster_08.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_09_entry_1:0 "§Y[zhx_roster_09.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_09_entry_2:0 "§Y[zhx_roster_09.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_10_entry_1:0 "§Y[zhx_roster_10.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_10_entry_2:0 "§Y[zhx_roster_10.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_11_entry_1:0 "§Y[zhx_roster_11.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_11_entry_2:0 "§Y[zhx_roster_11.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_12_entry_1:0 "§Y[zhx_roster_12.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_12_entry_2:0 "§Y[zhx_roster_12.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_13_entry_1:0 "§Y[zhx_roster_13.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_13_entry_2:0 "§Y[zhx_roster_13.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_14_entry_1:0 "§Y[zhx_roster_14.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_14_entry_2:0 "§Y[zhx_roster_14.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_15_entry_1:0 "§Y[zhx_roster_15.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_15_entry_2:0 "§Y[zhx_roster_15.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_16_entry_1:0 "§Y[zhx_roster_16.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_16_entry_2:0 "§Y[zhx_roster_16.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_17_entry_1:0 "§Y[zhx_roster_17.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_17_entry_2:0 "§Y[zhx_roster_17.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_18_entry_1:0 "§Y[zhx_roster_18.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_18_entry_2:0 "§Y[zhx_roster_18.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_19_entry_1:0 "§Y[zhx_roster_19.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_19_entry_2:0 "§Y[zhx_roster_19.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_20_entry_1:0 "§Y[zhx_roster_20.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_20_entry_2:0 "§Y[zhx_roster_20.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_21_entry_1:0 "§Y[zhx_roster_21.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_21_entry_2:0 "§Y[zhx_roster_21.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_22_entry_1:0 "§Y[zhx_roster_22.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_22_entry_2:0 "§Y[zhx_roster_22.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_23_entry_1:0 "§Y[zhx_roster_23.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_23_entry_2:0 "§Y[zhx_roster_23.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_24_entry_1:0 "§Y[zhx_roster_24.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_24_entry_2:0 "§Y[zhx_roster_24.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_25_entry_1:0 "§Y[zhx_roster_25.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_25_entry_2:0 "§Y[zhx_roster_25.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_26_entry_1:0 "§Y[zhx_roster_26.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_26_entry_2:0 "§Y[zhx_roster_26.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_27_entry_1:0 "§Y[zhx_roster_27.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_27_entry_2:0 "§Y[zhx_roster_27.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_28_entry_1:0 "§Y[zhx_roster_28.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_28_entry_2:0 "§Y[zhx_roster_28.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_29_entry_1:0 "§Y[zhx_roster_29.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_29_entry_2:0 "§Y[zhx_roster_29.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_30_entry_1:0 "§Y[zhx_roster_30.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_30_entry_2:0 "§Y[zhx_roster_30.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_31_entry_1:0 "§Y[zhx_roster_31.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_31_entry_2:0 "§Y[zhx_roster_31.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_32_entry_1:0 "§Y[zhx_roster_32.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_32_entry_2:0 "§Y[zhx_roster_32.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_33_entry_1:0 "§Y[zhx_roster_33.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_33_entry_2:0 "§Y[zhx_roster_33.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_34_entry_1:0 "§Y[zhx_roster_34.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_34_entry_2:0 "§Y[zhx_roster_34.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_35_entry_1:0 "§Y[zhx_roster_35.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_35_entry_2:0 "§Y[zhx_roster_35.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_36_entry_1:0 "§Y[zhx_roster_36.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_36_entry_2:0 "§Y[zhx_roster_36.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_37_entry_1:0 "§Y[zhx_roster_37.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_37_entry_2:0 "§Y[zhx_roster_37.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_38_entry_1:0 "§Y[zhx_roster_38.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_38_entry_2:0 "§Y[zhx_roster_38.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_39_entry_1:0 "§Y[zhx_roster_39.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_39_entry_2:0 "§Y[zhx_roster_39.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_40_entry_1:0 "§Y[zhx_roster_40.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_40_entry_2:0 "§Y[zhx_roster_40.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_41_entry_1:0 "§Y[zhx_roster_41.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_41_entry_2:0 "§Y[zhx_roster_41.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_42_entry_1:0 "§Y[zhx_roster_42.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_42_entry_2:0 "§Y[zhx_roster_42.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_43_entry_1:0 "§Y[zhx_roster_43.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_43_entry_2:0 "§Y[zhx_roster_43.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_44_entry_1:0 "§Y[zhx_roster_44.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_44_entry_2:0 "§Y[zhx_roster_44.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_45_entry_1:0 "§Y[zhx_roster_45.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_45_entry_2:0 "§Y[zhx_roster_45.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_46_entry_1:0 "§Y[zhx_roster_46.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_46_entry_2:0 "§Y[zhx_roster_46.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_47_entry_1:0 "§Y[zhx_roster_47.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_47_entry_2:0 "§Y[zhx_roster_47.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_48_entry_1:0 "§Y[zhx_roster_48.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_48_entry_2:0 "§Y[zhx_roster_48.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_49_entry_1:0 "§Y[zhx_roster_49.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_49_entry_2:0 "§Y[zhx_roster_49.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_50_entry_1:0 "§Y[zhx_roster_50.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_50_entry_2:0 "§Y[zhx_roster_50.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_51_entry_1:0 "§Y[zhx_roster_51.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_51_entry_2:0 "§Y[zhx_roster_51.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_52_entry_1:0 "§Y[zhx_roster_52.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_52_entry_2:0 "§Y[zhx_roster_52.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_53_entry_1:0 "§Y[zhx_roster_53.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_53_entry_2:0 "§Y[zhx_roster_53.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_54_entry_1:0 "§Y[zhx_roster_54.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_54_entry_2:0 "§Y[zhx_roster_54.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_55_entry_1:0 "§Y[zhx_roster_55.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_55_entry_2:0 "§Y[zhx_roster_55.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_56_entry_1:0 "§Y[zhx_roster_56.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_56_entry_2:0 "§Y[zhx_roster_56.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_57_entry_1:0 "§Y[zhx_roster_57.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_57_entry_2:0 "§Y[zhx_roster_57.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_58_entry_1:0 "§Y[zhx_roster_58.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_58_entry_2:0 "§Y[zhx_roster_58.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_59_entry_1:0 "§Y[zhx_roster_59.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_59_entry_2:0 "§Y[zhx_roster_59.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_60_entry_1:0 "§Y[zhx_roster_60.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_60_entry_2:0 "§Y[zhx_roster_60.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_61_entry_1:0 "§Y[zhx_roster_61.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_61_entry_2:0 "§Y[zhx_roster_61.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_62_entry_1:0 "§Y[zhx_roster_62.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_62_entry_2:0 "§Y[zhx_roster_62.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_63_entry_1:0 "§Y[zhx_roster_63.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_63_entry_2:0 "§Y[zhx_roster_63.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_64_entry_1:0 "§Y[zhx_roster_64.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_64_entry_2:0 "§Y[zhx_roster_64.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_65_entry_1:0 "§Y[zhx_roster_65.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_65_entry_2:0 "§Y[zhx_roster_65.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_66_entry_1:0 "§Y[zhx_roster_66.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_66_entry_2:0 "§Y[zhx_roster_66.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_67_entry_1:0 "§Y[zhx_roster_67.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_67_entry_2:0 "§Y[zhx_roster_67.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_68_entry_1:0 "§Y[zhx_roster_68.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_68_entry_2:0 "§Y[zhx_roster_68.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_69_entry_1:0 "§Y[zhx_roster_69.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_69_entry_2:0 "§Y[zhx_roster_69.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_70_entry_1:0 "§Y[zhx_roster_70.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_70_entry_2:0 "§Y[zhx_roster_70.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_71_entry_1:0 "§Y[zhx_roster_71.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_71_entry_2:0 "§Y[zhx_roster_71.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_72_entry_1:0 "§Y[zhx_roster_72.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_72_entry_2:0 "§Y[zhx_roster_72.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_73_entry_1:0 "§Y[zhx_roster_73.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_73_entry_2:0 "§Y[zhx_roster_73.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_74_entry_1:0 "§Y[zhx_roster_74.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_74_entry_2:0 "§Y[zhx_roster_74.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_75_entry_1:0 "§Y[zhx_roster_75.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_75_entry_2:0 "§Y[zhx_roster_75.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_76_entry_1:0 "§Y[zhx_roster_76.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_76_entry_2:0 "§Y[zhx_roster_76.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_77_entry_1:0 "§Y[zhx_roster_77.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_77_entry_2:0 "§Y[zhx_roster_77.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_78_entry_1:0 "§Y[zhx_roster_78.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_78_entry_2:0 "§Y[zhx_roster_78.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_79_entry_1:0 "§Y[zhx_roster_79.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_79_entry_2:0 "§Y[zhx_roster_79.GetName]§!×20"
+ zhx_council_vote_roster_zhx_roster_80_entry_1:0 "§Y[zhx_roster_80.GetName]§!×10"
+ zhx_council_vote_roster_zhx_roster_80_entry_2:0 "§Y[zhx_roster_80.GetName]§!×20"
+ zhx_gui_council_vote_a_roster_tt:0 "§YžRöehyØv§!ÿ2u §Y[CZH.zhx_council_vote_a_count.GetValue]§!0YN §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!\nòT•býVpe §Y[CZH.zhx_council_voted_country_count.GetValue]§!ÿ”^•býVpe §Y[CZH.zhx_council_eligible_country_count.GetValue]§!\n\n§Y=ec2uHh§!\n[Root.GetZhxCouncilVoteAEntryTianzi][Root.GetZhxCouncilVoteAEntry01][Root.GetZhxCouncilVoteAEntry02][Root.GetZhxCouncilVoteAEntry03][Root.GetZhxCouncilVoteAEntry04][Root.GetZhxCouncilVoteAEntry05][Root.GetZhxCouncilVoteAEntry06][Root.GetZhxCouncilVoteAEntry07][Root.GetZhxCouncilVoteAEntry08][Root.GetZhxCouncilVoteAEntry09][Root.GetZhxCouncilVoteAEntry10][Root.GetZhxCouncilVoteAEntry11][Root.GetZhxCouncilVoteAEntry12][Root.GetZhxCouncilVoteAEntry13][Root.GetZhxCouncilVoteAEntry14][Root.GetZhxCouncilVoteAEntry15][Root.GetZhxCouncilVoteAEntry16][Root.GetZhxCouncilVoteAEntry17][Root.GetZhxCouncilVoteAEntry18][Root.GetZhxCouncilVoteAEntry19][Root.GetZhxCouncilVoteAEntry20][Root.GetZhxCouncilVoteAEntry21][Root.GetZhxCouncilVoteAEntry22][Root.GetZhxCouncilVoteAEntry23][Root.GetZhxCouncilVoteAEntry24][Root.GetZhxCouncilVoteAEntry25][Root.GetZhxCouncilVoteAEntry26][Root.GetZhxCouncilVoteAEntry27][Root.GetZhxCouncilVoteAEntry28][Root.GetZhxCouncilVoteAEntry29][Root.GetZhxCouncilVoteAEntry30][Root.GetZhxCouncilVoteAEntry31][Root.GetZhxCouncilVoteAEntry32][Root.GetZhxCouncilVoteAEntry33][Root.GetZhxCouncilVoteAEntry34][Root.GetZhxCouncilVoteAEntry35][Root.GetZhxCouncilVoteAEntry36][Root.GetZhxCouncilVoteAEntry37][Root.GetZhxCouncilVoteAEntry38][Root.GetZhxCouncilVoteAEntry39][Root.GetZhxCouncilVoteAEntry40][Root.GetZhxCouncilVoteAEntry41][Root.GetZhxCouncilVoteAEntry42][Root.GetZhxCouncilVoteAEntry43][Root.GetZhxCouncilVoteAEntry44][Root.GetZhxCouncilVoteAEntry45][Root.GetZhxCouncilVoteAEntry46][Root.GetZhxCouncilVoteAEntry47][Root.GetZhxCouncilVoteAEntry48][Root.GetZhxCouncilVoteAEntry49][Root.GetZhxCouncilVoteAEntry50][Root.GetZhxCouncilVoteAEntry51][Root.GetZhxCouncilVoteAEntry52][Root.GetZhxCouncilVoteAEntry53][Root.GetZhxCouncilVoteAEntry54][Root.GetZhxCouncilVoteAEntry55][Root.GetZhxCouncilVoteAEntry56][Root.GetZhxCouncilVoteAEntry57][Root.GetZhxCouncilVoteAEntry58][Root.GetZhxCouncilVoteAEntry59][Root.GetZhxCouncilVoteAEntry60][Root.GetZhxCouncilVoteAEntry61][Root.GetZhxCouncilVoteAEntry62][Root.GetZhxCouncilVoteAEntry63][Root.GetZhxCouncilVoteAEntry64][Root.GetZhxCouncilVoteAEntry65][Root.GetZhxCouncilVoteAEntry66][Root.GetZhxCouncilVoteAEntry67][Root.GetZhxCouncilVoteAEntry68][Root.GetZhxCouncilVoteAEntry69][Root.GetZhxCouncilVoteAEntry70][Root.GetZhxCouncilVoteAEntry71][Root.GetZhxCouncilVoteAEntry72][Root.GetZhxCouncilVoteAEntry73][Root.GetZhxCouncilVoteAEntry74][Root.GetZhxCouncilVoteAEntry75][Root.GetZhxCouncilVoteAEntry76][Root.GetZhxCouncilVoteAEntry77][Root.GetZhxCouncilVoteAEntry78][Root.GetZhxCouncilVoteAEntry79][Root.GetZhxCouncilVoteAEntry80]"
+ zhx_gui_council_vote_b_roster_tt:0 "§YžRöehyØv§!ÿ2u §Y[CZH.zhx_council_vote_a_count.GetValue]§!0YN §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!\nòT•býVpe §Y[CZH.zhx_council_voted_country_count.GetValue]§!ÿ”^•býVpe §Y[CZH.zhx_council_eligible_country_count.GetValue]§!\n\n§Y=ecYNHh§!\n[Root.GetZhxCouncilVoteBEntryTianzi][Root.GetZhxCouncilVoteBEntry01][Root.GetZhxCouncilVoteBEntry02][Root.GetZhxCouncilVoteBEntry03][Root.GetZhxCouncilVoteBEntry04][Root.GetZhxCouncilVoteBEntry05][Root.GetZhxCouncilVoteBEntry06][Root.GetZhxCouncilVoteBEntry07][Root.GetZhxCouncilVoteBEntry08][Root.GetZhxCouncilVoteBEntry09][Root.GetZhxCouncilVoteBEntry10][Root.GetZhxCouncilVoteBEntry11][Root.GetZhxCouncilVoteBEntry12][Root.GetZhxCouncilVoteBEntry13][Root.GetZhxCouncilVoteBEntry14][Root.GetZhxCouncilVoteBEntry15][Root.GetZhxCouncilVoteBEntry16][Root.GetZhxCouncilVoteBEntry17][Root.GetZhxCouncilVoteBEntry18][Root.GetZhxCouncilVoteBEntry19][Root.GetZhxCouncilVoteBEntry20][Root.GetZhxCouncilVoteBEntry21][Root.GetZhxCouncilVoteBEntry22][Root.GetZhxCouncilVoteBEntry23][Root.GetZhxCouncilVoteBEntry24][Root.GetZhxCouncilVoteBEntry25][Root.GetZhxCouncilVoteBEntry26][Root.GetZhxCouncilVoteBEntry27][Root.GetZhxCouncilVoteBEntry28][Root.GetZhxCouncilVoteBEntry29][Root.GetZhxCouncilVoteBEntry30][Root.GetZhxCouncilVoteBEntry31][Root.GetZhxCouncilVoteBEntry32][Root.GetZhxCouncilVoteBEntry33][Root.GetZhxCouncilVoteBEntry34][Root.GetZhxCouncilVoteBEntry35][Root.GetZhxCouncilVoteBEntry36][Root.GetZhxCouncilVoteBEntry37][Root.GetZhxCouncilVoteBEntry38][Root.GetZhxCouncilVoteBEntry39][Root.GetZhxCouncilVoteBEntry40][Root.GetZhxCouncilVoteBEntry41][Root.GetZhxCouncilVoteBEntry42][Root.GetZhxCouncilVoteBEntry43][Root.GetZhxCouncilVoteBEntry44][Root.GetZhxCouncilVoteBEntry45][Root.GetZhxCouncilVoteBEntry46][Root.GetZhxCouncilVoteBEntry47][Root.GetZhxCouncilVoteBEntry48][Root.GetZhxCouncilVoteBEntry49][Root.GetZhxCouncilVoteBEntry50][Root.GetZhxCouncilVoteBEntry51][Root.GetZhxCouncilVoteBEntry52][Root.GetZhxCouncilVoteBEntry53][Root.GetZhxCouncilVoteBEntry54][Root.GetZhxCouncilVoteBEntry55][Root.GetZhxCouncilVoteBEntry56][Root.GetZhxCouncilVoteBEntry57][Root.GetZhxCouncilVoteBEntry58][Root.GetZhxCouncilVoteBEntry59][Root.GetZhxCouncilVoteBEntry60][Root.GetZhxCouncilVoteBEntry61][Root.GetZhxCouncilVoteBEntry62][Root.GetZhxCouncilVoteBEntry63][Root.GetZhxCouncilVoteBEntry64][Root.GetZhxCouncilVoteBEntry65][Root.GetZhxCouncilVoteBEntry66][Root.GetZhxCouncilVoteBEntry67][Root.GetZhxCouncilVoteBEntry68][Root.GetZhxCouncilVoteBEntry69][Root.GetZhxCouncilVoteBEntry70][Root.GetZhxCouncilVoteBEntry71][Root.GetZhxCouncilVoteBEntry72][Root.GetZhxCouncilVoteBEntry73][Root.GetZhxCouncilVoteBEntry74][Root.GetZhxCouncilVoteBEntry75][Root.GetZhxCouncilVoteBEntry76][Root.GetZhxCouncilVoteBEntry77][Root.GetZhxCouncilVoteBEntry78][Root.GetZhxCouncilVoteBEntry79][Root.GetZhxCouncilVoteBEntry80]"
+ zhx_gui_council_vote_c_roster_tt:0 "§YžRöehyØv§!ÿ2u §Y[CZH.zhx_council_vote_a_count.GetValue]§!0YN §Y[CZH.zhx_council_vote_b_count.GetValue]§!0v^Ëz §Y[CZH.zhx_council_vote_c_count.GetValue]§!\nòT•býVpe §Y[CZH.zhx_council_voted_country_count.GetValue]§!ÿ”^•býVpe §Y[CZH.zhx_council_eligible_country_count.GetValue]§!\n\n§Y=ecŒv¶Rv^Ëz§!\n[Root.GetZhxCouncilVoteCEntryTianzi][Root.GetZhxCouncilVoteCEntry01][Root.GetZhxCouncilVoteCEntry02][Root.GetZhxCouncilVoteCEntry03][Root.GetZhxCouncilVoteCEntry04][Root.GetZhxCouncilVoteCEntry05][Root.GetZhxCouncilVoteCEntry06][Root.GetZhxCouncilVoteCEntry07][Root.GetZhxCouncilVoteCEntry08][Root.GetZhxCouncilVoteCEntry09][Root.GetZhxCouncilVoteCEntry10][Root.GetZhxCouncilVoteCEntry11][Root.GetZhxCouncilVoteCEntry12][Root.GetZhxCouncilVoteCEntry13][Root.GetZhxCouncilVoteCEntry14][Root.GetZhxCouncilVoteCEntry15][Root.GetZhxCouncilVoteCEntry16][Root.GetZhxCouncilVoteCEntry17][Root.GetZhxCouncilVoteCEntry18][Root.GetZhxCouncilVoteCEntry19][Root.GetZhxCouncilVoteCEntry20][Root.GetZhxCouncilVoteCEntry21][Root.GetZhxCouncilVoteCEntry22][Root.GetZhxCouncilVoteCEntry23][Root.GetZhxCouncilVoteCEntry24][Root.GetZhxCouncilVoteCEntry25][Root.GetZhxCouncilVoteCEntry26][Root.GetZhxCouncilVoteCEntry27][Root.GetZhxCouncilVoteCEntry28][Root.GetZhxCouncilVoteCEntry29][Root.GetZhxCouncilVoteCEntry30][Root.GetZhxCouncilVoteCEntry31][Root.GetZhxCouncilVoteCEntry32][Root.GetZhxCouncilVoteCEntry33][Root.GetZhxCouncilVoteCEntry34][Root.GetZhxCouncilVoteCEntry35][Root.GetZhxCouncilVoteCEntry36][Root.GetZhxCouncilVoteCEntry37][Root.GetZhxCouncilVoteCEntry38][Root.GetZhxCouncilVoteCEntry39][Root.GetZhxCouncilVoteCEntry40][Root.GetZhxCouncilVoteCEntry41][Root.GetZhxCouncilVoteCEntry42][Root.GetZhxCouncilVoteCEntry43][Root.GetZhxCouncilVoteCEntry44][Root.GetZhxCouncilVoteCEntry45][Root.GetZhxCouncilVoteCEntry46][Root.GetZhxCouncilVoteCEntry47][Root.GetZhxCouncilVoteCEntry48][Root.GetZhxCouncilVoteCEntry49][Root.GetZhxCouncilVoteCEntry50][Root.GetZhxCouncilVoteCEntry51][Root.GetZhxCouncilVoteCEntry52][Root.GetZhxCouncilVoteCEntry53][Root.GetZhxCouncilVoteCEntry54][Root.GetZhxCouncilVoteCEntry55][Root.GetZhxCouncilVoteCEntry56][Root.GetZhxCouncilVoteCEntry57][Root.GetZhxCouncilVoteCEntry58][Root.GetZhxCouncilVoteCEntry59][Root.GetZhxCouncilVoteCEntry60][Root.GetZhxCouncilVoteCEntry61][Root.GetZhxCouncilVoteCEntry62][Root.GetZhxCouncilVoteCEntry63][Root.GetZhxCouncilVoteCEntry64][Root.GetZhxCouncilVoteCEntry65][Root.GetZhxCouncilVoteCEntry66][Root.GetZhxCouncilVoteCEntry67][Root.GetZhxCouncilVoteCEntry68][Root.GetZhxCouncilVoteCEntry69][Root.GetZhxCouncilVoteCEntry70][Root.GetZhxCouncilVoteCEntry71][Root.GetZhxCouncilVoteCEntry72][Root.GetZhxCouncilVoteCEntry73][Root.GetZhxCouncilVoteCEntry74][Root.GetZhxCouncilVoteCEntry75][Root.GetZhxCouncilVoteCEntry76][Root.GetZhxCouncilVoteCEntry77][Root.GetZhxCouncilVoteCEntry78][Root.GetZhxCouncilVoteCEntry79][Root.GetZhxCouncilVoteCEntry80]"
+# ZHX_COUNCIL_VOTE_TOOLTIPS_END
+
+ zhx_debate.1.t:0 ")YN'Y©RËYS"
+ zhx_debate.1.d:0 ")YN'Y©¶r`òTÏuRËYS0"
+ zhx_debate.2.t:0 ")YN'Y©"
+ zhx_debate.2.d:0 "RýVKN-NòT	gNbkN¶RfRô‹—V0R•gõeSÿ³åNŠb,gýVýVº‹lSHNùR)YNéy^„vlQVIN.V0)YPRSÎNTJhfRô‹-NŽ÷‹2N¶Rº‹©ÿTýVÍNïSZWcêñT„výV…QýVº‹ÿFOÅV‰˜hˆfêTWYýVE–ÆQRôfJP—VhT)YNÇ‘(u0"
+ zhx_debate.2.a:0 "÷‹Q¶RNÕl¶Rº‹)YNKN»l"
+ zhx_debate.2.b:0 "÷‹Q¶RN¨X¶Rº‹ÁNINN^—Ie"
+ zhx_debate.2.c:0 "÷‹Õl¶RN¨X¶Rº‹b¦uNŠQ1r"
+ zhx_debate.3.t:0 ")YN'Y©ÿébšR2uHh"
+ zhx_debate.3.d:0 "	N¶RåNN„vckV÷‹©fNTöe	gHe0)YPRHQÎN-NébšR2uHhÿ–TQÎNYONfRLmébšRYNHh0"
+ zhx_debate.4.t:0 ")YN'Y©ÿébšRYNHh"
+ zhx_debate.4.d:0 "2uHhòTÏueQ-^0÷‹	ébæSN¶RjOHNYNHhÿ	ébTmQ¶R÷‹©fNNv^ÓuHhÿ)YNlQ®‹ËzsSVËY0"
+ zhx_debate.choose_a_ru:0 "åNQ¶RHN2uHh"
+ zhx_debate.choose_a_fa:0 "åNÕl¶RHN2uHh"
+ zhx_debate.choose_a_mo:0 "åN¨X¶RHN2uHh"
+ zhx_debate.choose_a_dao:0 "åNS¶RHN2uHh"
+ zhx_debate.choose_a_bing:0 "åNuQ¶RHN2uHh"
+ zhx_debate.choose_a_zongheng:0 "åNµu8j¶RHN2uHh"
+ zhx_debate.choose_b_ru:0 "åNQ¶RHNYNHh"
+ zhx_debate.choose_b_fa:0 "åNÕl¶RHNYNHh"
+ zhx_debate.choose_b_mo:0 "åN¨X¶RHNYNHh"
+ zhx_debate.choose_b_dao:0 "åNS¶RHNYNHh"
+ zhx_debate.choose_b_bing:0 "åNuQ¶RHNYNHh"
+ zhx_debate.choose_b_zongheng:0 "åNµu8j¶RHNYNHh"
+ zhx_debate.cancel_selection:0 "‚fébHhÿÝOYu°s	g÷‹©"
+
+ zhx_debate.10.t:0 ")YNlQ®‹ÿŒv¶Rº‹-^"
+ zhx_debate.10.d:0 "2N¶RfRô‹òTÏu‰vN,gJSº‹-^0RýVïSåN¨cLNvQ-NN¶RbHNAS”Nt^…QLˆ„v)YNLffRÿmNïSåNIN.VŒv¶Rv^Ëz0õeS¾0R75N•bT,gýVýVº‹wÿOåNžRõxQƒ«ŽýN˜Y!.sNhyÿ–™!khˆ`TÍNïS(Wø‹Y‹sO„v)YNlQ®‹h9ehy0"
+ zhx_debate.11.t:0 ")YN'Y©ÿQ¨XKN®‹"
+ zhx_debate.11.d:0 "QwåNTR0Jy^Nøv’N1ûNôucø‹¯Oéy^ÿ¨Xw‰BlŠb^—Ie0QeˆR0‚‚(uŒTÝO²bSýVnŽNýVE–ÆQR-NÃV0RýVïSåN=ecvQ-NN¶RÿmNïSåNÝOYuŒv¶Rv^Ëz0õeS¾0R75N•bT,gýVýVº‹wÿSåNžRõxQƒ«ŽýN˜Y!.sNhy0–™!khˆ`TÍNïS(Wø‹Y‹sO-N9ehy0"
+ zhx_debate.12.t:0 ")YN'Y©ÿÕl¨XKN®‹"
+ zhx_debate.12.d:0 "Õl¶R‰BlhT)YN%NJhgbLˆb¦u0Áˆ³QŒTqQTIN¡Rÿ¨XwRZWc6R¦^ÅV‰˜¥c×S^—Ie0QeˆRŒTlQqQ)RÊv„vÀhŒš0RýVïSåN=ecvQ-NN¶RÿmNïSåNÝOYuŒv¶Rv^Ëz0õeS¾0R75N•bT,gýVýVº‹wÿSåNžRõxQƒ«ŽýN˜Y!.sNhy0–™!khˆ`TÍNïS(Wø‹Y‹sO-N9ehy0"
+ zhx_debate.vote_ru:0 "¨cLNQ¶RHN)YNLffR"
+ zhx_debate.vote_fa:0 "¨cLNÕl¶RHN)YNLffR"
+ zhx_debate.vote_mo:0 "¨cLN¨X¶RHN)YNLffR"
+ zhx_debate.vote_dao:0 "¨cLNS¶RHN)YNLffR"
+ zhx_debate.vote_bing:0 "¨cLNuQ¶RHN)YNLffR"
+ zhx_debate.vote_zongheng:0 "¨cLNµu8j¶RHN)YNLffR"
+ zhx_debate.vote_plural:0 "Œv¶Rv^ËzÿNšRNS"
+
+ zhx_debate.20.t:0 ")YN'Y©KNœg"
+ zhx_debate.20.d.ru:0 "Q¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0dkThT)YNSôfÍ‘Æ‰)YNŒTs^0TRNKQ6R…QbÿùRYb‰NÜw)RÍN	g÷NJPÿtSNQ«ˆÆ‰HN=UN„vßvŸRegn0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.d.fa:0 "Õl¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0hT)YNSôfÍ‘Æ‰b¦ugbLˆ0jPbk…QbŒTùRYÜw)Rÿ	gýw›R=‰VqQTÁˆ³Q„výV¶RSôf¹Rf·ƒ—VßvŸR0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.d.mo:0 "¨X¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0)YNŒTs^N6Rbkø‹¯O…QbS·ƒ—VôfØšÄ‹÷NÿUS¯uûQ%ßWYýV¶RNQ³åNÁ‹fIeOckSV0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.d.dao:0 "S¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0)YNSôfÍ‘Æ‰bk‰N0O‰QNN„Yr^„˜0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.d.bing:0 "uQ¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0)YNSôfÍ‘Æ‰Yb0qQT2–¡VN6RÜwKNŸR0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.d.zongheng:0 "µu8j¶RÐcHh%NJh†˜HQvQYO	ébÿbHN,gJS)YNLffR0)YNSôfÍ‘Æ‰Óußv06Raˆ08nô‹NŒjP0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.d.plural:0 "¡l	gûNUON¶RTöe%NJh†˜HQæSY2NÍy	ébÿhT)YNàVwb²‹Œv¶Rv^Ëz0TýVïSåNçuíu(uNTfRô‹ã‰Ê‘ßv¦uÿ`ó`ôfHNImÃÿFOqQTÄ‰RNOyr+RVY±RûNUON¶R„vb‰Nbéy^Â‰0\n\n,rNÐcHhÿ§Y[Root.zhx_council_vote_a_count.GetValue]§!0,rŒNÐcHhÿ§Y[Root.zhx_council_vote_b_count.GetValue]§!0Œv¶Rv^Ëzÿ§Y[Root.zhx_council_vote_c_count.GetValue]§!"
+ zhx_debate.20.a:0 "dk®‹Lˆ)YN"
+ zhx_debate_result_tt:0 "'Y©ÓuœgúVšRAS”Nt^0=ecÜwúQÓuœg„vø‹¯O·ƒ—VßvŸRÿTýVýV…QýVº‹ŒTwýN—RYeGWÝOcNØS0"
+
+ zhx_debate.30.t:0 ")YNLffRNýVE–ÆQR"
+ zhx_debate.30.d.ru:0 "§YSVMR)YNLffRÿQ¶R§!\n\nhT)YNŒRhQŒTs^öeÿJyPNJPÏkt^˜Y+1ÿÑSuø‹¯O…Qböe˜Y-10hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+3ÿÜw¹eæS—V2ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.fa:0 "§YSVMR)YNLffRÿÕl¶R§!\n\n¡l	gø‹¯O…QböeÿJyPNJPÏkt^˜Y+1ÿ	NHWbôfY…Qböe˜Y-20hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+5ÿÜw¹eæS—V3ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.mo:0 "§YSVMR)YNLffRÿ¨X¶R§!\n\nhT)YNŒRhQŒTs^öeÿJyPNJPÏkt^˜Y+2ÿÑSuø‹¯O…Qböe˜Y-20hT)YNýV¶RûQ%ßWYb‰N†˜–ˆöeêSOJyPNJP+1ÿNàVÜw)R,g«Ž·ƒ—VßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.dao:0 "§YSVMR)YNLffRÿS¶R§!\n\nhT)YNŒRhQŒTs^öeÿJyPNJPÏkt^˜Y+2ÿÑSuø‹¯O…Qböe˜Y-10hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+1ÿÜw¹eæS—V1ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.bing:0 "§YSVMR)YNLffRÿuQ¶R§!\n\n¡l	gø‹¯O…QböeÿJyPNJPÏkt^˜Y+1ÿ	NHWbôfY…Qböe˜Y-10hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+5ÿÜw¹eæS—V4ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.zongheng:0 "§YSVMR)YNLffRÿµu8j¶R§!\n\n¡l	gø‹¯O…QböeÿJyPNJPÏkt^˜Y+1ÿ	NHWbôfY…Qböe˜Y-10hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+3ÿÜw¹eæS—V2ßvŸR0\n\nÙWYÄ‰RêSÄ‹÷NRýVKNô•„vLˆHNÿNOÿfbc,gýVýVº‹0"
+ zhx_debate.30.d.plural:0 "§YSVMR¶r`ÿŒv¶Rv^Ëz§!\n\nhT)YNN˜YÇ‘(uÐgN¶RùRŒTs^b…Qb„vÄ‹÷N0hT)YNbXTûQ%ßWYb‰N†˜–ˆöeÿJyPNJP+2ÿÜw¹e·ƒ—V1ßvŸR0\n\nTýVÍNïSZWcŠVdkNT„výV…QýVº‹0"
+ zhx_debate.30.d.none:0 "§YSVMRSàe)YNLffR§!\n\nõeS70êSÖS—VNfNè•Ûiÿ,gLmØ—	NýVÇ‘(uv^	gæSNTLmýV¶RõeS50ÿMbýw²N	Nt^	gHe„vckV÷‹©fN02N¶R÷‹©Töe	gHeTÿ)YPR¹eïSìSV)YN'Y©0–™!kÓuœgµNuMRÿùRYb‰NÜw)Rçuíu¿l(uŸS	g„vJyPNJP+5Ä‰R0"
+ zhx_debate.30.a:0 "ýVº‹TVÿ)YNqQ®‹"
+ zhx_debate.30.b:0 "ågwmQ¶RT¿R"
+ zhx_debate.31.t:0 "mQ¶RT¿RN÷‹©è•Ûi"
+ zhx_debate.31.d:0 "§YmQ¶RT¿RÿõeS70§!\n\nQ¶R §Y[Root.zhx_tianxia_school_ru_total_count.GetValue]§!ýVÿ70¹p§Y[Root.zhx_tianxia_proposal_ru_count.GetValue]§!	ÿ0Õl¶R §Y[Root.zhx_tianxia_school_fa_total_count.GetValue]§!ýVÿ70¹p§Y[Root.zhx_tianxia_proposal_fa_count.GetValue]§!	ÿ\n¨X¶R §Y[Root.zhx_tianxia_school_mo_total_count.GetValue]§!ýVÿ70¹p§Y[Root.zhx_tianxia_proposal_mo_count.GetValue]§!	ÿ0S¶R §Y[Root.zhx_tianxia_school_dao_total_count.GetValue]§!ýVÿ70¹p§Y[Root.zhx_tianxia_proposal_dao_count.GetValue]§!	ÿ\nuQ¶R §Y[Root.zhx_tianxia_school_bing_total_count.GetValue]§!ýVÿ70¹p§Y[Root.zhx_tianxia_proposal_bing_count.GetValue]§!	ÿ0µu8j¶R §Y[Root.zhx_tianxia_school_zongheng_total_count.GetValue]§!ýVÿ70¹p§Y[Root.zhx_tianxia_proposal_zongheng_count.GetValue]§!	ÿ\n\n§gI`peêS¡‹hT)YNJyYeýV¶R070¹pºNpeêShˆHyŒ	gNfNè•ÛiÿckV÷‹©Ø‰Bl,gLmóS	NýVÇ‘(uÿv^	gæSNTLmýV¶RõeS500§!"
+ zhx_debate.31.a:0 "È‰Õk"
+ zhx_debate.40.t:0 "÷‹©fNeQg"
+ zhx_debate.40.d:0 ",gýVåNSVMRýVº‹ckVNfN÷‹©0÷‹©fNS(W	Nt^…QIr…VæSN¶RÍT”^ÿå‚ËYÈu¡l	g,rŒN¶RÿƒROê6q1YHewN`S(u)YNlQ®‹0"
+ zhx_debate.40.a:0 "Y—P)YNÍT”^"
+ zhx_debate.41.t:0 "8hŒš÷‹©9húW"
+ zhx_debate.41.d:0 "õeS¾0R70êS=f,gýVNfN„vè•Ûi0ckV÷‹©Ø—‰,gLmóS	g	N8NhT)YNJyYeýV¶RÇ‘(uÿv^	gæSNTLmýV¶RõeS¾0R500"
+ zhx_debate.41.a:0 "9húWòTYÿckVNfN"
+ zhx_debate.41.b:0 "TS8gÆ–ÿ‚fNfN"
+ zhx_debate.90.t:0 ")YN'Y©t^¦^Àhåg"
+ zhx_debate.90.d:0 ")YN'Y©„v÷‹©fN0P	¶r`NAS”Nt^ûNgòTÏuÀhåg0"
+
+ zhx_debug.100.t:0 "VÑS„˜È‰ÿ)YN'Y©"
+ zhx_debug.100.d:0 "Ù=f1uµc6RðSbXRchµuŒÕ‹îvUVKb¨RSbV„vVÑS„˜È‰eQãS0ƒRO(WlQ®‹zzò•öend–°s	g÷‹©fNNLffRûNgÿQ¿l(uckV¶r`HgìSVNJS)YN'Y©0÷‹(W4NöeXRch-NO(uÿòTÏuVhy„vlQ®‹NýwHV6R-Nbk0"
+ zhx_debug.100.a:0 "¨X¶RNS¶Rôv¥ceQ-^"
+ zhx_debug.100.a.tt:0 "ub¨X¶R0S¶R2NýN	Nt^÷‹©fNÿv^	cckV„vp`‹Y2N¶RAmzËzsSVhy0"
+ zhx_debug.100.b:0 "©‹Q0uQ0µu8j	N¶RP	"
+ zhx_debug.100.b.tt:0 "ubQ¶R0uQ¶R0µu8j¶R	NýN	Nt^÷‹©fNÿv^ÛeQ)YPRHQ	2uHh0Q	YNHh„vckVAmz0"
+ zhx_debug.100.c:0 "ntNNnVÑS„˜È‰"
+ zhx_debug.100.cancel:0 "‚fNÛLˆVÑS„˜È‰"
+ zhx_debug.199.t:0 "nt)YN'Y©VÑS„˜È‰"
+ zhx_debug.199.d:0 "nteQãSêSûyd–VÑS„˜È‰YuN„v÷‹©0P	0LffRûNgŒT®‹‹N¶r`0HNMQH–çegP–‹NöNï‹ždNNJSlQ®‹ÿòTÏuVhy„v„˜È‰ÅV‰˜HQck8^Óu—r0"
+ zhx_debug.199.a:0 "ntVÑS„˜È‰¶r`"
+ zhx_debug.199.b:0 "SVMRNýw‰RhQnt"
+
+ zhx_open_debug_catalog_title:0 "ŒÕ‹"
+ zhx_open_debug_catalog_desc:0 "SbVVÑSw‹NöNîvUV0å‹³Q®‹êS	g(W,gXRchÇµc6RðS‹NöN§Yevent zhx_debug.1§!=T(uTMbOúQ°sÿAI8lÜNOO(u0"
+ zhx_debug.1.t:0 "=T(uVÑSwŒÕ‹îvUV"
+ zhx_debug.1.d:0 "EU4 1.37.5v^8gŠbµc6RðS„vdebug_mode¶r`VLeÙu!jÄu,gÿàVdk,g‹NöNO(uìrËz„vXRch×eh=T(u“ŒÕ‹”³Q®‹0ck8^8n©sNOê¨RŒ(uÙ8NeQãS0"
+ zhx_debug.1.a:0 "=T(uv^SbVŒÕ‹îvUV"
+ zhx_debug.1.cancel:0 "‚fN=T(u"
+ zhx_debug.10.t:0 "ŒÕ‹îvUV · )YNlQ®‹"
+ zhx_debug.10.d:0 ",rNu˜6eUVhT)YNlQ®‹N)YN'Y©„v‰RhQVÑSeQãS0ck(WVhy0Ir…VÓu—rbòT	g)YN‹NØS…VžRöeÿïSýw4xOW¶r`Hg„v	y˜Oê¨R–Ï…0"
+ zhx_debug.20.t:0 "ŒÕ‹îvUV · JyYefRLm"
+ zhx_debug.20.d:0 ",rŒNu˜6eUVýVº‹	ébNêSû‹&Ms0ýVº‹	ébO8lENîO9eSVMRXRchÿ&MsŒT)YNLffRu˜b—êSû‹ÖSbÍ‘—rLfHyXR0"
+ zhx_debug.catalog.debate:0 "ŒÕ‹)YN'Y©"
+ zhx_debug.catalog.debate.tt:0 "nd–SVMR÷‹©NLffRûNgÿ6qTSbV¨XS2N¶RbQuQµu8j	N¶R„vckV„˜È‰eQãS0êSýw1ulQ®‹zzò•öe„v)YPRO(u0"
+ zhx_debug.catalog.debate_cleanup:0 "‰RhQnt'Y©„˜È‰"
+ zhx_debug.catalog.debate_cleanup.tt:0 "êS(WVÑS„˜È‰òTÏuÞV0Rzzò•¶r`öeLfHyÿNOHV6R-NbkòT’cg„v•bhy0"
+ zhx_debug.catalog.ritual_breakdown:0 "ŒÕ‹‹s‹TNLˆ"
+ zhx_debug.catalog.ritual_breakdown.tt:0 "(WlQ®‹ŒRhQzzò•N¡l	g·QtSöeÿ¿lckVAmz‰v°‹v^ÐcúQ“‹s‹TNLˆ”)YN‹NØS0"
+ zhx_debug.catalog.tianxia_overview:0 "ågwhT)YN¶r`"
+ zhx_debug.catalog.tianxia_overview.tt:0 "SbVêSû‹„vhT)YNJyPNNéy^I`È‰ÿNîO9eo—r¶r`0"
+ zhx_debug.catalog.next_page:0 "NNu˜ÿJyYefRLm"
+ zhx_debug.catalog.previous_page:0 "NNu˜ÿ)YNlQ®‹"
+ zhx_debug.catalog.close:0 "sQí•îvUV"
+ zhx_debug.catalog.doctrine_first_triad:0 "ŒÕ‹Q0Õl0¨XýVº‹"
+ zhx_debug.catalog.doctrine_second_triad:0 "ŒÕ‹S0uQ0µu8jýVº‹"
+ zhx_debug.catalog.doctrine_mutation.tt:0 "ôv¥cSbVýVº‹	ébŸS‹WÿjOúQ„v	ébO8lENîO9eSVMRXRchÿú^®‹êS(W4NöechO(u0"
+ zhx_debug.catalog.doctrine_ledger:0 "ågw,gýVýVº‹NõeS"
+ zhx_debug.catalog.doctrine_ledger.tt:0 "	cckVlQVsSöeÍ‘—rv^LfHy,gýVõeS&Ms0"
+ zhx_debug.catalog.orthodoxy:0 "ågw)YNLffR"
+ zhx_debug.catalog.orthodoxy.tt:0 "ågwSVMR)YNLffRÿv^ïSçuíuSbVmQ¶RT¿Ríwu˜0"
+ zhx_debug.catalog.disable:0 "sQí•v^jP(u“ŒÕ‹”³Q®‹"
+
+ zhx_review_tianxia_orthodoxy_title:0 "ågw)YNLffR"
+ zhx_review_tianxia_orthodoxy_desc:0 "ågwSVMR)YNLffRÊSvQùRŒTs^0ø‹¯O…Qb0ßWYb‰NÜw)R0ßvŸRŒTJyPNJP„vqVÍT0)YNLffRNO9eØS,gýVýV…QýVº‹0"
+ zhx_file_tianxia_debate_petition_title:0 "NfN÷‹©"
+ zhx_file_tianxia_debate_petition_desc:0 "åN,gýVSVMRýVº‹T)YPR²NNýN	gHe	Nt^„vckV÷‹©fN0õeS70êS=fNfNè•ÛiÿØ—,gLmóS	NýVÇ‘(uÿN	gæSNTLmýV¶RõeS¾0R500"
+ zhx_tianxia_orthodoxy_term:0 ")YNLffRûNg"
+ zhx_tianxia_orthodoxy_term_desc:0 "NNJS)YN'Y©„vÓuœgÍN(WAS”Nt^Lˆg…Q0TýVýV…QýVº‹N×Så‹ûNgP–6R0"
+ zhx_debate_petition_ru:0 "Q¶R÷‹©fN"
+ zhx_debate_petition_fa:0 "Õl¶R÷‹©fN"
+ zhx_debate_petition_mo:0 "¨X¶R÷‹©fN"
+ zhx_debate_petition_dao:0 "S¶R÷‹©fN"
+ zhx_debate_petition_bing:0 "uQ¶R÷‹©fN"
+ zhx_debate_petition_zongheng:0 "µu8j¶R÷‹©fN"
+ zhx_debate_petition_ru_desc:0 "Q¶RckV÷‹©fNÿ	Nt^…QIr…VæSNfRLmqQTeQ-^0"
+ zhx_debate_petition_fa_desc:0 "Õl¶RckV÷‹©fNÿ	Nt^…QIr…VæSNfRLmqQTeQ-^0"
+ zhx_debate_petition_mo_desc:0 "¨X¶RckV÷‹©fNÿ	Nt^…QIr…VæSNfRLmqQTeQ-^0"
+ zhx_debate_petition_dao_desc:0 "S¶RckV÷‹©fNÿ	Nt^…QIr…VæSNfRLmqQTeQ-^0"
+ zhx_debate_petition_bing_desc:0 "uQ¶RckV÷‹©fNÿ	Nt^…QIr…VæSNfRLmqQTeQ-^0"
+ zhx_debate_petition_zongheng_desc:0 "µu8j¶RckV÷‹©fNÿ	Nt^…QIr…VæSNfRLmqQTeQ-^0"

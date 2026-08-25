@@ -2,7 +2,7 @@
 owner = KOR
 controller = KOR
 culture = gdd_samhan
-religion = confucianism
+religion = mahayana
 capital = "Naju"# Naju
 trade_goods = paper 	# And Silk
 hre = no

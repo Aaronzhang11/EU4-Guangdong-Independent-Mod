@@ -184,8 +184,7 @@ government = monarchy
 add_government_reform = korean_monarchy
 government_rank = 2
 technology_group = chinese
-religion = confucianism
-add_harmonized_religion = mahayana
+religion = mahayana
 primary_culture = gdd_samhan
 capital = 735
 
@@ -330,6 +329,7 @@ def first_value(text: str, key: str) -> str:
 def validate(config: dict) -> None:
     expected = {}
     expected_culture = {}
+    expected_religion = {}
     for tag in ("JIZ", "HLD", "KOR"):
         expected.update({pid: tag for pid in config["polities"][tag]["provinces"]})
         expected_culture.update(
@@ -338,9 +338,21 @@ def validate(config: dict) -> None:
                 for pid in config["polities"][tag]["provinces"]
             }
         )
+        expected_religion.update(
+            {
+                pid: config["polities"][tag]["province_religion"]
+                for pid in config["polities"][tag]["provinces"]
+            }
+        )
     expected.update({pid: "LIO" for pid in config["polities"]["LIO"]["new_korea_provinces"]})
     expected_culture.update(
         {pid: "korean" for pid in config["polities"]["LIO"]["new_korea_provinces"]}
+    )
+    expected_religion.update(
+        {
+            pid: config["polities"]["LIO"]["province_religion"]
+            for pid in config["polities"]["LIO"]["new_korea_provinces"]
+        }
     )
     for pid, owner in expected.items():
         paths = list((MOD / "history/provinces").glob(f"{pid} - *.txt"))
@@ -351,11 +363,31 @@ def validate(config: dict) -> None:
             raise ValueError(f"province {pid} ownership drift")
         if first_value(text, "culture") != expected_culture[pid]:
             raise ValueError(f"province {pid} culture drift")
+        if first_value(text, "religion") != expected_religion[pid]:
+            raise ValueError(f"province {pid} religion drift")
     if len(expected) != 30:
         raise ValueError("the four polities do not cover exactly 30 Korean provinces")
     for tag in ("JIZ", "HLD"):
         if not (MOD / f"gfx/flags/{tag}.tga").exists():
             raise ValueError(f"missing {tag} flag")
+    for pid in config["polities"]["LIO"]["liaodong_provinces"]:
+        paths = list((MOD / "history/provinces").glob(f"{pid} - *.txt"))
+        if len(paths) != 1 or first_value(
+            paths[0].read_text(encoding="latin-1"), "religion"
+        ) != config["polities"]["LIO"]["liaodong_province_religion"]:
+            raise ValueError(f"Liao Liaodong province {pid} religion drift")
+    country_histories = {
+        "JIZ": "JIZ - Jizi Joseon.txt",
+        "LIO": "LIO - Liao.txt",
+        "HLD": "HLD - Helan.txt",
+        "KOR": "KOR - Korea.txt",
+    }
+    for tag, filename in country_histories.items():
+        history = from_escaped_bytes((MOD / "history/countries" / filename).read_bytes())
+        if first_value(history, "religion") != config["polities"][tag]["country_religion"]:
+            raise ValueError(f"{tag} country religion drift")
+        if tag == "KOR" and "add_harmonized_religion = mahayana" in history:
+            raise ValueError("Mahayana Goryeo must not harmonize its own state religion")
     expected_opening_characters = {
         "JIZ - Jizi Joseon.txt": ("玄", "准", "箕"),
         "HLD - Helan.txt": ("孟特穆", "充善", "斡朵里"),

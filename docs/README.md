@@ -23,6 +23,7 @@
 4. [斡罗斯大帐](world/04_oros_horde.md)
 5. [文化分裂与思想流派](world/05_culture_and_ideologies.md)
 6. [迁徙、开海与殖民](world/06_migration_and_colonization.md)
+7. [礼教边界、宗教地理与 1444 开局学派](world/07_lijiao_and_opening_schools.md)
 
 ### EU4玩法
 
@@ -31,6 +32,8 @@
 3. [广东与粤国设计](gameplay/02_guangdong_design.md)
 4. [周盟系统技术架构](gameplay/03_zhou_system_architecture.md)
 5. [分阶段实现路线](gameplay/04_implementation_roadmap.md)
+6. [礼教、百家与天下大辩机制](gameplay/05_ritual_hundred_schools_system.md)
+7. [景教牧首与圣像系统](gameplay/06_nestorian_patriarch_system.md)
 
 ### 地图设计
 
