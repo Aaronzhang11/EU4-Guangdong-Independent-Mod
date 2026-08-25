@@ -2,7 +2,7 @@
 owner = KOR
 controller = KOR
 culture = gdd_samhan
-religion = confucianism
+religion = mahayana
 capital = "Gyeongju"# Sangju
 trade_goods = cotton
 hre = no

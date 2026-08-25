@@ -220,12 +220,15 @@ def update_lists():
 
 def history_text(pid, data):
     name, _, _, _, goods, dev, culture = data
-    owner = "NUN" if pid in {4960, 5201, 5203} else "MNG"
+    nun_provinces = {4960, 5201, 5203}
+    tzz_provinces = {664, 5210}
+    owner = "NUN" if pid in nun_provinces else "TZZ" if pid in tzz_provinces else "MNG"
+    religion = "animism" if pid in nun_provinces | tzz_provinces else "confucianism"
     lines = [
         f"# {pid} - {name}", "", f"owner = {owner}", f"controller = {owner}", f"add_core = {owner}",
     ]
     lines += [
-        f"culture = {culture}", "religion = confucianism", f'capital = "{name}"',
+        f"culture = {culture}", f"religion = {religion}", f'capital = "{name}"',
         f"trade_goods = {goods}", f"base_tax = {dev[0]}", f"base_production = {dev[1]}",
         f"base_manpower = {dev[2]}", "is_city = yes",
     ]

@@ -1,0 +1,63 @@
+namespace = zhx_debug
+
+# Permanent developer entry point. It is never scheduled and is reachable only
+# through the console or the save-gated debug catalog.
+country_event = {
+    id = zhx_debug.100
+    title = zhx_debug.100.t
+    desc = zhx_debug.100.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_tianzi = yes
+        has_global_flag = zhx_council_initialised_v1
+        has_saved_global_event_target = zhx_tianzi
+    }
+
+    option = {
+        name = zhx_debug.100.a
+        trigger = { zhx_debug_can_prepare_debate_preview = yes }
+        custom_tooltip = zhx_debug.100.a.tt
+        hidden_effect = { zhx_debug_start_two_school_debate_preview = yes }
+    }
+    option = {
+        name = zhx_debug.100.b
+        trigger = { zhx_debug_can_prepare_debate_preview = yes }
+        custom_tooltip = zhx_debug.100.b.tt
+        hidden_effect = { zhx_debug_start_three_school_debate_preview = yes }
+    }
+    option = {
+        name = zhx_debug.100.c
+        trigger = { zhx_debug_can_cleanup_debate_preview = yes }
+        hidden_effect = { zhx_debug_cleanup_debate_preview = yes }
+    }
+    option = { name = zhx_debug.100.cancel }
+}
+
+# Cleanup is allowed only after the preview ballot has resolved, or after the
+# Tianzi cancels the three-school selector before a deadline is scheduled.
+country_event = {
+    id = zhx_debug.199
+    title = zhx_debug.199.t
+    desc = zhx_debug.199.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_tianzi = yes
+        has_global_flag = zhx_council_initialised_v1
+        has_saved_global_event_target = zhx_tianzi
+        event_target:zhx_tianzi = { tag = ROOT }
+    }
+
+    option = {
+        name = zhx_debug.199.a
+        trigger = { zhx_debug_can_cleanup_debate_preview = yes }
+        hidden_effect = { zhx_debug_cleanup_debate_preview = yes }
+    }
+    option = {
+        name = zhx_debug.199.b
+        trigger = { NOT = { zhx_debug_can_cleanup_debate_preview = yes } }
+    }
+}

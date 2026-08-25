@@ -100,6 +100,17 @@ def apply_province_policy(vanilla_root: Path) -> None:
             for path in history_paths(province_id):
                 old = read_text(path)
                 new = apply_owner(old, tag)
+                if tag == "LIO":
+                    new, count = re.subn(
+                        r"(?m)^(\s*religion\s*=\s*)\S+",
+                        r"\g<1>nestorian",
+                        new,
+                        count=1,
+                    )
+                    if count != 1:
+                        raise ValueError(
+                            f"Province {province_id}: missing initial religion"
+                        )
                 if new != old:
                     path.write_text(new, encoding="utf-8")
 
@@ -129,7 +140,7 @@ def write_country() -> None:
             int(config["capital"]),
             int(config["rank"]),
             str(config["culture"]),
-            capital_religion,
+            str(config.get("religion", capital_religion)),
             tuple(config["accepted"]),
         ),
         encoding="utf-8",
@@ -183,9 +194,17 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
         raise ValueError("LIO capital must be Liaoyang (5204)")
     if initial_value(history, "primary_culture") != "gdd_khitan":
         raise ValueError("LIO must use the dedicated Khitan culture")
+    if initial_value(history, "religion") != "nestorian":
+        raise ValueError("LIO country religion must be Nestorian")
     accepted = set(re.findall(r"(?m)^\s*add_accepted_culture\s*=\s*(\S+)", history))
     if accepted != {"manchu", "gdd_qi"}:
         raise ValueError(f"LIO accepted-culture policy drifted: {sorted(accepted)}")
+    for province_id in LIAODONG_IDS:
+        for path in history_paths(province_id):
+            if initial_value(read_text(path), "religion") != "nestorian":
+                raise ValueError(
+                    f"Province {province_id}: Liao's Liaodong core must be Nestorian"
+                )
 
     source_text = SOURCE.read_text(encoding="utf-8-sig")
     for key in ("LIO", "LIO_ADJ"):

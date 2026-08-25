@@ -3,7 +3,7 @@ add_government_reform = feudalism_reform
 government_rank = 1
 
 technology_group = chinese
-religion = confucianism
+religion = animism
 primary_culture = gdd_zhuang
 add_accepted_culture = gdd_min
 capital = 2161 # Limchow / 廉州; development 7

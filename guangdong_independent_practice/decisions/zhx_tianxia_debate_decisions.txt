@@ -1,0 +1,32 @@
+country_decisions = {
+    zhx_file_tianxia_debate_petition = {
+        major = yes
+
+        potential = {
+            ai = no
+            has_global_flag = zhx_council_initialised_v1
+            zhx_is_tianxia_polity = yes
+            zhx_is_lijiao_country = yes
+        }
+
+        allow = { zhx_can_attempt_tianxia_debate_petition = yes }
+        effect = {
+            custom_tooltip = zhx_file_tianxia_debate_petition_tt
+            hidden_effect = { country_event = { id = zhx_debate.41 } }
+        }
+        ai_will_do = { factor = 0 }
+    }
+
+    zhx_review_tianxia_orthodoxy = {
+        major = no
+
+        potential = {
+            has_global_flag = zhx_council_initialised_v1
+            zhx_is_tianxia_polity = yes
+        }
+
+        allow = { always = yes }
+        effect = { country_event = { id = zhx_debate.30 } }
+        ai_will_do = { factor = 0 }
+    }
+}

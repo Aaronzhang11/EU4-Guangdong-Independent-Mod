@@ -964,18 +964,18 @@ guiTypes = {
 
 			# Lower-left panel: incident status and explanation.
 			instantTextBoxType = {
-				name = "zhx_gui_incident_header"
+				name = "zhx_gui_council_header"
 				position = { x = 95 y = 302 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 0 }
-				text = "ZHX_GUI_INCIDENT_HEADER"
+				text = "ZHX_GUI_COUNCIL_HEADER"
 				maxWidth = 358
 				maxHeight = 32
 				format = centre
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_active"
+				name = "zhx_gui_council_ritual"
 				position = { x = 95 y = 338 }
 				font = "vic_22"
 				text = ""
@@ -986,7 +986,7 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_none"
+				name = "zhx_gui_council_idle"
 				position = { x = 95 y = 338 }
 				font = "vic_22"
 				text = ""
@@ -997,7 +997,20 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_active_description"
+				name = "zhx_gui_council_ritual_description"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				borderSize = { x = 5 y = 5 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 30
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_idle_description"
 				position = { x = 82 y = 370 }
 				font = "vic_18"
 				borderSize = { x = 5 y = 5 }
@@ -1010,83 +1023,613 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_incident_none_description"
-				position = { x = 82 y = 370 }
-				font = "vic_18"
-				borderSize = { x = 5 y = 5 }
-				text = ""
-				maxWidth = 384
-				maxHeight = 60
-				format = centre
-				fixedsize = yes
-				scripted = yes
-			}
-
-			instantTextBoxType = {
-				name = "zhx_gui_incident_footer"
-				position = { x = 82 y = 446 }
+				name = "zhx_gui_council_footer"
+				position = { x = 82 y = 480 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 4 }
-				text = "ZHX_GUI_INCIDENT_FOOTER"
+				text = "ZHX_GUI_COUNCIL_FOOTER"
 				maxWidth = 384
-				maxHeight = 28
+				maxHeight = 22
 				format = centre
 				fixedsize = yes
 			}
 
-			# Lower-right panel: first covenant reform and the detailed overview.
+			# Lower-right panel: Tianxia Great Debate. Reforms and decrees belong
+			# to the separate Mandate view; this council panel reads international
+			# orthodoxy and can only invoke the debate event state machine.
 			instantTextBoxType = {
-				name = "zhx_gui_reform_header"
+				name = "zhx_gui_debate_header"
 				position = { x = 527 y = 302 }
 				font = "vic_18"
 				borderSize = { x = 4 y = 0 }
-				text = "ZHX_GUI_REFORM_HEADER"
+				text = "ZHX_GUI_DEBATE_HEADER"
 				maxWidth = 358
 				maxHeight = 32
 				format = centre
 			}
 
 			instantTextBoxType = {
-				name = "zhx_gui_reform_enacted"
-				position = { x = 515 y = 331 }
+				name = "zhx_gui_debate_orthodoxy_none"
+				position = { x = 514 y = 331 }
 				font = "vic_22"
 				text = ""
-				maxWidth = 260
-				maxHeight = 48
-				format = centre
-				scripted = yes
-			}
-
-			instantTextBoxType = {
-				name = "zhx_gui_reform_available"
-				position = { x = 515 y = 331 }
-				font = "vic_22"
-				text = ""
-				maxWidth = 260
-				maxHeight = 48
-				format = centre
-				scripted = yes
-			}
-
-			instantTextBoxType = {
-				name = "zhx_gui_reform_description"
-				position = { x = 514 y = 390 }
-				font = "vic_18"
-				borderSize = { x = 5 y = 5 }
-				text = "ZHX_GUI_REFORM_DESCRIPTION"
 				maxWidth = 384
-				maxHeight = 54
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_ru"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_fa"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_mo"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_dao"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_bing"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_zongheng"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_plural"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_ru_fa"
+				position = { x = 82 y = 338 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
 				format = centre
 				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_ru_mo"
+				position = { x = 82 y = 338 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_fa_mo"
+				position = { x = 82 y = 338 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate"
+				position = { x = 82 y = 338 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 26
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_resolving"
+				position = { x = 82 y = 338 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 376
+				maxHeight = 22
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_ru" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_fa" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_mo" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_dao" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_bing" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_zongheng" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_ru" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_fa" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_mo" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_dao" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_bing" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_zongheng" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts"
+				position = { x = 82 y = 392 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_settled"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_ready"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_waiting"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts_ru_fa"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts_ru_mo"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts_fa_mo"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_description_idle"
+				position = { x = 514 y = 414 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 30
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_ru"
+				position = { x = 514 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_fa"
+				position = { x = 578 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_mo"
+				position = { x = 642 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_dao"
+				position = { x = 706 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_bing"
+				position = { x = 770 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_zongheng"
+				position = { x = 834 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_none"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_a"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 22
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_b"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 22
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_ru"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_fa"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_mo"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_plural"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_support"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_oppose"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_abstain"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_observer"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			# Centred fallback button when the viewer cannot convene a debate.
+			guiButtonType = {
+				name = "zhx_gui_debate_review_button_solo"
+				position = { x = 653 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = click
+				scripted = yes
 			}
 
 			guiButtonType = {
-				name = "zhx_gui_overview_button"
-				position = { x = 653 y = 449 }
+				name = "zhx_gui_debate_review_button_petition_split"
+				position = { x = 589 y = 449 }
 				quadTextureSprite = "GFX_standard_button_105"
-				buttonText = "ZHX_GUI_OVERVIEW_BUTTON"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
 				buttonFont = "vic_18"
 				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_petition_button"
+				position = { x = 716 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_PETITION_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			# When the Tianzi has two eligible proposals, split the row between
+			# a read-only rules button and the state-changing convene action.
+			guiButtonType = {
+				name = "zhx_gui_debate_review_button_split"
+				position = { x = 589 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_convene_button"
+				position = { x = 716 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_CONVENE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			# During the one-year ballot, Tianxia polities may revise their vote.
+			# Pair-specific buttons overlap by design; custom_gui potentials expose
+			# exactly one first candidate, one second candidate and plurality.
+			guiButtonType = {
+				name = "zhx_gui_council_vote_ru_a_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_RU_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_fa_a_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_fa_b_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_mo_b_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_MO_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = { name = "zhx_gui_council_vote_mo_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_MO_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_dao_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_DAO_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_bing_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_BING_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_zongheng_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_ZONGHENG_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_ru_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_RU_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_dao_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_DAO_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_bing_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_BING_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_zongheng_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_ZONGHENG_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_plural_button"
+				position = { x = 340 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_PLURAL_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_support_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_SUPPORT_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_oppose_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_OPPOSE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_abstain_button"
+				position = { x = 340 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_ABSTAIN_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
 				scripted = yes
 			}
 
@@ -2705,11 +3248,12 @@ guiTypes = {
 			}
 			# ZHX_ROSTER_SHIELDS_END
 
-			# Scripted close clears the persistent display flag. Escape uses the same
-			# action, so closing the overlay never makes it reopen unexpectedly.
+			# Keep the scripted close below the native top HUD.  At the supported UI
+			# scale y=43 is visually correct but its hitbox is intercepted by the HUD.
+			# Escape uses the same action, so closing the overlay never reopens it.
 			guiButtonType = {
 				name = "zhx_gui_close_button"
-				position = { x = 900 y = 43 }
+				position = { x = 900 y = 80 }
 				quadTextureSprite = "GFX_closebutton2"
 				tooltip = ""
 				tooltipText = ""

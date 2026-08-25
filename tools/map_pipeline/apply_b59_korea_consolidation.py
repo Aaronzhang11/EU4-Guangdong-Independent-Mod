@@ -271,7 +271,7 @@ def update_histories(data):
     jeju_text = jeju_path.read_text(encoding="latin-1")
     for key, value in (
         ("owner", "KOR"), ("controller", "KOR"), ("culture", "gdd_samhan"),
-        ("religion", "confucianism"), ("add_core", "KOR"),
+        ("religion", data["religion_targets"]["KOR"]), ("add_core", "KOR"),
     ):
         jeju_text = replace_first(jeju_text, key, value)
     for key, value in zip(
@@ -326,6 +326,35 @@ def validate(data, bitmap, mask):
         if f and f[0].isdigit(): definitions[int(f[0])]=tuple(map(int,f[1:4]))
     for r in data["provinces"]:
         if definitions.get(r["id"])!=tuple(r["rgb"]) or not np.any(np.all(bitmap==tuple(r["rgb"]),axis=2)): raise ValueError(f"Invalid playable {r['id']}")
+        paths = history_matches(r["id"])
+        if len(paths) != 1:
+            raise ValueError(f"Province {r['id']} must have one history")
+        history = paths[0].read_text(encoding="latin-1")
+        for key, expected in (
+            ("owner", r["owner"]),
+            ("culture", r["culture"]),
+            ("religion", r["religion"]),
+        ):
+            if first(history, key) != expected:
+                raise ValueError(f"Province {r['id']} {key} drift")
+    jeju_paths = history_matches(data["jeju_id"])
+    if len(jeju_paths) != 1:
+        raise ValueError("Jeju must have one history")
+    jeju_history = jeju_paths[0].read_text(encoding="latin-1")
+    for key, expected in (
+        ("owner", "KOR"),
+        ("culture", data["culture_targets"]["KOR"]),
+        ("religion", data["religion_targets"]["KOR"]),
+    ):
+        if first(jeju_history, key) != expected:
+            raise ValueError(f"Jeju {key} drift")
+    liao_korea = {r["id"] for r in data["provinces"] if r["owner"] == "LIO"}
+    if liao_korea != {2744, 4232, 5359}:
+        raise ValueError(f"Liao Korean province set drifted: {sorted(liao_korea)}")
+    goryeo = {r["id"] for r in data["provinces"] if r["owner"] == "KOR"}
+    goryeo.add(data["jeju_id"])
+    if len(goryeo) != 13:
+        raise ValueError(f"Goryeo must have thirteen Mahayana provinces: {sorted(goryeo)}")
     for pid in data["retired_ids"]:
         if pid in definitions or history_matches(pid): raise ValueError(f"Retired ID still live {pid}")
     if int(mask.sum())!=data["editable_pixels"]: raise ValueError("Editable mask drift")
