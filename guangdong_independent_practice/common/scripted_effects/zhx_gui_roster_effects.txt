@@ -1617,6 +1617,7 @@ zhx_build_gui_roster = {
     }
     set_global_flag = zhx_gui_roster_initialised
     gdd_build_eoc_member_roster = yes
+    gdd_build_eoc_great_feudatory_roster = yes
 }
 
 # Independent compact cache for the Mandate-window copy.
@@ -2174,4 +2175,76 @@ gdd_build_eoc_member_roster = {
         }
     }
     set_global_flag = gdd_eoc_member_roster_initialised
+}
+
+# Six compact targets for the non-principal great-feudatory shields and the
+# removal test. Unlike the general member roster, these targets only contain
+# current holders of the dynamic zhx_major_feudatory dignity.
+gdd_clear_eoc_great_feudatory_roster = {
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_01 }
+        clear_global_event_target = gdd_eoc_great_feudatory_roster_01
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_02 }
+        clear_global_event_target = gdd_eoc_great_feudatory_roster_02
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_03 }
+        clear_global_event_target = gdd_eoc_great_feudatory_roster_03
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_04 }
+        clear_global_event_target = gdd_eoc_great_feudatory_roster_04
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_05 }
+        clear_global_event_target = gdd_eoc_great_feudatory_roster_05
+    }
+    if = {
+        limit = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_06 }
+        clear_global_event_target = gdd_eoc_great_feudatory_roster_06
+    }
+}
+
+gdd_allocate_eoc_great_feudatory_roster_slot = {
+    if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_01 } }
+        save_global_event_target_as = gdd_eoc_great_feudatory_roster_01
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_02 } }
+        save_global_event_target_as = gdd_eoc_great_feudatory_roster_02
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_03 } }
+        save_global_event_target_as = gdd_eoc_great_feudatory_roster_03
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_04 } }
+        save_global_event_target_as = gdd_eoc_great_feudatory_roster_04
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_05 } }
+        save_global_event_target_as = gdd_eoc_great_feudatory_roster_05
+    }
+    else_if = {
+        limit = { NOT = { has_saved_global_event_target = gdd_eoc_great_feudatory_roster_06 } }
+        save_global_event_target_as = gdd_eoc_great_feudatory_roster_06
+    }
+}
+
+gdd_build_eoc_great_feudatory_roster = {
+    gdd_clear_eoc_great_feudatory_roster = yes
+    every_country = {
+        limit = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+        gdd_allocate_eoc_great_feudatory_roster_slot = yes
+    }
+    set_global_flag = gdd_eoc_great_feudatory_roster_initialised
 }

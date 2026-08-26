@@ -16,6 +16,12 @@ zhx_is_major_feudatory = {
     has_country_flag = zhx_major_feudatory
 }
 
+# 权威条所称“七大诸侯”读取可动态授予和撤销的大诸侯身份。
+# 不绑定任何国家标签，后续改选七国时只需变更 zhx_major_feudatory 旗标。
+zhx_is_seven_great_feudatory = {
+    zhx_is_major_feudatory = yes
+}
+
 zhx_is_tianxia_polity = {
     # “周天下国家”包括天子本人和所有诸侯成员。
     OR = {

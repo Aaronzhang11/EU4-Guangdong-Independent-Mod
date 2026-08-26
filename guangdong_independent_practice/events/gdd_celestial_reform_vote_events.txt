@@ -1,0 +1,61 @@
+namespace = gdd_celestial_reform_vote
+
+# Startup pass: every AI member updates all 21 ballots and the development
+# cache is rebuilt once.  Even hidden EU4 events still require normal event
+# presentation fields, otherwise the event is rejected during database load.
+country_event = {
+    id = gdd_celestial_reform_vote.1
+    title = gdd_celestial_reform_vote.1.t
+    desc = gdd_celestial_reform_vote.1.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = CZH
+        has_global_flag = zhx_system_initialised_v8
+        event_target:EmperorOfChina = { exists = yes }
+    }
+
+    immediate = {
+        set_global_flag = gdd_celestial_reform_voting_initialised
+        gdd_refresh_all_ai_reform_votes_effect = yes
+    }
+
+    option = {
+        name = gdd_celestial_reform_vote.1.a
+    }
+}
+
+# Quarterly pass.  is_month is a lower-bound trigger in EU4, so every listed
+# month is expressed as a closed one-month range.  This keeps full AI ballot
+# evaluation to January, April, July and October instead of every month.
+country_event = {
+    id = gdd_celestial_reform_vote.2
+    title = gdd_celestial_reform_vote.1.t
+    desc = gdd_celestial_reform_vote.1.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = CZH
+        has_global_flag = zhx_system_initialised_v8
+        event_target:EmperorOfChina = { exists = yes }
+        OR = {
+            NOT = { is_month = 1 }
+            AND = { is_month = 3 NOT = { is_month = 4 } }
+            AND = { is_month = 6 NOT = { is_month = 7 } }
+            AND = { is_month = 9 NOT = { is_month = 10 } }
+        }
+    }
+
+    immediate = {
+        set_global_flag = gdd_celestial_reform_voting_initialised
+        gdd_refresh_all_ai_reform_votes_effect = yes
+    }
+
+    option = {
+        name = gdd_celestial_reform_vote.1.a
+    }
+}

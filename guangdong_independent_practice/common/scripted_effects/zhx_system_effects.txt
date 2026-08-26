@@ -23,6 +23,10 @@ zhx_set_tianzi = {
     clr_country_flag = zhx_ritual_tier_collapsed
     set_country_flag = zhx_tianzi
     save_global_event_target_as = zhx_tianzi
+    if = {
+        limit = { has_global_flag = zhx_system_initialised_v8 }
+        CZH = { gdd_refresh_authority_balance_effects = yes }
+    }
 }
 
 # 只移除五个互斥的礼乐档位修正；已经通过的盟约等其他周天下修正会被保留。
@@ -629,6 +633,21 @@ zhx_register_tianxia_member = {
                 zhx_build_gui_roster = yes
             }
         }
+        if = {
+            limit = { has_global_flag = zhx_system_initialised_v8 }
+            gdd_apply_authority_balance_effects = yes
+        }
+        if = {
+            limit = { has_global_flag = gdd_celestial_reform_voting_initialised }
+            if = {
+                limit = {
+                    ai = yes
+                    event_target:EmperorOfChina = { exists = yes }
+                }
+                gdd_ai_evaluate_all_reform_votes_effect = yes
+            }
+            CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+        }
     }
 }
 
@@ -639,7 +658,142 @@ zhx_register_major_feudatory = {
             NOT = { has_country_flag = zhx_tianzi }
         }
         zhx_register_tianxia_member = yes
-        set_country_flag = zhx_major_feudatory
+        if = {
+            limit = {
+                NOT = { has_country_flag = zhx_major_feudatory }
+            }
+            set_country_flag = zhx_major_feudatory
+            if = {
+                limit = {
+                    has_global_flag = gdd_celestial_reform_voting_initialised
+                    ai = yes
+                    event_target:EmperorOfChina = { exists = yes }
+                }
+                gdd_ai_evaluate_all_reform_votes_effect = yes
+                CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+            }
+            if = {
+                limit = { NOT = { tag = YAN } }
+                CZH = {
+                    change_variable = {
+                        which = gdd_six_great_feudatory_count
+                        value = 1
+                    }
+                }
+            }
+        }
+        if = {
+            limit = { has_global_flag = gdd_eoc_great_feudatory_roster_initialised }
+            CZH = {
+                gdd_build_eoc_great_feudatory_roster = yes
+            }
+        }
+        if = {
+            limit = { has_global_flag = zhx_system_initialised_v8 }
+            gdd_apply_authority_balance_effects = yes
+        }
+    }
+}
+
+# Recalculate the six non-principal great-feudatory seats. This is called
+# before opening the test menu and by migrations so console edits or old saves
+# cannot leave the promotion option in the wrong state.
+zhx_rebuild_six_great_feudatory_cache = {
+    CZH = {
+        set_variable = {
+            which = gdd_six_great_feudatory_count
+            value = 0
+        }
+    }
+    every_country = {
+        limit = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+        CZH = {
+            change_variable = {
+                which = gdd_six_great_feudatory_count
+                value = 1
+            }
+        }
+    }
+}
+
+# Remove only the great-feudatory dignity. The country remains a Zhou member
+# and immediately falls back to the ordinary-member authority modifier.
+zhx_remove_major_feudatory = {
+    if = {
+        limit = {
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+        clr_country_flag = zhx_major_feudatory
+        if = {
+                limit = {
+                    has_global_flag = gdd_celestial_reform_voting_initialised
+                    ai = yes
+                    event_target:EmperorOfChina = { exists = yes }
+                }
+            gdd_ai_evaluate_all_reform_votes_effect = yes
+            CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+        }
+        CZH = {
+            change_variable = {
+                which = gdd_six_great_feudatory_count
+                value = -1
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_six_great_feudatory_count
+                            value = 0
+                        }
+                    }
+                }
+                set_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 0
+                }
+            }
+        }
+        if = {
+            limit = { has_global_flag = gdd_eoc_great_feudatory_roster_initialised }
+            CZH = {
+                gdd_build_eoc_great_feudatory_roster = yes
+            }
+        }
+        if = {
+            limit = { has_global_flag = zhx_system_initialised_v8 }
+            gdd_apply_authority_balance_effects = yes
+        }
+    }
+}
+
+# Promotion is capped at six non-principal seats and operates only on current
+# Zhou members. The principal feudatory YAN is the seventh great feudatory.
+zhx_promote_six_great_feudatory = {
+    if = {
+        limit = {
+            has_country_flag = zhx_member
+            NOT = { has_country_flag = zhx_major_feudatory }
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+            CZH = {
+                NOT = {
+                    check_variable = {
+                        which = gdd_six_great_feudatory_count
+                        value = 6
+                    }
+                }
+            }
+        }
+        zhx_register_major_feudatory = yes
     }
 }
 
@@ -665,6 +819,33 @@ zhx_remove_tianxia_member = {
             }
         }
     }
+    if = {
+        limit = {
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+        }
+        CZH = {
+            change_variable = {
+                which = gdd_six_great_feudatory_count
+                value = -1
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_six_great_feudatory_count
+                            value = 0
+                        }
+                    }
+                }
+                set_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 0
+                }
+            }
+        }
+    }
+    gdd_clear_all_reform_support_flags_effect = yes
     clr_country_flag = zhx_member
     clr_country_flag = zhx_major_feudatory
     clr_country_flag = zhx_incident_supporter
@@ -673,12 +854,17 @@ zhx_remove_tianxia_member = {
         value = 0
     }
     zhx_clear_ritual_order_modifier = yes
+    gdd_clear_authority_balance_effects = yes
     remove_country_modifier = zhx_reaffirmed_covenant_modifier
     if = {
         limit = { has_global_flag = zhx_gui_roster_initialised }
         event_target:zhx_tianzi = {
             zhx_build_gui_roster = yes
         }
+    }
+    if = {
+        limit = { has_global_flag = gdd_celestial_reform_voting_initialised }
+        CZH = { gdd_recalculate_all_reform_votes_effect = yes }
     }
 }
 
@@ -793,8 +979,7 @@ zhx_migrate_tianxia_system_v5_to_v6 = {
 }
 
 # v7 reserves an independent -100..100 authority balance for the Mandate UI.
-# Gameplay changes are intentionally deferred; existing meritocracy, decrees
-# and reforms continue to use their current rules.
+# Existing meritocracy, decrees and reforms continue to use their own rules.
 zhx_migrate_tianxia_system_v6_to_v7 = {
     CZH = {
         set_variable = {
@@ -803,6 +988,69 @@ zhx_migrate_tianxia_system_v6_to_v7 = {
         }
     }
     set_global_flag = zhx_system_initialised_v7
+}
+
+# v8 activates the linearly scaled gameplay effects and their display caches.
+# Existing saves preserve their v7 balance; new games arrive here at zero.
+zhx_migrate_tianxia_system_v7_to_v8 = {
+    set_global_flag = zhx_system_initialised_v8
+    CZH = {
+        gdd_refresh_authority_balance_effects = yes
+    }
+}
+
+# v9 forces existing saves to rebuild their display caches and country
+# modifiers after the authority modifier definitions were corrected.
+zhx_migrate_tianxia_system_v8_to_v9 = {
+    CZH = {
+        gdd_refresh_authority_balance_effects = yes
+    }
+    set_global_flag = zhx_system_initialised_v9
+}
+
+# v10 adds tenth-point authority effects and a whole-number meter display.
+zhx_migrate_tianxia_system_v9_to_v10 = {
+    CZH = {
+        gdd_refresh_authority_balance_effects = yes
+    }
+    set_global_flag = zhx_system_initialised_v10
+}
+
+# v11 rebuilds non-zero authority values with the corrected variable-copy
+# syntax, restoring display caches, binary flags and country modifiers.
+zhx_migrate_tianxia_system_v10_to_v11 = {
+    CZH = {
+        gdd_refresh_authority_balance_effects = yes
+    }
+    set_global_flag = zhx_system_initialised_v11
+}
+
+# v12 establishes exactly seven great feudatories: principal YAN plus the six
+# initial seats YUE, QIN, ZHA, WEI, CHC and WUU. The flags remain dynamic after
+# migration and the test event may freely remove and refill the six seats.
+zhx_migrate_tianxia_system_v11_to_v12 = {
+    every_country = {
+        limit = { has_country_flag = zhx_major_feudatory }
+        clr_country_flag = zhx_major_feudatory
+    }
+    CZH = {
+        set_variable = {
+            which = gdd_six_great_feudatory_count
+            value = 0
+        }
+    }
+    YAN = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    YUE = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    QIN = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    ZHA = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    WEI = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    CHC = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    WUU = { if = { limit = { exists = yes } zhx_register_major_feudatory = yes } }
+    CZH = {
+        zhx_rebuild_six_great_feudatory_cache = yes
+        gdd_refresh_authority_balance_effects = yes
+    }
+    set_global_flag = zhx_system_initialised_v12
 }
 
 # 第一版政治成员表使用明确 TAG 清单，避免文化转变、征服或政体改变悄悄重写天下秩序。
@@ -911,16 +1159,11 @@ zhx_initialise_tianxia_system = {
                 OR = {
                     tag = QIN
                     tag = YAN
-                    tag = QIC
+                    tag = ZHA
+                    tag = WEI
                     tag = CHC
-                    tag = SHU
-                    tag = BAA
                     tag = WUU
                     tag = YUE
-                    tag = MIN
-                    tag = GDD
-                    tag = DAI
-                    tag = LIO
                 }
             }
             zhx_register_major_feudatory = yes

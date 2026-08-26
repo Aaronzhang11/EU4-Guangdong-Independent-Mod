@@ -15,5 +15,9 @@ gdd_enact_proxy_celestial_reform_effect = {
     add_stability = -1
     hidden_effect = {
         set_global_flag = $which$
+        CZH = {
+            gdd_clear_passed_reform_support_effect = yes
+            gdd_recalculate_all_reform_votes_effect = yes
+        }
     }
 }

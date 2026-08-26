@@ -1,15 +1,39 @@
 # Shared authorization used by every replacement decree and reform row.
-# YAN remains the temporary principal-vassal test country; the Emperor keeps
-# access until the future authority-balance mechanic decides between them.
+# The integer shown by the authority meter decides who may act: the country
+# saved as the current principal feudatory below -25, or the Emperor of China
+# above 25. Neither may act while the displayed value is -25..25.
 gdd_celestial_action_authorized_trigger = {
-    OR = {
-        tag = YAN
-        is_emperor_of_china = yes
+    custom_trigger_tooltip = {
+        tooltip = GDD_CELESTIAL_ACTION_AUTHORIZED_TRIGGER_TT
+        OR = {
+            AND = {
+                has_saved_global_event_target = gdd_principal_vassal
+                tag = event_target:gdd_principal_vassal
+                CZH = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_authority_integer_display
+                            value = -25
+                        }
+                    }
+                }
+            }
+            AND = {
+                is_emperor_of_china = yes
+                CZH = {
+                    check_variable = {
+                        which = gdd_authority_integer_display
+                        value = 26
+                    }
+                }
+            }
+        }
     }
 }
 
 gdd_can_enact_proxy_establish_gaituguiliu_trigger = {
     NOT = { gdd_reform_establish_gaituguiliu_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_establish_gaituguiliu_twice } }
     if = {
         limit = { has_estate = estate_eunuchs }
         OR = {
@@ -25,10 +49,12 @@ gdd_can_enact_proxy_establish_gaituguiliu_trigger = {
 
 gdd_can_enact_proxy_seaban_trigger = {
     NOT = { gdd_reform_seaban_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_seaban_twice } }
 }
 
 gdd_can_enact_proxy_land_tax_trigger = {
     NOT = { gdd_reform_land_tax_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_land_tax_twice } }
     OR = {
         crown_land_share = 35
         adm = 5
@@ -41,6 +67,7 @@ gdd_can_enact_proxy_land_tax_trigger = {
 
 gdd_can_enact_proxy_military_governors_trigger = {
     NOT = { gdd_reform_military_governors_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_military_governors_twice } }
     OR = {
         monthly_mil = 10
         national_focus = MIL
@@ -50,16 +77,19 @@ gdd_can_enact_proxy_military_governors_trigger = {
 
 gdd_can_enact_proxy_centralizing_government_trigger = {
     NOT = { gdd_reform_centralizing_government_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_centralizing_government_twice } }
     crown_land_share = 65
 }
 
 gdd_can_enact_proxy_vassalize_tributaries_trigger = {
     NOT = { gdd_reform_vassalize_tributaries_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_vassalize_tributaries_twice } }
     gdd_eight_celestial_reforms_passed = yes
 }
 
 gdd_can_enact_proxy_single_whip_trigger = {
     NOT = { gdd_reform_single_whip_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_single_whip_twice } }
     gdd_reform_land_tax_passed = yes
     OR = {
         mission_completed = mng_single_whip_law
@@ -70,6 +100,7 @@ gdd_can_enact_proxy_single_whip_trigger = {
 
 gdd_can_enact_proxy_reign_in_estates_trigger = {
     NOT = { gdd_reform_reign_in_estates_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_reign_in_estates_twice } }
     OR = {
         crown_land_share = 90
         absolutism = 75
@@ -78,10 +109,12 @@ gdd_can_enact_proxy_reign_in_estates_trigger = {
 
 gdd_can_enact_proxy_civil_registration_trigger = {
     NOT = { gdd_reform_civil_registration_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_civil_registration_twice } }
 }
 
 gdd_can_enact_proxy_silver_standard_trigger = {
     NOT = { gdd_reform_silver_standard_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_silver_standard_twice } }
     NOT = { inflation = 1 }
     OR = {
         monthly_adm = 10
@@ -94,6 +127,7 @@ gdd_can_enact_proxy_silver_standard_trigger = {
 
 gdd_can_enact_proxy_kanhe_trigger = {
     NOT = { gdd_reform_kanhe_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_kanhe_twice } }
     OR = {
         full_idea_group = trade_ideas
         any_subject_country = { is_colonial_nation = yes }
@@ -104,6 +138,7 @@ gdd_can_enact_proxy_kanhe_trigger = {
 
 gdd_can_enact_proxy_keju_trigger = {
     NOT = { gdd_reform_keju_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_keju_twice } }
     OR = {
         has_reform = examination_system_reform
         full_idea_group = administrative_ideas
@@ -116,6 +151,7 @@ gdd_can_enact_proxy_keju_trigger = {
 
 gdd_can_enact_proxy_inclusive_monarchy_trigger = {
     NOT = { gdd_reform_inclusive_monarchy_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_inclusive_monarchy_twice } }
     OR = {
         full_idea_group = humanist_ideas
         harmony = 80
@@ -126,16 +162,19 @@ gdd_can_enact_proxy_inclusive_monarchy_trigger = {
 
 gdd_can_enact_proxy_bureaucratic_faction_trigger = {
     NOT = { gdd_reform_bureaucratic_faction_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_bureaucratic_faction_twice } }
     NOT = { gdd_reform_military_faction_passed = yes }
 }
 
 gdd_can_enact_proxy_military_faction_trigger = {
     NOT = { gdd_reform_military_faction_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_military_faction_twice } }
     NOT = { gdd_reform_bureaucratic_faction_passed = yes }
 }
 
 gdd_can_enact_proxy_unified_market_trigger = {
     NOT = { gdd_reform_unified_market_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_unified_market_twice } }
     gdd_reform_seaban_passed = yes
     gdd_reform_kanhe_passed = yes
     OR = {
@@ -156,6 +195,7 @@ gdd_can_enact_proxy_unified_market_trigger = {
 
 gdd_can_enact_proxy_military_branch_trigger = {
     NOT = { gdd_reform_military_branch_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_military_branch_twice } }
     if = {
         limit = { has_dlc = "Cradle of Civilization" }
         OR = {
@@ -169,6 +209,7 @@ gdd_can_enact_proxy_military_branch_trigger = {
 
 gdd_can_enact_proxy_modernize_banners_trigger = {
     NOT = { gdd_reform_modernize_banners_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_modernize_banners_twice } }
     OR = {
         num_of_banners = 25
         has_global_modifier_value = {
@@ -180,6 +221,7 @@ gdd_can_enact_proxy_modernize_banners_trigger = {
 
 gdd_can_enact_proxy_foreign_ship_designs_trigger = {
     NOT = { gdd_reform_foreign_ship_designs_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_foreign_ship_designs_twice } }
     navy_tradition = 50
     OR = {
         num_of_heavy_ship = 50
@@ -190,6 +232,7 @@ gdd_can_enact_proxy_foreign_ship_designs_trigger = {
 
 gdd_can_enact_proxy_tributary_embassies_trigger = {
     NOT = { gdd_reform_tributary_embassies_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_tributary_embassies_twice } }
     calc_true_if = {
         NOT = {
             any_subject_country = {
@@ -209,6 +252,7 @@ gdd_can_enact_proxy_tributary_embassies_trigger = {
 
 gdd_can_enact_proxy_new_world_trigger = {
     NOT = { gdd_reform_new_world_passed = yes }
+    CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_new_world_twice } }
     num_of_explorers = 1
     num_of_light_ship = 50
 }

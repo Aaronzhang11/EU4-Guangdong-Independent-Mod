@@ -1,0 +1,735 @@
+# Zhou-member voting for the replacement celestial reforms.
+# Country flags on each ordinary member are the authoritative ballots.  CZH
+# only stores rebuildable development totals used by the GUI and enactment
+# triggers.
+
+gdd_clear_all_reform_support_flags_effect = {
+    clr_country_flag = gdd_support_reform_establish_gaituguiliu
+    clr_country_flag = gdd_support_reform_seaban
+    clr_country_flag = gdd_support_reform_land_tax
+    clr_country_flag = gdd_support_reform_military_governors
+    clr_country_flag = gdd_support_reform_centralizing_government
+    clr_country_flag = gdd_support_reform_vassalize_tributaries
+    clr_country_flag = gdd_support_reform_single_whip
+    clr_country_flag = gdd_support_reform_reign_in_estates
+    clr_country_flag = gdd_support_reform_civil_registration
+    clr_country_flag = gdd_support_reform_silver_standard
+    clr_country_flag = gdd_support_reform_kanhe
+    clr_country_flag = gdd_support_reform_keju
+    clr_country_flag = gdd_support_reform_inclusive_monarchy
+    clr_country_flag = gdd_support_reform_bureaucratic_faction
+    clr_country_flag = gdd_support_reform_military_faction
+    clr_country_flag = gdd_support_reform_unified_market
+    clr_country_flag = gdd_support_reform_military_branch
+    clr_country_flag = gdd_support_reform_modernize_banners
+    clr_country_flag = gdd_support_reform_foreign_ship_designs
+    clr_country_flag = gdd_support_reform_tributary_embassies
+    clr_country_flag = gdd_support_reform_new_world
+}
+
+gdd_toggle_reform_support_effect = {
+    # Custom GUI buttons otherwise expand the complete variable rebuild into
+    # their generated tooltip.  The localized tooltip already exposes the two
+    # useful totals, so ballot mutation and cache maintenance stay hidden.
+    hidden_effect = {
+        if = {
+            limit = { has_country_flag = $support_flag$ }
+            clr_country_flag = $support_flag$
+        }
+        else = {
+            set_country_flag = $support_flag$
+        }
+        # Human overlords change their own ballot directly.  Refresh their AI
+        # subjects immediately so the subjects' derived ballots do not wait
+        # for the next quarterly pass.
+        every_subject_country = {
+            limit = {
+                exists = yes
+                ai = yes
+                zhx_is_tianxia_member = yes
+            }
+            gdd_ai_evaluate_all_reform_votes_effect = yes
+        }
+        CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+    }
+}
+
+# Shared by startup and quarterly hidden events.  Keeping this in one scripted
+# effect prevents the two schedules from drifting apart.
+gdd_refresh_all_ai_reform_votes_effect = {
+    gdd_clear_passed_reform_support_effect = yes
+    # First evaluate independent members and subjects of powers outside the
+    # Zhou realm.  Their ballots are the inputs used by member subjects below.
+    every_country = {
+        limit = {
+            exists = yes
+            ai = yes
+            zhx_is_tianxia_member = yes
+            NOT = {
+                AND = {
+                    is_subject = yes
+                    overlord = { zhx_is_tianxia_polity = yes }
+                }
+            }
+        }
+        gdd_ai_evaluate_all_reform_votes_effect = yes
+    }
+    # Then evaluate subjects whose overlord is also part of the Zhou realm.
+    # This makes the overlord's freshly calculated ballot a weighted input,
+    # closely following the HRE model without replacing the subject's own AI.
+    every_country = {
+        limit = {
+            exists = yes
+            ai = yes
+            zhx_is_tianxia_member = yes
+            is_subject = yes
+            overlord = { zhx_is_tianxia_polity = yes }
+        }
+        gdd_ai_evaluate_all_reform_votes_effect = yes
+    }
+    gdd_recalculate_all_reform_votes_effect = yes
+}
+
+# Remove ballots for reforms that have already passed.  Native reform states
+# are included through the compatibility scripted triggers.
+gdd_clear_passed_reform_support_effect = {
+    if = {
+        limit = { gdd_reform_establish_gaituguiliu_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_establish_gaituguiliu }
+    }
+    if = {
+        limit = { gdd_reform_seaban_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_seaban }
+    }
+    if = {
+        limit = { gdd_reform_land_tax_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_land_tax }
+    }
+    if = {
+        limit = { gdd_reform_military_governors_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_military_governors }
+    }
+    if = {
+        limit = { gdd_reform_centralizing_government_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_centralizing_government }
+    }
+    if = {
+        limit = { gdd_reform_vassalize_tributaries_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_vassalize_tributaries }
+    }
+    if = {
+        limit = { gdd_reform_single_whip_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_single_whip }
+    }
+    if = {
+        limit = { gdd_reform_reign_in_estates_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_reign_in_estates }
+    }
+    if = {
+        limit = { gdd_reform_civil_registration_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_civil_registration }
+    }
+    if = {
+        limit = { gdd_reform_silver_standard_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_silver_standard }
+    }
+    if = {
+        limit = { gdd_reform_kanhe_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_kanhe }
+    }
+    if = {
+        limit = { gdd_reform_keju_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_keju }
+    }
+    if = {
+        limit = { gdd_reform_inclusive_monarchy_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_inclusive_monarchy }
+    }
+    if = {
+        limit = { gdd_reform_bureaucratic_faction_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_bureaucratic_faction }
+    }
+    if = {
+        limit = { gdd_reform_military_faction_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_military_faction }
+    }
+    if = {
+        limit = { gdd_reform_unified_market_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_unified_market }
+    }
+    if = {
+        limit = { gdd_reform_military_branch_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_military_branch }
+    }
+    if = {
+        limit = { gdd_reform_modernize_banners_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_modernize_banners }
+    }
+    if = {
+        limit = { gdd_reform_foreign_ship_designs_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_foreign_ship_designs }
+    }
+    if = {
+        limit = { gdd_reform_tributary_embassies_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_tributary_embassies }
+    }
+    if = {
+        limit = { gdd_reform_new_world_passed = yes }
+        every_country = { clr_country_flag = gdd_support_reform_new_world }
+    }
+}
+
+# Rebuild every cached total in one pass over the member list.  The doubled
+# support variables allow the strict-majority test to remain integer-exact:
+# 2 * supporter development >= total development + 1.
+gdd_recalculate_all_reform_votes_effect = {
+    set_variable = { which = gdd_reform_vote_total_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_establish_gaituguiliu_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_seaban_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_land_tax_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_military_governors_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_centralizing_government_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_vassalize_tributaries_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_single_whip_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_reign_in_estates_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_civil_registration_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_silver_standard_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_kanhe_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_keju_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_inclusive_monarchy_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_bureaucratic_faction_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_military_faction_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_unified_market_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_military_branch_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_modernize_banners_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_foreign_ship_designs_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_tributary_embassies_dev value = 0 }
+    set_variable = { which = gdd_reform_vote_new_world_dev value = 0 }
+
+    every_country = {
+        limit = {
+            exists = yes
+            zhx_is_tianxia_member = yes
+        }
+        PREV = {
+            export_to_variable = {
+                which = gdd_reform_vote_member_temp_dev
+                value = total_development
+                who = PREV
+            }
+            change_variable = {
+                which = gdd_reform_vote_total_dev
+                which = gdd_reform_vote_member_temp_dev
+            }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_establish_gaituguiliu }
+            PREV = { change_variable = { which = gdd_reform_vote_establish_gaituguiliu_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_seaban }
+            PREV = { change_variable = { which = gdd_reform_vote_seaban_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_land_tax }
+            PREV = { change_variable = { which = gdd_reform_vote_land_tax_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_military_governors }
+            PREV = { change_variable = { which = gdd_reform_vote_military_governors_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_centralizing_government }
+            PREV = { change_variable = { which = gdd_reform_vote_centralizing_government_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_vassalize_tributaries }
+            PREV = { change_variable = { which = gdd_reform_vote_vassalize_tributaries_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_single_whip }
+            PREV = { change_variable = { which = gdd_reform_vote_single_whip_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_reign_in_estates }
+            PREV = { change_variable = { which = gdd_reform_vote_reign_in_estates_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_civil_registration }
+            PREV = { change_variable = { which = gdd_reform_vote_civil_registration_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_silver_standard }
+            PREV = { change_variable = { which = gdd_reform_vote_silver_standard_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_kanhe }
+            PREV = { change_variable = { which = gdd_reform_vote_kanhe_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_keju }
+            PREV = { change_variable = { which = gdd_reform_vote_keju_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_inclusive_monarchy }
+            PREV = { change_variable = { which = gdd_reform_vote_inclusive_monarchy_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_bureaucratic_faction }
+            PREV = { change_variable = { which = gdd_reform_vote_bureaucratic_faction_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_military_faction }
+            PREV = { change_variable = { which = gdd_reform_vote_military_faction_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_unified_market }
+            PREV = { change_variable = { which = gdd_reform_vote_unified_market_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_military_branch }
+            PREV = { change_variable = { which = gdd_reform_vote_military_branch_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_modernize_banners }
+            PREV = { change_variable = { which = gdd_reform_vote_modernize_banners_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_foreign_ship_designs }
+            PREV = { change_variable = { which = gdd_reform_vote_foreign_ship_designs_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_tributary_embassies }
+            PREV = { change_variable = { which = gdd_reform_vote_tributary_embassies_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+        if = {
+            limit = { has_country_flag = gdd_support_reform_new_world }
+            PREV = { change_variable = { which = gdd_reform_vote_new_world_dev which = gdd_reform_vote_member_temp_dev } }
+        }
+    }
+
+    set_variable = { which = gdd_reform_vote_total_dev_plus_one which = gdd_reform_vote_total_dev }
+    change_variable = { which = gdd_reform_vote_total_dev_plus_one value = 1 }
+    set_variable = { which = gdd_reform_vote_establish_gaituguiliu_twice which = gdd_reform_vote_establish_gaituguiliu_dev }
+    set_variable = { which = gdd_reform_vote_seaban_twice which = gdd_reform_vote_seaban_dev }
+    set_variable = { which = gdd_reform_vote_land_tax_twice which = gdd_reform_vote_land_tax_dev }
+    set_variable = { which = gdd_reform_vote_military_governors_twice which = gdd_reform_vote_military_governors_dev }
+    set_variable = { which = gdd_reform_vote_centralizing_government_twice which = gdd_reform_vote_centralizing_government_dev }
+    set_variable = { which = gdd_reform_vote_vassalize_tributaries_twice which = gdd_reform_vote_vassalize_tributaries_dev }
+    set_variable = { which = gdd_reform_vote_single_whip_twice which = gdd_reform_vote_single_whip_dev }
+    set_variable = { which = gdd_reform_vote_reign_in_estates_twice which = gdd_reform_vote_reign_in_estates_dev }
+    set_variable = { which = gdd_reform_vote_civil_registration_twice which = gdd_reform_vote_civil_registration_dev }
+    set_variable = { which = gdd_reform_vote_silver_standard_twice which = gdd_reform_vote_silver_standard_dev }
+    set_variable = { which = gdd_reform_vote_kanhe_twice which = gdd_reform_vote_kanhe_dev }
+    set_variable = { which = gdd_reform_vote_keju_twice which = gdd_reform_vote_keju_dev }
+    set_variable = { which = gdd_reform_vote_inclusive_monarchy_twice which = gdd_reform_vote_inclusive_monarchy_dev }
+    set_variable = { which = gdd_reform_vote_bureaucratic_faction_twice which = gdd_reform_vote_bureaucratic_faction_dev }
+    set_variable = { which = gdd_reform_vote_military_faction_twice which = gdd_reform_vote_military_faction_dev }
+    set_variable = { which = gdd_reform_vote_unified_market_twice which = gdd_reform_vote_unified_market_dev }
+    set_variable = { which = gdd_reform_vote_military_branch_twice which = gdd_reform_vote_military_branch_dev }
+    set_variable = { which = gdd_reform_vote_modernize_banners_twice which = gdd_reform_vote_modernize_banners_dev }
+    set_variable = { which = gdd_reform_vote_foreign_ship_designs_twice which = gdd_reform_vote_foreign_ship_designs_dev }
+    set_variable = { which = gdd_reform_vote_tributary_embassies_twice which = gdd_reform_vote_tributary_embassies_dev }
+    set_variable = { which = gdd_reform_vote_new_world_twice which = gdd_reform_vote_new_world_dev }
+
+    multiply_variable = { which = gdd_reform_vote_establish_gaituguiliu_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_seaban_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_land_tax_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_military_governors_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_centralizing_government_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_vassalize_tributaries_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_single_whip_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_reign_in_estates_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_civil_registration_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_silver_standard_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_kanhe_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_keju_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_inclusive_monarchy_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_bureaucratic_faction_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_military_faction_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_unified_market_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_military_branch_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_modernize_banners_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_foreign_ship_designs_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_tributary_embassies_twice value = 2 }
+    multiply_variable = { which = gdd_reform_vote_new_world_twice value = 2 }
+}
+
+# AI sponsor score.  At negative authority the current principal feudatory is
+# the political sponsor; at zero or positive authority the Emperor is treated
+# as the institutional sponsor even though reforms remain blocked at -25..25.
+gdd_prepare_ai_reform_sponsor_score_effect = {
+    set_variable = { which = gdd_ai_reform_sponsor_score value = 0 }
+    if = {
+        limit = {
+            CZH = {
+                NOT = { check_variable = { which = gdd_authority_integer_display value = -25 } }
+            }
+            has_saved_global_event_target = gdd_principal_vassal
+        }
+        if = {
+            limit = { tag = event_target:gdd_principal_vassal }
+            set_variable = { which = gdd_ai_reform_sponsor_score value = 6 }
+        }
+        else = {
+            if = {
+                limit = { has_opinion = { who = event_target:gdd_principal_vassal value = 100 } }
+                change_variable = { which = gdd_ai_reform_sponsor_score value = 3 }
+            }
+            else_if = {
+                limit = { has_opinion = { who = event_target:gdd_principal_vassal value = 50 } }
+                change_variable = { which = gdd_ai_reform_sponsor_score value = 2 }
+            }
+            else_if = {
+                limit = { has_opinion = { who = event_target:gdd_principal_vassal value = 0 } }
+                change_variable = { which = gdd_ai_reform_sponsor_score value = 1 }
+            }
+            else = {
+                change_variable = { which = gdd_ai_reform_sponsor_score value = -2 }
+            }
+            if = {
+                limit = { alliance_with = event_target:gdd_principal_vassal }
+                change_variable = { which = gdd_ai_reform_sponsor_score value = 2 }
+            }
+            if = {
+                limit = { is_subject_of = event_target:gdd_principal_vassal }
+                change_variable = { which = gdd_ai_reform_sponsor_score value = 2 }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        is_rival = event_target:gdd_principal_vassal
+                        war_with = event_target:gdd_principal_vassal
+                    }
+                }
+                set_variable = { which = gdd_ai_reform_sponsor_score value = -100 }
+            }
+        }
+    }
+    else = {
+        if = {
+            limit = { has_opinion = { who = event_target:EmperorOfChina value = 100 } }
+            change_variable = { which = gdd_ai_reform_sponsor_score value = 3 }
+        }
+        else_if = {
+            limit = { has_opinion = { who = event_target:EmperorOfChina value = 50 } }
+            change_variable = { which = gdd_ai_reform_sponsor_score value = 2 }
+        }
+        else_if = {
+            limit = { has_opinion = { who = event_target:EmperorOfChina value = 0 } }
+            change_variable = { which = gdd_ai_reform_sponsor_score value = 1 }
+        }
+        else = {
+            change_variable = { which = gdd_ai_reform_sponsor_score value = -2 }
+        }
+        if = {
+            limit = { alliance_with = event_target:EmperorOfChina }
+            change_variable = { which = gdd_ai_reform_sponsor_score value = 2 }
+        }
+        if = {
+            limit = { is_subject_of = event_target:EmperorOfChina }
+            change_variable = { which = gdd_ai_reform_sponsor_score value = 2 }
+        }
+        if = {
+            limit = {
+                OR = {
+                    is_rival = event_target:EmperorOfChina
+                    war_with = event_target:EmperorOfChina
+                }
+            }
+            set_variable = { which = gdd_ai_reform_sponsor_score value = -100 }
+        }
+    }
+}
+
+gdd_begin_ai_reform_vote_effect = {
+    set_variable = {
+        which = gdd_ai_reform_vote_score
+        which = gdd_ai_reform_sponsor_score
+    }
+}
+
+gdd_apply_ai_reform_vote_effect = {
+    # HRE-style subject influence: a member subject keeps its own score, while
+    # a Zhou overlord's current ballot contributes a strong but non-absolute
+    # +2/-2.  A foreign overlord cannot cast a Zhou ballot and instead gives a
+    # small institutional-legitimacy penalty.
+    if = {
+        limit = {
+            is_subject = yes
+            overlord = { zhx_is_tianxia_polity = yes }
+        }
+        if = {
+            limit = {
+                overlord = { has_country_flag = $support_flag$ }
+            }
+            change_variable = { which = gdd_ai_reform_vote_score value = 2 }
+        }
+        else = {
+            change_variable = { which = gdd_ai_reform_vote_score value = -2 }
+        }
+    }
+    else_if = {
+        limit = { is_subject = yes }
+        change_variable = { which = gdd_ai_reform_vote_score value = -1 }
+    }
+    if = {
+        limit = { check_variable = { which = gdd_ai_reform_vote_score value = 3 } }
+        set_country_flag = $support_flag$
+    }
+    else = {
+        clr_country_flag = $support_flag$
+    }
+}
+
+# AI ballots are deterministic and therefore explainable: sponsor relations
+# establish the base score, a universal member benefit and policy match add
+# points, and subject ballots are influenced by the overlord.  Three points
+# are required for support.
+gdd_ai_evaluate_all_reform_votes_effect = {
+    gdd_prepare_ai_reform_sponsor_score_effect = yes
+
+    if = {
+        limit = { NOT = { gdd_reform_establish_gaituguiliu_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = administrative_ideas full_idea_group = innovativeness_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_establish_gaituguiliu }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_seaban_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        if = {
+            limit = { OR = { full_idea_group = trade_ideas full_idea_group = maritime_ideas num_of_ports = 5 } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_seaban }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_land_tax_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = administrative_ideas full_idea_group = economic_ideas full_idea_group = infrastructure_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_land_tax }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_military_governors_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { num_of_cities = 10 full_idea_group = administrative_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_military_governors }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_centralizing_government_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = administrative_ideas full_idea_group = court_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        if = {
+            limit = { has_country_flag = zhx_major_feudatory }
+            change_variable = { which = gdd_ai_reform_vote_score value = -1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_centralizing_government }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_vassalize_tributaries_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        if = {
+            limit = { OR = { full_idea_group = influence_ideas full_idea_group = diplomatic_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        if = {
+            limit = { has_country_flag = zhx_major_feudatory }
+            change_variable = { which = gdd_ai_reform_vote_score value = -1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_vassalize_tributaries }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_single_whip_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { corruption = 1 full_idea_group = economic_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_single_whip }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_reign_in_estates_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { absolutism = 10 }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_reign_in_estates }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_civil_registration_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = economic_ideas full_idea_group = infrastructure_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_civil_registration }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_silver_standard_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { num_of_loans = 1 inflation = 1 full_idea_group = economic_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_silver_standard }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_kanhe_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = trade_ideas full_idea_group = maritime_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_kanhe }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_keju_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = administrative_ideas full_idea_group = innovativeness_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_keju }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_inclusive_monarchy_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = humanist_ideas NOT = { religious_unity = 1 } } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_inclusive_monarchy }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_bureaucratic_faction_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = administrative_ideas full_idea_group = religious_ideas full_idea_group = innovativeness_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        if = {
+            limit = { full_idea_group = aristocracy_ideas }
+            change_variable = { which = gdd_ai_reform_vote_score value = -1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_bureaucratic_faction }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_military_faction_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = {
+                OR = {
+                    has_country_flag = zhx_major_feudatory
+                    is_at_war = yes
+                    full_idea_group = aristocracy_ideas
+                    full_idea_group = offensive_ideas
+                    full_idea_group = quality_ideas
+                }
+            }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_military_faction }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_unified_market_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = trade_ideas full_idea_group = economic_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_unified_market }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_military_branch_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = {
+                OR = {
+                    has_country_flag = zhx_major_feudatory
+                    is_at_war = yes
+                    full_idea_group = offensive_ideas
+                    full_idea_group = defensive_ideas
+                    full_idea_group = quality_ideas
+                    full_idea_group = quantity_ideas
+                }
+            }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_military_branch }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_modernize_banners_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = {
+                OR = {
+                    has_country_flag = zhx_major_feudatory
+                    full_idea_group = aristocracy_ideas
+                    full_idea_group = horde_gov_ideas
+                }
+            }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_modernize_banners }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_foreign_ship_designs_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { num_of_ports = 5 full_idea_group = naval_ideas full_idea_group = maritime_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_foreign_ship_designs }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_tributary_embassies_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = diplomatic_ideas full_idea_group = influence_ideas full_idea_group = court_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_tributary_embassies }
+    }
+    if = {
+        limit = { NOT = { gdd_reform_new_world_passed = yes } }
+        gdd_begin_ai_reform_vote_effect = yes
+        change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        if = {
+            limit = { OR = { full_idea_group = exploration_ideas full_idea_group = expansion_ideas } }
+            change_variable = { which = gdd_ai_reform_vote_score value = 1 }
+        }
+        gdd_apply_ai_reform_vote_effect = { support_flag = gdd_support_reform_new_world }
+    }
+}
