@@ -1,17 +1,42 @@
-# 隐藏初始化事件只会在周国（CZH）作用域中通过，并按存档版本旗标只执行一次。
-# 初始化完成后，再由它为人类玩家安排可见的开局总览事件。
 on_startup = {
     events = {
         zhx_system.1
+        zhx_opening_school.1
+        zhx_debate.1
         gdd_celestial_reform_vote.1
+    }
+    if = {
+        limit = {
+            ai = no
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
+        zhx_prepare_doctrine_ledger = yes
     }
 }
 
-# 季度AI投票事件挂在月度脉冲上，但只在一、四、七、十月通过事件触发器。
-# 每次仍只有CZH作用域实际结算，成员变化时的即时重算逻辑保持不变。
+# ROOT is the country after its religion has changed. The cleanup event clears
+# doctrine gameplay state immediately and replaces same-group eastern mirrors
+# with a transparent no-doctrine sentinel.
+on_religion_change = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# 礼教悬停数据每月为人类玩家刷新；改革投票事件挂在同一个月度脉冲上，
+# 但只有一、四、七、十月会通过自身事件触发器。
 on_monthly_pulse = {
     events = {
         gdd_celestial_reform_vote.2
+    }
+    if = {
+        limit = {
+            ai = no
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
+        zhx_prepare_doctrine_ledger = yes
     }
 }
 
@@ -48,6 +73,8 @@ on_dependency_lost = {
 on_yearly_pulse = {
     events = {
         zhx_system.10
+        zhx_doctrine.90
+        zhx_debate.90
     }
 }
 
@@ -106,7 +133,7 @@ on_province_owner_change = {
 }
 
 # 战争结束时 ROOT 是胜方战争领袖，FROM 是败方战争领袖。
-# 只有周天下国家击败周天下以外的国家才奖励一次；诸侯内战和天子讨伐诸侯均不触发。
+# 只有周天下国家击败周天下以外的国家才结算一次；礼乐与盟功数值由当前天下显学决定。
 on_war_ended = {
     if = {
         limit = {

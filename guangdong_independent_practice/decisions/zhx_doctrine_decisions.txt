@@ -1,0 +1,85 @@
+country_decisions = {
+    zhx_convene_hundred_schools_debate = {
+        major = yes
+
+        potential = {
+            zhx_is_lijiao_country = yes
+            NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+        }
+
+        allow = {
+            is_at_war = no
+            stability = 0
+            capital_scope = { controlled_by = ROOT }
+        }
+
+        effect = {
+            country_event = { id = zhx_doctrine.1 }
+        }
+
+        ai_will_do = {
+            factor = 1
+            # Preserve the authored 1444 school map through the opening years.
+            # Human players may still call an early debate; only AI doctrine
+            # churn is held until 1450.
+            modifier = {
+                factor = 0
+                NOT = { is_year = 1450 }
+            }
+            modifier = {
+                factor = 0.10
+                zhx_has_doctrine = yes
+            }
+        }
+    }
+
+    zhx_convene_later_schools_debate = {
+        major = yes
+
+        potential = {
+            zhx_is_lijiao_country = yes
+            NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+        }
+
+        allow = {
+            is_at_war = no
+            stability = 0
+            capital_scope = { controlled_by = ROOT }
+        }
+
+        effect = {
+            country_event = { id = zhx_doctrine_expansion.1 }
+        }
+
+        ai_will_do = {
+            factor = 1
+            # Keep the later-school route under the same opening AI lock as
+            # the original Ru/Fa/Mo debate, without imposing a player cooldown.
+            modifier = {
+                factor = 0
+                NOT = { is_year = 1450 }
+            }
+            modifier = {
+                factor = 0.10
+                zhx_has_doctrine = yes
+            }
+        }
+    }
+
+    zhx_review_current_doctrine = {
+        major = no
+
+        potential = {
+            ai = no
+            zhx_has_doctrine = yes
+        }
+
+        allow = { always = yes }
+
+        effect = {
+            country_event = { id = zhx_doctrine.20 }
+        }
+
+        ai_will_do = { factor = 0 }
+    }
+}

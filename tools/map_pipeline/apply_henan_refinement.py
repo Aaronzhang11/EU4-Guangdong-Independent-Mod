@@ -24,7 +24,6 @@ PROVINCE_COLORS = {
     4967: (197, 38, 160),   # Shanzhou
     5045: (41, 159, 207),   # Mengjin
     5046: (173, 73, 194),   # Yanshi
-    692: (98, 136, 128),    # Huaiqing
     5047: (23, 186, 116),   # Weihui
     5048: (209, 92, 66),    # Zhangde
     5049: (117, 176, 219),  # Huazhou
@@ -39,22 +38,29 @@ PROVINCE_COLORS = {
     5054: (87, 109, 203),   # Runing
 }
 
+# Huaiqing (692) is retired.  Its inherited colour remains an accepted input
+# only so a replay from an old bitmap can absorb those pixels into the three
+# live Zhang-Wei provinces; it is never emitted as an output colour.
+RETIRED_SOURCE_COLORS = {
+    692: (98, 136, 128),
+}
+
 # Bitmap-coordinate seeds.  Group masks include all of their output colors,
 # making the operation idempotent after the first split.
 SPLIT_GROUPS = (
-    ((1836, 4967, 5045, 5046), {
+    ((1836, 4967, 5045, 5046), (), {
         4967: (4538, 828), 1836: (4553, 822),
         5045: (4565, 814), 5046: (4567, 832),
     }),
-    ((692, 5047, 5048, 5049), {
+    ((5047, 5048, 5049), (RETIRED_SOURCE_COLORS[692],), {
         5048: (4584, 785), 5049: (4594, 796),
-        692: (4575, 805), 5047: (4588, 807),
+        5047: (4588, 807),
     }),
-    ((2176, 5050, 5051, 5052), {
+    ((2176, 5050, 5051, 5052), (), {
         5050: (4617, 826), 2176: (4608, 831),
         5051: (4604, 841), 5052: (4594, 833),
     }),
-    ((687, 2175, 5053, 5054, 5055), {
+    ((687, 2175, 5053, 5054, 5055), (), {
         687: (4552, 847), 5055: (4560, 856),
         5053: (4572, 840), 5054: (4595, 853),
         2175: (4602, 868),
@@ -62,13 +68,19 @@ SPLIT_GROUPS = (
 )
 
 
-def color_mask(values: np.ndarray, province_ids: tuple[int, ...]) -> np.ndarray:
+def color_mask(
+    values: np.ndarray,
+    province_ids: tuple[int, ...],
+    legacy_source_colors: tuple[tuple[int, int, int], ...] = (),
+) -> np.ndarray:
     result = np.zeros(values.shape[:2], dtype=bool)
     for province_id in province_ids:
         result |= np.all(
             values == np.array(PROVINCE_COLORS[province_id], dtype=np.uint8),
             axis=2,
         )
+    for colour in legacy_source_colors:
+        result |= np.all(values == np.array(colour, dtype=np.uint8), axis=2)
     return result
 
 
@@ -142,12 +154,19 @@ def main() -> None:
     with Image.open(MAP_DIR / "rivers.bmp") as source:
         rivers = np.asarray(source, dtype=np.uint8)
 
-    for province_ids, seeds in SPLIT_GROUPS:
-        mask = color_mask(values, province_ids)
+    for province_ids, legacy_source_colors, seeds in SPLIT_GROUPS:
+        mask = color_mask(values, province_ids, legacy_source_colors)
         labels = split_connected_mask(mask, seeds, heightmap, rivers)
         for province_id in province_ids:
             values[mask & (labels == province_id)] = np.array(
                 PROVINCE_COLORS[province_id], dtype=np.uint8
+            )
+
+    for province_id, colour in RETIRED_SOURCE_COLORS.items():
+        pixels = int(np.all(values == np.array(colour, dtype=np.uint8), axis=2).sum())
+        if pixels:
+            raise ValueError(
+                f"Retired Henan province {province_id} still has {pixels} pixels"
             )
 
     Image.fromarray(values, mode="RGB").save(provinces_path, format="BMP")

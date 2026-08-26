@@ -78,9 +78,9 @@ P = (
     Province(2133, "德格", "Dege", "ganzi_area", (84,121,199), (118,126,240), (4367,861), "paper", (3,4,2), "kham", "tibetan", "vajrayana"),
     Province(2135, "壤塘", "Rangtang", "ganzi_area", (169,224,79), (118,130,80), (4386,850), "wool", (1,2,2), "kham", "tibetan", "vajrayana"),
     Province(5093, "理塘", "Lithang", "ganzi_area", (199,56,186), (199,56,186), (4368,917), "livestock", (2,3,2), "kham", "tibetan", "vajrayana"),
-    Province(2748, "嶲州", "Xizhou", "liangshan_area", (94,224,198), (80,32,128), (4420,943), "grain", (4,4,3), "liangshan", "yi", "animism", 0, True),
-    Province(5094, "会理", "Huili", "liangshan_area", (199,135,70), (199,135,70), (4438,960), "copper", (3,4,2), "liangshan", "yi", "animism"),
-    Province(5095, "盐井", "Yanjing", "liangshan_area", (97,63,224), (97,63,224), (4397,958), "salt", (2,2,2), "liangshan", "yi", "animism"),
+    Province(2748, "嶲州", "Xizhou", "liangshan_area", (94,224,198), (80,32,128), (4420,943), "grain", (4,4,3), "liangshan", "yi", "buddhism", 0, True),
+    Province(5094, "会理", "Huili", "liangshan_area", (199,135,70), (199,135,70), (4438,960), "copper", (3,4,2), "liangshan", "yi", "buddhism"),
+    Province(5095, "盐井", "Yanjing", "liangshan_area", (97,63,224), (97,63,224), (4397,958), "salt", (2,2,2), "liangshan", "yi", "buddhism"),
 )
 
 AREA_NAMES = {

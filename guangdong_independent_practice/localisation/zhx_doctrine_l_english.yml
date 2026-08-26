@@ -1,0 +1,87 @@
+﻿l_english:
+ zhx_convene_hundred_schools_debate_title:0 "ìSÆ–Œv¶RýVº‹"
+ zhx_convene_hundred_schools_debate_desc:0 "Ž÷‹2N¶RfRweQ÷^ÿ(WTNWYJyYeî•˜˜N©º‹»lýVKNS0³QšRýVº‹,g«ŽN±‚9Ñ‘±”bTIN¹ppeÿýVº‹ýw&TµNuôfHVHeœgÿÖS³QŽNdkTýV¶R=f&TwckõeSvQIN.V0–™!kËzº‹·ƒ—V25¹põeSÿ9ebcfRô‹M–ó15¹pÿÍ‘3u°s	gfRô‹žX R5¹p0"
+ zhx_review_current_doctrine_title:0 "ågwýVº‹NõeS"
+ zhx_review_current_doctrine_desc:0 "ågw,gýVSVMRýVº‹0õeSpeJP0N!kt^¦^ØSSÊSå‹fRLm¨cTŒTÍSùR„vLˆHN0"
+
+ zhx_doctrine.1.t:0 "÷‹2N¶ReQ÷^"
+ zhx_doctrine.1.d:0 "fR«Rø‹u08nëXNgbMeKNãòTZwŽN­^-N0Œv¶Rýb²‹TR0ßv“ŠŒT»lýV1ûNJP—V¨‹º‹ÿtSùRýV¶R”^‚YUOeSJyTgbNïz0g÷^êSýwHQŽ÷‹2N¶RUSVckV©º‹0"
+ zhx_doctrine.1.a:0 "÷‹Q¶RNÕl¶Rº‹JyÕlKN,g"
+ zhx_doctrine.1.b:0 "÷‹Q¶RN¨X¶Rº‹ÁN1rKNžR"
+ zhx_doctrine.1.c:0 "÷‹Õl¶RN¨X¶Rº‹HVýVKN(u"
+ zhx_doctrine.1.e:0 "öeHg8góÿ‚f®‹º‹"
+
+ zhx_doctrine.10.t:0 "JyNÕlKN©"
+ zhx_doctrine.10.d:0 "QwIN.VHQckTã6rPRKNTÿåNYeS0êNJyŒT·VLˆO)YNT‰RvQRÿÕlTRô‹zzŒ·V'`N³C`ÿÅV‰˜(ulQVwN=„vÕl0=g0¿R!hckTžR02N¶RýðXðyêñTMb=fJyYeýwYwckK„0W„vSï0"
+ zhx_doctrine.11.t:0 "ÁNNŠQ1rKN©"
+ zhx_doctrine.11.d:0 "Qw²‹HNÁN1rÅV‰˜1u²N²Nw¨cÊS)YNÿJy„vîTIrck=f1ûN„véy^ÿ¨XwR¥e1šSl„0ŠQv^ŒTOP1rˆmwl›RÿIN.VŠQ1r0S20‚‚(uN^—Ie0©º‹gÈuK„(WN8Nî•˜˜NÿýV¶R„v„UMevzßzegê	g^„v²NuÿØ=fïSŒšÁ‹„vlQqQ)RÊvÿ"
+ zhx_doctrine.12.t:0 "ÕlN¨XKN©"
+ zhx_doctrine.12.d:0 "Õl¶RåNÕläN0˜RTŒTOZýBläNLˆybkÿ¨X¶RR‰BlNb	g6R¦^HQ¥c×S‚‚(u0S2ŒT^—Ie„vÀhŒš0MRwÅbÃVŠQ1rKNô‹OCg›R1Y»S³Q­eÿTwf‹JTêSî•gÎN„vHVýVÈuOŠb)YNÖbeQàeObk„vIeO0"
+ zhx_doctrine.choose_ru:0 "åNQ¶RHN,gýVýVº‹"
+ zhx_doctrine.choose_fa:0 "åNÕl¶RHN,gýVýVº‹"
+ zhx_doctrine.choose_mo:0 "åN¨X¶RHN,gýVýVº‹"
+ zhx_doctrine.no_verdict:0 "Œv¶Rv^ËzÿNšRNS"
+ zhx_doctrine_postpone_tt:0 "2Nt^…QNýwQ!kìSÆ–ýVº‹0"
+ zhx_doctrine_inconclusive_tt:0 "ÝOYuSVMRýVº‹ÿå‚SàeýVº‹RçuíuŒv¶Rv^Ëz0”Nt^…QNýwQ!kìSÆ–ýVº‹0"
+ zhx_adopt_ru_doctrine_tt:0 "Ç‘(uQ¶RýVº‹0–™!kËzº‹ÎN25¹põeSVËYÿÎNvQÖNfRô‹9ebcöeM–ó15¹pÿÍ‘3uQ¶RRžX R5¹p0dkTASt^Nýwôf.VýVº‹0"
+ zhx_adopt_fa_doctrine_tt:0 "Ç‘(uÕl¶RýVº‹0–™!kËzº‹ÎN25¹põeSVËYÿÎNvQÖNfRô‹9ebcöeM–ó15¹pÿÍ‘3uÕl¶RRžX R5¹p0dkTASt^Nýwôf.VýVº‹0"
+ zhx_adopt_mo_doctrine_tt:0 "Ç‘(u¨X¶RýVº‹0–™!kËzº‹ÎN25¹põeSVËYÿÎNvQÖNfRô‹9ebcöeM–ó15¹pÿÍ‘3u¨X¶RRžX R5¹p0dkTASt^Nýwôf.VýVº‹0"
+
+ zhx_doctrine.20.t:0 "ýVº‹õeS&Ms"
+ zhx_doctrine.20.d.ru:0 "§Y,gýVýVº‹ÿQ¶R§!\nSVMRõeSÿ§Y[Root.zhx_doctrine_practice.GetValue]§!/1000ÝNNchÿ§Y[Root.zhx_doctrine_ledger_to_next_tier.GetValue]§!ÿHN0sSòT¾0RgØšch	ÿ\nÝ)YN÷‹©70¹pè•Ûiÿ§Y[Root.zhx_doctrine_ledger_to_proposal.GetValue]§!ÿ¾0RTÍN—,gLm	NýVÇ‘(uÿv^	gæSNTLmýV¶RõeS50	ÿ\n	cSVMRýVÅ`æ‰ÑST¡‹ÿ[Root.GetZhxDoctrinePracticeHoverTotal]\n\n§YŒRteÆQR§!\n3zšR¦^óSHN1ÿ+2ÿZgóSHN25ÿ+1ÿŒSbNOŽN3ÿ+10\n3zšR¦^HNÿ-3ÿZgNOŽN-25ÿ-1ÿŒSbóSHN5ÿ-20"
+ zhx_doctrine.20.d.fa:0 "§Y,gýVýVº‹ÿÕl¶R§!\nSVMRõeSÿ§Y[Root.zhx_doctrine_practice.GetValue]§!/1000ÝNNchÿ§Y[Root.zhx_doctrine_ledger_to_next_tier.GetValue]§!ÿHN0sSòT¾0RgØšch	ÿ\nÝ)YN÷‹©70¹pè•Ûiÿ§Y[Root.zhx_doctrine_ledger_to_proposal.GetValue]§!ÿ¾0RTÍN—,gLm	NýVÇ‘(uÿv^	gæSNTLmýV¶RõeS50	ÿ\n	cSVMRýVÅ`æ‰ÑST¡‹ÿ[Root.GetZhxDoctrinePracticeHoverTotal]\n\n§YŒRteÆQR§!\nP%NOŽN2ÿ+2ÿs^GW…gNOê»lNOŽN25ÿ+1ÿÇ¦^ib.VNOŽN10%ÿ+10\nP%óSHN5ÿ-3ÿs^GW…gNOê»lóSHN50ÿ-2ÿÇ¦^ib.VóSHN25%ÿ-20"
+ zhx_doctrine.20.d.mo:0 "§Y,gýVýVº‹ÿ¨X¶R§!\nSVMRõeSÿ§Y[Root.zhx_doctrine_practice.GetValue]§!/1000ÝNNchÿ§Y[Root.zhx_doctrine_ledger_to_next_tier.GetValue]§!ÿHN0sSòT¾0RgØšch	ÿ\nÝ)YN÷‹©70¹pè•Ûiÿ§Y[Root.zhx_doctrine_ledger_to_proposal.GetValue]§!ÿ¾0RTÍN—,gLm	NýVÇ‘(uÿv^	gæSNTLmýV¶RõeS50	ÿ\n	cSVMRýVÅ`æ‰ÑST¡‹ÿ[Root.GetZhxDoctrinePracticeHoverTotal]\n\n§YŒRteÆQR§!\njOHN2–¡V¹eb‰N†˜–ˆÿ+3ÿ&TRŒTs^öeÿ+2ÿ¡l	gPLkÿ+1ÿŒSbNOŽN3ÿ+10\njOHNÛIe¹eb‰N†˜–ˆÿ-4ÿóS	g	NrPLkÿ-2ÿŒSbóSHN5ÿ-20"
+ zhx_doctrine.20.a:0 "TN&MsÿçuíuõeS"
+ zhx_doctrine.90.t:0 "t^¦^õeSÓu—r"
+ zhx_doctrine.90.d:0 ",gýVýVº‹„võeSòTŒRbt^¦^Óu—r0"
+ zhx_doctrine.94.t:0 "ýVº‹õeSèch"
+ zhx_doctrine.94.d:0 "§Y[Root.GetZhxDoctrineReceiptSchool]§!„vt^¦^õeSòTÏuèŠNÍ‘ƒXLu0\n\n§Y[Root.GetZhxDoctrineReceiptOldTier]§! ’! §Y[Root.GetZhxDoctrineReceiptNewTier]§!\n,gt^žRE–ØSSÿ§Y[Root.zhx_doctrine_last_delta.GetValue]§!"
+ zhx_doctrine.94.a:0 "åwvQÛÿçuíuõeS"
+ zhx_doctrine.95.t:0 ")YN÷‹©è•ÛiØS¨R"
+ zhx_doctrine.95.d.gained:0 "§Y[Root.GetZhxDoctrineReceiptSchool]§!õeS(W,gt^Óu—rT¾0R70¹pÿbìNÖS—V†NNfN÷‹©„võeSè•Ûi0\n\nÙNIrŽNê¨RbHNP	ÿ,gýVØ‰˜^SŽNhT)YN0IYLˆJyYeÿ,gLmóS	g	NýVÇ‘(uÿv^	gæSNTLmýV¶RõeS¾0R500"
+ zhx_doctrine.95.d.lost:0 "§Y[Root.GetZhxDoctrineReceiptSchool]§!õeS(W,gt^Óu—rTÌ4x70¹pÿbìN‚föe1Y»S†NNfN÷‹©„võeSè•Ûi0\n\nÍ‘°e¾0R70¹pTÿÍN‰˜án³hT)YN0JyYe0,gLm	NýVÇ‘(uŒTæSNTLmýV¶RõeS50IragöNÿMbýw²NckV÷‹©fN0"
+ zhx_doctrine.95.a:0 "°‹NdkØS"
+ zhx_doctrine_receipt_school_ru:0 "Q¶R"
+ zhx_doctrine_receipt_school_fa:0 "Õl¶R"
+ zhx_doctrine_receipt_school_mo:0 "¨X¶R"
+ zhx_doctrine_receipt_school_dao:0 "S¶R"
+ zhx_doctrine_receipt_school_bing:0 "uQ¶R"
+ zhx_doctrine_receipt_school_zongheng:0 "µu8j¶R"
+ zhx_doctrine_receipt_school_unknown:0 ",gýVýVº‹"
+ zhx_doctrine_receipt_tier_hollow:0 "TžR8goR"
+ zhx_doctrine_receipt_tier_established:0 "ýVº‹RËz"
+ zhx_doctrine_receipt_tier_flourishing:0 "ýVº‹ff"
+ zhx_doctrine_receipt_tier_exemplary:0 "žRõxQƒ"
+
+ zhx_doctrine_change_cooldown:0 "ýVº‹ôf.Vg"
+ zhx_doctrine_change_cooldown_desc:0 "g÷^RRLNLˆÇýVº‹ÿëXºN0˜RTN0W¹eQÜu—‰öeô•ˆmSÓuœg0"
+ zhx_doctrine_ru_hollow:0 "Jy)TTqN"
+ zhx_doctrine_ru_hollow_desc:0 "g÷^ãSðyTJyLˆÁNÿžRE–tSNýwôucTR0éy^NáOINÿZ†Jyck(WÍSlVýVMe0"
+ zhx_doctrine_fa_hollow:0 "ÕläNNLˆ"
+ zhx_doctrine_fa_hollow_desc:0 "ÕläN’VwQvQ‡eÿ˜RT1YŽNwþ‹ÿ0W¹eNP%ÍSwPAuÕlËn•0"
+ zhx_doctrine_mo_hollow:0 "ˆRINNîO"
+ zhx_doctrine_mo_hollow_desc:0 "g÷^zzŒŠQ1r0^—IeN‚‚(uÿÎW2–0åT‹NŒTl›RtSàV1YŽNtel™wåeÊv%OW0"
+ zhx_doctrine_dao_hollow:0 "1YSpbl"
+ zhx_doctrine_dao_hollow_desc:0 "g÷^THNnY—ÿžRRMeäNpbl0VOwOÿNbŒàeHNòT¦lHNzzŠ0"
+ zhx_doctrine_bing_hollow:0 "fkYVŸ^"
+ zhx_doctrine_bing_hollow_desc:0 "uQfNØš¬`w­‹ÃuŸ^Vÿ›Qªu0TYNëXlý(WzzŒfkY-Npˆ%0"
+ zhx_doctrine_zongheng_hollow:0 "áOINñO1Y"
+ zhx_doctrine_zongheng_hollow_desc:0 "O‚‚êSåwû†‰žäNwNýwˆRáOÓuôcÿRýVòTNQøváO,gýV„vbú‹0"
+ zhx_doctrine_ru_established:0 "Qº‹RLˆ"
+ zhx_doctrine_ru_established_desc:0 "õeS¾0R25ÿYeSNJy^VËYÛeQåe8^Me¡R0"
+ zhx_doctrine_ru_flourishing:0 "Jy»lbàz"
+ zhx_doctrine_ru_flourishing_desc:0 "õeS¾0R50ÿJy6R0TRN	2òTÏubVb3zšR6R¦^0"
+ zhx_doctrine_ru_exemplary:0 "ÁNMeSb"
+ zhx_doctrine_ru_exemplary_desc:0 "õeS¾0R75ÿ,gýVòTbHNQ¶R»lýV„v)YNxQƒ0"
+ zhx_doctrine_fa_established:0 "ÕläNËYšR"
+ zhx_doctrine_fa_established_desc:0 "õeS¾0R25ÿÕläNŒT˜RTwþ‹VËYßuN0"
+ zhx_doctrine_fa_flourishing:0 "Õl=g¿Rv^Lˆ"
+ zhx_doctrine_fa_flourishing_desc:0 "õeS¾0R50ÿ6R¦^ýwYcíu uckP%0ê»lNTžR•MO0"
+ zhx_doctrine_fa_exemplary:0 "TžRN="
+ zhx_doctrine_fa_exemplary_desc:0 "õeS¾0R75ÿMeäN0˜R1NOZòTÏu=hQýV0"
+ zhx_doctrine_mo_established:0 "¨XˆR	g¹e"
+ zhx_doctrine_mo_established_desc:0 "õeS¾0R25ÿˆRÎW0‚‚(uNåT.SQÜuVËYÑS%cjO(u0"
+ zhx_doctrine_mo_flourishing:0 "ŠQ1rS2"
+ zhx_doctrine_mo_flourishing_desc:0 "õeS¾0R50ÿlQqQ)RÊvŒT2ýwhÆQck(W‹SÇè•,rÁy)R0"
+ zhx_doctrine_mo_exemplary:0 "^—Ieb»l"
+ zhx_doctrine_mo_exemplary_desc:0 "õeS¾0R75ÿ,gýVåNKQ6RIeO0ZWúVˆRYŒT‚‚(uS2û•T)YN0"

@@ -228,16 +228,16 @@ MUTED_COUNTRY_COLORS = {
 
 
 POLITIES = {
-    "LSH": {"file": "B43_Liangshan.txt", "history": "LSH - Liangshan.txt", "capital": 2748, "rank": 1, "color": MUTED_COUNTRY_COLORS["LSH"]},
-    "MDL": {"file": "B43_Mongol_Dali.txt", "history": "MDL - Mongol Dali.txt", "capital": 661, "rank": 1, "color": MUTED_COUNTRY_COLORS["MDL"]},
-    "NZA": {"file": "B43_Nanzhao.txt", "history": "NZA - Nanzhao.txt", "capital": 5235, "rank": 1, "color": MUTED_COUNTRY_COLORS["NZA"]},
+    "LSH": {"file": "B43_Liangshan.txt", "history": "LSH - Liangshan.txt", "capital": 2748, "rank": 1, "color": MUTED_COUNTRY_COLORS["LSH"], "religion": "buddhism"},
+    "MDL": {"file": "B43_Mongol_Dali.txt", "history": "MDL - Mongol Dali.txt", "capital": 661, "rank": 1, "color": MUTED_COUNTRY_COLORS["MDL"], "religion": "vajrayana"},
+    "NZA": {"file": "B43_Nanzhao.txt", "history": "NZA - Nanzhao.txt", "capital": 5235, "rank": 1, "color": MUTED_COUNTRY_COLORS["NZA"], "religion": "buddhism"},
     "QSH": {"file": "B43_Qunshu.txt", "history": "QSH - Qunshu.txt", "capital": 686, "rank": 1, "color": MUTED_COUNTRY_COLORS["QSH"]},
     "JJG": {"file": "B54_Jiujiang.txt", "history": "JJG - Jiujiang.txt", "capital": 4979, "rank": 1, "color": MUTED_COUNTRY_COLORS["JJG"], "government": "republic", "reform": "oligarchy_reform"},
     "HYA": {"file": "B54_Hanyang.txt", "history": "HYA - Hanyang.txt", "capital": 4981, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYA"], "government": "republic", "reform": "oligarchy_reform"},
     "EGU": {"file": "B52_E.txt", "history": "EGU - E.txt", "capital": 682, "rank": 1, "color": MUTED_COUNTRY_COLORS["EGU"]},
     "QVN": {"file": "B52_Quan.txt", "history": "QVN - Quan.txt", "capital": 5343, "rank": 1, "color": MUTED_COUNTRY_COLORS["QVN"]},
     "ZHU": {"file": "B52_Zhou.txt", "history": "ZHU - Zhou.txt", "capital": 5344, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHU"]},
-    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "gdd_khitan", "accepted": ("manchu", "gdd_qi"), "preserve_flag": True},
+    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "gdd_khitan", "religion": "nestorian", "accepted": ("manchu", "gdd_qi"), "preserve_flag": True},
     "HUA": {"file": "B50_Huai.txt", "history": "HUA - Huai.txt", "capital": 5059, "rank": 1, "color": MUTED_COUNTRY_COLORS["HUA"]},
     "OUE": {"file": "B50_Ou.txt", "history": "OUE - Ou.txt", "capital": 1824, "rank": 1, "color": MUTED_COUNTRY_COLORS["OUE"]},
     "HYM": {"file": "B50_Yang.txt", "history": "HYM - Yang.txt", "capital": 685, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYM"], "government": "republic", "reform": "oligarchy_reform"},
@@ -246,10 +246,10 @@ POLITIES = {
     "CCH": {"file": "B43_Chao.txt", "history": "CCH - Chao.txt", "capital": 5061, "rank": 1, "color": MUTED_COUNTRY_COLORS["CCH"]},
     "BAA": {"file": "B43_Ba.txt", "history": "BAA - Ba.txt", "capital": 680, "rank": 2, "color": MUTED_COUNTRY_COLORS["BAA"]},
     "BD2": {"file": "B43_Badi.txt", "history": "BD2 - Badi.txt", "capital": 5013, "rank": 1, "color": MUTED_COUNTRY_COLORS["BD2"]},
-    "WLM": {"file": "B43_Wuling.txt", "history": "WLM - Wuling.txt", "capital": 4996, "rank": 1, "color": MUTED_COUNTRY_COLORS["WLM"]},
+    "WLM": {"file": "B43_Wuling.txt", "history": "WLM - Wuling.txt", "capital": 4996, "rank": 1, "color": MUTED_COUNTRY_COLORS["WLM"], "religion": "animism"},
     "CDE": {"file": "B54_Changde.txt", "history": "CDE - Changde.txt", "capital": 672, "rank": 1, "color": MUTED_COUNTRY_COLORS["CDE"], "government": "republic", "reform": "oligarchy_reform"},
     "BMY": {"file": "B43_Baima_Miyao.txt", "history": "BMY - Baima Miyao.txt", "capital": 5086, "rank": 1, "color": MUTED_COUNTRY_COLORS["BMY"]},
-    "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"]},
+    "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"], "religion": "vajrayana"},
     "DQU": {"file": "B46_Dangqu.txt", "history": "DQU - Dangqu.txt", "capital": 5333, "rank": 1, "color": MUTED_COUNTRY_COLORS["DQU"], "accepted": ("gdd_diqiang",), "definition_comment": "# B46 GeoJSON-guided northeast Sichuan polity.", "history_comment": "# B46 Dangqu polity.", "revolutionary_colors": (3, 6, 4)},
     "ZHI": {"file": "B46_Zhi.txt", "history": "ZHI - Zhi.txt", "capital": 5027, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHI"], "accepted": ("gdd_shu",), "definition_comment": "# B46 GeoJSON-guided Chongqing polity.", "history_comment": "# B46 Zhi polity.", "revolutionary_colors": (6, 3, 6)},
     "LUU": {"file": "B43_Lu.txt", "history": "LUU - Lu.txt", "capital": 5109, "rank": 1, "color": MUTED_COUNTRY_COLORS["LUU"]},
@@ -272,7 +272,7 @@ POLITIES = {
     "WDU": {"file": "B43_Wudu.txt", "history": "WDU - Wudu.txt", "capital": 5309, "rank": 1, "color": MUTED_COUNTRY_COLORS["WDU"]},
     "DCH": {"file": "B43_Dangchang.txt", "history": "DCH - Dangchang.txt", "capital": 5290, "rank": 1, "color": MUTED_COUNTRY_COLORS["DCH"]},
     "WGS": {"file": "B43_Wanggu_Russia.txt", "history": "WGS - Wanggu Russia.txt", "capital": 4223, "rank": 2, "color": MUTED_COUNTRY_COLORS["WGS"]},
-    "GZH": {"file": "B43_Ganzhou.txt", "history": "GZH - Ganzhou.txt", "capital": 5296, "rank": 1, "color": MUTED_COUNTRY_COLORS["GZH"]},
+    "GZH": {"file": "B43_Ganzhou.txt", "history": "GZH - Ganzhou.txt", "capital": 5296, "rank": 1, "color": MUTED_COUNTRY_COLORS["GZH"], "religion": "vajrayana"},
     "SHZ": {"file": "B43_Shazhou.txt", "history": "SHZ - Shazhou.txt", "capital": 5300, "rank": 1, "color": MUTED_COUNTRY_COLORS["SHZ"]},
     "HZH": {"file": "B43_Hezhou_Huihui.txt", "history": "HZH - Hezhou Huihui.txt", "capital": 5293, "rank": 1, "color": MUTED_COUNTRY_COLORS["HZH"]},
     "YPG": {"file": "B43_Yinping.txt", "history": "YPG - Yinping.txt", "capital": 5294, "rank": 1, "color": MUTED_COUNTRY_COLORS["YPG"]},
@@ -993,6 +993,8 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         text = read_text(history)
         if int(initial_value(text, "capital")) != config["capital"]:
             raise ValueError(f"{tag}: incorrect capital")
+        if "religion" in config and initial_value(text, "religion") != config["religion"]:
+            raise ValueError(f"{tag}: configured country religion drifted")
         if not (FLAGS / f"{tag}.tga").exists():
             raise ValueError(f"{tag}: missing flag")
         if (FLAGS / f"{tag}.tga").stat().st_size != 18 + 128 * 128 * 3:

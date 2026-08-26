@@ -1,0 +1,152 @@
+# At 0-24 practice, each doctrine now suffers its own strong contradiction
+# penalty: the state publicly claims one teaching while failing in precisely
+# the field that teaching promises to govern. Positive tiers begin at 25.
+
+zhx_doctrine_ru_hollow = {
+    global_unrest = 2
+    stability_cost_modifier = 0.15
+    diplomatic_reputation = -1
+}
+
+zhx_doctrine_fa_hollow = {
+    global_autonomy = 0.10
+    core_creation = 0.10
+    yearly_corruption = 0.10
+}
+
+zhx_doctrine_mo_hollow = {
+    fort_maintenance_modifier = 0.25
+    defensiveness = -0.20
+    development_cost = 0.10
+}
+
+zhx_doctrine_dao_hollow = {
+    global_unrest = 2
+    war_exhaustion = 0.03
+    development_cost = 0.10
+}
+
+zhx_doctrine_bing_hollow = {
+    manpower_recovery_speed = -0.20
+    army_tradition_decay = 0.01
+    land_morale = -0.10
+}
+
+zhx_doctrine_zongheng_hollow = {
+    improve_relation_modifier = -0.25
+    diplomatic_reputation = -1
+    diplomatic_upkeep = -1
+}
+
+zhx_doctrine_ru_established = {
+    advisor_cost = -0.025
+    stability_cost_modifier = -0.025
+}
+
+zhx_doctrine_ru_flourishing = {
+    advisor_cost = -0.05
+    stability_cost_modifier = -0.05
+    diplomatic_reputation = 0.5
+}
+
+zhx_doctrine_ru_exemplary = {
+    advisor_cost = -0.10
+    stability_cost_modifier = -0.10
+    diplomatic_reputation = 1
+    global_unrest = -1
+}
+
+zhx_doctrine_fa_established = {
+    global_autonomy = -0.025
+    core_creation = -0.025
+}
+
+zhx_doctrine_fa_flourishing = {
+    global_autonomy = -0.05
+    core_creation = -0.05
+    yearly_corruption = -0.05
+}
+
+zhx_doctrine_fa_exemplary = {
+    global_autonomy = -0.075
+    core_creation = -0.10
+    yearly_corruption = -0.10
+    discipline = 0.025
+}
+
+zhx_doctrine_mo_established = {
+    fort_maintenance_modifier = -0.05
+    defensiveness = 0.05
+}
+
+zhx_doctrine_mo_flourishing = {
+    fort_maintenance_modifier = -0.10
+    defensiveness = 0.10
+    diplomatic_reputation = 0.5
+}
+
+zhx_doctrine_mo_exemplary = {
+    fort_maintenance_modifier = -0.20
+    defensiveness = 0.20
+    diplomatic_reputation = 1
+    development_cost = -0.05
+}
+
+zhx_doctrine_dao_established = {
+    global_unrest = -0.5
+    war_exhaustion = -0.01
+}
+
+zhx_doctrine_dao_flourishing = {
+    global_unrest = -1
+    war_exhaustion = -0.02
+    development_cost = -0.025
+}
+
+zhx_doctrine_dao_exemplary = {
+    global_unrest = -2
+    war_exhaustion = -0.03
+    development_cost = -0.05
+    stability_cost_modifier = -0.05
+}
+
+zhx_doctrine_bing_established = {
+    manpower_recovery_speed = 0.05
+    army_tradition_decay = -0.005
+}
+
+zhx_doctrine_bing_flourishing = {
+    manpower_recovery_speed = 0.10
+    army_tradition_decay = -0.01
+    land_morale = 0.05
+}
+
+zhx_doctrine_bing_exemplary = {
+    manpower_recovery_speed = 0.15
+    army_tradition_decay = -0.01
+    land_morale = 0.10
+    discipline = 0.025
+}
+
+zhx_doctrine_zongheng_established = {
+    improve_relation_modifier = 0.10
+    diplomatic_reputation = 0.25
+}
+
+zhx_doctrine_zongheng_flourishing = {
+    improve_relation_modifier = 0.15
+    diplomatic_reputation = 0.5
+    diplomatic_upkeep = 1
+}
+
+zhx_doctrine_zongheng_exemplary = {
+    improve_relation_modifier = 0.25
+    diplomatic_reputation = 1
+    diplomatic_upkeep = 1
+    diplomats = 1
+}
+
+# Empty, visible and save-safe timer token for both successful and
+# inconclusive debates. Successful adoption uses ten years; no verdict uses five.
+zhx_doctrine_change_cooldown = {
+}

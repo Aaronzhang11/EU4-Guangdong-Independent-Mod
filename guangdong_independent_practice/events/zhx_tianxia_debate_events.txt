@@ -1,0 +1,278 @@
+namespace = zhx_debate
+
+country_event = {
+    id = zhx_debate.1
+    title = zhx_debate.1.t
+    desc = zhx_debate.1.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        zhx_is_tianzi = yes
+        has_global_flag = zhx_system_initialised_v4
+        NOT = { has_global_flag = zhx_council_initialised_v1 }
+    }
+    immediate = { zhx_initialise_tianxia_council = yes }
+    option = { name = OK }
+}
+
+# Stable command wrapper used by the GUI and annual scheduler.
+country_event = {
+    id = zhx_debate.2
+    title = zhx_debate.2.t
+    desc = zhx_debate.2.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { zhx_can_convene_tianxia_debate = yes }
+    immediate = { zhx_try_convene_mature_tianxia_debate = yes }
+    option = { name = OK }
+}
+
+# Three or more live petitions use a two-step Tianzi choice: first A, then a
+# different B. This keeps each event to six readable options instead of 15 pairs.
+country_event = {
+    id = zhx_debate.3
+    title = zhx_debate.3.t
+    desc = zhx_debate.3.d
+    picture = DIPLOMACY_eventPicture
+    major = yes
+    is_triggered_only = yes
+    trigger = {
+        zhx_is_tianzi = yes
+        has_country_flag = zhx_council_phase_preparing
+        has_country_flag = zhx_council_kind_debate
+    }
+    option = { name = zhx_debate.choose_a_ru trigger = { has_country_flag = zhx_debate_shortlist_ru } hidden_effect = { zhx_set_council_candidate_a_ru = yes country_event = { id = zhx_debate.4 } } ai_chance = { factor = 10 modifier = { factor = 4 has_country_flag = zhx_doctrine_ru } } }
+    option = { name = zhx_debate.choose_a_fa trigger = { has_country_flag = zhx_debate_shortlist_fa } hidden_effect = { zhx_set_council_candidate_a_fa = yes country_event = { id = zhx_debate.4 } } ai_chance = { factor = 10 modifier = { factor = 4 has_country_flag = zhx_doctrine_fa } } }
+    option = { name = zhx_debate.choose_a_mo trigger = { has_country_flag = zhx_debate_shortlist_mo } hidden_effect = { zhx_set_council_candidate_a_mo = yes country_event = { id = zhx_debate.4 } } ai_chance = { factor = 10 modifier = { factor = 4 has_country_flag = zhx_doctrine_mo } } }
+    option = { name = zhx_debate.choose_a_dao trigger = { has_country_flag = zhx_debate_shortlist_dao } hidden_effect = { zhx_set_council_candidate_a_dao = yes country_event = { id = zhx_debate.4 } } ai_chance = { factor = 10 modifier = { factor = 4 has_country_flag = zhx_doctrine_dao } } }
+    option = { name = zhx_debate.choose_a_bing trigger = { has_country_flag = zhx_debate_shortlist_bing } hidden_effect = { zhx_set_council_candidate_a_bing = yes country_event = { id = zhx_debate.4 } } ai_chance = { factor = 10 modifier = { factor = 4 has_country_flag = zhx_doctrine_bing } } }
+    option = { name = zhx_debate.choose_a_zongheng trigger = { has_country_flag = zhx_debate_shortlist_zongheng } hidden_effect = { zhx_set_council_candidate_a_zongheng = yes country_event = { id = zhx_debate.4 } } ai_chance = { factor = 10 modifier = { factor = 4 has_country_flag = zhx_doctrine_zongheng } } }
+    option = { name = zhx_debate.cancel_selection hidden_effect = { zhx_abort_tianxia_debate_selection = yes } ai_chance = { factor = 0 } }
+}
+
+country_event = {
+    id = zhx_debate.4
+    title = zhx_debate.4.t
+    desc = zhx_debate.4.d
+    picture = DIPLOMACY_eventPicture
+    major = yes
+    is_triggered_only = yes
+    trigger = { zhx_is_tianzi = yes has_country_flag = zhx_council_phase_preparing has_country_flag = zhx_council_kind_debate }
+    option = { name = zhx_debate.choose_b_ru trigger = { has_country_flag = zhx_debate_shortlist_ru NOT = { has_country_flag = zhx_council_candidate_a_ru } } hidden_effect = { zhx_set_council_candidate_b_ru = yes zhx_start_selected_tianxia_debate = yes } ai_chance = { factor = 10 modifier = { factor = 3 has_country_flag = zhx_doctrine_ru } } }
+    option = { name = zhx_debate.choose_b_fa trigger = { has_country_flag = zhx_debate_shortlist_fa NOT = { has_country_flag = zhx_council_candidate_a_fa } } hidden_effect = { zhx_set_council_candidate_b_fa = yes zhx_start_selected_tianxia_debate = yes } ai_chance = { factor = 10 modifier = { factor = 3 has_country_flag = zhx_doctrine_fa } } }
+    option = { name = zhx_debate.choose_b_mo trigger = { has_country_flag = zhx_debate_shortlist_mo NOT = { has_country_flag = zhx_council_candidate_a_mo } } hidden_effect = { zhx_set_council_candidate_b_mo = yes zhx_start_selected_tianxia_debate = yes } ai_chance = { factor = 10 modifier = { factor = 3 has_country_flag = zhx_doctrine_mo } } }
+    option = { name = zhx_debate.choose_b_dao trigger = { has_country_flag = zhx_debate_shortlist_dao NOT = { has_country_flag = zhx_council_candidate_a_dao } } hidden_effect = { zhx_set_council_candidate_b_dao = yes zhx_start_selected_tianxia_debate = yes } ai_chance = { factor = 10 modifier = { factor = 3 has_country_flag = zhx_doctrine_dao } } }
+    option = { name = zhx_debate.choose_b_bing trigger = { has_country_flag = zhx_debate_shortlist_bing NOT = { has_country_flag = zhx_council_candidate_a_bing } } hidden_effect = { zhx_set_council_candidate_b_bing = yes zhx_start_selected_tianxia_debate = yes } ai_chance = { factor = 10 modifier = { factor = 3 has_country_flag = zhx_doctrine_bing } } }
+    option = { name = zhx_debate.choose_b_zongheng trigger = { has_country_flag = zhx_debate_shortlist_zongheng NOT = { has_country_flag = zhx_council_candidate_a_zongheng } } hidden_effect = { zhx_set_council_candidate_b_zongheng = yes zhx_start_selected_tianxia_debate = yes } ai_chance = { factor = 10 modifier = { factor = 3 has_country_flag = zhx_doctrine_zongheng } } }
+    option = { name = zhx_debate.cancel_selection hidden_effect = { zhx_abort_tianxia_debate_selection = yes } ai_chance = { factor = 0 } }
+}
+
+# One invitation event supports any of the six schools. At runtime exactly one
+# A option, one B option and the pluralist C option are visible.
+country_event = {
+    id = zhx_debate.10
+    title = zhx_debate.10.t
+    desc = zhx_debate.10.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = {
+        ai = no
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_debate }
+    }
+
+    option = { name = zhx_debate.vote_ru trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_ru } } hidden_effect = { zhx_cast_tianxia_council_vote_a = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_ru } } }
+    option = { name = zhx_debate.vote_fa trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_fa } } hidden_effect = { zhx_cast_tianxia_council_vote_a = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_fa } } }
+    option = { name = zhx_debate.vote_mo trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_mo } } hidden_effect = { zhx_cast_tianxia_council_vote_a = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_mo } } }
+    option = { name = zhx_debate.vote_dao trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_dao } } hidden_effect = { zhx_cast_tianxia_council_vote_a = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_dao } } }
+    option = { name = zhx_debate.vote_bing trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_bing } } hidden_effect = { zhx_cast_tianxia_council_vote_a = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_bing } } }
+    option = { name = zhx_debate.vote_zongheng trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_a_zongheng } } hidden_effect = { zhx_cast_tianxia_council_vote_a = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_zongheng } } }
+
+    option = { name = zhx_debate.vote_ru trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_ru } } hidden_effect = { zhx_cast_tianxia_council_vote_b = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_ru } } }
+    option = { name = zhx_debate.vote_fa trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_fa } } hidden_effect = { zhx_cast_tianxia_council_vote_b = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_fa } } }
+    option = { name = zhx_debate.vote_mo trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_mo } } hidden_effect = { zhx_cast_tianxia_council_vote_b = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_mo } } }
+    option = { name = zhx_debate.vote_dao trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_dao } } hidden_effect = { zhx_cast_tianxia_council_vote_b = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_dao } } }
+    option = { name = zhx_debate.vote_bing trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_bing } } hidden_effect = { zhx_cast_tianxia_council_vote_b = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_bing } } }
+    option = { name = zhx_debate.vote_zongheng trigger = { event_target:zhx_tianzi = { has_country_flag = zhx_council_candidate_b_zongheng } } hidden_effect = { zhx_cast_tianxia_council_vote_b = yes } ai_chance = { factor = 20 modifier = { factor = 5 has_country_flag = zhx_doctrine_zongheng } } }
+
+    option = {
+        name = zhx_debate.vote_plural
+        hidden_effect = { zhx_cast_tianxia_council_vote_c = yes }
+        ai_chance = {
+            factor = 15
+            modifier = { factor = 3 NOT = { zhx_has_doctrine = yes } }
+            modifier = { factor = 2 NOT = { check_variable = { which = zhx_doctrine_practice value = 50 } } }
+        }
+    }
+}
+
+# One mid-term review lets diplomatic realignments change a country's ballot
+# without creating an unbounded pulse or self-scheduling event chain.
+country_event = {
+    id = zhx_debate.12
+    title = zhx_debate.2.t
+    desc = zhx_debate.2.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        ai = yes
+        has_country_flag = zhx_council_ai_review_pending
+        OR = {
+            has_country_flag = zhx_council_vote_a
+            has_country_flag = zhx_council_vote_b
+            has_country_flag = zhx_council_vote_c
+        }
+        zhx_can_vote_in_tianxia_council = yes
+        event_target:zhx_tianzi = { has_country_flag = zhx_council_kind_debate }
+    }
+    immediate = {
+        clr_country_flag = zhx_council_ai_review_pending
+        zhx_choose_tianxia_council_ai_vote = yes
+    }
+    option = { name = OK }
+}
+
+# Deterministic safety net: day 61 catches any eligible polity which entered
+# the Tianxia after the synchronous opening ballot or otherwise lacks a vote.
+country_event = {
+    id = zhx_debate.14
+    title = zhx_debate.2.t
+    desc = zhx_debate.2.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        zhx_is_tianzi = yes
+        has_country_flag = zhx_council_phase_ballot_open
+        has_country_flag = zhx_council_kind_debate
+    }
+    immediate = {
+        zhx_fill_missing_tianxia_debate_ai_votes = yes
+    }
+    option = { name = OK }
+}
+
+country_event = {
+    id = zhx_debate.20
+    title = zhx_debate.20.t
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_ru } desc = zhx_debate.20.d.ru }
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_fa } desc = zhx_debate.20.d.fa }
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_mo } desc = zhx_debate.20.d.mo }
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_dao } desc = zhx_debate.20.d.dao }
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_bing } desc = zhx_debate.20.d.bing }
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_zongheng } desc = zhx_debate.20.d.zongheng }
+    desc = { trigger = { has_country_flag = zhx_tianxia_orthodoxy_plural } desc = zhx_debate.20.d.plural }
+    picture = DIPLOMACY_eventPicture
+    major = yes
+    is_triggered_only = yes
+    trigger = {
+        zhx_is_tianzi = yes
+        has_country_flag = zhx_council_phase_resolving
+        has_country_flag = zhx_council_kind_debate
+        has_country_flag = zhx_council_result_ready
+    }
+    immediate = { hidden_effect = { zhx_resolve_tianxia_debate = yes } }
+    option = {
+        name = zhx_debate.20.a
+        custom_tooltip = zhx_debate_result_tt
+        hidden_effect = { zhx_finish_tianxia_debate = yes }
+    }
+}
+
+country_event = {
+    id = zhx_debate.30
+    title = zhx_debate.30.t
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_ru } } desc = zhx_debate.30.d.ru }
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_fa } } desc = zhx_debate.30.d.fa }
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_mo } } desc = zhx_debate.30.d.mo }
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_dao } } desc = zhx_debate.30.d.dao }
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_bing } } desc = zhx_debate.30.d.bing }
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_zongheng } } desc = zhx_debate.30.d.zongheng }
+    desc = { trigger = { event_target:zhx_tianzi = { has_country_modifier = zhx_tianxia_orthodoxy_term has_country_flag = zhx_tianxia_orthodoxy_plural } } desc = zhx_debate.30.d.plural }
+    desc = {
+        trigger = {
+            event_target:zhx_tianzi = { NOT = { zhx_tianxia_has_active_orthodoxy = yes } }
+        }
+        desc = zhx_debate.30.d.none
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = { name = zhx_debate.30.a }
+    option = { name = zhx_debate.30.b hidden_effect = { country_event = { id = zhx_debate.31 } } }
+}
+
+country_event = {
+    id = zhx_debate.31
+    title = zhx_debate.31.t
+    desc = zhx_debate.31.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    immediate = { hidden_effect = { zhx_refresh_tianxia_proposal_ledger = yes } }
+    option = { name = zhx_debate.31.a }
+}
+
+country_event = {
+    id = zhx_debate.40
+    title = zhx_debate.40.t
+    desc = zhx_debate.40.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = { name = zhx_debate.40.a }
+}
+
+# Human-facing one-shot qualification check. The GUI uses only the cheap
+# 70-practice gate; the cross-country social-basis scan happens here on click.
+country_event = {
+    id = zhx_debate.41
+    title = zhx_debate.41.t
+    desc = zhx_debate.41.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_can_attempt_tianxia_debate_petition = yes }
+    option = {
+        name = zhx_debate.41.a
+        trigger = { zhx_can_file_tianxia_debate_petition = yes }
+        hidden_effect = { zhx_file_tianxia_debate_petition = yes }
+    }
+    option = {
+        name = zhx_debate.41.b
+        trigger = { NOT = { zhx_can_file_tianxia_debate_petition = yes } }
+    }
+}
+
+country_event = {
+    id = zhx_debate.90
+    title = zhx_debate.90.t
+    desc = zhx_debate.90.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { zhx_is_tianzi = yes has_global_flag = zhx_system_initialised_v4 }
+    immediate = {
+        if = {
+            limit = { NOT = { has_global_flag = zhx_council_initialised_v1 } }
+            zhx_initialise_tianxia_council = yes
+        }
+        zhx_cleanup_tianxia_debate_petitions = yes
+        if = {
+            limit = {
+                NOT = { has_country_modifier = zhx_tianxia_orthodoxy_term }
+                OR = {
+                    has_country_flag = zhx_tianxia_orthodoxy_ru
+                    has_country_flag = zhx_tianxia_orthodoxy_fa
+                    has_country_flag = zhx_tianxia_orthodoxy_mo
+                    has_country_flag = zhx_tianxia_orthodoxy_dao
+                    has_country_flag = zhx_tianxia_orthodoxy_bing
+                    has_country_flag = zhx_tianxia_orthodoxy_zongheng
+                    has_country_flag = zhx_tianxia_orthodoxy_plural
+                }
+            }
+            zhx_clear_tianxia_orthodoxy_flags = yes
+        }
+        zhx_try_convene_mature_tianxia_debate = yes
+    }
+    option = { name = OK }
+}

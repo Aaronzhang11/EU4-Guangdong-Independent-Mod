@@ -2,7 +2,7 @@ government = monarchy
 add_government_reform = feudalism_reform
 government_rank = 1
 primary_culture = vietnamese
-religion = confucianism
+religion = mahayana
 technology_group = chinese
 capital = 613	# Hanoi
 

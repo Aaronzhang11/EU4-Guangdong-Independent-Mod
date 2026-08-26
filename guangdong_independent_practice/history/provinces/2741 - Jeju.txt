@@ -2,7 +2,7 @@
 owner = KOR
 controller = KOR
 culture = gdd_samhan
-religion = confucianism
+religion = mahayana
 capital = "NmÞT" 	# Jeju
 trade_goods = fish
 hre = no

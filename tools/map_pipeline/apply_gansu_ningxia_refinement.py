@@ -45,7 +45,7 @@ P = (
     Province(5288,"松山","Songshan","ningxia_area",(55,15,249),"livestock",(1,2,2),"gdd_long","confucianism"),
     Province(2180,"秦州","Qinzhou Gansu","longnan_area",(138,152,194),"grain",(4,4,3),"gdd_zhongyuan","confucianism"),
     Province(2183,"洮州","Taozhou","longnan_area",(221,43,139),"livestock",(2,2,3),"gdd_long","vajrayana"),
-    Province(5289,"阶州","Jiezhou Gansu","longnan_area",(58,180,84),"livestock",(2,2,1),"gdd_diqiang","confucianism"),
+    Province(5289,"阶州","Jiezhou Gansu","longnan_area",(58,180,84),"livestock",(2,2,1),"gdd_diqiang","vajrayana"),
     Province(5290,"岷州","Minzhou","longnan_area",(141,71,29),"livestock",(2,2,2),"gdd_diqiang","vajrayana"),
     Province(5291,"巩昌","Gongchang","longnan_area",(224,208,220),"grain",(3,3,2),"gdd_long","confucianism"),
     Province(2184,"西宁","Xining","gansu_area",(61,99,165),"salt",(4,3,3),"gdd_long","vajrayana"),

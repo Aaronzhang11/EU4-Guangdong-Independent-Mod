@@ -3,7 +3,7 @@
  canton:0 "ŒvŠ"
  huguang:0 "FƒZi"
  chengdu:0 "ôT‡"
- yungui:0 "ÇnYÎ"
+ yungui:0 "YÎ"
  xian:0 "æyG–"
  zhongyuan:0 "³lNm"
  beijing:0 "‹^Õq"
@@ -15,8 +15,8 @@
  GDD_TRADE_COMPANY_HUGUANG:0 "FƒZi8flQøS"
  trade_company_chengdu:0 "ôT‡yr¸‹8fHS"
  GDD_TRADE_COMPANY_CHENGDU:0 "ôT‡8flQøS"
- trade_company_yungui:0 "ÇnYÎyr¸‹8fHS"
- GDD_TRADE_COMPANY_YUNGUI:0 "ÇnYÎ8flQøS"
+ trade_company_yungui:0 "YÎ"
+ GDD_TRADE_COMPANY_YUNGUI:0 "YÎ"
  trade_company_xian:0 "æyG–yr¸‹8fHS"
  GDD_TRADE_COMPANY_XIAN:0 "æyG–8flQøS"
  trade_company_zhongyuan:0 "³lNmyr¸‹8fHS"
