@@ -1,0 +1,17 @@
+# Generated into EU4dll-safe script bytes. Edit this readable source only.
+gdd_liang_define_zhang_chengzuo = {
+    define_ruler = {
+        # EU4 renders dynasty + given name in the court view.
+        name = "bZy"
+        dynasty = ".V"
+        # define_ruler displays one year below this numeric value at creation.
+        age = 27
+        adm = 3
+        dip = 5
+        mil = 2
+        claim = 90
+        culture = gdd_long
+        religion = confucianism
+        male = yes
+    }
+}

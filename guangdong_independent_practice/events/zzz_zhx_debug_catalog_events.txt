@@ -113,6 +113,150 @@ country_event = {
         hidden_effect = { country_event = { id = zhx_debug.10 } }
     }
     option = {
+        name = zhx_debug.catalog.liang_status
+        custom_tooltip = zhx_debug.catalog.liang_status.tt
+        hidden_effect = { country_event = { id = zhx_debug.30 } }
+    }
+}
+
+# Page 3: read-only Liang restoration state. The saved global event target is
+# only an observability mirror; production flags and the frozen roster remain
+# authoritative. No future recipient is selected before the selector runs.
+country_event = {
+    id = zhx_debug.30
+    title = zhx_debug.30.t
+    desc = {
+        trigger = {
+            NOT = {
+                has_global_flag = gdd_liang_restoration_chain_started
+            }
+        }
+        desc = zhx_debug.30.d.not_started
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_chain_started
+            NOT = {
+                has_global_flag = gdd_liang_restoration_intro_shown
+            }
+            NOT = { has_global_flag = gdd_liang_restoration_succeeded }
+            NOT = { has_global_flag = gdd_liang_restoration_failed }
+        }
+        desc = zhx_debug.30.d.awaiting_intro
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_intro_shown
+            NOT = { has_global_flag = gdd_liang_restoration_succeeded }
+            NOT = { has_global_flag = gdd_liang_restoration_failed }
+            has_saved_global_event_target = gdd_liang_current_petition_target
+        }
+        desc = zhx_debug.30.d.active_target
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_intro_shown
+            NOT = { has_global_flag = gdd_liang_restoration_succeeded }
+            NOT = { has_global_flag = gdd_liang_restoration_failed }
+            NOT = {
+                has_saved_global_event_target = gdd_liang_current_petition_target
+            }
+        }
+        desc = zhx_debug.30.d.active_no_target
+    }
+    desc = {
+        trigger = { has_global_flag = gdd_liang_restoration_failed }
+        desc = zhx_debug.30.d.failed
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_succeeded
+            any_country = {
+                has_country_flag = gdd_liang_restoration_compact_repudiated
+            }
+        }
+        desc = zhx_debug.30.d.repudiated
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_succeeded
+            any_country = {
+                has_country_flag = gdd_liang_settlement_pending
+            }
+            NOT = {
+                any_country = {
+                    has_country_flag = gdd_liang_restoration_compact_repudiated
+                }
+            }
+        }
+        desc = zhx_debug.30.d.settlement_pending
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_succeeded
+            any_country = {
+                has_country_flag = gdd_liang_restoration_patron_active
+            }
+            NOT = {
+                any_country = { has_country_flag = gdd_liang_settlement_pending }
+            }
+            NOT = {
+                any_country = {
+                    has_country_flag = gdd_liang_restoration_compact_repudiated
+                }
+            }
+        }
+        desc = zhx_debug.30.d.compact_active
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_succeeded
+            any_country = {
+                has_country_flag = gdd_liang_restoration_compact_fulfilled
+            }
+            NOT = {
+                any_country = {
+                    has_country_flag = gdd_liang_restoration_patron_active
+                }
+            }
+            NOT = {
+                any_country = {
+                    has_country_flag = gdd_liang_restoration_compact_repudiated
+                }
+            }
+        }
+        desc = zhx_debug.30.d.fulfilled
+    }
+    desc = {
+        trigger = {
+            has_global_flag = gdd_liang_restoration_succeeded
+            NOT = {
+                any_country = {
+                    OR = {
+                        has_country_flag = gdd_liang_restoration_patron_active
+                        has_country_flag = gdd_liang_settlement_pending
+                        has_country_flag = gdd_liang_restoration_compact_fulfilled
+                        has_country_flag = gdd_liang_restoration_compact_repudiated
+                    }
+                }
+            }
+        }
+        desc = zhx_debug.30.d.closed_neutrally
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        ai = no
+        has_country_flag = zhx_debug_catalog_enabled
+    }
+
+    option = {
+        name = zhx_debug.catalog.previous_doctrine_page
+        hidden_effect = { country_event = { id = zhx_debug.20 } }
+    }
+    option = { name = zhx_debug.catalog.close }
+    option = {
         name = zhx_debug.catalog.disable
         hidden_effect = { clr_country_flag = zhx_debug_catalog_enabled }
     }

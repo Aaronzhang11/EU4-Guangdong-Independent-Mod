@@ -1,0 +1,214 @@
+# Compute the minimum in ROOT variables, mark exact ties, then sample one.
+gdd_liang_select_lowest_grant_province = {
+    every_owned_province = {
+        limit = { has_province_flag = gdd_liang_lowest_grant_candidate }
+        clr_province_flag = gdd_liang_lowest_grant_candidate
+    }
+    set_variable = { which = gdd_liang_minimum_grant_development value = 10000 }
+    every_owned_province = {
+        limit = {
+            is_city = yes
+            is_capital = no
+            NOT = { province_id = 708 }
+            NOT = { province_id = 2182 }
+            NOT = { province_id = 5295 }
+        }
+        ROOT = {
+            export_to_variable = {
+                which = gdd_liang_scanned_grant_development
+                value = trigger_value:development
+                who = PREV
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_liang_scanned_grant_development
+                            which = gdd_liang_minimum_grant_development
+                        }
+                    }
+                }
+                set_variable = {
+                    which = gdd_liang_minimum_grant_development
+                    which = gdd_liang_scanned_grant_development
+                }
+            }
+        }
+    }
+    every_owned_province = {
+        limit = {
+            is_city = yes
+            is_capital = no
+            NOT = { province_id = 708 }
+            NOT = { province_id = 2182 }
+            NOT = { province_id = 5295 }
+        }
+        ROOT = {
+            export_to_variable = {
+                which = gdd_liang_scanned_grant_development
+                value = trigger_value:development
+                who = PREV
+            }
+            if = {
+                limit = {
+                    check_variable = {
+                        which = gdd_liang_scanned_grant_development
+                        which = gdd_liang_minimum_grant_development
+                    }
+                    check_variable = {
+                        which = gdd_liang_minimum_grant_development
+                        which = gdd_liang_scanned_grant_development
+                    }
+                }
+                PREV = { set_province_flag = gdd_liang_lowest_grant_candidate }
+            }
+        }
+    }
+    random_owned_province = {
+        limit = { has_province_flag = gdd_liang_lowest_grant_candidate }
+        save_event_target_as = gdd_liang_proposed_grant
+    }
+    every_owned_province = {
+        limit = { has_province_flag = gdd_liang_lowest_grant_candidate }
+        clr_province_flag = gdd_liang_lowest_grant_candidate
+    }
+    set_variable = { which = gdd_liang_minimum_grant_development value = 0 }
+    set_variable = { which = gdd_liang_scanned_grant_development value = 0 }
+}
+
+gdd_liang_clear_current_petition_target = {
+    if = {
+        limit = {
+            has_saved_global_event_target = gdd_liang_current_petition_target
+        }
+        clear_global_event_target = gdd_liang_current_petition_target
+    }
+}
+
+gdd_liang_clear_petition_roster = {
+    every_country = {
+        limit = { has_country_flag = gdd_liang_petition_roster }
+        clr_country_flag = gdd_liang_petition_roster
+    }
+    gdd_liang_clear_current_petition_target = yes
+}
+
+gdd_liang_prepare_restored_country = {
+    LGU = {
+        change_government = monarchy
+        add_government_reform = feudalism_reform
+        set_government_rank = 1
+        change_religion = confucianism
+        change_primary_culture = gdd_long
+        gdd_liang_define_zhang_chengzuo = yes
+        zhx_register_tianxia_member = yes
+    }
+    create_subject = {
+        subject_type = march
+        subject = LGU
+    }
+    set_country_flag = gdd_liang_restoration_patron
+    add_country_modifier = {
+        name = gdd_liang_preserver_of_fallen_state
+        duration = -1
+    }
+    set_global_flag = gdd_liang_restoration_succeeded
+    gdd_liang_clear_petition_roster = yes
+}
+
+gdd_liang_restore_in_temporary_grant = {
+    event_target:gdd_liang_proposed_grant = {
+        add_core = LGU
+        set_province_flag = gdd_liang_original_grant
+    }
+    release = LGU
+    708 = { add_core = LGU }
+    2182 = { add_core = LGU }
+    5295 = { add_core = LGU }
+    LGU = { set_capital = event_target:gdd_liang_proposed_grant }
+    gdd_liang_prepare_restored_country = yes
+    set_country_flag = gdd_liang_restoration_patron_active
+    set_country_flag = gdd_liang_restoration_used_grant
+}
+
+gdd_liang_restore_directly_in_homeland = {
+    708 = { add_core = LGU }
+    2182 = { add_core = LGU }
+    5295 = { add_core = LGU }
+    release = LGU
+    708 = { remove_core = ROOT }
+    2182 = { remove_core = ROOT }
+    5295 = { remove_core = ROOT }
+    LGU = { set_capital = 708 }
+    gdd_liang_prepare_restored_country = yes
+    set_country_flag = gdd_liang_direct_homeland_restoration
+    set_country_flag = gdd_liang_restoration_compact_fulfilled
+}
+
+gdd_liang_clear_original_grant_tracking = {
+    every_province = {
+        limit = { has_province_flag = gdd_liang_original_grant }
+        clr_province_flag = gdd_liang_original_grant
+    }
+}
+
+gdd_liang_close_compact_neutrally = {
+    clr_country_flag = gdd_liang_restoration_patron_active
+    clr_country_flag = gdd_liang_settlement_pending
+    gdd_liang_clear_original_grant_tracking = yes
+}
+
+gdd_liang_apply_repudiation_without_liberty_desire = {
+    remove_country_modifier = gdd_liang_preserver_of_fallen_state
+    add_country_modifier = {
+        name = gdd_liang_repudiated_restoration_compact
+        duration = 7300
+    }
+    clr_country_flag = gdd_liang_restoration_patron_active
+    clr_country_flag = gdd_liang_settlement_pending
+    set_country_flag = gdd_liang_restoration_compact_repudiated
+    gdd_liang_clear_original_grant_tracking = yes
+}
+
+gdd_liang_apply_repudiation_with_liberty_desire = {
+    if = {
+        limit = {
+            exists = LGU
+            LGU = { is_subject_of = ROOT }
+        }
+        LGU = { add_liberty_desire = 100 }
+    }
+    gdd_liang_apply_repudiation_without_liberty_desire = yes
+}
+
+gdd_liang_honor_homeland_settlement = {
+    708 = {
+        add_core = LGU
+        if = { limit = { owned_by = ROOT } cede_province = LGU }
+        remove_core = ROOT
+    }
+    2182 = {
+        add_core = LGU
+        if = { limit = { owned_by = ROOT } cede_province = LGU }
+        remove_core = ROOT
+    }
+    5295 = {
+        add_core = LGU
+        if = { limit = { owned_by = ROOT } cede_province = LGU }
+        remove_core = ROOT
+    }
+    LGU = { set_capital = 708 }
+    every_province = {
+        limit = { has_province_flag = gdd_liang_original_grant }
+        add_core = ROOT
+        remove_core = LGU
+        if = {
+            limit = { owned_by = LGU }
+            cede_province = ROOT
+        }
+        clr_province_flag = gdd_liang_original_grant
+    }
+    clr_country_flag = gdd_liang_restoration_patron_active
+    clr_country_flag = gdd_liang_settlement_pending
+    set_country_flag = gdd_liang_restoration_compact_fulfilled
+}

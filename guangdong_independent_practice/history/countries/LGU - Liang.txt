@@ -1,0 +1,9 @@
+# B76 dormant Liang restoration tag.
+# No 1444 ownership or cores: the restoration chain will create the polity.
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_long
+capital = 708

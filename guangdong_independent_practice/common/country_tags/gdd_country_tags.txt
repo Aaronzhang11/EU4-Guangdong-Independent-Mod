@@ -99,3 +99,7 @@ ZHU = "countries/B52_Zhou.txt"
 JIZ = "countries/B60_Jizi_Joseon.txt"
 HLD = "countries/B60_Helan.txt"
 # GDD_B60_KOREA_FOUR_POLITIES_END
+
+# GDD_B76_LIANG_RESTORATION_TAG_BEGIN
+LGU = "countries/B76_Liang.txt"
+# GDD_B76_LIANG_RESTORATION_TAG_END
