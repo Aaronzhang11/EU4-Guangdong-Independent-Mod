@@ -56,41 +56,48 @@ zhx_has_zongheng_academy = {
 }
 
 # A school is protected by either the state's main doctrine or its currently
-# invited secondary school. Invitation prevents tension but never grants the
+# invited secondary school, or a temporary old-school residue created by a
+# main-doctrine reform.  The latter two prevent tension but never grant the
 # matching-academy national synergy.
 
 zhx_has_unprotected_ru_academy = {
     zhx_has_ru_academy = yes
     NOT = { has_country_flag = zhx_doctrine_ru }
     NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_ru_academies = yes }
 }
 
 zhx_has_unprotected_fa_academy = {
     zhx_has_fa_academy = yes
     NOT = { has_country_flag = zhx_doctrine_fa }
     NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_fa_academies = yes }
 }
 
 zhx_has_unprotected_mo_academy = {
     zhx_has_mo_academy = yes
     NOT = { has_country_flag = zhx_doctrine_mo }
     NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_mo_academies = yes }
 }
 
 zhx_has_unprotected_dao_academy = {
     zhx_has_dao_academy = yes
     NOT = { has_country_flag = zhx_doctrine_dao }
     NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_dao_academies = yes }
 }
 
 zhx_has_unprotected_bing_academy = {
     zhx_has_bing_academy = yes
     NOT = { has_country_flag = zhx_doctrine_bing }
     NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_bing_academies = yes }
 }
 
 zhx_has_unprotected_zongheng_academy = {
     zhx_has_zongheng_academy = yes
     NOT = { has_country_flag = zhx_doctrine_zongheng }
     NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_zongheng_academies = yes }
 }

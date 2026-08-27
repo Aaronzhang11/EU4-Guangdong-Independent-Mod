@@ -232,6 +232,7 @@ def build_school_block() -> str:
 \t\t\tpotential_invite_scholar = {{
 \t\t\t\tzhx_is_lijiao_country = yes
 \t\t\t\tzhx_has_doctrine = yes
+\t\t\t\tNOT = {{ zhx_doctrine_reform_invitation_locked = yes }}
 \t\t\t\thas_religious_school = yes
 \t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
 \t\t\t\tNOT = {{
@@ -263,6 +264,7 @@ def build_school_block() -> str:
 \t\t\t\t# eastern group can never pass the engine-owned confirmation gate.
 \t\t\t\tzhx_is_lijiao_country = yes
 \t\t\t\tzhx_has_doctrine = yes
+\t\t\t\tNOT = {{ zhx_doctrine_reform_invitation_locked = yes }}
 \t\t\t\thas_religious_school = yes
 \t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
 \t\t\t\tNOT = {{
@@ -295,6 +297,7 @@ def build_school_block() -> str:
 \t\t\t\t\tlimit = {{
 \t\t\t\t\t\tzhx_is_lijiao_country = yes
 \t\t\t\t\t\tzhx_has_doctrine = yes
+\t\t\t\t\t\tNOT = {{ zhx_doctrine_reform_invitation_locked = yes }}
 \t\t\t\t\t\thas_religious_school = yes
 \t\t\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
 \t\t\t\t\t\tNOT = {{

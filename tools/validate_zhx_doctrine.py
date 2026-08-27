@@ -43,7 +43,8 @@ NATIVE_LOCALISATION_PATH = (
 TEMP_RUNTIME_EVENT_PATH = MOD / "events/zz_zhxtest_runtime.txt"
 
 EXPECTED_EVENT_IDS = {
-    "1", "10", "11", "12", "20", "90", "91", "92", "93", "94", "95"
+    "1", "2", "10", "11", "12", "13", "14", "15",
+    "20", "90", "91", "92", "93", "94", "95"
 }
 EXPECTED_EXPANSION_EVENT_IDS = {"1", "10", "11", "12"}
 EXPECTED_FLAGS = {
@@ -292,18 +293,33 @@ EXPECTED_LOCALISATION = {
     "zhx_doctrine.1.b",
     "zhx_doctrine.1.c",
     "zhx_doctrine.1.d",
+    "zhx_doctrine.1.next",
+    "zhx_doctrine.2.t",
+    "zhx_doctrine.2.d",
+    "zhx_doctrine.2.a",
+    "zhx_doctrine.2.b",
+    "zhx_doctrine.2.c",
+    "zhx_doctrine.2.back",
     "zhx_doctrine.10.t",
     "zhx_doctrine.10.d",
+    "zhx_doctrine.10.a",
     "zhx_doctrine.11.t",
     "zhx_doctrine.11.d",
+    "zhx_doctrine.11.a",
     "zhx_doctrine.12.t",
     "zhx_doctrine.12.d",
-    "zhx_doctrine.choose_ru",
-    "zhx_doctrine.choose_fa",
-    "zhx_doctrine.choose_mo",
-    "zhx_doctrine.no_verdict",
+    "zhx_doctrine.12.a",
+    "zhx_doctrine.13.t",
+    "zhx_doctrine.13.d",
+    "zhx_doctrine.13.a",
+    "zhx_doctrine.14.t",
+    "zhx_doctrine.14.d",
+    "zhx_doctrine.14.a",
+    "zhx_doctrine.15.t",
+    "zhx_doctrine.15.d",
+    "zhx_doctrine.15.a",
+    "zhx_doctrine.initial_back",
     "zhx_doctrine_postpone_tt",
-    "zhx_doctrine_inconclusive_tt",
     "zhx_adopt_ru_doctrine_tt",
     "zhx_adopt_fa_doctrine_tt",
     "zhx_adopt_mo_doctrine_tt",
@@ -332,24 +348,6 @@ EXPECTED_LOCALISATION = {
     "zhx_doctrine_receipt_tier_established",
     "zhx_doctrine_receipt_tier_flourishing",
     "zhx_doctrine_receipt_tier_exemplary",
-    "zhx_convene_later_schools_debate_title",
-    "zhx_convene_later_schools_debate_desc",
-    "zhx_doctrine_expansion.1.t",
-    "zhx_doctrine_expansion.1.d",
-    "zhx_doctrine_expansion.1.a",
-    "zhx_doctrine_expansion.1.b",
-    "zhx_doctrine_expansion.1.c",
-    "zhx_doctrine_expansion.1.e",
-    "zhx_doctrine_expansion_postpone_tt",
-    "zhx_doctrine_expansion.10.t",
-    "zhx_doctrine_expansion.10.d",
-    "zhx_doctrine_expansion.11.t",
-    "zhx_doctrine_expansion.11.d",
-    "zhx_doctrine_expansion.12.t",
-    "zhx_doctrine_expansion.12.d",
-    "zhx_doctrine.choose_dao",
-    "zhx_doctrine.choose_bing",
-    "zhx_doctrine.choose_zongheng",
     "zhx_adopt_dao_doctrine_tt",
     "zhx_adopt_bing_doctrine_tt",
     "zhx_adopt_zongheng_doctrine_tt",
@@ -1734,46 +1732,22 @@ def main() -> None:
         "closing the proposal receipt must clear both direction markers",
     )
 
-    expansion_event_text = texts[
-        MOD / "events/zhx_doctrine_expansion_events.txt"
-    ]
-    expansion_event_ids = re.findall(
-        r"(?m)^\s*id\s*=\s*zhx_doctrine_expansion\.(\d+)\s*$",
-        expansion_event_text,
-    )
-    require(
-        len(expansion_event_ids) == len(set(expansion_event_ids))
-        and set(expansion_event_ids) == EXPECTED_EXPANSION_EVENT_IDS,
-        f"expansion event ID contract changed: {sorted(expansion_event_ids)}",
-    )
-    expansion_entry = country_event_body(
-        expansion_event_text, "zhx_doctrine_expansion.1"
-    )
-    require(
-        expansion_entry.count("is_triggered_only = yes") == 1
-        and "mean_time_to_happen" not in expansion_entry,
-        "Dao/Bing/Zongheng entry must be explicit, not a random court popup",
-    )
     decisions_text = texts[MOD / "decisions/zhx_doctrine_decisions.txt"]
-    later_decision = named_block_body(
-        decisions_text, "zhx_convene_later_schools_debate"
+    foundation_decision = named_block_body(
+        decisions_text, "zhx_convene_hundred_schools_debate"
     )
     require(
-        "zhx_is_lijiao_country = yes" in later_decision
-        and "has_country_modifier = zhx_doctrine_change_cooldown" in later_decision
-        and "country_event = { id = zhx_doctrine_expansion.1 }" in later_decision,
-        "Dao/Bing/Zongheng must have a visible, cooldown-gated decision entry",
+        "zhx_is_lijiao_country = yes" in foundation_decision
+        and "NOT = { zhx_has_doctrine = yes }" in foundation_decision
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in foundation_decision
+        and "country_event = { id = zhx_doctrine.1 }" in foundation_decision
+        and "zhx_convene_later_schools_debate" not in decisions_text,
+        "first adoption must use one six-school, no-doctrine-only decision and "
+        "the retired later-school entry must not return",
     )
     require(
-        decisions_text.count("NOT = { is_year = 1450 }") == 2
-        and len(
-            re.findall(
-                r"factor\s*=\s*0\s+NOT\s*=\s*\{\s*is_year\s*=\s*1450\s*\}",
-                decisions_text,
-            )
-        )
-        == 2,
-        "both doctrine debates must keep AI from erasing the authored 1444 school map before 1450",
+        "zhx_doctrine_expansion.1" not in decisions_text,
+        "the retired Dao/Bing/Zongheng direct-adoption route must have no decision caller",
     )
     require(
         len(re.findall(r"(?m)^\s*zhx_doctrine\.90\s*$", on_action)) == 1,
@@ -2465,8 +2439,13 @@ def main() -> None:
                 all_scripts,
             )
         )
-        == 2,
-        "only doctrine adoption and the yearly tick may call the native-school sync hook",
+        == 3
+        and "zhx_sync_native_doctrine_school = yes"
+        in top_level_effect_body(
+            effect_text, "zhx_consume_doctrine_reform_integration_hooks"
+        ),
+        "only first adoption, the yearly tick and the reform integration adapter "
+        "may call the native-school sync hook",
     )
 
     for token, reason in FORBIDDEN_TOKENS.items():
@@ -2483,16 +2462,8 @@ def main() -> None:
         "duration = 3650" in effect_text,
         "successful doctrine adoption must retain the ten-year cooldown",
     )
-    require(event_text.count("duration = 1825") == 3, "each no-verdict path needs five years")
-    require(event_text.count("duration = 730") == 1, "postponement needs two years")
-    require(
-        expansion_event_text.count("duration = 1825") == 3,
-        "each expansion no-verdict path needs five years",
-    )
-    require(
-        expansion_event_text.count("duration = 730") == 1,
-        "expansion postponement needs two years",
-    )
+    require(event_text.count("duration = 1825") == 0, "first adoption must have no inconclusive five-year bypass")
+    require(event_text.count("duration = 730") == 2, "both six-school catalogue pages need the same two-year postponement")
 
     localisation_keys = re.findall(r"(?m)^\s*([^\s:#]+):\d+\s+\"", localisation)
     require(
@@ -2795,7 +2766,7 @@ def main() -> None:
 
     print("Ritual Teaching doctrine prototype static contract: PASS")
     print(f"  Clausewitz files: {len(SCRIPT_PATHS) + 1}")
-    print(f"  Events: {len(event_ids) + len(expansion_event_ids)}")
+    print(f"  Doctrine events: {len(event_ids)}")
     print(f"  Doctrine modifiers: {len(modifier_definitions)}")
     print(f"  Mutually-exclusive tier practice displays: {len(NATIVE_STATUS_FIELDS)}")
     print("  Transparent practice-ledger hit targets: 1")

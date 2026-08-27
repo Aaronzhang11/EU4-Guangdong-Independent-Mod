@@ -50,88 +50,100 @@ zhx_academy_has_unprotected_chongli = {
     any_owned_province = { has_province_modifier = zhx_academy_chongli }
     NOT = { has_country_flag = zhx_doctrine_ru }
     NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_ru_academies = yes }
 }
 
 zhx_academy_has_unprotected_minglun = {
     any_owned_province = { has_province_modifier = zhx_academy_minglun }
     NOT = { has_country_flag = zhx_doctrine_ru }
     NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_ru_academies = yes }
 }
 
 zhx_academy_has_unprotected_yifa = {
     any_owned_province = { has_province_modifier = zhx_academy_yifa }
     NOT = { has_country_flag = zhx_doctrine_fa }
     NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_fa_academies = yes }
 }
 
 zhx_academy_has_unprotected_xunming = {
     any_owned_province = { has_province_modifier = zhx_academy_xunming }
     NOT = { has_country_flag = zhx_doctrine_fa }
     NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_fa_academies = yes }
 }
 
 zhx_academy_has_unprotected_jianai = {
     any_owned_province = { has_province_modifier = zhx_academy_jianai }
     NOT = { has_country_flag = zhx_doctrine_mo }
     NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_mo_academies = yes }
 }
 
 zhx_academy_has_unprotected_shangtong = {
     any_owned_province = { has_province_modifier = zhx_academy_shangtong }
     NOT = { has_country_flag = zhx_doctrine_mo }
     NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_mo_academies = yes }
 }
 
 zhx_academy_has_unprotected_xuantong = {
     any_owned_province = { has_province_modifier = zhx_academy_xuantong }
     NOT = { has_country_flag = zhx_doctrine_dao }
     NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_dao_academies = yes }
 }
 
 zhx_academy_has_unprotected_baopu = {
     any_owned_province = { has_province_modifier = zhx_academy_baopu }
     NOT = { has_country_flag = zhx_doctrine_dao }
     NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_dao_academies = yes }
 }
 
 zhx_academy_has_unprotected_miaosuan = {
     any_owned_province = { has_province_modifier = zhx_academy_miaosuan }
     NOT = { has_country_flag = zhx_doctrine_bing }
     NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_bing_academies = yes }
 }
 
 zhx_academy_has_unprotected_zhisheng = {
     any_owned_province = { has_province_modifier = zhx_academy_zhisheng }
     NOT = { has_country_flag = zhx_doctrine_bing }
     NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_bing_academies = yes }
 }
 
 zhx_academy_has_unprotected_baihe = {
     any_owned_province = { has_province_modifier = zhx_academy_baihe }
     NOT = { has_country_flag = zhx_doctrine_zongheng }
     NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_zongheng_academies = yes }
 }
 
 zhx_academy_has_unprotected_lianheng = {
     any_owned_province = { has_province_modifier = zhx_academy_lianheng }
     NOT = { has_country_flag = zhx_doctrine_zongheng }
     NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+    NOT = { zhx_doctrine_reform_protects_zongheng_academies = yes }
 }
 
 zhx_academy_is_unprotected_active_province = {
     OR = {
-        AND = { has_province_modifier = zhx_academy_chongli owner = { NOT = { has_country_flag = zhx_doctrine_ru } NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_minglun owner = { NOT = { has_country_flag = zhx_doctrine_ru } NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_yifa owner = { NOT = { has_country_flag = zhx_doctrine_fa } NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_xunming owner = { NOT = { has_country_flag = zhx_doctrine_fa } NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_jianai owner = { NOT = { has_country_flag = zhx_doctrine_mo } NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_shangtong owner = { NOT = { has_country_flag = zhx_doctrine_mo } NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_xuantong owner = { NOT = { has_country_flag = zhx_doctrine_dao } NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_baopu owner = { NOT = { has_country_flag = zhx_doctrine_dao } NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_miaosuan owner = { NOT = { has_country_flag = zhx_doctrine_bing } NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_zhisheng owner = { NOT = { has_country_flag = zhx_doctrine_bing } NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_baihe owner = { NOT = { has_country_flag = zhx_doctrine_zongheng } NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier } } }
-        AND = { has_province_modifier = zhx_academy_lianheng owner = { NOT = { has_country_flag = zhx_doctrine_zongheng } NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier } } }
+        AND = { has_province_modifier = zhx_academy_chongli owner = { NOT = { has_country_flag = zhx_doctrine_ru } NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_ru_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_minglun owner = { NOT = { has_country_flag = zhx_doctrine_ru } NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_ru_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_yifa owner = { NOT = { has_country_flag = zhx_doctrine_fa } NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_fa_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_xunming owner = { NOT = { has_country_flag = zhx_doctrine_fa } NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_fa_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_jianai owner = { NOT = { has_country_flag = zhx_doctrine_mo } NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_mo_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_shangtong owner = { NOT = { has_country_flag = zhx_doctrine_mo } NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_mo_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_xuantong owner = { NOT = { has_country_flag = zhx_doctrine_dao } NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_dao_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_baopu owner = { NOT = { has_country_flag = zhx_doctrine_dao } NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_dao_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_miaosuan owner = { NOT = { has_country_flag = zhx_doctrine_bing } NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_bing_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_zhisheng owner = { NOT = { has_country_flag = zhx_doctrine_bing } NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_bing_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_baihe owner = { NOT = { has_country_flag = zhx_doctrine_zongheng } NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_zongheng_academies = yes } } }
+        AND = { has_province_modifier = zhx_academy_lianheng owner = { NOT = { has_country_flag = zhx_doctrine_zongheng } NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier } NOT = { zhx_doctrine_reform_protects_zongheng_academies = yes } } }
     }
 }
 

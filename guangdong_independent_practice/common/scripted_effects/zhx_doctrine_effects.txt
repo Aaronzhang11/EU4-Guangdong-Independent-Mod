@@ -346,160 +346,116 @@ zhx_finish_doctrine_adoption = {
     zhx_refresh_academy_country_effects = yes
 }
 
+# Adapter between the independent reform state machine and the mature doctrine,
+# native-school, academy and Tianxia layers.  Reform effects set output flags;
+# this consumer performs each expensive refresh once, then clears every port.
+zhx_consume_doctrine_reform_integration_hooks = {
+    if = {
+        limit = { has_country_flag = zhx_doctrine_reform_hook_clear_invited_school }
+        zhx_clear_invited_school_modifiers = yes
+    }
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = zhx_doctrine_reform_hook_main_school_changed
+                has_country_flag = zhx_doctrine_reform_hook_refresh_doctrine_presentation
+            }
+        }
+        zhx_sync_native_doctrine_school = yes
+        zhx_clamp_doctrine_practice = yes
+        zhx_refresh_doctrine_tier = yes
+        zhx_prepare_doctrine_ledger = yes
+    }
+    if = {
+        limit = {
+            has_country_flag = zhx_doctrine_reform_hook_cancel_pending_tianxia_petition
+            has_saved_global_event_target = zhx_tianzi
+        }
+        event_target:zhx_tianzi = { zhx_cleanup_tianxia_debate_petitions = yes }
+    }
+    if = {
+        limit = { has_country_flag = zhx_doctrine_reform_hook_refresh_academies }
+        zhx_refresh_academy_country_effects = yes
+    }
+    zhx_doctrine_reform_acknowledge_integration_hooks = yes
+}
+
 zhx_adopt_ru_doctrine = {
     if = {
-        limit = { has_country_flag = zhx_doctrine_ru }
-        change_variable = {
-            which = zhx_doctrine_practice
-            value = 5
-        }
-    }
-    else_if = {
-        limit = { zhx_has_doctrine = yes }
-        set_variable = {
-            which = zhx_doctrine_practice
-            value = 15
-        }
-    }
-    else = {
+        limit = { NOT = { zhx_has_doctrine = yes } }
         set_variable = {
             which = zhx_doctrine_practice
             value = 25
         }
+        zhx_clear_doctrine_flags = yes
+        set_country_flag = zhx_doctrine_ru
+        zhx_finish_doctrine_adoption = yes
     }
-    zhx_clear_doctrine_flags = yes
-    set_country_flag = zhx_doctrine_ru
-    zhx_finish_doctrine_adoption = yes
 }
 
 zhx_adopt_fa_doctrine = {
     if = {
-        limit = { has_country_flag = zhx_doctrine_fa }
-        change_variable = {
-            which = zhx_doctrine_practice
-            value = 5
-        }
-    }
-    else_if = {
-        limit = { zhx_has_doctrine = yes }
-        set_variable = {
-            which = zhx_doctrine_practice
-            value = 15
-        }
-    }
-    else = {
+        limit = { NOT = { zhx_has_doctrine = yes } }
         set_variable = {
             which = zhx_doctrine_practice
             value = 25
         }
+        zhx_clear_doctrine_flags = yes
+        set_country_flag = zhx_doctrine_fa
+        zhx_finish_doctrine_adoption = yes
     }
-    zhx_clear_doctrine_flags = yes
-    set_country_flag = zhx_doctrine_fa
-    zhx_finish_doctrine_adoption = yes
 }
 
 zhx_adopt_mo_doctrine = {
     if = {
-        limit = { has_country_flag = zhx_doctrine_mo }
-        change_variable = {
-            which = zhx_doctrine_practice
-            value = 5
-        }
-    }
-    else_if = {
-        limit = { zhx_has_doctrine = yes }
-        set_variable = {
-            which = zhx_doctrine_practice
-            value = 15
-        }
-    }
-    else = {
+        limit = { NOT = { zhx_has_doctrine = yes } }
         set_variable = {
             which = zhx_doctrine_practice
             value = 25
         }
+        zhx_clear_doctrine_flags = yes
+        set_country_flag = zhx_doctrine_mo
+        zhx_finish_doctrine_adoption = yes
     }
-    zhx_clear_doctrine_flags = yes
-    set_country_flag = zhx_doctrine_mo
-    zhx_finish_doctrine_adoption = yes
 }
 
 zhx_adopt_dao_doctrine = {
     if = {
-        limit = { has_country_flag = zhx_doctrine_dao }
-        change_variable = {
-            which = zhx_doctrine_practice
-            value = 5
-        }
-    }
-    else_if = {
-        limit = { zhx_has_doctrine = yes }
-        set_variable = {
-            which = zhx_doctrine_practice
-            value = 15
-        }
-    }
-    else = {
+        limit = { NOT = { zhx_has_doctrine = yes } }
         set_variable = {
             which = zhx_doctrine_practice
             value = 25
         }
+        zhx_clear_doctrine_flags = yes
+        set_country_flag = zhx_doctrine_dao
+        zhx_finish_doctrine_adoption = yes
     }
-    zhx_clear_doctrine_flags = yes
-    set_country_flag = zhx_doctrine_dao
-    zhx_finish_doctrine_adoption = yes
 }
 
 zhx_adopt_bing_doctrine = {
     if = {
-        limit = { has_country_flag = zhx_doctrine_bing }
-        change_variable = {
-            which = zhx_doctrine_practice
-            value = 5
-        }
-    }
-    else_if = {
-        limit = { zhx_has_doctrine = yes }
-        set_variable = {
-            which = zhx_doctrine_practice
-            value = 15
-        }
-    }
-    else = {
+        limit = { NOT = { zhx_has_doctrine = yes } }
         set_variable = {
             which = zhx_doctrine_practice
             value = 25
         }
+        zhx_clear_doctrine_flags = yes
+        set_country_flag = zhx_doctrine_bing
+        zhx_finish_doctrine_adoption = yes
     }
-    zhx_clear_doctrine_flags = yes
-    set_country_flag = zhx_doctrine_bing
-    zhx_finish_doctrine_adoption = yes
 }
 
 zhx_adopt_zongheng_doctrine = {
     if = {
-        limit = { has_country_flag = zhx_doctrine_zongheng }
-        change_variable = {
-            which = zhx_doctrine_practice
-            value = 5
-        }
-    }
-    else_if = {
-        limit = { zhx_has_doctrine = yes }
-        set_variable = {
-            which = zhx_doctrine_practice
-            value = 15
-        }
-    }
-    else = {
+        limit = { NOT = { zhx_has_doctrine = yes } }
         set_variable = {
             which = zhx_doctrine_practice
             value = 25
         }
+        zhx_clear_doctrine_flags = yes
+        set_country_flag = zhx_doctrine_zongheng
+        zhx_finish_doctrine_adoption = yes
     }
-    zhx_clear_doctrine_flags = yes
-    set_country_flag = zhx_doctrine_zongheng
-    zhx_finish_doctrine_adoption = yes
 }
 
 zhx_clear_doctrine_hover_cache = {
@@ -515,6 +471,7 @@ zhx_clear_doctrine_hover_cache = {
 }
 
 zhx_clear_doctrine_system = {
+    zhx_doctrine_reform_clear_all_state = yes
     zhx_remove_doctrine_tier_modifiers = yes
     zhx_remove_academy_country_modifiers = yes
     zhx_clear_invited_school_modifiers = yes
@@ -1003,5 +960,7 @@ zhx_yearly_doctrine_tick = {
     zhx_clamp_doctrine_practice = yes
     zhx_refresh_doctrine_tier = yes
     zhx_prepare_doctrine_ledger = yes
+    zhx_doctrine_reform_yearly_tick = yes
+    zhx_consume_doctrine_reform_integration_hooks = yes
     country_event = { id = zhx_doctrine.93 }
 }

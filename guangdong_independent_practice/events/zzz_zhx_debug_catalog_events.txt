@@ -83,15 +83,21 @@ country_event = {
 
     option = {
         name = zhx_debug.catalog.doctrine_first_triad
-        trigger = { zhx_is_lijiao_country = yes }
+        trigger = {
+            zhx_is_lijiao_country = yes
+            NOT = { zhx_has_doctrine = yes }
+        }
         custom_tooltip = zhx_debug.catalog.doctrine_mutation.tt
         hidden_effect = { country_event = { id = zhx_doctrine.1 } }
     }
     option = {
         name = zhx_debug.catalog.doctrine_second_triad
-        trigger = { zhx_is_lijiao_country = yes }
+        trigger = {
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
         custom_tooltip = zhx_debug.catalog.doctrine_mutation.tt
-        hidden_effect = { country_event = { id = zhx_doctrine_expansion.1 } }
+        hidden_effect = { country_event = { id = zhx_doctrine_reform.1 } }
     }
     option = {
         name = zhx_debug.catalog.doctrine_ledger

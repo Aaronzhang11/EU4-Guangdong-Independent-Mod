@@ -1585,6 +1585,7 @@ eastern = {
 			potential_invite_scholar = {
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_ru }
 				NOT = {
@@ -1616,6 +1617,7 @@ eastern = {
 				# eastern group can never pass the engine-owned confirmation gate.
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_ru }
 				NOT = {
@@ -1648,6 +1650,7 @@ eastern = {
 					limit = {
 						zhx_is_lijiao_country = yes
 						zhx_has_doctrine = yes
+						NOT = { zhx_doctrine_reform_invitation_locked = yes }
 						has_religious_school = yes
 						NOT = { has_country_flag = zhx_doctrine_ru }
 						NOT = {
@@ -1696,6 +1699,7 @@ eastern = {
 			potential_invite_scholar = {
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_fa }
 				NOT = {
@@ -1727,6 +1731,7 @@ eastern = {
 				# eastern group can never pass the engine-owned confirmation gate.
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_fa }
 				NOT = {
@@ -1759,6 +1764,7 @@ eastern = {
 					limit = {
 						zhx_is_lijiao_country = yes
 						zhx_has_doctrine = yes
+						NOT = { zhx_doctrine_reform_invitation_locked = yes }
 						has_religious_school = yes
 						NOT = { has_country_flag = zhx_doctrine_fa }
 						NOT = {
@@ -1807,6 +1813,7 @@ eastern = {
 			potential_invite_scholar = {
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_mo }
 				NOT = {
@@ -1838,6 +1845,7 @@ eastern = {
 				# eastern group can never pass the engine-owned confirmation gate.
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_mo }
 				NOT = {
@@ -1870,6 +1878,7 @@ eastern = {
 					limit = {
 						zhx_is_lijiao_country = yes
 						zhx_has_doctrine = yes
+						NOT = { zhx_doctrine_reform_invitation_locked = yes }
 						has_religious_school = yes
 						NOT = { has_country_flag = zhx_doctrine_mo }
 						NOT = {
@@ -1918,6 +1927,7 @@ eastern = {
 			potential_invite_scholar = {
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_dao }
 				NOT = {
@@ -1949,6 +1959,7 @@ eastern = {
 				# eastern group can never pass the engine-owned confirmation gate.
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_dao }
 				NOT = {
@@ -1981,6 +1992,7 @@ eastern = {
 					limit = {
 						zhx_is_lijiao_country = yes
 						zhx_has_doctrine = yes
+						NOT = { zhx_doctrine_reform_invitation_locked = yes }
 						has_religious_school = yes
 						NOT = { has_country_flag = zhx_doctrine_dao }
 						NOT = {
@@ -2029,6 +2041,7 @@ eastern = {
 			potential_invite_scholar = {
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_bing }
 				NOT = {
@@ -2060,6 +2073,7 @@ eastern = {
 				# eastern group can never pass the engine-owned confirmation gate.
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_bing }
 				NOT = {
@@ -2092,6 +2106,7 @@ eastern = {
 					limit = {
 						zhx_is_lijiao_country = yes
 						zhx_has_doctrine = yes
+						NOT = { zhx_doctrine_reform_invitation_locked = yes }
 						has_religious_school = yes
 						NOT = { has_country_flag = zhx_doctrine_bing }
 						NOT = {
@@ -2140,6 +2155,7 @@ eastern = {
 			potential_invite_scholar = {
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_zongheng }
 				NOT = {
@@ -2171,6 +2187,7 @@ eastern = {
 				# eastern group can never pass the engine-owned confirmation gate.
 				zhx_is_lijiao_country = yes
 				zhx_has_doctrine = yes
+				NOT = { zhx_doctrine_reform_invitation_locked = yes }
 				has_religious_school = yes
 				NOT = { has_country_flag = zhx_doctrine_zongheng }
 				NOT = {
@@ -2203,6 +2220,7 @@ eastern = {
 					limit = {
 						zhx_is_lijiao_country = yes
 						zhx_has_doctrine = yes
+						NOT = { zhx_doctrine_reform_invitation_locked = yes }
 						has_religious_school = yes
 						NOT = { has_country_flag = zhx_doctrine_zongheng }
 						NOT = {

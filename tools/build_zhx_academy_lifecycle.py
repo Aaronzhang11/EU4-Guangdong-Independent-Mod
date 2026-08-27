@@ -95,6 +95,7 @@ def protection_trigger(school: str) -> str:
         "OR = {\n"
         f"    has_country_flag = {meta['flag']}\n"
         f"    has_country_modifier = {meta['invited']}\n"
+        f"    zhx_doctrine_reform_protects_{school}_academies = yes\n"
         "}"
     )
 
@@ -162,6 +163,7 @@ def render_triggers(academies: list[dict[str, object]]) -> str:
                 f"    any_owned_province = {{ has_province_modifier = {entry['modifier']} }}\n"
                 f"    NOT = {{ has_country_flag = {SCHOOLS[school]['flag']} }}\n"
                 f"    NOT = {{ has_country_modifier = {SCHOOLS[school]['invited']} }}\n"
+                f"    NOT = {{ zhx_doctrine_reform_protects_{school}_academies = yes }}\n"
                 "}",
             ]
         )
@@ -175,6 +177,7 @@ def render_triggers(academies: list[dict[str, object]]) -> str:
             "owner = { "
             f"NOT = {{ has_country_flag = {SCHOOLS[school]['flag']} }} "
             f"NOT = {{ has_country_modifier = {SCHOOLS[school]['invited']} }} "
+            f"NOT = {{ zhx_doctrine_reform_protects_{school}_academies = yes }} "
             "} }"
         )
     sections.extend(

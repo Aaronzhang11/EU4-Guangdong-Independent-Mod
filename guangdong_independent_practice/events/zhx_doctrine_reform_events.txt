@@ -1,0 +1,429 @@
+namespace = zhx_doctrine_reform
+
+# Player target catalogue: three options per page keep the event safe at
+# ordinary UI scales.  Every school receives a separate confirmation card.
+country_event = {
+    id = zhx_doctrine_reform.1
+    title = zhx_doctrine_reform.1.t
+    desc = zhx_doctrine_reform.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_begin = yes }
+
+    option = {
+        name = zhx_doctrine_reform.choose_ru
+        trigger = { zhx_doctrine_reform_can_target_ru = yes }
+        country_event = { id = zhx_doctrine_reform.10 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.choose_fa
+        trigger = { zhx_doctrine_reform_can_target_fa = yes }
+        country_event = { id = zhx_doctrine_reform.11 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.choose_mo
+        trigger = { zhx_doctrine_reform_can_target_mo = yes }
+        country_event = { id = zhx_doctrine_reform.12 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.next_page
+        country_event = { id = zhx_doctrine_reform.2 }
+        ai_chance = { factor = 0 }
+    }
+    option = { name = zhx_doctrine_reform.not_now ai_chance = { factor = 0 } }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.2
+    title = zhx_doctrine_reform.2.t
+    desc = zhx_doctrine_reform.2.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_begin = yes }
+
+    option = {
+        name = zhx_doctrine_reform.choose_dao
+        trigger = { zhx_doctrine_reform_can_target_dao = yes }
+        country_event = { id = zhx_doctrine_reform.13 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.choose_bing
+        trigger = { zhx_doctrine_reform_can_target_bing = yes }
+        country_event = { id = zhx_doctrine_reform.14 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.choose_zongheng
+        trigger = { zhx_doctrine_reform_can_target_zongheng = yes }
+        country_event = { id = zhx_doctrine_reform.15 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.previous_page
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+    option = { name = zhx_doctrine_reform.not_now ai_chance = { factor = 0 } }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.10
+    title = zhx_doctrine_reform.confirm_ru.t
+    desc = zhx_doctrine_reform.confirm_ru.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_target_ru = yes }
+
+    option = {
+        name = zhx_doctrine_reform.confirm_ru.a
+        custom_tooltip = zhx_doctrine_reform_confirm_cost_tt
+        hidden_effect = { zhx_doctrine_reform_begin_ru = yes }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.back_to_catalogue
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.11
+    title = zhx_doctrine_reform.confirm_fa.t
+    desc = zhx_doctrine_reform.confirm_fa.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_target_fa = yes }
+
+    option = {
+        name = zhx_doctrine_reform.confirm_fa.a
+        custom_tooltip = zhx_doctrine_reform_confirm_cost_tt
+        hidden_effect = { zhx_doctrine_reform_begin_fa = yes }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.back_to_catalogue
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.12
+    title = zhx_doctrine_reform.confirm_mo.t
+    desc = zhx_doctrine_reform.confirm_mo.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_target_mo = yes }
+
+    option = {
+        name = zhx_doctrine_reform.confirm_mo.a
+        custom_tooltip = zhx_doctrine_reform_confirm_cost_tt
+        hidden_effect = { zhx_doctrine_reform_begin_mo = yes }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.back_to_catalogue
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.13
+    title = zhx_doctrine_reform.confirm_dao.t
+    desc = zhx_doctrine_reform.confirm_dao.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_target_dao = yes }
+
+    option = {
+        name = zhx_doctrine_reform.confirm_dao.a
+        custom_tooltip = zhx_doctrine_reform_confirm_cost_tt
+        hidden_effect = { zhx_doctrine_reform_begin_dao = yes }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.back_to_catalogue
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.14
+    title = zhx_doctrine_reform.confirm_bing.t
+    desc = zhx_doctrine_reform.confirm_bing.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_target_bing = yes }
+
+    option = {
+        name = zhx_doctrine_reform.confirm_bing.a
+        custom_tooltip = zhx_doctrine_reform_confirm_cost_tt
+        hidden_effect = { zhx_doctrine_reform_begin_bing = yes }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.back_to_catalogue
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.15
+    title = zhx_doctrine_reform.confirm_zongheng.t
+    desc = zhx_doctrine_reform.confirm_zongheng.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_can_target_zongheng = yes }
+
+    option = {
+        name = zhx_doctrine_reform.confirm_zongheng.a
+        custom_tooltip = zhx_doctrine_reform_confirm_cost_tt
+        hidden_effect = { zhx_doctrine_reform_begin_zongheng = yes }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine_reform.back_to_catalogue
+        country_event = { id = zhx_doctrine_reform.1 }
+        ai_chance = { factor = 0 }
+    }
+}
+
+# Conservative AI entry.  The yearly public hook owns the five-year
+# low-practice counter and rare 8% attempt; this event only dispatches
+# the currently invited school and never uses an academy shortcut.
+country_event = {
+    id = zhx_doctrine_reform.50
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_ai_may_attempt = yes }
+    immediate = {
+        if = {
+            limit = {
+                has_country_modifier = zhx_ru_invited_scholar_modifier
+                NOT = { has_country_flag = zhx_doctrine_ru }
+                zhx_doctrine_reform_can_target_ru = yes
+            }
+            zhx_doctrine_reform_begin_ru = yes
+        }
+        else_if = {
+            limit = {
+                has_country_modifier = zhx_fa_invited_scholar_modifier
+                NOT = { has_country_flag = zhx_doctrine_fa }
+                zhx_doctrine_reform_can_target_fa = yes
+            }
+            zhx_doctrine_reform_begin_fa = yes
+        }
+        else_if = {
+            limit = {
+                has_country_modifier = zhx_mo_invited_scholar_modifier
+                NOT = { has_country_flag = zhx_doctrine_mo }
+                zhx_doctrine_reform_can_target_mo = yes
+            }
+            zhx_doctrine_reform_begin_mo = yes
+        }
+        else_if = {
+            limit = {
+                has_country_modifier = zhx_dao_invited_scholar_modifier
+                NOT = { has_country_flag = zhx_doctrine_dao }
+                zhx_doctrine_reform_can_target_dao = yes
+            }
+            zhx_doctrine_reform_begin_dao = yes
+        }
+        else_if = {
+            limit = {
+                has_country_modifier = zhx_bing_invited_scholar_modifier
+                NOT = { has_country_flag = zhx_doctrine_bing }
+                zhx_doctrine_reform_can_target_bing = yes
+            }
+            zhx_doctrine_reform_begin_bing = yes
+        }
+        else_if = {
+            limit = {
+                has_country_modifier = zhx_zongheng_invited_scholar_modifier
+                NOT = { has_country_flag = zhx_doctrine_zongheng }
+                zhx_doctrine_reform_can_target_zongheng = yes
+            }
+            zhx_doctrine_reform_begin_zongheng = yes
+        }
+    }
+    option = { name = OK }
+}
+
+# Annual cultivation watchdog.  An invitation present at the start is
+# deliberately locked as a valid root; academy-only roots must still exist
+# and must not be under an expulsion order.
+country_event = {
+    id = zhx_doctrine_reform.90
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_is_cultivating = yes }
+    immediate = {
+        zhx_doctrine_reform_reconcile = yes
+        if = {
+            limit = { zhx_doctrine_reform_is_cultivating = yes }
+            country_event = { id = zhx_doctrine_reform.90 days = 365 }
+        }
+    }
+    option = { name = OK }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.91
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = { name = zhx_doctrine_reform.91.a }
+}
+
+# Five-year deadline.  The shared Tianxia busy trigger delays formal
+# adoption, so the country finishes any already-open ballot as its old school.
+country_event = {
+    id = zhx_doctrine_reform.100
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_is_cultivating = yes }
+    immediate = {
+        zhx_doctrine_reform_reconcile = yes
+        if = {
+            limit = {
+                zhx_doctrine_reform_is_cultivating = yes
+                zhx_doctrine_reform_formal_adoption_blocked = yes
+            }
+            set_country_flag = zhx_doctrine_reform_waiting_for_tianxia_close
+            country_event = { id = zhx_doctrine_reform.100 days = 30 }
+        }
+        else_if = {
+            limit = { zhx_doctrine_reform_is_cultivating = yes }
+            zhx_doctrine_reform_formal_adopt_target = yes
+        }
+    }
+    option = { name = OK }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.101
+    title = zhx_doctrine_reform.101.t
+    desc = zhx_doctrine_reform.101.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { has_country_flag = zhx_doctrine_reform_transition }
+    option = { name = zhx_doctrine_reform.101.a }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.200
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { has_country_flag = zhx_doctrine_reform_transition }
+    immediate = { zhx_doctrine_reform_settle_transition = yes }
+    option = { name = OK }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.201
+    title = zhx_doctrine_reform.201.t
+    desc = zhx_doctrine_reform.201.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = { name = zhx_doctrine_reform.201.a }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.202
+    title = zhx_doctrine_reform.202.t
+    desc = zhx_doctrine_reform.202.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = { name = zhx_doctrine_reform.202.a }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.210
+    title = zhx_doctrine_reform.210.t
+    desc = zhx_doctrine_reform.210.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { has_country_flag = zhx_doctrine_reform_transition }
+
+    option = {
+        name = zhx_doctrine_reform.210.a
+        custom_tooltip = zhx_doctrine_reform_force_tt
+        hidden_effect = { zhx_doctrine_reform_force_new_school = yes }
+        ai_chance = {
+            factor = 1
+            modifier = { factor = 0.25 NOT = { stability = 1 } }
+            modifier = { factor = 2 stability = 2 }
+        }
+    }
+    option = {
+        name = zhx_doctrine_reform.210.b
+        custom_tooltip = zhx_doctrine_reform_restore_tt
+        hidden_effect = { zhx_doctrine_reform_restore_old_school = yes }
+        ai_chance = {
+            factor = 2
+            modifier = { factor = 3 NOT = { stability = 1 } }
+            modifier = { factor = 2 NOT = { check_variable = { which = zhx_doctrine_practice value = 15 } } }
+        }
+    }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.300
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { has_country_flag = zhx_doctrine_reform_forced_extension }
+    immediate = { zhx_doctrine_reform_finish_forced_extension = yes }
+    option = { name = OK }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.301
+    title = zhx_doctrine_reform.301.t
+    desc = zhx_doctrine_reform.301.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = { name = zhx_doctrine_reform.301.a }
+}
+
+country_event = {
+    id = zhx_doctrine_reform.400
+    title = zhx_doctrine_reform.91.t
+    desc = zhx_doctrine_reform.91.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+    trigger = { zhx_doctrine_reform_has_reversal_secondary = yes }
+    immediate = {
+        zhx_doctrine_reform_clear_secondary_modifiers = yes
+        zhx_doctrine_reform_clear_reversal_secondary_flags = yes
+        set_country_flag = zhx_doctrine_reform_hook_clear_invited_school
+        set_country_flag = zhx_doctrine_reform_hook_refresh_doctrine_presentation
+        set_country_flag = zhx_doctrine_reform_hook_refresh_academies
+        zhx_consume_doctrine_reform_integration_hooks = yes
+    }
+    option = { name = OK }
+}

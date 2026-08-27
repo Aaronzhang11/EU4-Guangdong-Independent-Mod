@@ -92,14 +92,18 @@ custom_icon = {
 }
 
 # Native religion sub-modifiers draw a generic effect icon. These six bindings
-# replace that visual in the second native slot with the invited school's real
-# emblem. The GUI overlays are mouse-transparent, so the engine-owned modifier
-# tooltip underneath still shows the live effects and expiry date.
+# replace that visual in the second native slot with the real emblem of either
+# the invited school or a reform-era secondary school. The GUI overlays are
+# mouse-transparent, so the engine-owned modifier tooltip underneath still
+# shows the live effects and expiry date.
 custom_icon = {
     name = zhx_invited_school_ru_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_ru_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_ru_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_ru
+        }
     }
 }
 
@@ -107,7 +111,10 @@ custom_icon = {
     name = zhx_invited_school_fa_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_fa_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_fa_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_fa
+        }
     }
 }
 
@@ -115,7 +122,10 @@ custom_icon = {
     name = zhx_invited_school_mo_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_mo_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_mo_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_mo
+        }
     }
 }
 
@@ -123,7 +133,10 @@ custom_icon = {
     name = zhx_invited_school_dao_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_dao_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_dao_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_dao
+        }
     }
 }
 
@@ -131,7 +144,10 @@ custom_icon = {
     name = zhx_invited_school_bing_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_bing_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_bing_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_bing
+        }
     }
 }
 
@@ -139,7 +155,10 @@ custom_icon = {
     name = zhx_invited_school_zongheng_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_zongheng_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_zongheng_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_zongheng
+        }
     }
 }
 

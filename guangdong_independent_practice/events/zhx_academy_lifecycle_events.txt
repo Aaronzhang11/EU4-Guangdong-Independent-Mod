@@ -253,6 +253,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_ru
                             has_country_modifier = zhx_ru_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_ru_academies = yes
                         }
                     }
                 }
@@ -281,6 +282,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_ru
                             has_country_modifier = zhx_ru_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_ru_academies = yes
                         }
                     }
                 }
@@ -309,6 +311,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_fa
                             has_country_modifier = zhx_fa_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_fa_academies = yes
                         }
                     }
                 }
@@ -337,6 +340,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_fa
                             has_country_modifier = zhx_fa_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_fa_academies = yes
                         }
                     }
                 }
@@ -365,6 +369,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_mo
                             has_country_modifier = zhx_mo_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_mo_academies = yes
                         }
                     }
                 }
@@ -393,6 +398,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_mo
                             has_country_modifier = zhx_mo_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_mo_academies = yes
                         }
                     }
                 }
@@ -421,6 +427,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_dao
                             has_country_modifier = zhx_dao_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_dao_academies = yes
                         }
                     }
                 }
@@ -449,6 +456,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_dao
                             has_country_modifier = zhx_dao_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_dao_academies = yes
                         }
                     }
                 }
@@ -477,6 +485,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_bing
                             has_country_modifier = zhx_bing_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_bing_academies = yes
                         }
                     }
                 }
@@ -505,6 +514,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_bing
                             has_country_modifier = zhx_bing_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_bing_academies = yes
                         }
                     }
                 }
@@ -533,6 +543,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_zongheng
                             has_country_modifier = zhx_zongheng_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_zongheng_academies = yes
                         }
                     }
                 }
@@ -561,6 +572,7 @@ province_event = {
                         OR = {
                             has_country_flag = zhx_doctrine_zongheng
                             has_country_modifier = zhx_zongheng_invited_scholar_modifier
+                            zhx_doctrine_reform_protects_zongheng_academies = yes
                         }
                     }
                 }

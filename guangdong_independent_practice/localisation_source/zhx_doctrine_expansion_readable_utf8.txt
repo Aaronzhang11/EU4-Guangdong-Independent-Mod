@@ -20,10 +20,6 @@ l_english:
  zhx_doctrine.choose_dao:0 "以道家为本国国论"
  zhx_doctrine.choose_bing:0 "以兵家为本国国论"
  zhx_doctrine.choose_zongheng:0 "以纵横家为本国国论"
- zhx_adopt_dao_doctrine_tt:0 "采用道家国论。首次立论从25点践履开始；从其他学说改换时降至15点；重申道家则增加5点。此后十年不能更张国论。"
- zhx_adopt_bing_doctrine_tt:0 "采用兵家国论。首次立论从25点践履开始；从其他学说改换时降至15点；重申兵家则增加5点。此后十年不能更张国论。"
- zhx_adopt_zongheng_doctrine_tt:0 "采用纵横家国论。首次立论从25点践履开始；从其他学说改换时降至15点；重申纵横家则增加5点。此后十年不能更张国论。"
-
  zhx_doctrine.20.d.dao:0 "§Y本国国论：道家§!\n当前践履：§Y[Root.zhx_doctrine_practice.GetValue]§!/100　距下一档：§Y[Root.zhx_doctrine_ledger_to_next_tier.GetValue]§!（为0即已达到最高档）\n距天下请辩70点门槛：§Y[Root.zhx_doctrine_ledger_to_proposal.GetValue]§!（达到后仍需本派三国采用，并有另一同派国家践履50）\n按当前国情触发合计：[Root.GetZhxDoctrinePracticeHoverTotal]\n\n§Y完整准则§!\n处于和平：+2；厌战低于2：+1；过度扩张低于5%：+1。\n厌战至少为5：-2；过度扩张至少为25%：-2。"
  zhx_doctrine.20.d.bing:0 "§Y本国国论：兵家§!\n当前践履：§Y[Root.zhx_doctrine_practice.GetValue]§!/100　距下一档：§Y[Root.zhx_doctrine_ledger_to_next_tier.GetValue]§!（为0即已达到最高档）\n距天下请辩70点门槛：§Y[Root.zhx_doctrine_ledger_to_proposal.GetValue]§!（达到后仍需本派三国采用，并有另一同派国家践履50）\n按当前国情触发合计：[Root.GetZhxDoctrinePracticeHoverTotal]\n\n§Y完整准则§!\n陆军达到上限80%：+2；陆军传统至少为40：+1；人力至少为50%：+1。\n陆军低于上限50%：-2；陆军传统低于20：-2；人力低于15%：-2。"
  zhx_doctrine.20.d.zongheng:0 "§Y本国国论：纵横家§!\n当前践履：§Y[Root.zhx_doctrine_practice.GetValue]§!/100　距下一档：§Y[Root.zhx_doctrine_ledger_to_next_tier.GetValue]§!（为0即已达到最高档）\n距天下请辩70点门槛：§Y[Root.zhx_doctrine_ledger_to_proposal.GetValue]§!（达到后仍需本派三国采用，并有另一同派国家践履50）\n按当前国情触发合计：[Root.GetZhxDoctrinePracticeHoverTotal]\n\n§Y完整准则§!\n至少有两个盟友：+2；外交声誉至少为1：+1；威望至少为25：+1。\n没有盟友：-3；外交声誉低于0：-2；威望低于-25：-1。"
