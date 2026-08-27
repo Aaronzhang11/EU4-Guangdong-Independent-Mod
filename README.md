@@ -179,6 +179,8 @@ Europa Universalis IV\mod\
 - [广东玩法设计](docs/gameplay/02_guangdong_design.md)
 - [周盟系统技术架构](docs/gameplay/03_zhou_system_architecture.md)
 - [分阶段实现路线](docs/gameplay/04_implementation_roadmap.md)
+- [礼教、百家与天下大辩机制](docs/gameplay/05_ritual_hundred_schools_system.md)
+- [具名学宫与首版生命周期](docs/gameplay/07_named_academies.md)
 - [地图资产与实现索引](docs/map/README.md)
 - [手绘地图实施流程](docs/map/04_manual_map_implementation_workflow.md)
 - [地图工具说明](tools/map_pipeline/README.md)
@@ -196,6 +198,9 @@ python tools\map_pipeline\validate_b01_mod.py --vanilla-root "<EU4 1.37.5 安装
 python tools\encode_eu4_chinese_localisation.py --check
 python tools\generate_zhuxia_seal_flags.py --check
 python tools\map_pipeline\apply_b49_eight_node_trade_network.py --check
+python tools\map_pipeline\finalize_zhx_province_history.py --check
+python tools\build_zhx_academy_lifecycle.py --check
+python tools\validate_zhx_academy_lifecycle.py
 git diff --check
 ```
 
@@ -205,7 +210,9 @@ git diff --check
 - `provinces.bmp`、DDS、TGA 和模型文件属于二进制资产，Git 冲突不能逐行合并；
 - 不要用旧预览图或早期生成器覆盖正式 `provinces.bmp`；
 - 中文游戏文件不能由普通 UTF-8 格式化器批量改写，应修改 `localisation_source/` 中的可读源并使用项目编码脚本；
-- 重放早期地图批次后，需要按依赖顺序重跑后续平衡、贸易和旗帜脚本。
+- 重放早期地图批次后，需要按依赖顺序重跑后续平衡、贸易和旗帜脚本；所有省份历史
+  writer 结束后，最后运行 `tools/map_pipeline/finalize_zhx_province_history.py`，并紧接
+  `--check`，恢复并锁定宗教地理与具名学宫落点。
 
 ## 已知未完成项
 

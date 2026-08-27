@@ -1,0 +1,42 @@
+Round 14 assertions — FAILED owner-scope cleanup
+
+RESULT: FAIL
+Changing province 5109's owner cleared the province-side expulsion marker but left the old owner QIN's country-level expulsion state behind. This round is evidence of a lifecycle bug, not a pass.
+
+PASS — current province/save facts were parsed
+Source save (not copied into the repository):
+~/Documents/Paradox Interactive/Europa Universalis IV/save games/round14after.eu4
+SHA-256: 8763a728c7882d89658b92261299772ee524ba8ccdc1ebfc1a229dc5b9b3fe6d
+Meta: EU4 1.37.5.0, 1444.11.11, player WUU.
+
+Observed in the parsed gamestate:
+- province 5109 current owner: WUU
+- modifier="zhx_academy_chongli": 1, located on province 5109
+- province 5109 zhx_academy_under_expulsion: 0
+- modifier="zhx_academy_ruins_chongli": 0
+- zhx_academy_dormant_chongli=: 0
+- expulsion cooldown tokens: 0
+- result tokens: 0
+- withdrawal/withdraw-target tokens: 0
+
+FAIL — old owner QIN retains country-level state
+The QIN country block still contains exactly one modifier="zhx_academy_expulsion_campaign" and one zhx_academy_expelling_chongli= flag. Province-side cleanup therefore did not close the old country's campaign state.
+
+FAIL — no owner-change deadline or receipt path ran
+game_failed.log records player Selected zhxrt2.1 option 0 at line 166, zhx_academy.100 option 7 at line 169, and zhxrt2.4 option 0 at line 170. It contains no academy deadline/settlement/receipt event after the ownership change.
+
+NOTE — focused error log is silent
+A case-insensitive Academy/academy/zhx_academy filter over error_failed.log returns no entry. The lack of a parser/runtime error does not negate the residual country state found in the save.
+
+UNARCHIVED VISUAL OBSERVATION
+During the live test, one frame was visually checked immediately after `own 5109`, and a second frame showed the save/ESC menu. Both screenshots lived only under the transient com.openai.sky.CUAService directory and were deleted with EU4 exit before evidence copying. No screenshot is stored or claimed as durable evidence for this round.
+
+PASS — teardown
+The run exited through the normal game menu, and the process probe after one second reported EU4_CLOSED.
+
+BOUNDARY
+The assertion uses province 5109's current owner only. It does not infer broader ownership-history correctness, nor does it claim that absent ruins/dormancy/cooldown/result tokens are desirable; their absence helps show that no alternate resolution path completed.
+
+SHA-256 of archived logs:
+error_failed.log  3f4ee848e470da7cfebca2154b3fa17f38bd9bbf9092bd3fa8608106add9cddc
+game_failed.log   4a7f84e02ce504d47ed30107de07e7e50337a6530f7329026b02b9eae43d307b

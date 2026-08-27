@@ -1,0 +1,18 @@
+Round 10 assertions — global-target .211 delivery
+
+PASS — visible arrival receipt
+01_arrival_receipt_success.jpg clearly shows the “学宫落脚” event. Its text names 崇礼学宫 and the new site 亳州, and presents the player-controlled option “安置诸生，重开讲席”.
+
+PASS — complete manual .210 → .211 chain
+game_after.log line 172 records player Selected option 0 for zhx_academy.210. Line 173 immediately records player Selected option 0 for zhx_academy.211. Neither event has an Auto-selected entry.
+
+PASS — focused error filter
+error_after.log contains no zhx_academy, zhxrt2, unknown-modifier, invalid-scope, or province-event entry. Unrelated pre-existing EmperorOfChina event-target lines remain outside this focused assertion.
+
+RESULT
+The third delivery design passed this runtime route: save the human landing province as a global target, return to the .210 player-country scope, trigger .211 there, and clean the target in .211. The screenshot and event log validate visible/manual delivery; concurrent or multiple same-day migrations remain outside this round.
+
+SHA-256:
+01_arrival_receipt_success.jpg  d63783d3bfbf509d9222cf3297533ab8bea815487c69b501bf4c26e171e47402
+error_after.log                 8f36e17d9c3dbcb0117872288df832a30564b85da6b126f03b0c42cf2cff9d38
+game_after.log                  9ccc727c3a3d911dc70e9ce2799a5592d7662146d7fdd4fea408afb6f3e8371c

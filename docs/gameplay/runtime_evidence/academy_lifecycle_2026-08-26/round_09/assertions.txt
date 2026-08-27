@@ -1,0 +1,19 @@
+Round 09 assertions — province-to-owner country .211 attempt
+
+PASS — .210 remained selectable
+01_refuge_offer.jpg shows “流散学宫求庇”, and game_failed.log line 172 records player Selected option 0 for zhx_academy.210.
+
+FAIL — synchronous country .211 was not delivered
+This iteration retained a normal event target, then attempted to call country event zhx_academy.211 synchronously from the landing province to its owner. After accepting .210, 02_missing_country_arrival_receipt.jpg shows the map with no arrival receipt. game_failed.log contains no Selected or Auto-selected entry for zhx_academy.211.
+
+INTERPRETATION
+The second .211 delivery design failed silently: error_failed.log contains no focused zhx_academy/scope/event-target error, but absence of an error is not evidence of delivery. Round 09 is a failed round.
+
+NEXT ITERATION — not yet validated
+Round 10 will use a third design: save the human landing province as a global event target, return to the player-country scope of .210 to trigger .211 uniformly, and clear the global target inside .211. This is a planned repair, not a passed result.
+
+SHA-256:
+01_refuge_offer.jpg                      48b93ae6970ab036ea2f6ad8423d1f713e1b782b3f701ce8a26bbaefb3ae4bfe
+02_missing_country_arrival_receipt.jpg  437a324b5383efdace0ac44dcc6596c913387179ea2addb0dd3fd6ed3407db90
+error_failed.log                         a16509b0b8b4cce8dc5ba8faf3a53b0b81afc2beb1f3508ef74d42c8c0e65faf
+game_failed.log                          c864d72151a8e3331bbcfef0800a69aee0d8cbc6dc26a7f2e1546c22a537b82b

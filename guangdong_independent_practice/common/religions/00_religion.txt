@@ -1583,8 +1583,10 @@ eastern = {
 			# school matches this entry. The source must know and esteem THIS;
 			# the player's permanent doctrine and practice remain untouched.
 			potential_invite_scholar = {
-				religion = confucianism
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
 				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_ru }
 				NOT = {
 					religious_school = {
 						group = eastern
@@ -1597,9 +1599,40 @@ eastern = {
 						school = zhx_ru_school
 					}
 				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_ru
+					religious_school = {
+						group = eastern
+						school = zhx_ru_school
+					}
+				}
 				knows_of_scholar_country_capital_trigger = yes
 			}
 			can_invite_scholar = {
+				# religious_schools is group-scoped. Recheck both the inviting
+				# country and FROM here so Buddhist and Shinto countries in the
+				# eastern group can never pass the engine-owned confirmation gate.
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
+				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_ru }
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_ru_school
+					}
+				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_ru
+					religious_school = {
+						group = eastern
+						school = zhx_ru_school
+					}
+				}
 				reverse_has_opinion = { who = FROM value = 150 }
 				if = {
 					limit = { ai = yes }
@@ -1608,15 +1641,48 @@ eastern = {
 				NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_ru_invited_scholar_modifier duration = 7300 }
+				# Final fail-closed guard. Even if a stale native window survives
+				# a religion change, only a valid Ritual Teaching pair receives
+				# the temporary school modifier.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_is_lijiao_country = yes
+						zhx_has_doctrine = yes
+						has_religious_school = yes
+						NOT = { has_country_flag = zhx_doctrine_ru }
+						NOT = {
+							religious_school = {
+								group = eastern
+								school = zhx_ru_school
+							}
+						}
+						FROM = {
+							exists = yes
+							zhx_is_lijiao_country = yes
+							has_country_flag = zhx_doctrine_ru
+							religious_school = {
+								group = eastern
+								school = zhx_ru_school
+							}
+						}
+						reverse_has_opinion = { who = FROM value = 150 }
+						if = {
+							limit = { ai = yes }
+							NOT = { has_country_modifier = has_invited_scholar_recently }
+						}
+						NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+					}
+					zhx_clear_invited_school_modifiers = yes
+					custom_tooltip = zhx_invite_school_country_tt
+					add_country_modifier = { name = zhx_ru_invited_scholar_modifier duration = 7300 }
+					zhx_refresh_academy_country_effects = yes
+					if = {
+						limit = { ai = yes }
+						add_country_modifier = {
+							name = has_invited_scholar_recently
+							duration = 7300
+							hidden = yes
+						}
 					}
 				}
 			}
@@ -1628,8 +1694,10 @@ eastern = {
 			# school matches this entry. The source must know and esteem THIS;
 			# the player's permanent doctrine and practice remain untouched.
 			potential_invite_scholar = {
-				religion = confucianism
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
 				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_fa }
 				NOT = {
 					religious_school = {
 						group = eastern
@@ -1642,9 +1710,40 @@ eastern = {
 						school = zhx_fa_school
 					}
 				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_fa
+					religious_school = {
+						group = eastern
+						school = zhx_fa_school
+					}
+				}
 				knows_of_scholar_country_capital_trigger = yes
 			}
 			can_invite_scholar = {
+				# religious_schools is group-scoped. Recheck both the inviting
+				# country and FROM here so Buddhist and Shinto countries in the
+				# eastern group can never pass the engine-owned confirmation gate.
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
+				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_fa }
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_fa_school
+					}
+				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_fa
+					religious_school = {
+						group = eastern
+						school = zhx_fa_school
+					}
+				}
 				reverse_has_opinion = { who = FROM value = 150 }
 				if = {
 					limit = { ai = yes }
@@ -1653,15 +1752,48 @@ eastern = {
 				NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_fa_invited_scholar_modifier duration = 7300 }
+				# Final fail-closed guard. Even if a stale native window survives
+				# a religion change, only a valid Ritual Teaching pair receives
+				# the temporary school modifier.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_is_lijiao_country = yes
+						zhx_has_doctrine = yes
+						has_religious_school = yes
+						NOT = { has_country_flag = zhx_doctrine_fa }
+						NOT = {
+							religious_school = {
+								group = eastern
+								school = zhx_fa_school
+							}
+						}
+						FROM = {
+							exists = yes
+							zhx_is_lijiao_country = yes
+							has_country_flag = zhx_doctrine_fa
+							religious_school = {
+								group = eastern
+								school = zhx_fa_school
+							}
+						}
+						reverse_has_opinion = { who = FROM value = 150 }
+						if = {
+							limit = { ai = yes }
+							NOT = { has_country_modifier = has_invited_scholar_recently }
+						}
+						NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+					}
+					zhx_clear_invited_school_modifiers = yes
+					custom_tooltip = zhx_invite_school_country_tt
+					add_country_modifier = { name = zhx_fa_invited_scholar_modifier duration = 7300 }
+					zhx_refresh_academy_country_effects = yes
+					if = {
+						limit = { ai = yes }
+						add_country_modifier = {
+							name = has_invited_scholar_recently
+							duration = 7300
+							hidden = yes
+						}
 					}
 				}
 			}
@@ -1673,8 +1805,10 @@ eastern = {
 			# school matches this entry. The source must know and esteem THIS;
 			# the player's permanent doctrine and practice remain untouched.
 			potential_invite_scholar = {
-				religion = confucianism
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
 				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_mo }
 				NOT = {
 					religious_school = {
 						group = eastern
@@ -1687,9 +1821,40 @@ eastern = {
 						school = zhx_mo_school
 					}
 				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_mo
+					religious_school = {
+						group = eastern
+						school = zhx_mo_school
+					}
+				}
 				knows_of_scholar_country_capital_trigger = yes
 			}
 			can_invite_scholar = {
+				# religious_schools is group-scoped. Recheck both the inviting
+				# country and FROM here so Buddhist and Shinto countries in the
+				# eastern group can never pass the engine-owned confirmation gate.
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
+				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_mo }
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_mo_school
+					}
+				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_mo
+					religious_school = {
+						group = eastern
+						school = zhx_mo_school
+					}
+				}
 				reverse_has_opinion = { who = FROM value = 150 }
 				if = {
 					limit = { ai = yes }
@@ -1698,15 +1863,48 @@ eastern = {
 				NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_mo_invited_scholar_modifier duration = 7300 }
+				# Final fail-closed guard. Even if a stale native window survives
+				# a religion change, only a valid Ritual Teaching pair receives
+				# the temporary school modifier.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_is_lijiao_country = yes
+						zhx_has_doctrine = yes
+						has_religious_school = yes
+						NOT = { has_country_flag = zhx_doctrine_mo }
+						NOT = {
+							religious_school = {
+								group = eastern
+								school = zhx_mo_school
+							}
+						}
+						FROM = {
+							exists = yes
+							zhx_is_lijiao_country = yes
+							has_country_flag = zhx_doctrine_mo
+							religious_school = {
+								group = eastern
+								school = zhx_mo_school
+							}
+						}
+						reverse_has_opinion = { who = FROM value = 150 }
+						if = {
+							limit = { ai = yes }
+							NOT = { has_country_modifier = has_invited_scholar_recently }
+						}
+						NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+					}
+					zhx_clear_invited_school_modifiers = yes
+					custom_tooltip = zhx_invite_school_country_tt
+					add_country_modifier = { name = zhx_mo_invited_scholar_modifier duration = 7300 }
+					zhx_refresh_academy_country_effects = yes
+					if = {
+						limit = { ai = yes }
+						add_country_modifier = {
+							name = has_invited_scholar_recently
+							duration = 7300
+							hidden = yes
+						}
 					}
 				}
 			}
@@ -1718,8 +1916,10 @@ eastern = {
 			# school matches this entry. The source must know and esteem THIS;
 			# the player's permanent doctrine and practice remain untouched.
 			potential_invite_scholar = {
-				religion = confucianism
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
 				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_dao }
 				NOT = {
 					religious_school = {
 						group = eastern
@@ -1732,9 +1932,40 @@ eastern = {
 						school = zhx_dao_school
 					}
 				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_dao
+					religious_school = {
+						group = eastern
+						school = zhx_dao_school
+					}
+				}
 				knows_of_scholar_country_capital_trigger = yes
 			}
 			can_invite_scholar = {
+				# religious_schools is group-scoped. Recheck both the inviting
+				# country and FROM here so Buddhist and Shinto countries in the
+				# eastern group can never pass the engine-owned confirmation gate.
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
+				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_dao }
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_dao_school
+					}
+				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_dao
+					religious_school = {
+						group = eastern
+						school = zhx_dao_school
+					}
+				}
 				reverse_has_opinion = { who = FROM value = 150 }
 				if = {
 					limit = { ai = yes }
@@ -1743,15 +1974,48 @@ eastern = {
 				NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_dao_invited_scholar_modifier duration = 7300 }
+				# Final fail-closed guard. Even if a stale native window survives
+				# a religion change, only a valid Ritual Teaching pair receives
+				# the temporary school modifier.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_is_lijiao_country = yes
+						zhx_has_doctrine = yes
+						has_religious_school = yes
+						NOT = { has_country_flag = zhx_doctrine_dao }
+						NOT = {
+							religious_school = {
+								group = eastern
+								school = zhx_dao_school
+							}
+						}
+						FROM = {
+							exists = yes
+							zhx_is_lijiao_country = yes
+							has_country_flag = zhx_doctrine_dao
+							religious_school = {
+								group = eastern
+								school = zhx_dao_school
+							}
+						}
+						reverse_has_opinion = { who = FROM value = 150 }
+						if = {
+							limit = { ai = yes }
+							NOT = { has_country_modifier = has_invited_scholar_recently }
+						}
+						NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+					}
+					zhx_clear_invited_school_modifiers = yes
+					custom_tooltip = zhx_invite_school_country_tt
+					add_country_modifier = { name = zhx_dao_invited_scholar_modifier duration = 7300 }
+					zhx_refresh_academy_country_effects = yes
+					if = {
+						limit = { ai = yes }
+						add_country_modifier = {
+							name = has_invited_scholar_recently
+							duration = 7300
+							hidden = yes
+						}
 					}
 				}
 			}
@@ -1763,8 +2027,10 @@ eastern = {
 			# school matches this entry. The source must know and esteem THIS;
 			# the player's permanent doctrine and practice remain untouched.
 			potential_invite_scholar = {
-				religion = confucianism
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
 				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_bing }
 				NOT = {
 					religious_school = {
 						group = eastern
@@ -1777,9 +2043,40 @@ eastern = {
 						school = zhx_bing_school
 					}
 				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_bing
+					religious_school = {
+						group = eastern
+						school = zhx_bing_school
+					}
+				}
 				knows_of_scholar_country_capital_trigger = yes
 			}
 			can_invite_scholar = {
+				# religious_schools is group-scoped. Recheck both the inviting
+				# country and FROM here so Buddhist and Shinto countries in the
+				# eastern group can never pass the engine-owned confirmation gate.
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
+				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_bing }
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_bing_school
+					}
+				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_bing
+					religious_school = {
+						group = eastern
+						school = zhx_bing_school
+					}
+				}
 				reverse_has_opinion = { who = FROM value = 150 }
 				if = {
 					limit = { ai = yes }
@@ -1788,15 +2085,48 @@ eastern = {
 				NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_bing_invited_scholar_modifier duration = 7300 }
+				# Final fail-closed guard. Even if a stale native window survives
+				# a religion change, only a valid Ritual Teaching pair receives
+				# the temporary school modifier.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_is_lijiao_country = yes
+						zhx_has_doctrine = yes
+						has_religious_school = yes
+						NOT = { has_country_flag = zhx_doctrine_bing }
+						NOT = {
+							religious_school = {
+								group = eastern
+								school = zhx_bing_school
+							}
+						}
+						FROM = {
+							exists = yes
+							zhx_is_lijiao_country = yes
+							has_country_flag = zhx_doctrine_bing
+							religious_school = {
+								group = eastern
+								school = zhx_bing_school
+							}
+						}
+						reverse_has_opinion = { who = FROM value = 150 }
+						if = {
+							limit = { ai = yes }
+							NOT = { has_country_modifier = has_invited_scholar_recently }
+						}
+						NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+					}
+					zhx_clear_invited_school_modifiers = yes
+					custom_tooltip = zhx_invite_school_country_tt
+					add_country_modifier = { name = zhx_bing_invited_scholar_modifier duration = 7300 }
+					zhx_refresh_academy_country_effects = yes
+					if = {
+						limit = { ai = yes }
+						add_country_modifier = {
+							name = has_invited_scholar_recently
+							duration = 7300
+							hidden = yes
+						}
 					}
 				}
 			}
@@ -1808,8 +2138,10 @@ eastern = {
 			# school matches this entry. The source must know and esteem THIS;
 			# the player's permanent doctrine and practice remain untouched.
 			potential_invite_scholar = {
-				religion = confucianism
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
 				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_zongheng }
 				NOT = {
 					religious_school = {
 						group = eastern
@@ -1822,9 +2154,40 @@ eastern = {
 						school = zhx_zongheng_school
 					}
 				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_zongheng
+					religious_school = {
+						group = eastern
+						school = zhx_zongheng_school
+					}
+				}
 				knows_of_scholar_country_capital_trigger = yes
 			}
 			can_invite_scholar = {
+				# religious_schools is group-scoped. Recheck both the inviting
+				# country and FROM here so Buddhist and Shinto countries in the
+				# eastern group can never pass the engine-owned confirmation gate.
+				zhx_is_lijiao_country = yes
+				zhx_has_doctrine = yes
+				has_religious_school = yes
+				NOT = { has_country_flag = zhx_doctrine_zongheng }
+				NOT = {
+					religious_school = {
+						group = eastern
+						school = zhx_zongheng_school
+					}
+				}
+				FROM = {
+					exists = yes
+					zhx_is_lijiao_country = yes
+					has_country_flag = zhx_doctrine_zongheng
+					religious_school = {
+						group = eastern
+						school = zhx_zongheng_school
+					}
+				}
 				reverse_has_opinion = { who = FROM value = 150 }
 				if = {
 					limit = { ai = yes }
@@ -1833,15 +2196,48 @@ eastern = {
 				NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_zongheng_invited_scholar_modifier duration = 7300 }
+				# Final fail-closed guard. Even if a stale native window survives
+				# a religion change, only a valid Ritual Teaching pair receives
+				# the temporary school modifier.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_is_lijiao_country = yes
+						zhx_has_doctrine = yes
+						has_religious_school = yes
+						NOT = { has_country_flag = zhx_doctrine_zongheng }
+						NOT = {
+							religious_school = {
+								group = eastern
+								school = zhx_zongheng_school
+							}
+						}
+						FROM = {
+							exists = yes
+							zhx_is_lijiao_country = yes
+							has_country_flag = zhx_doctrine_zongheng
+							religious_school = {
+								group = eastern
+								school = zhx_zongheng_school
+							}
+						}
+						reverse_has_opinion = { who = FROM value = 150 }
+						if = {
+							limit = { ai = yes }
+							NOT = { has_country_modifier = has_invited_scholar_recently }
+						}
+						NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+					}
+					zhx_clear_invited_school_modifiers = yes
+					custom_tooltip = zhx_invite_school_country_tt
+					add_country_modifier = { name = zhx_zongheng_invited_scholar_modifier duration = 7300 }
+					zhx_refresh_academy_country_effects = yes
+					if = {
+						limit = { ai = yes }
+						add_country_modifier = {
+							name = has_invited_scholar_recently
+							duration = 7300
+							hidden = yes
+						}
 					}
 				}
 			}

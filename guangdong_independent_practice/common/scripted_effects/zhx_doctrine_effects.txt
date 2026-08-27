@@ -343,6 +343,7 @@ zhx_finish_doctrine_adoption = {
     zhx_clamp_doctrine_practice = yes
     zhx_refresh_doctrine_tier = yes
     zhx_prepare_doctrine_ledger = yes
+    zhx_refresh_academy_country_effects = yes
 }
 
 zhx_adopt_ru_doctrine = {
@@ -515,6 +516,7 @@ zhx_clear_doctrine_hover_cache = {
 
 zhx_clear_doctrine_system = {
     zhx_remove_doctrine_tier_modifiers = yes
+    zhx_remove_academy_country_modifiers = yes
     zhx_clear_invited_school_modifiers = yes
     zhx_clear_doctrine_flags = yes
     zhx_clear_doctrine_hover_cache = yes
@@ -557,6 +559,10 @@ zhx_clear_doctrine_system = {
     }
     set_variable = {
         which = zhx_doctrine_receipt_new_tier
+        value = 0
+    }
+    set_variable = {
+        which = zhx_academy_unprotected_school_count
         value = 0
     }
 }

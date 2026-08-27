@@ -2659,6 +2659,21 @@ guiTypes = {
 				scripted = yes
 			}
 
+			# GDD: religious_schools belongs to the whole eastern group, so the
+			# engine also instantiates its Islamic-looking invite button for Buddhist
+			# and Shinto countries. This later, non-transparent inert button restores
+			# the panel/divider and closes the banner with a mirrored scroll cap while
+			# owning the hit target; gameplay remains fail-closed in all three native
+			# invitation script gates.
+			guiButtonType = {
+				name = "zhx_non_lijiao_invite_school_blocker"
+				spriteType = "GFX_zhx_non_lijiao_school_button_blocker"
+				position = { x = 180 y = 148 }
+				size = { x = 42 y = 42 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
 			# GDD: The engine-owned school sub-modifier icon only exposes the
 			# school name. Six mutually-exclusive, fully transparent 26x26 icons
 			# sit on that exact slot and supply the complete school-card tooltip.

@@ -224,3 +224,25 @@ python3 tools/encode_eu4_chinese_localisation.py --check
 完整 Area 映射、边疆迁移、八区特许贸易归属和无环流向见
 `planning/trade_nodes_b49/batch_manifest.json`。重放旧地图生成器后，最后依次运行
 B48、B49。
+
+## 全地图重放后的终端省份历史投影
+
+仓库没有一条会安全重建所有地图批次的单一总生成器；上面的批次仍须按依赖顺序
+重放。所有会写入 `history/provinces` 的地图、国家版图、文化、发展度、地名和宗教
+生成器全部结束后，必须把下面这一入口作为**最后一个省份历史写入者**：
+
+```sh
+python3 tools/map_pipeline/finalize_zhx_province_history.py
+python3 tools/map_pipeline/finalize_zhx_province_history.py --check
+python3 tools/validate_zhx_academies.py
+```
+
+默认入口先重放并校验 `apply_zhx_religious_geography.py`，再重放并校验
+`apply_zhx_academies.py`。后一项会在任何写入前核对十二座学宫清单、唯一的权威
+history 文件名、开局持有国、宗教和顶层城市状态，并在写入后立即以 `--check`
+确认投影稳定。不得在它之后再运行会重建省份历史的旧批次；若确需重跑，必须再次
+执行本终端入口。
+
+陕西重放必须为 700 保留原版虚拟文件名 `700 - Xi'an.txt`。显示名和首府仍可为
+长安，但另建 `700 - Changan.txt` 会让两个同 ID 历史在 EU4 虚拟文件系统中并存，
+也会使终端投影拒绝继续。

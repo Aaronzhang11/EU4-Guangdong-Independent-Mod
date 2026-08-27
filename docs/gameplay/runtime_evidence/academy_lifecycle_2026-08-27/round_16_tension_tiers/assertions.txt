@@ -1,0 +1,52 @@
+Round 16 — thought-tension tier refresh
+
+Runtime setup
+- Fresh 1444 campaign, switched to QIN.
+- QIN is a Fa main-school country.
+- Province 5109 carries the Ru Chongli Academy.
+- Province 2176 carries the Mo Jian'ai Academy.
+- Province 671 carries the Dao Xuantong Academy.
+- Provinces were transferred to QIN to reach three unprotected school types,
+  then returned in reverse order to exercise 3 -> 2 -> 1 refresh.
+
+Compressed-save assertions
+
+秦公国1444_11_11round16tensionheavy.eu4
+- zhx_academy_unprotected_school_count = 3.000
+- active tension modifier = zhx_academy_tension_heavy
+- active main-school synergy = zhx_academy_synergy_fa (one instance)
+
+秦公国1444_11_11med.eu4
+- zhx_academy_unprotected_school_count = 2.000
+- active tension modifier = zhx_academy_tension_medium
+- active main-school synergy = zhx_academy_synergy_fa (one instance)
+
+秦公国1444_11_11mild.eu4
+- zhx_academy_unprotected_school_count = 1.000
+- active tension modifier = zhx_academy_tension_mild
+- active main-school synergy = zhx_academy_synergy_fa (one instance)
+
+Modifier contract under test
+- mild: stability cost +15%, unrest +0.5, governing capacity -5%,
+  years of nationalism +2.
+- medium: stability cost +30%, unrest +1.5, governing capacity -10%,
+  years of nationalism +5.
+- heavy: stability cost +50%, unrest +3, governing capacity -20%,
+  years of nationalism +10.
+
+Log assertions
+- Focused search for zhx_academy, zhxrt2, academy_tension and
+  years_of_nationalism in error_after.log is empty.
+- The full error log still contains unrelated inherited map/mission errors;
+  they are outside this round and were not changed.
+
+Exit assertion
+- The campaign exited to the main menu, then the EU4 client exited from its
+  own main-menu Exit button.
+- Final `pgrep -x eu4` returned no process.
+
+Conclusion
+- PASS for the tested 1/2/3 distinct-unprotected-school transitions and
+  owner-change refresh path.
+- No product change was made during this round because no academy defect was
+  reproduced.

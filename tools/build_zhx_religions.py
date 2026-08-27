@@ -23,31 +23,37 @@ SCHOOLS = (
         "zhx_ru_school",
         "GFX_zhx_doctrine_ru_school",
         "zhx_ru_invited_scholar_modifier",
+        "zhx_doctrine_ru",
     ),
     (
         "zhx_fa_school",
         "GFX_zhx_doctrine_fa_school",
         "zhx_fa_invited_scholar_modifier",
+        "zhx_doctrine_fa",
     ),
     (
         "zhx_mo_school",
         "GFX_zhx_doctrine_mo_school",
         "zhx_mo_invited_scholar_modifier",
+        "zhx_doctrine_mo",
     ),
     (
         "zhx_dao_school",
         "GFX_zhx_doctrine_dao_school",
         "zhx_dao_invited_scholar_modifier",
+        "zhx_doctrine_dao",
     ),
     (
         "zhx_bing_school",
         "GFX_zhx_doctrine_bing_school",
         "zhx_bing_invited_scholar_modifier",
+        "zhx_doctrine_bing",
     ),
     (
         "zhx_zongheng_school",
         "GFX_zhx_doctrine_zongheng_school",
         "zhx_zongheng_invited_scholar_modifier",
+        "zhx_doctrine_zongheng",
     ),
 )
 NO_DOCTRINE_SCHOOL = (
@@ -224,8 +230,10 @@ def build_school_block() -> str:
 \t\t\t# school matches this entry. The source must know and esteem THIS;
 \t\t\t# the player's permanent doctrine and practice remain untouched.
 \t\t\tpotential_invite_scholar = {{
-\t\t\t\treligion = confucianism
+\t\t\t\tzhx_is_lijiao_country = yes
+\t\t\t\tzhx_has_doctrine = yes
 \t\t\t\thas_religious_school = yes
+\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
 \t\t\t\tNOT = {{
 \t\t\t\t\treligious_school = {{
 \t\t\t\t\t\tgroup = eastern
@@ -238,9 +246,40 @@ def build_school_block() -> str:
 \t\t\t\t\t\tschool = {school}
 \t\t\t\t\t}}
 \t\t\t\t}}
+\t\t\t\tFROM = {{
+\t\t\t\t\texists = yes
+\t\t\t\t\tzhx_is_lijiao_country = yes
+\t\t\t\t\thas_country_flag = {doctrine_flag}
+\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\tschool = {school}
+\t\t\t\t\t}}
+\t\t\t\t}}
 \t\t\t\tknows_of_scholar_country_capital_trigger = yes
 \t\t\t}}
 \t\t\tcan_invite_scholar = {{
+\t\t\t\t# religious_schools is group-scoped. Recheck both the inviting
+\t\t\t\t# country and FROM here so Buddhist and Shinto countries in the
+\t\t\t\t# eastern group can never pass the engine-owned confirmation gate.
+\t\t\t\tzhx_is_lijiao_country = yes
+\t\t\t\tzhx_has_doctrine = yes
+\t\t\t\thas_religious_school = yes
+\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
+\t\t\t\tNOT = {{
+\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\tschool = {school}
+\t\t\t\t\t}}
+\t\t\t\t}}
+\t\t\t\tFROM = {{
+\t\t\t\t\texists = yes
+\t\t\t\t\tzhx_is_lijiao_country = yes
+\t\t\t\t\thas_country_flag = {doctrine_flag}
+\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\tschool = {school}
+\t\t\t\t\t}}
+\t\t\t\t}}
 \t\t\t\treverse_has_opinion = {{ who = FROM value = 150 }}
 \t\t\t\tif = {{
 \t\t\t\t\tlimit = {{ ai = yes }}
@@ -249,15 +288,48 @@ def build_school_block() -> str:
 \t\t\t\tNOT = {{ has_country_modifier = {modifier} }}
 \t\t\t}}
 \t\t\ton_invite_scholar = {{
-\t\t\t\tzhx_clear_invited_school_modifiers = yes
-\t\t\t\tcustom_tooltip = zhx_invite_school_country_tt
-\t\t\t\tadd_country_modifier = {{ name = {modifier} duration = 7300 }}
+\t\t\t\t# Final fail-closed guard. Even if a stale native window survives
+\t\t\t\t# a religion change, only a valid Ritual Teaching pair receives
+\t\t\t\t# the temporary school modifier.
 \t\t\t\tif = {{
-\t\t\t\t\tlimit = {{ ai = yes }}
-\t\t\t\t\tadd_country_modifier = {{
-\t\t\t\t\t\tname = has_invited_scholar_recently
-\t\t\t\t\t\tduration = 7300
-\t\t\t\t\t\thidden = yes
+\t\t\t\t\tlimit = {{
+\t\t\t\t\t\tzhx_is_lijiao_country = yes
+\t\t\t\t\t\tzhx_has_doctrine = yes
+\t\t\t\t\t\thas_religious_school = yes
+\t\t\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
+\t\t\t\t\t\tNOT = {{
+\t\t\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\t\t\tschool = {school}
+\t\t\t\t\t\t\t}}
+\t\t\t\t\t\t}}
+\t\t\t\t\t\tFROM = {{
+\t\t\t\t\t\t\texists = yes
+\t\t\t\t\t\t\tzhx_is_lijiao_country = yes
+\t\t\t\t\t\t\thas_country_flag = {doctrine_flag}
+\t\t\t\t\t\t\treligious_school = {{
+\t\t\t\t\t\t\t\tgroup = eastern
+\t\t\t\t\t\t\t\tschool = {school}
+\t\t\t\t\t\t\t}}
+\t\t\t\t\t\t}}
+\t\t\t\t\t\treverse_has_opinion = {{ who = FROM value = 150 }}
+\t\t\t\t\t\tif = {{
+\t\t\t\t\t\t\tlimit = {{ ai = yes }}
+\t\t\t\t\t\t\tNOT = {{ has_country_modifier = has_invited_scholar_recently }}
+\t\t\t\t\t\t}}
+\t\t\t\t\t\tNOT = {{ has_country_modifier = {modifier} }}
+\t\t\t\t\t}}
+\t\t\t\t\tzhx_clear_invited_school_modifiers = yes
+\t\t\t\t\tcustom_tooltip = zhx_invite_school_country_tt
+\t\t\t\t\tadd_country_modifier = {{ name = {modifier} duration = 7300 }}
+\t\t\t\t\tzhx_refresh_academy_country_effects = yes
+\t\t\t\t\tif = {{
+\t\t\t\t\t\tlimit = {{ ai = yes }}
+\t\t\t\t\t\tadd_country_modifier = {{
+\t\t\t\t\t\t\tname = has_invited_scholar_recently
+\t\t\t\t\t\t\tduration = 7300
+\t\t\t\t\t\t\thidden = yes
+\t\t\t\t\t\t}}
 \t\t\t\t\t}}
 \t\t\t\t}}
 \t\t\t}}
@@ -265,7 +337,7 @@ def build_school_block() -> str:
 \t\t\tpicture = "{picture}"
 \t\t}}
 '''
-        for school, picture, modifier in SCHOOLS
+        for school, picture, modifier, doctrine_flag in SCHOOLS
     )
     no_doctrine, no_doctrine_picture = NO_DOCTRINE_SCHOOL
     sentinel = f'''\

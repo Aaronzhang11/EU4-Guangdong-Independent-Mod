@@ -1130,6 +1130,83 @@ def main() -> None:
         in native_invite_button_body,
         "the engine-owned invite-scholar button must remain intact beneath the tripod",
     )
+    blocker_name = "zhx_non_lijiao_invite_school_blocker"
+    blocker_body = named_gui_button_body(religion_view_body, blocker_name)
+    require(
+        religion_view_body.count(f'name = "{blocker_name}"') == 1
+        and re.search(
+            r"position\s*=\s*\{\s*x\s*=\s*180\s+y\s*=\s*148\s*\}",
+            blocker_body,
+        )
+        is not None
+        and re.search(
+            r"size\s*=\s*\{\s*x\s*=\s*42\s+y\s*=\s*42\s*\}",
+            blocker_body,
+        )
+        is not None
+        and 'spriteType = "GFX_zhx_non_lijiao_school_button_blocker"'
+        in blocker_body
+        and "scripted = yes" in blocker_body
+        and "alwaystransparent" not in blocker_body,
+        "non-Lijiao eastern religions need one panel-matched opaque 42x42 "
+        "scripted blocker with a symmetric scroll-cap over the native button",
+    )
+    blocker_sprite = "GFX_zhx_non_lijiao_school_button_blocker"
+    require(
+        lijiao_gfx.count(f'name = "{blocker_sprite}"') == 1,
+        "non-Lijiao school-button blocker sprite must be registered exactly once",
+    )
+    blocker_sprite_body = lijiao_gfx.split(
+        f'name = "{blocker_sprite}"', 1
+    )[1][:300]
+    require(
+        'texturefile = "gfx/interface/zhx_non_lijiao_school_button_blocker.dds"'
+        in blocker_sprite_body
+        and 'loadType = "INGAME"' in blocker_sprite_body,
+        "non-Lijiao blocker sprite must load its generated panel patch",
+    )
+    blocker_texture_path = (
+        MOD / "gfx/interface/zhx_non_lijiao_school_button_blocker.dds"
+    )
+    blocker_texture = (
+        blocker_texture_path.read_bytes() if blocker_texture_path.is_file() else b""
+    )
+    require(
+        len(blocker_texture) >= 128 and blocker_texture[:4] == b"DDS ",
+        "missing or malformed non-Lijiao school-button background patch",
+    )
+    blocker_height, blocker_width = struct.unpack_from("<II", blocker_texture, 12)
+    require(
+        (blocker_width, blocker_height) == (42, 42),
+        "non-Lijiao school-button background patch must be exactly 42x42",
+    )
+    require(
+        religion_view_body.find('name ="invite_scholar_button"')
+        < religion_view_body.find(f'name = "{blocker_name}"')
+        and native_gui_builder.count(blocker_name) == 1
+        and "non-Lijiao blockers=1" in native_gui_builder,
+        "the non-Lijiao blocker must be generated after the native scholar button",
+    )
+    require(
+        native_custom_gui.count(f"name = {blocker_name}") == 1,
+        "non-Lijiao scholar blocker must have exactly one custom-button binding",
+    )
+    blocker_custom_body = named_custom_button_body(native_custom_gui, blocker_name)
+    require(
+        'has_dlc = "Cradle of Civilization"' in blocker_custom_body
+        and "religion_group = eastern" in blocker_custom_body
+        and "NOT = { zhx_is_lijiao_country = yes }" in blocker_custom_body
+        and "trigger =" not in blocker_custom_body
+        and "effect =" not in blocker_custom_body
+        and "tooltip =" not in blocker_custom_body,
+        "the blocker must be a state-free input shield limited to non-Lijiao "
+        "eastern countries with the native-school DLC",
+    )
+    require(
+        "name = invite_scholar_button" not in native_custom_gui
+        and "name = religious_school_window" not in native_custom_gui,
+        "custom GUI must not take ownership of engine-controlled scholar widgets",
+    )
     sentinel_overlay_name = "zhx_no_doctrine_school_button_overlay"
     sentinel_overlay_sprite = "GFX_zhx_no_doctrine_school_button"
     sentinel_overlay_body = named_icon_body(
@@ -1348,39 +1425,109 @@ def main() -> None:
         school_body = named_block_body(school_definitions, school)
         assigned_fields = top_level_assignment_keys(school_body)
         modifier = INVITED_SCHOOL_MODIFIERS[school]
+        doctrine_flag = NATIVE_SCHOOL_FLAGS[school]
         require(
             assigned_fields == invited_school_fields,
             f"{school} must expose only the approved native invitation fields; "
             f"fields={sorted(assigned_fields)}",
         )
+        potential_body = named_block_body(school_body, "potential_invite_scholar")
+        potential_source = named_block_body(potential_body, "FROM")
         require(
-            school_body.count("religion = confucianism") == 1
-            and school_body.count("has_religious_school = yes") == 1
-            and school_body.count("group = eastern") == 2
-            and school_body.count("school = zhx_no_doctrine_school") == 1
-            and school_body.count(f"school = {school}") == 1
-            and "zhx_has_doctrine" not in school_body
-            and "has_country_flag = zhx_doctrine_" not in school_body
-            and school_body.count("knows_of_scholar_country_capital_trigger = yes") == 1
-            and school_body.count(
+            potential_body.count("zhx_is_lijiao_country = yes") == 2
+            and potential_source.count("zhx_is_lijiao_country = yes") == 1
+            and potential_body.count("zhx_has_doctrine = yes") == 1
+            and potential_body.count("has_religious_school = yes") == 1
+            and potential_body.count(f"has_country_flag = {doctrine_flag}") == 2
+            and potential_source.count(f"has_country_flag = {doctrine_flag}") == 1
+            and potential_source.count("exists = yes") == 1
+            and potential_source.count("group = eastern") == 1
+            and potential_source.count(f"school = {school}") == 1
+            and potential_body.count("school = zhx_no_doctrine_school") == 1
+            and potential_body.count(f"school = {school}") == 2
+            and potential_body.count(
+                "knows_of_scholar_country_capital_trigger = yes"
+            )
+            == 1,
+            f"{school} candidate discovery must require a different established "
+            "Ritual Teaching inviter and an authoritative matching source",
+        )
+        can_body = named_block_body(school_body, "can_invite_scholar")
+        can_source = named_block_body(can_body, "FROM")
+        require(
+            can_body.count("zhx_is_lijiao_country = yes") == 2
+            and can_source.count("zhx_is_lijiao_country = yes") == 1
+            and can_body.count("zhx_has_doctrine = yes") == 1
+            and can_body.count("has_religious_school = yes") == 1
+            and can_body.count(f"has_country_flag = {doctrine_flag}") == 2
+            and can_source.count(f"has_country_flag = {doctrine_flag}") == 1
+            and can_source.count("exists = yes") == 1
+            and can_source.count("group = eastern") == 1
+            and can_source.count(f"school = {school}") == 1
+            and can_body.count(f"school = {school}") == 2
+            and can_body.count(
                 "reverse_has_opinion = { who = FROM value = 150 }"
             )
             == 1
-            and school_body.count("zhx_clear_invited_school_modifiers = yes") == 1
-            and school_body.count(
+            and can_body.count("limit = { ai = yes }") == 1
+            and can_body.count(
+                "NOT = { has_country_modifier = has_invited_scholar_recently }"
+            )
+            == 1
+            and can_body.count(
+                f"NOT = {{ has_country_modifier = {modifier} }}"
+            )
+            == 1,
+            f"{school} confirmation must fail closed for non-Lijiao inviters, "
+            "stale sources, same-school countries and insufficient opinion",
+        )
+        on_body = named_block_body(school_body, "on_invite_scholar")
+        require(
+            top_level_assignment_keys(on_body) == {"if"},
+            f"{school} invitation effects must all sit inside one fail-closed guard",
+        )
+        on_guard = named_block_body(on_body, "if")
+        on_limit = named_block_body(on_guard, "limit")
+        on_source = named_block_body(on_limit, "FROM")
+        require(
+            on_limit.count("zhx_is_lijiao_country = yes") == 2
+            and on_source.count("zhx_is_lijiao_country = yes") == 1
+            and on_limit.count("zhx_has_doctrine = yes") == 1
+            and on_limit.count("has_religious_school = yes") == 1
+            and on_limit.count(f"has_country_flag = {doctrine_flag}") == 2
+            and on_source.count(f"has_country_flag = {doctrine_flag}") == 1
+            and on_source.count("exists = yes") == 1
+            and on_source.count("group = eastern") == 1
+            and on_source.count(f"school = {school}") == 1
+            and on_limit.count(f"school = {school}") == 2
+            and on_limit.count(
+                "reverse_has_opinion = { who = FROM value = 150 }"
+            )
+            == 1
+            and on_limit.count("limit = { ai = yes }") == 1
+            and on_limit.count(
+                "NOT = { has_country_modifier = has_invited_scholar_recently }"
+            )
+            == 1
+            and on_limit.count(f"NOT = {{ has_country_modifier = {modifier} }}")
+            == 1
+            and on_guard.count("zhx_clear_invited_school_modifiers = yes") == 1
+            and on_guard.count(
                 f"add_country_modifier = {{ name = {modifier} duration = 7300 }}"
             )
             == 1
+            and on_guard.count("zhx_refresh_academy_country_effects = yes") == 1
+            and on_guard.count("custom_tooltip = zhx_invite_school_country_tt") == 1
             and school_body.count(
                 f"invite_scholar_modifier_display = {modifier}"
             )
             == 1
-            and school_body.count("name = has_invited_scholar_recently") == 1
-            and school_body.count("duration = 7300") == 2
+            and on_guard.count("name = has_invited_scholar_recently") == 1
+            and on_guard.count("duration = 7300") == 2
             and f'picture = "{picture}"' in school_body
             and "religion_sub_modifier" not in school_body,
-            f"{school} must require a known 150-opinion foreign source, grant one "
-            f"20-year secondary modifier and use {picture}",
+            f"{school} execution must revalidate the complete Lijiao invitation "
+            f"contract before granting one 20-year modifier and use {picture}",
         )
 
     no_doctrine = "zhx_no_doctrine_school"
@@ -1831,6 +1978,7 @@ def main() -> None:
     clear_system_effect = top_level_effect_body(effect_text, "zhx_clear_doctrine_system")
     require(
         "zhx_remove_doctrine_tier_modifiers = yes" in clear_system_effect
+        and "zhx_remove_academy_country_modifiers = yes" in clear_system_effect
         and "zhx_clear_invited_school_modifiers = yes" in clear_system_effect
         and "zhx_clear_doctrine_flags = yes" in clear_system_effect
         and "zhx_clear_doctrine_hover_cache = yes" in clear_system_effect
@@ -1844,10 +1992,11 @@ def main() -> None:
         in clear_system_effect
         and "clr_country_flag = zhx_doctrine_proposal_lost_pending"
         in clear_system_effect
-        and clear_system_effect.count("value = 0") == 9
+        and clear_system_effect.count("value = 0") == 10
         and "which = zhx_doctrine_practice" in clear_system_effect
         and "which = zhx_doctrine_last_delta" in clear_system_effect
-        and "which = zhx_doctrine_ledger_to_proposal" in clear_system_effect,
+        and "which = zhx_doctrine_ledger_to_proposal" in clear_system_effect
+        and "which = zhx_academy_unprotected_school_count" in clear_system_effect,
         "doctrine cleanup must clear flags, tier/cooldown modifiers, practice, "
         "annual delta, ledger and tier-receipt scratch values",
     )

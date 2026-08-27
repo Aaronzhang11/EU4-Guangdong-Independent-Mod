@@ -1,0 +1,96 @@
+# School-level ownership checks. Two academies of the same school collapse to
+# one boolean so neither national synergy nor thought tension scales by count.
+
+zhx_has_ru_academy = {
+    any_owned_province = {
+        OR = {
+            has_province_modifier = zhx_academy_chongli
+            has_province_modifier = zhx_academy_minglun
+        }
+    }
+}
+
+zhx_has_fa_academy = {
+    any_owned_province = {
+        OR = {
+            has_province_modifier = zhx_academy_yifa
+            has_province_modifier = zhx_academy_xunming
+        }
+    }
+}
+
+zhx_has_mo_academy = {
+    any_owned_province = {
+        OR = {
+            has_province_modifier = zhx_academy_jianai
+            has_province_modifier = zhx_academy_shangtong
+        }
+    }
+}
+
+zhx_has_dao_academy = {
+    any_owned_province = {
+        OR = {
+            has_province_modifier = zhx_academy_xuantong
+            has_province_modifier = zhx_academy_baopu
+        }
+    }
+}
+
+zhx_has_bing_academy = {
+    any_owned_province = {
+        OR = {
+            has_province_modifier = zhx_academy_miaosuan
+            has_province_modifier = zhx_academy_zhisheng
+        }
+    }
+}
+
+zhx_has_zongheng_academy = {
+    any_owned_province = {
+        OR = {
+            has_province_modifier = zhx_academy_baihe
+            has_province_modifier = zhx_academy_lianheng
+        }
+    }
+}
+
+# A school is protected by either the state's main doctrine or its currently
+# invited secondary school. Invitation prevents tension but never grants the
+# matching-academy national synergy.
+
+zhx_has_unprotected_ru_academy = {
+    zhx_has_ru_academy = yes
+    NOT = { has_country_flag = zhx_doctrine_ru }
+    NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+}
+
+zhx_has_unprotected_fa_academy = {
+    zhx_has_fa_academy = yes
+    NOT = { has_country_flag = zhx_doctrine_fa }
+    NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+}
+
+zhx_has_unprotected_mo_academy = {
+    zhx_has_mo_academy = yes
+    NOT = { has_country_flag = zhx_doctrine_mo }
+    NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+}
+
+zhx_has_unprotected_dao_academy = {
+    zhx_has_dao_academy = yes
+    NOT = { has_country_flag = zhx_doctrine_dao }
+    NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+}
+
+zhx_has_unprotected_bing_academy = {
+    zhx_has_bing_academy = yes
+    NOT = { has_country_flag = zhx_doctrine_bing }
+    NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+}
+
+zhx_has_unprotected_zongheng_academy = {
+    zhx_has_zongheng_academy = yes
+    NOT = { has_country_flag = zhx_doctrine_zongheng }
+    NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+}

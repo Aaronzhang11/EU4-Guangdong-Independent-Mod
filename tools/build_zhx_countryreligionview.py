@@ -42,6 +42,21 @@ DOCTRINE_STATUS = r'''
 				scripted = yes
 			}
 
+			# GDD: religious_schools belongs to the whole eastern group, so the
+			# engine also instantiates its Islamic-looking invite button for Buddhist
+			# and Shinto countries. This later, non-transparent inert button restores
+			# the panel/divider and closes the banner with a mirrored scroll cap while
+			# owning the hit target; gameplay remains fail-closed in all three native
+			# invitation script gates.
+			guiButtonType = {
+				name = "zhx_non_lijiao_invite_school_blocker"
+				spriteType = "GFX_zhx_non_lijiao_school_button_blocker"
+				position = { x = 180 y = 148 }
+				size = { x = 42 y = 42 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
+
 			# GDD: The engine-owned school sub-modifier icon only exposes the
 			# school name. Six mutually-exclusive, fully transparent 26x26 icons
 			# sit on that exact slot and supply the complete school-card tooltip.
@@ -291,7 +306,8 @@ def run(dependency_root: Path, check: bool) -> None:
         TARGET.write_text(output, encoding="utf-8")
     print(
         f"{'checked' if check else 'built'} Chinese 1.37 religion view; "
-        "native school-button overlays=1; school-tooltip hit targets=6; "
+        "native school-button overlays=1; non-Lijiao blockers=1; "
+        "school-tooltip hit targets=6; "
         "invited-school emblem overlays=6; "
         "no-doctrine overlays=1; "
         "mutually-exclusive tier practice displays=4; "

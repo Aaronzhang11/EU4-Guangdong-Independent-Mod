@@ -22,6 +22,19 @@ custom_icon = {
     }
 }
 
+# The native scholar selector is defined at religion-group scope. Eastern
+# religions outside Ritual Teaching therefore receive the underlying hard-coded
+# button too. This inert top-layer button restores the panel, closes the banner
+# symmetrically and owns the hitbox without mutating Buddhist or Shinto state.
+custom_button = {
+    name = zhx_non_lijiao_invite_school_blocker
+    potential = {
+        has_dlc = "Cradle of Civilization"
+        religion_group = eastern
+        NOT = { zhx_is_lijiao_country = yes }
+    }
+}
+
 # Native school icons hard-code a name-only tooltip. These transparent overlays
 # sit on the exact 26x26 religion-page icon and expose each complete school card.
 custom_icon = {

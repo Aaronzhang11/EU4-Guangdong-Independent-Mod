@@ -10,6 +10,11 @@ spriteTypes = {
         loadType = "INGAME"
     }
     spriteType = {
+        name = "GFX_zhx_non_lijiao_school_button_blocker"
+        texturefile = "gfx/interface/zhx_non_lijiao_school_button_blocker.dds"
+        loadType = "INGAME"
+    }
+    spriteType = {
         name = "GFX_zhx_practice_click_hitbox"
         texturefile = "gfx/interface/zhx_practice_click_hitbox.dds"
         loadType = "INGAME"
