@@ -140,6 +140,7 @@ custom_shield = {
 custom_button = {
     name = gdd_decree_expand_bureaucracy_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { NOT = { has_country_flag = mng_expanded_palace_bureaucracy_flag } }
     }
@@ -157,6 +158,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_expand_bureaucracy_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_expand_bureaucracy
         }
@@ -167,6 +169,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_improved_expand_bureaucracy_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { has_country_flag = mng_expanded_palace_bureaucracy_flag }
     }
@@ -184,6 +187,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_improved_expand_bureaucracy_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_improved_expand_bureaucracy
         }
@@ -194,6 +198,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_conduct_census_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { NOT = { has_country_flag = mng_empowered_pop_census_flag } }
     }
@@ -211,6 +216,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_conduct_census_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_conduct_census
         }
@@ -221,6 +227,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_improved_conduct_census_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { has_country_flag = mng_empowered_pop_census_flag }
     }
@@ -238,6 +245,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_improved_conduct_census_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_improved_conduct_census
         }
@@ -248,6 +256,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_promote_naval_officers_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -264,6 +273,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_promote_naval_officers_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_promote_naval_officers
         }
@@ -274,6 +284,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_increase_tariff_control_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -290,6 +301,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_increase_tariff_control_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_increase_tariff_control
         }
@@ -300,6 +312,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_improve_defence_effort_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -316,6 +329,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_improve_defence_effort_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_improve_defence_effort
         }
@@ -326,6 +340,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_boost_officer_corps_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -342,6 +357,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_boost_officer_corps_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_boost_officer_corps
         }
@@ -352,6 +368,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_fund_new_centers_of_education_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -368,6 +385,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_fund_new_centers_of_education_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_fund_new_centers_of_education
         }
@@ -378,6 +396,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_proclaim_dynastic_name_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -394,6 +413,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_proclaim_dynastic_name_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_proclaim_dynastic_name
         }
@@ -404,6 +424,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_issue_the_great_warnings_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -420,6 +441,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_issue_the_great_warnings_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_issue_the_great_warnings
         }
@@ -430,6 +452,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_six_ordinances_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -446,6 +469,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_six_ordinances_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_six_ordinances
         }
@@ -456,6 +480,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_sacred_edict_of_confucianism_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -472,6 +497,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_sacred_edict_of_confucianism_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_sacred_edict_of_confucianism
         }
@@ -482,6 +508,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_promote_taoist_studies_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -498,6 +525,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_promote_taoist_studies_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_promote_taoist_studies
         }
@@ -508,6 +536,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_appoint_entrusted_eunuchs_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -524,6 +553,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_appoint_entrusted_eunuchs_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_appoint_entrusted_eunuchs
         }
@@ -534,6 +564,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_increase_trade_cooperation_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -550,6 +581,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_increase_trade_cooperation_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_increase_trade_cooperation
         }
@@ -560,6 +592,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_reinforce_the_inner_guard_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -576,6 +609,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_reinforce_the_inner_guard_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_reinforce_the_inner_guard
         }
@@ -586,6 +620,7 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_issue_bureaucratic_imperial_seal_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
@@ -602,11 +637,146 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_issue_bureaucratic_imperial_seal_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_issue_bureaucratic_imperial_seal
         }
     }
     tooltip = gdd_proxy_decree_issue_bureaucratic_imperial_seal
+}
+
+custom_icon = {
+    name = gdd_decree_row_1_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_2_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_3_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_4_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_5_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_6_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_7_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_8_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_9_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_10_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_11_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_12_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+# The decree artwork is not engine-populated, so these scripted controls page
+# the replacement rows without changing the authoritative decree effects.
+custom_icon = {
+    name = gdd_eoc_decree_scroll_thumb_page_1
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = GDD_EOC_DECREE_SCROLL_PAGE_1_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_decree_scroll_thumb_page_2
+    potential = {
+        has_country_flag = gdd_eoc_decree_page_2
+    }
+    tooltip = GDD_EOC_DECREE_SCROLL_PAGE_2_TT
+}
+
+custom_button = {
+    name = gdd_eoc_decree_scroll_up
+    potential = {
+        has_country_flag = gdd_eoc_decree_page_2
+    }
+    trigger = { always = yes }
+    effect = { clr_country_flag = gdd_eoc_decree_page_2 }
+    tooltip = GDD_EOC_DECREE_SCROLL_UP_TT
+}
+
+custom_button = {
+    name = gdd_eoc_decree_scroll_down
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    trigger = { always = yes }
+    effect = { set_country_flag = gdd_eoc_decree_page_2 }
+    tooltip = GDD_EOC_DECREE_SCROLL_DOWN_TT
 }
 
 # Replacement celestial-reform rows and enacted-state overlays.
@@ -1674,7 +1844,6 @@ custom_text_box = {
         has_global_flag = gdd_eoc_member_roster_initialised
         CZH = { exists = yes }
     }
-    tooltip = GDD_EOC_MEMBER_COUNT_TT
 }
 
 custom_icon = {
@@ -1701,11 +1870,10 @@ custom_button = {
         has_global_flag = gdd_eoc_member_roster_initialised
         has_country_flag = gdd_eoc_member_roster_page_2
     }
-    trigger = { always = yes }
+    trigger = { hidden_trigger = { always = yes } }
     effect = {
         clr_country_flag = gdd_eoc_member_roster_page_2
     }
-    tooltip = GDD_EOC_MEMBER_SCROLL_UP_TT
 }
 
 custom_button = {
@@ -1715,11 +1883,10 @@ custom_button = {
         NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
         has_saved_global_event_target = gdd_eoc_member_roster_49
     }
-    trigger = { always = yes }
+    trigger = { hidden_trigger = { always = yes } }
     effect = {
         set_country_flag = gdd_eoc_member_roster_page_2
     }
-    tooltip = GDD_EOC_MEMBER_SCROLL_DOWN_TT
 }
 
 # GDD_EOC_MEMBER_BINDINGS_BEGIN

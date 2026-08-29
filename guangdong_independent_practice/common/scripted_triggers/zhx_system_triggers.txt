@@ -1,5 +1,13 @@
 # 周天下系统的公共判断接口。玩法、事件和 GUI 应调用这些接口，
 # 不要在各处直接写死 CZH 或底层国家旗标。
+zhx_can_see_tianxia_gui = {
+    # 未探知中国或远东的国家不应提前获知周天下的制度入口。
+    OR = {
+        china_superregion = { has_discovered = ROOT }
+        far_east_superregion = { has_discovered = ROOT }
+    }
+}
+
 zhx_is_tianzi = {
     # 当前作用域国家是否为天子。
     has_country_flag = zhx_tianzi

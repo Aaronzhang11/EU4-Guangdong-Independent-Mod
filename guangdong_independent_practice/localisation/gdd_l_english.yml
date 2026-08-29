@@ -8,7 +8,12 @@
 
  # Celestial-vassal UI: the principal-vassal identity follows a saved target.
  GDD_CELESTIAL_PRINCIPAL_VASSAL:0 "–™-^ø‹¯O"
+ GDD_CELESTIAL_GREAT_FEUDATORIES:0 "N'Yø‹¯O"
  GDD_CELESTIAL_PRINCIPAL_VASSAL_TT:0 "SVMR–™-^ø‹¯Oÿ§Y[gdd_principal_vassal.GetName]§!\n¹pûQSbVå‹ýVY²NLub—0"
+ GDD_EOC_DECREE_SCROLL_PAGE_1_TT:0 "1Wèe,rNu˜0"
+ GDD_EOC_DECREE_SCROLL_PAGE_2_TT:0 "1Wèe,rŒNu˜0"
+ GDD_EOC_DECREE_SCROLL_UP_TT:0 "TNû–1Wèe0"
+ GDD_EOC_DECREE_SCROLL_DOWN_TT:0 "TNû–1Wèe0"
  GDD_CELESTIAL_VASSAL_SLOT_TT:0 "ø‹¯O-^MOS8g=T(u"
  GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT:0 "SVMRmQ'Yø‹¯OKNN0¹pûQSbVå‹ýVY²NLub—0"
  GDD_CELESTIAL_EMPTY_GREAT_FEUDATORY_SLOT_TT:0 "§R'Yø‹¯O-^MOzzH§!\nå‹zzHS¡‹eQmQ'Yø‹¯OH˜ÿv^ïS(uŽNTíu„vH˜é`Z0"
@@ -490,6 +495,33 @@
  gdd_issue_trade_policy_reward_tt:0 "(WbýVåb	g„vwýN-N–HgRM‘§G10§!¹púWNxuµN0"
  gdd_currency_resource_development_tt:0 "óSåb	gN8NuµN§YÑ‘§!b§YÜ”§!NI`ÑSUS¦^¾0R§Y20§!„vwýN0"
  gdd_foster_market_reward_tt:0 "býVNb	gåb	g8f-NÃV„vwýN·ƒ—Vcíu§Y30t^§!„v§G+10.0%§!wýN8f›RÏ‘0"
+ GDD_CELESTIAL_REFORM_ORDINARY_HEADER:0 "nf9ei—"
+ GDD_CELESTIAL_REFORM_CENTRALIZING_HEADER:0 "Æ–Cg9ei—"
+ GDD_CELESTIAL_REFORM_DECENTRALIZING_HEADER:0 "RCg9ei—"
+
+ # )Yg9ei—Lub—h˜˜ÿ1u,g MOD êLˆÐc›OÿMQOVYèIlS„v‹TTîTV0
+ GDD_REFORM_ESTABLISH_GAITUGUILIU_TITLE:0 "9eWRVAm"
+ GDD_REFORM_SEABAN_TITLE:0 "9ei—wmy"
+ GDD_REFORM_LAND_TAX_TITLE:0 "ÔYûNI`cw"
+ GDD_REFORM_MILITARY_GOVERNORS_TITLE:0 "nté…b–"
+ GDD_REFORM_CENTRALIZING_GOVERNMENT_TITLE:0 "Í‘te˜R6R"
+ GDD_REFORM_VASSALIZE_TRIBUTARIES_TITLE:0 "KfSYé…"
+ GDD_REFORM_SINGLE_WHIP_TITLE:0 "ag­—KyV"
+ GDD_REFORM_REIGN_IN_ESTATES_TITLE:0 "y0•gZQ"
+ GDD_REFORM_CIVIL_REGISTRATION_TITLE:0 "7bPŸl"
+ GDD_REFORM_SILVER_STANDARD_TITLE:0 "3zúVö”,g"
+ GDD_REFORM_KANHE_TITLE:0 "ØRT&rQY"
+ GDD_REFORM_KEJU_TITLE:0 "9e6RÑyLN"
+ GDD_REFORM_INCLUSIVE_MONARCHY_TITLE:0 "ÁN·VYeS"
+ GDD_REFORM_BUREAUCRATIC_FACTION_TITLE:0 "T‡e‘bfk"
+ GDD_REFORM_MILITARY_FACTION_TITLE:0 "Tfk‘b‡e"
+ GDD_REFORM_UNIFIED_MARKET_TITLE:0 "ßuNšN2m^HW"
+ GDD_REFORM_MILITARY_BRANCH_TITLE:0 "9ei—›Q–"
+ GDD_REFORM_MODERNIZE_BANNERS_TITLE:0 "¨c^×e›Q"
+ GDD_REFORM_FOREIGN_SHIP_DESIGNS_TITLE:0 "x.7Y9‚"
+ GDD_REFORM_TRIBUTARY_EMBASSIES_TITLE:0 "n‚‚é…^S"
+ GDD_REFORM_NEW_WORLD_TITLE:0 "lb^VßW"
+
  GDD_CELESTIAL_REFORM_ACTION_TT:0 "¨c¨Rdky˜)Yg9ei—0—‰óS§Y80§!)Y‹TÿÇTˆmw§R70§!)Y‹Tv^M–NO§R1§!¹p3zšR¦^0"
  GDD_CELESTIAL_REFORM_PASSED_TT:0 "å‹y˜)Yg9ei—òTÏuÇ0"
 
@@ -526,7 +558,7 @@
  gdd_can_enact_proxy_land_tax_trigger:0 "S8gÇÔYûNI`cwÿv^án³‹s Q†˜0W0LˆMeýw›RbŒ˜î•NMeœ^9ei—‰Bl"
  gdd_can_enact_proxy_military_governors_trigger:0 "S8gÇnté…b–ÿv^án³›Q‹N¹ppe0›Q‹N&q¹pbTIN›Q‹Nýw›R‰Bl"
  gdd_can_enact_proxy_centralizing_government_trigger:0 "S8gÇÍ‘te˜R6RÿN‹s Q†˜0WóS¾0R65%"
- gdd_can_enact_proxy_vassalize_tributaries_trigger:0 "S8gÇâdGSg!ýV0WMOÿNòTÏuÇóS8y˜)Yg9ei—"
+ gdd_can_enact_proxy_vassalize_tributaries_trigger:0 "S8gÇKfSYé…ÿNòTÏuÇóS8y˜)Yg9ei—"
  gdd_can_enact_proxy_single_whip_trigger:0 "S8gÇag­—KyVÿòTÏu9ei—0uKÿv^án³ûN¡R0ÏuNmtõVbMeœ^9ei—‰Bl"
  gdd_can_enact_proxy_reign_in_estates_trigger:0 "S8gÇy0•gZQÿN‹s Q†˜0W¾0R90%bN6R¦^¾0R75"
  gdd_can_enact_proxy_civil_registration_trigger:0 "S8gÇ7bPŸl"
@@ -540,7 +572,7 @@
  gdd_can_enact_proxy_military_branch_trigger:0 "S8g9ei—›Q–ÿv^án³F–›Q.Oßu0LwN¦^N›Q‹N¹ppe‰Bl"
  gdd_can_enact_proxy_modernize_banners_trigger:0 "S8g¨c^×e›Qÿv^åb	g³Y×e›Qb‘šuQjObýw›R"
  gdd_can_enact_proxy_foreign_ship_designs_trigger:0 "S8gx.7Y9‚ÿåb	góS50wm›Q.Oßuÿv^án³Í‘‹W9‚bwm›QtõV‰Bl"
- gdd_can_enact_proxy_tributary_embassies_trigger:0 "S8g¾‹né…^SO†™ÿ¡l	gØšìrËzLPT„vg!ýVÿv^án³Y²NagöN"
+ gdd_can_enact_proxy_tributary_embassies_trigger:0 "S8gÇn‚‚é…^Sÿ¡l	gØšìrËzLPT„vg!ýVÿv^án³Y²NagöN"
  gdd_can_enact_proxy_new_world_trigger:0 "S8glb^VßWÿNóSåb	g1T¢ci–¶RN50X‚‰‹W9‚"
  gdd_eight_celestial_reforms_passed:0 "òTÏuÇóS8y˜)Yg9ei—"
  gdd_reform_vote_majority_trigger:0 "=ec9ei—„vbXTÑSUS¦^%NJh…ÇbXTI`ÑSUS¦^„vNJS"
@@ -576,7 +608,7 @@
  gdd_reform_land_tax_passed:0 "ÔYûNI`cwòTÏuÇ"
  gdd_reform_military_governors_passed:0 "nté…b–òTÏuÇ"
  gdd_reform_centralizing_government_passed:0 "Í‘te˜R6RòTÏuÇ"
- gdd_reform_vassalize_tributaries_passed:0 "âdGSg!ýV0WMOòTÏuÇ"
+ gdd_reform_vassalize_tributaries_passed:0 "KfSYé…òTÏuÇ"
  gdd_reform_single_whip_passed:0 "ag­—KyVòTÏuÇ"
  gdd_reform_reign_in_estates_passed:0 "y0•gZQòTÏuÇ"
  gdd_reform_civil_registration_passed:0 "7bPŸlòTÏuÇ"
@@ -590,14 +622,14 @@
  gdd_reform_military_branch_passed:0 "9ei—›Q–òTÏuÇ"
  gdd_reform_modernize_banners_passed:0 "¨c^×e›QòTÏuÇ"
  gdd_reform_foreign_ship_designs_passed:0 "x.7Y9‚òTÏuÇ"
- gdd_reform_tributary_embassies_passed:0 "¾‹né…^SO†™òTÏuÇ"
+ gdd_reform_tributary_embassies_passed:0 "n‚‚é…^SòTÏuÇ"
  gdd_reform_new_world_passed:0 "lb^VßWòTÏuÇ"
  gdd_proxy_reform_establish_gaituguiliu:0 "9eWRVAm"
  gdd_proxy_reform_seaban:0 "9ei—wmy"
  gdd_proxy_reform_land_tax:0 "ÔYûNI`cw"
  gdd_proxy_reform_military_governors:0 "nté…b–"
  gdd_proxy_reform_centralizing_government:0 "Í‘te˜R6R"
- gdd_proxy_reform_vassalize_tributaries:0 "âdGSg!ýV0WMO"
+ gdd_proxy_reform_vassalize_tributaries:0 "KfSYé…"
  gdd_proxy_reform_single_whip:0 "ag­—KyV"
  gdd_proxy_reform_reign_in_estates:0 "y0•gZQ"
  gdd_proxy_reform_civil_registration:0 "7bPŸl"
@@ -611,5 +643,5 @@
  gdd_proxy_reform_military_branch:0 "9ei—›Q–"
  gdd_proxy_reform_modernize_banners:0 "¨c^×e›Q"
  gdd_proxy_reform_foreign_ship_designs:0 "x.7Y9‚"
- gdd_proxy_reform_tributary_embassies:0 "¾‹né…^SO†™"
+ gdd_proxy_reform_tributary_embassies:0 "n‚‚é…^S"
  gdd_proxy_reform_new_world:0 "lb^VßW"

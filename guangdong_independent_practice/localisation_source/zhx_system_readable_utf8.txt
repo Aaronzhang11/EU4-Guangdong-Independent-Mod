@@ -56,6 +56,7 @@ l_english:
  zhx_open_tianxia_overview_title:0 "打开周天下总览"
  zhx_open_tianxia_overview_desc:0 "打开周天下专属界面，查看当前天子、诸侯名册、礼乐阶段、天下事变与改革。此入口只读取状态，不会暂停或改变周天下演算。"
  zhx_gui_close_button_tt:0 "关闭周天下界面"
+ zhx_tianxia_open_button_tt:0 "打开周天下界面\n§g未奉周国家只能查看公开信息；周天下成员可按身份参与公议与盟约。§!"
  zhx_view_tianxia_extent_title:0 "查看周天下版图"
  zhx_view_tianxia_extent_desc:0 "凡已探知中国或远东的国家，均可通过此入口观察当前天子及诸侯控制的全部疆域。将鼠标悬停在该决议上，周天下所属省份便会在地图上高亮。"
  zhx_view_tianxia_extent_read_only_tt:0 "这是一个只读版图查看入口。将鼠标悬停在决议上即可高亮周天下疆域。"

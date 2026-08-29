@@ -57,7 +57,7 @@ DEBATE_EVENTS = MOD / "events/zhx_tianxia_debate_events.txt"
 DOCTRINE_EVENTS = MOD / "events/zhx_doctrine_events.txt"
 ON_ACTIONS = MOD / "common/on_actions/zhx_system_on_actions.txt"
 MODIFIERS = MOD / "common/event_modifiers/zhx_tianxia_debate_modifiers.txt"
-INTERFACE = MOD / "interface/countrydecisionsview.gui"
+INTERFACE = MOD / "interface/topbar.gui"
 CUSTOM_GUI = MOD / "common/custom_gui/zhx_tianxia_gui.txt"
 
 CORE_PATHS = (

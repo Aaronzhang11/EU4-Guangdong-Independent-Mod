@@ -24,7 +24,7 @@ SYSTEM_EVENTS = MOD / "events/zhx_system_events.txt"
 DEBATE_EFFECTS = MOD / "common/scripted_effects/zhx_tianxia_debate_effects.txt"
 DEBATE_TRIGGERS = MOD / "common/scripted_triggers/zhx_tianxia_debate_triggers.txt"
 DEBATE_EVENTS = MOD / "events/zhx_tianxia_debate_events.txt"
-INTERFACE = MOD / "interface/countrydecisionsview.gui"
+INTERFACE = MOD / "interface/topbar.gui"
 CUSTOM_GUI = MOD / "common/custom_gui/zhx_tianxia_gui.txt"
 
 CORE_PATHS = (
@@ -921,6 +921,55 @@ def validate_gui(interface_text: str, custom_text: str, report: Report) -> None:
     interface_objects = gui_objects(interface_text)
     custom_objects = gui_objects(custom_text)
     values = localization_values()
+
+    topbar_windows = interface_objects.get("zhx_tianxia_topbar_window", [])
+    topbar_bindings = custom_objects.get("zhx_tianxia_topbar_window", [])
+    open_controls = interface_objects.get("zhx_tianxia_open_button", [])
+    open_bindings = custom_objects.get("zhx_tianxia_open_button", [])
+    panel_windows = interface_objects.get("zhx_tianxia_window", [])
+    panel_bindings = custom_objects.get("zhx_tianxia_window", [])
+    report.check(
+        len(topbar_windows) == len(topbar_bindings) == 1,
+        "Tianxia needs one scripted lower-right topbar window and one binding",
+    )
+    report.check(
+        len(open_controls) == len(open_bindings) == 1,
+        "Tianxia needs one scripted topbar open button and one binding",
+    )
+    report.check(
+        len(panel_windows) == len(panel_bindings) == 1,
+        "Tianxia panel must exist exactly once under topbar.gui",
+    )
+    if topbar_windows:
+        report.check(
+            re.search(r'orientation\s*=\s*"?LOWER_RIGHT"?', topbar_windows[0], re.I)
+            is not None,
+            "Tianxia topbar entry is not anchored to LOWER_RIGHT",
+        )
+    if open_controls:
+        report.check(
+            'quadTextureSprite = "GFX_zhx_tianxia_topbar_button"' in open_controls[0]
+            and "scripted = yes" in open_controls[0],
+            "Tianxia topbar entry is not the independent scripted round button",
+        )
+    for name in ("zhx_tianxia_topbar_window", "zhx_tianxia_open_button", "zhx_tianxia_window"):
+        for body in custom_objects.get(name, []):
+            report.check(
+                "zhx_can_see_tianxia_gui = yes" in body,
+                f"{name} is visible before China or the Far East is discovered",
+            )
+    if open_bindings:
+        report.check(
+            "set_country_flag = zhx_tianxia_gui_visible" in open_bindings[0]
+            and "zhx_build_gui_roster = yes" in open_bindings[0],
+            "Tianxia topbar button does not open the panel and refresh its roster",
+        )
+    close_bindings = custom_objects.get("zhx_gui_close_button", [])
+    report.check(
+        len(close_bindings) == 1
+        and "clr_country_flag = zhx_tianxia_gui_visible" in close_bindings[0],
+        "Tianxia close button does not clear the topbar panel visibility flag",
+    )
 
     left_header = interface_objects.get("zhx_gui_council_header", [])
     right_header = interface_objects.get("zhx_gui_debate_header", [])
