@@ -1,8 +1,47 @@
 # Eligibility and authoritative doctrine-state checks for the first
 # Ritual Teaching / Hundred Schools vertical slice.
 
+# Ritual Teaching is a Zhuxia framework rather than the generic religion of
+# every East Asian state. Culture eligibility survives tag changes; Jizi Joseon
+# is the one deliberate Korean-culture polity exception in the opening canon.
+zhx_can_adopt_lijiao = {
+    NOT = {
+        OR = {
+            tag = BD2 # 巴氐
+            tag = BMY # 白马弥药
+            tag = DCH # 宕昌
+            tag = DZH # 邓至
+            tag = GYA # 贵阳
+            tag = GZH # 甘州
+            tag = HZH # 河州回回
+        }
+    }
+    OR = {
+        tag = JIZ
+        primary_culture = gdd_zhongyuan
+        primary_culture = gdd_jianghuai
+        primary_culture = gdd_chu
+        primary_culture = gdd_gan
+        primary_culture = gdd_hakka
+        primary_culture = gdd_gui
+        primary_culture = gdd_shu
+        primary_culture = gdd_dian
+        primary_culture = gdd_jin
+        primary_culture = gdd_qi
+        primary_culture = gdd_yan
+        primary_culture = gdd_long
+        primary_culture = gdd_wu
+        primary_culture = gdd_min
+        primary_culture = gdd_guangfu
+        primary_culture = gdd_diqiang
+        primary_culture = gdd_songwei
+        primary_culture = gdd_dongyi
+    }
+}
+
 zhx_is_lijiao_country = {
     religion = confucianism
+    zhx_can_adopt_lijiao = yes
 }
 
 zhx_has_doctrine = {
@@ -26,5 +65,53 @@ zhx_has_any_doctrine_flag = {
         has_country_flag = zhx_doctrine_dao
         has_country_flag = zhx_doctrine_bing
         has_country_flag = zhx_doctrine_zongheng
+    }
+}
+
+# Read-only replacements for vanilla Harmony mission/reform thresholds. They
+# create no state of their own: doctrine practice and the visible academy
+# tension modifiers remain the only authorities. The four levels are strictly
+# monotonic and use existing player-facing 50/75 practice tiers.
+zhx_lijiao_cohesion_75 = {
+    zhx_is_lijiao_country = yes
+    zhx_has_doctrine = yes
+    check_variable = { which = zhx_doctrine_practice value = 50 }
+    NOT = { has_country_modifier = zhx_academy_tension_heavy }
+}
+
+zhx_lijiao_cohesion_80 = {
+    zhx_is_lijiao_country = yes
+    zhx_has_doctrine = yes
+    check_variable = { which = zhx_doctrine_practice value = 50 }
+    NOT = {
+        OR = {
+            has_country_modifier = zhx_academy_tension_medium
+            has_country_modifier = zhx_academy_tension_heavy
+        }
+    }
+}
+
+zhx_lijiao_cohesion_90 = {
+    zhx_is_lijiao_country = yes
+    zhx_has_doctrine = yes
+    check_variable = { which = zhx_doctrine_practice value = 75 }
+    NOT = {
+        OR = {
+            has_country_modifier = zhx_academy_tension_medium
+            has_country_modifier = zhx_academy_tension_heavy
+        }
+    }
+}
+
+zhx_lijiao_cohesion_100 = {
+    zhx_is_lijiao_country = yes
+    zhx_has_doctrine = yes
+    check_variable = { which = zhx_doctrine_practice value = 75 }
+    NOT = {
+        OR = {
+            has_country_modifier = zhx_academy_tension_mild
+            has_country_modifier = zhx_academy_tension_medium
+            has_country_modifier = zhx_academy_tension_heavy
+        }
     }
 }

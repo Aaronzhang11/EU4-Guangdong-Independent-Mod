@@ -57,10 +57,10 @@ HARMONY_DYNAMIC_CONTROL_REPLACEMENTS = {
 }
 DOCTRINE_STATUS = r'''
 
-			# GDD: The engine-owned Confucian harmony widget cannot be rebound to
-			# academy state. This late-drawn panel preserves every required native
-			# control underneath, but replaces the visible 0-100 meter with the four
-			# actual thought-tension tiers maintained by the academy lifecycle.
+			# GDD: Keep the engine-owned Harmony controls as a dormant compatibility
+			# shell. This late-drawn panel replaces their visible 0-100 meter with the
+			# four authoritative thought-tension tiers maintained by the academy
+			# lifecycle; no Harmony value is read or written.
 			iconType = {
 				name = "zhx_thought_tension_panel_bg"
 				spriteType = "GFX_religion_overlay_big_bg"
@@ -526,7 +526,7 @@ def run(dependency_root: Path, check: bool) -> None:
         "school-tooltip hit targets=6; "
         "invited-school emblem overlays=6; "
         "no-doctrine overlays=1; "
-        "thought-tension endpoint reskins=2; hidden harmony dynamics=5; "
+        "thought-tension endpoint reskins=2; dormant native Harmony controls=5; "
         "four-tier tension panels=1; "
         "mutually-exclusive tier practice displays=4; "
         "practice-number hit targets=1; hover-factor readouts=4"

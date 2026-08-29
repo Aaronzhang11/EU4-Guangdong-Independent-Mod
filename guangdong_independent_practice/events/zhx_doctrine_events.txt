@@ -263,11 +263,27 @@ country_event = {
     hidden = yes
     is_triggered_only = yes
 
-    trigger = { zhx_has_doctrine = yes }
+    trigger = {
+        OR = {
+            zhx_has_doctrine = yes
+            AND = {
+                religion = confucianism
+                NOT = { zhx_can_adopt_lijiao = yes }
+            }
+            AND = {
+                zhx_is_lijiao_country = yes
+                NOT = { zhx_has_any_doctrine_flag = yes }
+                NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+            }
+        }
+    }
 
     immediate = {
         if = {
-            limit = { zhx_is_lijiao_country = yes }
+            limit = {
+                zhx_is_lijiao_country = yes
+                zhx_has_doctrine = yes
+            }
             zhx_yearly_doctrine_tick = yes
             zhx_ai_try_file_tianxia_debate_petition = yes
         }
@@ -566,10 +582,14 @@ country_event = {
     }
 }
 
-# Conversion lifecycle cleanup. EU4 exposes no clear-school effect, so
-# an obsolete eastern display mirror is replaced with a transparent sentinel.
-# Keep the literal set here: nested scripted effects are not post-validated
-# reliably by EU4 1.37.5 on macOS. Authoritative flags/variables are then reset.
+# Unified religion/culture eligibility lifecycle. Departing Ritual Teaching
+# retires every doctrine state; entering it without a doctrine first clears any
+# eastern display residue and then opens the normal six-school foundation route.
+# An ineligible country hard-forced into Ritual Teaching returns to its capital
+# religion instead of keeping a hollow faith without Hundred Schools. EU4
+# exposes no clear-school effect, so the transparent sentinel remains the
+# intermediate mirror. Keep the literal set here: nested scripted effects are
+# not post-validated reliably by EU4 1.37.5 on macOS.
 country_event = {
     id = zhx_doctrine.92
     title = zhx_doctrine.90.t
@@ -587,7 +607,23 @@ country_event = {
             AND = {
                 zhx_is_lijiao_country = yes
                 NOT = { zhx_has_any_doctrine_flag = yes }
-                has_religious_school = yes
+                NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+            }
+            AND = {
+                religion_group = eastern
+                NOT = { zhx_is_lijiao_country = yes }
+                OR = {
+                    religious_school = { group = eastern school = zhx_ru_school }
+                    religious_school = { group = eastern school = zhx_fa_school }
+                    religious_school = { group = eastern school = zhx_mo_school }
+                    religious_school = { group = eastern school = zhx_dao_school }
+                    religious_school = { group = eastern school = zhx_bing_school }
+                    religious_school = { group = eastern school = zhx_zongheng_school }
+                }
+            }
+            AND = {
+                religion = confucianism
+                NOT = { zhx_can_adopt_lijiao = yes }
             }
         }
     }
@@ -601,6 +637,33 @@ country_event = {
             }
         }
         zhx_clear_doctrine_system = yes
+        if = {
+            limit = {
+                religion = confucianism
+                NOT = { zhx_can_adopt_lijiao = yes }
+            }
+            if = {
+                limit = {
+                    capital_scope = { NOT = { religion = confucianism } }
+                }
+                change_religion = capital
+            }
+            else = {
+                # Absolute fallback for an ineligible state whose capital was
+                # already converted too. This state is unreachable in the
+                # supported 1444 setup, but it prevents a hard-coded peace or
+                # subject conversion from creating a hollow Ritual Teaching.
+                change_religion = animism
+            }
+        }
+        else_if = {
+            limit = {
+                zhx_is_lijiao_country = yes
+                NOT = { zhx_has_doctrine = yes }
+                NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+            }
+            country_event = { id = zhx_doctrine.1 days = 1 }
+        }
     }
 
     option = { name = OK }

@@ -328,6 +328,23 @@ def append_to_group(text: str, group: str, block: str, unique_key: str) -> str:
     return text[:closing] + block + text[closing:]
 
 
+def retire_confucian_harmony(text: str) -> str:
+    """Remove the sole engine owner of the vanilla Harmony state machine."""
+    match = re.search(r"(?m)^\tconfucianism\s*=\s*\{", text)
+    if match is None:
+        raise ValueError('vanilla religions are missing "confucianism"')
+    opening = text.find("{", match.start())
+    closing = matching_close(text, opening)
+    body = text[opening + 1 : closing]
+    marker = "\n\t\tuses_harmony = yes"
+    if body.count(marker) != 1:
+        raise ValueError(
+            "confucianism must contain exactly one vanilla uses_harmony owner"
+        )
+    body = body.replace(marker, "", 1)
+    return text[: opening + 1] + body + text[closing:]
+
+
 def render(vanilla_root: Path) -> str:
     source = vanilla_root / "common/religions/00_religion.txt"
     data = source.read_bytes()
@@ -337,7 +354,7 @@ def render(vanilla_root: Path) -> str:
             "unsupported vanilla religion baseline: "
             f"{digest}; expected EU4 1.37.5 {EXPECTED_VANILLA_SHA256}"
         )
-    text = data.decode("utf-8")
+    text = retire_confucian_harmony(data.decode("utf-8"))
     text = append_to_group(text, "christian", build_nestorian_block(), "nestorian")
 
     match = re.search(r"(?m)^eastern\s*=\s*\{", text)
@@ -362,7 +379,7 @@ def run(vanilla_root: Path, check: bool) -> None:
     print(
         f"{'checked' if check else 'built'} EU4 1.37.5 religions; "
         f"visible eastern mirrors={len(SCHOOLS)}; transparent sentinels=1; "
-        "Nestorian patriarch icons=5"
+        "Nestorian patriarch icons=5; vanilla Harmony owners=0"
     )
 
 

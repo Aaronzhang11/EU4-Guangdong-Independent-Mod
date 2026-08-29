@@ -402,7 +402,7 @@ sacred_edict_of_confucianism_decree = {
 	trigger = {
 	}
 	modifier = {
-		harmonization_speed = 0.25
+		stability_cost_modifier = -0.10
 		monthly_karma = -0.05
 		years_of_nationalism = -5
 	}
@@ -543,4 +543,3 @@ issue_bureaucratic_imperial_seal = {
 		factor = 10
 	}
 }
-

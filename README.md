@@ -201,6 +201,8 @@ python tools\map_pipeline\apply_b49_eight_node_trade_network.py --check
 python tools\map_pipeline\finalize_zhx_province_history.py --check
 python tools\build_zhx_academy_lifecycle.py --check
 python tools\validate_zhx_academy_lifecycle.py
+python tools\build_zhx_harmony_retirement.py --check
+python tools\validate_zhx_harmony_retirement.py
 git diff --check
 ```
 

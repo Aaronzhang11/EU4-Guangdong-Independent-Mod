@@ -2103,7 +2103,6 @@ eastern = {
 			stability_cost_modifier = -0.1
 		}
 		heretic = { TAOIST }
-		uses_harmony = yes
 	}
 
 	shinto = {

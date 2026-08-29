@@ -2635,10 +2635,10 @@ guiTypes = {
 		}
 	
 
-			# GDD: The engine-owned Confucian harmony widget cannot be rebound to
-			# academy state. This late-drawn panel preserves every required native
-			# control underneath, but replaces the visible 0-100 meter with the four
-			# actual thought-tension tiers maintained by the academy lifecycle.
+			# GDD: Keep the engine-owned Harmony controls as a dormant compatibility
+			# shell. This late-drawn panel replaces their visible 0-100 meter with the
+			# four authoritative thought-tension tiers maintained by the academy
+			# lifecycle; no Harmony value is read or written.
 			iconType = {
 				name = "zhx_thought_tension_panel_bg"
 				spriteType = "GFX_religion_overlay_big_bg"

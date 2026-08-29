@@ -2,7 +2,6 @@ government = monarchy
 government_rank = 3
 technology_group = chinese
 religion = confucianism
-add_harmonized_religion = mahayana
 primary_culture = gdd_jianghuai
 capital = 1821	# Jiangning
 

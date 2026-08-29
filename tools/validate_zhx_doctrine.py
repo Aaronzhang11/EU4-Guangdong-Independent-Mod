@@ -1776,9 +1776,10 @@ def main() -> None:
     startup_body = named_block_body(on_action, "on_startup")
     require(
         "zhx_doctrine.91" not in startup_body
-        and "zhx_doctrine.92" not in startup_body
+        and startup_body.count("zhx_doctrine.92") == 1
         and "zhxtest" not in startup_body.lower(),
-        "new-game doctrine lifecycle must not carry startup migration or test events",
+        "new-game doctrine lifecycle must initialize custom nations through .92 "
+        "without carrying a mirror migration or test event",
     )
     require(
         startup_body.count("zhx_prepare_doctrine_ledger = yes") == 1
@@ -1789,11 +1790,16 @@ def main() -> None:
         "without adding a migration event",
     )
     religion_change_body = named_block_body(on_action, "on_religion_change")
+    culture_change_body = named_block_body(on_action, "on_primary_culture_changed")
+    released_body = named_block_body(on_action, "on_country_released")
     require(
         len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", religion_change_body))
         == 1
-        and on_action.count("zhx_doctrine.92") == 1,
-        "on_religion_change must dispatch zhx_doctrine.92 exactly once",
+        and len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", culture_change_body)) == 1
+        and len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", released_body)) == 1
+        and on_action.count("zhx_doctrine.92") == 4,
+        "startup, religion changes, primary-culture changes and country release "
+        "must each dispatch zhx_doctrine.92 once",
     )
     yearly_body = named_block_body(on_action, "on_yearly_pulse")
     require(
@@ -2355,11 +2361,18 @@ def main() -> None:
         retire_event.count("hidden = yes") == 1
         and retire_event.count("is_triggered_only = yes") == 1
         and "zhx_has_any_doctrine_flag = yes" in retire_trigger
-        and "has_religious_school = yes" in retire_trigger
+        and "has_religious_school = yes" not in retire_trigger
         and "NOT = { zhx_is_lijiao_country = yes }" in retire_trigger
-        and "NOT = { zhx_has_any_doctrine_flag = yes }" in retire_trigger,
-        "zhx_doctrine.92 must cover departure from 礼教 and stale-mirror "
-        "retirement when returning without a doctrine",
+        and "NOT = { zhx_has_any_doctrine_flag = yes }" in retire_trigger
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in retire_trigger
+        and "religion_group = eastern" in retire_trigger
+        and "religion = confucianism" in retire_trigger
+        and "NOT = { zhx_can_adopt_lijiao = yes }" in retire_trigger
+        and retire_trigger.count("religious_school = {") == len(NATIVE_SCHOOLS)
+        and all(f"school = {school}" in retire_trigger for school in NATIVE_SCHOOLS),
+        "zhx_doctrine.92 must cover departure from 礼教 and every fresh entry "
+        "into 礼教 without a doctrine, including stale six-school mirrors which "
+        "reappear after a non-eastern conversion round-trip",
     )
     require(
         retire_event.count("option = {") == 1
@@ -2368,9 +2381,26 @@ def main() -> None:
         and retire_immediate.count("group = eastern") == 2
         and retire_immediate.count("school = zhx_no_doctrine_school") == 1
         and "limit = { religion_group = eastern }" in retire_immediate
-        and retire_immediate.count("zhx_clear_doctrine_system = yes") == 1,
+        and retire_immediate.count("zhx_clear_doctrine_system = yes") == 1
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in retire_immediate
+        and "change_religion = capital" in retire_immediate
+        and "change_religion = animism" in retire_immediate
+        and retire_immediate.count("country_event = { id = zhx_doctrine.1 days = 1 }") == 1,
         "zhx_doctrine.92 must gate one direct eastern sentinel assignment, then "
-        "clear authoritative doctrine state",
+        "clear authoritative doctrine state, reject ineligible forced conversions, "
+        "and schedule the six-school foundation route",
+    )
+    annual_event = country_event_body(event_text, "zhx_doctrine.90")
+    annual_trigger = named_block_body(annual_event, "trigger")
+    annual_immediate = named_block_body(annual_event, "immediate")
+    require(
+        "zhx_is_lijiao_country = yes" in annual_trigger
+        and "NOT = { zhx_has_any_doctrine_flag = yes }" in annual_trigger
+        and "NOT = { has_country_modifier = zhx_doctrine_change_cooldown }"
+        in annual_trigger
+        and "zhx_has_doctrine = yes" in annual_immediate,
+        "the annual safety path must heal a released/event-created schoolless "
+        "Ritual Teaching state without bypassing the two-year postponement",
     )
     retire_body = top_level_effect_body(effect_text, "zhx_retire_doctrine_system")
     require(
@@ -2463,8 +2493,24 @@ def main() -> None:
     )
 
     for token, reason in FORBIDDEN_TOKENS.items():
+        scanned_scripts = all_scripts
+        if token == "change_religion":
+            # The sole exception is the lifecycle guard which rejects a
+            # hard-coded forced conversion of an ineligible, non-Zhuxia state.
+            # It restores the capital religion (or uses an unreachable
+            # animist fallback); ordinary doctrine choices still cannot change
+            # religion.
+            for allowed in (
+                "change_religion = capital",
+                "change_religion = animism",
+            ):
+                require(
+                    scanned_scripts.count(allowed) == 1,
+                    f"lifecycle exception {allowed} must exist exactly once",
+                )
+                scanned_scripts = scanned_scripts.replace(allowed, "", 1)
         require(
-            re.search(rf"\b{re.escape(token)}\b", all_scripts) is None,
+            re.search(rf"\b{re.escape(token)}\b", scanned_scripts) is None,
             f"forbidden token {token}: {reason}",
         )
 

@@ -901,14 +901,8 @@ confucian_governing_reform = {
 	modifiers = {
 		church_influence_modifier = 0.1
 		church_loyalty_modifier = 0.1
-		harmonization_speed = 0.1
+		stability_cost_modifier = -0.05
 		governing_capacity_modifier = 0.05
-	}
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		custom_attributes = {
-			full_loyalty_on_harmonization = yes	#Add +100 Loyalty when harmonizing something
-		}
 	}
 	
 	ai = {

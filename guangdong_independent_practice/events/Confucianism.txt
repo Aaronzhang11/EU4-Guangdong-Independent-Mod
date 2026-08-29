@@ -1,0 +1,123 @@
+# ZHX: vanilla Confucian Harmony event lifecycle retired.
+namespace = confucian_events
+
+country_event = {
+	id = confucian_events.1
+	title = "confucian_events.1.t"
+	desc = "confucian_events.1.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.2
+	title = "confucian_events.2.t"
+	desc = "confucian_events.2.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.3
+	title = "confucian_events.3.t"
+	desc = "confucian_events.3.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.4
+	title = "confucian_events.4.t"
+	desc = "confucian_events.4.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.5
+	title = "confucian_events.5.t"
+	desc = "confucian_events.5.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.6
+	title = "confucian_events.6.t"
+	desc = "confucian_events.6.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.7
+	title = "confucian_events.7.t"
+	desc = "confucian_events.7.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.8
+	title = "confucian_events.8.t"
+	desc = "confucian_events.8.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.9
+	title = "confucian_events.9.t"
+	desc = "confucian_events.9.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.10
+	title = "confucian_events.10.t"
+	desc = "confucian_events.10.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.19
+	title = "confucian_events.19.t"
+	desc = "confucian_events.19.d"
+	picture = MERITOCRACY_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}
+country_event = {
+	id = confucian_events.20
+	title = "confucian_events.20.t"
+	desc = "confucian_events.20.d"
+	picture = IMPERIAL_EXAMINATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	option = { name = OK }
+}

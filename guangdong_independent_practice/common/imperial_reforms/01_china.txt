@@ -209,7 +209,7 @@ inclusive_monarchy_decision = {
 		always = no
 		OR = { 
 			full_idea_group = humanist_ideas 
-			harmony = 80 
+			zhx_lijiao_cohesion_80 = yes
 			theologian = 2 
 		}
 		stability = 1 
@@ -390,4 +390,3 @@ new_world_discovery_decision = {
 		colonists = 1 
 	}
 }
-

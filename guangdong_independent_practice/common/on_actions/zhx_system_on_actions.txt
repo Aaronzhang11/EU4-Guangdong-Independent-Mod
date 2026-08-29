@@ -5,6 +5,11 @@ on_startup = {
         zhx_system.1
         zhx_opening_school.1
         zhx_debate.1
+        # Fresh 1444 custom nations are not part of the fixed 65-tag school
+        # catalogue. The shared lifecycle gives eligible Ritual Teaching
+        # designs the ordinary six-school foundation route and rejects an
+        # ineligible hollow faith.
+        zhx_doctrine.92
     }
     if = {
         limit = {
@@ -20,6 +25,25 @@ on_startup = {
 # doctrine gameplay state immediately and replaces same-group eastern mirrors
 # with a transparent no-doctrine sentinel.
 on_religion_change = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# Ritual Teaching eligibility follows the country's primary culture rather
+# than its tag alone. Reuse the same lifecycle event so culture promotion can
+# neither strand a valid state without a school nor leave an ineligible state
+# carrying the six-school mirror.
+on_primary_culture_changed = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# Released countries inherit their authored religion and culture without
+# necessarily firing either change hook. Give a released Ritual Teaching state
+# the same bounded eligibility/foundation pass.
+on_country_released = {
     events = {
         zhx_doctrine.92
     }
