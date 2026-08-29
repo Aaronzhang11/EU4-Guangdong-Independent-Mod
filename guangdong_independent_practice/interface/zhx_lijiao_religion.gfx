@@ -24,4 +24,19 @@ spriteTypes = {
         texturefile = "gfx/interface/zhx_school_tooltip_hitbox.dds"
         loadType = "INGAME"
     }
+    spriteType = {
+        name = "GFX_zhx_thought_tension_hitbox"
+        texturefile = "gfx/interface/zhx_thought_tension_hitbox.dds"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_thought_tension_low"
+        texturefile = "gfx/interface/zhx_thought_tension_low.tga"
+        loadType = "INGAME"
+    }
+    spriteType = {
+        name = "GFX_zhx_thought_tension_high"
+        texturefile = "gfx/interface/zhx_thought_tension_high.tga"
+        loadType = "INGAME"
+    }
 }

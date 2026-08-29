@@ -815,14 +815,14 @@ guiTypes = {
 			iconType =
 			{
 				name ="low_harmony"
-				spriteType = "GFX_low_harmony"
+				spriteType = "GFX_zhx_thought_tension_low"
 				position = { x= 38 y = 265 }
 			}
 			
 			iconType =
 			{
 				name ="high_harmony"
-				spriteType = "GFX_high_harmony"
+				spriteType = "GFX_zhx_thought_tension_high"
 				position = { x= 238 y = 265 }
 			}
 			
@@ -847,7 +847,7 @@ guiTypes = {
 			
 			guiButtonType = {
 				name = "harmonizing_with_button"
-				position = { x = 275 y = 261 }
+				position = { x = 2000 y = 2000 }
 				quadTextureSprite ="GFX_province_religion_button"
 				buttonFont = "vic_18"
 				Orientation = "LEFT"
@@ -856,27 +856,27 @@ guiTypes = {
 			iconType = {
 				name ="harmonizing_with_icon"
 				spriteType = "GFX_icon_religion_small"
-				position = { x= 280 y = 265 }
+				position = { x= 2000 y = 2000 }
 				alwaystransparent = yes
 			}
 			
 			iconType = {
 				name ="harmonization_progress"
 				spriteType = "GFX_treasure_fleet_progressbar2"
-				position = { x= 322 y = 291 }
+				position = { x= 2000 y = 2000 }
 				rotation = 1.5708
 			}
 
 			iconType = {
 				name ="harmonization_progress_frame"
 				spriteType = "GFX_treasure_fleet_progress_frame2"
-				position = { x= 315 y = 263 }
+				position = { x= 2000 y = 2000 }
 			}
 
 			listboxType = 
 			{
 				name ="harmonized_listbox"
-				position = { x = 35 y = 300 }
+				position = { x = 2000 y = 2000 }
 				backGround=""
 				size = { x=340 y = 300 }
 				Orientation = "UPPER_LEFT"
@@ -2634,6 +2634,169 @@ guiTypes = {
 			}
 		}
 	
+
+			# GDD: The engine-owned Confucian harmony widget cannot be rebound to
+			# academy state. This late-drawn panel preserves every required native
+			# control underneath, but replaces the visible 0-100 meter with the four
+			# actual thought-tension tiers maintained by the academy lifecycle.
+			iconType = {
+				name = "zhx_thought_tension_panel_bg"
+				spriteType = "GFX_religion_overlay_big_bg"
+				position = { x = 26 y = 231 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_thought_tension_panel_label"
+				position = { x = 40 y = 245 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 230
+				maxHeight = 24
+				Orientation = "UPPER_LEFT"
+				format = centre
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_progress_bg"
+				spriteType = "GFX_piety_bar_bg"
+				position = { x = 62 y = 276 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_progress_frame"
+				spriteType = "GFX_ideaView_progress_frame_long"
+				position = { x = 55 y = 273 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_low_endpoint"
+				spriteType = "GFX_zhx_thought_tension_low"
+				position = { x = 38 y = 265 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_high_endpoint"
+				spriteType = "GFX_zhx_thought_tension_high"
+				position = { x = 238 y = 265 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			# Four fixed anchors quantize the old continuous pointer. Their
+			# custom-gui potentials are deliberately mutually exclusive.
+			iconType = {
+				name = "zhx_thought_tension_none_indicator"
+				spriteType = "GFX_war_overview_indicator"
+				position = { x = 64 y = 273 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_mild_indicator"
+				spriteType = "GFX_war_overview_indicator"
+				position = { x = 106 y = 273 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_medium_indicator"
+				spriteType = "GFX_war_overview_indicator"
+				position = { x = 148 y = 273 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_thought_tension_heavy_indicator"
+				spriteType = "GFX_war_overview_indicator"
+				position = { x = 190 y = 273 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_thought_tension_none_label"
+				position = { x = 64 y = 279 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 52
+				maxHeight = 24
+				format = centre
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_thought_tension_mild_label"
+				position = { x = 106 y = 279 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 52
+				maxHeight = 24
+				format = centre
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_thought_tension_medium_label"
+				position = { x = 148 y = 279 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 52
+				maxHeight = 24
+				format = centre
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_thought_tension_heavy_label"
+				position = { x = 190 y = 279 }
+				font = "vic_18"
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 52
+				maxHeight = 24
+				format = centre
+				alwaystransparent = yes
+				scripted = yes
+			}
+
+			# A panel-sized invisible top button owns hover and blocks the obsolete
+			# native harmonisation selector that still exists beneath the repaint.
+			guiButtonType = {
+				name = "zhx_thought_tension_tooltip_button"
+				quadTextureSprite = "GFX_zhx_thought_tension_hitbox"
+				position = { x = 26 y = 231 }
+				Orientation = "UPPER_LEFT"
+				scripted = yes
+			}
 
 			# GDD: The Ritual Teaching tripod is a mouse-transparent reskin of
 			# the engine-owned invite_scholar_button beneath it. The native button

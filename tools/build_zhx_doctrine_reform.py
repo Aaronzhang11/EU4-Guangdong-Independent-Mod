@@ -76,6 +76,12 @@ OUTPUTS = {
     "localisation": MOD / "localisation_source/zhx_doctrine_reform_readable_utf8.txt",
 }
 
+GUEST_CONTRACT_ACTIVE_FLAG = "zhx_guest_school_contract_active"
+# ``had_country_flag days = N`` becomes true on day N.  A one-day safety
+# margin keeps the 1825-day cultivation callback away from the 7300-day guest
+# expiry callback, whose same-day ordering is not guaranteed by the engine.
+GUEST_CONTRACT_REFORM_WINDOW_DAYS = 5475
+
 
 def indent(text: str, spaces: int = 4) -> str:
     prefix = " " * spaces
@@ -177,6 +183,7 @@ def render_triggers() -> str:
 
     for code, meta in SCHOOLS.items():
         academy_body = academy_root_body(code)
+        guest_contract_flag = f"zhx_guest_school_contract_{code}"
         sections.extend(
             [
                 "",
@@ -184,9 +191,25 @@ def render_triggers() -> str:
                 + indent(academy_body, 4)
                 + "\n}",
                 "",
+                f"zhx_doctrine_reform_has_{code}_invited_root_now = {{\n"
+                f"    has_country_modifier = {meta['invited']}\n"
+                f"    has_country_flag = {GUEST_CONTRACT_ACTIVE_FLAG}\n"
+                f"    has_country_flag = {guest_contract_flag}\n"
+                "}",
+                "",
+                f"zhx_doctrine_reform_has_{code}_invited_root_with_five_years = {{\n"
+                f"    zhx_doctrine_reform_has_{code}_invited_root_now = yes\n"
+                "    NOT = {\n"
+                "        had_country_flag = {\n"
+                f"            flag = {GUEST_CONTRACT_ACTIVE_FLAG}\n"
+                f"            days = {GUEST_CONTRACT_REFORM_WINDOW_DAYS}\n"
+                "        }\n"
+                "    }\n"
+                "}",
+                "",
                 f"zhx_doctrine_reform_has_{code}_root_now = {{\n"
                 "    OR = {\n"
-                f"        has_country_modifier = {meta['invited']}\n"
+                f"        zhx_doctrine_reform_has_{code}_invited_root_now = yes\n"
                 f"        zhx_doctrine_reform_has_active_{code}_academy_root = yes\n"
                 "    }\n"
                 "}",
@@ -194,13 +217,20 @@ def render_triggers() -> str:
                 f"zhx_doctrine_reform_can_target_{code} = {{\n"
                 "    zhx_doctrine_reform_can_begin = yes\n"
                 f"    NOT = {{ has_country_flag = {meta['flag']} }}\n"
-                f"    zhx_doctrine_reform_has_{code}_root_now = yes\n"
+                "    OR = {\n"
+                "        NOT = { zhx_guest_school_has_active_contract = yes }\n"
+                f"        has_country_flag = {guest_contract_flag}\n"
+                "    }\n"
+                "    OR = {\n"
+                f"        zhx_doctrine_reform_has_{code}_invited_root_with_five_years = yes\n"
+                f"        zhx_doctrine_reform_has_active_{code}_academy_root = yes\n"
+                "    }\n"
                 "}",
                 "",
                 f"zhx_doctrine_reform_target_{code}_retains_root = {{\n"
                 f"    has_country_flag = zhx_doctrine_reform_target_{code}\n"
                 "    OR = {\n"
-                f"        has_country_flag = zhx_doctrine_reform_root_invited_{code}\n"
+                f"        zhx_doctrine_reform_has_{code}_invited_root_now = yes\n"
                 f"        zhx_doctrine_reform_has_active_{code}_academy_root = yes\n"
                 "    }\n"
                 "}",
@@ -253,8 +283,8 @@ def render_triggers() -> str:
             "    check_variable = { which = zhx_doctrine_reform_ai_low_practice_years value = 5 }\n"
             "    OR = {\n"
             + "\n".join(
-                f"        AND = {{ has_country_modifier = {meta['invited']} NOT = {{ has_country_flag = {meta['flag']} }} }}"
-                for meta in SCHOOLS.values()
+                f"        AND = {{ zhx_doctrine_reform_has_{code}_invited_root_with_five_years = yes NOT = {{ has_country_flag = {meta['flag']} }} }}"
+                for code, meta in SCHOOLS.items()
             )
             + "\n    }\n"
             "}",
@@ -473,7 +503,7 @@ def begin_effect(code: str) -> str:
         set_country_flag = zhx_doctrine_reform_target_{code}
 {indent(snapshot_old_school(), 8)}
         if = {{
-            limit = {{ has_country_modifier = {meta['invited']} }}
+            limit = {{ zhx_doctrine_reform_has_{code}_invited_root_now = yes }}
             set_country_flag = zhx_doctrine_reform_root_invited_{code}
         }}
         add_country_modifier = {{
@@ -984,7 +1014,7 @@ def render_events() -> str:
             [
                 f"        {keyword} = {{",
                 "            limit = {",
-                f"                has_country_modifier = {meta['invited']}",
+                f"                zhx_doctrine_reform_has_{code}_invited_root_with_five_years = yes",
                 f"                NOT = {{ has_country_flag = {meta['flag']} }}",
                 f"                zhx_doctrine_reform_can_target_{code} = yes",
                 "            }",

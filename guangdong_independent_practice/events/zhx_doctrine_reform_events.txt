@@ -210,7 +210,7 @@ country_event = {
     immediate = {
         if = {
             limit = {
-                has_country_modifier = zhx_ru_invited_scholar_modifier
+                zhx_doctrine_reform_has_ru_invited_root_with_five_years = yes
                 NOT = { has_country_flag = zhx_doctrine_ru }
                 zhx_doctrine_reform_can_target_ru = yes
             }
@@ -218,7 +218,7 @@ country_event = {
         }
         else_if = {
             limit = {
-                has_country_modifier = zhx_fa_invited_scholar_modifier
+                zhx_doctrine_reform_has_fa_invited_root_with_five_years = yes
                 NOT = { has_country_flag = zhx_doctrine_fa }
                 zhx_doctrine_reform_can_target_fa = yes
             }
@@ -226,7 +226,7 @@ country_event = {
         }
         else_if = {
             limit = {
-                has_country_modifier = zhx_mo_invited_scholar_modifier
+                zhx_doctrine_reform_has_mo_invited_root_with_five_years = yes
                 NOT = { has_country_flag = zhx_doctrine_mo }
                 zhx_doctrine_reform_can_target_mo = yes
             }
@@ -234,7 +234,7 @@ country_event = {
         }
         else_if = {
             limit = {
-                has_country_modifier = zhx_dao_invited_scholar_modifier
+                zhx_doctrine_reform_has_dao_invited_root_with_five_years = yes
                 NOT = { has_country_flag = zhx_doctrine_dao }
                 zhx_doctrine_reform_can_target_dao = yes
             }
@@ -242,7 +242,7 @@ country_event = {
         }
         else_if = {
             limit = {
-                has_country_modifier = zhx_bing_invited_scholar_modifier
+                zhx_doctrine_reform_has_bing_invited_root_with_five_years = yes
                 NOT = { has_country_flag = zhx_doctrine_bing }
                 zhx_doctrine_reform_can_target_bing = yes
             }
@@ -250,7 +250,7 @@ country_event = {
         }
         else_if = {
             limit = {
-                has_country_modifier = zhx_zongheng_invited_scholar_modifier
+                zhx_doctrine_reform_has_zongheng_invited_root_with_five_years = yes
                 NOT = { has_country_flag = zhx_doctrine_zongheng }
                 zhx_doctrine_reform_can_target_zongheng = yes
             }

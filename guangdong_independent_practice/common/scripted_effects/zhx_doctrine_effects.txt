@@ -28,16 +28,13 @@ zhx_remove_doctrine_tier_modifiers = {
     remove_country_modifier = zhx_doctrine_zongheng_exemplary
 }
 
-# Native scholar invitations are temporary secondary teachings. Replacing one
-# removes the previous invited school but never touches the permanent doctrine,
-# its practice variable, or its tier modifier.
+# Public compatibility port used by doctrine adoption, formal reform and
+# religion-change cleanup. Guest-school state now includes a source link,
+# contract generation and academy protection, so every silent exit goes through
+# the dedicated idempotent lifecycle effect. It never touches the permanent
+# doctrine, its practice variable, or its tier modifier.
 zhx_clear_invited_school_modifiers = {
-    remove_country_modifier = zhx_ru_invited_scholar_modifier
-    remove_country_modifier = zhx_fa_invited_scholar_modifier
-    remove_country_modifier = zhx_mo_invited_scholar_modifier
-    remove_country_modifier = zhx_dao_invited_scholar_modifier
-    remove_country_modifier = zhx_bing_invited_scholar_modifier
-    remove_country_modifier = zhx_zongheng_invited_scholar_modifier
+    zhx_guest_school_clear_silently = yes
 }
 
 zhx_clear_doctrine_flags = {

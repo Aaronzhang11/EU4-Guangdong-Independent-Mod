@@ -276,7 +276,7 @@ zhx_doctrine_reform_begin_ru = {
             set_country_flag = zhx_doctrine_reform_old_zongheng
         }
         if = {
-            limit = { has_country_modifier = zhx_ru_invited_scholar_modifier }
+            limit = { zhx_doctrine_reform_has_ru_invited_root_now = yes }
             set_country_flag = zhx_doctrine_reform_root_invited_ru
         }
         add_country_modifier = {
@@ -319,7 +319,7 @@ zhx_doctrine_reform_begin_fa = {
             set_country_flag = zhx_doctrine_reform_old_zongheng
         }
         if = {
-            limit = { has_country_modifier = zhx_fa_invited_scholar_modifier }
+            limit = { zhx_doctrine_reform_has_fa_invited_root_now = yes }
             set_country_flag = zhx_doctrine_reform_root_invited_fa
         }
         add_country_modifier = {
@@ -362,7 +362,7 @@ zhx_doctrine_reform_begin_mo = {
             set_country_flag = zhx_doctrine_reform_old_zongheng
         }
         if = {
-            limit = { has_country_modifier = zhx_mo_invited_scholar_modifier }
+            limit = { zhx_doctrine_reform_has_mo_invited_root_now = yes }
             set_country_flag = zhx_doctrine_reform_root_invited_mo
         }
         add_country_modifier = {
@@ -405,7 +405,7 @@ zhx_doctrine_reform_begin_dao = {
             set_country_flag = zhx_doctrine_reform_old_zongheng
         }
         if = {
-            limit = { has_country_modifier = zhx_dao_invited_scholar_modifier }
+            limit = { zhx_doctrine_reform_has_dao_invited_root_now = yes }
             set_country_flag = zhx_doctrine_reform_root_invited_dao
         }
         add_country_modifier = {
@@ -448,7 +448,7 @@ zhx_doctrine_reform_begin_bing = {
             set_country_flag = zhx_doctrine_reform_old_zongheng
         }
         if = {
-            limit = { has_country_modifier = zhx_bing_invited_scholar_modifier }
+            limit = { zhx_doctrine_reform_has_bing_invited_root_now = yes }
             set_country_flag = zhx_doctrine_reform_root_invited_bing
         }
         add_country_modifier = {
@@ -491,7 +491,7 @@ zhx_doctrine_reform_begin_zongheng = {
             set_country_flag = zhx_doctrine_reform_old_zongheng
         }
         if = {
-            limit = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
+            limit = { zhx_doctrine_reform_has_zongheng_invited_root_now = yes }
             set_country_flag = zhx_doctrine_reform_root_invited_zongheng
         }
         add_country_modifier = {

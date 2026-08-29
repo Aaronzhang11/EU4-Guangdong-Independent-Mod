@@ -27,6 +27,15 @@ ON_ACTIONS = MOD / "common/on_actions/zhx_system_on_actions.txt"
 OPENING_EVENTS = MOD / "events/zhx_opening_school_events.txt"
 RELIGIONS = MOD / "common/religions/00_religion.txt"
 RELIGION_BUILDER = ROOT / "tools/build_zhx_religions.py"
+GUEST_SCHOOL_EFFECTS = MOD / "common/scripted_effects/zhx_guest_school_effects.txt"
+RELIGION_CUSTOM_GUI = MOD / "common/custom_gui/zhx_religion_gui.txt"
+TENSION_CUSTOM_LOCALISATION = (
+    MOD
+    / "customizable_localization/zhx_academy_tension_customizable_localization.txt"
+)
+RELIGION_GUI = MOD / "interface/countryreligionview.gui"
+RELIGION_GFX = MOD / "interface/zhx_lijiao_religion.gfx"
+TENSION_HITBOX = MOD / "gfx/interface/zhx_thought_tension_hitbox.dds"
 LOCALISATION_SOURCE = (
     MOD / "localisation_source/zhx_academies_readable_utf8.txt"
 )
@@ -434,18 +443,128 @@ def validate_hooks(academies: list[dict[str, object]]) -> None:
 
     builder = RELIGION_BUILDER.read_text(encoding="utf-8")
     generated = RELIGIONS.read_text(encoding="utf-8")
+    guest_effects = GUEST_SCHOOL_EFFECTS.read_text(encoding="utf-8")
     require(
-        builder.count("zhx_refresh_academy_country_effects = yes") == 1,
-        "religion builder must emit invitation refresh",
+        "zhx_refresh_academy_country_effects = yes" not in builder
+        and "zhx_refresh_academy_country_effects = yes" not in generated,
+        "native source selection must defer academy refresh until contract confirmation",
     )
-    require(
-        generated.count("zhx_refresh_academy_country_effects = yes") == 6,
-        "all six generated invitation branches must refresh academy state",
-    )
+    for school in SCHOOLS:
+        begin = block_body(guest_effects, f"zhx_guest_school_begin_{school}")
+        renew = block_body(guest_effects, f"zhx_guest_school_renew_{school}")
+        require(
+            begin.count("zhx_refresh_academy_country_effects = yes") == 1,
+            f"confirmed {school} invitation must refresh academy state once",
+        )
+        require(
+            renew.count("zhx_refresh_academy_country_effects = yes") == 1,
+            f"renewed {school} contract must refresh academy state once",
+        )
+    for lifecycle_effect in (
+        "zhx_guest_school_close_normally",
+        "zhx_guest_school_expel_current",
+    ):
+        require(
+            block_body(guest_effects, lifecycle_effect).count(
+                "zhx_refresh_academy_country_effects = yes"
+            )
+            == 1,
+            f"{lifecycle_effect} must refresh academy state once",
+        )
 
 
 def localisation_keys(text: str) -> list[str]:
     return re.findall(r"(?m)^\s*([a-zA-Z0-9_.]+):0\s+", text)
+
+
+def validate_tension_presentation(academies: list[dict[str, object]]) -> None:
+    gui = RELIGION_GUI.read_text(encoding="utf-8")
+    custom_gui = RELIGION_CUSTOM_GUI.read_text(encoding="utf-8")
+    custom_loc = TENSION_CUSTOM_LOCALISATION.read_text(encoding="utf-8")
+    controls = (
+        "zhx_thought_tension_panel_bg",
+        "zhx_thought_tension_panel_label",
+        "zhx_thought_tension_progress_bg",
+        "zhx_thought_tension_progress_frame",
+        "zhx_thought_tension_low_endpoint",
+        "zhx_thought_tension_high_endpoint",
+        "zhx_thought_tension_none_indicator",
+        "zhx_thought_tension_mild_indicator",
+        "zhx_thought_tension_medium_indicator",
+        "zhx_thought_tension_heavy_indicator",
+        "zhx_thought_tension_none_label",
+        "zhx_thought_tension_mild_label",
+        "zhx_thought_tension_medium_label",
+        "zhx_thought_tension_heavy_label",
+        "zhx_thought_tension_tooltip_button",
+    )
+    native_value = gui.index('name = "current_harmony_value"')
+    for control in controls:
+        require(
+            gui.count(f'name = "{control}"') == 1,
+            f"thought-tension GUI control missing or duplicated: {control}",
+        )
+        require(
+            gui.index(f'name = "{control}"') > native_value,
+            f"thought-tension control is not late-drawn over harmony: {control}",
+        )
+        require(
+            len(re.findall(rf"(?m)^\s*name\s*=\s*{re.escape(control)}\s*$", custom_gui))
+            == 1,
+            f"thought-tension custom-gui binding missing or duplicated: {control}",
+        )
+    for native_dynamic in (
+        "harmonizing_with_button",
+        "harmonizing_with_icon",
+        "harmonization_progress",
+        "harmonization_progress_frame",
+        "harmonized_listbox",
+    ):
+        require(
+            re.search(
+                rf'name\s*=\s*"{native_dynamic}"[\s\S]{{0,180}}?'
+                r'position\s*=\s*\{\s*x\s*=\s*2000\s+y\s*=\s*2000\s*\}',
+                gui,
+            )
+            is not None,
+            f"obsolete harmony control can leak around the tension panel: {native_dynamic}",
+        )
+    require(
+        custom_gui.count("tooltip = zhx_thought_tension_tooltip") == 1,
+        "thought-tension panel must have exactly one tooltip owner",
+    )
+    require(
+        'name = "GFX_zhx_thought_tension_hitbox"' in RELIGION_GFX.read_text(encoding="utf-8"),
+        "thought-tension panel hitbox sprite is not registered",
+    )
+    hitbox = TENSION_HITBOX.read_bytes()
+    require(hitbox[:4] == b"DDS ", "thought-tension hitbox is not a DDS")
+    require(
+        int.from_bytes(hitbox[12:16], "little") == 93
+        and int.from_bytes(hitbox[16:20], "little") == 308,
+        "thought-tension hitbox must remain 308x93",
+    )
+    require(
+        len(hitbox) == 128 + 308 * 93 * 4,
+        "thought-tension hitbox is not the expected ARGB8888 surface",
+    )
+    require(
+        not any(
+            token in custom_loc
+            for token in ("set_variable", "set_country_flag", "every_country")
+        ),
+        "thought-tension hover must remain a read-only on-demand view",
+    )
+    for academy in academies:
+        accessor = "GetZhxThoughtTension" + str(academy["key"]).title() + "Row"
+        require(
+            custom_loc.count(f"name = {accessor}") == 1,
+            f"thought-tension academy accessor missing or duplicated: {accessor}",
+        )
+        require(
+            custom_loc.count(f"has_province_modifier = {academy['modifier']}") == 1,
+            f"thought-tension academy row drifted: {academy['modifier']}",
+        )
 
 
 def validate_localisation(data: dict[str, object], academies: list[dict[str, object]]) -> None:
@@ -463,6 +582,24 @@ def validate_localisation(data: dict[str, object], academies: list[dict[str, obj
         required.update((modifier, f"{modifier}_desc"))
     for modifier in TENSION_MODIFIERS:
         required.update((modifier, f"{modifier}_desc"))
+    required.update(
+        {
+            "zhx_thought_tension_panel_label",
+            "zhx_thought_tension_tooltip",
+            "zhx_thought_tension_row_empty",
+            "zhx_thought_tension_no_active_academies",
+        }
+    )
+    for tier in ("none", "mild", "medium", "heavy"):
+        required.update(
+            {
+                f"zhx_thought_tension_{tier}_label",
+                f"zhx_thought_tension_tier_{tier}",
+                f"zhx_thought_tension_penalty_{tier}",
+            }
+        )
+    for academy in academies:
+        required.add(f"zhx_thought_tension_row_{academy['key']}")
     missing = required - keys
     require(not missing, f"academy localisation missing keys: {sorted(missing)}")
     require(keys == required, f"academy localisation has unmanaged keys: {sorted(keys - required)}")
@@ -474,7 +611,18 @@ def validate_localisation(data: dict[str, object], academies: list[dict[str, obj
 
 
 def main() -> None:
-    validate_balanced_clausewitz((MODIFIERS, TRIGGERS, EFFECTS, EVENTS, ON_ACTIONS))
+    validate_balanced_clausewitz(
+        (
+            MODIFIERS,
+            TRIGGERS,
+            EFFECTS,
+            EVENTS,
+            ON_ACTIONS,
+            GUEST_SCHOOL_EFFECTS,
+            RELIGION_CUSTOM_GUI,
+            TENSION_CUSTOM_LOCALISATION,
+        )
+    )
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     academies = validate_manifest(data)
     validate_opening_alignment(academies)
@@ -483,6 +631,7 @@ def main() -> None:
     validate_modifier_values(data, academies)
     validate_script_contracts(data, academies)
     validate_hooks(academies)
+    validate_tension_presentation(academies)
     validate_localisation(data, academies)
     print(
         "ZHX academies valid: 12 named province authorities, six non-stacking "

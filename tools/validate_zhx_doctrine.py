@@ -1415,7 +1415,7 @@ def main() -> None:
         "invite_scholar_modifier_display",
         "picture",
     }
-    for school, picture in NATIVE_SCHOOLS.items():
+    for school_index, (school, picture) in enumerate(NATIVE_SCHOOLS.items(), start=10):
         require(
             school_definitions.count(f"{school} = {{") == 1,
             f"{school} must be defined exactly once in eastern",
@@ -1432,52 +1432,55 @@ def main() -> None:
         potential_body = named_block_body(school_body, "potential_invite_scholar")
         potential_source = named_block_body(potential_body, "FROM")
         require(
-            potential_body.count("zhx_is_lijiao_country = yes") == 2
-            and potential_source.count("zhx_is_lijiao_country = yes") == 1
-            and potential_body.count("zhx_has_doctrine = yes") == 1
-            and potential_body.count("has_religious_school = yes") == 1
-            and potential_body.count(f"has_country_flag = {doctrine_flag}") == 2
-            and potential_source.count(f"has_country_flag = {doctrine_flag}") == 1
-            and potential_source.count("exists = yes") == 1
-            and potential_source.count("group = eastern") == 1
-            and potential_source.count(f"school = {school}") == 1
-            and potential_body.count("school = zhx_no_doctrine_school") == 1
-            and potential_body.count(f"school = {school}") == 2
+            potential_body.count("zhx_guest_school_may_invite = yes") == 1
+            and potential_body.count(
+                f"NOT = {{ has_country_flag = {doctrine_flag} }}"
+            )
+            == 1
+            and potential_source.count(
+                f"zhx_guest_school_source_is_eligible_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1
             and potential_body.count(
                 "knows_of_scholar_country_capital_trigger = yes"
             )
             == 1,
-            f"{school} candidate discovery must require a different established "
-            "Ritual Teaching inviter and an authoritative matching source",
+            f"{school} discovery must delegate the shared inviter/source contract "
+            "and reject the current formal school",
+        )
+        require(
+            potential_body.count("limit = { ai = yes }") == 1
+            and potential_body.count("is_at_war = no") == 1
+            and potential_body.count("stability = 0") == 1
+            and potential_body.count("NOT = { num_of_loans = 1 }") == 1
+            and potential_body.count("dip_power = 125") == 1
+            and potential_body.count(
+                f"zhx_guest_school_ai_wants_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1,
+            f"{school} discovery must keep the conservative AI-only gate",
         )
         can_body = named_block_body(school_body, "can_invite_scholar")
         can_source = named_block_body(can_body, "FROM")
         require(
-            can_body.count("zhx_is_lijiao_country = yes") == 2
-            and can_source.count("zhx_is_lijiao_country = yes") == 1
-            and can_body.count("zhx_has_doctrine = yes") == 1
-            and can_body.count("has_religious_school = yes") == 1
-            and can_body.count(f"has_country_flag = {doctrine_flag}") == 2
-            and can_source.count(f"has_country_flag = {doctrine_flag}") == 1
-            and can_source.count("exists = yes") == 1
-            and can_source.count("group = eastern") == 1
-            and can_source.count(f"school = {school}") == 1
-            and can_body.count(f"school = {school}") == 2
-            and can_body.count(
-                "reverse_has_opinion = { who = FROM value = 150 }"
+            can_body.count("zhx_guest_school_may_invite = yes") == 1
+            and can_body.count(f"NOT = {{ has_country_flag = {doctrine_flag} }}")
+            == 1
+            and can_source.count(
+                f"zhx_guest_school_source_is_eligible_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
             )
             == 1
             and can_body.count("limit = { ai = yes }") == 1
+            and can_body.count("is_at_war = no") == 1
+            and can_body.count("stability = 0") == 1
+            and can_body.count("NOT = { num_of_loans = 1 }") == 1
+            and can_body.count("dip_power = 125") == 1
             and can_body.count(
-                "NOT = { has_country_modifier = has_invited_scholar_recently }"
-            )
-            == 1
-            and can_body.count(
-                f"NOT = {{ has_country_modifier = {modifier} }}"
+                f"zhx_guest_school_ai_wants_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
             )
             == 1,
-            f"{school} confirmation must fail closed for non-Lijiao inviters, "
-            "stale sources, same-school countries and insufficient opinion",
+            f"{school} availability must delegate the fail-closed contract and "
+            "keep crisis restrictions inside the AI-only branch",
         )
         on_body = named_block_body(school_body, "on_invite_scholar")
         require(
@@ -1488,44 +1491,61 @@ def main() -> None:
         on_limit = named_block_body(on_guard, "limit")
         on_source = named_block_body(on_limit, "FROM")
         require(
-            on_limit.count("zhx_is_lijiao_country = yes") == 2
-            and on_source.count("zhx_is_lijiao_country = yes") == 1
-            and on_limit.count("zhx_has_doctrine = yes") == 1
-            and on_limit.count("has_religious_school = yes") == 1
-            and on_limit.count(f"has_country_flag = {doctrine_flag}") == 2
-            and on_source.count(f"has_country_flag = {doctrine_flag}") == 1
-            and on_source.count("exists = yes") == 1
-            and on_source.count("group = eastern") == 1
-            and on_source.count(f"school = {school}") == 1
-            and on_limit.count(f"school = {school}") == 2
-            and on_limit.count(
-                "reverse_has_opinion = { who = FROM value = 150 }"
+            on_limit.count("zhx_guest_school_may_invite = yes") == 1
+            and on_limit.count(f"NOT = {{ has_country_flag = {doctrine_flag} }}")
+            == 1
+            and on_source.count(
+                f"zhx_guest_school_source_is_eligible_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
             )
             == 1
             and on_limit.count("limit = { ai = yes }") == 1
+            and on_limit.count("is_at_war = no") == 1
+            and on_limit.count("stability = 0") == 1
+            and on_limit.count("NOT = { num_of_loans = 1 }") == 1
+            and on_limit.count("dip_power = 125") == 1
             and on_limit.count(
-                "NOT = { has_country_modifier = has_invited_scholar_recently }"
+                f"zhx_guest_school_ai_wants_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
             )
             == 1
-            and on_limit.count(f"NOT = {{ has_country_modifier = {modifier} }}")
-            == 1
-            and on_guard.count("zhx_clear_invited_school_modifiers = yes") == 1
+            and on_guard.count("zhx_guest_school_clear_pending = yes") == 1
             and on_guard.count(
-                f"add_country_modifier = {{ name = {modifier} duration = 7300 }}"
+                f"set_country_flag = zhx_guest_school_pending_{school.removeprefix('zhx_').removesuffix('_school')}"
             )
             == 1
-            and on_guard.count("zhx_refresh_academy_country_effects = yes") == 1
-            and on_guard.count("custom_tooltip = zhx_invite_school_country_tt") == 1
+            and on_guard.count(
+                "FROM = { save_event_target_as = zhx_guest_school_pending_source }"
+            )
+            == 1
+            and on_guard.count(
+                "custom_tooltip = zhx_guest_school_native_confirmation_tt"
+            )
+            == 1
+            and on_guard.count(
+                f"country_event = {{ id = zhx_guest_school.{school_index} }}"
+            )
+            == 1
             and school_body.count(
                 f"invite_scholar_modifier_display = {modifier}"
             )
             == 1
-            and on_guard.count("name = has_invited_scholar_recently") == 1
-            and on_guard.count("duration = 7300") == 2
             and f'picture = "{picture}"' in school_body
             and "religion_sub_modifier" not in school_body,
-            f"{school} execution must revalidate the complete Lijiao invitation "
-            f"contract before granting one 20-year modifier and use {picture}",
+            f"{school} native execution must only stage a guarded confirmation "
+            f"event and use {picture}",
+        )
+        require(
+            all(
+                forbidden not in on_guard
+                for forbidden in (
+                    "add_dip_power =",
+                    "add_years_of_income =",
+                    "add_country_modifier =",
+                    "zhx_clear_invited_school_modifiers = yes",
+                    "has_invited_scholar_recently",
+                )
+            ),
+            f"{school} native dispatch must not pay or grant benefits before the "
+            "confirmation event",
         )
 
     no_doctrine = "zhx_no_doctrine_school"
@@ -1847,11 +1867,9 @@ def main() -> None:
             and modifier_body.count("religion_sub_modifier = yes") == 1
             and modifier_body.count("religion = yes") == 1
             and modifier_body.count("is_scholar_modifier = yes") == 1
-            and modifier_body.count(
-                'expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"'
-            )
-            == 1,
-            f"{modifier} must remain one visible entry-tier scholar modifier; "
+            and "expire_message_type" not in modifier_body,
+            f"{modifier} must remain one visible entry-tier scholar modifier "
+            "whose expiry is owned by the guarded contract lifecycle; "
             f"expected={expected_values}, actual={actual_values}",
         )
 
@@ -1873,14 +1891,10 @@ def main() -> None:
         effect_text, "zhx_clear_invited_school_modifiers"
     )
     require(
-        all(
-            clear_invited_effect.count(f"remove_country_modifier = {modifier}")
-            == 1
-            for modifier in INVITED_MODIFIER_VALUES
-        )
-        and clear_invited_effect.count("remove_country_modifier =")
-        == len(INVITED_MODIFIER_VALUES),
-        "invited-school cleanup must remove exactly all six temporary modifiers",
+        clear_invited_effect.count("zhx_guest_school_clear_silently = yes") == 1
+        and "remove_country_modifier =" not in clear_invited_effect,
+        "legacy doctrine cleanup must delegate exactly once to the authoritative "
+        "guest-school lifecycle instead of deleting only the visible modifier",
     )
     remove_tiers_effect = top_level_effect_body(
         effect_text, "zhx_remove_doctrine_tier_modifiers"
@@ -2666,19 +2680,19 @@ def main() -> None:
         "zhx_doctrine_practice_hover_empty",
     } | HOVER_ROW_LOCALISATION
     require(
-        set(native_localisation_keys) == expected_native_localisation,
-        "native school localisation contract changed",
-    )
-    invite_tooltip = re.search(
-        r'(?m)^\s*zhx_invite_school_country_tt:0\s+"(.*)"\s*$',
-        native_localisation,
-    )
-    require(
-        invite_tooltip is not None
-        and "[From.GetName]" in invite_tooltip.group(1)
-        and "二十年" in invite_tooltip.group(1)
-        and "不改变本国主学派或践履" in invite_tooltip.group(1),
-        "invitation tooltip must identify source, duration and doctrine boundary",
+        expected_native_localisation <= set(native_localisation_keys)
+        and all(
+            key.startswith(
+                (
+                    "zhx_guest_school",
+                    "zhx_expel_guest_school",
+                    "zhx_opinion_guest_school",
+                )
+            )
+            for key in set(native_localisation_keys) - expected_native_localisation
+        ),
+        "native school localisation contract changed outside the approved "
+        "guest-school lifecycle namespace",
     )
     for field, colour in PRACTICE_TIER_COLOURS.items():
         require(

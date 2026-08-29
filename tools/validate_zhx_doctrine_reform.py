@@ -47,6 +47,9 @@ RELIGION_PATH = MOD / "common/religions/00_religion.txt"
 RELIGION_BUILDER_PATH = ROOT / "tools/build_zhx_religions.py"
 REFORM_BUILDER_PATH = ROOT / "tools/build_zhx_doctrine_reform.py"
 RELIGION_CUSTOM_GUI_PATH = MOD / "common/custom_gui/zhx_religion_gui.txt"
+GUEST_SCHOOL_TRIGGER_PATH = (
+    MOD / "common/scripted_triggers/zhx_guest_school_triggers.txt"
+)
 
 SCHOOLS = ("ru", "fa", "mo", "dao", "bing", "zongheng")
 MAIN_FLAGS = {school: f"zhx_doctrine_{school}" for school in SCHOOLS}
@@ -54,6 +57,14 @@ TARGET_FLAGS = {
     school: f"zhx_doctrine_reform_target_{school}" for school in SCHOOLS
 }
 OLD_FLAGS = {school: f"zhx_doctrine_reform_old_{school}" for school in SCHOOLS}
+INVITED_MODIFIERS = {
+    school: f"zhx_{school}_invited_scholar_modifier" for school in SCHOOLS
+}
+GUEST_CONTRACT_ACTIVE_FLAG = "zhx_guest_school_contract_active"
+GUEST_CONTRACT_FLAGS = {
+    school: f"zhx_guest_school_contract_{school}" for school in SCHOOLS
+}
+GUEST_CONTRACT_REFORM_WINDOW_DAYS = 5475
 
 REQUIRED_PATHS = (
     TRIGGER_PATH,
@@ -75,6 +86,7 @@ REQUIRED_PATHS = (
     RELIGION_BUILDER_PATH,
     REFORM_BUILDER_PATH,
     RELIGION_CUSTOM_GUI_PATH,
+    GUEST_SCHOOL_TRIGGER_PATH,
 )
 
 REQUIRED_TRIGGERS = (
@@ -84,7 +96,13 @@ REQUIRED_TRIGGERS = (
     "zhx_doctrine_reform_invitation_locked",
     "zhx_doctrine_reform_may_file_tianxia_proposal",
     *(f"zhx_doctrine_reform_can_target_{school}" for school in SCHOOLS),
+    *(f"zhx_doctrine_reform_has_{school}_invited_root_now" for school in SCHOOLS),
+    *(
+        f"zhx_doctrine_reform_has_{school}_invited_root_with_five_years"
+        for school in SCHOOLS
+    ),
     *(f"zhx_doctrine_reform_has_{school}_root_now" for school in SCHOOLS),
+    *(f"zhx_doctrine_reform_target_{school}_retains_root" for school in SCHOOLS),
     *(f"zhx_doctrine_reform_protects_{school}_academies" for school in SCHOOLS),
 )
 
@@ -448,6 +466,88 @@ def check_six_school_state(contract: Contract, texts: dict[Path, str]) -> None:
     )
 
     for index, school in enumerate(SCHOOLS, start=10):
+        invited_root_now = require_single_block(
+            contract,
+            trigger_text,
+            f"zhx_doctrine_reform_has_{school}_invited_root_now",
+            f"live invited root {school}",
+        )
+        require_tokens(
+            contract,
+            invited_root_now,
+            (
+                f"has_country_modifier = {INVITED_MODIFIERS[school]}",
+                f"has_country_flag = {GUEST_CONTRACT_ACTIVE_FLAG}",
+                f"has_country_flag = {GUEST_CONTRACT_FLAGS[school]}",
+            ),
+            f"live invited root {school}",
+        )
+        invited_modifiers = set(
+            re.findall(r"\bhas_country_modifier\s*=\s*([A-Za-z0-9_]+)", invited_root_now)
+        )
+        contract_flags = set(
+            re.findall(r"\bhas_country_flag\s*=\s*([A-Za-z0-9_]+)", invited_root_now)
+        )
+        contract.require(
+            invited_modifiers == {INVITED_MODIFIERS[school]},
+            f"live invited root {school}: must require exactly the matching invited modifier",
+        )
+        contract.require(
+            contract_flags
+            == {GUEST_CONTRACT_ACTIVE_FLAG, GUEST_CONTRACT_FLAGS[school]},
+            f"live invited root {school}: must require the active contract and matching school flags",
+        )
+
+        invited_root_with_five_years = require_single_block(
+            contract,
+            trigger_text,
+            f"zhx_doctrine_reform_has_{school}_invited_root_with_five_years",
+            f"five-year invited root {school}",
+        )
+        require_tokens(
+            contract,
+            invited_root_with_five_years,
+            (f"zhx_doctrine_reform_has_{school}_invited_root_now = yes",),
+            f"five-year invited root {school}",
+        )
+        five_year_window_pattern = re.compile(
+            rf"NOT\s*=\s*\{{\s*had_country_flag\s*=\s*\{{\s*"
+            rf"flag\s*=\s*{re.escape(GUEST_CONTRACT_ACTIVE_FLAG)}\s+"
+            rf"days\s*=\s*{GUEST_CONTRACT_REFORM_WINDOW_DAYS}\s*"
+            rf"\}}\s*\}}",
+            re.DOTALL,
+        )
+        contract.require(
+            five_year_window_pattern.search(invited_root_with_five_years) is not None,
+            f"five-year invited root {school}: must require the active contract to be younger than "
+            f"{GUEST_CONTRACT_REFORM_WINDOW_DAYS} days",
+        )
+        contract.require(
+            invited_root_with_five_years.count("had_country_flag") == 1,
+            f"five-year invited root {school}: expected exactly one contract-age check",
+        )
+
+        root_now = require_single_block(
+            contract,
+            trigger_text,
+            f"zhx_doctrine_reform_has_{school}_root_now",
+            f"current root {school}",
+        )
+        require_tokens(
+            contract,
+            root_now,
+            (
+                f"zhx_doctrine_reform_has_{school}_invited_root_now = yes",
+                f"zhx_doctrine_reform_has_active_{school}_academy_root = yes",
+            ),
+            f"current root {school}",
+        )
+        contract.require(
+            INVITED_MODIFIERS[school] not in root_now
+            and f"zhx_doctrine_reform_root_invited_{school}" not in root_now,
+            f"current root {school}: must consume the live invited-root interface, not raw or snapshot state",
+        )
+
         target_trigger = require_single_block(
             contract,
             trigger_text,
@@ -458,10 +558,27 @@ def check_six_school_state(contract: Contract, texts: dict[Path, str]) -> None:
             contract,
             target_trigger,
             (
-                f"zhx_doctrine_reform_has_{school}_root_now",
+                "zhx_doctrine_reform_can_begin = yes",
+                f"zhx_doctrine_reform_has_{school}_invited_root_with_five_years = yes",
+                f"zhx_doctrine_reform_has_active_{school}_academy_root = yes",
+                "zhx_guest_school_has_active_contract = yes",
+                GUEST_CONTRACT_FLAGS[school],
                 MAIN_FLAGS[school],
             ),
             f"target gate {school}",
+        )
+        contract.require(
+            f"zhx_doctrine_reform_has_{school}_root_now" not in target_trigger,
+            f"target gate {school}: generic root bypasses the five-year invited-contract window",
+        )
+        contract.require(
+            target_trigger.count("NOT = { zhx_guest_school_has_active_contract = yes }")
+            == 1
+            and target_trigger.count(
+                f"has_country_flag = {GUEST_CONTRACT_FLAGS[school]}"
+            )
+            == 1,
+            f"target gate {school}: an unrelated active guest must block reform",
         )
         contract.require(
             re.search(
@@ -471,6 +588,31 @@ def check_six_school_state(contract: Contract, texts: dict[Path, str]) -> None:
             )
             is not None,
             f"target gate {school}: current main school is not explicitly excluded",
+        )
+
+        retained_root = require_single_block(
+            contract,
+            trigger_text,
+            f"zhx_doctrine_reform_target_{school}_retains_root",
+            f"retained root {school}",
+        )
+        require_tokens(
+            contract,
+            retained_root,
+            (
+                f"has_country_flag = {TARGET_FLAGS[school]}",
+                f"zhx_doctrine_reform_has_{school}_invited_root_now = yes",
+                f"zhx_doctrine_reform_has_active_{school}_academy_root = yes",
+            ),
+            f"retained root {school}",
+        )
+        contract.require(
+            f"zhx_doctrine_reform_root_invited_{school}" not in retained_root,
+            f"retained root {school}: must not permanently trust the begin-time invited snapshot",
+        )
+        contract.require(
+            "had_country_flag" not in retained_root,
+            f"retained root {school}: contract age is not a substitute for a currently live root",
         )
 
         begin_block = require_single_block(
@@ -486,11 +628,32 @@ def check_six_school_state(contract: Contract, texts: dict[Path, str]) -> None:
                 "zhx_doctrine_reform_clear_process_state",
                 TARGET_FLAGS[school],
                 "zhx_doctrine_reform_cultivation",
+                f"zhx_doctrine_reform_has_{school}_invited_root_now = yes",
                 f"zhx_doctrine_reform_root_invited_{school}",
                 *MAIN_FLAGS.values(),
                 *OLD_FLAGS.values(),
             ),
             f"begin effect {school}",
+        )
+        snapshot_pattern = re.compile(
+            rf"if\s*=\s*\{{\s*limit\s*=\s*\{{\s*"
+            rf"zhx_doctrine_reform_has_{school}_invited_root_now\s*=\s*yes\s*"
+            rf"\}}\s*set_country_flag\s*=\s*"
+            rf"zhx_doctrine_reform_root_invited_{school}\s*\}}",
+            re.DOTALL,
+        )
+        contract.require(
+            snapshot_pattern.search(begin_block) is not None,
+            f"begin effect {school}: invited snapshot must be gated by the live matching contract",
+        )
+        contract.require(
+            INVITED_MODIFIERS[school] not in begin_block,
+            f"begin effect {school}: must not snapshot from the raw invited modifier alone",
+        )
+        contract.require(
+            begin_block.count(f"set_country_flag = zhx_doctrine_reform_root_invited_{school}")
+            == 1,
+            f"begin effect {school}: expected exactly one matching invited-root snapshot write",
         )
         contract.require(
             has_duration(begin_block, 1825),
@@ -949,9 +1112,25 @@ def check_invitation_lock(contract: Contract, texts: dict[Path, str]) -> None:
     for path in (RELIGION_PATH, RELIGION_BUILDER_PATH):
         text = texts[path]
         contract.require(
-            "zhx_doctrine_reform_invitation_locked" in text,
-            f"{path.relative_to(ROOT)}: native invitation gate is not wired to reform lock",
+            "zhx_guest_school_may_invite = yes" in text,
+            f"{path.relative_to(ROOT)}: native invitation gate is not wired to the guest-school wrapper",
         )
+
+    guest_gate = require_single_block(
+        contract,
+        texts[GUEST_SCHOOL_TRIGGER_PATH],
+        "zhx_guest_school_may_invite",
+        "guest-school invitation gate",
+    )
+    contract.require(
+        re.search(
+            r"NOT\s*=\s*\{\s*zhx_doctrine_reform_invitation_locked\s*=\s*yes\s*\}",
+            guest_gate,
+            re.DOTALL,
+        )
+        is not None,
+        "guest-school invitation gate must reject countries locked by doctrine reform",
+    )
 
 
 def check_tianxia_contract(contract: Contract, texts: dict[Path, str]) -> None:
@@ -1155,9 +1334,16 @@ def check_ai_safety(contract: Contract, texts: dict[Path, str]) -> None:
             "is_bankrupt = no",
             "zhx_doctrine_reform_ai_low_practice_years",
             "value = 5",
-            *(f"zhx_{school}_invited_scholar_modifier" for school in SCHOOLS),
+            *(
+                f"zhx_doctrine_reform_has_{school}_invited_root_with_five_years"
+                for school in SCHOOLS
+            ),
         ),
         "AI reform gate",
+    )
+    contract.require(
+        not any(modifier in gate for modifier in INVITED_MODIFIERS.values()),
+        "AI reform gate must not use raw invited modifiers without active matching contracts",
     )
     yearly = require_single_block(
         contract,
@@ -1177,11 +1363,15 @@ def check_ai_safety(contract: Contract, texts: dict[Path, str]) -> None:
             contract,
             dispatcher,
             (
-                f"zhx_{school}_invited_scholar_modifier",
+                f"zhx_doctrine_reform_has_{school}_invited_root_with_five_years",
                 f"zhx_doctrine_reform_begin_{school}",
             ),
             "AI target dispatcher",
         )
+    contract.require(
+        not any(modifier in dispatcher for modifier in INVITED_MODIFIERS.values()),
+        "AI target dispatcher must not use raw invited modifiers without active matching contracts",
+    )
 
 
 def check_legacy_bypass(contract: Contract, texts: dict[Path, str]) -> None:

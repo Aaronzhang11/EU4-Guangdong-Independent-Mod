@@ -1,3 +1,136 @@
+# The native Confucian harmony block remains engine-owned, but this late-drawn
+# reader makes the academy lifecycle its sole visible source of truth. Static
+# ornaments share one Lijiao gate; only the four tier markers are conditional.
+custom_icon = {
+    name = zhx_thought_tension_panel_bg
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_panel_label
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_progress_bg
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_progress_frame
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_low_endpoint
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_high_endpoint
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_none_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_mild
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_mild_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_mild
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_medium_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_medium
+        NOT = { has_country_modifier = zhx_academy_tension_heavy }
+    }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_heavy_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_heavy
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_none_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_mild
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_mild_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_mild
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_medium_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_medium
+        NOT = { has_country_modifier = zhx_academy_tension_heavy }
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_heavy_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_heavy
+    }
+}
+
+# This final transparent button owns the whole 308x93 panel hitbox. It exposes
+# the live academy list and exact national penalties while preventing clicks
+# from reaching the obsolete native harmonisation selector underneath.
+custom_button = {
+    name = zhx_thought_tension_tooltip_button
+    potential = { zhx_is_lijiao_country = yes }
+    trigger = { always = yes }
+    tooltip = zhx_thought_tension_tooltip
+}
+
 # The Ritual Teaching tripod is only a mouse-transparent reskin of the native
 # invite-scholar button. Its click and future school list remain engine-owned.
 custom_icon = {

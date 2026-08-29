@@ -44,5 +44,37 @@
  zhx_academy_tension_heavy:0 "Œv¶RŸ¸l"
  zhx_academy_tension_heavy_desc:0 "ƒX…QXR(WóS	NÍy8g×SÝO²b„vfR«R.Oßuÿ`ó`.V›RòTÏu¾0RNP–0Œv¶R‰Ngb%NÍ‘‹S)ýV¶R»ltýw›Rÿv^O°eVg0WHSôf¾–s^šRÿôfYVLmfR«RNOçuíu RÍ‘é`Z0"
 
+ zhx_thought_tension_panel_label:0 "`ó`.V›R"
+ zhx_thought_tension_none_label:0 "§Gàe§!"
+ zhx_thought_tension_mild_label:0 "§YNO§!"
+ zhx_thought_tension_medium_label:0 "§O-N§!"
+ zhx_thought_tension_heavy_label:0 "§RØš§!"
+
+ zhx_thought_tension_tier_none:0 "§Gàe§!"
+ zhx_thought_tension_tier_mild:0 "§YNO§!"
+ zhx_thought_tension_tier_medium:0 "§O-N§!"
+ zhx_thought_tension_tier_heavy:0 "§RØš§!"
+ zhx_thought_tension_tooltip:0 "§Y`ó`.V›R§!\nSVMRchMOÿ[Root.GetZhxThoughtTensionTier]\n\n§Y.b.V›R„vVLmfR«R§![Root.GetZhxThoughtTensionChongliRow][Root.GetZhxThoughtTensionMinglunRow][Root.GetZhxThoughtTensionYifaRow][Root.GetZhxThoughtTensionXunmingRow][Root.GetZhxThoughtTensionJianaiRow][Root.GetZhxThoughtTensionShangtongRow][Root.GetZhxThoughtTensionXuantongRow][Root.GetZhxThoughtTensionBaopuRow][Root.GetZhxThoughtTensionMiaosuanRow][Root.GetZhxThoughtTensionZhishengRow][Root.GetZhxThoughtTensionBaiheRow][Root.GetZhxThoughtTensionLianhengRow][Root.GetZhxThoughtTensionEmptyState]\n\n§YSVMRýV¶Ré`Z§!\n[Root.GetZhxThoughtTensionPenalty]\n\nVLm	c8g×SÝO²b„vfRLmÍy‰s¡‹peÿTLmYµ^fR«RêSžX RNÍy.V›R0"
+
+ zhx_thought_tension_row_chongli:0 "\n- §YTJyfR«R§!ÿQ¶R	ÿ"
+ zhx_thought_tension_row_minglun:0 "\n- §Yf&OfR«R§!ÿQ¶R	ÿ"
+ zhx_thought_tension_row_yifa:0 "\n- §YùXÕlfR«R§!ÿÕl¶R	ÿ"
+ zhx_thought_tension_row_xunming:0 "\n- §YªVTfR«R§!ÿÕl¶R	ÿ"
+ zhx_thought_tension_row_jianai:0 "\n- §YŠQ1rfR«R§!ÿ¨X¶R	ÿ"
+ zhx_thought_tension_row_shangtong:0 "\n- §YSTfR«R§!ÿ¨X¶R	ÿ"
+ zhx_thought_tension_row_xuantong:0 "\n- §Y„sTfR«R§!ÿS¶R	ÿ"
+ zhx_thought_tension_row_baopu:0 "\n- §Y±b4gfR«R§!ÿS¶R	ÿ"
+ zhx_thought_tension_row_miaosuan:0 "\n- §Y™^—rfR«R§!ÿuQ¶R	ÿ"
+ zhx_thought_tension_row_zhisheng:0 "\n- §Y6RÜwfR«R§!ÿuQ¶R	ÿ"
+ zhx_thought_tension_row_baihe:0 "\n- §Ymc–fR«R§!ÿµu8j¶R	ÿ"
+ zhx_thought_tension_row_lianheng:0 "\n- §YÞaˆfR«R§!ÿµu8j¶R	ÿ"
+ zhx_thought_tension_row_empty:0 ""
+ zhx_thought_tension_no_active_academies:0 "\n§Gàe§!"
+
+ zhx_thought_tension_penalty_none:0 "§GàeýV¶Ré`Z§!"
+ zhx_thought_tension_penalty_mild:0 "3zšR¦^±‚9ÿ§R+15.0%§!\nhQýVÛSqN¦^ÿ§R+0.50§!\nhQýV»lt¹RÏ‘ÿ§R-5.0%§!\nR»yININt^peÿ§R+2§!"
+ zhx_thought_tension_penalty_medium:0 "3zšR¦^±‚9ÿ§R+30.0%§!\nhQýVÛSqN¦^ÿ§R+1.50§!\nhQýV»lt¹RÏ‘ÿ§R-10.0%§!\nR»yININt^peÿ§R+5§!"
+ zhx_thought_tension_penalty_heavy:0 "3zšR¦^±‚9ÿ§R+50.0%§!\nhQýVÛSqN¦^ÿ§R+3.00§!\nhQýV»lt¹RÏ‘ÿ§R-20.0%§!\nR»yININt^peÿ§R+10§!"
+
  zhx_academy.90.t:0 "t^¦^fR«R!h8h"
  zhx_academy.90.d:0 "ƒX…QfR«RN,gýVýVº‹„vsQûsòTŒRbNO‘˜!h8h0"

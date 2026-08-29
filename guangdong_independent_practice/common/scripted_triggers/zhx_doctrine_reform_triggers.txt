@@ -90,9 +90,25 @@ zhx_doctrine_reform_has_active_ru_academy_root = {
     }
 }
 
+zhx_doctrine_reform_has_ru_invited_root_now = {
+    has_country_modifier = zhx_ru_invited_scholar_modifier
+    has_country_flag = zhx_guest_school_contract_active
+    has_country_flag = zhx_guest_school_contract_ru
+}
+
+zhx_doctrine_reform_has_ru_invited_root_with_five_years = {
+    zhx_doctrine_reform_has_ru_invited_root_now = yes
+    NOT = {
+        had_country_flag = {
+            flag = zhx_guest_school_contract_active
+            days = 5475
+        }
+    }
+}
+
 zhx_doctrine_reform_has_ru_root_now = {
     OR = {
-        has_country_modifier = zhx_ru_invited_scholar_modifier
+        zhx_doctrine_reform_has_ru_invited_root_now = yes
         zhx_doctrine_reform_has_active_ru_academy_root = yes
     }
 }
@@ -100,13 +116,20 @@ zhx_doctrine_reform_has_ru_root_now = {
 zhx_doctrine_reform_can_target_ru = {
     zhx_doctrine_reform_can_begin = yes
     NOT = { has_country_flag = zhx_doctrine_ru }
-    zhx_doctrine_reform_has_ru_root_now = yes
+    OR = {
+        NOT = { zhx_guest_school_has_active_contract = yes }
+        has_country_flag = zhx_guest_school_contract_ru
+    }
+    OR = {
+        zhx_doctrine_reform_has_ru_invited_root_with_five_years = yes
+        zhx_doctrine_reform_has_active_ru_academy_root = yes
+    }
 }
 
 zhx_doctrine_reform_target_ru_retains_root = {
     has_country_flag = zhx_doctrine_reform_target_ru
     OR = {
-        has_country_flag = zhx_doctrine_reform_root_invited_ru
+        zhx_doctrine_reform_has_ru_invited_root_now = yes
         zhx_doctrine_reform_has_active_ru_academy_root = yes
     }
 }
@@ -136,9 +159,25 @@ zhx_doctrine_reform_has_active_fa_academy_root = {
     }
 }
 
+zhx_doctrine_reform_has_fa_invited_root_now = {
+    has_country_modifier = zhx_fa_invited_scholar_modifier
+    has_country_flag = zhx_guest_school_contract_active
+    has_country_flag = zhx_guest_school_contract_fa
+}
+
+zhx_doctrine_reform_has_fa_invited_root_with_five_years = {
+    zhx_doctrine_reform_has_fa_invited_root_now = yes
+    NOT = {
+        had_country_flag = {
+            flag = zhx_guest_school_contract_active
+            days = 5475
+        }
+    }
+}
+
 zhx_doctrine_reform_has_fa_root_now = {
     OR = {
-        has_country_modifier = zhx_fa_invited_scholar_modifier
+        zhx_doctrine_reform_has_fa_invited_root_now = yes
         zhx_doctrine_reform_has_active_fa_academy_root = yes
     }
 }
@@ -146,13 +185,20 @@ zhx_doctrine_reform_has_fa_root_now = {
 zhx_doctrine_reform_can_target_fa = {
     zhx_doctrine_reform_can_begin = yes
     NOT = { has_country_flag = zhx_doctrine_fa }
-    zhx_doctrine_reform_has_fa_root_now = yes
+    OR = {
+        NOT = { zhx_guest_school_has_active_contract = yes }
+        has_country_flag = zhx_guest_school_contract_fa
+    }
+    OR = {
+        zhx_doctrine_reform_has_fa_invited_root_with_five_years = yes
+        zhx_doctrine_reform_has_active_fa_academy_root = yes
+    }
 }
 
 zhx_doctrine_reform_target_fa_retains_root = {
     has_country_flag = zhx_doctrine_reform_target_fa
     OR = {
-        has_country_flag = zhx_doctrine_reform_root_invited_fa
+        zhx_doctrine_reform_has_fa_invited_root_now = yes
         zhx_doctrine_reform_has_active_fa_academy_root = yes
     }
 }
@@ -182,9 +228,25 @@ zhx_doctrine_reform_has_active_mo_academy_root = {
     }
 }
 
+zhx_doctrine_reform_has_mo_invited_root_now = {
+    has_country_modifier = zhx_mo_invited_scholar_modifier
+    has_country_flag = zhx_guest_school_contract_active
+    has_country_flag = zhx_guest_school_contract_mo
+}
+
+zhx_doctrine_reform_has_mo_invited_root_with_five_years = {
+    zhx_doctrine_reform_has_mo_invited_root_now = yes
+    NOT = {
+        had_country_flag = {
+            flag = zhx_guest_school_contract_active
+            days = 5475
+        }
+    }
+}
+
 zhx_doctrine_reform_has_mo_root_now = {
     OR = {
-        has_country_modifier = zhx_mo_invited_scholar_modifier
+        zhx_doctrine_reform_has_mo_invited_root_now = yes
         zhx_doctrine_reform_has_active_mo_academy_root = yes
     }
 }
@@ -192,13 +254,20 @@ zhx_doctrine_reform_has_mo_root_now = {
 zhx_doctrine_reform_can_target_mo = {
     zhx_doctrine_reform_can_begin = yes
     NOT = { has_country_flag = zhx_doctrine_mo }
-    zhx_doctrine_reform_has_mo_root_now = yes
+    OR = {
+        NOT = { zhx_guest_school_has_active_contract = yes }
+        has_country_flag = zhx_guest_school_contract_mo
+    }
+    OR = {
+        zhx_doctrine_reform_has_mo_invited_root_with_five_years = yes
+        zhx_doctrine_reform_has_active_mo_academy_root = yes
+    }
 }
 
 zhx_doctrine_reform_target_mo_retains_root = {
     has_country_flag = zhx_doctrine_reform_target_mo
     OR = {
-        has_country_flag = zhx_doctrine_reform_root_invited_mo
+        zhx_doctrine_reform_has_mo_invited_root_now = yes
         zhx_doctrine_reform_has_active_mo_academy_root = yes
     }
 }
@@ -228,9 +297,25 @@ zhx_doctrine_reform_has_active_dao_academy_root = {
     }
 }
 
+zhx_doctrine_reform_has_dao_invited_root_now = {
+    has_country_modifier = zhx_dao_invited_scholar_modifier
+    has_country_flag = zhx_guest_school_contract_active
+    has_country_flag = zhx_guest_school_contract_dao
+}
+
+zhx_doctrine_reform_has_dao_invited_root_with_five_years = {
+    zhx_doctrine_reform_has_dao_invited_root_now = yes
+    NOT = {
+        had_country_flag = {
+            flag = zhx_guest_school_contract_active
+            days = 5475
+        }
+    }
+}
+
 zhx_doctrine_reform_has_dao_root_now = {
     OR = {
-        has_country_modifier = zhx_dao_invited_scholar_modifier
+        zhx_doctrine_reform_has_dao_invited_root_now = yes
         zhx_doctrine_reform_has_active_dao_academy_root = yes
     }
 }
@@ -238,13 +323,20 @@ zhx_doctrine_reform_has_dao_root_now = {
 zhx_doctrine_reform_can_target_dao = {
     zhx_doctrine_reform_can_begin = yes
     NOT = { has_country_flag = zhx_doctrine_dao }
-    zhx_doctrine_reform_has_dao_root_now = yes
+    OR = {
+        NOT = { zhx_guest_school_has_active_contract = yes }
+        has_country_flag = zhx_guest_school_contract_dao
+    }
+    OR = {
+        zhx_doctrine_reform_has_dao_invited_root_with_five_years = yes
+        zhx_doctrine_reform_has_active_dao_academy_root = yes
+    }
 }
 
 zhx_doctrine_reform_target_dao_retains_root = {
     has_country_flag = zhx_doctrine_reform_target_dao
     OR = {
-        has_country_flag = zhx_doctrine_reform_root_invited_dao
+        zhx_doctrine_reform_has_dao_invited_root_now = yes
         zhx_doctrine_reform_has_active_dao_academy_root = yes
     }
 }
@@ -274,9 +366,25 @@ zhx_doctrine_reform_has_active_bing_academy_root = {
     }
 }
 
+zhx_doctrine_reform_has_bing_invited_root_now = {
+    has_country_modifier = zhx_bing_invited_scholar_modifier
+    has_country_flag = zhx_guest_school_contract_active
+    has_country_flag = zhx_guest_school_contract_bing
+}
+
+zhx_doctrine_reform_has_bing_invited_root_with_five_years = {
+    zhx_doctrine_reform_has_bing_invited_root_now = yes
+    NOT = {
+        had_country_flag = {
+            flag = zhx_guest_school_contract_active
+            days = 5475
+        }
+    }
+}
+
 zhx_doctrine_reform_has_bing_root_now = {
     OR = {
-        has_country_modifier = zhx_bing_invited_scholar_modifier
+        zhx_doctrine_reform_has_bing_invited_root_now = yes
         zhx_doctrine_reform_has_active_bing_academy_root = yes
     }
 }
@@ -284,13 +392,20 @@ zhx_doctrine_reform_has_bing_root_now = {
 zhx_doctrine_reform_can_target_bing = {
     zhx_doctrine_reform_can_begin = yes
     NOT = { has_country_flag = zhx_doctrine_bing }
-    zhx_doctrine_reform_has_bing_root_now = yes
+    OR = {
+        NOT = { zhx_guest_school_has_active_contract = yes }
+        has_country_flag = zhx_guest_school_contract_bing
+    }
+    OR = {
+        zhx_doctrine_reform_has_bing_invited_root_with_five_years = yes
+        zhx_doctrine_reform_has_active_bing_academy_root = yes
+    }
 }
 
 zhx_doctrine_reform_target_bing_retains_root = {
     has_country_flag = zhx_doctrine_reform_target_bing
     OR = {
-        has_country_flag = zhx_doctrine_reform_root_invited_bing
+        zhx_doctrine_reform_has_bing_invited_root_now = yes
         zhx_doctrine_reform_has_active_bing_academy_root = yes
     }
 }
@@ -320,9 +435,25 @@ zhx_doctrine_reform_has_active_zongheng_academy_root = {
     }
 }
 
+zhx_doctrine_reform_has_zongheng_invited_root_now = {
+    has_country_modifier = zhx_zongheng_invited_scholar_modifier
+    has_country_flag = zhx_guest_school_contract_active
+    has_country_flag = zhx_guest_school_contract_zongheng
+}
+
+zhx_doctrine_reform_has_zongheng_invited_root_with_five_years = {
+    zhx_doctrine_reform_has_zongheng_invited_root_now = yes
+    NOT = {
+        had_country_flag = {
+            flag = zhx_guest_school_contract_active
+            days = 5475
+        }
+    }
+}
+
 zhx_doctrine_reform_has_zongheng_root_now = {
     OR = {
-        has_country_modifier = zhx_zongheng_invited_scholar_modifier
+        zhx_doctrine_reform_has_zongheng_invited_root_now = yes
         zhx_doctrine_reform_has_active_zongheng_academy_root = yes
     }
 }
@@ -330,13 +461,20 @@ zhx_doctrine_reform_has_zongheng_root_now = {
 zhx_doctrine_reform_can_target_zongheng = {
     zhx_doctrine_reform_can_begin = yes
     NOT = { has_country_flag = zhx_doctrine_zongheng }
-    zhx_doctrine_reform_has_zongheng_root_now = yes
+    OR = {
+        NOT = { zhx_guest_school_has_active_contract = yes }
+        has_country_flag = zhx_guest_school_contract_zongheng
+    }
+    OR = {
+        zhx_doctrine_reform_has_zongheng_invited_root_with_five_years = yes
+        zhx_doctrine_reform_has_active_zongheng_academy_root = yes
+    }
 }
 
 zhx_doctrine_reform_target_zongheng_retains_root = {
     has_country_flag = zhx_doctrine_reform_target_zongheng
     OR = {
-        has_country_flag = zhx_doctrine_reform_root_invited_zongheng
+        zhx_doctrine_reform_has_zongheng_invited_root_now = yes
         zhx_doctrine_reform_has_active_zongheng_academy_root = yes
     }
 }
@@ -387,11 +525,11 @@ zhx_doctrine_reform_ai_may_attempt = {
     is_bankrupt = no
     check_variable = { which = zhx_doctrine_reform_ai_low_practice_years value = 5 }
     OR = {
-        AND = { has_country_modifier = zhx_ru_invited_scholar_modifier NOT = { has_country_flag = zhx_doctrine_ru } }
-        AND = { has_country_modifier = zhx_fa_invited_scholar_modifier NOT = { has_country_flag = zhx_doctrine_fa } }
-        AND = { has_country_modifier = zhx_mo_invited_scholar_modifier NOT = { has_country_flag = zhx_doctrine_mo } }
-        AND = { has_country_modifier = zhx_dao_invited_scholar_modifier NOT = { has_country_flag = zhx_doctrine_dao } }
-        AND = { has_country_modifier = zhx_bing_invited_scholar_modifier NOT = { has_country_flag = zhx_doctrine_bing } }
-        AND = { has_country_modifier = zhx_zongheng_invited_scholar_modifier NOT = { has_country_flag = zhx_doctrine_zongheng } }
+        AND = { zhx_doctrine_reform_has_ru_invited_root_with_five_years = yes NOT = { has_country_flag = zhx_doctrine_ru } }
+        AND = { zhx_doctrine_reform_has_fa_invited_root_with_five_years = yes NOT = { has_country_flag = zhx_doctrine_fa } }
+        AND = { zhx_doctrine_reform_has_mo_invited_root_with_five_years = yes NOT = { has_country_flag = zhx_doctrine_mo } }
+        AND = { zhx_doctrine_reform_has_dao_invited_root_with_five_years = yes NOT = { has_country_flag = zhx_doctrine_dao } }
+        AND = { zhx_doctrine_reform_has_bing_invited_root_with_five_years = yes NOT = { has_country_flag = zhx_doctrine_bing } }
+        AND = { zhx_doctrine_reform_has_zongheng_invited_root_with_five_years = yes NOT = { has_country_flag = zhx_doctrine_zongheng } }
     }
 }
