@@ -1,0 +1,134 @@
+﻿l_english:
+ zhx_manage_unprotected_academies_title:0 "YnVLmfR«R"
+ zhx_manage_unprotected_academies_desc:0 "ÀhÆ‰ýV…Q8g×S,gýVINfRLmb×SŽ,rŒNfRLmÝO²b„vwQTfR«R0`OïSåNçuíu¹RÍVvQ²‹fRÿmNïSåN˜^HNg	Nt^„vfRäN0"
+ zhx_withdraw_academy_expulsion_title:0 "²d•fRäN"
+ zhx_withdraw_academy_expulsion_desc:0 "jPbkck(WgbLˆ„vfRäNÿÝOYufR«RŸSNWÿdkTASt^…QN—VQ!kÑSwfR0"
+ zhx_academy_lifecycle.100.t:0 "VLmfR«R"
+ zhx_academy_lifecycle.100.d1:0 "åNNfR«Rv^N^SŽN,gýVINfRLmÿmN8g·ƒ×SŽ,rŒNfRLm‡^²b0fRSw9LˆMeDn03zšRNðXgÿv^Ào`IYLˆå‹fRLm„vø‹ýV0"
+ zhx_academy_lifecycle.100.d2:0 "YONVLmfR«RRŽNdku˜0ûNUOfRäNý—	Nt^gbLˆÿvQô•å‚å‹fRLmbHN,gýVINfRLmb×SŽ,rŒNfRLmÿ‹TäNS(W0Rgöeê¨R²d•0"
+ zhx_academy_lifecycle.next_page:0 "ågwNNu˜"
+ zhx_academy_lifecycle.previous_page:0 "ÔÞVNNu˜"
+ zhx_academy_lifecycle.tolerate:0 "çuíu¹RÍV²‹fR"
+ zhx_academy_issue_expulsion_tt:0 "˜^	Nt^fRäNÿ1Y»S§R30§!LˆMe¹p0§R1§!3zšR¦^N§R5§!Zg0IYLˆå‹fRLm„vJyYeýV¶RSùRbýVµNu§R-50§!aÁ‰v^·ƒ—V§R10§!µOeuib.V0"
+ zhx_academy_lifecycle.200.t:0 "fRäNÓu—r"
+ zhx_academy_lifecycle.200.d:0 "fRäNòTÏu0Rg0"
+ zhx_academy_lifecycle.210.t:0 "AmcefR«RBl‡^"
+ zhx_academy_lifecycle.210.a:0 "¥c³uø‹uÿæSŸ²‹-^"
+ zhx_academy_lifecycle.210.b:0 "IZÒbvQ÷‹"
+ zhx_academy_accept_refuge_tt:0 "fR«RSOHQÁeQ,gýVNµ^ÑSUS¦^óS20„vzzò•ÎW^ÿvQ!k	ébÑSUS¦^óS12„vÎW^ÿå‚ÍNàeÿR	ébûNN¡l	gImÃfR«R0fR«RWNWbfR‹S6R„vÎW^0"
+ zhx_academy_refuse_refuge_tt:0 "IZÒbTÿfR«RNOÁeQbýVÿmNNO«ˆ8lEN.Rd–ÿwOÝOcAmce0SVMR)YPRÏkt^	g§Y10%§!‚i‡sSÕ‹HNvQæSûR‡^²bÿå‚¡l	gTJhJyYeýV¶R¥c³uÿfR«RSçuíuAmce0"
+ zhx_academy_lifecycle.211.t:0 "fR«RK„"
+ zhx_academy_lifecycle.211.a:0 "‰Rnø‹uÿÍ‘V²‹-^"
+ zhx_academy_lifecycle.220.t:0 "fR«R»yƒX"
+ zhx_academy_lifecycle.220.a:0 "çeNWSXRÿfRßuê	g»SY"
+ zhx_academy_lifecycle.221.t:0 "fRäNbko`"
+ zhx_academy_lifecycle.221.a:0 "ÆQvQÍN(WŸSNW²‹fR"
+ zhx_academy_lifecycle.230.t:0 "²d•fRäN"
+ zhx_academy_lifecycle.230.a:0 "ÆQvQ‰RESŸSNW"
+ zhx_academy_lifecycle.300.t:0 "fR«Rt^¦^Yn"
+ zhx_academy_lifecycle.300.d:0 "–Ï…„vfR«Rt^¦^I‘0"
+ zhx_academy_lifecycle.301.t:0 "AmcefR«Rt^¦^YtQ"
+ zhx_academy_lifecycle.301.d:0 "–Ï…„vAmcefR«Rt^¦^YtQI‘0"
+ zhx_academy_expulsion_campaign:0 "fRäNgbLˆ-N"
+ zhx_academy_expulsion_campaign_desc:0 "˜Rœ^ck(W‹S6RNµ^VLmfR«RÿTNöeô•êSýwgbLˆNSfRäN0"
+ zhx_academy_under_expulsion:0 "fR‹S6R"
+ zhx_academy_under_expulsion_desc:0 "²‹-^m0RSyÿÏ…fNN^uck(WAmce0å‚	Nt^TÍNN×S,gýVINfRLmb,rŒNfRLmÝO²bÿfR«RS»yVdk0W0"
+ zhx_academy_expulsion_cooldown:0 "²däNYOâl"
+ zhx_academy_expulsion_cooldown_desc:0 "g÷^RR²d•fRäNÿASt^…QN—VQ!kÑS¨RfR0"
+ zhx_opinion_expelled_our_school:0 "qšbLmfR«R"
+ zhx_academy_lifecycle.expel_chongli:0 "fRÿTJyfR«R"
+ zhx_academy_lifecycle.210.d.chongli:0 "TJyfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿQ¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.chongli:0 "§YTJyfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObQ¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.chongli:0 "	Nt^fRäNòTÏugbLˆŒRÕk0TJyfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.chongli:0 "fRäN0RgöeÿTJyfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.chongli:0 "g÷^òTÏu²d•ˆ”ùR§YTJyfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_chongli:0 "TJyfR«RWNW"
+ zhx_academy_ruins_chongli_desc:0 "ÙÌ‘þf=fTJyfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_minglun:0 "fRÿf&OfR«R"
+ zhx_academy_lifecycle.210.d.minglun:0 "f&OfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿQ¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.minglun:0 "§Yf&OfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObQ¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.minglun:0 "	Nt^fRäNòTÏugbLˆŒRÕk0f&OfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.minglun:0 "fRäN0Rgöeÿf&OfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.minglun:0 "g÷^òTÏu²d•ˆ”ùR§Yf&OfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_minglun:0 "f&OfR«RWNW"
+ zhx_academy_ruins_minglun_desc:0 "ÙÌ‘þf=ff&OfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_yifa:0 "fRÿùXÕlfR«R"
+ zhx_academy_lifecycle.210.d.yifa:0 "ùXÕlfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿÕl¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.yifa:0 "§YùXÕlfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObÕl¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.yifa:0 "	Nt^fRäNòTÏugbLˆŒRÕk0ùXÕlfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.yifa:0 "fRäN0RgöeÿùXÕlfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.yifa:0 "g÷^òTÏu²d•ˆ”ùR§YùXÕlfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_yifa:0 "ùXÕlfR«RWNW"
+ zhx_academy_ruins_yifa_desc:0 "ÙÌ‘þf=fùXÕlfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_xunming:0 "fRÿªVTfR«R"
+ zhx_academy_lifecycle.210.d.xunming:0 "ªVTfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿÕl¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.xunming:0 "§YªVTfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObÕl¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.xunming:0 "	Nt^fRäNòTÏugbLˆŒRÕk0ªVTfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.xunming:0 "fRäN0RgöeÿªVTfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.xunming:0 "g÷^òTÏu²d•ˆ”ùR§YªVTfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_xunming:0 "ªVTfR«RWNW"
+ zhx_academy_ruins_xunming_desc:0 "ÙÌ‘þf=fªVTfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_jianai:0 "fRÿŠQ1rfR«R"
+ zhx_academy_lifecycle.210.d.jianai:0 "ŠQ1rfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿ¨X¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.jianai:0 "§YŠQ1rfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.Ob¨X¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.jianai:0 "	Nt^fRäNòTÏugbLˆŒRÕk0ŠQ1rfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.jianai:0 "fRäN0RgöeÿŠQ1rfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.jianai:0 "g÷^òTÏu²d•ˆ”ùR§YŠQ1rfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_jianai:0 "ŠQ1rfR«RWNW"
+ zhx_academy_ruins_jianai_desc:0 "ÙÌ‘þf=fŠQ1rfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_shangtong:0 "fRÿSTfR«R"
+ zhx_academy_lifecycle.210.d.shangtong:0 "STfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿ¨X¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.shangtong:0 "§YSTfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.Ob¨X¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.shangtong:0 "	Nt^fRäNòTÏugbLˆŒRÕk0STfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.shangtong:0 "fRäN0RgöeÿSTfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.shangtong:0 "g÷^òTÏu²d•ˆ”ùR§YSTfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_shangtong:0 "STfR«RWNW"
+ zhx_academy_ruins_shangtong_desc:0 "ÙÌ‘þf=fSTfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_xuantong:0 "fRÿ„sTfR«R"
+ zhx_academy_lifecycle.210.d.xuantong:0 "„sTfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿS¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.xuantong:0 "§Y„sTfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObS¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.xuantong:0 "	Nt^fRäNòTÏugbLˆŒRÕk0„sTfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.xuantong:0 "fRäN0Rgöeÿ„sTfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.xuantong:0 "g÷^òTÏu²d•ˆ”ùR§Y„sTfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_xuantong:0 "„sTfR«RWNW"
+ zhx_academy_ruins_xuantong_desc:0 "ÙÌ‘þf=f„sTfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_baopu:0 "fRÿ±b4gfR«R"
+ zhx_academy_lifecycle.210.d.baopu:0 "±b4gfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿS¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.baopu:0 "§Y±b4gfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObS¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.baopu:0 "	Nt^fRäNòTÏugbLˆŒRÕk0±b4gfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.baopu:0 "fRäN0Rgöeÿ±b4gfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.baopu:0 "g÷^òTÏu²d•ˆ”ùR§Y±b4gfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_baopu:0 "±b4gfR«RWNW"
+ zhx_academy_ruins_baopu_desc:0 "ÙÌ‘þf=f±b4gfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_miaosuan:0 "fRÿ™^—rfR«R"
+ zhx_academy_lifecycle.210.d.miaosuan:0 "™^—rfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿuQ¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.miaosuan:0 "§Y™^—rfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObuQ¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.miaosuan:0 "	Nt^fRäNòTÏugbLˆŒRÕk0™^—rfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.miaosuan:0 "fRäN0Rgöeÿ™^—rfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.miaosuan:0 "g÷^òTÏu²d•ˆ”ùR§Y™^—rfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_miaosuan:0 "™^—rfR«RWNW"
+ zhx_academy_ruins_miaosuan_desc:0 "ÙÌ‘þf=f™^—rfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_zhisheng:0 "fRÿ6RÜwfR«R"
+ zhx_academy_lifecycle.210.d.zhisheng:0 "6RÜwfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿuQ¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.zhisheng:0 "§Y6RÜwfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.ObuQ¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.zhisheng:0 "	Nt^fRäNòTÏugbLˆŒRÕk06RÜwfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.zhisheng:0 "fRäN0Rgöeÿ6RÜwfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.zhisheng:0 "g÷^òTÏu²d•ˆ”ùR§Y6RÜwfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_zhisheng:0 "6RÜwfR«RWNW"
+ zhx_academy_ruins_zhisheng_desc:0 "ÙÌ‘þf=f6RÜwfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_baihe:0 "fRÿmc–fR«R"
+ zhx_academy_lifecycle.210.d.baihe:0 "mc–fR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿµu8j¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.baihe:0 "§Ymc–fR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.Obµu8j¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.baihe:0 "	Nt^fRäNòTÏugbLˆŒRÕk0mc–fR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.baihe:0 "fRäN0Rgöeÿmc–fR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.baihe:0 "g÷^òTÏu²d•ˆ”ùR§Ymc–fR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_baihe:0 "mc–fR«RWNW"
+ zhx_academy_ruins_baihe_desc:0 "ÙÌ‘þf=fmc–fR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"
+ zhx_academy_lifecycle.expel_lianheng:0 "fRÿÞaˆfR«R"
+ zhx_academy_lifecycle.210.d.lianheng:0 "ÞaˆfR«R„vø‹uHdÏ…fNNJyhVMRegÿ÷‹BlbýV‡^²bv^ÆQvQÍ‘V²‹-^0¥c³uTÿµu8j¶RfR«RS(WNµ^TJhÎW^Í‘°eK„0"
+ zhx_academy_lifecycle.211.d.lianheng:0 "§YÞaˆfR«R§!„vø‹uòT(W§Y[zhx_academy_arrival_province.GetName]§!Í‘V²‹-^0ÙÌ‘Sçuíu.Obµu8j¶RfRßuÿv^b`YwQTfR«R„vhQè0W¹e6eÊv0"
+ zhx_academy_lifecycle.220.d.lianheng:0 "	Nt^fRäNòTÏugbLˆŒRÕk0ÞaˆfR«R»yVŸSNWÿEe0WYuNfR«RWNWÿø‹uSO!kûRBlTLm0×SŽTLmbËS‹YJyYeýV¶R‡^²bÿàeºN¥c³uöeR‚feQAmce0"
+ zhx_academy_lifecycle.221.d.lianheng:0 "fRäN0RgöeÿÞaˆfR«RòT—V0R,gýVINfRLmb×SŽ,rŒNfRLm„vckVÝO²b0yäN1Sdk²d•ÿfR«RÍN(WŸSNW²‹fR0"
+ zhx_academy_lifecycle.230.d.lianheng:0 "g÷^òTÏu²d•ˆ”ùR§YÞaˆfR«R§!„vfRäN0fR«RÍN(W§Y[zhx_academy_withdrawn_province.GetName]§!ŸSNW²‹fRÿfR‹S6RòTÏuã‰d–ÿdkT§Y10t^§!…QN—VQ!k˜^fRäN0"
+ zhx_academy_ruins_lianheng:0 "ÞaˆfR«RWNW"
+ zhx_academy_ruins_lianheng_desc:0 "ÙÌ‘þf=fÞaˆfR«R„v²‹-^0fRäNOø‹uNÏ…fN»yceÿFOçeNWÍNÝOYuSÏ‘fR=gWµN0"

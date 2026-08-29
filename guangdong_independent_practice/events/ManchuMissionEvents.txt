@@ -165,7 +165,6 @@ country_event = {
           dynasty = "ѐ" 	# Zheng
         }
         add_accepted_culture = polynesian
-        add_harmonized_religion = animism
         change_government = monarchy
         add_government_reform = chinese_warlord
         capital_scope = {

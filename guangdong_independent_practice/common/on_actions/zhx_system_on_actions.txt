@@ -5,6 +5,11 @@ on_startup = {
         zhx_system.1
         zhx_opening_school.1
         zhx_debate.1
+        # Fresh 1444 custom nations are not part of the fixed 65-tag school
+        # catalogue. The shared lifecycle gives eligible Ritual Teaching
+        # designs the ordinary six-school foundation route and rejects an
+        # ineligible hollow faith.
+        zhx_doctrine.92
     }
     if = {
         limit = {
@@ -20,6 +25,25 @@ on_startup = {
 # doctrine gameplay state immediately and replaces same-group eastern mirrors
 # with a transparent no-doctrine sentinel.
 on_religion_change = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# Ritual Teaching eligibility follows the country's primary culture rather
+# than its tag alone. Reuse the same lifecycle event so culture promotion can
+# neither strand a valid state without a school nor leave an ineligible state
+# carrying the six-school mirror.
+on_primary_culture_changed = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# Released countries inherit their authored religion and culture without
+# necessarily firing either change hook. Give a released Ritual Teaching state
+# the same bounded eligibility/foundation pass.
+on_country_released = {
     events = {
         zhx_doctrine.92
     }
@@ -47,7 +71,47 @@ on_yearly_pulse = {
     events = {
         zhx_system.10
         zhx_doctrine.90
+        zhx_academy.90
+        zhx_academy.300
+        zhx_academy.301
         zhx_debate.90
+    }
+}
+
+# THIS is the transferred province and FROM is its former owner. Only the
+# twelve named academy provinces need reconciliation, so ordinary conquest
+# pays no academy scan cost. Both the new and old owner are refreshed at once.
+on_province_owner_change = {
+    if = {
+        limit = {
+            OR = {
+                has_province_modifier = zhx_academy_chongli
+                has_province_modifier = zhx_academy_minglun
+                has_province_modifier = zhx_academy_yifa
+                has_province_modifier = zhx_academy_xunming
+                has_province_modifier = zhx_academy_jianai
+                has_province_modifier = zhx_academy_shangtong
+                has_province_modifier = zhx_academy_xuantong
+                has_province_modifier = zhx_academy_baopu
+                has_province_modifier = zhx_academy_miaosuan
+                has_province_modifier = zhx_academy_zhisheng
+                has_province_modifier = zhx_academy_baihe
+                has_province_modifier = zhx_academy_lianheng
+            }
+        }
+        # Match the named academy against the former owner's corresponding
+        # expelling flag. This must not depend on the temporary pressure marker:
+        # the engine may discard that modifier during the transfer itself.
+        zhx_academy_cancel_expulsion_on_owner_change = yes
+        owner = {
+            zhx_refresh_academy_country_effects = yes
+        }
+        if = {
+            limit = { FROM = { exists = yes } }
+            FROM = {
+                zhx_refresh_academy_country_effects = yes
+            }
+        }
     }
 }
 

@@ -1748,7 +1748,7 @@ country_event = {
                 NOT = { gdd_reform_inclusive_monarchy_passed = yes }
                 OR = {
                     full_idea_group = humanist_ideas
-                    harmony = 80
+                    zhx_lijiao_cohesion_80 = yes
                     theologian = 2
                 }
                 stability = 1

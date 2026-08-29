@@ -13,19 +13,19 @@
  zhx_zongheng_school_desc:0 "µu8j¶RbJ›7Œ0Ï‚æy0.VêNIr8nô‹.OßuÿåN¡R¿R0ßv“Š0»yTNCgØShTËeRýV0hT)YN8gRVNßuÿOLˆºNNVrëXËYÈuŒcácèýVÅ`¥b0TwßvŒT)YN‚º‹0\n\n§YõeSƒXLu§!\n§R0-24 · áOINñO1Y§!ÿ9e„UsQûs -25%ÿY²NðX‰Š -1ÿY²NsQûs -1\n§Y25-49 · LˆºNXw§!ÿ9e„UsQûs +10%ÿY²NðX‰Š +0.25\n§G50-74 · Tµu	g¹e§!ÿ9e„UsQûs +15%ÿY²NðX‰Š +0.5ÿY²NsQûs +1\n§O75-100 · ÎN8jmc–§!ÿ9e„UsQûs +25%ÿY²NðX‰Š +1ÿY²NsQûs +1ÿY²N˜R +1"
  zhx_no_doctrine_school:0 "8gËzýVº‹"
  zhx_no_doctrine_school_desc:0 ",gýVSVMR¡l	gÇ‘(uûNUOŒv¶RýVº‹0dky˜êS1nd–çe—RLmËVàzÿNÐc›OHeœgÿmNNýwŽ÷‹fRw0"
- zhx_invite_school_country_tt:0 "ÎN§Y[From.GetName]§!ö^÷‹dkLmfRwŒNASt^0×SŽfRLmêSÐc›OeQè•µu…©RHeœgÿN9eØS,gýVINfRLmbõeS0"
+ zhx_invite_school_country_tt:0 "	éb§Y[From.GetName]§!jOHN¾RfRegnv^SbVØNLknx²‹0nx²‹T=eØN§R75§!Y²N¹pN§RJSt^ýV¶R6eeQ§!ÿÓuŒNASt^USN¾RfRQY¦uÿMR”Nt^Ø‰b×SÛSqN¦^§R+1§!03zšR¦^±‚9§R+15%§!0Œ˜î•±‚9§R+10%§!„vèxT0¾RfRÐc›OeQè•µu1VSHeœg0ÝO²bTLmwQTfR«Rv^ïSjOHNINfRLmôf.V9húWÿFON9eØS,gýVINfRLmbõeS0"
  zhx_ru_invited_scholar_modifier:0 "×SŽQ¶RfRw"
- zhx_ru_invited_scholar_modifier_desc:0 "×SŽQwOS©RtetJy6RNMe¡RÿFOvQqVÍT1VŽN,gýVckVIYLˆ„vINfRLm0"
+ zhx_ru_invited_scholar_modifier_desc:0 "ŒNASt^QY¦u…Qÿ×SŽQwOS©RtetJy6RNMe¡RÿÐc›OŒ˜î•±‚9N3zšR¦^±‚9T§G-2.5%§!„v1VS6eÊvÿv^ÝO²bƒX…QQ¶RfR«R0EQSVQ¶Rôf.V9húWÿN9eØS,gýVINfRLmbõeS0"
  zhx_fa_invited_scholar_modifier:0 "×SŽÕl¶RfRw"
- zhx_fa_invited_scholar_modifier_desc:0 "×SŽÕlTOS©Rte˜TžR0‹VäNN7bÿFOvQqVÍT1VŽN,gýVckVIYLˆ„vINfRLm0"
+ zhx_fa_invited_scholar_modifier_desc:0 "ŒNASt^QY¦u…Qÿ×SŽÕlTOS©Rte˜TžR0‹VäNN7bÿÐc›Og¦^ê»l¦^ØSS§G-0.025§!N.8h±‚9§G-2.5%§!„v1VS6eÊvÿv^ÝO²bƒX…QÕl¶RfR«R0EQSVÕl¶Rôf.V9húWÿN9eØS,gýVINfRLmbõeS0"
  zhx_mo_invited_scholar_modifier:0 "×SŽ¨X¶RfRw"
- zhx_mo_invited_scholar_modifier_desc:0 "×SŽ¨XwOS©RˆRÎW0åT=gN‚‚(uÿFOvQqVÍT1VŽN,gýVckVIYLˆ„vINfRLm0"
+ zhx_mo_invited_scholar_modifier_desc:0 "ŒNASt^QY¦u…Qÿ×SŽ¨XwOS©RˆRÎW0åT=gN‚‚(uÿÐc›O‰^Xôu²b9§G-5%§!N‰^X2–¡V§G+5%§!„v1VS6eÊvÿv^ÝO²bƒX…Q¨X¶RfR«R0EQSV¨X¶Rôf.V9húWÿN9eØS,gýVINfRLmbõeS0"
  zhx_dao_invited_scholar_modifier:0 "×SŽS¶RfRw"
- zhx_dao_invited_scholar_modifier_desc:0 "×SŽSwOS©RO‰Ql›R0‚‚6RMeäNÿFOvQqVÍT1VŽN,gýVckVIYLˆ„vINfRLm0"
+ zhx_dao_invited_scholar_modifier_desc:0 "ŒNASt^QY¦u…Qÿ×SŽSwOS©RO‰Ql›R0‚‚6RMeäNÿÐc›OhQýVÛSqN¦^§G-0.5§!Ng¦^ŒSb§G-0.01§!„v1VS6eÊvÿv^ÝO²bƒX…QS¶RfR«R0EQSVS¶Rôf.V9húWÿN9eØS,gýVINfRLmbõeS0"
  zhx_bing_invited_scholar_modifier:0 "×SŽuQ¶RfRw"
- zhx_bing_invited_scholar_modifier_desc:0 "×SŽuQ¶ROS©R²‹fk0teYNS!h.O`NÿFOvQqVÍT1VŽN,gýVckVIYLˆ„vINfRLm0"
+ zhx_bing_invited_scholar_modifier_desc:0 "ŒNASt^QY¦u…Qÿ×SŽuQ¶ROS©R²‹fk0teYNS!h.O`NÿÐc›OºN›Rb`Y¦^§G+5%§!NF–›Q.OßupˆÏQ§G-0.5%§!„v1VS6eÊvÿv^ÝO²bƒX…QuQ¶RfR«R0EQSVuQ¶Rôf.V9húWÿN9eØS,gýVINfRLmbõeS0"
  zhx_zongheng_invited_scholar_modifier:0 "×SŽµu8j¶RfRw"
- zhx_zongheng_invited_scholar_modifier_desc:0 "×SŽVrëXOS©RXw0ßv“ŠNRýV²N‰mÿFOvQqVÍT1VŽN,gýVckVIYLˆ„vINfRLm0"
+ zhx_zongheng_invited_scholar_modifier_desc:0 "ŒNASt^QY¦u…Qÿ×SŽVrëXOS©RXw0ßv“ŠNRýV²N‰mÿÐc›O9e„UsQûs§G+10%§!NY²NðX‰Š§G+0.25§!„v1VS6eÊvÿv^ÝO²bƒX…Qµu8j¶RfR«R0EQSVµu8j¶Rôf.V9húWÿN9eØS,gýVINfRLmbõeS0"
  zhx_religion_practice_hollow_value:0 "§R[Root.zhx_doctrine_practice.GetValue]§!"
  zhx_religion_practice_value:0 "§Y[Root.zhx_doctrine_practice.GetValue]§!"
  zhx_religion_practice_flourishing_value:0 "§G[Root.zhx_doctrine_practice.GetValue]§!"

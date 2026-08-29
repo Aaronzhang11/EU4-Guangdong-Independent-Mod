@@ -1,0 +1,22 @@
+Round 12 assertions — withdrawal receipt
+
+PASS — withdrawal receipt content and layout
+01_withdrawal_receipt.jpg shows zhx_academy.230 (“撤销逐学令”). The body names 崇礼学宫 and its 曲阜 original site, states that expulsion pressure is lifted, and presents the ten-year restriction before another expulsion order. The title, body, locator ribbon, and option are readable without visible overlap or clipping.
+
+PASS — native province locator
+02_withdrawal_goto_tooltip.jpg captures the native red locator ribbon and its hover tooltip “转到省份” (with the shortcut line).
+
+PASS — player selected the .230 option
+game_after.log lines 169–171 record, in order, player Selected option 0 for zhx_academy.100, zhxrt2.5, and zhx_academy.230. The .230 screenshot was taken before selecting its option; the subsequent log entry proves that the player selected and the engine processed that event option. There is no Auto-selected entry for .230.
+
+PASS — focused error filter
+A case-insensitive Academy/academy/zhx_academy filter over error_after.log returns no entry. This is not a claim that the full mod error log is clean.
+
+BOUNDARY
+The screenshots validate the text presented to the player, and the event log validates option execution. This round does not directly inspect the save's internal expulsion-pressure or ten-year-cooldown flags/variables, so those internal states are not asserted here.
+
+SHA-256:
+01_withdrawal_receipt.jpg       1f25a5aa99b4f9e14eb993332ffabb65449346e2d06054bf59ae96bcc750d2d3
+02_withdrawal_goto_tooltip.jpg  787ded2887164c2a8ac5f7a90322d019215703ef1be3f4452b18191a89095a6f
+error_after.log                 ba5afcb879467879d0689c7fb544f11c4962bccdccf3463f56fa7c3e6c86c815
+game_after.log                  ba95e4f98dc9fa5c3fddb82b9f487504d0abf6f0cfb059bd22c76f9e928d493d

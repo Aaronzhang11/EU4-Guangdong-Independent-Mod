@@ -63,7 +63,7 @@ gdd_proxy_decree_six_ordinances = {
 }
 
 gdd_proxy_decree_sacred_edict_of_confucianism = {
-    harmonization_speed = 0.25
+    stability_cost_modifier = -0.10
     monthly_karma = -0.05
     years_of_nationalism = -5
 }

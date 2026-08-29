@@ -1,0 +1,40 @@
+namespace = zhx_academy
+
+# Annual low-frequency repair. This remains independent from the doctrine tick
+# because named academies survive non-Lijiao conquest even though only Lijiao
+# countries with a main doctrine receive national academy effects.
+country_event = {
+    id = zhx_academy.90
+    title = zhx_academy.90.t
+    desc = zhx_academy.90.d
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        exists = yes
+        OR = {
+            zhx_has_ru_academy = yes
+            zhx_has_fa_academy = yes
+            zhx_has_mo_academy = yes
+            zhx_has_dao_academy = yes
+            zhx_has_bing_academy = yes
+            zhx_has_zongheng_academy = yes
+            has_country_modifier = zhx_academy_synergy_ru
+            has_country_modifier = zhx_academy_synergy_fa
+            has_country_modifier = zhx_academy_synergy_mo
+            has_country_modifier = zhx_academy_synergy_dao
+            has_country_modifier = zhx_academy_synergy_bing
+            has_country_modifier = zhx_academy_synergy_zongheng
+            has_country_modifier = zhx_academy_tension_mild
+            has_country_modifier = zhx_academy_tension_medium
+            has_country_modifier = zhx_academy_tension_heavy
+        }
+    }
+
+    immediate = {
+        zhx_refresh_academy_country_effects = yes
+    }
+
+    option = { name = OK }
+}

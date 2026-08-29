@@ -1,0 +1,30 @@
+Final academy cleanup validation
+Timestamp: 2026-08-27 12:05 CST (+0800)
+
+PASS  python3 tools/map_pipeline/finalize_zhx_province_history.py --check
+      terminal province-history projections current; academies 12/12
+PASS  python3 tools/apply_zhx_academies.py --check
+      academy history projection current and idempotent; academies 12/12
+PASS  python3 tools/validate_zhx_academies.py
+      12 named academies; six synergies; invited protection; capped tension
+PASS  python3 tools/build_zhx_academy_lifecycle.py --check
+      12 academies; seven generated outputs current
+PASS  python3 tools/validate_zhx_academy_lifecycle.py
+      disposal, deadline, refuge, revival, presentation, costs, AI gate and
+      owner-change cleanup contracts valid
+PASS  python3 tools/validate_zhx_doctrine.py
+      Ritual Teaching doctrine static contract valid
+PASS  python3 tools/validate_zhx_opening_schools.py
+      65 opening countries; ru14/fa6/mo12/dao9/bing11/zongheng13
+PASS  python3 tools/build_zhx_religions.py --check
+      EU4 1.37.5 religion projection current
+PASS  python3 tools/encode_eu4_chinese_localisation.py --check
+      all generated localisation targets valid
+PASS  git diff --check
+
+Cleanup assertions
+- events/zzz_zhx_academy_runtime_test_events.txt is absent.
+- Production events/common/decisions/localisation_source contain no zhxrt2,
+  zzz_zhx_academy_runtime_test, zhxtest, fatest or motest token.
+- pgrep -x eu4 returned no process before and after validation.
+- No commit or push performed.

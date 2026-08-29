@@ -1,0 +1,21 @@
+Round 11 assertions — native province locator on .211
+
+PASS — native red locator ribbon is visible
+01_arrival_native_goto.jpg shows zhx_academy.211 (“学宫落脚”) with the native red locator ribbon at the upper-left edge of the event window.
+
+PASS — hover affordance is readable
+The same screenshot captures the ribbon tooltip “转到省份” (with its shortcut line), making the destination affordance visible to the player.
+
+PASS — complete manual event chain
+game_after.log line 172 records player Selected option 0 for zhx_academy.210, followed by player Selected option 0 for zhx_academy.211 on line 173. Neither event has an Auto-selected entry.
+
+PASS — focused error filter
+error_after.log contains no zhx_academy, zhxrt2, unknown-modifier, invalid-scope, or province-event entry. Unrelated pre-existing EmperorOfChina event-target lines remain outside this focused assertion.
+
+BOUNDARY
+This round validates the ribbon's visual presence, hover tooltip, and the manual .210 → .211 chain. It does not independently record a click on the ribbon or the resulting camera movement.
+
+SHA-256:
+01_arrival_native_goto.jpg  2cb95b57fdfc81a003c9a97086f3c7e0f931983d4d170472f431e97e97463351
+error_after.log             f8a9b521cc56f01af0fef867cea414044325816618055c1cbe56908bd0a03d15
+game_after.log              b1fbdba0fcb3b8d89cb5377237db20b416db16a2afd40d74aa8be5506d2a6b98

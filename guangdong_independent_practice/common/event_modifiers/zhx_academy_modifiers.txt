@@ -1,0 +1,133 @@
+# Province-level named academies. Each permanent modifier is the academy's
+# authoritative location and carries the shared learning package plus one
+# school-specific local speciality.
+
+zhx_academy_chongli = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_tax_modifier = 0.10
+}
+
+zhx_academy_minglun = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_tax_modifier = 0.10
+}
+
+zhx_academy_yifa = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_governing_cost = -0.10
+}
+
+zhx_academy_xunming = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_governing_cost = -0.10
+}
+
+zhx_academy_jianai = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_build_cost = -0.10
+}
+
+zhx_academy_shangtong = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_build_cost = -0.10
+}
+
+zhx_academy_xuantong = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_unrest = -1
+}
+
+zhx_academy_baopu = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_unrest = -1
+}
+
+zhx_academy_miaosuan = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_manpower_modifier = 0.15
+}
+
+zhx_academy_zhisheng = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    local_manpower_modifier = 0.15
+}
+
+zhx_academy_baihe = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    province_trade_power_modifier = 0.15
+}
+
+zhx_academy_lianheng = {
+    local_development_cost = -0.05
+    local_institution_spread = 0.15
+    province_trade_power_modifier = 0.15
+}
+
+# A matching main doctrine grants one non-stacking national synergy. Values
+# mirror the corresponding invited school's entry-tier package, but use
+# separate modifier keys and therefore have an independent lifecycle.
+
+zhx_academy_synergy_ru = {
+    advisor_cost = -0.025
+    stability_cost_modifier = -0.025
+}
+
+zhx_academy_synergy_fa = {
+    global_autonomy = -0.025
+    core_creation = -0.025
+}
+
+zhx_academy_synergy_mo = {
+    fort_maintenance_modifier = -0.05
+    defensiveness = 0.05
+}
+
+zhx_academy_synergy_dao = {
+    global_unrest = -0.5
+    war_exhaustion = -0.01
+}
+
+zhx_academy_synergy_bing = {
+    manpower_recovery_speed = 0.05
+    army_tradition_decay = -0.005
+}
+
+zhx_academy_synergy_zongheng = {
+    improve_relation_modifier = 0.10
+    diplomatic_reputation = 0.25
+}
+
+# Thought tension counts distinct unprotected academy schools, not buildings.
+# The third tier is a hard cap for three through six unprotected schools.
+
+zhx_academy_tension_mild = {
+    stability_cost_modifier = 0.15
+    global_unrest = 0.5
+    governing_capacity_modifier = -0.05
+    years_of_nationalism = 2
+}
+
+zhx_academy_tension_medium = {
+    stability_cost_modifier = 0.30
+    global_unrest = 1.5
+    governing_capacity_modifier = -0.10
+    years_of_nationalism = 5
+}
+
+zhx_academy_tension_heavy = {
+    stability_cost_modifier = 0.50
+    global_unrest = 3
+    governing_capacity_modifier = -0.20
+    years_of_nationalism = 10
+}

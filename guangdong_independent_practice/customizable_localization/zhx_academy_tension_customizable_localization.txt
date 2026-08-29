@@ -1,0 +1,288 @@
+# Live religion-page thought-tension tooltip. These accessors run only while
+# the player hovers the panel; they read province modifiers and the academy
+# lifecycle's mutually-exclusive country modifiers without adding cache state.
+
+defined_text = {
+    name = GetZhxThoughtTensionTier
+    random = no
+
+    text = {
+        localisation_key = zhx_thought_tension_tier_heavy
+        trigger = { has_country_modifier = zhx_academy_tension_heavy }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_tier_medium
+        trigger = { has_country_modifier = zhx_academy_tension_medium }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_tier_mild
+        trigger = { has_country_modifier = zhx_academy_tension_mild }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_tier_none
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionPenalty
+    random = no
+
+    text = {
+        localisation_key = zhx_thought_tension_penalty_heavy
+        trigger = { has_country_modifier = zhx_academy_tension_heavy }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_penalty_medium
+        trigger = { has_country_modifier = zhx_academy_tension_medium }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_penalty_mild
+        trigger = { has_country_modifier = zhx_academy_tension_mild }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_penalty_none
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionChongliRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_chongli
+        trigger = {
+            zhx_has_unprotected_ru_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_chongli
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionMinglunRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_minglun
+        trigger = {
+            zhx_has_unprotected_ru_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_minglun
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionYifaRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_yifa
+        trigger = {
+            zhx_has_unprotected_fa_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_yifa
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionXunmingRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_xunming
+        trigger = {
+            zhx_has_unprotected_fa_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_xunming
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionJianaiRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_jianai
+        trigger = {
+            zhx_has_unprotected_mo_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_jianai
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionShangtongRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_shangtong
+        trigger = {
+            zhx_has_unprotected_mo_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_shangtong
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionXuantongRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_xuantong
+        trigger = {
+            zhx_has_unprotected_dao_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_xuantong
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionBaopuRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_baopu
+        trigger = {
+            zhx_has_unprotected_dao_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_baopu
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionMiaosuanRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_miaosuan
+        trigger = {
+            zhx_has_unprotected_bing_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_miaosuan
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionZhishengRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_zhisheng
+        trigger = {
+            zhx_has_unprotected_bing_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_zhisheng
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionBaiheRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_baihe
+        trigger = {
+            zhx_has_unprotected_zongheng_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_baihe
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionLianhengRow
+    random = no
+    text = {
+        localisation_key = zhx_thought_tension_row_lianheng
+        trigger = {
+            zhx_has_unprotected_zongheng_academy = yes
+            any_owned_province = {
+                has_province_modifier = zhx_academy_lianheng
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxThoughtTensionEmptyState
+    random = no
+
+    text = {
+        localisation_key = zhx_thought_tension_no_active_academies
+        trigger = {
+            NOT = {
+                OR = {
+                    zhx_has_unprotected_ru_academy = yes
+                    zhx_has_unprotected_fa_academy = yes
+                    zhx_has_unprotected_mo_academy = yes
+                    zhx_has_unprotected_dao_academy = yes
+                    zhx_has_unprotected_bing_academy = yes
+                    zhx_has_unprotected_zongheng_academy = yes
+                }
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_thought_tension_row_empty
+        trigger = { always = yes }
+    }
+}

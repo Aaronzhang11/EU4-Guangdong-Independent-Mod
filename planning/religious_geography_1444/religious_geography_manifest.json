@@ -2,7 +2,7 @@
   "batch": "religious_geography_1444_v1",
   "policy": "Province religion is long-lived local faith; doctrine is country-level and must not mass-convert provinces.",
   "country_targets": {
-    "DIA": {"history": "DIA - Dian.txt", "religion": "confucianism", "harmonized": ["buddhism"]},
+    "DIA": {"history": "DIA - Dian.txt", "religion": "confucianism"},
     "MDL": {"history": "MDL - Mongol Dali.txt", "religion": "vajrayana"},
     "NZA": {"history": "NZA - Nanzhao.txt", "religion": "buddhism"},
     "LSH": {"history": "LSH - Liangshan.txt", "religion": "buddhism"},
@@ -13,6 +13,7 @@
     "LIL": {"history": "LIL - Liliao.txt", "religion": "animism"},
     "NUN": {"history": "NUN - Nong.txt", "religion": "animism"},
     "TZZ": {"history": "TZZ - Tianzhou.txt", "religion": "animism"},
+    "CGS": {"history": "CGS - Changsheng.txt", "religion": "animism"},
     "WLM": {"history": "WLM - Wuling.txt", "religion": "animism"},
     "LIO": {"history": "LIO - Liao.txt", "religion": "nestorian"},
     "KOR": {"history": "KOR - Korea.txt", "religion": "mahayana"}
