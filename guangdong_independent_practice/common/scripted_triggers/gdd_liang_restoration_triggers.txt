@@ -1,0 +1,55 @@
+# Nested subjects cannot create a vanilla March and are skipped at visit time.
+gdd_liang_is_valid_petition_recipient = {
+    exists = yes
+    zhx_is_tianxia_member = yes
+    num_of_cities = 5
+    is_subject = no
+    NOT = { tag = LGU }
+}
+
+gdd_liang_patron_owns_all_homeland = {
+    owns = 708
+    owns = 2182
+    owns = 5295
+}
+
+# Only direct ownership by the original patron or LGU counts.
+gdd_liang_jointly_holds_homeland = {
+    708 = {
+        OR = {
+            owned_by = ROOT
+            owned_by = LGU
+        }
+    }
+    2182 = {
+        OR = {
+            owned_by = ROOT
+            owned_by = LGU
+        }
+    }
+    5295 = {
+        OR = {
+            owned_by = ROOT
+            owned_by = LGU
+        }
+    }
+}
+
+gdd_liang_homeland_is_unoccupied = {
+    708 = { controlled_by = owner }
+    2182 = { controlled_by = owner }
+    5295 = { controlled_by = owner }
+}
+
+gdd_liang_settlement_is_stable = {
+    has_country_flag = gdd_liang_restoration_patron_active
+    exists = LGU
+    LGU = {
+        is_subject_of = ROOT
+        is_march = yes
+        is_at_war = no
+    }
+    is_at_war = no
+    gdd_liang_jointly_holds_homeland = yes
+    gdd_liang_homeland_is_unoccupied = yes
+}

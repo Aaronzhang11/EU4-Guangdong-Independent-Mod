@@ -74,12 +74,17 @@ FILES = {
     "gdd_hangou_navigation_readable_utf8.txt": "gdd_hangou_navigation_l_english.yml",
     "gdd_treaty_readable_utf8.txt": "gdd_treaty_l_english.yml",
     "gdd_characters_readable_utf8.txt": "gdd_characters_l_english.yml",
+    "gdd_liang_restoration_readable_utf8.txt": "gdd_liang_restoration_l_english.yml",
     "zhx_system_readable_utf8.txt": "zhx_system_l_english.yml",
     "zhx_doctrine_readable_utf8.txt": "zhx_doctrine_l_english.yml",
     "zhx_doctrine_expansion_readable_utf8.txt": "zhx_doctrine_expansion_l_english.yml",
+    "zhx_doctrine_reform_readable_utf8.txt": "zhx_doctrine_reform_l_english.yml",
+    "zhx_guest_school_readable_utf8.txt": "zhx_guest_school_l_english.yml",
     "zhx_native_schools_readable_utf8.txt": "zhx_native_schools_l_english.yml",
     "zhx_tianxia_debate_readable_utf8.txt": "zhx_tianxia_debate_l_english.yml",
     "zhx_nestorian_readable_utf8.txt": "zhx_nestorian_l_english.yml",
+    "zhx_academies_readable_utf8.txt": "zhx_academies_l_english.yml",
+    "zhx_academy_lifecycle_readable_utf8.txt": "zhx_academy_lifecycle_l_english.yml",
 }
 
 # Bytes that the double-byte patch escapes inside either half of a UCS-2 code

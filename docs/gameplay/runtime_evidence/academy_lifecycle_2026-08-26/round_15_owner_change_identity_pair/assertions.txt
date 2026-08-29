@@ -1,0 +1,28 @@
+Round 15 — owner-change identity-pair cleanup
+
+Runtime path
+- Fresh 1444 campaign.
+- QIN began an expulsion campaign against Chongli Academy at province 5109.
+- Province 5109 was then transferred to WUU before the deadline.
+- The save was written after the owner-change reconciliation completed.
+
+Compressed-save assertions (round15afterfix.eu4)
+- Province 5109 owner: WUU.
+- Active zhx_academy_chongli province modifier: exactly 1 worldwide.
+- zhx_academy_ruins_chongli: 0 worldwide.
+- zhx_academy_under_expulsion: 0 worldwide.
+- zhx_academy_expelling_chongli: 0 worldwide.
+- QIN no longer retains the country expulsion campaign modifier or the
+  academy-specific expelling identity flag.
+
+Visual and log assertions
+- 01_post_transfer_map.jpg records the post-transfer map state.
+- 02_saved_state_menu.jpg records the save written after reconciliation.
+- error_after.log contains no zhx_academy / zhxrt2 parsing or modifier error.
+- game_after.log records a clean fresh-campaign launch; the authoritative
+  owner-change state assertions above come from the compressed save.
+
+Conclusion
+- PASS for this tested identity pair: province owner change clears both the
+  province-side expulsion marker and the old owner's country-side campaign
+  identity without destroying or duplicating Chongli Academy.

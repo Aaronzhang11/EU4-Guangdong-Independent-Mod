@@ -4,6 +4,11 @@ on_startup = {
         zhx_opening_school.1
         zhx_debate.1
         gdd_celestial_reform_vote.1
+        # Fresh 1444 custom nations are not part of the fixed 65-tag school
+        # catalogue. The shared lifecycle gives eligible Ritual Teaching
+        # designs the ordinary six-school foundation route and rejects an
+        # ineligible hollow faith.
+        zhx_doctrine.92
     }
     if = {
         limit = {
@@ -24,8 +29,32 @@ on_religion_change = {
     }
 }
 
-# 礼教悬停数据每月为人类玩家刷新；改革投票事件挂在同一个月度脉冲上，
-# 但只有一、四、七、十月会通过自身事件触发器。
+# Ritual Teaching eligibility follows the country's primary culture rather
+# than its tag alone. Reuse the same lifecycle event so culture promotion can
+# neither strand a valid state without a school nor leave an ineligible state
+# carrying the six-school mirror.
+on_primary_culture_changed = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# Released countries inherit their authored religion and culture without
+# necessarily firing either change hook. Give a released Ritual Teaching state
+# the same bounded eligibility/foundation pass.
+on_country_released = {
+    events = {
+        zhx_doctrine.92
+    }
+}
+
+# The religion-page hover ledger is presentation cache, not a second gameplay
+# clock. Once per month, each human country with a live Ritual Teaching doctrine
+# recomputes only its own bounded factor rows, raw total and threshold gaps.
+# AI countries have no religion-page reader and need no cache refresh. There is
+# no every_country loop and no province scan.
+# Reform voting shares this monthly pulse, while its own event trigger limits
+# the expensive refresh to January, April, July and October.
 on_monthly_pulse = {
     events = {
         gdd_celestial_reform_vote.2
@@ -74,6 +103,9 @@ on_yearly_pulse = {
     events = {
         zhx_system.10
         zhx_doctrine.90
+        zhx_academy.90
+        zhx_academy.300
+        zhx_academy.301
         zhx_debate.90
     }
 }
@@ -121,6 +153,43 @@ on_transfer_development = {
 }
 
 on_province_owner_change = {
+    # THIS is the transferred province and FROM is its former owner. Only the
+    # twelve named academy provinces need reconciliation, so ordinary conquest
+    # pays no academy scan cost. Both the new and old owner are refreshed at once.
+    if = {
+        limit = {
+            OR = {
+                has_province_modifier = zhx_academy_chongli
+                has_province_modifier = zhx_academy_minglun
+                has_province_modifier = zhx_academy_yifa
+                has_province_modifier = zhx_academy_xunming
+                has_province_modifier = zhx_academy_jianai
+                has_province_modifier = zhx_academy_shangtong
+                has_province_modifier = zhx_academy_xuantong
+                has_province_modifier = zhx_academy_baopu
+                has_province_modifier = zhx_academy_miaosuan
+                has_province_modifier = zhx_academy_zhisheng
+                has_province_modifier = zhx_academy_baihe
+                has_province_modifier = zhx_academy_lianheng
+            }
+        }
+        # Match the named academy against the former owner's corresponding
+        # expelling flag. This must not depend on the temporary pressure marker:
+        # the engine may discard that modifier during the transfer itself.
+        zhx_academy_cancel_expulsion_on_owner_change = yes
+        owner = {
+            zhx_refresh_academy_country_effects = yes
+        }
+        if = {
+            limit = { FROM = { exists = yes } }
+            FROM = {
+                zhx_refresh_academy_country_effects = yes
+            }
+        }
+    }
+
+    # Province transfers can change the development weight of both the new and
+    # former Zhou members, so recalculate the realm vote once after the transfer.
     if = {
         limit = {
             OR = {
@@ -131,7 +200,6 @@ on_province_owner_change = {
         CZH = { gdd_recalculate_all_reform_votes_effect = yes }
     }
 }
-
 # 战争结束时 ROOT 是胜方战争领袖，FROM 是败方战争领袖。
 # 只有周天下国家击败周天下以外的国家才结算一次；礼乐与盟功数值由当前天下显学决定。
 on_war_ended = {

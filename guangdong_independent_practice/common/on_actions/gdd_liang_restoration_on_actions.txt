@@ -1,0 +1,45 @@
+on_startup = {
+    events = {
+        gdd_liang_restoration.100
+    }
+}
+
+on_monthly_pulse = {
+    events = {
+        gdd_liang_restoration.90
+    }
+}
+
+# ROOT is the integrator and FROM the integrated country.
+on_integrate = {
+    if = {
+        limit = {
+            has_country_flag = gdd_liang_restoration_patron_active
+            FROM = { tag = LGU }
+        }
+        set_country_flag = gdd_liang_breach_was_annexation
+        gdd_liang_apply_repudiation_without_liberty_desire = yes
+        country_event = { id = gdd_liang_restoration.50 }
+    }
+}
+
+# Full conquest of LGU by its still-active patron is also voluntary
+# destruction. If instead the original patron itself is annexed, only remove
+# the orphaned compact/province tracking; no successor inherits it.
+on_annexed = {
+    if = {
+        limit = {
+            has_country_flag = gdd_liang_restoration_patron_active
+            FROM = { tag = LGU }
+        }
+        set_country_flag = gdd_liang_breach_was_annexation
+        gdd_liang_apply_repudiation_without_liberty_desire = yes
+        country_event = { id = gdd_liang_restoration.50 }
+    }
+    FROM = {
+        if = {
+            limit = { has_country_flag = gdd_liang_restoration_patron_active }
+            gdd_liang_close_compact_neutrally = yes
+        }
+    }
+}

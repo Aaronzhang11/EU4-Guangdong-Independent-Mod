@@ -1574,49 +1574,72 @@ muslim = {
 
 eastern = {
 	# ZHX native school mirrors. Doctrine flags and practice remain authoritative.
-	# The six visible schools also expose the native scholar selector: a foreign
-	# school whose country knows us and has 150 opinion can grant one temporary,
-	# entry-tier modifier. The transparent no-doctrine sentinel remains inert.
+	# The six visible schools also expose the native scholar selector. A valid
+	# formal source at 150 opinion opens the guarded court-contract confirmation;
+	# the transparent no-doctrine sentinel remains inert.
 	religious_schools = {
 		zhx_ru_school = {
-			# The native selector supplies FROM as a country whose permanent
-			# school matches this entry. The source must know and esteem THIS;
-			# the player's permanent doctrine and practice remain untouched.
+			# The native selector supplies FROM as the prospective source.  It
+			# only chooses school and source; a separate confirmation event owns
+			# payment and the guarded twenty-year court contract.
 			potential_invite_scholar = {
-				religion = confucianism
-				has_religious_school = yes
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_no_doctrine_school
-					}
-				}
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_ru_school
-					}
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_ru }
+				FROM = {
+					zhx_guest_school_source_is_eligible_ru = yes
 				}
 				knows_of_scholar_country_capital_trigger = yes
+				if = {
+					limit = { ai = yes }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_ru = yes
+				}
 			}
 			can_invite_scholar = {
-				reverse_has_opinion = { who = FROM value = 150 }
+				# Fail closed on the group-scoped eastern interface. Buddhist and
+				# Shinto countries can never pass this Ritual Teaching gate.
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_ru }
+				FROM = {
+					zhx_guest_school_source_is_eligible_ru = yes
+				}
 				if = {
 					limit = { ai = yes }
-					NOT = { has_country_modifier = has_invited_scholar_recently }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_ru = yes
 				}
-				NOT = { has_country_modifier = zhx_ru_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_ru_invited_scholar_modifier duration = 7300 }
+				# Revalidate once more after the engine-owned source selection. No
+				# resource or gameplay state changes before the confirmation card.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_guest_school_may_invite = yes
+						NOT = { has_country_flag = zhx_doctrine_ru }
+						FROM = {
+							zhx_guest_school_source_is_eligible_ru = yes
+						}
+						if = {
+							limit = { ai = yes }
+							is_at_war = no
+							stability = 0
+							NOT = { num_of_loans = 1 }
+							dip_power = 125
+							zhx_guest_school_ai_wants_ru = yes
+						}
+					}
+					custom_tooltip = zhx_guest_school_native_confirmation_tt
+					hidden_effect = {
+						zhx_guest_school_clear_pending = yes
+						set_country_flag = zhx_guest_school_pending_ru
+						FROM = { save_event_target_as = zhx_guest_school_pending_source }
+						country_event = { id = zhx_guest_school.10 }
 					}
 				}
 			}
@@ -1624,44 +1647,67 @@ eastern = {
 			picture = "GFX_zhx_doctrine_ru_school"
 		}
 		zhx_fa_school = {
-			# The native selector supplies FROM as a country whose permanent
-			# school matches this entry. The source must know and esteem THIS;
-			# the player's permanent doctrine and practice remain untouched.
+			# The native selector supplies FROM as the prospective source.  It
+			# only chooses school and source; a separate confirmation event owns
+			# payment and the guarded twenty-year court contract.
 			potential_invite_scholar = {
-				religion = confucianism
-				has_religious_school = yes
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_no_doctrine_school
-					}
-				}
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_fa_school
-					}
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_fa }
+				FROM = {
+					zhx_guest_school_source_is_eligible_fa = yes
 				}
 				knows_of_scholar_country_capital_trigger = yes
+				if = {
+					limit = { ai = yes }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_fa = yes
+				}
 			}
 			can_invite_scholar = {
-				reverse_has_opinion = { who = FROM value = 150 }
+				# Fail closed on the group-scoped eastern interface. Buddhist and
+				# Shinto countries can never pass this Ritual Teaching gate.
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_fa }
+				FROM = {
+					zhx_guest_school_source_is_eligible_fa = yes
+				}
 				if = {
 					limit = { ai = yes }
-					NOT = { has_country_modifier = has_invited_scholar_recently }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_fa = yes
 				}
-				NOT = { has_country_modifier = zhx_fa_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_fa_invited_scholar_modifier duration = 7300 }
+				# Revalidate once more after the engine-owned source selection. No
+				# resource or gameplay state changes before the confirmation card.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_guest_school_may_invite = yes
+						NOT = { has_country_flag = zhx_doctrine_fa }
+						FROM = {
+							zhx_guest_school_source_is_eligible_fa = yes
+						}
+						if = {
+							limit = { ai = yes }
+							is_at_war = no
+							stability = 0
+							NOT = { num_of_loans = 1 }
+							dip_power = 125
+							zhx_guest_school_ai_wants_fa = yes
+						}
+					}
+					custom_tooltip = zhx_guest_school_native_confirmation_tt
+					hidden_effect = {
+						zhx_guest_school_clear_pending = yes
+						set_country_flag = zhx_guest_school_pending_fa
+						FROM = { save_event_target_as = zhx_guest_school_pending_source }
+						country_event = { id = zhx_guest_school.11 }
 					}
 				}
 			}
@@ -1669,44 +1715,67 @@ eastern = {
 			picture = "GFX_zhx_doctrine_fa_school"
 		}
 		zhx_mo_school = {
-			# The native selector supplies FROM as a country whose permanent
-			# school matches this entry. The source must know and esteem THIS;
-			# the player's permanent doctrine and practice remain untouched.
+			# The native selector supplies FROM as the prospective source.  It
+			# only chooses school and source; a separate confirmation event owns
+			# payment and the guarded twenty-year court contract.
 			potential_invite_scholar = {
-				religion = confucianism
-				has_religious_school = yes
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_no_doctrine_school
-					}
-				}
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_mo_school
-					}
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_mo }
+				FROM = {
+					zhx_guest_school_source_is_eligible_mo = yes
 				}
 				knows_of_scholar_country_capital_trigger = yes
+				if = {
+					limit = { ai = yes }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_mo = yes
+				}
 			}
 			can_invite_scholar = {
-				reverse_has_opinion = { who = FROM value = 150 }
+				# Fail closed on the group-scoped eastern interface. Buddhist and
+				# Shinto countries can never pass this Ritual Teaching gate.
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_mo }
+				FROM = {
+					zhx_guest_school_source_is_eligible_mo = yes
+				}
 				if = {
 					limit = { ai = yes }
-					NOT = { has_country_modifier = has_invited_scholar_recently }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_mo = yes
 				}
-				NOT = { has_country_modifier = zhx_mo_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_mo_invited_scholar_modifier duration = 7300 }
+				# Revalidate once more after the engine-owned source selection. No
+				# resource or gameplay state changes before the confirmation card.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_guest_school_may_invite = yes
+						NOT = { has_country_flag = zhx_doctrine_mo }
+						FROM = {
+							zhx_guest_school_source_is_eligible_mo = yes
+						}
+						if = {
+							limit = { ai = yes }
+							is_at_war = no
+							stability = 0
+							NOT = { num_of_loans = 1 }
+							dip_power = 125
+							zhx_guest_school_ai_wants_mo = yes
+						}
+					}
+					custom_tooltip = zhx_guest_school_native_confirmation_tt
+					hidden_effect = {
+						zhx_guest_school_clear_pending = yes
+						set_country_flag = zhx_guest_school_pending_mo
+						FROM = { save_event_target_as = zhx_guest_school_pending_source }
+						country_event = { id = zhx_guest_school.12 }
 					}
 				}
 			}
@@ -1714,44 +1783,67 @@ eastern = {
 			picture = "GFX_zhx_doctrine_mo_school"
 		}
 		zhx_dao_school = {
-			# The native selector supplies FROM as a country whose permanent
-			# school matches this entry. The source must know and esteem THIS;
-			# the player's permanent doctrine and practice remain untouched.
+			# The native selector supplies FROM as the prospective source.  It
+			# only chooses school and source; a separate confirmation event owns
+			# payment and the guarded twenty-year court contract.
 			potential_invite_scholar = {
-				religion = confucianism
-				has_religious_school = yes
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_no_doctrine_school
-					}
-				}
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_dao_school
-					}
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_dao }
+				FROM = {
+					zhx_guest_school_source_is_eligible_dao = yes
 				}
 				knows_of_scholar_country_capital_trigger = yes
+				if = {
+					limit = { ai = yes }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_dao = yes
+				}
 			}
 			can_invite_scholar = {
-				reverse_has_opinion = { who = FROM value = 150 }
+				# Fail closed on the group-scoped eastern interface. Buddhist and
+				# Shinto countries can never pass this Ritual Teaching gate.
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_dao }
+				FROM = {
+					zhx_guest_school_source_is_eligible_dao = yes
+				}
 				if = {
 					limit = { ai = yes }
-					NOT = { has_country_modifier = has_invited_scholar_recently }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_dao = yes
 				}
-				NOT = { has_country_modifier = zhx_dao_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_dao_invited_scholar_modifier duration = 7300 }
+				# Revalidate once more after the engine-owned source selection. No
+				# resource or gameplay state changes before the confirmation card.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_guest_school_may_invite = yes
+						NOT = { has_country_flag = zhx_doctrine_dao }
+						FROM = {
+							zhx_guest_school_source_is_eligible_dao = yes
+						}
+						if = {
+							limit = { ai = yes }
+							is_at_war = no
+							stability = 0
+							NOT = { num_of_loans = 1 }
+							dip_power = 125
+							zhx_guest_school_ai_wants_dao = yes
+						}
+					}
+					custom_tooltip = zhx_guest_school_native_confirmation_tt
+					hidden_effect = {
+						zhx_guest_school_clear_pending = yes
+						set_country_flag = zhx_guest_school_pending_dao
+						FROM = { save_event_target_as = zhx_guest_school_pending_source }
+						country_event = { id = zhx_guest_school.13 }
 					}
 				}
 			}
@@ -1759,44 +1851,67 @@ eastern = {
 			picture = "GFX_zhx_doctrine_dao_school"
 		}
 		zhx_bing_school = {
-			# The native selector supplies FROM as a country whose permanent
-			# school matches this entry. The source must know and esteem THIS;
-			# the player's permanent doctrine and practice remain untouched.
+			# The native selector supplies FROM as the prospective source.  It
+			# only chooses school and source; a separate confirmation event owns
+			# payment and the guarded twenty-year court contract.
 			potential_invite_scholar = {
-				religion = confucianism
-				has_religious_school = yes
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_no_doctrine_school
-					}
-				}
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_bing_school
-					}
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_bing }
+				FROM = {
+					zhx_guest_school_source_is_eligible_bing = yes
 				}
 				knows_of_scholar_country_capital_trigger = yes
+				if = {
+					limit = { ai = yes }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_bing = yes
+				}
 			}
 			can_invite_scholar = {
-				reverse_has_opinion = { who = FROM value = 150 }
+				# Fail closed on the group-scoped eastern interface. Buddhist and
+				# Shinto countries can never pass this Ritual Teaching gate.
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_bing }
+				FROM = {
+					zhx_guest_school_source_is_eligible_bing = yes
+				}
 				if = {
 					limit = { ai = yes }
-					NOT = { has_country_modifier = has_invited_scholar_recently }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_bing = yes
 				}
-				NOT = { has_country_modifier = zhx_bing_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_bing_invited_scholar_modifier duration = 7300 }
+				# Revalidate once more after the engine-owned source selection. No
+				# resource or gameplay state changes before the confirmation card.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_guest_school_may_invite = yes
+						NOT = { has_country_flag = zhx_doctrine_bing }
+						FROM = {
+							zhx_guest_school_source_is_eligible_bing = yes
+						}
+						if = {
+							limit = { ai = yes }
+							is_at_war = no
+							stability = 0
+							NOT = { num_of_loans = 1 }
+							dip_power = 125
+							zhx_guest_school_ai_wants_bing = yes
+						}
+					}
+					custom_tooltip = zhx_guest_school_native_confirmation_tt
+					hidden_effect = {
+						zhx_guest_school_clear_pending = yes
+						set_country_flag = zhx_guest_school_pending_bing
+						FROM = { save_event_target_as = zhx_guest_school_pending_source }
+						country_event = { id = zhx_guest_school.14 }
 					}
 				}
 			}
@@ -1804,44 +1919,67 @@ eastern = {
 			picture = "GFX_zhx_doctrine_bing_school"
 		}
 		zhx_zongheng_school = {
-			# The native selector supplies FROM as a country whose permanent
-			# school matches this entry. The source must know and esteem THIS;
-			# the player's permanent doctrine and practice remain untouched.
+			# The native selector supplies FROM as the prospective source.  It
+			# only chooses school and source; a separate confirmation event owns
+			# payment and the guarded twenty-year court contract.
 			potential_invite_scholar = {
-				religion = confucianism
-				has_religious_school = yes
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_no_doctrine_school
-					}
-				}
-				NOT = {
-					religious_school = {
-						group = eastern
-						school = zhx_zongheng_school
-					}
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_zongheng }
+				FROM = {
+					zhx_guest_school_source_is_eligible_zongheng = yes
 				}
 				knows_of_scholar_country_capital_trigger = yes
+				if = {
+					limit = { ai = yes }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_zongheng = yes
+				}
 			}
 			can_invite_scholar = {
-				reverse_has_opinion = { who = FROM value = 150 }
+				# Fail closed on the group-scoped eastern interface. Buddhist and
+				# Shinto countries can never pass this Ritual Teaching gate.
+				zhx_guest_school_may_invite = yes
+				NOT = { has_country_flag = zhx_doctrine_zongheng }
+				FROM = {
+					zhx_guest_school_source_is_eligible_zongheng = yes
+				}
 				if = {
 					limit = { ai = yes }
-					NOT = { has_country_modifier = has_invited_scholar_recently }
+					is_at_war = no
+					stability = 0
+					NOT = { num_of_loans = 1 }
+					dip_power = 125
+					zhx_guest_school_ai_wants_zongheng = yes
 				}
-				NOT = { has_country_modifier = zhx_zongheng_invited_scholar_modifier }
 			}
 			on_invite_scholar = {
-				zhx_clear_invited_school_modifiers = yes
-				custom_tooltip = zhx_invite_school_country_tt
-				add_country_modifier = { name = zhx_zongheng_invited_scholar_modifier duration = 7300 }
+				# Revalidate once more after the engine-owned source selection. No
+				# resource or gameplay state changes before the confirmation card.
 				if = {
-					limit = { ai = yes }
-					add_country_modifier = {
-						name = has_invited_scholar_recently
-						duration = 7300
-						hidden = yes
+					limit = {
+						zhx_guest_school_may_invite = yes
+						NOT = { has_country_flag = zhx_doctrine_zongheng }
+						FROM = {
+							zhx_guest_school_source_is_eligible_zongheng = yes
+						}
+						if = {
+							limit = { ai = yes }
+							is_at_war = no
+							stability = 0
+							NOT = { num_of_loans = 1 }
+							dip_power = 125
+							zhx_guest_school_ai_wants_zongheng = yes
+						}
+					}
+					custom_tooltip = zhx_guest_school_native_confirmation_tt
+					hidden_effect = {
+						zhx_guest_school_clear_pending = yes
+						set_country_flag = zhx_guest_school_pending_zongheng
+						FROM = { save_event_target_as = zhx_guest_school_pending_source }
+						country_event = { id = zhx_guest_school.15 }
 					}
 				}
 			}
@@ -1965,7 +2103,6 @@ eastern = {
 			stability_cost_modifier = -0.1
 		}
 		heretic = { TAOIST }
-		uses_harmony = yes
 	}
 
 	shinto = {

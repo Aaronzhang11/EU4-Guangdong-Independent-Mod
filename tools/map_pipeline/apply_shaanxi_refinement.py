@@ -63,6 +63,14 @@ CULTURE_BY_ID = {
 }
 OBSOLETE_PROVINCES = {5282}
 
+# Retained vanilla IDs must keep the exact inherited virtual filename.  A
+# differently named local file would coexist with the vanilla history instead
+# of shadowing it, and would also break terminal projections such as the
+# named-academy placement on Chang'an (700).
+HISTORY_FILENAMES = {
+    700: "700 - Xi'an.txt",
+}
+
 EXISTING = {
     4198: ("Fengxiang", "凤翔"), 2179: ("Yanan", "延安"),
     689: ("Hanzhong", "汉中"), 2181: ("Pingliang", "平凉"),
@@ -332,9 +340,11 @@ def update_histories():
         for old in directory.glob(f"{pid} - *.txt"):
             old.unlink()
     for pid, data in PROVINCES.items():
+        desired = directory / HISTORY_FILENAMES.get(pid, f"{pid} - {data[0]}.txt")
         for old in directory.glob(f"{pid} - *.txt"):
-            old.unlink()
-        (directory / f"{pid} - {data[0]}.txt").write_text(history_text(pid, data))
+            if old != desired:
+                old.unlink()
+        desired.write_text(history_text(pid, data))
 
 
 def update_positions(bitmap):

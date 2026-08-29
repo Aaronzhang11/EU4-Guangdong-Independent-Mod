@@ -906,9 +906,6 @@ country_event = {
     NOT = {
       religion = catholic
     }
-    NOT = {
-      has_harmonized_with = christian
-    }
     num_of_owned_provinces_with = {
       value = 10
       superregion = china_superregion
@@ -3762,7 +3759,6 @@ country_event = { 	# The Mosque of [1816.GetName]
         }
         religion = confucianism
       }
-      has_harmonized_with = muslim
     }
   }
   mean_time_to_happen = {

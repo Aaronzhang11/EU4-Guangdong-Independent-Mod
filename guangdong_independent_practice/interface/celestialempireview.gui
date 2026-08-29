@@ -85,7 +85,9 @@ guiTypes = {
 
 		# Left column: meritocracy, the compact decree list and the member roster.
 		instantTextBoxType = {
-			name = "decrees_label"
+			# Keep the hard-coded vanilla child name: the engine resolves this
+			# textbox when the native Celestial Empire window is opened.
+			name = "decree_label"
 			position = { x = 104 y = 91 }
 			textureFile = ""
 			font = "vic_22"

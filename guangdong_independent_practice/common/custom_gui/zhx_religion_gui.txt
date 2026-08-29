@@ -1,3 +1,136 @@
+# The native Confucian harmony block remains engine-owned, but this late-drawn
+# reader makes the academy lifecycle its sole visible source of truth. Static
+# ornaments share one Lijiao gate; only the four tier markers are conditional.
+custom_icon = {
+    name = zhx_thought_tension_panel_bg
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_panel_label
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_progress_bg
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_progress_frame
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_low_endpoint
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_high_endpoint
+    potential = { zhx_is_lijiao_country = yes }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_none_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_mild
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_mild_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_mild
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_medium_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_medium
+        NOT = { has_country_modifier = zhx_academy_tension_heavy }
+    }
+}
+
+custom_icon = {
+    name = zhx_thought_tension_heavy_indicator
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_heavy
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_none_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_mild
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_mild_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_mild
+        NOT = {
+            OR = {
+                has_country_modifier = zhx_academy_tension_medium
+                has_country_modifier = zhx_academy_tension_heavy
+            }
+        }
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_medium_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_medium
+        NOT = { has_country_modifier = zhx_academy_tension_heavy }
+    }
+}
+
+custom_text_box = {
+    name = zhx_thought_tension_heavy_label
+    potential = {
+        zhx_is_lijiao_country = yes
+        has_country_modifier = zhx_academy_tension_heavy
+    }
+}
+
+# This final transparent button owns the whole 308x93 panel hitbox. It exposes
+# the live academy list and exact national penalties while preventing clicks
+# from reaching the obsolete native harmonisation selector underneath.
+custom_button = {
+    name = zhx_thought_tension_tooltip_button
+    potential = { zhx_is_lijiao_country = yes }
+    trigger = { always = yes }
+    tooltip = zhx_thought_tension_tooltip
+}
+
 # The Ritual Teaching tripod is only a mouse-transparent reskin of the native
 # invite-scholar button. Its click and future school list remain engine-owned.
 custom_icon = {
@@ -19,6 +152,19 @@ custom_icon = {
             group = eastern
             school = zhx_no_doctrine_school
         }
+    }
+}
+
+# The native scholar selector is defined at religion-group scope. Eastern
+# religions outside Ritual Teaching therefore receive the underlying hard-coded
+# button too. This inert top-layer button restores the panel, closes the banner
+# symmetrically and owns the hitbox without mutating Buddhist or Shinto state.
+custom_button = {
+    name = zhx_non_lijiao_invite_school_blocker
+    potential = {
+        has_dlc = "Cradle of Civilization"
+        religion_group = eastern
+        NOT = { zhx_is_lijiao_country = yes }
     }
 }
 
@@ -79,14 +225,18 @@ custom_icon = {
 }
 
 # Native religion sub-modifiers draw a generic effect icon. These six bindings
-# replace that visual in the second native slot with the invited school's real
-# emblem. The GUI overlays are mouse-transparent, so the engine-owned modifier
-# tooltip underneath still shows the live effects and expiry date.
+# replace that visual in the second native slot with the real emblem of either
+# the invited school or a reform-era secondary school. The GUI overlays are
+# mouse-transparent, so the engine-owned modifier tooltip underneath still
+# shows the live effects and expiry date.
 custom_icon = {
     name = zhx_invited_school_ru_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_ru_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_ru_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_ru
+        }
     }
 }
 
@@ -94,7 +244,10 @@ custom_icon = {
     name = zhx_invited_school_fa_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_fa_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_fa_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_fa
+        }
     }
 }
 
@@ -102,7 +255,10 @@ custom_icon = {
     name = zhx_invited_school_mo_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_mo_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_mo_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_mo
+        }
     }
 }
 
@@ -110,7 +266,10 @@ custom_icon = {
     name = zhx_invited_school_dao_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_dao_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_dao_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_dao
+        }
     }
 }
 
@@ -118,7 +277,10 @@ custom_icon = {
     name = zhx_invited_school_bing_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_bing_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_bing_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_bing
+        }
     }
 }
 
@@ -126,7 +288,10 @@ custom_icon = {
     name = zhx_invited_school_zongheng_icon
     potential = {
         zhx_is_lijiao_country = yes
-        has_country_modifier = zhx_zongheng_invited_scholar_modifier
+        OR = {
+            has_country_modifier = zhx_zongheng_invited_scholar_modifier
+            has_country_modifier = zhx_doctrine_reform_secondary_zongheng
+        }
     }
 }
 

@@ -49,6 +49,7 @@ zhx_can_attempt_tianxia_debate_petition = {
     exists = yes
     zhx_is_tianxia_polity = yes
     zhx_is_lijiao_country = yes
+    zhx_doctrine_reform_may_file_tianxia_proposal = yes
     check_variable = { which = zhx_doctrine_practice value = 70 }
     has_saved_global_event_target = zhx_tianzi
     event_target:zhx_tianzi = {

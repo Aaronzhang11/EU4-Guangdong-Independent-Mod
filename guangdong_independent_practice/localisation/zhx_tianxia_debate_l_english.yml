@@ -340,6 +340,17 @@
  zhx_debug.10.d:0 ",rNu˜6eUVhT)YNlQ®‹N)YN'Y©„v‰RhQVÑSeQãS0ck(WVhy0Ir…VÓu—rbòT	g)YN‹NØS…VžRöeÿïSýw4xOW¶r`Hg„v	y˜Oê¨R–Ï…0"
  zhx_debug.20.t:0 "ŒÕ‹îvUV · JyYefRLm"
  zhx_debug.20.d:0 ",rŒNu˜6eUVýVº‹	ébNêSû‹&Ms0ýVº‹	ébO8lENîO9eSVMRXRchÿ&MsŒT)YNLffRu˜b—êSû‹ÖSbÍ‘—rLfHyXR0"
+ zhx_debug.30.t:0 "ŒÕ‹îvUV · ÉQýVYýV"
+ zhx_debug.30.d.not_started:0 "§Y¶r`ÿS8gVËY§!\n\n,gXRchØ¡l	g=T¨RÉQýVYýV‹NöNþ”01444t^°eVNSO1uVNS©”PR’cšR^àz0"
+ zhx_debug.30.d.awaiting_intro:0 "§Y¶r`ÿIr…V^àz§!\n\n‹NöNþ”òTÏu=T¨RÿÉQýVWãS8gckVeQg0VNS©”PRO(W¦ukNAS)YTUSHy^àz0"
+ zhx_debug.30.d.active_target:0 "§Y¶r`ÿáT¿‹ø‹¯O§!\n§YgÑN!kckV÷‹SùRaŒÿ[gdd_liang_current_petition_target.GetName]§!\n\nÙÌ‘ÝOYu„v=fgÑN!kËb-Nv^Ç	gHe'`Y8h„výV¶R0å‚å‹ýVòTÏuÒbÝuÿOâVOIr…VNŒvkQAS)YQlŽVNNÙzÿNNÙzêS(WJSöe–HgËbÖSÿNOÐcMRÆQY0"
+ zhx_debug.30.d.active_no_target:0 "§Y¶r`ÿáT¿‹ø‹¯O§!\n§YgÑN!kckV÷‹SùRaŒÿ§YSàe§!\n\nOâVS8gµb¾,rN8NÇ	gHe'`Y8h„výV¶Rÿbck(WóÇN8NòTÏu1YHe„vP	0NNÙzêS(W	ébhVgbLˆöe–HgËbÖSÿNOÐcMRÆQY0"
+ zhx_debug.30.d.failed:0 "§Y¶r`ÿáT¿‹Óumg§!\n\n»QÓuTŒQ-N„vP	òTÏuhQèpŒRÿËYÈuàeºN¥c³uÉQýVWãÿ‹NöNþ”òT	c¾‹¡‹ÓumgÿNOÍ‘V,rŒNn0"
+ zhx_debug.30.d.compact_active:0 "§G¶r`ÿÉQýVòTÏuYýV§!\n\nÉQýV°s(W=fŸS¥c³uýV„vkSbýVÿYýVßv¦uÍN(WgbLˆ0…VÌS¹eŒRte0ôv¥cNàe`S†˜0Wµc6RhQè	NYÉQýVEe0Wÿv^ôucŒTs^¦u	NAS)YTÿEe0WRVØ‹NöNMbOúQ°s0"
+ zhx_debug.30.d.settlement_pending:0 "§Y¶r`ÿEe0W²NrRY8h-N§!\n\nEe0W0µc6RCg0ŒTs^¶r`NkSbsQûsòTÏuán³agöNÿûsßuck(WÛLˆ¦u	NAS)Y„v3zšR'`Y8h0gô•ûNNagöN1YHeýOÖSˆm,g!k’cg0"
+ zhx_debug.30.d.fulfilled:0 "§G¶r`ÿYýVßv¦uòTeSLˆ§!\n\nÉQýVEe0WòTÏu²NÙuÉQýVÿŸS÷‹S0WòTÏuRVØ¥c³uýVÿ8lENY²NðX‰Š RbÍN6qÝOYu0"
+ zhx_debug.30.d.repudiated:0 "§R¶r`ÿYýVßv¦uòT«ˆÌwV§!\n\n¥c³uýV„v8lEN RbòTÏu²dÞVÿŒNASt^b—îOckòTÏuuHeÿÉQýVÍNXR(WöeØO·ƒ—VNŒv¹pìrËzLPT0"
+ zhx_debug.30.d.closed_neutrally:0 "§Y¶r`ÿYýVTsQûsòT-N'`sQí•§!\n\nÉQýVòTÏuYýVÿFOSVMR¡l	gÍN(WgbLˆ0…V²NrR0òTeSLˆbòTÌwV„vßv¦u¶r`0dky˜8^hˆHykSbsQûsàVþ”YŸSàVÓumg0"
  zhx_debug.catalog.debate:0 "ŒÕ‹)YN'Y©"
  zhx_debug.catalog.debate.tt:0 "nd–SVMR÷‹©NLffRûNgÿ6qTSbV¨XS2N¶RbQuQµu8j	N¶R„vckV„˜È‰eQãS0êSýw1ulQ®‹zzò•öe„v)YPRO(u0"
  zhx_debug.catalog.debate_cleanup:0 "‰RhQnt'Y©„˜È‰"
@@ -351,13 +362,16 @@
  zhx_debug.catalog.next_page:0 "NNu˜ÿJyYefRLm"
  zhx_debug.catalog.previous_page:0 "NNu˜ÿ)YNlQ®‹"
  zhx_debug.catalog.close:0 "sQí•îvUV"
- zhx_debug.catalog.doctrine_first_triad:0 "ŒÕ‹Q0Õl0¨XýVº‹"
- zhx_debug.catalog.doctrine_second_triad:0 "ŒÕ‹S0uQ0µu8jýVº‹"
+ zhx_debug.catalog.doctrine_first_triad:0 "ŒÕ‹ø‹PR4Ng"
+ zhx_debug.catalog.doctrine_second_triad:0 "ŒÕ‹ýVº‹ôf.V"
  zhx_debug.catalog.doctrine_mutation.tt:0 "ôv¥cSbVýVº‹	ébŸS‹WÿjOúQ„v	ébO8lENîO9eSVMRXRchÿú^®‹êS(W4NöechO(u0"
  zhx_debug.catalog.doctrine_ledger:0 "ågw,gýVýVº‹NõeS"
  zhx_debug.catalog.doctrine_ledger.tt:0 "	cckVlQVsSöeÍ‘—rv^LfHy,gýVõeS&Ms0"
  zhx_debug.catalog.orthodoxy:0 "ågw)YNLffR"
  zhx_debug.catalog.orthodoxy.tt:0 "ågwSVMR)YNLffRÿv^ïSçuíuSbVmQ¶RT¿Ríwu˜0"
+ zhx_debug.catalog.liang_status:0 "ågwÉQýVYýV¶r`"
+ zhx_debug.catalog.liang_status.tt:0 "êSû‹‹NöNþ”6–µkNgÑN!k	gHe÷‹SùRaŒÿNOËbÖSP	0¨cÛ¡‹öebîO9eYýV¶r`0"
+ zhx_debug.catalog.previous_doctrine_page:0 "NNu˜ÿJyYefRLm"
  zhx_debug.catalog.disable:0 "sQí•v^jP(u“ŒÕ‹”³Q®‹"
 
  zhx_review_tianxia_orthodoxy_title:0 "ågw)YNLffR"

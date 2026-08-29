@@ -43,7 +43,8 @@ NATIVE_LOCALISATION_PATH = (
 TEMP_RUNTIME_EVENT_PATH = MOD / "events/zz_zhxtest_runtime.txt"
 
 EXPECTED_EVENT_IDS = {
-    "1", "10", "11", "12", "20", "90", "91", "92", "93", "94", "95"
+    "1", "2", "10", "11", "12", "13", "14", "15",
+    "20", "90", "91", "92", "93", "94", "95"
 }
 EXPECTED_EXPANSION_EVENT_IDS = {"1", "10", "11", "12"}
 EXPECTED_FLAGS = {
@@ -292,18 +293,33 @@ EXPECTED_LOCALISATION = {
     "zhx_doctrine.1.b",
     "zhx_doctrine.1.c",
     "zhx_doctrine.1.d",
+    "zhx_doctrine.1.next",
+    "zhx_doctrine.2.t",
+    "zhx_doctrine.2.d",
+    "zhx_doctrine.2.a",
+    "zhx_doctrine.2.b",
+    "zhx_doctrine.2.c",
+    "zhx_doctrine.2.back",
     "zhx_doctrine.10.t",
     "zhx_doctrine.10.d",
+    "zhx_doctrine.10.a",
     "zhx_doctrine.11.t",
     "zhx_doctrine.11.d",
+    "zhx_doctrine.11.a",
     "zhx_doctrine.12.t",
     "zhx_doctrine.12.d",
-    "zhx_doctrine.choose_ru",
-    "zhx_doctrine.choose_fa",
-    "zhx_doctrine.choose_mo",
-    "zhx_doctrine.no_verdict",
+    "zhx_doctrine.12.a",
+    "zhx_doctrine.13.t",
+    "zhx_doctrine.13.d",
+    "zhx_doctrine.13.a",
+    "zhx_doctrine.14.t",
+    "zhx_doctrine.14.d",
+    "zhx_doctrine.14.a",
+    "zhx_doctrine.15.t",
+    "zhx_doctrine.15.d",
+    "zhx_doctrine.15.a",
+    "zhx_doctrine.initial_back",
     "zhx_doctrine_postpone_tt",
-    "zhx_doctrine_inconclusive_tt",
     "zhx_adopt_ru_doctrine_tt",
     "zhx_adopt_fa_doctrine_tt",
     "zhx_adopt_mo_doctrine_tt",
@@ -332,24 +348,6 @@ EXPECTED_LOCALISATION = {
     "zhx_doctrine_receipt_tier_established",
     "zhx_doctrine_receipt_tier_flourishing",
     "zhx_doctrine_receipt_tier_exemplary",
-    "zhx_convene_later_schools_debate_title",
-    "zhx_convene_later_schools_debate_desc",
-    "zhx_doctrine_expansion.1.t",
-    "zhx_doctrine_expansion.1.d",
-    "zhx_doctrine_expansion.1.a",
-    "zhx_doctrine_expansion.1.b",
-    "zhx_doctrine_expansion.1.c",
-    "zhx_doctrine_expansion.1.e",
-    "zhx_doctrine_expansion_postpone_tt",
-    "zhx_doctrine_expansion.10.t",
-    "zhx_doctrine_expansion.10.d",
-    "zhx_doctrine_expansion.11.t",
-    "zhx_doctrine_expansion.11.d",
-    "zhx_doctrine_expansion.12.t",
-    "zhx_doctrine_expansion.12.d",
-    "zhx_doctrine.choose_dao",
-    "zhx_doctrine.choose_bing",
-    "zhx_doctrine.choose_zongheng",
     "zhx_adopt_dao_doctrine_tt",
     "zhx_adopt_bing_doctrine_tt",
     "zhx_adopt_zongheng_doctrine_tt",
@@ -1130,6 +1128,83 @@ def main() -> None:
         in native_invite_button_body,
         "the engine-owned invite-scholar button must remain intact beneath the tripod",
     )
+    blocker_name = "zhx_non_lijiao_invite_school_blocker"
+    blocker_body = named_gui_button_body(religion_view_body, blocker_name)
+    require(
+        religion_view_body.count(f'name = "{blocker_name}"') == 1
+        and re.search(
+            r"position\s*=\s*\{\s*x\s*=\s*180\s+y\s*=\s*148\s*\}",
+            blocker_body,
+        )
+        is not None
+        and re.search(
+            r"size\s*=\s*\{\s*x\s*=\s*42\s+y\s*=\s*42\s*\}",
+            blocker_body,
+        )
+        is not None
+        and 'spriteType = "GFX_zhx_non_lijiao_school_button_blocker"'
+        in blocker_body
+        and "scripted = yes" in blocker_body
+        and "alwaystransparent" not in blocker_body,
+        "non-Lijiao eastern religions need one panel-matched opaque 42x42 "
+        "scripted blocker with a symmetric scroll-cap over the native button",
+    )
+    blocker_sprite = "GFX_zhx_non_lijiao_school_button_blocker"
+    require(
+        lijiao_gfx.count(f'name = "{blocker_sprite}"') == 1,
+        "non-Lijiao school-button blocker sprite must be registered exactly once",
+    )
+    blocker_sprite_body = lijiao_gfx.split(
+        f'name = "{blocker_sprite}"', 1
+    )[1][:300]
+    require(
+        'texturefile = "gfx/interface/zhx_non_lijiao_school_button_blocker.dds"'
+        in blocker_sprite_body
+        and 'loadType = "INGAME"' in blocker_sprite_body,
+        "non-Lijiao blocker sprite must load its generated panel patch",
+    )
+    blocker_texture_path = (
+        MOD / "gfx/interface/zhx_non_lijiao_school_button_blocker.dds"
+    )
+    blocker_texture = (
+        blocker_texture_path.read_bytes() if blocker_texture_path.is_file() else b""
+    )
+    require(
+        len(blocker_texture) >= 128 and blocker_texture[:4] == b"DDS ",
+        "missing or malformed non-Lijiao school-button background patch",
+    )
+    blocker_height, blocker_width = struct.unpack_from("<II", blocker_texture, 12)
+    require(
+        (blocker_width, blocker_height) == (42, 42),
+        "non-Lijiao school-button background patch must be exactly 42x42",
+    )
+    require(
+        religion_view_body.find('name ="invite_scholar_button"')
+        < religion_view_body.find(f'name = "{blocker_name}"')
+        and native_gui_builder.count(blocker_name) == 1
+        and "non-Lijiao blockers=1" in native_gui_builder,
+        "the non-Lijiao blocker must be generated after the native scholar button",
+    )
+    require(
+        native_custom_gui.count(f"name = {blocker_name}") == 1,
+        "non-Lijiao scholar blocker must have exactly one custom-button binding",
+    )
+    blocker_custom_body = named_custom_button_body(native_custom_gui, blocker_name)
+    require(
+        'has_dlc = "Cradle of Civilization"' in blocker_custom_body
+        and "religion_group = eastern" in blocker_custom_body
+        and "NOT = { zhx_is_lijiao_country = yes }" in blocker_custom_body
+        and "trigger =" not in blocker_custom_body
+        and "effect =" not in blocker_custom_body
+        and "tooltip =" not in blocker_custom_body,
+        "the blocker must be a state-free input shield limited to non-Lijiao "
+        "eastern countries with the native-school DLC",
+    )
+    require(
+        "name = invite_scholar_button" not in native_custom_gui
+        and "name = religious_school_window" not in native_custom_gui,
+        "custom GUI must not take ownership of engine-controlled scholar widgets",
+    )
     sentinel_overlay_name = "zhx_no_doctrine_school_button_overlay"
     sentinel_overlay_sprite = "GFX_zhx_no_doctrine_school_button"
     sentinel_overlay_body = named_icon_body(
@@ -1340,7 +1415,7 @@ def main() -> None:
         "invite_scholar_modifier_display",
         "picture",
     }
-    for school, picture in NATIVE_SCHOOLS.items():
+    for school_index, (school, picture) in enumerate(NATIVE_SCHOOLS.items(), start=10):
         require(
             school_definitions.count(f"{school} = {{") == 1,
             f"{school} must be defined exactly once in eastern",
@@ -1348,39 +1423,129 @@ def main() -> None:
         school_body = named_block_body(school_definitions, school)
         assigned_fields = top_level_assignment_keys(school_body)
         modifier = INVITED_SCHOOL_MODIFIERS[school]
+        doctrine_flag = NATIVE_SCHOOL_FLAGS[school]
         require(
             assigned_fields == invited_school_fields,
             f"{school} must expose only the approved native invitation fields; "
             f"fields={sorted(assigned_fields)}",
         )
+        potential_body = named_block_body(school_body, "potential_invite_scholar")
+        potential_source = named_block_body(potential_body, "FROM")
         require(
-            school_body.count("religion = confucianism") == 1
-            and school_body.count("has_religious_school = yes") == 1
-            and school_body.count("group = eastern") == 2
-            and school_body.count("school = zhx_no_doctrine_school") == 1
-            and school_body.count(f"school = {school}") == 1
-            and "zhx_has_doctrine" not in school_body
-            and "has_country_flag = zhx_doctrine_" not in school_body
-            and school_body.count("knows_of_scholar_country_capital_trigger = yes") == 1
-            and school_body.count(
-                "reverse_has_opinion = { who = FROM value = 150 }"
+            potential_body.count("zhx_guest_school_may_invite = yes") == 1
+            and potential_body.count(
+                f"NOT = {{ has_country_flag = {doctrine_flag} }}"
             )
             == 1
-            and school_body.count("zhx_clear_invited_school_modifiers = yes") == 1
-            and school_body.count(
-                f"add_country_modifier = {{ name = {modifier} duration = 7300 }}"
+            and potential_source.count(
+                f"zhx_guest_school_source_is_eligible_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1
+            and potential_body.count(
+                "knows_of_scholar_country_capital_trigger = yes"
+            )
+            == 1,
+            f"{school} discovery must delegate the shared inviter/source contract "
+            "and reject the current formal school",
+        )
+        require(
+            potential_body.count("limit = { ai = yes }") == 1
+            and potential_body.count("is_at_war = no") == 1
+            and potential_body.count("stability = 0") == 1
+            and potential_body.count("NOT = { num_of_loans = 1 }") == 1
+            and potential_body.count("dip_power = 125") == 1
+            and potential_body.count(
+                f"zhx_guest_school_ai_wants_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1,
+            f"{school} discovery must keep the conservative AI-only gate",
+        )
+        can_body = named_block_body(school_body, "can_invite_scholar")
+        can_source = named_block_body(can_body, "FROM")
+        require(
+            can_body.count("zhx_guest_school_may_invite = yes") == 1
+            and can_body.count(f"NOT = {{ has_country_flag = {doctrine_flag} }}")
+            == 1
+            and can_source.count(
+                f"zhx_guest_school_source_is_eligible_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1
+            and can_body.count("limit = { ai = yes }") == 1
+            and can_body.count("is_at_war = no") == 1
+            and can_body.count("stability = 0") == 1
+            and can_body.count("NOT = { num_of_loans = 1 }") == 1
+            and can_body.count("dip_power = 125") == 1
+            and can_body.count(
+                f"zhx_guest_school_ai_wants_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1,
+            f"{school} availability must delegate the fail-closed contract and "
+            "keep crisis restrictions inside the AI-only branch",
+        )
+        on_body = named_block_body(school_body, "on_invite_scholar")
+        require(
+            top_level_assignment_keys(on_body) == {"if"},
+            f"{school} invitation effects must all sit inside one fail-closed guard",
+        )
+        on_guard = named_block_body(on_body, "if")
+        on_limit = named_block_body(on_guard, "limit")
+        on_source = named_block_body(on_limit, "FROM")
+        require(
+            on_limit.count("zhx_guest_school_may_invite = yes") == 1
+            and on_limit.count(f"NOT = {{ has_country_flag = {doctrine_flag} }}")
+            == 1
+            and on_source.count(
+                f"zhx_guest_school_source_is_eligible_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1
+            and on_limit.count("limit = { ai = yes }") == 1
+            and on_limit.count("is_at_war = no") == 1
+            and on_limit.count("stability = 0") == 1
+            and on_limit.count("NOT = { num_of_loans = 1 }") == 1
+            and on_limit.count("dip_power = 125") == 1
+            and on_limit.count(
+                f"zhx_guest_school_ai_wants_{school.removeprefix('zhx_').removesuffix('_school')} = yes"
+            )
+            == 1
+            and on_guard.count("zhx_guest_school_clear_pending = yes") == 1
+            and on_guard.count(
+                f"set_country_flag = zhx_guest_school_pending_{school.removeprefix('zhx_').removesuffix('_school')}"
+            )
+            == 1
+            and on_guard.count(
+                "FROM = { save_event_target_as = zhx_guest_school_pending_source }"
+            )
+            == 1
+            and on_guard.count(
+                "custom_tooltip = zhx_guest_school_native_confirmation_tt"
+            )
+            == 1
+            and on_guard.count(
+                f"country_event = {{ id = zhx_guest_school.{school_index} }}"
             )
             == 1
             and school_body.count(
                 f"invite_scholar_modifier_display = {modifier}"
             )
             == 1
-            and school_body.count("name = has_invited_scholar_recently") == 1
-            and school_body.count("duration = 7300") == 2
             and f'picture = "{picture}"' in school_body
             and "religion_sub_modifier" not in school_body,
-            f"{school} must require a known 150-opinion foreign source, grant one "
-            f"20-year secondary modifier and use {picture}",
+            f"{school} native execution must only stage a guarded confirmation "
+            f"event and use {picture}",
+        )
+        require(
+            all(
+                forbidden not in on_guard
+                for forbidden in (
+                    "add_dip_power =",
+                    "add_years_of_income =",
+                    "add_country_modifier =",
+                    "zhx_clear_invited_school_modifiers = yes",
+                    "has_invited_scholar_recently",
+                )
+            ),
+            f"{school} native dispatch must not pay or grant benefits before the "
+            "confirmation event",
         )
 
     no_doctrine = "zhx_no_doctrine_school"
@@ -1587,46 +1752,22 @@ def main() -> None:
         "closing the proposal receipt must clear both direction markers",
     )
 
-    expansion_event_text = texts[
-        MOD / "events/zhx_doctrine_expansion_events.txt"
-    ]
-    expansion_event_ids = re.findall(
-        r"(?m)^\s*id\s*=\s*zhx_doctrine_expansion\.(\d+)\s*$",
-        expansion_event_text,
-    )
-    require(
-        len(expansion_event_ids) == len(set(expansion_event_ids))
-        and set(expansion_event_ids) == EXPECTED_EXPANSION_EVENT_IDS,
-        f"expansion event ID contract changed: {sorted(expansion_event_ids)}",
-    )
-    expansion_entry = country_event_body(
-        expansion_event_text, "zhx_doctrine_expansion.1"
-    )
-    require(
-        expansion_entry.count("is_triggered_only = yes") == 1
-        and "mean_time_to_happen" not in expansion_entry,
-        "Dao/Bing/Zongheng entry must be explicit, not a random court popup",
-    )
     decisions_text = texts[MOD / "decisions/zhx_doctrine_decisions.txt"]
-    later_decision = named_block_body(
-        decisions_text, "zhx_convene_later_schools_debate"
+    foundation_decision = named_block_body(
+        decisions_text, "zhx_convene_hundred_schools_debate"
     )
     require(
-        "zhx_is_lijiao_country = yes" in later_decision
-        and "has_country_modifier = zhx_doctrine_change_cooldown" in later_decision
-        and "country_event = { id = zhx_doctrine_expansion.1 }" in later_decision,
-        "Dao/Bing/Zongheng must have a visible, cooldown-gated decision entry",
+        "zhx_is_lijiao_country = yes" in foundation_decision
+        and "NOT = { zhx_has_doctrine = yes }" in foundation_decision
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in foundation_decision
+        and "country_event = { id = zhx_doctrine.1 }" in foundation_decision
+        and "zhx_convene_later_schools_debate" not in decisions_text,
+        "first adoption must use one six-school, no-doctrine-only decision and "
+        "the retired later-school entry must not return",
     )
     require(
-        decisions_text.count("NOT = { is_year = 1450 }") == 2
-        and len(
-            re.findall(
-                r"factor\s*=\s*0\s+NOT\s*=\s*\{\s*is_year\s*=\s*1450\s*\}",
-                decisions_text,
-            )
-        )
-        == 2,
-        "both doctrine debates must keep AI from erasing the authored 1444 school map before 1450",
+        "zhx_doctrine_expansion.1" not in decisions_text,
+        "the retired Dao/Bing/Zongheng direct-adoption route must have no decision caller",
     )
     require(
         len(re.findall(r"(?m)^\s*zhx_doctrine\.90\s*$", on_action)) == 1,
@@ -1635,9 +1776,10 @@ def main() -> None:
     startup_body = named_block_body(on_action, "on_startup")
     require(
         "zhx_doctrine.91" not in startup_body
-        and "zhx_doctrine.92" not in startup_body
+        and startup_body.count("zhx_doctrine.92") == 1
         and "zhxtest" not in startup_body.lower(),
-        "new-game doctrine lifecycle must not carry startup migration or test events",
+        "new-game doctrine lifecycle must initialize custom nations through .92 "
+        "without carrying a mirror migration or test event",
     )
     require(
         startup_body.count("zhx_prepare_doctrine_ledger = yes") == 1
@@ -1648,11 +1790,16 @@ def main() -> None:
         "without adding a migration event",
     )
     religion_change_body = named_block_body(on_action, "on_religion_change")
+    culture_change_body = named_block_body(on_action, "on_primary_culture_changed")
+    released_body = named_block_body(on_action, "on_country_released")
     require(
         len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", religion_change_body))
         == 1
-        and on_action.count("zhx_doctrine.92") == 1,
-        "on_religion_change must dispatch zhx_doctrine.92 exactly once",
+        and len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", culture_change_body)) == 1
+        and len(re.findall(r"(?m)^\s*zhx_doctrine\.92\s*$", released_body)) == 1
+        and on_action.count("zhx_doctrine.92") == 4,
+        "startup, religion changes, primary-culture changes and country release "
+        "must each dispatch zhx_doctrine.92 once",
     )
     yearly_body = named_block_body(on_action, "on_yearly_pulse")
     require(
@@ -1726,11 +1873,9 @@ def main() -> None:
             and modifier_body.count("religion_sub_modifier = yes") == 1
             and modifier_body.count("religion = yes") == 1
             and modifier_body.count("is_scholar_modifier = yes") == 1
-            and modifier_body.count(
-                'expire_message_type = "RELIGIOUS_SCHOLAR_EXPIRY"'
-            )
-            == 1,
-            f"{modifier} must remain one visible entry-tier scholar modifier; "
+            and "expire_message_type" not in modifier_body,
+            f"{modifier} must remain one visible entry-tier scholar modifier "
+            "whose expiry is owned by the guarded contract lifecycle; "
             f"expected={expected_values}, actual={actual_values}",
         )
 
@@ -1752,14 +1897,10 @@ def main() -> None:
         effect_text, "zhx_clear_invited_school_modifiers"
     )
     require(
-        all(
-            clear_invited_effect.count(f"remove_country_modifier = {modifier}")
-            == 1
-            for modifier in INVITED_MODIFIER_VALUES
-        )
-        and clear_invited_effect.count("remove_country_modifier =")
-        == len(INVITED_MODIFIER_VALUES),
-        "invited-school cleanup must remove exactly all six temporary modifiers",
+        clear_invited_effect.count("zhx_guest_school_clear_silently = yes") == 1
+        and "remove_country_modifier =" not in clear_invited_effect,
+        "legacy doctrine cleanup must delegate exactly once to the authoritative "
+        "guest-school lifecycle instead of deleting only the visible modifier",
     )
     remove_tiers_effect = top_level_effect_body(
         effect_text, "zhx_remove_doctrine_tier_modifiers"
@@ -1831,6 +1972,7 @@ def main() -> None:
     clear_system_effect = top_level_effect_body(effect_text, "zhx_clear_doctrine_system")
     require(
         "zhx_remove_doctrine_tier_modifiers = yes" in clear_system_effect
+        and "zhx_remove_academy_country_modifiers = yes" in clear_system_effect
         and "zhx_clear_invited_school_modifiers = yes" in clear_system_effect
         and "zhx_clear_doctrine_flags = yes" in clear_system_effect
         and "zhx_clear_doctrine_hover_cache = yes" in clear_system_effect
@@ -1844,10 +1986,11 @@ def main() -> None:
         in clear_system_effect
         and "clr_country_flag = zhx_doctrine_proposal_lost_pending"
         in clear_system_effect
-        and clear_system_effect.count("value = 0") == 9
+        and clear_system_effect.count("value = 0") == 10
         and "which = zhx_doctrine_practice" in clear_system_effect
         and "which = zhx_doctrine_last_delta" in clear_system_effect
-        and "which = zhx_doctrine_ledger_to_proposal" in clear_system_effect,
+        and "which = zhx_doctrine_ledger_to_proposal" in clear_system_effect
+        and "which = zhx_academy_unprotected_school_count" in clear_system_effect,
         "doctrine cleanup must clear flags, tier/cooldown modifiers, practice, "
         "annual delta, ledger and tier-receipt scratch values",
     )
@@ -2218,11 +2361,18 @@ def main() -> None:
         retire_event.count("hidden = yes") == 1
         and retire_event.count("is_triggered_only = yes") == 1
         and "zhx_has_any_doctrine_flag = yes" in retire_trigger
-        and "has_religious_school = yes" in retire_trigger
+        and "has_religious_school = yes" not in retire_trigger
         and "NOT = { zhx_is_lijiao_country = yes }" in retire_trigger
-        and "NOT = { zhx_has_any_doctrine_flag = yes }" in retire_trigger,
-        "zhx_doctrine.92 must cover departure from 礼教 and stale-mirror "
-        "retirement when returning without a doctrine",
+        and "NOT = { zhx_has_any_doctrine_flag = yes }" in retire_trigger
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in retire_trigger
+        and "religion_group = eastern" in retire_trigger
+        and "religion = confucianism" in retire_trigger
+        and "NOT = { zhx_can_adopt_lijiao = yes }" in retire_trigger
+        and retire_trigger.count("religious_school = {") == len(NATIVE_SCHOOLS)
+        and all(f"school = {school}" in retire_trigger for school in NATIVE_SCHOOLS),
+        "zhx_doctrine.92 must cover departure from 礼教 and every fresh entry "
+        "into 礼教 without a doctrine, including stale six-school mirrors which "
+        "reappear after a non-eastern conversion round-trip",
     )
     require(
         retire_event.count("option = {") == 1
@@ -2231,9 +2381,26 @@ def main() -> None:
         and retire_immediate.count("group = eastern") == 2
         and retire_immediate.count("school = zhx_no_doctrine_school") == 1
         and "limit = { religion_group = eastern }" in retire_immediate
-        and retire_immediate.count("zhx_clear_doctrine_system = yes") == 1,
+        and retire_immediate.count("zhx_clear_doctrine_system = yes") == 1
+        and "has_country_modifier = zhx_doctrine_change_cooldown" in retire_immediate
+        and "change_religion = capital" in retire_immediate
+        and "change_religion = animism" in retire_immediate
+        and retire_immediate.count("country_event = { id = zhx_doctrine.1 days = 1 }") == 1,
         "zhx_doctrine.92 must gate one direct eastern sentinel assignment, then "
-        "clear authoritative doctrine state",
+        "clear authoritative doctrine state, reject ineligible forced conversions, "
+        "and schedule the six-school foundation route",
+    )
+    annual_event = country_event_body(event_text, "zhx_doctrine.90")
+    annual_trigger = named_block_body(annual_event, "trigger")
+    annual_immediate = named_block_body(annual_event, "immediate")
+    require(
+        "zhx_is_lijiao_country = yes" in annual_trigger
+        and "NOT = { zhx_has_any_doctrine_flag = yes }" in annual_trigger
+        and "NOT = { has_country_modifier = zhx_doctrine_change_cooldown }"
+        in annual_trigger
+        and "zhx_has_doctrine = yes" in annual_immediate,
+        "the annual safety path must heal a released/event-created schoolless "
+        "Ritual Teaching state without bypassing the two-year postponement",
     )
     retire_body = top_level_effect_body(effect_text, "zhx_retire_doctrine_system")
     require(
@@ -2316,13 +2483,34 @@ def main() -> None:
                 all_scripts,
             )
         )
-        == 2,
-        "only doctrine adoption and the yearly tick may call the native-school sync hook",
+        == 3
+        and "zhx_sync_native_doctrine_school = yes"
+        in top_level_effect_body(
+            effect_text, "zhx_consume_doctrine_reform_integration_hooks"
+        ),
+        "only first adoption, the yearly tick and the reform integration adapter "
+        "may call the native-school sync hook",
     )
 
     for token, reason in FORBIDDEN_TOKENS.items():
+        scanned_scripts = all_scripts
+        if token == "change_religion":
+            # The sole exception is the lifecycle guard which rejects a
+            # hard-coded forced conversion of an ineligible, non-Zhuxia state.
+            # It restores the capital religion (or uses an unreachable
+            # animist fallback); ordinary doctrine choices still cannot change
+            # religion.
+            for allowed in (
+                "change_religion = capital",
+                "change_religion = animism",
+            ):
+                require(
+                    scanned_scripts.count(allowed) == 1,
+                    f"lifecycle exception {allowed} must exist exactly once",
+                )
+                scanned_scripts = scanned_scripts.replace(allowed, "", 1)
         require(
-            re.search(rf"\b{re.escape(token)}\b", all_scripts) is None,
+            re.search(rf"\b{re.escape(token)}\b", scanned_scripts) is None,
             f"forbidden token {token}: {reason}",
         )
 
@@ -2334,16 +2522,8 @@ def main() -> None:
         "duration = 3650" in effect_text,
         "successful doctrine adoption must retain the ten-year cooldown",
     )
-    require(event_text.count("duration = 1825") == 3, "each no-verdict path needs five years")
-    require(event_text.count("duration = 730") == 1, "postponement needs two years")
-    require(
-        expansion_event_text.count("duration = 1825") == 3,
-        "each expansion no-verdict path needs five years",
-    )
-    require(
-        expansion_event_text.count("duration = 730") == 1,
-        "expansion postponement needs two years",
-    )
+    require(event_text.count("duration = 1825") == 0, "first adoption must have no inconclusive five-year bypass")
+    require(event_text.count("duration = 730") == 2, "both six-school catalogue pages need the same two-year postponement")
 
     localisation_keys = re.findall(r"(?m)^\s*([^\s:#]+):\d+\s+\"", localisation)
     require(
@@ -2546,19 +2726,19 @@ def main() -> None:
         "zhx_doctrine_practice_hover_empty",
     } | HOVER_ROW_LOCALISATION
     require(
-        set(native_localisation_keys) == expected_native_localisation,
-        "native school localisation contract changed",
-    )
-    invite_tooltip = re.search(
-        r'(?m)^\s*zhx_invite_school_country_tt:0\s+"(.*)"\s*$',
-        native_localisation,
-    )
-    require(
-        invite_tooltip is not None
-        and "[From.GetName]" in invite_tooltip.group(1)
-        and "二十年" in invite_tooltip.group(1)
-        and "不改变本国主学派或践履" in invite_tooltip.group(1),
-        "invitation tooltip must identify source, duration and doctrine boundary",
+        expected_native_localisation <= set(native_localisation_keys)
+        and all(
+            key.startswith(
+                (
+                    "zhx_guest_school",
+                    "zhx_expel_guest_school",
+                    "zhx_opinion_guest_school",
+                )
+            )
+            for key in set(native_localisation_keys) - expected_native_localisation
+        ),
+        "native school localisation contract changed outside the approved "
+        "guest-school lifecycle namespace",
     )
     for field, colour in PRACTICE_TIER_COLOURS.items():
         require(
@@ -2646,7 +2826,7 @@ def main() -> None:
 
     print("Ritual Teaching doctrine prototype static contract: PASS")
     print(f"  Clausewitz files: {len(SCRIPT_PATHS) + 1}")
-    print(f"  Events: {len(event_ids) + len(expansion_event_ids)}")
+    print(f"  Doctrine events: {len(event_ids)}")
     print(f"  Doctrine modifiers: {len(modifier_definitions)}")
     print(f"  Mutually-exclusive tier practice displays: {len(NATIVE_STATUS_FIELDS)}")
     print("  Transparent practice-ledger hit targets: 1")

@@ -1,0 +1,30 @@
+Round 13 assertions — player refusal and dormancy
+
+PASS — refusal explanation is complete and readable
+01_refusal_result_tooltip.jpg shows LUU receiving 崇礼学宫's “流散学宫求庇” offer. Hovering “婉拒其请” explains that the academy will not move into the country, will not be permanently deleted, remains displaced, may be retried by the Son of Heaven at 10% per year, and continues displaced if no eligible Lijiao country accepts it. The event, options, and tooltip have no visible overlap or clipping.
+
+PASS — refusal was player-selected
+game_after.log lines 166, 169, 171, and 172 record, in order, player Selected zhxrt2.1 option 0, zhx_academy.100 option 0, zhxrt2.2 option 0, and zhx_academy.210 option 1. There is no Auto-selected entry for this chain.
+
+PASS — one-time save-state check
+The compressed save (not copied into the repository) was parsed from:
+~/Documents/Paradox Interactive/Europa Universalis IV/save games/round13refusal.eu4
+SHA-256: 0f253f08f4e47a2361a332a478607e57fc2b773ea896badf1958460a6e147fca
+
+Observed counts in gamestate:
+- modifier="zhx_academy_chongli": 0
+- modifier="zhx_academy_ruins_chongli": 1
+- zhx_academy_dormant_chongli=: 1
+- LUU country block refuge_offer_pending entries: 0
+- LUU country block Chongli-specific entries: 0
+
+BOUNDARIES ON SAVE INTERPRETATION
+The fixture deliberately left refuge_offer_pending on other countries to exclude other Ru-school candidates; the whole gamestate contains 13 such pending entries. Therefore this round asserts cleanup only for LUU, not global pending=0. Because using tag LUU may alter province 5109's ownership history, no province ownership conclusion is drawn from this save.
+
+PASS — focused error filter and teardown
+A case-insensitive Academy/academy/zhx_academy filter over error_after.log returns no entry. The run exited through the normal game menu, and the process probe after one second reported EU4_CLOSED.
+
+SHA-256 of repository evidence:
+01_refusal_result_tooltip.jpg  dc990e5327187ff64f64c40a0b08639e2fa1c03a171b942594e1bab36dc8d0d3
+error_after.log                 ba5e963cd123c32188cba7f2e6d5c61468cb89f7f5fd8bdcff5758e2c37c451e
+game_after.log                  50a52f6c39b7ef9797b5078a1bc0334efc66b09b3070ae956028938d6a303710

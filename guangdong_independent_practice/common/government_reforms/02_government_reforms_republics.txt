@@ -855,7 +855,6 @@ ikko_ikki_republic_reform = {
 	}
 	nation_designer_cost = 20
 	modifiers = {
-		yearly_harmony = 0.25
 		yearly_karma_decay = 0.002
 		tolerance_own = 1
 		production_efficiency = 0.1

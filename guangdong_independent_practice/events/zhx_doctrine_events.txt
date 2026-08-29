@@ -1,7 +1,9 @@
 namespace = zhx_doctrine
 
-# First choose which two schools to invite. The debate event then determines
-# whether either becomes state doctrine or whether plurality continues.
+# First adoption is deliberately separate from later reform.  A Lijiao country
+# without an authoritative school chooses one of all six schools here; an
+# established country can only change through the five-plus-ten-year reform
+# state machine in zhx_doctrine_reform_events.txt.
 country_event = {
     id = zhx_doctrine.1
     title = zhx_doctrine.1.t
@@ -9,31 +11,30 @@ country_event = {
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
 
-    trigger = { zhx_is_lijiao_country = yes }
+    trigger = {
+        zhx_is_lijiao_country = yes
+        NOT = { zhx_has_doctrine = yes }
+    }
 
     option = {
         name = zhx_doctrine.1.a
         country_event = { id = zhx_doctrine.10 }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 stability = 1 }
-        }
+        ai_chance = { factor = 1 }
     }
     option = {
         name = zhx_doctrine.1.b
         country_event = { id = zhx_doctrine.11 }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 is_at_war = no }
-        }
+        ai_chance = { factor = 1 }
     }
     option = {
         name = zhx_doctrine.1.c
         country_event = { id = zhx_doctrine.12 }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 corruption = 3 }
-        }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine.1.next
+        country_event = { id = zhx_doctrine.2 }
+        ai_chance = { factor = 1 }
     }
     option = {
         name = zhx_doctrine.1.e
@@ -49,43 +50,70 @@ country_event = {
 }
 
 country_event = {
+    id = zhx_doctrine.2
+    title = zhx_doctrine.2.t
+    desc = zhx_doctrine.2.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        zhx_is_lijiao_country = yes
+        NOT = { zhx_has_doctrine = yes }
+    }
+
+    option = {
+        name = zhx_doctrine.2.a
+        country_event = { id = zhx_doctrine.13 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine.2.b
+        country_event = { id = zhx_doctrine.14 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine.2.c
+        country_event = { id = zhx_doctrine.15 }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = zhx_doctrine.2.back
+        country_event = { id = zhx_doctrine.1 }
+        ai_chance = { factor = 0 }
+    }
+    option = {
+        name = zhx_doctrine.1.e
+        custom_tooltip = zhx_doctrine_postpone_tt
+        hidden_effect = {
+            add_country_modifier = {
+                name = zhx_doctrine_change_cooldown
+                duration = 730
+            }
+        }
+        ai_chance = { factor = 0.05 }
+    }
+}
+
+# Each choice receives a confirmation card.  The extra reform cooldown is
+# intentionally applied only to a genuine first adoption, not to the authored
+# 1444 setup which is installed by the opening initializer.
+country_event = {
     id = zhx_doctrine.10
     title = zhx_doctrine.10.t
     desc = zhx_doctrine.10.d
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
-
+    trigger = { zhx_is_lijiao_country = yes NOT = { zhx_has_doctrine = yes } }
     option = {
-        name = zhx_doctrine.choose_ru
+        name = zhx_doctrine.10.a
         custom_tooltip = zhx_adopt_ru_doctrine_tt
-        hidden_effect = { zhx_adopt_ru_doctrine = yes }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 stability = 1 }
-            modifier = { factor = 1.5 prestige = 25 }
-        }
-    }
-    option = {
-        name = zhx_doctrine.choose_fa
-        custom_tooltip = zhx_adopt_fa_doctrine_tt
-        hidden_effect = { zhx_adopt_fa_doctrine = yes }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 corruption = 3 }
-            modifier = { factor = 1.5 average_autonomy_above_min = 35 }
-        }
-    }
-    option = {
-        name = zhx_doctrine.no_verdict
-        custom_tooltip = zhx_doctrine_inconclusive_tt
         hidden_effect = {
-            add_country_modifier = {
-                name = zhx_doctrine_change_cooldown
-                duration = 1825
-            }
+            zhx_adopt_ru_doctrine = yes
+            zhx_doctrine_reform_after_initial_foundation = yes
         }
-        ai_chance = { factor = 0.10 }
+        ai_chance = { factor = 1 }
     }
+    option = { name = zhx_doctrine.initial_back country_event = { id = zhx_doctrine.1 } ai_chance = { factor = 0 } }
 }
 
 country_event = {
@@ -94,38 +122,17 @@ country_event = {
     desc = zhx_doctrine.11.d
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
-
+    trigger = { zhx_is_lijiao_country = yes NOT = { zhx_has_doctrine = yes } }
     option = {
-        name = zhx_doctrine.choose_ru
-        custom_tooltip = zhx_adopt_ru_doctrine_tt
-        hidden_effect = { zhx_adopt_ru_doctrine = yes }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 stability = 1 }
-            modifier = { factor = 1.5 prestige = 25 }
-        }
-    }
-    option = {
-        name = zhx_doctrine.choose_mo
-        custom_tooltip = zhx_adopt_mo_doctrine_tt
-        hidden_effect = { zhx_adopt_mo_doctrine = yes }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 is_at_war = no }
-            modifier = { factor = 1.5 NOT = { num_of_loans = 1 } }
-        }
-    }
-    option = {
-        name = zhx_doctrine.no_verdict
-        custom_tooltip = zhx_doctrine_inconclusive_tt
+        name = zhx_doctrine.11.a
+        custom_tooltip = zhx_adopt_fa_doctrine_tt
         hidden_effect = {
-            add_country_modifier = {
-                name = zhx_doctrine_change_cooldown
-                duration = 1825
-            }
+            zhx_adopt_fa_doctrine = yes
+            zhx_doctrine_reform_after_initial_foundation = yes
         }
-        ai_chance = { factor = 0.10 }
+        ai_chance = { factor = 1 }
     }
+    option = { name = zhx_doctrine.initial_back country_event = { id = zhx_doctrine.1 } ai_chance = { factor = 0 } }
 }
 
 country_event = {
@@ -134,38 +141,74 @@ country_event = {
     desc = zhx_doctrine.12.d
     picture = DIPLOMACY_eventPicture
     is_triggered_only = yes
-
+    trigger = { zhx_is_lijiao_country = yes NOT = { zhx_has_doctrine = yes } }
     option = {
-        name = zhx_doctrine.choose_fa
-        custom_tooltip = zhx_adopt_fa_doctrine_tt
-        hidden_effect = { zhx_adopt_fa_doctrine = yes }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 corruption = 3 }
-            modifier = { factor = 1.5 average_autonomy_above_min = 35 }
-        }
-    }
-    option = {
-        name = zhx_doctrine.choose_mo
+        name = zhx_doctrine.12.a
         custom_tooltip = zhx_adopt_mo_doctrine_tt
-        hidden_effect = { zhx_adopt_mo_doctrine = yes }
-        ai_chance = {
-            factor = 1
-            modifier = { factor = 2 is_at_war = no }
-            modifier = { factor = 1.5 NOT = { num_of_loans = 1 } }
-        }
-    }
-    option = {
-        name = zhx_doctrine.no_verdict
-        custom_tooltip = zhx_doctrine_inconclusive_tt
         hidden_effect = {
-            add_country_modifier = {
-                name = zhx_doctrine_change_cooldown
-                duration = 1825
-            }
+            zhx_adopt_mo_doctrine = yes
+            zhx_doctrine_reform_after_initial_foundation = yes
         }
-        ai_chance = { factor = 0.10 }
+        ai_chance = { factor = 1 }
     }
+    option = { name = zhx_doctrine.initial_back country_event = { id = zhx_doctrine.1 } ai_chance = { factor = 0 } }
+}
+
+country_event = {
+    id = zhx_doctrine.13
+    title = zhx_doctrine.13.t
+    desc = zhx_doctrine.13.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_is_lijiao_country = yes NOT = { zhx_has_doctrine = yes } }
+    option = {
+        name = zhx_doctrine.13.a
+        custom_tooltip = zhx_adopt_dao_doctrine_tt
+        hidden_effect = {
+            zhx_adopt_dao_doctrine = yes
+            zhx_doctrine_reform_after_initial_foundation = yes
+        }
+        ai_chance = { factor = 1 }
+    }
+    option = { name = zhx_doctrine.initial_back country_event = { id = zhx_doctrine.2 } ai_chance = { factor = 0 } }
+}
+
+country_event = {
+    id = zhx_doctrine.14
+    title = zhx_doctrine.14.t
+    desc = zhx_doctrine.14.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_is_lijiao_country = yes NOT = { zhx_has_doctrine = yes } }
+    option = {
+        name = zhx_doctrine.14.a
+        custom_tooltip = zhx_adopt_bing_doctrine_tt
+        hidden_effect = {
+            zhx_adopt_bing_doctrine = yes
+            zhx_doctrine_reform_after_initial_foundation = yes
+        }
+        ai_chance = { factor = 1 }
+    }
+    option = { name = zhx_doctrine.initial_back country_event = { id = zhx_doctrine.2 } ai_chance = { factor = 0 } }
+}
+
+country_event = {
+    id = zhx_doctrine.15
+    title = zhx_doctrine.15.t
+    desc = zhx_doctrine.15.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    trigger = { zhx_is_lijiao_country = yes NOT = { zhx_has_doctrine = yes } }
+    option = {
+        name = zhx_doctrine.15.a
+        custom_tooltip = zhx_adopt_zongheng_doctrine_tt
+        hidden_effect = {
+            zhx_adopt_zongheng_doctrine = yes
+            zhx_doctrine_reform_after_initial_foundation = yes
+        }
+        ai_chance = { factor = 1 }
+    }
+    option = { name = zhx_doctrine.initial_back country_event = { id = zhx_doctrine.2 } ai_chance = { factor = 0 } }
 }
 
 # Complete-rules event opened by the Ritual Teaching tripod and retained for
@@ -220,11 +263,27 @@ country_event = {
     hidden = yes
     is_triggered_only = yes
 
-    trigger = { zhx_has_doctrine = yes }
+    trigger = {
+        OR = {
+            zhx_has_doctrine = yes
+            AND = {
+                religion = confucianism
+                NOT = { zhx_can_adopt_lijiao = yes }
+            }
+            AND = {
+                zhx_is_lijiao_country = yes
+                NOT = { zhx_has_any_doctrine_flag = yes }
+                NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+            }
+        }
+    }
 
     immediate = {
         if = {
-            limit = { zhx_is_lijiao_country = yes }
+            limit = {
+                zhx_is_lijiao_country = yes
+                zhx_has_doctrine = yes
+            }
             zhx_yearly_doctrine_tick = yes
             zhx_ai_try_file_tianxia_debate_petition = yes
         }
@@ -523,10 +582,14 @@ country_event = {
     }
 }
 
-# Conversion lifecycle cleanup. EU4 exposes no clear-school effect, so
-# an obsolete eastern display mirror is replaced with a transparent sentinel.
-# Keep the literal set here: nested scripted effects are not post-validated
-# reliably by EU4 1.37.5 on macOS. Authoritative flags/variables are then reset.
+# Unified religion/culture eligibility lifecycle. Departing Ritual Teaching
+# retires every doctrine state; entering it without a doctrine first clears any
+# eastern display residue and then opens the normal six-school foundation route.
+# An ineligible country hard-forced into Ritual Teaching returns to its capital
+# religion instead of keeping a hollow faith without Hundred Schools. EU4
+# exposes no clear-school effect, so the transparent sentinel remains the
+# intermediate mirror. Keep the literal set here: nested scripted effects are
+# not post-validated reliably by EU4 1.37.5 on macOS.
 country_event = {
     id = zhx_doctrine.92
     title = zhx_doctrine.90.t
@@ -544,7 +607,23 @@ country_event = {
             AND = {
                 zhx_is_lijiao_country = yes
                 NOT = { zhx_has_any_doctrine_flag = yes }
-                has_religious_school = yes
+                NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+            }
+            AND = {
+                religion_group = eastern
+                NOT = { zhx_is_lijiao_country = yes }
+                OR = {
+                    religious_school = { group = eastern school = zhx_ru_school }
+                    religious_school = { group = eastern school = zhx_fa_school }
+                    religious_school = { group = eastern school = zhx_mo_school }
+                    religious_school = { group = eastern school = zhx_dao_school }
+                    religious_school = { group = eastern school = zhx_bing_school }
+                    religious_school = { group = eastern school = zhx_zongheng_school }
+                }
+            }
+            AND = {
+                religion = confucianism
+                NOT = { zhx_can_adopt_lijiao = yes }
             }
         }
     }
@@ -558,6 +637,33 @@ country_event = {
             }
         }
         zhx_clear_doctrine_system = yes
+        if = {
+            limit = {
+                religion = confucianism
+                NOT = { zhx_can_adopt_lijiao = yes }
+            }
+            if = {
+                limit = {
+                    capital_scope = { NOT = { religion = confucianism } }
+                }
+                change_religion = capital
+            }
+            else = {
+                # Absolute fallback for an ineligible state whose capital was
+                # already converted too. This state is unreachable in the
+                # supported 1444 setup, but it prevents a hard-coded peace or
+                # subject conversion from creating a hollow Ritual Teaching.
+                change_religion = animism
+            }
+        }
+        else_if = {
+            limit = {
+                zhx_is_lijiao_country = yes
+                NOT = { zhx_has_doctrine = yes }
+                NOT = { has_country_modifier = zhx_doctrine_change_cooldown }
+            }
+            country_event = { id = zhx_doctrine.1 days = 1 }
+        }
     }
 
     option = { name = OK }

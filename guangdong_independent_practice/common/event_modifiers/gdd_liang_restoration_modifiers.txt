@@ -1,0 +1,9 @@
+gdd_liang_preserver_of_fallen_state = {
+    diplomatic_reputation = 0.33
+}
+
+gdd_liang_repudiated_restoration_compact = {
+    diplomatic_reputation = -0.5
+    improve_relation_modifier = -0.10
+    prestige = -0.5
+}

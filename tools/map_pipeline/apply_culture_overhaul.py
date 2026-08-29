@@ -210,6 +210,7 @@ COUNTRY_POLICY = {
     "NNG": ("gdd_gan", ()),
     "TNG": ("gdd_zhongyuan", ()),
     "LNG": ("gdd_zhongyuan", ()),
+    "LGU": ("gdd_long", ()),
     "HUA": ("gdd_jianghuai", ()),
     "LIO": ("gdd_khitan", ("manchu", "gdd_qi")),
     "OUE": ("gdd_wu", ()),

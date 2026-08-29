@@ -1,3 +1,6 @@
 l_english:
  confucianism:0 "礼教"
  confucianism_religion_desc:0 "礼教不是一套要求诸夏信奉同一学说的教义，而是各国共同承认的名分、盟誓、祭祀与治国责任框架。儒、法、墨及诸子百家将在这一共同语言中提出不同的治国答案。"
+ string_start_religion_confucianism:0 "[Root.start_religion_intro][Root.start_confucian_harmonization]\n礼教属于§Y东方§!宗教组，但其玩法由诸子百家的主学派、践履与学宫构成，不再使用原版宗教调和。"
+ string_harmonization_info:0 "\n\n礼教国家以§Y主学派§!确定治国方向，履行本派推崇之事来积累§Y践履§!；异派学宫会形成§Y思想张力§!，而外部宗教仍由宗教统一度与异端、异教容忍度处理。\n"
+ string_harmonization_info_no:0 "\n\n礼教国家以§Y主学派§!确定治国方向，履行本派推崇之事来积累§Y践履§!；异派学宫会形成§Y思想张力§!，而外部宗教仍由宗教统一度与异端、异教容忍度处理。\n"

@@ -1,0 +1,442 @@
+namespace = gdd_liang_restoration
+
+# New-campaign bootstrap. Later bookmarks and existing saves are intentionally
+# outside the supported design.
+country_event = {
+    id = gdd_liang_restoration.100
+    title = none
+    desc = none
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = CZH
+        exists = yes
+        start_date = 1444.11.11
+        is_year = 1444
+        NOT = { is_year = 1445 }
+        NOT = { exists = LGU }
+        NOT = { has_global_flag = gdd_liang_restoration_chain_started }
+    }
+
+    immediate = {
+        gdd_liang_clear_current_petition_target = yes
+        set_global_flag = gdd_liang_restoration_chain_started
+        country_event = { id = gdd_liang_restoration.1 days = 90 }
+    }
+
+    option = { name = OK }
+}
+
+# The Tianzi recognizes the claimant and freezes the one-circuit roster.
+country_event = {
+    id = gdd_liang_restoration.1
+    title = gdd_liang_restoration.1.t
+    desc = gdd_liang_restoration.1.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    major = yes
+    major_trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+    }
+
+    trigger = {
+        tag = CZH
+        exists = yes
+        has_global_flag = gdd_liang_restoration_chain_started
+        NOT = { has_global_flag = gdd_liang_restoration_intro_shown }
+        NOT = { exists = LGU }
+    }
+
+    immediate = {
+        set_global_flag = gdd_liang_restoration_intro_shown
+        every_country = {
+            limit = {
+                exists = yes
+                zhx_is_tianxia_member = yes
+                num_of_cities = 5
+                is_subject = no
+                NOT = { tag = LGU }
+            }
+            set_country_flag = gdd_liang_petition_roster
+        }
+    }
+
+    option = {
+        name = gdd_liang_restoration.1.a
+        custom_tooltip = gdd_liang_restoration.1.a.tt
+        hidden_effect = {
+            country_event = { id = gdd_liang_restoration.2 days = 90 }
+        }
+    }
+}
+
+# Random-without-replacement selector. A visited flag is removed before the
+# validity check, so rejection or a 30-day invalid skip can never revisit it.
+country_event = {
+    id = gdd_liang_restoration.2
+    title = none
+    desc = none
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = CZH
+        exists = yes
+        has_global_flag = gdd_liang_restoration_intro_shown
+        NOT = { has_global_flag = gdd_liang_restoration_succeeded }
+        NOT = { has_global_flag = gdd_liang_restoration_failed }
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                any_country = { has_country_flag = gdd_liang_petition_roster }
+            }
+            random_country = {
+                limit = { has_country_flag = gdd_liang_petition_roster }
+                clr_country_flag = gdd_liang_petition_roster
+                if = {
+                    limit = { gdd_liang_is_valid_petition_recipient = yes }
+                    country_event = { id = gdd_liang_restoration.10 }
+                }
+                else = {
+                    CZH = {
+                        country_event = { id = gdd_liang_restoration.2 days = 30 }
+                    }
+                }
+            }
+        }
+        else = {
+            set_global_flag = gdd_liang_restoration_failed
+            country_event = { id = gdd_liang_restoration.30 }
+        }
+    }
+
+    option = { name = OK }
+}
+
+# The selected feudatory receives the actual petition. The proposed grant is
+# chosen before AI weights and player tooltips are evaluated.
+country_event = {
+    id = gdd_liang_restoration.10
+    title = gdd_liang_restoration.10.t
+    desc = {
+        trigger = { gdd_liang_patron_owns_all_homeland = yes }
+        desc = gdd_liang_restoration.10.d.homeland
+    }
+    desc = {
+        trigger = { NOT = { gdd_liang_patron_owns_all_homeland = yes } }
+        desc = gdd_liang_restoration.10.d.grant
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        gdd_liang_is_valid_petition_recipient = yes
+        NOT = { has_global_flag = gdd_liang_restoration_succeeded }
+        NOT = { has_global_flag = gdd_liang_restoration_failed }
+        NOT = { exists = LGU }
+    }
+
+    immediate = {
+        save_global_event_target_as = gdd_liang_current_petition_target
+        hidden_effect = {
+            if = {
+                limit = { NOT = { gdd_liang_patron_owns_all_homeland = yes } }
+                gdd_liang_select_lowest_grant_province = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_liang_restoration.10.a
+        trigger = { gdd_liang_patron_owns_all_homeland = yes }
+        custom_tooltip = gdd_liang_restoration.10.a.tt.homeland
+        hidden_effect = {
+            gdd_liang_restore_directly_in_homeland = yes
+            country_event = { id = gdd_liang_restoration.20 days = 1 }
+        }
+        ai_chance = {
+            factor = 4
+            modifier = { factor = 0.75 NOT = { num_of_cities = 8 } }
+            modifier = { factor = 1.5 num_of_cities = 15 }
+            modifier = {
+                factor = 1.5
+                NOT = { num_of_loans = 1 }
+                is_in_deficit = no
+            }
+            modifier = {
+                factor = 0.5
+                OR = {
+                    num_of_loans = 1
+                    is_in_deficit = yes
+                }
+            }
+            modifier = { factor = 0.5 is_at_war = yes }
+            modifier = { factor = 1.5 DIP = 4 }
+            modifier = { factor = 0.75 NOT = { DIP = 3 } }
+            modifier = {
+                factor = 0.5
+                NOT = { num_of_free_diplomatic_relations = 1 }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_liang_restoration.10.a
+        trigger = { NOT = { gdd_liang_patron_owns_all_homeland = yes } }
+        custom_tooltip = gdd_liang_restoration.10.a.tt.grant
+        hidden_effect = {
+            gdd_liang_restore_in_temporary_grant = yes
+            country_event = { id = gdd_liang_restoration.20 days = 1 }
+        }
+        ai_chance = {
+            factor = 4
+            modifier = { factor = 0.75 NOT = { num_of_cities = 8 } }
+            modifier = { factor = 1.5 num_of_cities = 15 }
+            modifier = {
+                factor = 1.5
+                NOT = { num_of_loans = 1 }
+                is_in_deficit = no
+            }
+            modifier = {
+                factor = 0.5
+                OR = {
+                    num_of_loans = 1
+                    is_in_deficit = yes
+                }
+            }
+            modifier = { factor = 0.5 is_at_war = yes }
+            modifier = { factor = 1.5 DIP = 4 }
+            modifier = { factor = 0.75 NOT = { DIP = 3 } }
+            modifier = {
+                factor = 0.5
+                NOT = { num_of_free_diplomatic_relations = 1 }
+            }
+            modifier = {
+                factor = 0.5
+                event_target:gdd_liang_proposed_grant = { development = 10 }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_liang_restoration.10.b
+        custom_tooltip = gdd_liang_restoration.10.b.tt
+        hidden_effect = {
+            CZH = {
+                country_event = { id = gdd_liang_restoration.2 days = 180 }
+            }
+        }
+        ai_chance = { factor = 96 }
+    }
+}
+
+country_event = {
+    id = gdd_liang_restoration.20
+    title = gdd_liang_restoration.20.t
+    desc = {
+        trigger = { has_country_flag = gdd_liang_direct_homeland_restoration }
+        desc = gdd_liang_restoration.20.d.homeland
+    }
+    desc = {
+        trigger = { has_country_flag = gdd_liang_restoration_used_grant }
+        desc = gdd_liang_restoration.20.d.grant
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    major = yes
+    major_trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+    }
+
+    trigger = {
+        has_country_flag = gdd_liang_restoration_patron
+        exists = LGU
+    }
+
+    option = { name = gdd_liang_restoration.20.a }
+}
+
+country_event = {
+    id = gdd_liang_restoration.30
+    title = gdd_liang_restoration.30.t
+    desc = gdd_liang_restoration.30.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    major = yes
+    major_trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+    }
+
+    trigger = {
+        tag = CZH
+        has_global_flag = gdd_liang_restoration_failed
+        NOT = { exists = LGU }
+    }
+
+    immediate = { gdd_liang_clear_petition_roster = yes }
+    option = { name = gdd_liang_restoration.30.a }
+}
+
+# Monthly contract monitor; all other countries fail its event trigger cheaply.
+country_event = {
+    id = gdd_liang_restoration.90
+    title = none
+    desc = none
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = { has_country_flag = gdd_liang_restoration_patron_active }
+
+    immediate = {
+        if = {
+            limit = { NOT = { exists = LGU } }
+            gdd_liang_close_compact_neutrally = yes
+        }
+        else_if = {
+            limit = { LGU = { NOT = { is_subject_of = ROOT } } }
+            gdd_liang_close_compact_neutrally = yes
+        }
+        else_if = {
+            limit = { LGU = { NOT = { is_march = yes } } }
+            set_country_flag = gdd_liang_breach_was_revocation
+            gdd_liang_apply_repudiation_with_liberty_desire = yes
+            country_event = { id = gdd_liang_restoration.50 }
+        }
+        else_if = {
+            limit = {
+                gdd_liang_settlement_is_stable = yes
+                NOT = { has_country_flag = gdd_liang_settlement_pending }
+            }
+            set_country_flag = gdd_liang_settlement_pending
+            country_event = { id = gdd_liang_restoration.39 days = 30 }
+        }
+    }
+
+    option = { name = OK }
+}
+
+# Recheck after the peace state has remained stable for roughly thirty days.
+country_event = {
+    id = gdd_liang_restoration.39
+    title = none
+    desc = none
+    picture = DIPLOMACY_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_country_flag = gdd_liang_restoration_patron_active
+        has_country_flag = gdd_liang_settlement_pending
+    }
+
+    immediate = {
+        if = {
+            limit = { gdd_liang_settlement_is_stable = yes }
+            country_event = { id = gdd_liang_restoration.40 }
+        }
+        else = { clr_country_flag = gdd_liang_settlement_pending }
+    }
+
+    option = { name = OK }
+}
+
+country_event = {
+    id = gdd_liang_restoration.40
+    title = gdd_liang_restoration.40.t
+    desc = gdd_liang_restoration.40.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        has_country_flag = gdd_liang_settlement_pending
+        gdd_liang_settlement_is_stable = yes
+    }
+
+    option = {
+        name = gdd_liang_restoration.40.a
+        custom_tooltip = gdd_liang_restoration.40.a.tt
+        hidden_effect = {
+            gdd_liang_honor_homeland_settlement = yes
+            country_event = { id = gdd_liang_restoration.41 days = 1 }
+        }
+        ai_chance = { factor = 90 }
+    }
+
+    option = {
+        name = gdd_liang_restoration.40.b
+        custom_tooltip = gdd_liang_restoration.40.b.tt
+        hidden_effect = {
+            gdd_liang_apply_repudiation_with_liberty_desire = yes
+            country_event = { id = gdd_liang_restoration.42 days = 1 }
+        }
+        ai_chance = { factor = 10 }
+    }
+}
+
+country_event = {
+    id = gdd_liang_restoration.41
+    title = gdd_liang_restoration.41.t
+    desc = gdd_liang_restoration.41.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    major = yes
+    major_trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+    }
+
+    trigger = {
+        has_country_flag = gdd_liang_restoration_compact_fulfilled
+        exists = LGU
+    }
+
+    option = { name = gdd_liang_restoration.41.a }
+}
+
+country_event = {
+    id = gdd_liang_restoration.42
+    title = gdd_liang_restoration.42.t
+    desc = gdd_liang_restoration.42.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    major = yes
+    major_trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+    }
+
+    trigger = { has_country_flag = gdd_liang_restoration_compact_repudiated }
+    option = { name = gdd_liang_restoration.42.a }
+}
+
+country_event = {
+    id = gdd_liang_restoration.50
+    title = gdd_liang_restoration.50.t
+    desc = {
+        trigger = { has_country_flag = gdd_liang_breach_was_annexation }
+        desc = gdd_liang_restoration.50.d.annexed
+    }
+    desc = {
+        trigger = { has_country_flag = gdd_liang_breach_was_revocation }
+        desc = gdd_liang_restoration.50.d.revoked
+    }
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    major = yes
+    major_trigger = {
+        ai = no
+        zhx_is_tianxia_polity = yes
+    }
+
+    trigger = { has_country_flag = gdd_liang_restoration_compact_repudiated }
+    option = { name = gdd_liang_restoration.50.a }
+}

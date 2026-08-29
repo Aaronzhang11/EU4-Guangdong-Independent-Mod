@@ -1,0 +1,176 @@
+# Country-level academy reconciliation. Province modifiers are authoritative;
+# every country modifier below is disposable derived state.
+
+zhx_remove_academy_country_modifiers = {
+    remove_country_modifier = zhx_academy_synergy_ru
+    remove_country_modifier = zhx_academy_synergy_fa
+    remove_country_modifier = zhx_academy_synergy_mo
+    remove_country_modifier = zhx_academy_synergy_dao
+    remove_country_modifier = zhx_academy_synergy_bing
+    remove_country_modifier = zhx_academy_synergy_zongheng
+    remove_country_modifier = zhx_academy_tension_mild
+    remove_country_modifier = zhx_academy_tension_medium
+    remove_country_modifier = zhx_academy_tension_heavy
+}
+
+zhx_refresh_academy_country_effects = {
+    zhx_remove_academy_country_modifiers = yes
+    set_variable = {
+        which = zhx_academy_unprotected_school_count
+        value = 0
+    }
+
+    # Non-Lijiao states retain every academy's local province benefit but do
+    # not participate in main-school synergy or Ritual Teaching thought tension.
+    if = {
+        limit = {
+            zhx_is_lijiao_country = yes
+            zhx_has_doctrine = yes
+        }
+
+        # Main-school synergy is a boolean: owning two matching academies does
+        # not stack. An invited school never satisfies these branches.
+        if = {
+            limit = {
+                has_country_flag = zhx_doctrine_ru
+                zhx_has_ru_academy = yes
+            }
+            add_country_modifier = {
+                name = zhx_academy_synergy_ru
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = zhx_doctrine_fa
+                zhx_has_fa_academy = yes
+            }
+            add_country_modifier = {
+                name = zhx_academy_synergy_fa
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = zhx_doctrine_mo
+                zhx_has_mo_academy = yes
+            }
+            add_country_modifier = {
+                name = zhx_academy_synergy_mo
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = zhx_doctrine_dao
+                zhx_has_dao_academy = yes
+            }
+            add_country_modifier = {
+                name = zhx_academy_synergy_dao
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = zhx_doctrine_bing
+                zhx_has_bing_academy = yes
+            }
+            add_country_modifier = {
+                name = zhx_academy_synergy_bing
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = zhx_doctrine_zongheng
+                zhx_has_zongheng_academy = yes
+            }
+            add_country_modifier = {
+                name = zhx_academy_synergy_zongheng
+                duration = -1
+            }
+        }
+
+        # Count distinct unprotected school types. A main or invited school
+        # protects every academy of that school; academy count itself is ignored.
+        if = {
+            limit = { zhx_has_unprotected_ru_academy = yes }
+            change_variable = {
+                which = zhx_academy_unprotected_school_count
+                value = 1
+            }
+        }
+        if = {
+            limit = { zhx_has_unprotected_fa_academy = yes }
+            change_variable = {
+                which = zhx_academy_unprotected_school_count
+                value = 1
+            }
+        }
+        if = {
+            limit = { zhx_has_unprotected_mo_academy = yes }
+            change_variable = {
+                which = zhx_academy_unprotected_school_count
+                value = 1
+            }
+        }
+        if = {
+            limit = { zhx_has_unprotected_dao_academy = yes }
+            change_variable = {
+                which = zhx_academy_unprotected_school_count
+                value = 1
+            }
+        }
+        if = {
+            limit = { zhx_has_unprotected_bing_academy = yes }
+            change_variable = {
+                which = zhx_academy_unprotected_school_count
+                value = 1
+            }
+        }
+        if = {
+            limit = { zhx_has_unprotected_zongheng_academy = yes }
+            change_variable = {
+                which = zhx_academy_unprotected_school_count
+                value = 1
+            }
+        }
+
+        if = {
+            limit = {
+                check_variable = {
+                    which = zhx_academy_unprotected_school_count
+                    value = 3
+                }
+            }
+            add_country_modifier = {
+                name = zhx_academy_tension_heavy
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = zhx_academy_unprotected_school_count
+                    value = 2
+                }
+            }
+            add_country_modifier = {
+                name = zhx_academy_tension_medium
+                duration = -1
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = zhx_academy_unprotected_school_count
+                    value = 1
+                }
+            }
+            add_country_modifier = {
+                name = zhx_academy_tension_mild
+                duration = -1
+            }
+        }
+    }
+}
