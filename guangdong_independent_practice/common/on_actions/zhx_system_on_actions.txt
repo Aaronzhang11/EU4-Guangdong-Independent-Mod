@@ -1,10 +1,9 @@
-# 隐藏初始化事件只会在周国（CZH）作用域中通过，并按存档版本旗标只执行一次。
-# 初始化完成后，再由它为人类玩家安排可见的开局总览事件。
 on_startup = {
     events = {
         zhx_system.1
         zhx_opening_school.1
         zhx_debate.1
+        gdd_celestial_reform_vote.1
         # Fresh 1444 custom nations are not part of the fixed 65-tag school
         # catalogue. The shared lifecycle gives eligible Ritual Teaching
         # designs the ordinary six-school foundation route and rejects an
@@ -54,7 +53,12 @@ on_country_released = {
 # recomputes only its own bounded factor rows, raw total and threshold gaps.
 # AI countries have no religion-page reader and need no cache refresh. There is
 # no every_country loop and no province scan.
+# Reform voting shares this monthly pulse, while its own event trigger limits
+# the expensive refresh to January, April, July and October.
 on_monthly_pulse = {
+    events = {
+        gdd_celestial_reform_vote.2
+    }
     if = {
         limit = {
             ai = no
@@ -65,8 +69,36 @@ on_monthly_pulse = {
     }
 }
 
-# 年度脉冲会把事件发给所有国家，但事件触发器只允许已登记的天子通过。
-# 因而每年实际只结算一次，不需要也不存在常驻的 while true 循环。
+# Subject status changes alter the new HRE-style overlord component of the AI
+# score.  Refresh immediately when either side belongs to the Zhou realm;
+# ROOT is the overlord and FROM is the subject in both on-actions.
+on_dependency_gained = {
+    if = {
+        limit = {
+            has_global_flag = gdd_celestial_reform_voting_initialised
+            OR = {
+                zhx_is_tianxia_polity = yes
+                FROM = { zhx_is_tianxia_member = yes }
+            }
+        }
+        CZH = { gdd_refresh_all_ai_reform_votes_effect = yes }
+    }
+}
+
+on_dependency_lost = {
+    if = {
+        limit = {
+            has_global_flag = gdd_celestial_reform_voting_initialised
+            OR = {
+                zhx_is_tianxia_polity = yes
+                FROM = { zhx_is_tianxia_member = yes }
+            }
+        }
+        CZH = { gdd_refresh_all_ai_reform_votes_effect = yes }
+    }
+}
+
+# 年度脉冲继续处理原有周天下系统维护；改革投票已改为季度脉冲。
 on_yearly_pulse = {
     events = {
         zhx_system.10
@@ -78,10 +110,52 @@ on_yearly_pulse = {
     }
 }
 
-# THIS is the transferred province and FROM is its former owner. Only the
-# twelve named academy provinces need reconciliation, so ordinary conquest
-# pays no academy scan cost. Both the new and old owner are refreshed at once.
+# Keep development-weighted reform votes exact after manual development,
+# territorial transfers and province ownership changes.  The yearly pass is a
+# final safety net for development changed by less common scripted effects.
+on_adm_development = {
+    owner = {
+        if = {
+            limit = { zhx_is_tianxia_member = yes }
+            CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+        }
+    }
+}
+
+on_dip_development = {
+    owner = {
+        if = {
+            limit = { zhx_is_tianxia_member = yes }
+            CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+        }
+    }
+}
+
+on_mil_development = {
+    owner = {
+        if = {
+            limit = { zhx_is_tianxia_member = yes }
+            CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+        }
+    }
+}
+
+on_transfer_development = {
+    if = {
+        limit = {
+            OR = {
+                zhx_is_tianxia_member = yes
+                FROM = { zhx_is_tianxia_member = yes }
+            }
+        }
+        CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+    }
+}
+
 on_province_owner_change = {
+    # THIS is the transferred province and FROM is its former owner. Only the
+    # twelve named academy provinces need reconciliation, so ordinary conquest
+    # pays no academy scan cost. Both the new and old owner are refreshed at once.
     if = {
         limit = {
             OR = {
@@ -113,8 +187,19 @@ on_province_owner_change = {
             }
         }
     }
-}
 
+    # Province transfers can change the development weight of both the new and
+    # former Zhou members, so recalculate the realm vote once after the transfer.
+    if = {
+        limit = {
+            OR = {
+                owner = { zhx_is_tianxia_member = yes }
+                FROM = { zhx_is_tianxia_member = yes }
+            }
+        }
+        CZH = { gdd_recalculate_all_reform_votes_effect = yes }
+    }
+}
 # 战争结束时 ROOT 是胜方战争领袖，FROM 是败方战争领袖。
 # 只有周天下国家击败周天下以外的国家才结算一次；礼乐与盟功数值由当前天下显学决定。
 on_war_ended = {
@@ -129,6 +214,28 @@ on_war_ended = {
         event_target:zhx_tianzi = {
             zhx_reward_external_war_victory = yes
         }
+    }
+}
+
+# Reassign the authority effects immediately if the native Mandate changes
+# hands.  The yearly refresh remains as a low-frequency safety net.
+on_mandate_of_heaven_gained = {
+    if = {
+        limit = {
+            has_global_flag = zhx_system_initialised_v8
+            CZH = { exists = yes }
+        }
+        CZH = { gdd_refresh_authority_balance_effects = yes }
+    }
+}
+
+on_mandate_of_heaven_lost = {
+    if = {
+        limit = {
+            has_global_flag = zhx_system_initialised_v8
+            CZH = { exists = yes }
+        }
+        CZH = { gdd_refresh_authority_balance_effects = yes }
     }
 }
 

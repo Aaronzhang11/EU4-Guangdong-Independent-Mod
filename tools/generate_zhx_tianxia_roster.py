@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-GUI = ROOT / "guangdong_independent_practice/interface/countrydecisionsview.gui"
+GUI = ROOT / "guangdong_independent_practice/interface/topbar.gui"
 CUSTOM_GUI = ROOT / "guangdong_independent_practice/common/custom_gui/zhx_tianxia_gui.txt"
 EFFECTS = ROOT / "guangdong_independent_practice/common/scripted_effects/zhx_gui_roster_effects.txt"
 EOC_GUI = ROOT / "guangdong_independent_practice/interface/celestialempireview.gui"
@@ -13,13 +13,13 @@ EOC_CUSTOM_GUI = ROOT / "guangdong_independent_practice/common/custom_gui/gdd_ce
 
 SLOTS = 200
 EOC_SLOTS = 65
-EOC_COLUMNS = 12
-EOC_ROWS = 4
+EOC_COLUMNS = 8
+EOC_ROWS = 6
 EOC_PAGE_SIZE = EOC_COLUMNS * EOC_ROWS
-EOC_GRID_X = 347
-EOC_GRID_Y = 671
-EOC_COLUMN_STEP = 27
-EOC_ROW_STEP = 26
+EOC_GRID_X = 105
+EOC_GRID_Y = 698
+EOC_COLUMN_STEP = 23
+EOC_ROW_STEP = 30
 
 
 def replace_generated_block(path: Path, begin: str, end: str, body: str) -> None:
@@ -81,14 +81,12 @@ def binding_blocks() -> str:
 
 
 def eoc_gui_blocks() -> str:
-    """Build the paged Mandate copy using the vanilla tributary shield spacing."""
+    """Build the paged Mandate copy inside the shortened member panel."""
     blocks = []
     for index in range(1, EOC_SLOTS + 1):
         page_index = (index - 1) % EOC_PAGE_SIZE
         column = page_index % EOC_COLUMNS
         row = page_index // EOC_COLUMNS
-        # Four rows fit wholly inside the original tributary frame. The second
-        # page restarts at the top instead of spilling through the lower border.
         x = EOC_GRID_X + column * EOC_COLUMN_STEP
         y = EOC_GRID_Y + row * EOC_ROW_STEP
         blocks.append(
@@ -99,7 +97,7 @@ def eoc_gui_blocks() -> str:
                     "\t\t\tquadTextureSprite = \"GFX_shield_small\"",
                     f"\t\t\tposition = {{ x = {x} y = {y} }}",
                     "\t\t\tclicksound = click",
-                    "\t\t\tscale = 0.75",
+                    "\t\t\tscale = 0.55",
                     "\t\t\tscripted = yes",
                     "\t\t}",
                 ]

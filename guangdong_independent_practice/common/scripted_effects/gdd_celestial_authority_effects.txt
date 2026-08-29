@@ -1,0 +1,862 @@
+# Gameplay layer for the independent central-authority / feudatory-prestige
+# balance shown in the Mandate window.  The authoritative value and all cached
+# display values live on CZH.  Public scripts that change the balance must call
+# gdd_refresh_authority_balance_effects after changing it.
+
+gdd_clamp_central_authority_balance = {
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 100
+            }
+        }
+        set_variable = {
+            which = gdd_central_authority_balance
+            value = 100
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = -100
+                }
+            }
+        }
+        set_variable = {
+            which = gdd_central_authority_balance
+            value = -100
+        }
+    }
+
+    # Tenth-point changes can leave a microscopic floating-point residue after
+    # opposite adjustments. Treat the supported one-decimal zero band as zero.
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = -0.05
+            }
+            NOT = {
+                check_variable = {
+                    which = gdd_central_authority_balance
+                    value = 0.05
+                }
+            }
+        }
+        set_variable = {
+            which = gdd_central_authority_balance
+            value = 0
+        }
+    }
+}
+
+# Country-scope cleanup.  A recipient flag lets the global refresh find former
+# members or former Mandate holders and remove stale effects safely.
+gdd_clear_authority_balance_effects = {
+    remove_country_modifier = gdd_authority_balance_zero
+    remove_country_modifier = gdd_central_authority_emperor_bit_001
+    remove_country_modifier = gdd_central_authority_emperor_bit_002
+    remove_country_modifier = gdd_central_authority_emperor_bit_004
+    remove_country_modifier = gdd_central_authority_emperor_bit_008
+    remove_country_modifier = gdd_central_authority_emperor_bit_016
+    remove_country_modifier = gdd_central_authority_emperor_bit_032
+    remove_country_modifier = gdd_central_authority_emperor_bit_064
+    remove_country_modifier = gdd_central_authority_emperor_tenth_bit_001
+    remove_country_modifier = gdd_central_authority_emperor_tenth_bit_002
+    remove_country_modifier = gdd_central_authority_emperor_tenth_bit_004
+    remove_country_modifier = gdd_central_authority_emperor_tenth_bit_008
+    remove_country_modifier = gdd_central_authority_member_bit_001
+    remove_country_modifier = gdd_central_authority_member_bit_002
+    remove_country_modifier = gdd_central_authority_member_bit_004
+    remove_country_modifier = gdd_central_authority_member_bit_008
+    remove_country_modifier = gdd_central_authority_member_bit_016
+    remove_country_modifier = gdd_central_authority_member_bit_032
+    remove_country_modifier = gdd_central_authority_member_bit_064
+    remove_country_modifier = gdd_central_authority_member_tenth_bit_001
+    remove_country_modifier = gdd_central_authority_member_tenth_bit_002
+    remove_country_modifier = gdd_central_authority_member_tenth_bit_004
+    remove_country_modifier = gdd_central_authority_member_tenth_bit_008
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_001
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_002
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_004
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_008
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_016
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_032
+    remove_country_modifier = gdd_feudatory_prestige_major_bit_064
+    remove_country_modifier = gdd_feudatory_prestige_major_tenth_bit_001
+    remove_country_modifier = gdd_feudatory_prestige_major_tenth_bit_002
+    remove_country_modifier = gdd_feudatory_prestige_major_tenth_bit_004
+    remove_country_modifier = gdd_feudatory_prestige_major_tenth_bit_008
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_001
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_002
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_004
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_008
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_016
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_032
+    remove_country_modifier = gdd_feudatory_prestige_member_bit_064
+    remove_country_modifier = gdd_feudatory_prestige_member_tenth_bit_001
+    remove_country_modifier = gdd_feudatory_prestige_member_tenth_bit_002
+    remove_country_modifier = gdd_feudatory_prestige_member_tenth_bit_004
+    remove_country_modifier = gdd_feudatory_prestige_member_tenth_bit_008
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_001
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_002
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_004
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_008
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_016
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_032
+    remove_country_modifier = gdd_feudatory_prestige_emperor_bit_064
+    remove_country_modifier = gdd_feudatory_prestige_emperor_tenth_bit_001
+    remove_country_modifier = gdd_feudatory_prestige_emperor_tenth_bit_002
+    remove_country_modifier = gdd_feudatory_prestige_emperor_tenth_bit_004
+    remove_country_modifier = gdd_feudatory_prestige_emperor_tenth_bit_008
+    clr_country_flag = gdd_authority_balance_effect_recipient
+}
+
+# Country-scope application.  Existing zhx identity flags remain the authority
+# for the member distinction; a dedicated trigger identifies the seven great
+# feudatories.  The native Mandate identifies the emperor so the penalties and
+# bonuses transfer when the Mandate changes hands.
+gdd_apply_authority_balance_effects = {
+    gdd_clear_authority_balance_effects = yes
+
+    if = {
+        limit = {
+            CZH = { has_country_flag = gdd_authority_balance_zero_active }
+            zhx_is_tianxia_polity = yes
+        }
+        add_country_modifier = {
+            name = gdd_authority_balance_zero
+            duration = -1
+        }
+        set_country_flag = gdd_authority_balance_effect_recipient
+    }
+    else_if = {
+        limit = {
+            CZH = { has_country_flag = gdd_central_authority_active }
+        }
+        if = {
+            limit = { is_emperor_of_china = yes }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_008
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_016 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_016
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_032 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_032
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_064 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_bit_064
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_tenth_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_tenth_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_tenth_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_emperor_tenth_bit_008
+                    duration = -1
+                }
+            }
+            set_country_flag = gdd_authority_balance_effect_recipient
+        }
+        else_if = {
+            limit = { zhx_is_tianxia_member = yes }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_008
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_016 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_016
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_032 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_032
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_064 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_bit_064
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_tenth_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_tenth_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_tenth_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_central_authority_member_tenth_bit_008
+                    duration = -1
+                }
+            }
+            set_country_flag = gdd_authority_balance_effect_recipient
+        }
+    }
+    else_if = {
+        limit = {
+            CZH = { has_country_flag = gdd_feudatory_prestige_active }
+        }
+        if = {
+            limit = { is_emperor_of_china = yes }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_008
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_016 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_016
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_032 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_032
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_064 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_bit_064
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_tenth_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_tenth_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_tenth_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_emperor_tenth_bit_008
+                    duration = -1
+                }
+            }
+            set_country_flag = gdd_authority_balance_effect_recipient
+        }
+        else_if = {
+            limit = { zhx_is_seven_great_feudatory = yes }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_008
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_016 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_016
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_032 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_032
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_064 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_bit_064
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_tenth_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_tenth_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_tenth_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_major_tenth_bit_008
+                    duration = -1
+                }
+            }
+            set_country_flag = gdd_authority_balance_effect_recipient
+        }
+        else_if = {
+            limit = { zhx_is_tianxia_member = yes }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_008
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_016 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_016
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_032 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_032
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_bit_064 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_bit_064
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_001 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_tenth_bit_001
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_002 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_tenth_bit_002
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_004 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_tenth_bit_004
+                    duration = -1
+                }
+            }
+            if = {
+                limit = { CZH = { has_country_flag = gdd_authority_balance_tenth_bit_008 } }
+                add_country_modifier = {
+                    name = gdd_feudatory_prestige_member_tenth_bit_008
+                    duration = -1
+                }
+            }
+            set_country_flag = gdd_authority_balance_effect_recipient
+        }
+    }
+}
+
+# CZH-scope rebuild. Seven whole-number bits plus four tenth-point bits
+# reproduce every value from 0.0 through 100.0 at one-decimal precision.
+gdd_refresh_authority_balance_effects = {
+    gdd_clamp_central_authority_balance = yes
+
+    clr_country_flag = gdd_central_authority_active
+    clr_country_flag = gdd_feudatory_prestige_active
+    clr_country_flag = gdd_authority_balance_zero_active
+    clr_country_flag = gdd_authority_balance_bit_001
+    clr_country_flag = gdd_authority_balance_bit_002
+    clr_country_flag = gdd_authority_balance_bit_004
+    clr_country_flag = gdd_authority_balance_bit_008
+    clr_country_flag = gdd_authority_balance_bit_016
+    clr_country_flag = gdd_authority_balance_bit_032
+    clr_country_flag = gdd_authority_balance_bit_064
+    clr_country_flag = gdd_authority_balance_tenth_bit_001
+    clr_country_flag = gdd_authority_balance_tenth_bit_002
+    clr_country_flag = gdd_authority_balance_tenth_bit_004
+    clr_country_flag = gdd_authority_balance_tenth_bit_008
+
+    set_variable = { which = gdd_central_authority_display value = 0 }
+    set_variable = { which = gdd_feudatory_prestige_display value = 0 }
+    set_variable = { which = gdd_authority_half_display value = 0 }
+    set_variable = { which = gdd_authority_tenth_display value = 0 }
+    set_variable = { which = gdd_authority_quarter_display value = 0 }
+    set_variable = { which = gdd_authority_effect_remainder value = 0 }
+    set_variable = { which = gdd_authority_integer_magnitude_display value = 0 }
+    set_variable = { which = gdd_authority_integer_display value = 0 }
+
+    if = {
+        limit = {
+            is_variable_equal = {
+                which = gdd_central_authority_balance
+                value = 0
+            }
+        }
+        set_country_flag = gdd_authority_balance_zero_active
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                which = gdd_central_authority_balance
+                value = 0
+            }
+        }
+        set_country_flag = gdd_central_authority_active
+        set_variable = {
+            which = gdd_central_authority_display
+            which = gdd_central_authority_balance
+        }
+        set_variable = {
+            which = gdd_authority_effect_remainder
+            which = gdd_central_authority_balance
+        }
+    }
+    else = {
+        set_country_flag = gdd_feudatory_prestige_active
+        set_variable = {
+            which = gdd_feudatory_prestige_display
+            which = gdd_central_authority_balance
+        }
+        multiply_variable = {
+            which = gdd_feudatory_prestige_display
+            value = -1
+        }
+        set_variable = {
+            which = gdd_authority_effect_remainder
+            which = gdd_feudatory_prestige_display
+        }
+    }
+
+    if = {
+        limit = { has_country_flag = gdd_central_authority_active }
+        set_variable = {
+            which = gdd_authority_half_display
+            which = gdd_central_authority_display
+        }
+        set_variable = {
+            which = gdd_authority_tenth_display
+            which = gdd_central_authority_display
+        }
+        set_variable = {
+            which = gdd_authority_quarter_display
+            which = gdd_central_authority_display
+        }
+    }
+    else_if = {
+        limit = { has_country_flag = gdd_feudatory_prestige_active }
+        set_variable = {
+            which = gdd_authority_half_display
+            which = gdd_feudatory_prestige_display
+        }
+        set_variable = {
+            which = gdd_authority_tenth_display
+            which = gdd_feudatory_prestige_display
+        }
+    }
+    multiply_variable = {
+        which = gdd_authority_half_display
+        value = 0.5
+    }
+    multiply_variable = {
+        which = gdd_authority_tenth_display
+        value = 0.1
+    }
+    multiply_variable = {
+        which = gdd_authority_quarter_display
+        value = 0.25
+    }
+
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 64
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_064
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 64
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -64
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 32
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_032
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 32
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -32
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 16
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_016
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 16
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -16
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 8
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_008
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 8
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -8
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 4
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_004
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 4
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -4
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 2
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_002
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 2
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -2
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 1
+            }
+        }
+        set_country_flag = gdd_authority_balance_bit_001
+        change_variable = {
+            which = gdd_authority_integer_magnitude_display
+            value = 1
+        }
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -1
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 0.7999
+            }
+        }
+        set_country_flag = gdd_authority_balance_tenth_bit_008
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -0.8
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 0.3999
+            }
+        }
+        set_country_flag = gdd_authority_balance_tenth_bit_004
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -0.4
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 0.1999
+            }
+        }
+        set_country_flag = gdd_authority_balance_tenth_bit_002
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -0.2
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = gdd_authority_effect_remainder
+                value = 0.0999
+            }
+        }
+        set_country_flag = gdd_authority_balance_tenth_bit_001
+        change_variable = {
+            which = gdd_authority_effect_remainder
+            value = -0.1
+        }
+    }
+
+    set_variable = {
+        which = gdd_authority_integer_display
+        which = gdd_authority_integer_magnitude_display
+    }
+    if = {
+        limit = { has_country_flag = gdd_feudatory_prestige_active }
+        multiply_variable = {
+            which = gdd_authority_integer_display
+            value = -1
+        }
+    }
+
+    set_variable = {
+        which = gdd_authority_effect_remainder
+        value = 0
+    }
+
+    every_country = {
+        limit = {
+            OR = {
+                is_emperor_of_china = yes
+                zhx_is_tianxia_polity = yes
+                has_country_flag = gdd_authority_balance_effect_recipient
+            }
+        }
+        gdd_apply_authority_balance_effects = yes
+    }
+}

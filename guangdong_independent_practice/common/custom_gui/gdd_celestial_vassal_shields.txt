@@ -1,14 +1,136 @@
 custom_shield = {
     name = gdd_principal_vassal_slot
     potential = {
-        YAN = { exists = yes }
+        has_saved_global_event_target = gdd_principal_vassal
+        event_target:gdd_principal_vassal = { exists = yes }
     }
     trigger = {
-        YAN = { exists = yes }
+        has_saved_global_event_target = gdd_principal_vassal
+        event_target:gdd_principal_vassal = { exists = yes }
     }
     effect = { }
     tooltip = GDD_CELESTIAL_PRINCIPAL_VASSAL_TT
     global_event_target = gdd_principal_vassal
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_vassal_slot_1
+    potential = {
+        has_global_flag = gdd_eoc_great_feudatory_roster_initialised
+        has_saved_global_event_target = gdd_eoc_great_feudatory_roster_01
+        event_target:gdd_eoc_great_feudatory_roster_01 = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+    }
+    trigger = { always = yes }
+    effect = { }
+    tooltip = GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT
+    global_event_target = gdd_eoc_great_feudatory_roster_01
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_vassal_slot_2
+    potential = {
+        has_global_flag = gdd_eoc_great_feudatory_roster_initialised
+        has_saved_global_event_target = gdd_eoc_great_feudatory_roster_02
+        event_target:gdd_eoc_great_feudatory_roster_02 = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+    }
+    trigger = { always = yes }
+    effect = { }
+    tooltip = GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT
+    global_event_target = gdd_eoc_great_feudatory_roster_02
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_vassal_slot_3
+    potential = {
+        has_global_flag = gdd_eoc_great_feudatory_roster_initialised
+        has_saved_global_event_target = gdd_eoc_great_feudatory_roster_03
+        event_target:gdd_eoc_great_feudatory_roster_03 = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+    }
+    trigger = { always = yes }
+    effect = { }
+    tooltip = GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT
+    global_event_target = gdd_eoc_great_feudatory_roster_03
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_vassal_slot_4
+    potential = {
+        has_global_flag = gdd_eoc_great_feudatory_roster_initialised
+        has_saved_global_event_target = gdd_eoc_great_feudatory_roster_04
+        event_target:gdd_eoc_great_feudatory_roster_04 = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+    }
+    trigger = { always = yes }
+    effect = { }
+    tooltip = GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT
+    global_event_target = gdd_eoc_great_feudatory_roster_04
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_vassal_slot_5
+    potential = {
+        has_global_flag = gdd_eoc_great_feudatory_roster_initialised
+        has_saved_global_event_target = gdd_eoc_great_feudatory_roster_05
+        event_target:gdd_eoc_great_feudatory_roster_05 = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+    }
+    trigger = { always = yes }
+    effect = { }
+    tooltip = GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT
+    global_event_target = gdd_eoc_great_feudatory_roster_05
+    open_country = yes
+}
+
+custom_shield = {
+    name = gdd_vassal_slot_6
+    potential = {
+        has_global_flag = gdd_eoc_great_feudatory_roster_initialised
+        has_saved_global_event_target = gdd_eoc_great_feudatory_roster_06
+        event_target:gdd_eoc_great_feudatory_roster_06 = {
+            exists = yes
+            has_country_flag = zhx_member
+            has_country_flag = zhx_major_feudatory
+            NOT = { tag = YAN }
+            NOT = { has_country_flag = zhx_tianzi }
+        }
+    }
+    trigger = { always = yes }
+    effect = { }
+    tooltip = GDD_CELESTIAL_GREAT_FEUDATORY_SLOT_TT
+    global_event_target = gdd_eoc_great_feudatory_roster_06
     open_country = yes
 }
 
@@ -18,11 +140,11 @@ custom_shield = {
 custom_button = {
     name = gdd_decree_expand_bureaucracy_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { NOT = { has_country_flag = mng_expanded_palace_bureaucracy_flag } }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -36,6 +158,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_expand_bureaucracy_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_expand_bureaucracy
         }
@@ -46,11 +169,11 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_improved_expand_bureaucracy_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { has_country_flag = mng_expanded_palace_bureaucracy_flag }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -64,6 +187,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_improved_expand_bureaucracy_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_improved_expand_bureaucracy
         }
@@ -74,11 +198,11 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_conduct_census_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { NOT = { has_country_flag = mng_empowered_pop_census_flag } }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -92,6 +216,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_conduct_census_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_conduct_census
         }
@@ -102,11 +227,11 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_improved_conduct_census_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
         event_target:EmperorOfChina = { has_country_flag = mng_empowered_pop_census_flag }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -120,6 +245,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_improved_conduct_census_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_improved_conduct_census
         }
@@ -130,10 +256,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_promote_naval_officers_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -147,6 +273,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_promote_naval_officers_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_promote_naval_officers
         }
@@ -157,10 +284,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_increase_tariff_control_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -174,6 +301,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_increase_tariff_control_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_increase_tariff_control
         }
@@ -184,10 +312,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_improve_defence_effort_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -201,6 +329,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_improve_defence_effort_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_improve_defence_effort
         }
@@ -211,10 +340,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_boost_officer_corps_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -228,6 +357,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_boost_officer_corps_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_boost_officer_corps
         }
@@ -238,10 +368,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_fund_new_centers_of_education_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -255,6 +385,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_fund_new_centers_of_education_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_fund_new_centers_of_education
         }
@@ -265,10 +396,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_proclaim_dynastic_name_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -282,6 +413,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_proclaim_dynastic_name_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_proclaim_dynastic_name
         }
@@ -292,10 +424,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_issue_the_great_warnings_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -309,6 +441,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_issue_the_great_warnings_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_issue_the_great_warnings
         }
@@ -319,10 +452,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_six_ordinances_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -336,6 +469,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_six_ordinances_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_six_ordinances
         }
@@ -346,10 +480,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_sacred_edict_of_confucianism_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -363,6 +497,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_sacred_edict_of_confucianism_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_sacred_edict_of_confucianism
         }
@@ -373,10 +508,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_promote_taoist_studies_button
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -390,6 +525,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_promote_taoist_studies_active
     potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_promote_taoist_studies
         }
@@ -400,10 +536,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_appoint_entrusted_eunuchs_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -417,6 +553,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_appoint_entrusted_eunuchs_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_appoint_entrusted_eunuchs
         }
@@ -427,10 +564,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_increase_trade_cooperation_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -444,6 +581,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_increase_trade_cooperation_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_increase_trade_cooperation
         }
@@ -454,10 +592,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_reinforce_the_inner_guard_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -471,6 +609,7 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_reinforce_the_inner_guard_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_reinforce_the_inner_guard
         }
@@ -481,10 +620,10 @@ custom_icon = {
 custom_button = {
     name = gdd_decree_issue_bureaucratic_imperial_seal_button
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_decree_base_trigger = yes
     }
     effect = {
@@ -498,11 +637,146 @@ custom_button = {
 custom_icon = {
     name = gdd_decree_issue_bureaucratic_imperial_seal_active
     potential = {
+        has_country_flag = gdd_eoc_decree_page_2
         event_target:EmperorOfChina = {
             has_country_modifier = gdd_proxy_decree_issue_bureaucratic_imperial_seal
         }
     }
     tooltip = gdd_proxy_decree_issue_bureaucratic_imperial_seal
+}
+
+custom_icon = {
+    name = gdd_decree_row_1_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_2_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_3_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_4_seal
+    potential = {
+        always = yes
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_5_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_6_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_7_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_8_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_9_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_10_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_11_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+custom_icon = {
+    name = gdd_decree_row_12_seal
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = ""
+}
+
+# The decree artwork is not engine-populated, so these scripted controls page
+# the replacement rows without changing the authoritative decree effects.
+custom_icon = {
+    name = gdd_eoc_decree_scroll_thumb_page_1
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    tooltip = GDD_EOC_DECREE_SCROLL_PAGE_1_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_decree_scroll_thumb_page_2
+    potential = {
+        has_country_flag = gdd_eoc_decree_page_2
+    }
+    tooltip = GDD_EOC_DECREE_SCROLL_PAGE_2_TT
+}
+
+custom_button = {
+    name = gdd_eoc_decree_scroll_up
+    potential = {
+        has_country_flag = gdd_eoc_decree_page_2
+    }
+    trigger = { always = yes }
+    effect = { clr_country_flag = gdd_eoc_decree_page_2 }
+    tooltip = GDD_EOC_DECREE_SCROLL_UP_TT
+}
+
+custom_button = {
+    name = gdd_eoc_decree_scroll_down
+    potential = {
+        NOT = { has_country_flag = gdd_eoc_decree_page_2 }
+    }
+    trigger = { always = yes }
+    effect = { set_country_flag = gdd_eoc_decree_page_2 }
+    tooltip = GDD_EOC_DECREE_SCROLL_DOWN_TT
 }
 
 # Replacement celestial-reform rows and enacted-state overlays.
@@ -513,7 +787,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_establish_gaituguiliu_trigger = yes
@@ -543,7 +816,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_seaban_trigger = yes
@@ -573,7 +845,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_land_tax_trigger = yes
@@ -603,7 +874,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_military_governors_trigger = yes
@@ -633,7 +903,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_centralizing_government_trigger = yes
@@ -663,7 +932,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_vassalize_tributaries_trigger = yes
@@ -694,7 +962,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_single_whip_trigger = yes
@@ -724,7 +991,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_reign_in_estates_trigger = yes
@@ -754,7 +1020,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_civil_registration_trigger = yes
@@ -784,7 +1049,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_silver_standard_trigger = yes
@@ -814,7 +1078,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_kanhe_trigger = yes
@@ -844,7 +1107,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_keju_trigger = yes
@@ -874,7 +1136,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_inclusive_monarchy_trigger = yes
@@ -904,7 +1165,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_bureaucratic_faction_trigger = yes
@@ -934,7 +1194,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_military_faction_trigger = yes
@@ -964,7 +1223,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_unified_market_trigger = yes
@@ -994,7 +1252,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_military_branch_trigger = yes
@@ -1024,7 +1281,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_modernize_banners_trigger = yes
@@ -1054,7 +1310,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_foreign_ship_designs_trigger = yes
@@ -1084,7 +1339,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_tributary_embassies_trigger = yes
@@ -1114,7 +1368,6 @@ custom_button = {
         event_target:EmperorOfChina = { exists = yes }
     }
     trigger = {
-        gdd_celestial_action_authorized_trigger = yes
         gdd_proxy_celestial_reform_base_trigger = yes
         event_target:EmperorOfChina = {
             gdd_can_enact_proxy_new_world_trigger = yes
@@ -1138,6 +1391,451 @@ custom_icon = {
     tooltip = GDD_CELESTIAL_REFORM_PASSED_TT
 }
 
+# Gold member-vote checkboxes.  The scripted button toggles the authoritative
+# country flag; the transparent icon above it displays frame 2 (the checkmark)
+# while still passing clicks through to the button.
+
+custom_button = {
+    name = gdd_reform_vote_establish_gaituguiliu_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_establish_gaituguiliu_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_establish_gaituguiliu } }
+    tooltip = GDD_REFORM_VOTE_ESTABLISH_GAITUGUILIU_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_establish_gaituguiliu_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_establish_gaituguiliu
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_establish_gaituguiliu_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_ESTABLISH_GAITUGUILIU_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_seaban_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_seaban_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_seaban } }
+    tooltip = GDD_REFORM_VOTE_SEABAN_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_seaban_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_seaban
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_seaban_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_SEABAN_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_land_tax_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_land_tax_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_land_tax } }
+    tooltip = GDD_REFORM_VOTE_LAND_TAX_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_land_tax_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_land_tax
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_land_tax_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_LAND_TAX_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_military_governors_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_military_governors_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_military_governors } }
+    tooltip = GDD_REFORM_VOTE_MILITARY_GOVERNORS_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_military_governors_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_military_governors
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_military_governors_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_MILITARY_GOVERNORS_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_centralizing_government_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_centralizing_government_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_centralizing_government } }
+    tooltip = GDD_REFORM_VOTE_CENTRALIZING_GOVERNMENT_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_centralizing_government_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_centralizing_government
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_centralizing_government_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_CENTRALIZING_GOVERNMENT_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_vassalize_tributaries_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_vassalize_tributaries_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_vassalize_tributaries } }
+    tooltip = GDD_REFORM_VOTE_VASSALIZE_TRIBUTARIES_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_vassalize_tributaries_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_vassalize_tributaries
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_vassalize_tributaries_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_VASSALIZE_TRIBUTARIES_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_single_whip_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_single_whip_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_single_whip } }
+    tooltip = GDD_REFORM_VOTE_SINGLE_WHIP_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_single_whip_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_single_whip
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_single_whip_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_SINGLE_WHIP_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_reign_in_estates_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_reign_in_estates_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_reign_in_estates } }
+    tooltip = GDD_REFORM_VOTE_REIGN_IN_ESTATES_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_reign_in_estates_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_reign_in_estates
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_reign_in_estates_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_REIGN_IN_ESTATES_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_civil_registration_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_civil_registration_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_civil_registration } }
+    tooltip = GDD_REFORM_VOTE_CIVIL_REGISTRATION_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_civil_registration_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_civil_registration
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_civil_registration_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_CIVIL_REGISTRATION_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_silver_standard_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_silver_standard_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_silver_standard } }
+    tooltip = GDD_REFORM_VOTE_SILVER_STANDARD_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_silver_standard_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_silver_standard
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_silver_standard_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_SILVER_STANDARD_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_kanhe_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_kanhe_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_kanhe } }
+    tooltip = GDD_REFORM_VOTE_KANHE_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_kanhe_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_kanhe
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_kanhe_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_KANHE_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_keju_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_keju_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_keju } }
+    tooltip = GDD_REFORM_VOTE_KEJU_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_keju_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_keju
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_keju_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_KEJU_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_inclusive_monarchy_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_inclusive_monarchy_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_inclusive_monarchy } }
+    tooltip = GDD_REFORM_VOTE_INCLUSIVE_MONARCHY_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_inclusive_monarchy_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_inclusive_monarchy
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_inclusive_monarchy_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_INCLUSIVE_MONARCHY_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_bureaucratic_faction_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_bureaucratic_faction_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_bureaucratic_faction } }
+    tooltip = GDD_REFORM_VOTE_BUREAUCRATIC_FACTION_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_bureaucratic_faction_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_bureaucratic_faction
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_bureaucratic_faction_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_BUREAUCRATIC_FACTION_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_military_faction_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_military_faction_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_military_faction } }
+    tooltip = GDD_REFORM_VOTE_MILITARY_FACTION_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_military_faction_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_military_faction
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_military_faction_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_MILITARY_FACTION_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_unified_market_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_unified_market_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_unified_market } }
+    tooltip = GDD_REFORM_VOTE_UNIFIED_MARKET_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_unified_market_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_unified_market
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_unified_market_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_UNIFIED_MARKET_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_military_branch_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_military_branch_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_military_branch } }
+    tooltip = GDD_REFORM_VOTE_MILITARY_BRANCH_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_military_branch_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_military_branch
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_military_branch_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_MILITARY_BRANCH_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_modernize_banners_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_modernize_banners_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_modernize_banners } }
+    tooltip = GDD_REFORM_VOTE_MODERNIZE_BANNERS_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_modernize_banners_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_modernize_banners
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_modernize_banners_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_MODERNIZE_BANNERS_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_foreign_ship_designs_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_foreign_ship_designs_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_foreign_ship_designs } }
+    tooltip = GDD_REFORM_VOTE_FOREIGN_SHIP_DESIGNS_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_foreign_ship_designs_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_foreign_ship_designs
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_foreign_ship_designs_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_FOREIGN_SHIP_DESIGNS_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_tributary_embassies_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_tributary_embassies_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_tributary_embassies } }
+    tooltip = GDD_REFORM_VOTE_TRIBUTARY_EMBASSIES_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_tributary_embassies_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_tributary_embassies
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_tributary_embassies_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_TRIBUTARY_EMBASSIES_TT
+}
+
+custom_button = {
+    name = gdd_reform_vote_new_world_button
+    potential = {
+        zhx_is_tianxia_member = yes
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_new_world_passed = yes } }
+    }
+    trigger = { always = yes }
+    effect = { gdd_toggle_reform_support_effect = { support_flag = gdd_support_reform_new_world } }
+    tooltip = GDD_REFORM_VOTE_NEW_WORLD_TT
+}
+custom_icon = {
+    name = gdd_reform_vote_new_world_checked
+    potential = {
+        zhx_is_tianxia_member = yes
+        has_country_flag = gdd_support_reform_new_world
+        event_target:EmperorOfChina = { exists = yes NOT = { gdd_reform_new_world_passed = yes } }
+    }
+    frame = { number = 2 trigger = { always = yes } }
+    tooltip = GDD_REFORM_VOTE_NEW_WORLD_TT
+}
+
 # The original tributary list is engine-bound. These scripted controls provide
 # the Mandate-window copy of the Zhou-member roster without changing the Council.
 custom_text_box = {
@@ -1146,7 +1844,6 @@ custom_text_box = {
         has_global_flag = gdd_eoc_member_roster_initialised
         CZH = { exists = yes }
     }
-    tooltip = GDD_EOC_MEMBER_COUNT_TT
 }
 
 custom_icon = {
@@ -1173,11 +1870,10 @@ custom_button = {
         has_global_flag = gdd_eoc_member_roster_initialised
         has_country_flag = gdd_eoc_member_roster_page_2
     }
-    trigger = { always = yes }
+    trigger = { hidden_trigger = { always = yes } }
     effect = {
         clr_country_flag = gdd_eoc_member_roster_page_2
     }
-    tooltip = GDD_EOC_MEMBER_SCROLL_UP_TT
 }
 
 custom_button = {
@@ -1187,11 +1883,10 @@ custom_button = {
         NOT = { has_country_flag = gdd_eoc_member_roster_page_2 }
         has_saved_global_event_target = gdd_eoc_member_roster_49
     }
-    trigger = { always = yes }
+    trigger = { hidden_trigger = { always = yes } }
     effect = {
         set_country_flag = gdd_eoc_member_roster_page_2
     }
-    tooltip = GDD_EOC_MEMBER_SCROLL_DOWN_TT
 }
 
 # GDD_EOC_MEMBER_BINDINGS_BEGIN

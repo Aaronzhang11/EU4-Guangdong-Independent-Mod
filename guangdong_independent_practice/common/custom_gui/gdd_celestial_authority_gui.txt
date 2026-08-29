@@ -1,6 +1,27 @@
 # Script bindings for the authority-balance presentation inside the Mandate UI.
 # The exact value is stored on CZH; the 21 icons only quantize its rendering.
 
+# Like the two endpoint icons on the native Muslim piety meter, the tiger tally
+# and imperial seal are live hover targets. Their tooltips explain both sides
+# of the balance and show the maximum effects at their respective endpoints.
+custom_icon = {
+    name = gdd_eoc_feudatory_prestige_icon
+    potential = {
+        has_global_flag = zhx_system_initialised_v8
+        CZH = { exists = yes }
+    }
+    tooltip = GDD_EOC_FEUDATORY_PRESTIGE_TT
+}
+
+custom_icon = {
+    name = gdd_eoc_central_authority_icon
+    potential = {
+        has_global_flag = zhx_system_initialised_v8
+        CZH = { exists = yes }
+    }
+    tooltip = GDD_EOC_CENTRAL_AUTHORITY_TT
+}
+
 custom_text_box = {
     name = gdd_eoc_authority_value
     potential = {
@@ -28,7 +49,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -49,7 +70,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -70,7 +91,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -91,7 +112,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -112,7 +133,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -133,7 +154,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -154,7 +175,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -175,7 +196,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -196,7 +217,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -217,7 +238,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -238,7 +259,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_BALANCE_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -259,7 +280,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -280,7 +301,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -301,7 +322,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -322,7 +343,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -343,7 +364,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -364,7 +385,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -385,7 +406,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -406,7 +427,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -427,7 +448,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_text_box = {
@@ -442,7 +463,7 @@ custom_text_box = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 
@@ -464,7 +485,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -485,7 +506,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -506,7 +527,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -527,7 +548,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -548,7 +569,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -569,7 +590,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -590,7 +611,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -611,7 +632,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -632,7 +653,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -653,7 +674,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT
 }
 
 custom_icon = {
@@ -674,7 +695,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_BALANCE_EFFECTS_TT
 }
 
 custom_icon = {
@@ -695,7 +716,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -716,7 +737,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -737,7 +758,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -758,7 +779,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -779,7 +800,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -800,7 +821,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -821,7 +842,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -842,7 +863,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -863,7 +884,7 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }
 
 custom_icon = {
@@ -878,5 +899,5 @@ custom_icon = {
             }
         }
     }
-    tooltip = GDD_EOC_AUTHORITY_BALANCE_TT
+    tooltip = GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT
 }

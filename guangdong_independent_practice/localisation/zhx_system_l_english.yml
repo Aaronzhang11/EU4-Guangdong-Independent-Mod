@@ -56,6 +56,7 @@
  zhx_open_tianxia_overview_title:0 "SbVhT)YNI`È‰"
  zhx_open_tianxia_overview_desc:0 "SbVhT)YNN^SLub—ÿågwSVMR)YPR0ø‹¯OTŒQ0JyPN6–µk0)YN‹NØSN9ei—0dkeQãSêSû‹ÖS¶r`ÿNO‚fjPb9eØShT)YNo—r0"
  zhx_gui_close_button_tt:0 "sQí•hT)YNLub—"
+ zhx_tianxia_open_button_tt:0 "SbVhT)YNLub—\n§g8gIYhTýV¶RêSýwågwlQVáOo`ÿhT)YNbXTïS	c«ŽýNÂSNlQ®‹Nßv¦u0§!"
  zhx_view_tianxia_extent_title:0 "ågwhT)YNHrþV"
  zhx_view_tianxia_extent_desc:0 "áQòT¢cåw-NýVbÜN„výV¶RÿGWïSÇdkeQãSÂ‰ßRSVMR)YPRÊSø‹¯Oµc6R„vhQè†ußW0S.Ÿh¬`jP(Wå‹³Q®‹NÿhT)YNNb^SwýN¿OO(W0WþVNØš®N0"
  zhx_view_tianxia_extent_read_only_tt:0 "Ù=fN8NêSû‹HrþVågweQãS0S.Ÿh¬`jP(W³Q®‹NsSïSØš®NhT)YN†ußW0"
@@ -149,29 +150,90 @@
  GDD_EOC_AUTHORITY_TITLE:0 "-N.YCgZNø‹¯OZáO"
  GDD_EOC_FEUDATORY_PRESTIGE:0 "ø‹¯OZáO"
  GDD_EOC_CENTRAL_AUTHORITY:0 "-N.YCgZ"
- gdd_eoc_authority_value:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m100:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m090:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m080:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m070:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m060:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m050:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m040:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m030:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m020:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_m010:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_zero:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p010:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p020:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p030:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p040:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p050:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p060:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p070:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p080:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p090:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- gdd_eoc_authority_value_p100:0 "§Y[CZH.gdd_central_authority_balance.GetValue]§!"
- GDD_EOC_AUTHORITY_BALANCE_TT:0 "¹eFhLfHySVMRJPÿv^–CgZˆm•¿l8jýiûy¨R0JPãNhˆø‹¯OZáO`SOÿckJPãNhˆ-N.YCgZ`SO0§Y-100ó-26§!HNø‹¯OO¿RHSÿ§Y-25ó25§!HNCg›Rs^aˆHSÿ§Y26ó100§!HN-N.YO¿RHS0SVMRHr,gÅN ReQLub—LfHyŒTìrËzØSÏ‘ÿS8g9eØS2ýwJP01Wèeb)Yg9ei—agöN0"
+ GDD_EOC_FEUDATORY_PRESTIGE_TT:0 "§Yø‹¯OZáO§!\nø‹¯OZáOaˆÏ‘SýVíQP›QŸR0ßv“ŠNRýVb²‹6R¦u-N.Y„výw›R0ZáOŠÛvÿ›QMeDnŠT0W¹eGlZwÿ‡v^Š¾–÷SäN)YN0\n\n§Y¾0R100%öe„vîOck§!\nN'Yø‹¯Oÿ\n  F–›QNP–ÿ§G+50%§!\n  F–›QëXlÿ§G+10%§!\n  µOeuib.VqVÍTÿ§G-10%§!\nvQYObXTýVÿ\n  5Ïe6–BSàVÚ‹¦^NP–ÿ§G+10%§!\n-NNS‡v^ÿ\n  F–›QNP–ÿ§R-50%§!\n  ºN›RîOckÿ§R-50%§!"
+ GDD_EOC_CENTRAL_AUTHORITY_TT:0 "§Y-N.YCgZ§!\n-N.YCgZaˆÏ‘-NNS‡v^SgO00KN›QäNÆ–-NŽN)Yg„výw›R0CgZŠØšÿ‡v^ŠýwŒÆ–)YNDnÿwø‹¯O„vìrËz›QMezzô•ŠS0\n\n§Y¾0R100%öe„vîOck§!\n-NNS‡v^ÿ\n  F–›QNP–ÿ§G+100%§!\n  z6eîOckÿ§G+50%§!\n  D–¸^Û!6eeQÿ§G+50%§!\nvQYOø‹¯OýVÿ\n  F–›QNP–ÿ§R-10%§!\n  µOeuib.VqVÍTÿ§R+25%§!"
+ GDD_EOC_CURRENT_FEUDATORY_EFFECTS_TT:0 "§YSVMRîOck§!\nN'Yø‹¯Oÿ\n  F–›QNP–ÿ§G+[CZH.gdd_authority_half_display.GetValue]%§!\n  F–›QëXlÿ§G+[CZH.gdd_authority_tenth_display.GetValue]%§!\n  µOeuib.VqVÍTÿ§G-[CZH.gdd_authority_tenth_display.GetValue]%§!\nvQYObXTýVÿ\n  5Ïe6–BSàVÚ‹¦^NP–ÿ§G+[CZH.gdd_authority_tenth_display.GetValue]%§!\n-NNS‡v^ÿ\n  F–›QNP–ÿ§R-[CZH.gdd_authority_half_display.GetValue]%§!\n  ºN›RîOckÿ§R-[CZH.gdd_authority_half_display.GetValue]%§!"
+ GDD_EOC_CURRENT_CENTRAL_EFFECTS_TT:0 "§YSVMRîOck§!\n-NNS‡v^ÿ\n  F–›QNP–ÿ§G+[CZH.gdd_central_authority_display.GetValue]%§!\n  z6eîOckÿ§G+[CZH.gdd_authority_half_display.GetValue]%§!\n  D–¸^Û!6eeQÿ§G+[CZH.gdd_authority_half_display.GetValue]%§!\nvQYOø‹¯OýVÿ\n  F–›QNP–ÿ§R-[CZH.gdd_authority_tenth_display.GetValue]%§!\n  µOeuib.VqVÍTÿ§R+[CZH.gdd_authority_quarter_display.GetValue]%§!"
+ GDD_EOC_CURRENT_BALANCE_EFFECTS_TT:0 "§YSVMRîOck§!\nNb	ghT)YNýV¶Rÿ\n  8fHe‡sÿ§G+10%§!\n  ÐcGS3zšR±‚9ÿ§G-10%§!"
+ gdd_authority_balance_zero:0 "gÎ‘CgZGWaˆ"
+ gdd_central_authority_emperor_bit_001:0 "-N.YCgZ·)YPR·1¹p"
+ gdd_central_authority_emperor_bit_002:0 "-N.YCgZ·)YPR·2¹p"
+ gdd_central_authority_emperor_bit_004:0 "-N.YCgZ·)YPR·4¹p"
+ gdd_central_authority_emperor_bit_008:0 "-N.YCgZ·)YPR·8¹p"
+ gdd_central_authority_emperor_bit_016:0 "-N.YCgZ·)YPR·16¹p"
+ gdd_central_authority_emperor_bit_032:0 "-N.YCgZ·)YPR·32¹p"
+ gdd_central_authority_emperor_bit_064:0 "-N.YCgZ·)YPR·64¹p"
+ gdd_central_authority_emperor_tenth_bit_001:0 "-N.YCgZ·)YPR·0.1¹p"
+ gdd_central_authority_emperor_tenth_bit_002:0 "-N.YCgZ·)YPR·0.2¹p"
+ gdd_central_authority_emperor_tenth_bit_004:0 "-N.YCgZ·)YPR·0.4¹p"
+ gdd_central_authority_emperor_tenth_bit_008:0 "-N.YCgZ·)YPR·0.8¹p"
+ gdd_central_authority_member_bit_001:0 "-N.YCgZ·ø‹¯O·1¹p"
+ gdd_central_authority_member_bit_002:0 "-N.YCgZ·ø‹¯O·2¹p"
+ gdd_central_authority_member_bit_004:0 "-N.YCgZ·ø‹¯O·4¹p"
+ gdd_central_authority_member_bit_008:0 "-N.YCgZ·ø‹¯O·8¹p"
+ gdd_central_authority_member_bit_016:0 "-N.YCgZ·ø‹¯O·16¹p"
+ gdd_central_authority_member_bit_032:0 "-N.YCgZ·ø‹¯O·32¹p"
+ gdd_central_authority_member_bit_064:0 "-N.YCgZ·ø‹¯O·64¹p"
+ gdd_central_authority_member_tenth_bit_001:0 "-N.YCgZ·ø‹¯O·0.1¹p"
+ gdd_central_authority_member_tenth_bit_002:0 "-N.YCgZ·ø‹¯O·0.2¹p"
+ gdd_central_authority_member_tenth_bit_004:0 "-N.YCgZ·ø‹¯O·0.4¹p"
+ gdd_central_authority_member_tenth_bit_008:0 "-N.YCgZ·ø‹¯O·0.8¹p"
+ gdd_feudatory_prestige_major_bit_001:0 "ø‹¯OZáO·'Yø‹¯O·1¹p"
+ gdd_feudatory_prestige_major_bit_002:0 "ø‹¯OZáO·'Yø‹¯O·2¹p"
+ gdd_feudatory_prestige_major_bit_004:0 "ø‹¯OZáO·'Yø‹¯O·4¹p"
+ gdd_feudatory_prestige_major_bit_008:0 "ø‹¯OZáO·'Yø‹¯O·8¹p"
+ gdd_feudatory_prestige_major_bit_016:0 "ø‹¯OZáO·'Yø‹¯O·16¹p"
+ gdd_feudatory_prestige_major_bit_032:0 "ø‹¯OZáO·'Yø‹¯O·32¹p"
+ gdd_feudatory_prestige_major_bit_064:0 "ø‹¯OZáO·'Yø‹¯O·64¹p"
+ gdd_feudatory_prestige_major_tenth_bit_001:0 "ø‹¯OZáO·'Yø‹¯O·0.1¹p"
+ gdd_feudatory_prestige_major_tenth_bit_002:0 "ø‹¯OZáO·'Yø‹¯O·0.2¹p"
+ gdd_feudatory_prestige_major_tenth_bit_004:0 "ø‹¯OZáO·'Yø‹¯O·0.4¹p"
+ gdd_feudatory_prestige_major_tenth_bit_008:0 "ø‹¯OZáO·'Yø‹¯O·0.8¹p"
+ gdd_feudatory_prestige_member_bit_001:0 "ø‹¯OZáO·bXTýV·1¹p"
+ gdd_feudatory_prestige_member_bit_002:0 "ø‹¯OZáO·bXTýV·2¹p"
+ gdd_feudatory_prestige_member_bit_004:0 "ø‹¯OZáO·bXTýV·4¹p"
+ gdd_feudatory_prestige_member_bit_008:0 "ø‹¯OZáO·bXTýV·8¹p"
+ gdd_feudatory_prestige_member_bit_016:0 "ø‹¯OZáO·bXTýV·16¹p"
+ gdd_feudatory_prestige_member_bit_032:0 "ø‹¯OZáO·bXTýV·32¹p"
+ gdd_feudatory_prestige_member_bit_064:0 "ø‹¯OZáO·bXTýV·64¹p"
+ gdd_feudatory_prestige_member_tenth_bit_001:0 "ø‹¯OZáO·bXTýV·0.1¹p"
+ gdd_feudatory_prestige_member_tenth_bit_002:0 "ø‹¯OZáO·bXTýV·0.2¹p"
+ gdd_feudatory_prestige_member_tenth_bit_004:0 "ø‹¯OZáO·bXTýV·0.4¹p"
+ gdd_feudatory_prestige_member_tenth_bit_008:0 "ø‹¯OZáO·bXTýV·0.8¹p"
+ gdd_feudatory_prestige_emperor_bit_001:0 "ø‹¯OZáO·)YPR·1¹p"
+ gdd_feudatory_prestige_emperor_bit_002:0 "ø‹¯OZáO·)YPR·2¹p"
+ gdd_feudatory_prestige_emperor_bit_004:0 "ø‹¯OZáO·)YPR·4¹p"
+ gdd_feudatory_prestige_emperor_bit_008:0 "ø‹¯OZáO·)YPR·8¹p"
+ gdd_feudatory_prestige_emperor_bit_016:0 "ø‹¯OZáO·)YPR·16¹p"
+ gdd_feudatory_prestige_emperor_bit_032:0 "ø‹¯OZáO·)YPR·32¹p"
+ gdd_feudatory_prestige_emperor_bit_064:0 "ø‹¯OZáO·)YPR·64¹p"
+ gdd_feudatory_prestige_emperor_tenth_bit_001:0 "ø‹¯OZáO·)YPR·0.1¹p"
+ gdd_feudatory_prestige_emperor_tenth_bit_002:0 "ø‹¯OZáO·)YPR·0.2¹p"
+ gdd_feudatory_prestige_emperor_tenth_bit_004:0 "ø‹¯OZáO·)YPR·0.4¹p"
+ gdd_feudatory_prestige_emperor_tenth_bit_008:0 "ø‹¯OZáO·)YPR·0.8¹p"
+ gdd_eoc_authority_value:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m100:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m090:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m080:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m070:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m060:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m050:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m040:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m030:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m020:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_m010:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_zero:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p010:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p020:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p030:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p040:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p050:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p060:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p070:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p080:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p090:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ gdd_eoc_authority_value_p100:0 "§Y[CZH.gdd_authority_integer_display.GetValue]§!"
+ GDD_EOC_AUTHORITY_BALANCE_TT:0 "§YSVMRîOck§!"
  gdd_eoc_member_count:0 "§Y[CZH.gdd_eoc_member_count_cache.GetValue]§!8NbXTýV"
  GDD_EOC_MEMBER_COUNT_TT:0 "SVMR)Y‹TLub—‰v°‹„vhT)YN°sXRbXTýVpeÏ‘ÿòT.Rd–„v'YfN¡‹eQ0"
  GDD_EOC_MEMBER_SHIELD_TT:0 "hT)YNbXTýV0¹pûQSbVå‹ýVY²NLub—0"

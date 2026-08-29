@@ -19,8 +19,14 @@ country_event = {
             NOT = { has_global_flag = zhx_system_initialised_v5 }
             NOT = { has_global_flag = zhx_system_initialised_v6 }
             NOT = { has_global_flag = zhx_system_initialised_v7 }
+            NOT = { has_global_flag = zhx_system_initialised_v8 }
+            NOT = { has_global_flag = zhx_system_initialised_v9 }
+            NOT = { has_global_flag = zhx_system_initialised_v10 }
+            NOT = { has_global_flag = zhx_system_initialised_v11 }
+            NOT = { has_global_flag = zhx_system_initialised_v12 }
             NOT = { has_global_flag = zhx_gui_roster_initialised }
             NOT = { has_global_flag = gdd_eoc_member_roster_initialised }
+            NOT = { has_global_flag = gdd_eoc_great_feudatory_roster_initialised }
         }
     }
 
@@ -63,9 +69,40 @@ country_event = {
         }
         if = {
             limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v8 }
+            }
+            zhx_migrate_tianxia_system_v7_to_v8 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v9 }
+            }
+            zhx_migrate_tianxia_system_v8_to_v9 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v10 }
+            }
+            zhx_migrate_tianxia_system_v9_to_v10 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v11 }
+            }
+            zhx_migrate_tianxia_system_v10_to_v11 = yes
+        }
+        if = {
+            limit = {
+                NOT = { has_global_flag = zhx_system_initialised_v12 }
+            }
+            zhx_migrate_tianxia_system_v11_to_v12 = yes
+        }
+        if = {
+            limit = {
                 OR = {
                     NOT = { has_global_flag = zhx_gui_roster_initialised }
                     NOT = { has_global_flag = gdd_eoc_member_roster_initialised }
+                    NOT = { has_global_flag = gdd_eoc_great_feudatory_roster_initialised }
                 }
             }
             zhx_build_gui_roster = yes
@@ -233,6 +270,10 @@ country_event = {
 
     immediate = {
         zhx_yearly_ritual_authority_tick = yes
+        if = {
+            limit = { has_global_flag = zhx_system_initialised_v8 }
+            gdd_refresh_authority_balance_effects = yes
+        }
         # 低频修复：处理吞并、TAG 变化或外部脚本绕过公共登记接口造成的名册偏差。
         zhx_build_gui_roster = yes
     }

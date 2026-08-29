@@ -1,11 +1,42 @@
-# Script bindings for the Zhou/Tianxia presentation inside countrydecisionsview.
-# The persistent decision sets a display flag; GUI reads authoritative state
-# and never owns the simulation.
+# Script bindings for the Zhou/Tianxia presentation attached to topbar.gui.
+# Both the lower-right HUD button and the fallback decision set a display flag;
+# GUI reads authoritative state and never owns the simulation.
+
+custom_window = {
+    name = zhx_tianxia_topbar_window
+    potential = {
+        ai = no
+        has_global_flag = zhx_system_initialised_v3
+        zhx_can_see_tianxia_gui = yes
+    }
+}
+
+custom_button = {
+    name = zhx_tianxia_open_button
+    potential = {
+        ai = no
+        has_global_flag = zhx_system_initialised_v3
+        zhx_can_see_tianxia_gui = yes
+    }
+    trigger = {
+        hidden_trigger = {
+            NOT = { has_country_flag = zhx_tianxia_gui_visible }
+        }
+    }
+    effect = {
+        hidden_effect = {
+            set_country_flag = zhx_tianxia_gui_visible
+            zhx_build_gui_roster = yes
+        }
+    }
+    tooltip = zhx_tianxia_open_button_tt
+}
 
 custom_window = {
     name = zhx_tianxia_window
     potential = {
         has_global_flag = zhx_system_initialised_v3
+        zhx_can_see_tianxia_gui = yes
         has_country_flag = zhx_tianxia_gui_visible
     }
 }
