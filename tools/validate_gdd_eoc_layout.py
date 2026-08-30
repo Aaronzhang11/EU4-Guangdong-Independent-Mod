@@ -16,6 +16,12 @@ MOD = ROOT / "guangdong_independent_practice"
 GUI = MOD / "interface/celestialempireview.gui"
 CUSTOM_GUI = MOD / "common/custom_gui/gdd_celestial_vassal_shields.txt"
 LOCALISATION = MOD / "localisation_source/gdd_l_english_readable_utf8.txt"
+REFORM_ACTIONS = MOD / "common/scripted_triggers/gdd_celestial_action_triggers.txt"
+REFORM_VOTE_TRIGGERS = MOD / "common/scripted_triggers/gdd_celestial_reform_vote_triggers.txt"
+REFORM_VOTE_EFFECTS = MOD / "common/scripted_effects/gdd_celestial_reform_vote_effects.txt"
+REFORM_EFFECTS = MOD / "common/scripted_effects/gdd_celestial_proxy_effects.txt"
+REFORM_MODIFIERS = MOD / "common/triggered_modifiers/gdd_celestial_proxy_reforms.txt"
+TIANXIA_SUBJECTS = MOD / "common/subject_types/gdd_tianxia_subjects.txt"
 
 
 def controls(text: str) -> dict[str, dict[str, float | int]]:
@@ -55,6 +61,39 @@ def require(condition: bool, message: str) -> None:
         raise SystemExit(message)
 
 
+def validate_clausewitz_braces(path: Path) -> None:
+    """Balance braces while ignoring comments and quoted localisation text."""
+    text = path.read_text(encoding="utf-8-sig")
+    depth = 0
+    quoted = False
+    escaped = False
+    comment = False
+    for char in text:
+        if comment:
+            if char == "\n":
+                comment = False
+            continue
+        if quoted:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == '"':
+                quoted = False
+            continue
+        if char == "#":
+            comment = True
+        elif char == '"':
+            quoted = True
+        elif char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            require(depth >= 0, f"{path.name}: closing brace without opener")
+    require(not quoted, f"{path.name}: unterminated quoted string")
+    require(depth == 0, f"{path.name}: unbalanced braces ({depth})")
+
+
 def custom_block(text: str, name: str) -> str:
     match = re.search(
         rf"(?ms)^custom_(?:button|icon) = \{{\n    name = {re.escape(name)}\n.*?^\}}$",
@@ -64,14 +103,27 @@ def custom_block(text: str, name: str) -> str:
     return match.group(0)
 
 
+def gui_control_block(text: str, name: str) -> str:
+    match = re.search(
+        rf'(?ms)^\t\t(?:guiButtonType|iconType) = \{{\n'
+        rf'\t\t\tname = "{re.escape(name)}"\n.*?^\t\t\}}$',
+        text,
+    )
+    require(match is not None, f"missing GUI control: {name}")
+    return match.group(0)
+
+
 def main() -> None:
     gui_text = GUI.read_text(encoding="utf-8")
     custom_text = CUSTOM_GUI.read_text(encoding="utf-8")
     parsed = controls(gui_text)
 
-    require(gui_text.count("{") == gui_text.count("}"), "unbalanced GUI braces")
-    require(custom_text.count("{") == custom_text.count("}"),
-            "unbalanced scripted-GUI braces")
+    for path in (
+        GUI, CUSTOM_GUI, REFORM_ACTIONS, REFORM_VOTE_TRIGGERS,
+        REFORM_VOTE_EFFECTS, REFORM_EFFECTS, REFORM_MODIFIERS,
+        TIANXIA_SUBJECTS,
+    ):
+        validate_clausewitz_braces(path)
 
     decree_names = [
         name
@@ -185,6 +237,110 @@ def main() -> None:
     require(parsed["decisions_label"]["x"] == 812
             and parsed["decisions_label"]["y"] == 91,
             "Celestial Reforms title moved off its original green ribbon")
+
+    ordinary_reforms = [
+        "keju", "civil_registration", "silver_standard", "kanhe",
+        "unified_market", "military_branch", "foreign_ship_designs",
+        "inclusive_monarchy",
+    ]
+    centralising_reforms = [
+        "establish_gaituguiliu", "land_tax", "single_whip",
+        "centralizing_government", "reign_in_estates",
+        "vassalize_tributaries",
+    ]
+    decentralising_reforms = [
+        "seaban", "military_governors", "tributary_embassies",
+        "modernize_banners", "bureaucratic_faction", "new_world",
+    ]
+    reform_rows = {
+        **dict(zip(ordinary_reforms, range(141, 345, 29))),
+        **dict(zip(centralising_reforms, range(423, 569, 29))),
+        **dict(zip(decentralising_reforms, range(659, 805, 29))),
+    }
+    require(len(reform_rows) == 20, "expected an 8/6/6 set of twenty reforms")
+    for stem, y in reform_rows.items():
+        button = f"gdd_reform_{stem}_button"
+        passed = f"gdd_reform_{stem}_passed"
+        vote = f"gdd_reform_vote_{stem}_button"
+        checked = f"gdd_reform_vote_{stem}_checked"
+        require(parsed.get(button) == {"x": 821, "y": y, "scale": 0.9},
+                f"reform row drifted: {stem}")
+        require(parsed.get(passed) == {"x": 827, "y": y + 7, "scale": 0.75},
+                f"passed overlay drifted: {stem}")
+        require(parsed.get(vote) == {"x": 1003, "y": y + 5, "scale": 0.65},
+                f"vote checkbox drifted: {stem}")
+        require(parsed.get(checked) == {"x": 1003, "y": y + 5, "scale": 0.65},
+                f"vote checkmark drifted: {stem}")
+        require('quadTextureSprite = "GFX_reform_button"'
+                in gui_control_block(gui_text, button),
+                f"reform does not reuse vanilla button: {stem}")
+        button_binding = custom_block(custom_text, button)
+        require("tooltip = GDD_CELESTIAL_REFORM_BUTTON_TRIGGER_TT"
+                in button_binding,
+                f"reform exposes verbose internal trigger tree: {stem}")
+        custom_block(custom_text, passed)
+        custom_block(custom_text, vote)
+        custom_block(custom_text, checked)
+
+    require(parsed["gdd_eoc_ordinary_reform_frame"] == {
+        "x": 796, "y": 108, "width": 242, "height": 267,
+    }, "ordinary reform frame geometry drifted")
+    require(parsed["gdd_eoc_centralizing_reform_frame"] == {
+        "x": 796, "y": 386, "width": 242, "height": 225,
+    }, "centralising reform frame geometry drifted")
+    require(parsed["gdd_eoc_decentralizing_reform_frame"] == {
+        "x": 796, "y": 622, "width": 242, "height": 225,
+    }, "decentralising reform frame geometry drifted")
+    require(parsed["gdd_reform_ordinary_header"]["y"] == 116
+            and parsed["gdd_reform_centralizing_header"]["y"] == 394
+            and parsed["gdd_reform_decentralizing_header"]["y"] == 630,
+            "reform group headers are not lowered into their frames")
+    require("gdd_reform_military_faction_button" not in gui_text
+            and "gdd_reform_military_faction_button" not in custom_text,
+            "removed twenty-first reform is still exposed")
+    require(parsed["gdd_central_final_conflict_mark"]["y"] == 568
+            and parsed["gdd_decentral_final_conflict_mark"]["y"] == 804,
+            "final-reform mutual-exclusion marks drifted")
+    require("gdd_bureaucratic_faction_conflict_mark" not in gui_text
+            and "gdd_military_faction_conflict_mark" not in gui_text,
+            "obsolete faction mutual-exclusion marks remain")
+
+    actions = REFORM_ACTIONS.read_text(encoding="utf-8")
+    vote_triggers = REFORM_VOTE_TRIGGERS.read_text(encoding="utf-8")
+    vote_effects = REFORM_VOTE_EFFECTS.read_text(encoding="utf-8")
+    effects = REFORM_EFFECTS.read_text(encoding="utf-8")
+    modifiers = REFORM_MODIFIERS.read_text(encoding="utf-8")
+    subjects = TIANXIA_SUBJECTS.read_text(encoding="utf-8")
+    require(actions.count("gdd_five_ordinary_celestial_reforms_passed = yes") >= 12,
+            "route reforms are not gated behind five ordinary reforms")
+    require("NOT = { gdd_reform_new_world_passed = yes }" in actions
+            and "NOT = { gdd_reform_vassalize_tributaries_passed = yes }" in actions,
+            "the two final reforms are not mutually exclusive")
+    require("gdd_reform_vote_total_without_principal_dev" in vote_triggers
+            and "gdd_reform_vote_total_without_principal_plus_one" in vote_triggers
+            and "gdd_reform_vote_total_without_principal_dev" in vote_effects,
+            "executor-excluded strict-majority cache is incomplete")
+    require("set_country_flag = $which$" in effects
+            and "event_target:EmperorOfChina = {" in effects,
+            "reform ownership or Emperor cost routing is missing")
+    require("subject_type = gdd_tianxia_vassal" in effects
+            and "zhx_is_tianxia_polity = yes" in effects,
+            "central final does not target Zhou polities with its special subject")
+    require("is_subject_of_type = tributary_state" not in modifiers,
+            "reform modifiers still target tributaries instead of Zhou polities")
+    for stem in ordinary_reforms:
+        require(f"gdd_proxy_reform_{stem}_member = {{" in modifiers,
+                f"ordinary reform has no Zhou-wide benefit: {stem}")
+        require(re.search(
+            rf"(?s)gdd_reform_{stem}_passed = yes.*?"
+            rf"gdd_begin_ai_reform_vote_effect = yes\s+"
+            rf"change_variable = \{{ which = gdd_ai_reform_vote_score value = 2 \}}",
+            vote_effects,
+        ) is not None, f"ordinary reform lacks its Zhou-benefit AI vote weight: {stem}")
+    require("takes_diplo_slot = no" in subjects
+            and "max_government_rank = 0" in subjects,
+            "Tianxia vassal does not support no-slot unrestricted-rank subjects")
+
     require(parsed["influence_label"]["y"] == 91
             and parsed["influence_value"]["x"] == 625
             and parsed["influence_value"]["y"] == 128
@@ -222,6 +378,7 @@ def main() -> None:
     print("  Short member panel uses a functional 48 + 17 page scrollbar")
     print("  Emperor and Mandate share the top row; authority track is tucked below")
     print("  Principal plus six great feudatories occupy the lower centre")
+    print("  Celestial reforms use the original-height 8 / 6 / 6 vanilla-button layout")
 
 
 if __name__ == "__main__":

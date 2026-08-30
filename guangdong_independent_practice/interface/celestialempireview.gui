@@ -41,23 +41,23 @@ guiTypes = {
 			name = "gdd_eoc_ordinary_reform_frame"
 			quadTextureSprite = "GFX_gdd_eoc_reform_frame"
 			position = { x = 796 y = 108 }
-			size = { x = 242 y = 244 }
+			size = { x = 242 y = 267 }
 			alwaystransparent = yes
 		}
 
 		guiButtonType = {
 			name = "gdd_eoc_centralizing_reform_frame"
 			quadTextureSprite = "GFX_gdd_eoc_reform_frame"
-			position = { x = 796 y = 371 }
-			size = { x = 242 y = 305 }
+			position = { x = 796 y = 386 }
+			size = { x = 242 y = 225 }
 			alwaystransparent = yes
 		}
 
 		guiButtonType = {
 			name = "gdd_eoc_decentralizing_reform_frame"
 			quadTextureSprite = "GFX_gdd_eoc_reform_frame"
-			position = { x = 796 y = 691 }
-			size = { x = 242 y = 187 }
+			position = { x = 796 y = 622 }
+			size = { x = 242 y = 225 }
 			alwaystransparent = yes
 		}
 
@@ -2302,9 +2302,12 @@ guiTypes = {
 		}
 		# GDD_EOC_MEMBER_SHIELDS_END
 
-		# Right column: all 21 reforms remain available from the start and are
-		# grouped by political direction. There are deliberately no lock icons,
-		# progress counters, unlock descriptions or "not unlocked" labels.
+		# Right column: twenty reforms arranged as 8 ordinary, 6 centralising
+		# and 6 decentralising rows. The existing window height is unchanged;
+		# every row reuses the vanilla celestial reform button and enacted icon.
+		# Prerequisites and authority restrictions are shown through disabled
+		# button tooltips rather than additional controls.
+
 		instantTextBoxType = {
 			name = "decisions_label"
 			position = { x = 812 y = 91 }
@@ -2319,7 +2322,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "gdd_reform_ordinary_header"
-			position = { x = 812 y = 113 }
+			position = { x = 812 y = 116 }
 			textureFile = ""
 			font = "vic_18"
 			borderSize = { x = 4 y = 0 }
@@ -2331,7 +2334,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "gdd_reform_centralizing_header"
-			position = { x = 812 y = 376 }
+			position = { x = 812 y = 394 }
 			textureFile = ""
 			font = "vic_18"
 			borderSize = { x = 4 y = 0 }
@@ -2343,7 +2346,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "gdd_reform_decentralizing_header"
-			position = { x = 812 y = 696 }
+			position = { x = 812 y = 630 }
 			textureFile = ""
 			font = "vic_18"
 			borderSize = { x = 4 y = 0 }
@@ -2366,266 +2369,12 @@ guiTypes = {
 			borderSize = { x = 5 y = 5 }
 		}
 
-		# Visible grouped reform rows. Passed reforms receive the original check
-		# overlay; the two faction reforms keep the yellow conflict marks.
-
-		guiButtonType = {
-			name = "gdd_reform_establish_gaituguiliu_button"
-			scripted = yes
-			position = { x = 821 y = 408 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_ESTABLISH_GAITUGUILIU_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_establish_gaituguiliu_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 415 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_seaban_button"
-			scripted = yes
-			position = { x = 821 y = 145 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_SEABAN_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_seaban_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 152 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_land_tax_button"
-			scripted = yes
-			position = { x = 821 y = 437 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_LAND_TAX_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_land_tax_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 444 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_military_governors_button"
-			scripted = yes
-			position = { x = 821 y = 466 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_MILITARY_GOVERNORS_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_military_governors_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 473 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_centralizing_government_button"
-			scripted = yes
-			position = { x = 821 y = 495 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_CENTRALIZING_GOVERNMENT_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_centralizing_government_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 502 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vassalize_tributaries_button"
-			scripted = yes
-			position = { x = 821 y = 728 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_VASSALIZE_TRIBUTARIES_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_vassalize_tributaries_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 735 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_single_whip_button"
-			scripted = yes
-			position = { x = 821 y = 524 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_SINGLE_WHIP_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_single_whip_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 531 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_reign_in_estates_button"
-			scripted = yes
-			position = { x = 821 y = 553 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_REIGN_IN_ESTATES_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_reign_in_estates_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 560 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_civil_registration_button"
-			scripted = yes
-			position = { x = 821 y = 582 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_CIVIL_REGISTRATION_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_civil_registration_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 589 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_silver_standard_button"
-			scripted = yes
-			position = { x = 821 y = 174 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_SILVER_STANDARD_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_silver_standard_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 181 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_kanhe_button"
-			scripted = yes
-			position = { x = 821 y = 203 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_KANHE_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_kanhe_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 210 }
-			scale = 0.75
-		}
+		# Visible reform rows and their original enacted-state overlays.
 
 		guiButtonType = {
 			name = "gdd_reform_keju_button"
 			scripted = yes
-			position = { x = 821 y = 611 }
+			position = { x = 821 y = 141 }
 			quadTextureSprite = "GFX_reform_button"
 			buttonText = "GDD_REFORM_KEJU_TITLE"
 			buttonFont = "vic_18"
@@ -2641,16 +2390,16 @@ guiTypes = {
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 618 }
+			position = { x = 827 y = 148 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_inclusive_monarchy_button"
+			name = "gdd_reform_civil_registration_button"
 			scripted = yes
-			position = { x = 821 y = 757 }
+			position = { x = 821 y = 170 }
 			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_INCLUSIVE_MONARCHY_TITLE"
+			buttonText = "GDD_REFORM_CIVIL_REGISTRATION_TITLE"
 			buttonFont = "vic_18"
 			tooltip = ""
 			tooltipText = ""
@@ -2660,20 +2409,20 @@ guiTypes = {
 		}
 
 		iconType = {
-			name = "gdd_reform_inclusive_monarchy_passed"
+			name = "gdd_reform_civil_registration_passed"
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 764 }
+			position = { x = 827 y = 177 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_bureaucratic_faction_button"
+			name = "gdd_reform_silver_standard_button"
 			scripted = yes
-			position = { x = 821 y = 640 }
+			position = { x = 821 y = 199 }
 			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_BUREAUCRATIC_FACTION_TITLE"
+			buttonText = "GDD_REFORM_SILVER_STANDARD_TITLE"
 			buttonFont = "vic_18"
 			tooltip = ""
 			tooltipText = ""
@@ -2683,20 +2432,20 @@ guiTypes = {
 		}
 
 		iconType = {
-			name = "gdd_reform_bureaucratic_faction_passed"
+			name = "gdd_reform_silver_standard_passed"
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 647 }
+			position = { x = 827 y = 206 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_military_faction_button"
+			name = "gdd_reform_kanhe_button"
 			scripted = yes
-			position = { x = 821 y = 786 }
+			position = { x = 821 y = 228 }
 			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_MILITARY_FACTION_TITLE"
+			buttonText = "GDD_REFORM_KANHE_TITLE"
 			buttonFont = "vic_18"
 			tooltip = ""
 			tooltipText = ""
@@ -2706,18 +2455,18 @@ guiTypes = {
 		}
 
 		iconType = {
-			name = "gdd_reform_military_faction_passed"
+			name = "gdd_reform_kanhe_passed"
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 793 }
+			position = { x = 827 y = 235 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_unified_market_button"
 			scripted = yes
-			position = { x = 821 y = 232 }
+			position = { x = 821 y = 257 }
 			quadTextureSprite = "GFX_reform_button"
 			buttonText = "GDD_REFORM_UNIFIED_MARKET_TITLE"
 			buttonFont = "vic_18"
@@ -2733,14 +2482,14 @@ guiTypes = {
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 239 }
+			position = { x = 827 y = 264 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_military_branch_button"
 			scripted = yes
-			position = { x = 821 y = 261 }
+			position = { x = 821 y = 286 }
 			quadTextureSprite = "GFX_reform_button"
 			buttonText = "GDD_REFORM_MILITARY_BRANCH_TITLE"
 			buttonFont = "vic_18"
@@ -2756,37 +2505,14 @@ guiTypes = {
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 268 }
-			scale = 0.75
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_modernize_banners_button"
-			scripted = yes
-			position = { x = 821 y = 815 }
-			quadTextureSprite = "GFX_reform_button"
-			buttonText = "GDD_REFORM_MODERNIZE_BANNERS_TITLE"
-			buttonFont = "vic_18"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.9
-		}
-
-		iconType = {
-			name = "gdd_reform_modernize_banners_passed"
-			scripted = yes
-			spriteType = "GFX_enacted_reform_icon"
-			alwaystransparent = yes
-			position = { x = 827 y = 822 }
+			position = { x = 827 y = 293 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_foreign_ship_designs_button"
 			scripted = yes
-			position = { x = 821 y = 290 }
+			position = { x = 821 y = 315 }
 			quadTextureSprite = "GFX_reform_button"
 			buttonText = "GDD_REFORM_FOREIGN_SHIP_DESIGNS_TITLE"
 			buttonFont = "vic_18"
@@ -2802,14 +2528,221 @@ guiTypes = {
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 297 }
+			position = { x = 827 y = 322 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_inclusive_monarchy_button"
+			scripted = yes
+			position = { x = 821 y = 344 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_INCLUSIVE_MONARCHY_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_inclusive_monarchy_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 351 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_establish_gaituguiliu_button"
+			scripted = yes
+			position = { x = 821 y = 423 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_ESTABLISH_GAITUGUILIU_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_establish_gaituguiliu_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 430 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_land_tax_button"
+			scripted = yes
+			position = { x = 821 y = 452 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_LAND_TAX_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_land_tax_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 459 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_single_whip_button"
+			scripted = yes
+			position = { x = 821 y = 481 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_SINGLE_WHIP_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_single_whip_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 488 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_centralizing_government_button"
+			scripted = yes
+			position = { x = 821 y = 510 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_CENTRALIZING_GOVERNMENT_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_centralizing_government_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 517 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_reign_in_estates_button"
+			scripted = yes
+			position = { x = 821 y = 539 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_REIGN_IN_ESTATES_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_reign_in_estates_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 546 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vassalize_tributaries_button"
+			scripted = yes
+			position = { x = 821 y = 568 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_VASSALIZE_TRIBUTARIES_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_vassalize_tributaries_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 575 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_seaban_button"
+			scripted = yes
+			position = { x = 821 y = 659 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_SEABAN_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_seaban_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 666 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_military_governors_button"
+			scripted = yes
+			position = { x = 821 y = 688 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_MILITARY_GOVERNORS_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_military_governors_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 695 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_tributary_embassies_button"
 			scripted = yes
-			position = { x = 821 y = 844 }
+			position = { x = 821 y = 717 }
 			quadTextureSprite = "GFX_reform_button"
 			buttonText = "GDD_REFORM_TRIBUTARY_EMBASSIES_TITLE"
 			buttonFont = "vic_18"
@@ -2825,14 +2758,60 @@ guiTypes = {
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 851 }
+			position = { x = 827 y = 724 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_modernize_banners_button"
+			scripted = yes
+			position = { x = 821 y = 746 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_MODERNIZE_BANNERS_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_modernize_banners_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 753 }
+			scale = 0.75
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_bureaucratic_faction_button"
+			scripted = yes
+			position = { x = 821 y = 775 }
+			quadTextureSprite = "GFX_reform_button"
+			buttonText = "GDD_REFORM_BUREAUCRATIC_FACTION_TITLE"
+			buttonFont = "vic_18"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.9
+		}
+
+		iconType = {
+			name = "gdd_reform_bureaucratic_faction_passed"
+			scripted = yes
+			spriteType = "GFX_enacted_reform_icon"
+			alwaystransparent = yes
+			position = { x = 827 y = 782 }
 			scale = 0.75
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_new_world_button"
 			scripted = yes
-			position = { x = 821 y = 319 }
+			position = { x = 821 y = 804 }
 			quadTextureSprite = "GFX_reform_button"
 			buttonText = "GDD_REFORM_NEW_WORLD_TITLE"
 			buttonFont = "vic_18"
@@ -2848,247 +2827,17 @@ guiTypes = {
 			scripted = yes
 			spriteType = "GFX_enacted_reform_icon"
 			alwaystransparent = yes
-			position = { x = 827 y = 326 }
+			position = { x = 827 y = 811 }
 			scale = 0.75
 		}
 
-		# Zhou-member reform ballots. The base control is the empty gold frame;
-		# a scripted frame-2 icon supplies the checkmark for a supporting member.
-		guiButtonType = {
-			name = "gdd_reform_vote_establish_gaituguiliu_button"
-			scripted = yes
-			position = { x = 1003 y = 413 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_establish_gaituguiliu_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 413 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_seaban_button"
-			scripted = yes
-			position = { x = 1003 y = 150 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_seaban_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 150 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_land_tax_button"
-			scripted = yes
-			position = { x = 1003 y = 442 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_land_tax_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 442 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_military_governors_button"
-			scripted = yes
-			position = { x = 1003 y = 471 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_military_governors_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 471 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_centralizing_government_button"
-			scripted = yes
-			position = { x = 1003 y = 500 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_centralizing_government_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 500 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_vassalize_tributaries_button"
-			scripted = yes
-			position = { x = 1003 y = 733 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_vassalize_tributaries_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 733 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_single_whip_button"
-			scripted = yes
-			position = { x = 1003 y = 529 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_single_whip_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 529 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_reign_in_estates_button"
-			scripted = yes
-			position = { x = 1003 y = 558 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_reign_in_estates_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 558 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_civil_registration_button"
-			scripted = yes
-			position = { x = 1003 y = 587 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_civil_registration_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 587 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_silver_standard_button"
-			scripted = yes
-			position = { x = 1003 y = 179 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_silver_standard_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 179 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_kanhe_button"
-			scripted = yes
-			position = { x = 1003 y = 208 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_kanhe_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 208 }
-			scale = 0.65
-		}
+		# Zhou-member development ballots. The empty gold frame is clickable;
+		# frame 2 is an input-transparent checkmark overlay.
 
 		guiButtonType = {
 			name = "gdd_reform_vote_keju_button"
 			scripted = yes
-			position = { x = 1003 y = 616 }
+			position = { x = 1003 y = 146 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3096,20 +2845,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
 			name = "gdd_reform_vote_keju_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 616 }
+			position = { x = 1003 y = 146 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_vote_inclusive_monarchy_button"
+			name = "gdd_reform_vote_civil_registration_button"
 			scripted = yes
-			position = { x = 1003 y = 762 }
+			position = { x = 1003 y = 175 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3117,20 +2867,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
-			name = "gdd_reform_vote_inclusive_monarchy_checked"
+			name = "gdd_reform_vote_civil_registration_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 762 }
+			position = { x = 1003 y = 175 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_vote_bureaucratic_faction_button"
+			name = "gdd_reform_vote_silver_standard_button"
 			scripted = yes
-			position = { x = 1003 y = 645 }
+			position = { x = 1003 y = 204 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3138,20 +2889,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
-			name = "gdd_reform_vote_bureaucratic_faction_checked"
+			name = "gdd_reform_vote_silver_standard_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 645 }
+			position = { x = 1003 y = 204 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_vote_military_faction_button"
+			name = "gdd_reform_vote_kanhe_button"
 			scripted = yes
-			position = { x = 1003 y = 791 }
+			position = { x = 1003 y = 233 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3159,20 +2911,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
-			name = "gdd_reform_vote_military_faction_checked"
+			name = "gdd_reform_vote_kanhe_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 791 }
+			position = { x = 1003 y = 233 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_vote_unified_market_button"
 			scripted = yes
-			position = { x = 1003 y = 237 }
+			position = { x = 1003 y = 262 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3180,20 +2933,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
 			name = "gdd_reform_vote_unified_market_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 237 }
+			position = { x = 1003 y = 262 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_vote_military_branch_button"
 			scripted = yes
-			position = { x = 1003 y = 266 }
+			position = { x = 1003 y = 291 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3201,41 +2955,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
 			name = "gdd_reform_vote_military_branch_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 266 }
-			scale = 0.65
-		}
-
-		guiButtonType = {
-			name = "gdd_reform_vote_modernize_banners_button"
-			scripted = yes
-			position = { x = 1003 y = 820 }
-			quadTextureSprite = "GFX_checkbox_gold_32"
-			tooltip = ""
-			tooltipText = ""
-			delayedTooltipText = ""
-			clicksound = click
-			scale = 0.65
-		}
-		iconType = {
-			name = "gdd_reform_vote_modernize_banners_checked"
-			scripted = yes
-			spriteType = "GFX_checkbox_gold_32"
-			frame = 2
-			alwaystransparent = yes
-			position = { x = 1003 y = 820 }
+			position = { x = 1003 y = 291 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_vote_foreign_ship_designs_button"
 			scripted = yes
-			position = { x = 1003 y = 295 }
+			position = { x = 1003 y = 320 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3243,20 +2977,219 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
 			name = "gdd_reform_vote_foreign_ship_designs_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 295 }
+			position = { x = 1003 y = 320 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_inclusive_monarchy_button"
+			scripted = yes
+			position = { x = 1003 y = 349 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_inclusive_monarchy_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 349 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_establish_gaituguiliu_button"
+			scripted = yes
+			position = { x = 1003 y = 428 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_establish_gaituguiliu_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 428 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_land_tax_button"
+			scripted = yes
+			position = { x = 1003 y = 457 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_land_tax_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 457 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_single_whip_button"
+			scripted = yes
+			position = { x = 1003 y = 486 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_single_whip_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 486 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_centralizing_government_button"
+			scripted = yes
+			position = { x = 1003 y = 515 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_centralizing_government_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 515 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_reign_in_estates_button"
+			scripted = yes
+			position = { x = 1003 y = 544 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_reign_in_estates_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 544 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_vassalize_tributaries_button"
+			scripted = yes
+			position = { x = 1003 y = 573 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_vassalize_tributaries_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 573 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_seaban_button"
+			scripted = yes
+			position = { x = 1003 y = 664 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_seaban_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 664 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_military_governors_button"
+			scripted = yes
+			position = { x = 1003 y = 693 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_military_governors_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 693 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
 			name = "gdd_reform_vote_tributary_embassies_button"
 			scripted = yes
-			position = { x = 1003 y = 849 }
+			position = { x = 1003 y = 722 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3264,20 +3197,21 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
 		iconType = {
 			name = "gdd_reform_vote_tributary_embassies_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 849 }
+			position = { x = 1003 y = 722 }
 			scale = 0.65
 		}
 
 		guiButtonType = {
-			name = "gdd_reform_vote_new_world_button"
+			name = "gdd_reform_vote_modernize_banners_button"
 			scripted = yes
-			position = { x = 1003 y = 324 }
+			position = { x = 1003 y = 751 }
 			quadTextureSprite = "GFX_checkbox_gold_32"
 			tooltip = ""
 			tooltipText = ""
@@ -3285,29 +3219,75 @@ guiTypes = {
 			clicksound = click
 			scale = 0.65
 		}
+
+		iconType = {
+			name = "gdd_reform_vote_modernize_banners_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 751 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_bureaucratic_faction_button"
+			scripted = yes
+			position = { x = 1003 y = 780 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
+		iconType = {
+			name = "gdd_reform_vote_bureaucratic_faction_checked"
+			scripted = yes
+			spriteType = "GFX_checkbox_gold_32"
+			frame = 2
+			alwaystransparent = yes
+			position = { x = 1003 y = 780 }
+			scale = 0.65
+		}
+
+		guiButtonType = {
+			name = "gdd_reform_vote_new_world_button"
+			scripted = yes
+			position = { x = 1003 y = 809 }
+			quadTextureSprite = "GFX_checkbox_gold_32"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			clicksound = click
+			scale = 0.65
+		}
+
 		iconType = {
 			name = "gdd_reform_vote_new_world_checked"
 			scripted = yes
 			spriteType = "GFX_checkbox_gold_32"
 			frame = 2
 			alwaystransparent = yes
-			position = { x = 1003 y = 324 }
+			position = { x = 1003 y = 809 }
 			scale = 0.65
 		}
 
+		# Only the two final reforms are mutually exclusive.
 		iconType = {
-			name = "gdd_bureaucratic_faction_conflict_mark"
+			name = "gdd_central_final_conflict_mark"
 			spriteType = "GFX_mutualy_exclusive_reforms"
 			alwaystransparent = yes
-			position = { x = 817 y = 640 }
+			position = { x = 817 y = 568 }
 			scale = 0.9
 		}
 
 		iconType = {
-			name = "gdd_military_faction_conflict_mark"
+			name = "gdd_decentral_final_conflict_mark"
 			spriteType = "GFX_mutualy_exclusive_reforms"
 			alwaystransparent = yes
-			position = { x = 817 y = 786 }
+			position = { x = 817 y = 804 }
 			scale = 0.9
 		}
 
