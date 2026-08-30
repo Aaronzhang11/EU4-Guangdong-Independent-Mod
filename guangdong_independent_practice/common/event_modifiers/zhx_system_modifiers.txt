@@ -46,9 +46,6 @@ zhx_reaffirmed_covenant_modifier = {
 zhx_grand_court_cooldown = {
 }
 
-zhx_member_rite_observance_cooldown = {
-}
-
 zhx_ritual_breakdown_incident_cooldown = {
 }
 

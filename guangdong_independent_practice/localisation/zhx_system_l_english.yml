@@ -62,8 +62,6 @@
  zhx_view_tianxia_extent_read_only_tt:0 "Ù=fN8NêSû‹HrþVågweQãS0S.Ÿh¬`jP(W³Q®‹NsSïSØš®NhT)YN†ußW0"
  zhx_convene_grand_court_title:0 "ìSVVS'YgO"
  zhx_convene_grand_court_desc:0 "w9§Y100§!¤N§Y50§!Y²N¹pÿìSÆ–ø‹¯OÍ‘3uJyxQÿO§YJyPNJPÐcØš10¹p§!0)YPRÅV‰˜YŽNŒTs^03zšR^—ÿNÏk”Nt^êSýwLNLˆN!k0"
- zhx_observe_royal_rites_title:0 "IYLˆ‹sJy"
- zhx_observe_royal_rites_desc:0 "w9§Y50§!Y²N¹pÿcOt‹suIYJyÿO)YPR„v§YJyPNJPÐcØš2¹p§!ÿ,gýV·ƒ—V§Y5Zg§!N§Y3ßvŸR§!0Ïk”Nt^êSýwgbLˆN!k0"
  zhx_reaffirm_the_covenant_title:0 "Í‘3ubhTßvfN"
  zhx_reaffirm_the_covenant_desc:0 "Ù=fhT)YN„v,rNy˜ŸS‹Wßv¦u9ei—0)YPR(WŒTs^N3zšRóSHN1öeÿïSw9§Y50JyPNJP§!Í‘3ußvfNÿHNNb	g°s	gÊS8gegbXTÐc›O8lENqQTîOck0—‰óS§Y50JyPNJP§!0"
  zhx_debug_increase_ritual_harmony_title:0 "§TŒÕ‹ÿJyPNJP +10§!"
@@ -79,7 +77,6 @@
  zhx_ritual_order_collapsed:0 "Jy)TPNOW"
  zhx_reaffirmed_covenant_modifier:0 "Í‘3ubhTßvfN"
  zhx_grand_court_cooldown:0 "'YgOyrYg"
- zhx_member_rite_observance_cooldown:0 "IYJyOâVRVýV"
  zhx_ritual_breakdown_incident_cooldown:0 "‹s‹TNLˆ‹NØSYOâl"
  zhx_incident_supporter_modifier:0 "ÍT”^RýVlQ®‹"
  zhx_incident_opportunist_modifier:0 "XNJy)Twte›Q"

@@ -91,49 +91,6 @@ country_decisions = {
         }
     }
 
-    # Member action proving that ordinary polities can feed the shared state
-    # without becoming subjects of the Tianzi.
-    zhx_observe_royal_rites = {
-        major = no
-
-        potential = {
-            has_global_flag = zhx_system_initialised_v3
-            zhx_is_tianxia_member = yes
-        }
-
-        allow = {
-            is_at_war = no
-            dip_power = 50
-            NOT = { has_country_modifier = zhx_member_rite_observance_cooldown }
-        }
-
-        effect = {
-            add_dip_power = -50
-            add_prestige = 5
-            change_variable = {
-                which = zhx_merit
-                value = 3
-            }
-            zhx_clamp_merit = yes
-            event_target:zhx_tianzi = {
-                change_variable = {
-                    which = zhx_ritual_authority
-                    value = 2
-                }
-                zhx_clamp_ritual_authority = yes
-                zhx_refresh_ritual_order = yes
-            }
-            add_country_modifier = {
-                name = zhx_member_rite_observance_cooldown
-                duration = 1825
-            }
-        }
-
-        ai_will_do = {
-            factor = 0
-        }
-    }
-
     # The first scripted covenant is the vertical slice for an HRE-style
     # reform: authority cost, one-time global state and a shared member effect.
     zhx_reaffirm_the_covenant = {
