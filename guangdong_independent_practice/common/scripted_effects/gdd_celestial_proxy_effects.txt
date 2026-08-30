@@ -1,6 +1,6 @@
 # Script-side replacements for the two hard-coded Empire of China actions.
-# These are intentionally limited to decrees and reforms; the native emperor,
-# Mandate, tributary and disaster systems remain active.
+# Decrees keep their native ownership. Reforms are enacted by ROOT, while the
+# Mandate and stability cost remains attached to the current Emperor of China.
 
 gdd_enact_proxy_decree_effect = {
     add_meritocracy = -20
@@ -11,13 +11,88 @@ gdd_enact_proxy_decree_effect = {
 }
 
 gdd_enact_proxy_celestial_reform_effect = {
-    add_mandate = -70
-    add_stability = -1
+    event_target:EmperorOfChina = {
+        add_mandate = -70
+        add_stability = -1
+    }
     hidden_effect = {
         set_global_flag = $which$
+        set_country_flag = $which$
         CZH = {
             gdd_clear_passed_reform_support_effect = yes
             gdd_recalculate_all_reform_votes_effect = yes
         }
+    }
+}
+
+# Shared revoke interface. Active revocation calls this from the current
+# Emperor or principal feudatory. A future peace treaty can call the same
+# effect from any country after resolving the reform token.
+gdd_revoke_proxy_celestial_reform_effect = {
+    hidden_effect = {
+        clr_global_flag = $which$
+        every_country = {
+            clr_country_flag = $which$
+        }
+        CZH = {
+            gdd_clear_passed_reform_support_effect = yes
+            gdd_recalculate_all_reform_votes_effect = yes
+        }
+    }
+}
+
+# Centralisation final: ROOT becomes independent first, then every other
+# existing Zhou polity is detached from its current overlord and made ROOT's
+# special no-diplomatic-slot vassal.
+gdd_unify_tianxia_under_reform_executor_effect = {
+    hidden_effect = {
+        if = {
+            limit = { is_subject = yes }
+            grant_independence = yes
+        }
+        every_country = {
+            limit = {
+                exists = yes
+                zhx_is_tianxia_polity = yes
+                NOT = { tag = ROOT }
+            }
+            if = {
+                limit = { is_subject = yes }
+                grant_independence = yes
+            }
+            ROOT = {
+                create_subject = {
+                    subject_type = gdd_tianxia_vassal
+                    who = PREV
+                }
+            }
+        }
+        set_global_flag = eoc_vassalize_tributaries
+    }
+}
+
+# Reserved hook for the future decentralised realm-war system.
+gdd_enable_decentralized_tianxia_interface_effect = {
+    hidden_effect = {
+        set_global_flag = gdd_decentralized_tianxia_interface_enabled
+    }
+}
+
+gdd_disable_centralized_tianxia_interface_effect = {
+    hidden_effect = {
+        every_country = {
+            limit = {
+                exists = yes
+                is_subject_of_type = gdd_tianxia_vassal
+            }
+            grant_independence = yes
+        }
+        clr_global_flag = eoc_vassalize_tributaries
+    }
+}
+
+gdd_disable_decentralized_tianxia_interface_effect = {
+    hidden_effect = {
+        clr_global_flag = gdd_decentralized_tianxia_interface_enabled
     }
 }

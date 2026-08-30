@@ -1,10 +1,51 @@
-# Parameterised strict-majority check shared by all 21 reform conditions.
+# Parameterised strict-majority check shared by all 20 active reforms.
+# When the principal feudatory is the executor, that country's development
+# and ballot are removed from both sides. A realm with no other members passes
+# automatically.
 gdd_reform_vote_majority_trigger = {
     custom_trigger_tooltip = {
         tooltip = GDD_REFORM_VOTE_MAJORITY_TRIGGER_TT
-        check_variable = {
-            which = $support_twice_variable$
-            which = gdd_reform_vote_total_dev_plus_one
+        OR = {
+            AND = {
+                ROOT = {
+                    has_saved_global_event_target = gdd_principal_vassal
+                    tag = event_target:gdd_principal_vassal
+                }
+                OR = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_reform_vote_total_without_principal_dev
+                            value = 1
+                        }
+                    }
+                    check_variable = {
+                        which = $principal_support_twice_variable$
+                        which = gdd_reform_vote_total_without_principal_plus_one
+                    }
+                }
+            }
+            AND = {
+                ROOT = {
+                    NOT = {
+                        AND = {
+                            has_saved_global_event_target = gdd_principal_vassal
+                            tag = event_target:gdd_principal_vassal
+                        }
+                    }
+                }
+                OR = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_reform_vote_total_dev
+                            value = 1
+                        }
+                    }
+                    check_variable = {
+                        which = $support_twice_variable$
+                        which = gdd_reform_vote_total_dev_plus_one
+                    }
+                }
+            }
         }
     }
 }

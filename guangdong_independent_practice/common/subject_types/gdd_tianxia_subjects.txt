@@ -1,0 +1,19 @@
+# Special subject created by the centralisation final reform. It otherwise
+# behaves as a normal vassal but permits any government rank and consumes no
+# diplomatic relation slot.
+
+gdd_tianxia_vassal = {
+    copy_from = vassal
+    count = vassal
+
+    takes_diplo_slot = no
+    max_government_rank = 0
+    can_have_subjects_of_other_types = yes
+
+    sprite = GFX_icon_vassal
+    diplomacy_overlord_sprite = GFX_diplomacy_leadvassal
+    diplomacy_subject_sprite = GFX_diplomacy_amvassal
+
+    overlord_opinion_modifier = is_vassal
+    subject_opinion_modifier = is_vassal
+}

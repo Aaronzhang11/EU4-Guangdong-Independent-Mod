@@ -108,6 +108,25 @@ gdd_reform_new_world_passed = {
     OR = { has_global_flag = gdd_proxy_reform_new_world empire_of_china_reform_passed = new_world_discovery_decision }
 }
 
+# Route reforms unlock after any five of the eight independent ordinary
+# reforms. Centralising and decentralising reforms never count toward this
+# threshold.
+gdd_five_ordinary_celestial_reforms_passed = {
+    calc_true_if = {
+        gdd_reform_civil_registration_passed = yes
+        gdd_reform_silver_standard_passed = yes
+        gdd_reform_kanhe_passed = yes
+        gdd_reform_keju_passed = yes
+        gdd_reform_inclusive_monarchy_passed = yes
+        gdd_reform_unified_market_passed = yes
+        gdd_reform_military_branch_passed = yes
+        gdd_reform_foreign_ship_designs_passed = yes
+        amount = 5
+    }
+}
+
+# Compatibility helper retained for older test content. It now counts the
+# twenty active 8/6/6 reforms and ignores the removed faction reform.
 gdd_eight_celestial_reforms_passed = {
     calc_true_if = {
         gdd_reform_establish_gaituguiliu_passed = yes
@@ -124,7 +143,6 @@ gdd_eight_celestial_reforms_passed = {
         gdd_reform_keju_passed = yes
         gdd_reform_inclusive_monarchy_passed = yes
         gdd_reform_bureaucratic_faction_passed = yes
-        gdd_reform_military_faction_passed = yes
         gdd_reform_unified_market_passed = yes
         gdd_reform_military_branch_passed = yes
         gdd_reform_modernize_banners_passed = yes
