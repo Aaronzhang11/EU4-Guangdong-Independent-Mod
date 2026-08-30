@@ -1,0 +1,57 @@
+{
+  "batch": "GDD_B76_LIANG_RESTORATION_TAG",
+  "purpose": "Create a dormant, event-releasable Liang (凉) country tag without changing the 1444 map.",
+  "tag": "LGU",
+  "tag_rationale": "Liang Guo; distinct from vanilla LNG, which is 梁.",
+  "display_name": "凉",
+  "adjective": "凉",
+  "opening_status": "dormant",
+  "country": {
+    "definition": "guangdong_independent_practice/common/countries/B76_Liang.txt",
+    "history": "guangdong_independent_practice/history/countries/LGU - Liang.txt",
+    "government": "monarchy",
+    "government_reform": "feudalism_reform",
+    "government_rank": 1,
+    "technology_group": "chinese",
+    "religion": "confucianism",
+    "primary_culture": "gdd_long",
+    "preferred_homeland_capital": {
+      "province_id": 708,
+      "name": "武威"
+    },
+    "country_rgb": [48, 91, 112]
+  },
+  "province_policy": {
+    "parent_province_ids": [],
+    "target_province_ids": [],
+    "opening_owner_ids": [],
+    "opening_core_ids": [],
+    "map_pixel_mask": "none",
+    "locked_exterior": "all provinces.bmp pixels",
+    "area_region_trade_terrain_changes": "none",
+    "reason": "The restoration event will add a core only to the approved host grant before creating LGU; pre-seeded cores would bypass or over-expand that settlement."
+  },
+  "zhou_policy": {
+    "opening_member": false,
+    "restoration_action": "The future event chain must call zhx_register_tianxia_member in LGU scope after creation."
+  },
+  "flag": {
+    "style": "Zhuxia small-seal-script stamp flag",
+    "glyph": "涼",
+    "background_rgb": [48, 91, 112],
+    "ink_rgb": [232, 218, 164],
+    "mask_updater": "tools/generate_liang_small_seal_mask.py",
+    "generator": "tools/generate_zhuxia_seal_flags.py",
+    "approved_reference": "tools/assets/liang_flag/liang_small_seal_reference.png",
+    "approved_reference_sha256": "813697811e0964bdb0b59722ec427f67e28d820fb8bd61f00b5d3e298d9de437",
+    "source_mask": "tools/assets/liang_flag/liang_small_seal_mask.png",
+    "target": "guangdong_independent_practice/gfx/flags/LGU.tga",
+    "preview": "planning/liang_restoration_b76/liang_small_seal_flag_preview.png"
+  },
+  "localisation": {
+    "readable_source": "guangdong_independent_practice/localisation_source/gdd_liang_restoration_readable_utf8.txt",
+    "generated_target": "guangdong_independent_practice/localisation/gdd_liang_restoration_l_english.yml"
+  },
+  "backup_policy": "No canonical map or existing country asset is overwritten; the shared small-seal mask archive is deterministically extended with LGU and all canonical text edits are marker- or entry-guarded and idempotent.",
+  "validator": "tools/validate_liang_restoration_tag.py"
+}

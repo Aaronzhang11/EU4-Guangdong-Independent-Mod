@@ -24,145 +24,19 @@ country_event = {
 	}
 }
 
-#An ideology for an Empire
+# The vanilla event forced every new Emperor of China into Confucianism and
+# permanently harmonized the former state religion. Ritual Teaching is now a
+# Zhuxia political-religious framework, not an automatic imperial conversion,
+# so the externally referenced event ID remains as an inert compatibility stub.
 country_event = {
 	id = celestial_empire_events.2
 	title = celestial_empire_events.2.t
 	desc = celestial_empire_events.2.d
 	picture = IMPERIAL_EXAMINATION_eventPicture
-	
+	hidden = yes
 	is_triggered_only = yes
-	
-	trigger = {
-		is_emperor_of_china = yes
-		has_dlc = "Mandate of Heaven"
-		NOT = { tag = MNG }
-		NOT = { religion = confucianism }
-		NOT = { has_country_flag = reacted_to_confucianism_event } #If you form the empire multiple times you won't get this again
-	}
-	
-	immediate = {
-		hidden_effect = {
-			set_country_flag = reacted_to_confucianism_event
-			if = {
-				limit = {
-					religion = animism
-				}
-				set_country_flag = to_harmonize_religion_animism
-			}
-			if = {
-				limit = {
-					religion = buddhism
-				}
-				set_country_flag = to_harmonize_religion_buddhism
-			}
-			if = {
-				limit = {
-					religion = hinduism
-				}
-				set_country_flag = to_harmonize_religion_hinduism
-			}
-			if = {
-				limit = {
-					religion = mahayana
-				}
-				set_country_flag = to_harmonize_religion_mahayana
-			}
-			if = {
-				limit = {
-					religion = shinto
-				}
-				set_country_flag = to_harmonize_religion_shinto
-			}
-			if = {
-				limit = {
-					religion = sunni
-				}
-				set_country_flag = to_harmonize_religion_sunni
-			}
-			if = {
-				limit = {
-					religion = tengri_pagan_reformed
-				}
-				set_country_flag = to_harmonize_religion_tengri_pagan_reformed
-			}
-			if = {
-				limit = {
-					religion = vajrayana
-				}
-				set_country_flag = to_harmonize_religion_vajrayana
-			}
-		}
-	}
-	
-	option = {
-		name = "celestial_empire_events.2.a"
-		ai_chance = {
-			factor = 100
-		}
-		change_religion = confucianism
-		add_meritocracy_effect = yes
-		add_mandate_effect = yes
-		trigger_switch = {
-			on_trigger = has_country_flag
-			to_harmonize_religion_animism = {
-				add_harmonized_religion = animism
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_animism
-				}
-			}
-			to_harmonize_religion_buddhism = {
-				add_harmonized_religion = buddhism
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_buddhism
-				}
-			}
-			to_harmonize_religion_hinduism = {
-				add_harmonized_religion = hinduism
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_hinduism
-				}
-			}
-			to_harmonize_religion_mahayana = {
-				add_harmonized_religion = mahayana
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_mahayana
-				}
-			}
-			to_harmonize_religion_shinto = {
-				add_harmonized_religion = shinto
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_shinto
-				}
-			}
-			to_harmonize_religion_sunni = {
-				add_harmonized_religion = sunni
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_sunni
-				}
-			}
-			to_harmonize_religion_tengri_pagan_reformed = {
-				add_harmonized_religion = tengri_pagan_reformed
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_tengri_pagan_reformed
-				}
-			}
-			to_harmonize_religion_vajrayana = {
-				add_harmonized_religion = vajrayana
-				hidden_effect = {
-					clr_country_flag = to_harmonize_religion_vajrayana
-				}
-			}
-		}
-	}
-	option = {
-		name = "celestial_empire_events.2.b"
-		ai_chance = {
-			factor = 0
-		}
-		reduce_meritocracy_effect = yes
-		add_stability = -1
-	}
+	trigger = { always = no }
+	option = { name = OK }
 }
 
 

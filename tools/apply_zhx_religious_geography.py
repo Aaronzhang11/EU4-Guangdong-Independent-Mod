@@ -45,23 +45,13 @@ def province_path(province_id: int) -> Path:
 def apply() -> None:
     manifest = load_manifest()
     for _tag, config in manifest["country_targets"].items():
+        if "harmonized" in config:
+            raise ValueError(
+                "religious geography may not reintroduce retired Harmony state"
+            )
         path = COUNTRIES / config["history"]
         text = path.read_text(encoding="latin-1")
         text = replace_first_value(text, "religion", config["religion"])
-        for religion in config.get("harmonized", []):
-            text = re.sub(
-                rf"(?m)^\s*add_harmonized_religion\s*=\s*{re.escape(religion)}\s*(?:#.*)?\n?",
-                "",
-                text,
-            )
-            religion_line = re.search(r"(?m)^\s*religion\s*=\s*[^\n]+$", text)
-            if not religion_line:
-                raise ValueError(f"{path.name}: cannot place harmonized religion")
-            text = (
-                text[: religion_line.end()]
-                + f"\nadd_harmonized_religion = {religion}"
-                + text[religion_line.end() :]
-            )
         path.write_text(text, encoding="latin-1")
 
     for religion, province_ids in manifest["province_targets"].items():
@@ -98,20 +88,18 @@ def validate() -> dict[str, int]:
                 )
 
     for tag, config in manifest["country_targets"].items():
+        if "harmonized" in config:
+            raise ValueError(f"{tag}: retired manifest field 'harmonized' returned")
         path = COUNTRIES / config["history"]
         text = path.read_text(encoding="latin-1")
         actual = first_value(text, "religion")
         if actual != config["religion"]:
             raise ValueError(f"{tag}: religion {actual}, expected {config['religion']}")
-        for religion in config.get("harmonized", []):
-            count = len(
-                re.findall(
-                    rf"(?m)^\s*add_harmonized_religion\s*=\s*{re.escape(religion)}\s*$",
-                    text,
-                )
-            )
-            if count != 1:
-                raise ValueError(f"{tag}: expected one harmonized {religion}, found {count}")
+
+    for path in sorted(COUNTRIES.glob("*.txt")):
+        text = path.read_text(encoding="latin-1")
+        if re.search(r"(?m)^\s*add_harmonized_religion\s*=", text):
+            raise ValueError(f"{path.name}: retired Harmony history effect returned")
 
     for filename in manifest["retired_history_files"]:
         if (PROVINCES / filename).exists():

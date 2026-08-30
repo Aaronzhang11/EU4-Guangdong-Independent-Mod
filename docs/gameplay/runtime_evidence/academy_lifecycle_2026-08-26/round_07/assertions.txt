@@ -1,0 +1,18 @@
+Round 07 assertions — synchronous refugee offer
+
+PASS — immediate presentation
+01_immediate_refuge_offer.jpg shows zhx_academy.210 (“流散学宫求庇”) directly on the map without an ordinary event window stacked behind it.
+
+PASS — player-controlled choice
+game_after.log line 172 records “Selected event option 0 for event zhx_academy.210”. There is no Auto-selected entry for zhx_academy.210 or .211.
+
+PASS — focused error filter
+error_after.log contains no zhx_academy, zhxrt2, unknown-modifier, invalid-scope, or province-event entry. This is not a claim that the full mod error log is clean.
+
+BOUNDARY
+This round validates synchronous delivery and manual selection of .210 only. It does not validate a separate post-acceptance arrival receipt (.211).
+
+SHA-256:
+01_immediate_refuge_offer.jpg  8d147f855d12ffcaa76cffeaa21879f1f10cd8f401ad875bcf8c517a5ae1aa64
+error_after.log                 71d652150ff5f0d254ed55ff70009af52593877b2cb34d414ead2778006af688
+game_after.log                  d21f998123cc00ebd47aff555b87bd1dd3b6fb8e4a68988fa701729b6e0ec890

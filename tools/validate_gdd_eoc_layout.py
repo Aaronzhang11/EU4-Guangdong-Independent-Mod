@@ -72,6 +72,10 @@ def main() -> None:
     require(gui_text.count("{") == gui_text.count("}"), "unbalanced GUI braces")
     require(custom_text.count("{") == custom_text.count("}"),
             "unbalanced scripted-GUI braces")
+    require(
+        "decree_label" in parsed,
+        "missing hard-coded vanilla child decree_label from celestial_window",
+    )
 
     decree_names = [
         name

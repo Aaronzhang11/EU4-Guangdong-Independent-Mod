@@ -565,7 +565,7 @@
  gdd_can_enact_proxy_silver_standard_trigger:0 "尚未通过稳固银本，已经通过条鞭赋役，并满足通胀、财政与行政要求"
  gdd_can_enact_proxy_kanhe_trigger:0 "尚未通过勘合符契，并满足贸易理念、殖民属国、商人团或外交焦点要求"
  gdd_can_enact_proxy_keju_trigger:0 "尚未通过改制科举，并满足考试制度或行政理念及行政能力要求"
- gdd_can_enact_proxy_inclusive_monarchy_trigger:0 "尚未通过仁德教化，并满足人文理念、和谐度或神学家要求且稳定度至少为1"
+ gdd_can_enact_proxy_inclusive_monarchy_trigger:0 "尚未通过仁德教化，并满足人文理念、礼教秩序或神学家要求且稳定度至少为1"
  gdd_can_enact_proxy_bureaucratic_faction_trigger:0 "尚未通过崇文抑武，且没有通过与其互斥的崇武抑文"
  gdd_can_enact_proxy_military_faction_trigger:0 "尚未通过崇武抑文，且没有通过与其互斥的崇文抑武"
  gdd_can_enact_proxy_unified_market_trigger:0 "尚未统一亚洲市场，已经通过改革海禁与勘合符契，并满足贸易与市场要求"

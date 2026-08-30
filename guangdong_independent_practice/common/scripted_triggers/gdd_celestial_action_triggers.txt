@@ -154,7 +154,7 @@ gdd_can_enact_proxy_inclusive_monarchy_trigger = {
     CZH = { gdd_reform_vote_majority_trigger = { support_twice_variable = gdd_reform_vote_inclusive_monarchy_twice } }
     OR = {
         full_idea_group = humanist_ideas
-        harmony = 80
+        zhx_lijiao_cohesion_80 = yes
         theologian = 2
     }
     stability = 1

@@ -1,0 +1,28 @@
+Round 06 assertions — 2026-08-27
+
+Source save:
+~/Documents/Paradox Interactive/Europa Universalis IV/save games/鲁1444_12_28zhx_academy_runtime.eu4
+SHA-256: ddb0e1b73465e3f725bc4fdcad23654ffc01986e959377c58793284655ed91d3
+Save meta: EU4 1.37.5.0, date 1444.12.28, player LUU.
+
+PASS — protection cancellation presentation
+01_protected_expulsion_cancelled.jpg shows the visible “逐学令止息” receipt and states that main/second-school protection cancels the order.
+
+PASS — refugee offer accepted
+02_refuge_offer_visible_after_queue.jpg shows the “流散学宫求庇” offer. game_after.log line 176 records player Selected option 0 for zhx_academy.210.
+
+PASS — Chongli Academy migration landing
+In the save's gamestate, province -2140 has owner="LUU" and the permanent modifier="zhx_academy_chongli". That active modifier occurs exactly once in the save.
+
+PASS — source province ruins
+In the same gamestate, province -5109 has owner="QIN" and the permanent modifier="zhx_academy_ruins_chongli". That ruins modifier occurs exactly once in the save.
+
+PASS — focused log filter
+error_after.log contains no zhx_academy, zhxrt2, or unknown-modifier entry. This does not assert that the whole mod error log is clean.
+
+OPEN — event queue presentation
+The ordinary event window and zhx_academy.210 overlapped/queued; the academy offer became usable only after handling the ordinary event queue. This UI delivery issue remains for Round 07.
+
+Archived log SHA-256:
+error_after.log  6c682809ecab02d5c8367e5c6fbcaa620c96d75168e87bdf7be86f5c4d6fe9e5
+game_after.log   f1c828cc5c35c44d8df49ea926838e482081d4acd78eaeea11329af03c52de33

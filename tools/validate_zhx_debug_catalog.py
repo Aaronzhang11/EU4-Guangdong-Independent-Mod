@@ -128,25 +128,73 @@ def main() -> None:
         check(token in clean_decisions, f"debug decision contract is missing: {token}", errors)
 
     blocks = event_blocks(event_text)
-    for event_id in ("zhx_debug.1", "zhx_debug.10", "zhx_debug.20"):
+    catalog_ids = (
+        "zhx_debug.1",
+        "zhx_debug.10",
+        "zhx_debug.20",
+        "zhx_debug.30",
+    )
+    for event_id in catalog_ids:
         check(event_id in blocks, f"missing catalog event {event_id}", errors)
-    check(len(blocks) == 3, "catalog file must define exactly three top-level events", errors)
-    if all(event_id in blocks for event_id in ("zhx_debug.1", "zhx_debug.10", "zhx_debug.20")):
+    check(len(blocks) == 4, "catalog file must define exactly four top-level events", errors)
+    if all(event_id in blocks for event_id in catalog_ids):
         activator = masked(blocks["zhx_debug.1"])
         page_one = masked(blocks["zhx_debug.10"])
         page_two = masked(blocks["zhx_debug.20"])
+        page_three = masked(blocks["zhx_debug.30"])
         check("is_triggered_only = yes" in activator, "catalog activator must be triggered-only", errors)
         check("set_country_flag = zhx_debug_catalog_enabled" in activator, "activator must set the save-local gate", errors)
         check("country_event = { id = zhx_debug.10 }" in activator, "activator must open page one", errors)
-        for event_id, page in (("zhx_debug.10", page_one), ("zhx_debug.20", page_two)):
+        for event_id, page in (
+            ("zhx_debug.10", page_one),
+            ("zhx_debug.20", page_two),
+            ("zhx_debug.30", page_three),
+        ):
             check("is_triggered_only = yes" in page, f"{event_id} must be triggered-only", errors)
             check("has_country_flag = zhx_debug_catalog_enabled" in page, f"{event_id} lacks catalog gate", errors)
-            check(len(re.findall(r"\boption\s*=", page)) == 6, f"{event_id} must have exactly six options", errors)
+            check(
+                len(re.findall(r"\boption\s*=", page)) <= 6,
+                f"{event_id} exceeds the six-option UI budget",
+                errors,
+            )
+        for event_id, page in (
+            ("zhx_debug.10", page_one),
+            ("zhx_debug.20", page_two),
+        ):
+            check(
+                len(re.findall(r"\boption\s*=", page)) == 6,
+                f"{event_id} must keep exactly six options",
+                errors,
+            )
+        check(
+            len(re.findall(r"\boption\s*=", page_three)) == 3,
+            "zhx_debug.30 must expose previous, close, and disable only",
+            errors,
+        )
         check("name = zhx_debug.catalog.debate" in page_one, "page one lacks 调试天下大辩", errors)
         check("country_event = { id = zhx_debug.100 }" in page_one, "debate item must call zhx_debug.100", errors)
         check("country_event = { id = zhx_debug.20 }" in page_one, "page one lacks next-page route", errors)
         check("country_event = { id = zhx_debug.10 }" in page_two, "page two lacks previous-page route", errors)
-        check("clr_country_flag = zhx_debug_catalog_enabled" in page_two, "page two lacks disable route", errors)
+        check("country_event = { id = zhx_debug.30 }" in page_two, "page two lacks Liang-status route", errors)
+        check("country_event = { id = zhx_debug.20 }" in page_three, "Liang page lacks previous-page route", errors)
+        check("clr_country_flag = zhx_debug_catalog_enabled" in page_three, "Liang page lacks disable route", errors)
+        check(
+            "has_saved_global_event_target = gdd_liang_current_petition_target"
+            in page_three,
+            "Liang page must guard the saved target before localisation reads it",
+            errors,
+        )
+        for forbidden in (
+            "gdd_liang_restoration.2",
+            "save_global_event_target_as",
+            "clear_global_event_target",
+            "gdd_liang_petition_roster",
+        ):
+            check(
+                forbidden not in page_three,
+                f"Liang status page must remain read-only: {forbidden}",
+                errors,
+            )
 
     for token in (
         "zhx_debug_can_prepare_ritual_breakdown_preview",
@@ -177,13 +225,33 @@ def main() -> None:
         "zhx_debug.10.d",
         "zhx_debug.20.t",
         "zhx_debug.20.d",
+        "zhx_debug.30.t",
+        "zhx_debug.30.d.not_started",
+        "zhx_debug.30.d.awaiting_intro",
+        "zhx_debug.30.d.active_target",
+        "zhx_debug.30.d.active_no_target",
+        "zhx_debug.30.d.failed",
+        "zhx_debug.30.d.compact_active",
+        "zhx_debug.30.d.settlement_pending",
+        "zhx_debug.30.d.fulfilled",
+        "zhx_debug.30.d.repudiated",
+        "zhx_debug.30.d.closed_neutrally",
         "zhx_debug.catalog.debate",
         "zhx_debug.catalog.next_page",
         "zhx_debug.catalog.previous_page",
+        "zhx_debug.catalog.liang_status",
+        "zhx_debug.catalog.liang_status.tt",
+        "zhx_debug.catalog.previous_doctrine_page",
         "zhx_debug.catalog.disable",
     ):
         check(re.search(rf"^\s*{re.escape(key)}:0\s", localisation_text, flags=re.MULTILINE) is not None,
               f"missing readable localisation key: {key}", errors)
+
+    check(
+        "[gdd_liang_current_petition_target.GetName]" in localisation_text,
+        "Liang status localisation must display the saved global target name",
+        errors,
+    )
 
     # The activator must stay console-only. Prefix-safe matching avoids treating
     # zhx_debug.10/100/199 as references to zhx_debug.1.
@@ -208,7 +276,8 @@ def finish(errors: list[str]) -> None:
     print("Debug event catalog contract: PASS")
     print("  Console opt-in: event zhx_debug.1")
     print("  Save-gated decision: 调试")
-    print("  Two pages, six options each, bidirectional navigation")
+    print("  Three pages, all within the six-option UI budget")
+    print("  Liang page is read-only and displays the guarded saved target")
     print("  Great Debate item dispatches to zhx_debug.100")
 
 

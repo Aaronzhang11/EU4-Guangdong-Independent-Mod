@@ -23,31 +23,37 @@ SCHOOLS = (
         "zhx_ru_school",
         "GFX_zhx_doctrine_ru_school",
         "zhx_ru_invited_scholar_modifier",
+        "zhx_doctrine_ru",
     ),
     (
         "zhx_fa_school",
         "GFX_zhx_doctrine_fa_school",
         "zhx_fa_invited_scholar_modifier",
+        "zhx_doctrine_fa",
     ),
     (
         "zhx_mo_school",
         "GFX_zhx_doctrine_mo_school",
         "zhx_mo_invited_scholar_modifier",
+        "zhx_doctrine_mo",
     ),
     (
         "zhx_dao_school",
         "GFX_zhx_doctrine_dao_school",
         "zhx_dao_invited_scholar_modifier",
+        "zhx_doctrine_dao",
     ),
     (
         "zhx_bing_school",
         "GFX_zhx_doctrine_bing_school",
         "zhx_bing_invited_scholar_modifier",
+        "zhx_doctrine_bing",
     ),
     (
         "zhx_zongheng_school",
         "GFX_zhx_doctrine_zongheng_school",
         "zhx_zongheng_invited_scholar_modifier",
+        "zhx_doctrine_zongheng",
     ),
 )
 NO_DOCTRINE_SCHOOL = (
@@ -220,44 +226,67 @@ def build_school_block() -> str:
     definitions = "".join(
         f'''\
 \t\t{school} = {{
-\t\t\t# The native selector supplies FROM as a country whose permanent
-\t\t\t# school matches this entry. The source must know and esteem THIS;
-\t\t\t# the player's permanent doctrine and practice remain untouched.
+\t\t\t# The native selector supplies FROM as the prospective source.  It
+\t\t\t# only chooses school and source; a separate confirmation event owns
+\t\t\t# payment and the guarded twenty-year court contract.
 \t\t\tpotential_invite_scholar = {{
-\t\t\t\treligion = confucianism
-\t\t\t\thas_religious_school = yes
-\t\t\t\tNOT = {{
-\t\t\t\t\treligious_school = {{
-\t\t\t\t\t\tgroup = eastern
-\t\t\t\t\t\tschool = zhx_no_doctrine_school
-\t\t\t\t\t}}
-\t\t\t\t}}
-\t\t\t\tNOT = {{
-\t\t\t\t\treligious_school = {{
-\t\t\t\t\t\tgroup = eastern
-\t\t\t\t\t\tschool = {school}
-\t\t\t\t\t}}
+\t\t\t\tzhx_guest_school_may_invite = yes
+\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
+\t\t\t\tFROM = {{
+\t\t\t\t\tzhx_guest_school_source_is_eligible_{doctrine_flag.removeprefix("zhx_doctrine_")} = yes
 \t\t\t\t}}
 \t\t\t\tknows_of_scholar_country_capital_trigger = yes
+\t\t\t\tif = {{
+\t\t\t\t\tlimit = {{ ai = yes }}
+\t\t\t\t\tis_at_war = no
+\t\t\t\t\tstability = 0
+\t\t\t\t\tNOT = {{ num_of_loans = 1 }}
+\t\t\t\t\tdip_power = 125
+\t\t\t\t\tzhx_guest_school_ai_wants_{doctrine_flag.removeprefix("zhx_doctrine_")} = yes
+\t\t\t\t}}
 \t\t\t}}
 \t\t\tcan_invite_scholar = {{
-\t\t\t\treverse_has_opinion = {{ who = FROM value = 150 }}
+\t\t\t\t# Fail closed on the group-scoped eastern interface. Buddhist and
+\t\t\t\t# Shinto countries can never pass this Ritual Teaching gate.
+\t\t\t\tzhx_guest_school_may_invite = yes
+\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
+\t\t\t\tFROM = {{
+\t\t\t\t\tzhx_guest_school_source_is_eligible_{doctrine_flag.removeprefix("zhx_doctrine_")} = yes
+\t\t\t\t}}
 \t\t\t\tif = {{
 \t\t\t\t\tlimit = {{ ai = yes }}
-\t\t\t\t\tNOT = {{ has_country_modifier = has_invited_scholar_recently }}
+\t\t\t\t\tis_at_war = no
+\t\t\t\t\tstability = 0
+\t\t\t\t\tNOT = {{ num_of_loans = 1 }}
+\t\t\t\t\tdip_power = 125
+\t\t\t\t\tzhx_guest_school_ai_wants_{doctrine_flag.removeprefix("zhx_doctrine_")} = yes
 \t\t\t\t}}
-\t\t\t\tNOT = {{ has_country_modifier = {modifier} }}
 \t\t\t}}
 \t\t\ton_invite_scholar = {{
-\t\t\t\tzhx_clear_invited_school_modifiers = yes
-\t\t\t\tcustom_tooltip = zhx_invite_school_country_tt
-\t\t\t\tadd_country_modifier = {{ name = {modifier} duration = 7300 }}
+\t\t\t\t# Revalidate once more after the engine-owned source selection. No
+\t\t\t\t# resource or gameplay state changes before the confirmation card.
 \t\t\t\tif = {{
-\t\t\t\t\tlimit = {{ ai = yes }}
-\t\t\t\t\tadd_country_modifier = {{
-\t\t\t\t\t\tname = has_invited_scholar_recently
-\t\t\t\t\t\tduration = 7300
-\t\t\t\t\t\thidden = yes
+\t\t\t\t\tlimit = {{
+\t\t\t\t\t\tzhx_guest_school_may_invite = yes
+\t\t\t\t\t\tNOT = {{ has_country_flag = {doctrine_flag} }}
+\t\t\t\t\t\tFROM = {{
+\t\t\t\t\t\t\tzhx_guest_school_source_is_eligible_{doctrine_flag.removeprefix("zhx_doctrine_")} = yes
+\t\t\t\t\t\t}}
+\t\t\t\t\t\tif = {{
+\t\t\t\t\t\t\tlimit = {{ ai = yes }}
+\t\t\t\t\t\t\tis_at_war = no
+\t\t\t\t\t\t\tstability = 0
+\t\t\t\t\t\t\tNOT = {{ num_of_loans = 1 }}
+\t\t\t\t\t\t\tdip_power = 125
+\t\t\t\t\t\t\tzhx_guest_school_ai_wants_{doctrine_flag.removeprefix("zhx_doctrine_")} = yes
+\t\t\t\t\t\t}}
+\t\t\t\t\t}}
+\t\t\t\t\tcustom_tooltip = zhx_guest_school_native_confirmation_tt
+\t\t\t\t\thidden_effect = {{
+\t\t\t\t\t\tzhx_guest_school_clear_pending = yes
+\t\t\t\t\t\tset_country_flag = zhx_guest_school_pending_{doctrine_flag.removeprefix("zhx_doctrine_")}
+\t\t\t\t\t\tFROM = {{ save_event_target_as = zhx_guest_school_pending_source }}
+\t\t\t\t\t\tcountry_event = {{ id = zhx_guest_school.{10 + [entry[3] for entry in SCHOOLS].index(doctrine_flag)} }}
 \t\t\t\t\t}}
 \t\t\t\t}}
 \t\t\t}}
@@ -265,7 +294,7 @@ def build_school_block() -> str:
 \t\t\tpicture = "{picture}"
 \t\t}}
 '''
-        for school, picture, modifier in SCHOOLS
+        for school, picture, modifier, doctrine_flag in SCHOOLS
     )
     no_doctrine, no_doctrine_picture = NO_DOCTRINE_SCHOOL
     sentinel = f'''\
@@ -279,9 +308,9 @@ def build_school_block() -> str:
     return f'''\
 
 \t# ZHX native school mirrors. Doctrine flags and practice remain authoritative.
-\t# The six visible schools also expose the native scholar selector: a foreign
-\t# school whose country knows us and has 150 opinion can grant one temporary,
-\t# entry-tier modifier. The transparent no-doctrine sentinel remains inert.
+\t# The six visible schools also expose the native scholar selector. A valid
+\t# formal source at 150 opinion opens the guarded court-contract confirmation;
+\t# the transparent no-doctrine sentinel remains inert.
 \treligious_schools = {{
 {definitions}{sentinel}\t}}
 '''
@@ -299,6 +328,23 @@ def append_to_group(text: str, group: str, block: str, unique_key: str) -> str:
     return text[:closing] + block + text[closing:]
 
 
+def retire_confucian_harmony(text: str) -> str:
+    """Remove the sole engine owner of the vanilla Harmony state machine."""
+    match = re.search(r"(?m)^\tconfucianism\s*=\s*\{", text)
+    if match is None:
+        raise ValueError('vanilla religions are missing "confucianism"')
+    opening = text.find("{", match.start())
+    closing = matching_close(text, opening)
+    body = text[opening + 1 : closing]
+    marker = "\n\t\tuses_harmony = yes"
+    if body.count(marker) != 1:
+        raise ValueError(
+            "confucianism must contain exactly one vanilla uses_harmony owner"
+        )
+    body = body.replace(marker, "", 1)
+    return text[: opening + 1] + body + text[closing:]
+
+
 def render(vanilla_root: Path) -> str:
     source = vanilla_root / "common/religions/00_religion.txt"
     data = source.read_bytes()
@@ -308,7 +354,7 @@ def render(vanilla_root: Path) -> str:
             "unsupported vanilla religion baseline: "
             f"{digest}; expected EU4 1.37.5 {EXPECTED_VANILLA_SHA256}"
         )
-    text = data.decode("utf-8")
+    text = retire_confucian_harmony(data.decode("utf-8"))
     text = append_to_group(text, "christian", build_nestorian_block(), "nestorian")
 
     match = re.search(r"(?m)^eastern\s*=\s*\{", text)
@@ -333,7 +379,7 @@ def run(vanilla_root: Path, check: bool) -> None:
     print(
         f"{'checked' if check else 'built'} EU4 1.37.5 religions; "
         f"visible eastern mirrors={len(SCHOOLS)}; transparent sentinels=1; "
-        "Nestorian patriarch icons=5"
+        "Nestorian patriarch icons=5; vanilla Harmony owners=0"
     )
 
 

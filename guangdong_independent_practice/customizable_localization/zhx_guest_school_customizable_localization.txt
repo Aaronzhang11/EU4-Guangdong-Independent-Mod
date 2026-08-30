@@ -1,0 +1,34 @@
+# Guest-school identity for generic lifecycle event text.
+
+defined_text = {
+    name = GetZhxGuestSchoolName
+
+    text = {
+        localisation_key = zhx_guest_school_name_ru
+        trigger = { has_country_flag = zhx_guest_school_contract_ru }
+    }
+    text = {
+        localisation_key = zhx_guest_school_name_fa
+        trigger = { has_country_flag = zhx_guest_school_contract_fa }
+    }
+    text = {
+        localisation_key = zhx_guest_school_name_mo
+        trigger = { has_country_flag = zhx_guest_school_contract_mo }
+    }
+    text = {
+        localisation_key = zhx_guest_school_name_dao
+        trigger = { has_country_flag = zhx_guest_school_contract_dao }
+    }
+    text = {
+        localisation_key = zhx_guest_school_name_bing
+        trigger = { has_country_flag = zhx_guest_school_contract_bing }
+    }
+    text = {
+        localisation_key = zhx_guest_school_name_zongheng
+        trigger = { has_country_flag = zhx_guest_school_contract_zongheng }
+    }
+    text = {
+        localisation_key = zhx_guest_school_name_unknown
+        trigger = { always = yes }
+    }
+}

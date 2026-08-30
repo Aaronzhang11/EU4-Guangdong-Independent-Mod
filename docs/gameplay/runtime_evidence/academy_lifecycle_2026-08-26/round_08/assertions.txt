@@ -1,0 +1,16 @@
+Round 08 assertions — first .211 province-event attempt
+
+PASS — .210 remained selectable
+01_refuge_offer.jpg shows the refugee offer, and game_failed.log line 172 records player Selected option 0 for zhx_academy.210.
+
+FAIL — no arrival receipt
+After accepting .210, 02_missing_arrival_receipt.jpg records the empty map with no “学宫抵达” receipt. game_failed.log contains no Selected or Auto-selected entry for zhx_academy.211.
+
+INTERPRETATION
+The first province-event implementation of .211 did not deliver a player-visible receipt. error_failed.log has no focused zhx_academy/province-event error, so the absence of a logged parser/runtime error must not be treated as success. This failed route has moved to the next iteration for repair.
+
+SHA-256:
+01_refuge_offer.jpg             601b17b2eda0907abd2734b7fa298574eb247c0e5b98496b4b8e53bdab58b42b
+02_missing_arrival_receipt.jpg  b6cc059cc92f7a17d1a37fe656a1d7110b1940cb6b31d86b3ac305eda3dde9c4
+error_failed.log                4d9027e3648bc2d393946e57649effca96243d7573193e1a5cfae0e364d9985e
+game_failed.log                 bdb7e74f5e96cbb91f8cbf056965c12239d4ec1e0cdc13bb082a2d55cf4653ac

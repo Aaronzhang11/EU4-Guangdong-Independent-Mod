@@ -27,6 +27,9 @@ NESTORIAN_PORTRAITS = (
 PREVIEW = ROOT / "tools/assets/religion/zhx_lijiao_religion_icon_preview.png"
 SCHOOL_BUTTON = MOD / "gfx/interface/zhx_lijiao_school_button.dds"
 NO_DOCTRINE_BUTTON = MOD / "gfx/interface/zhx_no_doctrine_school_button.dds"
+NON_LIJIAO_BLOCKER = (
+    MOD / "gfx/interface/zhx_non_lijiao_school_button_blocker.dds"
+)
 PRACTICE_HITBOX = MOD / "gfx/interface/zhx_practice_click_hitbox.dds"
 SCHOOL_TOOLTIP_HITBOX = MOD / "gfx/interface/zhx_school_tooltip_hitbox.dds"
 RUSSIAN_ICONS = MOD / "gfx/interface/russian_icons_strip.dds"
@@ -38,6 +41,12 @@ LIJIAO_FRAME_INDEX = 8  # zero-based; religion definition icon = 9
 NESTORIAN_FRAME_INDEX = 6  # zero-based; unused vanilla slot, icon = 7
 EXPECTED_SCHOOL_BUTTON_SHA256 = (
     "091cac9c434db23d43bd90a79128c4abe6b5b0073d8a6bfb7a06965fe3c24036"
+)
+EXPECTED_RELIGION_BACKGROUND_SHA256 = (
+    "4417461325763e0d19053b311c434331b03c77709e8b5bac3b06c160b03a1362"
+)
+EXPECTED_SCHOOL_BANNER_SHA256 = (
+    "10ce14ab1bf1e1302f57351ce0010403fca478c00ff815335b1e5ed84a652d5b"
 )
 EXPECTED_RUSSIAN_ICONS_SHA256 = (
     "b1b78b69401223489ff9539eeb760db2a77b8bca4532b347a433a79660dbca1d"
@@ -211,6 +220,46 @@ def school_button(vanilla_root: Path) -> Image.Image:
     return button
 
 
+def non_lijiao_blocker(vanilla_root: Path) -> Image.Image:
+    """Hide the native button and close the school banner symmetrically."""
+    interface = vanilla_root / "gfx/interface"
+    background_path = (
+        interface / "defender_of_the_faith/country_religion_view_bg.dds"
+    )
+    banner_path = interface / "secondary_religion_banner.dds"
+    baselines = (
+        (background_path, EXPECTED_RELIGION_BACKGROUND_SHA256),
+        (banner_path, EXPECTED_SCHOOL_BANNER_SHA256),
+    )
+    for path, expected_digest in baselines:
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest != expected_digest:
+            raise ValueError(
+                f"unsupported religion-panel art baseline for {path.name}: "
+                f"{digest}; expected {expected_digest}"
+            )
+
+    background = Image.open(background_path).convert("RGBA")
+    banner = Image.open(banner_path).convert("RGBA")
+    if background.size != (576, 590):
+        raise ValueError(f"unexpected religion-panel dimensions: {background.size}")
+    if banner.size != (120, 36):
+        raise ValueError(f"unexpected school-banner dimensions: {banner.size}")
+
+    # The panel texture starts at GUI (-7,-10), the native button at (180,148),
+    # and the school banner at (80,152). Restore the panel and gold divider, then
+    # replace the banner's otherwise blunt final 20 px with a horizontal mirror
+    # of its left scroll cap. The body therefore joins at x=180 and the mirrored
+    # cap ends at x=200, leaving the original gap before the divider at x=212.
+    # This crop is byte-identical in the standard, large and huge 1.37.5 panels.
+    patch = background.crop((187, 158, 229, 200))
+    mirrored_cap = banner.crop((0, 0, 20, 36)).transpose(
+        Image.Transpose.FLIP_LEFT_RIGHT
+    )
+    patch.alpha_composite(mirrored_cap, (0, 4))
+    return patch
+
+
 def patched_sheet(vanilla_root: Path, name: str, frame_size: int) -> Image.Image:
     source_path = vanilla_root / "gfx/interface" / name
     data = source_path.read_bytes()
@@ -323,6 +372,22 @@ def run(vanilla_root: Path, check: bool) -> None:
         NO_DOCTRINE_BUTTON.parent.mkdir(parents=True, exist_ok=True)
         NO_DOCTRINE_BUTTON.write_bytes(no_doctrine_button_data)
 
+    # The engine instantiates the native scholar button for the entire eastern
+    # group. Non-Lijiao countries receive this opaque, state-free hit shield.
+    # Its artwork reconstructs the underlying panel and closes the red banner
+    # with a mirrored scroll cap, leaving no ring, crescent or blunt cut edge.
+    blocker = non_lijiao_blocker(vanilla_root)
+    blocker_data = dds_bytes(blocker)
+    if check:
+        if (
+            not NON_LIJIAO_BLOCKER.exists()
+            or NON_LIJIAO_BLOCKER.read_bytes() != blocker_data
+        ):
+            raise ValueError("non-Lijiao school-button background patch is stale")
+    else:
+        NON_LIJIAO_BLOCKER.parent.mkdir(parents=True, exist_ok=True)
+        NON_LIJIAO_BLOCKER.write_bytes(blocker_data)
+
     # Scripted GUI buttons derive their mouse rectangle from the sprite. Keep
     # the practice hit target exactly aligned with the 28x24 visible number and
     # make every pixel fully transparent so it adds no frame or hover artwork.
@@ -364,7 +429,8 @@ def run(vanilla_root: Path, check: bool) -> None:
 
     print(
         f"{'checked' if check else 'generated'} four religion sheets, "
-        "ten patriarch-icon frames, two 42 px school-button overlays and one "
+        "ten patriarch-icon frames, two 42 px school-button overlays, one "
+        "42 px non-Lijiao background blocker and one "
         "transparent 28x24 practice hitbox and one transparent 26x26 school "
         "tooltip hitbox"
     )
