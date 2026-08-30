@@ -65,14 +65,20 @@ TAIWAN_REVIEW_IDS = (738, 2154, 2155, 4955, 4961, TAIWAN_MOUNTAIN_ID)
 WANGJI_NEW_IDS = (4966, 5030, 5031)
 WANGJI_ALL_IDS = (688,) + WANGJI_NEW_IDS
 HENAN_NEW_IDS = (4967,) + tuple(range(5045, 5056))
-HENAN_RETAINED_IDS = (1836, 692, 2176, 687, 2175)
+HENAN_RETAINED_IDS = (1836, 2176, 687, 2175)
 HENAN_ALL_IDS = (
     688, 4966, 5030, 5031,
     1836, 5045, 5046, 4967,
-    692, 5047, 5048, 5049,
+    5047, 5048, 5049,
     2176, 5050, 5051, 5052,
     687, 5053, 5054, 2175, 5055,
 )
+RETIRED_PROVINCE_COLORS = {
+    692: (98, 136, 128),
+    5017: (235, 85, 145),
+    5019: (155, 105, 230),
+}
+RETIRED_PROVINCE_IDS = tuple(RETIRED_PROVINCE_COLORS)
 YANGTZE_SEA_IDS = (5032, 5033, 5034, 5035, 5036, 5037, 5038)
 YANGTZE_DEFINITIONS = {
     5032: ((230, 223, 132), "Yangtze Estuary"),
@@ -1118,7 +1124,6 @@ HENAN_POSITION_CENTERS = {
     4967: (4539, 1220),
     5045: (4566, 1234),
     5046: (4567, 1217),
-    692: (4577, 1242),
     5047: (4586, 1243),
     5048: (4585, 1261),
     5049: (4592, 1253),
@@ -1269,6 +1274,39 @@ def find_named_block(text: str, name: str, start: int = 0) -> tuple[int, int]:
 def replace_named_block(text: str, name: str, replacement: str) -> str:
     start, end = find_named_block(text, name)
     return text[:start] + replacement + text[end:]
+
+
+def remove_named_block_if_present(text: str, name: str) -> str:
+    try:
+        start, end = find_named_block(text, name)
+    except ValueError:
+        return text
+    return text[:start] + text[end:]
+
+
+def remove_numeric_tokens(text: str, province_ids: tuple[int, ...]) -> str:
+    for province_id in province_ids:
+        text = re.sub(rf"(?<![\w.]){province_id}(?![\w.])\s*", "", text)
+    return text
+
+
+def remove_numeric_tokens_from_named_blocks(
+    text: str,
+    name: str,
+    province_ids: tuple[int, ...],
+) -> str:
+    """Remove IDs only from repeated membership blocks, not map coordinates."""
+    cursor = 0
+    while True:
+        try:
+            start, end = find_named_block(text, name, cursor)
+        except ValueError:
+            break
+        block = text[start:end]
+        replacement = remove_numeric_tokens(block, province_ids)
+        text = text[:start] + replacement + text[end:]
+        cursor = start + len(replacement)
+    return text
 
 
 def append_to_named_block(text: str, name: str, line: str) -> str:
@@ -1453,6 +1491,8 @@ def audit_manual_geometry(
 
     pixel_counts: dict[str, int] = {}
     for province in config["provinces"]:
+        if int(province["game_id"]) in RETIRED_PROVINCE_IDS:
+            continue
         color = np.array(province["rgb"], dtype=np.uint8)
         count = int(np.all(province_map == color, axis=2).sum())
         expected = int(province["expected_pixels"])
@@ -1461,6 +1501,19 @@ def audit_manual_geometry(
                 f"{province['game_id']} has {count} pixels; expected {expected}"
             )
         pixel_counts[str(province["game_id"])] = count
+
+    for province_id, colour in RETIRED_PROVINCE_COLORS.items():
+        count = int(
+            np.all(
+                province_map == np.array(colour, dtype=np.uint8),
+                axis=2,
+            ).sum()
+        )
+        if count:
+            raise ValueError(
+                f"Retired province {province_id} still has {count} bitmap pixels"
+            )
+        pixel_counts[str(province_id)] = 0
 
     return {
         "baseline_version": config["baseline_version"],
@@ -1487,7 +1540,6 @@ def build_definition(
         raise ValueError("definition.csv: could not rename province 4197 to Qizhou")
     henan_renames = {
         687: ("Running", "Nanyang"),
-        692: ("Handan", "Huaiqing"),
         1836: ("Nanyang", "Luoyang"),
         2175: ("Runing", "Xinyang"),
         2176: ("Shangqiu", "Guide"),
@@ -1791,8 +1843,8 @@ runing_nanyang_area = { #5 (Southern Henan and the upper Huai)
 \t1836 5045 5046 4967
 }
 
-hebei_zhangwei_area = { #4 (Henan north of the Yellow River)
-\t692 5047 5048 5049
+hebei_zhangwei_area = { #3 (Henan north of the Yellow River)
+\t5047 5048 5049
 }
 
 wangji_area = { #4 (Dongjing royal domain)
@@ -1952,6 +2004,9 @@ def build_region(vanilla_root: Path, output: Path) -> None:
 
 def build_continent(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/continent.txt")
+    text = remove_numeric_tokens_from_named_blocks(
+        text, "asia", RETIRED_PROVINCE_IDS
+    )
     text = append_to_named_block(
         text,
         "asia",
@@ -1986,7 +2041,7 @@ def build_continent(vanilla_root: Path, output: Path) -> None:
     text = append_to_named_block(
         text,
         "asia",
-        "\t4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025"
+        "\t4976 4977 5018 5020 5021 5022 5023 5024 5025"
         " # B11 Jiangsu",
     )
     text = append_to_named_block(
@@ -2031,6 +2086,7 @@ def build_continent(vanilla_root: Path, output: Path) -> None:
 
 def build_climate(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/climate.txt")
+    text = remove_numeric_tokens(text, RETIRED_PROVINCE_IDS)
     text = append_to_named_block(
         text,
         "tropical",
@@ -2075,7 +2131,7 @@ def build_climate(vanilla_root: Path, output: Path) -> None:
     text = append_to_named_block(
         text,
         "normal_monsoon",
-        "\t4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025"
+        "\t4976 4977 5018 5020 5021 5022 5023 5024 5025"
         " # B11 Jiangsu",
     )
     text = append_to_named_block(
@@ -2125,7 +2181,7 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
         681, 682, 2172, 4197,
         685, 1821, 1822, 2141, 2142, 2145, 4196,
         680, 688, 1655, 1897, 1896,
-        687, 692, 1836, 2175, 2176,
+        687, 692, 1836, 2175, 2176, 5017, 5019,
         686, 1838, 2143, 2144,
         673, 674, 2168, 4199,
     ):
@@ -2136,8 +2192,8 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
         "\t\t\t665 667 2156 2157 2159 2163 700 4942 4943 4950 4954 "
         "4979 4982 684 2148 2149 5002 682 2171 2172 4981 5011 "
         "685 1821 1822 2141 2142 2145 4196 5056 "
-        "4976 4977 5017 5018 5019 5020 5021 5022 5023 5024 5025 "
-        "1836 5045 5046 692 5047 5049 2176 5050 5051 5052 687 5054",
+        "4976 4977 5018 5020 5021 5022 5023 5024 5025 "
+        "1836 5045 5046 5047 5049 2176 5050 5051 5052 687 5054",
         "farmlands terrain override",
     )
     text = replace_once(
@@ -2293,6 +2349,27 @@ def build_terrain(vanilla_root: Path, output: Path) -> None:
         lambda block: append_to_named_block(
             block,
             "terrain_override",
+            "\t\t\t5115 5116 5212 5222 5223 5219 5221 5220 "
+            "5101 5102 5103 5111 5104 5107 5109 5110"
+            " # GDD_B69_HUABEI_TERRAIN_FARMLANDS",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "hills",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
+            "\t\t\t5113 5114 5211 5213 5218 5105 5106 5108 5112"
+            " # GDD_B69_HUABEI_TERRAIN_HILLS",
+        ),
+    )
+    text = modify_nested_block(
+        text,
+        "farmlands",
+        lambda block: append_to_named_block(
+            block,
+            "terrain_override",
             "\t\t\t688 5030 5031 # B03 Kaifeng, Zhengzhou and Chenliu plains",
         ),
     )
@@ -2340,6 +2417,8 @@ def format_position_block(province_id: int, *, include_comment: bool = True) -> 
 
 def build_positions(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "map/positions.txt")
+    for province_id in RETIRED_PROVINCE_IDS:
+        text = remove_named_block_if_present(text, str(province_id))
     for province_id in (
         664, 665, 667, 738, 1840, 2154, 2155, 2157, 2158, 2159,
         2162, 2163, 2164, 670, 671, 672, 683, 1833, 2151, 2173, 2174,
@@ -2348,7 +2427,7 @@ def build_positions(vanilla_root: Path, output: Path) -> None:
         685, 1821, 1822, 2141, 2142, 2145, 4196,
         686, 1838, 2143, 2146, 2147,
         680, 688, 1655, 1897, 1896,
-        687, 692, 1836, 2175, 2176, 2144,
+        687, 1836, 2175, 2176, 2144,
         673, 674, 2168, 4199,
     ):
         text = replace_named_block(
@@ -2379,7 +2458,7 @@ def build_adjacencies(vanilla_root: Path, output: Path) -> None:
         "5011;682;sea;5035;-1;-1;-1;-1;Hankou-Wuchang crossing",
         "4981;682;sea;5035;-1;-1;-1;-1;Hanyang-Wuchang crossing",
         "5012;682;sea;5035;-1;-1;-1;-1;Huangzhou-Wuchang crossing",
-        "2172;681;sea;5037;-1;-1;-1;-1;Jingzhou-Yichang crossing",
+        "2172;5014;sea;5036;-1;-1;-1;-1;Jingzhou-Gongan Yangtze crossing",
         "5055;2175;sea;5039;-1;-1;-1;-1;Dengzhou-Xinyang Huai crossing",
         "5053;2175;sea;5039;-1;-1;-1;-1;Ruzhou-Xinyang Huai crossing",
         "5054;2175;sea;5040;-1;-1;-1;-1;Runing-Xinyang Huai crossing",
@@ -2448,6 +2527,12 @@ def append_members_to_outer_block(
 
 def build_trade_nodes(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "common/tradenodes/00_tradenodes.txt")
+    text = remove_numeric_tokens_from_named_blocks(
+        text, "members", RETIRED_PROVINCE_IDS
+    )
+    text = remove_numeric_tokens_from_named_blocks(
+        text, "path", RETIRED_PROVINCE_IDS
+    )
     text = append_members_to_outer_block(
         text,
         "hangzhou",
@@ -2518,6 +2603,9 @@ def build_trade_nodes(vanilla_root: Path, output: Path) -> None:
 
 def build_trade_companies(vanilla_root: Path, output: Path) -> None:
     text = read_text(vanilla_root / "common/trade_companies/00_trade_companies.txt")
+    text = remove_numeric_tokens_from_named_blocks(
+        text, "provinces", RETIRED_PROVINCE_IDS
+    )
 
     def add_company_provinces(
         block: str,

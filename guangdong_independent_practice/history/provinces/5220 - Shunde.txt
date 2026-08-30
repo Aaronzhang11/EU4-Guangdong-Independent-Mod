@@ -1,11 +1,11 @@
-# 5220 - Shunde
+# 5220 - Xingtai (filename retained to shadow the inherited Shunde history)
 
-owner = ZHA
-controller = ZHA
-add_core = ZHA
+owner = XNG
+controller = XNG
+add_core = XNG
 culture = gdd_yan
 religion = confucianism
-capital = "Shunde"
+capital = "Xingtai"
 trade_goods = cloth
 base_tax = 4
 base_production = 4

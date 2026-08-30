@@ -1,0 +1,18 @@
+{
+  "batch": "B70_REMOVE_LEGACY_MAINLAND_CORES",
+  "scope": "1444_top_level_non_owner_cores",
+  "tags": {
+    "CXI": 23,
+    "CDL": 22,
+    "NNG": 20,
+    "CYI": 9,
+    "LNG": 8,
+    "CMI": 4,
+    "MNG": 6,
+    "CSH": 3
+  },
+  "province_count": 87,
+  "core_count": 95,
+  "preserve_owner_cores": true,
+  "preserve_dated_history": true
+}

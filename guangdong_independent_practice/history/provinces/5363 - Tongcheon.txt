@@ -1,0 +1,16 @@
+# 5363 - Tongcheon - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
+
+owner = JIZ
+controller = JIZ
+culture = korean
+religion = confucianism
+capital = "Tongcheon"
+trade_goods = chinaware
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+add_core = JIZ
+discovered_by = chinese
+discovered_by = nomad_group

@@ -3,9 +3,8 @@
 owner = MDL
 controller = MDL
 add_core = MDL
-add_core = CDL
 culture = yi
-religion = animism
+religion = vajrayana
 capital = "Chuxiong"
 trade_goods = livestock
 base_tax = 2

@@ -9,7 +9,7 @@ gdd_proxy_reform_establish_gaituguiliu_emperor = {
 }
 gdd_proxy_reform_establish_gaituguiliu_member = {
     potential = { has_global_flag = gdd_proxy_reform_establish_gaituguiliu }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     advisor_pool = 1
 }
 
@@ -27,7 +27,7 @@ gdd_proxy_reform_land_tax_emperor = {
 }
 gdd_proxy_reform_land_tax_member = {
     potential = { has_global_flag = gdd_proxy_reform_land_tax }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     state_maintenance_modifier = -0.25
 }
 
@@ -39,7 +39,7 @@ gdd_proxy_reform_military_governors_emperor = {
 }
 gdd_proxy_reform_military_governors_member = {
     potential = { has_global_flag = gdd_proxy_reform_military_governors }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     autonomy_change_time = -0.2
 }
 
@@ -50,7 +50,7 @@ gdd_proxy_reform_centralizing_government_emperor = {
 }
 gdd_proxy_reform_centralizing_government_member = {
     potential = { has_global_flag = gdd_proxy_reform_centralizing_government }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     all_estate_influence_modifier = -0.05
 }
 
@@ -69,7 +69,7 @@ gdd_proxy_reform_single_whip_emperor = {
 }
 gdd_proxy_reform_single_whip_member = {
     potential = { has_global_flag = gdd_proxy_reform_single_whip }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     yearly_corruption = -0.05
 }
 
@@ -81,7 +81,7 @@ gdd_proxy_reform_reign_in_estates_emperor = {
 }
 gdd_proxy_reform_reign_in_estates_member = {
     potential = { has_global_flag = gdd_proxy_reform_reign_in_estates }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     max_absolutism = 5
 }
 
@@ -93,7 +93,7 @@ gdd_proxy_reform_civil_registration_emperor = {
 }
 gdd_proxy_reform_civil_registration_member = {
     potential = { has_global_flag = gdd_proxy_reform_civil_registration }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     global_tax_modifier = 0.1
 }
 
@@ -105,7 +105,7 @@ gdd_proxy_reform_silver_standard_emperor = {
 }
 gdd_proxy_reform_silver_standard_member = {
     potential = { has_global_flag = gdd_proxy_reform_silver_standard }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     interest = -0.25
 }
 
@@ -117,7 +117,7 @@ gdd_proxy_reform_kanhe_emperor = {
 }
 gdd_proxy_reform_kanhe_member = {
     potential = { has_global_flag = gdd_proxy_reform_kanhe }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     trade_efficiency = 0.05
 }
 
@@ -129,7 +129,7 @@ gdd_proxy_reform_keju_emperor = {
 }
 gdd_proxy_reform_keju_member = {
     potential = { has_global_flag = gdd_proxy_reform_keju }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     governing_capacity_modifier = 0.05
 }
 
@@ -141,7 +141,7 @@ gdd_proxy_reform_inclusive_monarchy_emperor = {
 }
 gdd_proxy_reform_inclusive_monarchy_member = {
     potential = { has_global_flag = gdd_proxy_reform_inclusive_monarchy }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     tolerance_heathen = 1
 }
 
@@ -153,7 +153,7 @@ gdd_proxy_reform_bureaucratic_faction_emperor = {
 }
 gdd_proxy_reform_bureaucratic_faction_member = {
     potential = { has_global_flag = gdd_proxy_reform_bureaucratic_faction }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     church_loyalty_modifier = 0.05
 }
 
@@ -165,7 +165,7 @@ gdd_proxy_reform_military_faction_emperor = {
 }
 gdd_proxy_reform_military_faction_member = {
     potential = { has_global_flag = gdd_proxy_reform_military_faction }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     nobles_loyalty_modifier = 0.05
 }
 
@@ -177,7 +177,7 @@ gdd_proxy_reform_unified_market_emperor = {
 }
 gdd_proxy_reform_unified_market_member = {
     potential = { has_global_flag = gdd_proxy_reform_unified_market }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     global_trade_power = 0.1
 }
 
@@ -189,7 +189,7 @@ gdd_proxy_reform_military_branch_emperor = {
 }
 gdd_proxy_reform_military_branch_member = {
     potential = { has_global_flag = gdd_proxy_reform_military_branch }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     yearly_army_professionalism = 0.0025
 }
 
@@ -201,7 +201,7 @@ gdd_proxy_reform_modernize_banners_emperor = {
 }
 gdd_proxy_reform_modernize_banners_member = {
     potential = { has_global_flag = gdd_proxy_reform_modernize_banners }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     cavalry_cost = -0.1
 }
 
@@ -212,7 +212,7 @@ gdd_proxy_reform_foreign_ship_designs_emperor = {
 }
 gdd_proxy_reform_foreign_ship_designs_member = {
     potential = { has_global_flag = gdd_proxy_reform_foreign_ship_designs }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     global_ship_cost = -0.05
 }
 
@@ -224,7 +224,7 @@ gdd_proxy_reform_tributary_embassies_emperor = {
 }
 gdd_proxy_reform_tributary_embassies_member = {
     potential = { has_global_flag = gdd_proxy_reform_tributary_embassies }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     diplomatic_upkeep = 1
 }
 
@@ -235,6 +235,6 @@ gdd_proxy_reform_new_world_emperor = {
 }
 gdd_proxy_reform_new_world_member = {
     potential = { has_global_flag = gdd_proxy_reform_new_world }
-    trigger = { OR = { is_subject_of_type = tributary_state is_subject_of_type = gdd_invested_tributary } overlord = { is_emperor_of_china = yes } }
+    trigger = { is_subject_of_type = tributary_state overlord = { is_emperor_of_china = yes } }
     global_colonial_growth = 10
 }

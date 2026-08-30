@@ -82,8 +82,8 @@ P = (
     Province(5314, "沅州", "Yuanzhou Hunan", 2173, (123, 193, 77), (5279, 5282, 5285, 5268), "wuling_hunan_area", "CZM", "miao", "animism", "Yuanzhou", "tea", (1, 1, 2), ("CZM",)),
     Province(4999, "靖州", "Jingzhou Hunan", 4999, None, (5281, 5279, 5280), "southwest_hunan_area", "CZM", "miao", "animism", "Jingzhou", "livestock", (2, 2, 3), ("CZM",)),
     Province(5315, "绥宁", "Suining Hunan", 4999, (196, 88, 20), (5282, 673), "southwest_hunan_area", "CZM", "miao", "animism", "Suining", "naval_supplies", (1, 1, 2), ("CZM",)),
-    Province(4996, "澧州", "Lizhou", 4996, None, (5286, 5287), "lishui_area", "WLM", "miao", "confucianism", "Lizhou", "grain", (1, 2, 1), ("WLM",)),
-    Province(5316, "慈利", "Cili", 4996, (13, 239, 219), (5290, 5288), "lishui_area", "WLM", "gdd_chu", "confucianism", "Cili", "grain", (1, 1, 1), ("WLM",)),
+    Province(4996, "澧州", "Lizhou", 4996, None, (5286, 5287), "lishui_area", "WLM", "miao", "animism", "Lizhou", "grain", (1, 2, 1), ("WLM",)),
+    Province(5316, "慈利", "Cili", 4996, (13, 239, 219), (5290, 5288), "lishui_area", "WLM", "gdd_chu", "animism", "Cili", "grain", (1, 1, 1), ("WLM",)),
     Province(5317, "桑植", "Sangzhi", 4996, (86, 134, 162), (5291, 5289), "lishui_area", "WLM", "miao", "animism", "Sangzhi", "livestock", (0, 1, 2), ("WLM",)),
     Province(2174, "衡州", "Hengzhou", 2174, None, (2174, 5270, 5268, 5269), "hengchen_area", "HNG", "gdd_chu", "confucianism", "Hengyang", "gold", (2, 2, 2), ("HNG",)),
     Province(5318, "耒阳", "Leiyang", 2174, (159, 29, 105), (5266, 5274, 5275, 5276), "hengchen_area", "HNG", "gdd_chu", "confucianism", "Leiyang", "copper", (1, 1, 2), ("HNG",)),
@@ -94,17 +94,17 @@ P = (
     Province(4997, "益阳", "Yiyang", 4997, None, (5261, 5263, 671), "dongting_area", "CSA", "gdd_chu", "confucianism", "Yiyang", "naval_supplies", (2, 2, 2), ("CSA",)),
     Province(5322, "安化", "Anhua", 4997, (195, 121, 133), (5262, 5284, 5283, 2174), "dongting_area", "CSA", "gdd_chu", "confucianism", "Anhua", "tea", (2, 2, 2), ("CSA",)),
     # Jiangxi: six new provinces, preserving every parent group's development.
-    Province(683, "南昌", "Nanchang", 683, None, (683, 5292, 5297), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Nanchang", "paper", (4, 4, 2), ("NNG", "NCH")),
-    Province(5323, "丰城", "Fengcheng", 683, (12, 16, 76), (5299, 5296, 1833), "xunyang_area", "NCH", "gdd_gan", "confucianism", "Fengcheng", "grain", (3, 3, 2), ("NNG", "NCH")),
-    Province(5324, "奉新", "Fengxin", 683, (85, 167, 19), (5300, 5302, 5295), "xunyang_area", "NCH", "gdd_gan", "confucianism", "Fengxin", "paper", (2, 3, 2), ("NNG", "NCH")),
-    Province(2151, "饶州", "Raozhou", 2151, None, (2151, 5294, 5292, 5405), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Poyang", "chinaware", (4, 4, 2), ("NNG", "NCH")),
-    Province(5325, "昌南", "Changnan", 2151, (158, 62, 218), (5293, 5305), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Changnan", "chinaware", (3, 5, 2), ("NNG", "NCH"), kilns=True),
-    Province(4993, "广信", "Guangxin", 4993, None, (5349, 5305, 5211, 5405, 5332), "jiangxi_area", "TSF", "gdd_gan", "confucianism", "Shangrao", "copper", (3, 3, 2), ("NNG", "TSF")),
-    Province(5326, "德兴", "Dexing", 4993, (231, 213, 161), (5306, 5293, 5351), "jiangxi_area", "TSF", "gdd_gan", "confucianism", "Dexing", "copper", (2, 3, 1), ("NNG", "TSF")),
-    Province(670, "赣州", "Ganzhou", 670, None, (670, 5310, 5303, 5309, 5347, 5405), "gannan_area", "HAK", "gdd_hakka", "confucianism", "Ganzhou", "grain", (4, 4, 2), ("NNG", "HAK"), cot=1),
-    Province(5327, "宁都", "Ningdu", 670, (48, 108, 104), (5308, 5301, 5353, 1833), "gannan_area", "HAK", "gdd_hakka", "confucianism", "Ningdu", "grain", (2, 3, 3), ("NNG", "HAK")),
-    Province(4994, "袁州", "Yuanzhou Jiangxi", 4994, None, (1833, 5298, 5296, 5297), "south_jiangxi_area", "CHC", "gdd_gan", "confucianism", "Yuanzhou", "grain", (2, 2, 2), ("NNG", "CHC")),
-    Province(5328, "安福", "Anfu", 4994, (121, 3, 47), (5304, 5303), "south_jiangxi_area", "LCH", "gdd_gan", "confucianism", "Anfu", "grain", (1, 2, 1), ("NNG", "LCH")),
+    Province(683, "南昌", "Nanchang", 683, None, (683, 5292, 5297), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Nanchang", "paper", (4, 4, 2), ("NCH",)),
+    Province(5323, "丰城", "Fengcheng", 683, (12, 16, 76), (5299, 5296, 1833), "xunyang_area", "NCH", "gdd_gan", "confucianism", "Fengcheng", "grain", (3, 3, 2), ("NCH",)),
+    Province(5324, "奉新", "Fengxin", 683, (85, 167, 19), (5300, 5302, 5295), "xunyang_area", "NCH", "gdd_gan", "confucianism", "Fengxin", "paper", (2, 3, 2), ("NCH",)),
+    Province(2151, "饶州", "Raozhou", 2151, None, (2151, 5294, 5292, 5405), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Poyang", "chinaware", (4, 4, 2), ("NCH",)),
+    Province(5325, "昌南", "Changnan", 2151, (158, 62, 218), (5293, 5305), "jiangxi_area", "NCH", "gdd_gan", "confucianism", "Changnan", "chinaware", (3, 5, 2), ("NCH",), kilns=True),
+    Province(4993, "广信", "Guangxin", 4993, None, (5349, 5305, 5211, 5405, 5332), "jiangxi_area", "TSF", "gdd_gan", "confucianism", "Shangrao", "copper", (3, 3, 2), ("TSF",)),
+    Province(5326, "德兴", "Dexing", 4993, (231, 213, 161), (5306, 5293, 5351), "jiangxi_area", "TSF", "gdd_gan", "confucianism", "Dexing", "copper", (2, 3, 1), ("TSF",)),
+    Province(670, "赣州", "Ganzhou", 670, None, (670, 5310, 5303, 5309, 5347, 5405), "gannan_area", "HAK", "gdd_hakka", "confucianism", "Ganzhou", "grain", (4, 4, 2), ("HAK",), cot=1),
+    Province(5327, "宁都", "Ningdu", 670, (48, 108, 104), (5308, 5301, 5353, 1833), "gannan_area", "HAK", "gdd_hakka", "confucianism", "Ningdu", "grain", (2, 3, 3), ("HAK",)),
+    Province(4994, "袁州", "Yuanzhou Jiangxi", 4994, None, (1833, 5298, 5296, 5297), "south_jiangxi_area", "CHC", "gdd_gan", "confucianism", "Yuanzhou", "grain", (2, 2, 2), ("CHC",)),
+    Province(5328, "安福", "Anfu", 4994, (121, 3, 47), (5304, 5303), "south_jiangxi_area", "ACG", "gdd_gan", "confucianism", "Anfu", "grain", (1, 2, 1), ("ACG",)),
 )
 
 
@@ -607,7 +607,7 @@ def update_country() -> None:
     (COUNTRY_HISTORY / "HNG - Heng.txt").write_text(
         "# B45 balanced Hunan polity history.\n"
         "government = monarchy\n"
-        "add_government_reform = gdd_local_fiefdom_reform\n"
+        "add_government_reform = feudalism_reform\n"
         "government_rank = 1\n"
         "technology_group = chinese\n"
         "religion = confucianism\n"
@@ -842,8 +842,8 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         land_components = len(components(mask))
         if area == "jingyi_shinan_area":
             adjacency_text = (MAP / "adjacencies.csv").read_text(encoding="cp1252")
-            if land_components != 2 or not re.search(r"(?m)^2172;5013;sea;5037;", adjacency_text):
-                raise ValueError("jingyi_shinan_area must be two land components joined by the reviewed Yichang crossing")
+            if land_components != 2 or not re.search(r"(?m)^(2172;5014|5014;2172);sea;5036;", adjacency_text):
+                raise ValueError("jingyi_shinan_area must be two land components joined by the reviewed Jingzhou-Gongan crossing")
         elif land_components != 1:
             raise ValueError(f"Area {area} is not four-way land-connected")
     for province_id in NEW_IDS:
@@ -874,7 +874,7 @@ def validate(pixel_counts: dict[int, int]) -> dict[str, object]:
         "area_components": (
             "10 B45 areas land-connected; B47 owns the successor Jingxiang areas"
             if B47_MANIFEST.exists()
-            else "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5013 through 5037"
+            else "10 B45 areas land-connected; jingyi_shinan_area crossing-connected via 2172-5014 through 5036"
         ),
         "country_development_in_scope": dict(sorted(country_dev.items())),
         "changsha_constraint": {"province_ids": changsha_ids, "development": country_dev["CSA"]},

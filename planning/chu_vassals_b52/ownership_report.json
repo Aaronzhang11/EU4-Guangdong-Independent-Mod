@@ -1,6 +1,6 @@
 {
   "batch": "B52_chu_vassals",
-  "design": "Chu direct realm plus E, Quan, Zhou and Changsha as starting vassals",
+  "design": "Chu direct realm plus E, Quan, Zhou, Changsha and Ancheng as starting vassals",
   "chu_capital": {
     "province_id": 2172,
     "name": "Jiangling"
@@ -25,13 +25,18 @@
     "CSA": {
       "provinces": 5,
       "development": 39
+    },
+    "ACG": {
+      "provinces": 1,
+      "development": 4
     }
   },
   "vassals": {
     "EGU": "CHC",
     "QVN": "CHC",
     "ZHU": "CHC",
-    "CSA": "CHC"
+    "CSA": "CHC",
+    "ACG": "CHC"
   },
   "geometry": "unchanged",
   "areas": "unchanged",
@@ -45,7 +50,7 @@
     "trade_centres": "unchanged",
     "province_development": "unchanged",
     "culture_and_religion": "gdd_chu and confucianism retained",
-    "subject_government": "existing gdd_local_fiefdom_reform; no new reform"
+    "subject_government": "ordinary vassals use their normal tier-one government reforms"
   },
   "b43_validation": {
     "province_count": 309,

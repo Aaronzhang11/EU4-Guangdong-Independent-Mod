@@ -1,0 +1,21 @@
+{
+  "mod_root": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/guangdong_independent_practice",
+  "targets": [
+    5378,
+    5379
+  ],
+  "findings": [],
+  "pixel_comparison": {
+    "changed": 0,
+    "outside_editable_mask": 0,
+    "editable_ids": [
+      5378,
+      5379
+    ]
+  },
+  "summary": {
+    "targets": 2,
+    "errors": 0,
+    "warnings": 0
+  }
+}

@@ -2,7 +2,6 @@
 
 owner = HAK
 controller = HAK
-add_core = NNG
 add_core = HAK
 culture = gdd_min
 religion = confucianism

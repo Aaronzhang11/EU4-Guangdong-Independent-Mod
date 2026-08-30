@@ -3,11 +3,8 @@
 owner = LSH
 controller = LSH
 add_core = LSH
-add_core = CYI
-add_core = CDL
-add_core = CXI
 culture = yi
-religion = animism
+religion = buddhism
 capital = "Huili"
 trade_goods = copper
 base_tax = 3

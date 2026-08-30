@@ -89,7 +89,9 @@ TAG_PROVINCES = {
     "LUO": (2171, 5342),
     "GON": (687, 5347, 5055, 5348),
     "ZSH": (2136, 696, 5218, 5351, 5352),
-    "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5220, 5221, 5048),
+    "ZHA": (5246, 5247, 693, 5248, 5251, 5245, 5255, 5221, 5048),
+    "XNG": (5220,),
+    "ACG": (5328,),
     "WEI": (4195, 5219, 2178, 5252, 694, 5256, 5249, 5253, 5254, 5269),
     "DAE": (702, 2177, 697, 5243, 5244, 5242),
     "YOU": (701, 5266, 5265, 5267, 2179, 5268),
@@ -129,7 +131,8 @@ TAG_PROVINCES = {
 # Low-saturation palette approved from the real-boundary political-map preview.
 # Reused vanilla tags retain their original hue families, while every other
 # country uses a restrained gray-toned color chosen against its actual map
-# neighbors.
+# neighbors. The second-pass frontier and Central Plains corrections separate
+# visually adjacent states with muted European- and Indian-map hue families.
 MUTED_COUNTRY_COLORS = {
     "AMD": (115, 118, 158),
     "BAA": (109, 150, 116),
@@ -149,14 +152,14 @@ MUTED_COUNTRY_COLORS = {
     "DCH": (128, 149, 109),
     "DQU": (74, 150, 105),
     "DIA": (126, 130, 159),
-    "DZH": (145, 120, 142),
+    "DZH": (96, 101, 137),
     "EGU": (72, 129, 122),
     "GDD": (190, 72, 72),
-    "GON": (115, 118, 158),
+    "GON": (132, 91, 76),
     "GUI": (65, 120, 158),
     "GUN": (232, 232, 220),
     "GUZ": (35, 37, 40),
-    "GUO": (96, 143, 139),
+    "GUO": (149, 126, 82),
     "GYA": (48, 76, 120),
     "GZH": (133, 148, 154),
     "HAK": (181, 151, 101),
@@ -168,7 +171,7 @@ MUTED_COUNTRY_COLORS = {
     "HYA": (48, 77, 135),
     "JRG": (176, 130, 103),
     "JJG": (164, 82, 43),
-    "JUU": (139, 113, 153),
+    "JUU": (145, 116, 72),
     "KAM": (64, 146, 106),
     "KSD": (209, 120, 83),
     "LCH": (193, 166, 82),
@@ -196,7 +199,7 @@ MUTED_COUNTRY_COLORS = {
     "SUI": (159, 129, 111),
     "TSF": (171, 136, 146),
     "TZZ": (184, 213, 228),
-    "WDU": (176, 130, 103),
+    "WDU": (72, 108, 96),
     "WEI": (176, 130, 103),
     "WGS": (150, 156, 104),
     "WLM": (159, 129, 111),
@@ -206,6 +209,8 @@ MUTED_COUNTRY_COLORS = {
     "WXG": (96, 143, 139),
     "WXM": (139, 113, 153),
     "XU2": (150, 156, 104),
+    "XNG": (99, 72, 123),
+    "ACG": (63, 104, 128),
     "WUZ": (103, 137, 166),
     "YAN": (201, 68, 54),
     "YEL": (178, 142, 117),
@@ -214,7 +219,7 @@ MUTED_COUNTRY_COLORS = {
     "YPG": (126, 130, 159),
     "YUE": (116, 130, 194),
     "ZHA": (116, 150, 163),
-    "ZHG": (96, 143, 139),
+    "ZHG": (122, 84, 104),
     "ZNG": (181, 151, 101),
     "ZSH": (74, 122, 168),
     "ZHI": (161, 86, 151),
@@ -223,16 +228,16 @@ MUTED_COUNTRY_COLORS = {
 
 
 POLITIES = {
-    "LSH": {"file": "B43_Liangshan.txt", "history": "LSH - Liangshan.txt", "capital": 2748, "rank": 1, "color": MUTED_COUNTRY_COLORS["LSH"]},
-    "MDL": {"file": "B43_Mongol_Dali.txt", "history": "MDL - Mongol Dali.txt", "capital": 661, "rank": 1, "color": MUTED_COUNTRY_COLORS["MDL"]},
-    "NZA": {"file": "B43_Nanzhao.txt", "history": "NZA - Nanzhao.txt", "capital": 5235, "rank": 1, "color": MUTED_COUNTRY_COLORS["NZA"]},
+    "LSH": {"file": "B43_Liangshan.txt", "history": "LSH - Liangshan.txt", "capital": 2748, "rank": 1, "color": MUTED_COUNTRY_COLORS["LSH"], "religion": "buddhism"},
+    "MDL": {"file": "B43_Mongol_Dali.txt", "history": "MDL - Mongol Dali.txt", "capital": 661, "rank": 1, "color": MUTED_COUNTRY_COLORS["MDL"], "religion": "vajrayana"},
+    "NZA": {"file": "B43_Nanzhao.txt", "history": "NZA - Nanzhao.txt", "capital": 5235, "rank": 1, "color": MUTED_COUNTRY_COLORS["NZA"], "religion": "buddhism"},
     "QSH": {"file": "B43_Qunshu.txt", "history": "QSH - Qunshu.txt", "capital": 686, "rank": 1, "color": MUTED_COUNTRY_COLORS["QSH"]},
     "JJG": {"file": "B54_Jiujiang.txt", "history": "JJG - Jiujiang.txt", "capital": 4979, "rank": 1, "color": MUTED_COUNTRY_COLORS["JJG"], "government": "republic", "reform": "oligarchy_reform"},
     "HYA": {"file": "B54_Hanyang.txt", "history": "HYA - Hanyang.txt", "capital": 4981, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYA"], "government": "republic", "reform": "oligarchy_reform"},
     "EGU": {"file": "B52_E.txt", "history": "EGU - E.txt", "capital": 682, "rank": 1, "color": MUTED_COUNTRY_COLORS["EGU"]},
     "QVN": {"file": "B52_Quan.txt", "history": "QVN - Quan.txt", "capital": 5343, "rank": 1, "color": MUTED_COUNTRY_COLORS["QVN"]},
     "ZHU": {"file": "B52_Zhou.txt", "history": "ZHU - Zhou.txt", "capital": 5344, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHU"]},
-    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "gdd_khitan", "accepted": ("manchu", "gdd_qi"), "preserve_flag": True},
+    "LIO": {"file": "B51_Liao.txt", "history": "LIO - Liao.txt", "capital": 5204, "rank": 1, "color": MUTED_COUNTRY_COLORS["LIO"], "culture": "gdd_khitan", "religion": "nestorian", "accepted": ("manchu", "gdd_qi"), "preserve_flag": True},
     "HUA": {"file": "B50_Huai.txt", "history": "HUA - Huai.txt", "capital": 5059, "rank": 1, "color": MUTED_COUNTRY_COLORS["HUA"]},
     "OUE": {"file": "B50_Ou.txt", "history": "OUE - Ou.txt", "capital": 1824, "rank": 1, "color": MUTED_COUNTRY_COLORS["OUE"]},
     "HYM": {"file": "B50_Yang.txt", "history": "HYM - Yang.txt", "capital": 685, "rank": 1, "color": MUTED_COUNTRY_COLORS["HYM"], "government": "republic", "reform": "oligarchy_reform"},
@@ -241,10 +246,10 @@ POLITIES = {
     "CCH": {"file": "B43_Chao.txt", "history": "CCH - Chao.txt", "capital": 5061, "rank": 1, "color": MUTED_COUNTRY_COLORS["CCH"]},
     "BAA": {"file": "B43_Ba.txt", "history": "BAA - Ba.txt", "capital": 680, "rank": 2, "color": MUTED_COUNTRY_COLORS["BAA"]},
     "BD2": {"file": "B43_Badi.txt", "history": "BD2 - Badi.txt", "capital": 5013, "rank": 1, "color": MUTED_COUNTRY_COLORS["BD2"]},
-    "WLM": {"file": "B43_Wuling.txt", "history": "WLM - Wuling.txt", "capital": 4996, "rank": 1, "color": MUTED_COUNTRY_COLORS["WLM"]},
+    "WLM": {"file": "B43_Wuling.txt", "history": "WLM - Wuling.txt", "capital": 4996, "rank": 1, "color": MUTED_COUNTRY_COLORS["WLM"], "religion": "animism"},
     "CDE": {"file": "B54_Changde.txt", "history": "CDE - Changde.txt", "capital": 672, "rank": 1, "color": MUTED_COUNTRY_COLORS["CDE"], "government": "republic", "reform": "oligarchy_reform"},
     "BMY": {"file": "B43_Baima_Miyao.txt", "history": "BMY - Baima Miyao.txt", "capital": 5086, "rank": 1, "color": MUTED_COUNTRY_COLORS["BMY"]},
-    "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"]},
+    "DZH": {"file": "B43_Dengzhi.txt", "history": "DZH - Dengzhi.txt", "capital": 5088, "rank": 1, "color": MUTED_COUNTRY_COLORS["DZH"], "religion": "vajrayana"},
     "DQU": {"file": "B46_Dangqu.txt", "history": "DQU - Dangqu.txt", "capital": 5333, "rank": 1, "color": MUTED_COUNTRY_COLORS["DQU"], "accepted": ("gdd_diqiang",), "definition_comment": "# B46 GeoJSON-guided northeast Sichuan polity.", "history_comment": "# B46 Dangqu polity.", "revolutionary_colors": (3, 6, 4)},
     "ZHI": {"file": "B46_Zhi.txt", "history": "ZHI - Zhi.txt", "capital": 5027, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZHI"], "accepted": ("gdd_shu",), "definition_comment": "# B46 GeoJSON-guided Chongqing polity.", "history_comment": "# B46 Zhi polity.", "revolutionary_colors": (6, 3, 6)},
     "LUU": {"file": "B43_Lu.txt", "history": "LUU - Lu.txt", "capital": 5109, "rank": 1, "color": MUTED_COUNTRY_COLORS["LUU"]},
@@ -257,6 +262,8 @@ POLITIES = {
     "GON": {"file": "B43_Gong.txt", "history": "GON - Gong.txt", "capital": 687, "rank": 1, "color": MUTED_COUNTRY_COLORS["GON"]},
     "ZSH": {"file": "B43_Zhongshan.txt", "history": "ZSH - Zhongshan.txt", "capital": 696, "rank": 1, "color": MUTED_COUNTRY_COLORS["ZSH"]},
     "ZHA": {"file": "B43_Zhao.txt", "history": "ZHA - Zhao.txt", "capital": 693, "rank": 2, "color": MUTED_COUNTRY_COLORS["ZHA"]},
+    "XNG": {"file": "B71_Xing.txt", "history": "XNG - Xing.txt", "capital": 5220, "rank": 1, "color": MUTED_COUNTRY_COLORS["XNG"]},
+    "ACG": {"file": "B72_Ancheng.txt", "history": "ACG - Ancheng.txt", "capital": 5328, "rank": 1, "color": MUTED_COUNTRY_COLORS["ACG"]},
     "WEI": {"file": "B43_Wei.txt", "history": "WEI - Wei.txt", "capital": 4195, "rank": 2, "color": MUTED_COUNTRY_COLORS["WEI"]},
     "DAE": {"file": "B43_Dai.txt", "history": "DAE - Dai.txt", "capital": 5244, "rank": 1, "color": MUTED_COUNTRY_COLORS["DAE"]},
     "YOU": {"file": "B43_Yiqu.txt", "history": "YOU - Yiqu.txt", "capital": 2179, "rank": 1, "color": MUTED_COUNTRY_COLORS["YOU"]},
@@ -265,7 +272,7 @@ POLITIES = {
     "WDU": {"file": "B43_Wudu.txt", "history": "WDU - Wudu.txt", "capital": 5309, "rank": 1, "color": MUTED_COUNTRY_COLORS["WDU"]},
     "DCH": {"file": "B43_Dangchang.txt", "history": "DCH - Dangchang.txt", "capital": 5290, "rank": 1, "color": MUTED_COUNTRY_COLORS["DCH"]},
     "WGS": {"file": "B43_Wanggu_Russia.txt", "history": "WGS - Wanggu Russia.txt", "capital": 4223, "rank": 2, "color": MUTED_COUNTRY_COLORS["WGS"]},
-    "GZH": {"file": "B43_Ganzhou.txt", "history": "GZH - Ganzhou.txt", "capital": 5296, "rank": 1, "color": MUTED_COUNTRY_COLORS["GZH"]},
+    "GZH": {"file": "B43_Ganzhou.txt", "history": "GZH - Ganzhou.txt", "capital": 5296, "rank": 1, "color": MUTED_COUNTRY_COLORS["GZH"], "religion": "vajrayana"},
     "SHZ": {"file": "B43_Shazhou.txt", "history": "SHZ - Shazhou.txt", "capital": 5300, "rank": 1, "color": MUTED_COUNTRY_COLORS["SHZ"]},
     "HZH": {"file": "B43_Hezhou_Huihui.txt", "history": "HZH - Hezhou Huihui.txt", "capital": 5293, "rank": 1, "color": MUTED_COUNTRY_COLORS["HZH"]},
     "YPG": {"file": "B43_Yinping.txt", "history": "YPG - Yinping.txt", "capital": 5294, "rank": 1, "color": MUTED_COUNTRY_COLORS["YPG"]},
@@ -328,9 +335,9 @@ EXISTING_COUNTRY_COLORS = {
     "HNG": {"file": "B45_Heng.txt", "color": MUTED_COUNTRY_COLORS["HNG"]},
 }
 
-RESET_OWNERS: dict[int, str] = {
-    2154: "MNG",  # Tamsui
-}
+# These provinces must remain colonizable.  Keep this in the generator so a
+# full B43 replay cannot restore the former one-province Ming start in Taiwan.
+UNOWNED_PROVINCES = {2154}  # Kelang
 
 # User-confirmed core cleanup. Major and B50 eastern tags retain cores only
 # on their intended opening territory.
@@ -362,6 +369,8 @@ EXACT_CORE_TAGS = {
     "DQU": set(TAG_PROVINCES["DQU"]),
     "ZHI": set(TAG_PROVINCES["ZHI"]),
     "HLI": {666, 2160, 5301, 5302, 5303},
+    "XNG": set(TAG_PROVINCES["XNG"]),
+    "ACG": set(TAG_PROVINCES["ACG"]),
 }
 
 ADDITIONAL_CORES = {"HLI": {666, 5303}}
@@ -372,6 +381,8 @@ ADDITIONAL_CORES = {"HLI": {666, 5303}}
 EXCLUSIVE_CORE_OWNERS = {672: "CDE", 4979: "JJG", 4981: "HYA"}
 
 FORCED_CORE_REMOVALS = {
+    # B72: Anfu is restored as the one-province Ancheng state under Chu.
+    "LCH": {5328},
     "YUE": {
         665, 667, 668,
         2157, 2159,
@@ -383,6 +394,7 @@ FORCED_CORE_REMOVALS = {
     "HMI": {707, 2122, 5299, 5300},
     "QIN": {689, 2179},
     "WVG": {5048, 5270},
+    "ZHA": {5220},
     "MNG": {663, 666, 2160, 2162, 2164, 4949, 5217, 5301, 5302, 5303},
 }
 
@@ -442,6 +454,21 @@ def apply_owner(text: str, owner: str) -> str:
         if not marker:
             raise ValueError("Missing controller insertion point")
         initial = initial[:marker.end()] + f"{newline}add_core = {owner}" + initial[marker.end():]
+    return initial + dated
+
+
+def clear_initial_ownership(text: str) -> str:
+    initial, dated = initial_section(text)
+    initial = re.sub(
+        r"(?m)^[ \t]*(?:owner|controller)[ \t]*=[ \t]*\S+[ \t]*(?:\r?\n)?",
+        "",
+        initial,
+    )
+    initial = re.sub(
+        r"(?m)^[ \t]*add_core[ \t]*=[ \t]*MNG[ \t]*(?:\r?\n)?",
+        "",
+        initial,
+    )
     return initial + dated
 
 
@@ -515,8 +542,8 @@ def assigned_owner(province_id: int, vanilla_root: Path) -> str | None:
     for tag, provinces in PRESERVED_OWNERSHIP.items():
         if province_id in provinces:
             return tag
-    if province_id in RESET_OWNERS:
-        return RESET_OWNERS[province_id]
+    if province_id in UNOWNED_PROVINCES:
+        return None
     for history_root in (
         PROVINCE_HISTORY,
         vanilla_root / "history/provinces",
@@ -778,7 +805,7 @@ def country_history(
     religion: str,
     accepted: tuple[str, ...] = (),
     government: str = "monarchy",
-    reform: str = "gdd_local_fiefdom_reform",
+    reform: str = "feudalism_reform",
     comment: str = "# B43 Chunqiu polity history.",
 ) -> str:
     return (
@@ -893,8 +920,8 @@ def current_core_ids(tag: str) -> set[int]:
 def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
     character_encoding_audit = normalize_country_history_files(check=True)
     all_ids = [province_id for provinces in TAG_PROVINCES.values() for province_id in provinces]
-    if len(all_ids) != 309 or len(set(all_ids)) != 309:
-        raise ValueError("Expanded polity policy must contain 309 unique provinces after B56")
+    if len(all_ids) != 310 or len(set(all_ids)) != 310:
+        raise ValueError("Expanded polity policy must contain 310 unique provinces after B72")
     ensure_core_override_files(vanilla_root, write=False)
     for tag, provinces in TAG_PROVINCES.items():
         for province_id in provinces:
@@ -916,10 +943,13 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
             raise ValueError(
                 f"{tag}: exact ownership mismatch; actual={sorted(actual)}, expected={sorted(expected)}"
             )
-    for province_id, owner in RESET_OWNERS.items():
+    for province_id in UNOWNED_PROVINCES:
         for path in ensure_province_history(province_id, vanilla_root, write=False):
-            if initial_value(read_text(path), "owner") != owner:
-                raise ValueError(f"{path.name}: reset owner is not {owner}")
+            initial, _dated = initial_section(read_text(path))
+            if re.search(r"(?m)^\s*(?:owner|controller)\s*=", initial):
+                raise ValueError(f"{path.name}: colonizable province has an initial owner")
+            if re.search(r"(?m)^\s*add_core\s*=\s*MNG\s*$", initial):
+                raise ValueError(f"{path.name}: colonizable province retains an MNG core")
     for tag, expected in PRESERVED_OWNERSHIP.items():
         actual = current_owned_ids(tag)
         if actual != expected:
@@ -963,6 +993,8 @@ def validate(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]
         text = read_text(history)
         if int(initial_value(text, "capital")) != config["capital"]:
             raise ValueError(f"{tag}: incorrect capital")
+        if "religion" in config and initial_value(text, "religion") != config["religion"]:
+            raise ValueError(f"{tag}: configured country religion drifted")
         if not (FLAGS / f"{tag}.tga").exists():
             raise ValueError(f"{tag}: missing flag")
         if (FLAGS / f"{tag}.tga").stat().st_size != 18 + 128 * 128 * 3:
@@ -1057,10 +1089,10 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
                     path.write_text(new, encoding="utf-8")
                     changed_history_files.append(path.name)
 
-    for province_id, owner in RESET_OWNERS.items():
+    for province_id in UNOWNED_PROVINCES:
         for path in ensure_province_history(province_id, vanilla_root, write=True):
             old = read_text(path)
-            new = apply_owner(old, owner)
+            new = clear_initial_ownership(old)
             if new != old:
                 path.write_text(new, encoding="utf-8")
                 changed_history_files.append(path.name)
@@ -1127,7 +1159,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
                 config["capital"], config["rank"], culture, religion,
                 tuple(config.get("accepted", ())),
                 str(config.get("government", "monarchy")),
-                str(config.get("reform", "gdd_local_fiefdom_reform")),
+                str(config.get("reform", "feudalism_reform")),
                 str(config.get("history_comment", "# B43 Chunqiu polity history.")),
             ),
             encoding="utf-8",
@@ -1198,7 +1230,7 @@ def apply(vanilla_root: Path, check_colors: bool = True) -> dict[str, object]:
             "southern_ming_core_cleanup": [663, 666, 2162, 2164, 4949, 5217, 5303],
         },
         "policy": {tag: list(provinces) for tag, provinces in TAG_PROVINCES.items()},
-        "reset_owners": {str(province_id): owner for province_id, owner in RESET_OWNERS.items()},
+        "unowned_provinces": sorted(UNOWNED_PROVINCES),
         "created_from_vanilla": sorted(set(created_from_vanilla)),
         "changed_history_files": sorted(set(changed_history_files)),
         "removed_legacy_artifacts": sorted(set(removed_legacy_artifacts)),

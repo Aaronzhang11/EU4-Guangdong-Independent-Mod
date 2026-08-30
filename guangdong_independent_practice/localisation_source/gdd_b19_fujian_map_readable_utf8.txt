@@ -33,3 +33,7 @@
  west_fujian_area:0 "建安"
  west_fujian_area_name:0 "建安"
  west_fujian_area_adj:0 "建安"
+ PROV5378:0 "浙闽山脉"
+ PROV_ADJ5378:0 "浙闽山脉"
+ PROV5379:0 "武夷山"
+ PROV_ADJ5379:0 "武夷山"

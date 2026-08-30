@@ -119,17 +119,13 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 5011;682;sea;5035;-1;-1;-1;-1;Hankou-Wuchang crossing
 4981;682;sea;5035;-1;-1;-1;-1;Hanyang-Wuchang crossing
 5012;682;sea;5035;-1;-1;-1;-1;Huangzhou-Wuchang crossing
-2172;681;sea;5037;-1;-1;-1;-1;Jingzhou-Yichang crossing
-5055;2175;sea;5039;-1;-1;-1;-1;Dengzhou-Xinyang Huai crossing
-5053;2175;sea;5039;-1;-1;-1;-1;Ruzhou-Xinyang Huai crossing
-5054;2175;sea;5040;-1;-1;-1;-1;Runing-Xinyang Huai crossing
-5054;2144;sea;5040;-1;-1;-1;-1;Runing-Fuyang Huai crossing
-2175;2144;sea;5040;-1;-1;-1;-1;Xinyang-Fuyang Huai crossing
-2144;5059;sea;5041;-1;-1;-1;-1;Yingzhou-Shouzhou Huai crossing
-2143;5064;sea;5041;-1;-1;-1;-1;Fengyang-Hezhou Huai crossing
-2143;5063;sea;5042;-1;-1;-1;-1;Fengyang-Chuzhou Huai crossing
-2143;2142;sea;1896;-1;-1;-1;-1;Fengyang-Huai'an Hongze crossing
+5054;2175;sea;5039;-1;-1;-1;-1;Runing-Xinyang Huai crossing
+5349;5350;sea;5040;-1;-1;-1;-1;Xizhou-Guangzhou Huai crossing
+2144;5059;sea;5040;-1;-1;-1;-1;Yingzhou-Shouzhou Huai crossing
+2143;5064;sea;5041;-1;-1;-1;-1;Haozhou-Hezhou Huai crossing
+2143;5063;sea;5042;-1;-1;-1;-1;Haozhou-Chuzhou Huai crossing
+2143;2142;sea;1896;-1;-1;-1;-1;Haozhou-Huai'an Hongze crossing
 2142;4196;sea;5043;-1;-1;-1;-1;Huai'an-Haizhou Huai crossing
 4196;5020;sea;5044;-1;-1;-1;-1;Haizhou-Yancheng estuary crossing
-2172;5013;sea;5037;-1;-1;-1;-1;Jingzhou-Shizhou Yichang crossing
+2172;5014;sea;5036;-1;-1;-1;-1;Jingzhou-Gongan Yangtze crossing
 -1;-1;;-1;-1;-1;-1;-1;-1;

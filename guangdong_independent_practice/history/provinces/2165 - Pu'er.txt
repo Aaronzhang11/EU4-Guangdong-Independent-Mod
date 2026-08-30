@@ -3,7 +3,6 @@
 owner = NZA
 controller = NZA
 add_core = NZA
-add_core = CDL
 culture = gdd_dian
 religion = buddhism
 capital = "Simao"

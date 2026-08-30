@@ -1,0 +1,65 @@
+{
+  "features": [
+    {
+      "name": "武夷山",
+      "rgb": [
+        0,
+        146,
+        38
+      ],
+      "source_bbox": [
+        4601,
+        944,
+        4629,
+        993
+      ],
+      "target_xy": [
+        4601,
+        944
+      ],
+      "scale": 1.0
+    },
+    {
+      "name": "浙闽丘陵",
+      "rgb": [
+        229,
+        105,
+        47
+      ],
+      "source_bbox": [
+        4615,
+        939,
+        4670,
+        1000
+      ],
+      "target_xy": [
+        4615,
+        939
+      ],
+      "scale": 1.0
+    },
+    {
+      "name": "杉岭",
+      "rgb": [
+        50,
+        12,
+        180
+      ],
+      "source_bbox": [
+        4623,
+        930,
+        4649,
+        945
+      ],
+      "target_xy": [
+        4623,
+        930
+      ],
+      "scale": 1.0
+    }
+  ],
+  "cleanup_margin": 16,
+  "cleanup_fragments": true,
+  "absorb_enclosed_pockets": false,
+  "preview_zoom": 5
+}

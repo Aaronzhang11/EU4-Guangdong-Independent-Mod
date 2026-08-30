@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "campaign_start": "1444.11.11",
+  "eligible_religion": "confucianism",
+  "authoritative_state": "zhx_doctrine_* country flags",
+  "initial_practice": 25,
+  "expected_total": 65,
+  "schools": {
+    "ru": {
+      "flag": "zhx_doctrine_ru",
+      "native_school": "zhx_ru_school",
+      "expected_count": 14,
+      "tags": [
+        "ACG",
+        "CAG",
+        "CHN",
+        "CZH",
+        "GUO",
+        "HNG",
+        "JIZ",
+        "LCH",
+        "LUU",
+        "NCH",
+        "SUI",
+        "WVG",
+        "XU2",
+        "ZHG"
+      ]
+    },
+    "fa": {
+      "flag": "zhx_doctrine_fa",
+      "native_school": "zhx_fa_school",
+      "expected_count": 6,
+      "tags": [
+        "GUN",
+        "QIN",
+        "SHU",
+        "WEI",
+        "YUE",
+        "ZNG"
+      ]
+    },
+    "mo": {
+      "flag": "zhx_doctrine_mo",
+      "native_school": "zhx_mo_school",
+      "expected_count": 12,
+      "tags": [
+        "CCH",
+        "CDE",
+        "CZC",
+        "GUZ",
+        "HUA",
+        "HYA",
+        "JJG",
+        "LIU",
+        "SNG",
+        "WHU",
+        "WUZ",
+        "ZHU"
+      ]
+    },
+    "dao": {
+      "flag": "zhx_doctrine_dao",
+      "native_school": "zhx_dao_school",
+      "expected_count": 9,
+      "tags": [
+        "BAA",
+        "CHC",
+        "CSA",
+        "DIA",
+        "MIN",
+        "TSF",
+        "WDU",
+        "WXG",
+        "YPG"
+      ]
+    },
+    "bing": {
+      "flag": "zhx_doctrine_bing",
+      "native_school": "zhx_bing_school",
+      "expected_count": 11,
+      "tags": [
+        "DAE",
+        "DQU",
+        "EGU",
+        "HAK",
+        "QIC",
+        "QWO",
+        "WUU",
+        "XNG",
+        "YAN",
+        "YOU",
+        "ZHA"
+      ]
+    },
+    "zongheng": {
+      "flag": "zhx_doctrine_zongheng",
+      "native_school": "zhx_zongheng_school",
+      "expected_count": 13,
+      "tags": [
+        "CAI",
+        "GDD",
+        "GON",
+        "GUI",
+        "HYM",
+        "JUU",
+        "LUO",
+        "OUE",
+        "QSH",
+        "QVN",
+        "SHE",
+        "ZHO",
+        "ZSH"
+      ]
+    }
+  }
+}

@@ -17,6 +17,3351 @@ country_event = {
     option = { name = OK }
 }
 
+# Authority-meter test event A. All choices remain permanently available;
+# only the meter's documented -100..100 domain is enforced at the endpoints.
+country_event = {
+    id = gdd_celestial_test.120
+    title = gdd_celestial_test.120.t
+    desc = gdd_celestial_test.120.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = gdd_celestial_test.120.a
+        CZH = {
+            change_variable = {
+                which = gdd_central_authority_balance
+                value = 10
+            }
+            gdd_clamp_central_authority_balance = yes
+            gdd_refresh_authority_balance_effects = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.120.b
+        CZH = {
+            change_variable = {
+                which = gdd_central_authority_balance
+                value = -10
+            }
+            gdd_clamp_central_authority_balance = yes
+            gdd_refresh_authority_balance_effects = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.120.plus_point_one
+        CZH = {
+            change_variable = {
+                which = gdd_central_authority_balance
+                value = 0.1
+            }
+            gdd_clamp_central_authority_balance = yes
+            gdd_refresh_authority_balance_effects = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.120.minus_point_one
+        CZH = {
+            change_variable = {
+                which = gdd_central_authority_balance
+                value = -0.1
+            }
+            gdd_clamp_central_authority_balance = yes
+            gdd_refresh_authority_balance_effects = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.120.plus_fifty
+        CZH = {
+            change_variable = {
+                which = gdd_central_authority_balance
+                value = 50
+            }
+            gdd_clamp_central_authority_balance = yes
+            gdd_refresh_authority_balance_effects = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.120.minus_fifty
+        CZH = {
+            change_variable = {
+                which = gdd_central_authority_balance
+                value = -50
+            }
+            gdd_clamp_central_authority_balance = yes
+            gdd_refresh_authority_balance_effects = yes
+        }
+    }
+}
+
+# Dynamic member-removal test event. Each visible option reads one live slot
+# from the Mandate-window roster, so it follows the current Zhou membership.
+country_event = {
+    id = gdd_celestial_test.121
+    title = gdd_celestial_test.121.t
+    desc = gdd_celestial_test.121.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = gdd_celestial_test.121.slot_01
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_01
+            event_target:gdd_eoc_member_roster_01 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_01 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_02
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_02
+            event_target:gdd_eoc_member_roster_02 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_02 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_03
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_03
+            event_target:gdd_eoc_member_roster_03 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_03 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_04
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_04
+            event_target:gdd_eoc_member_roster_04 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_04 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_05
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_05
+            event_target:gdd_eoc_member_roster_05 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_05 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_06
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_06
+            event_target:gdd_eoc_member_roster_06 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_06 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_07
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_07
+            event_target:gdd_eoc_member_roster_07 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_07 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_08
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_08
+            event_target:gdd_eoc_member_roster_08 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_08 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_09
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_09
+            event_target:gdd_eoc_member_roster_09 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_09 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_10
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_10
+            event_target:gdd_eoc_member_roster_10 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_10 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_11
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_11
+            event_target:gdd_eoc_member_roster_11 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_11 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_12
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_12
+            event_target:gdd_eoc_member_roster_12 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_12 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_13
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_13
+            event_target:gdd_eoc_member_roster_13 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_13 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_14
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_14
+            event_target:gdd_eoc_member_roster_14 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_14 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_15
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_15
+            event_target:gdd_eoc_member_roster_15 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_15 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_16
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_16
+            event_target:gdd_eoc_member_roster_16 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_16 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_17
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_17
+            event_target:gdd_eoc_member_roster_17 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_17 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_18
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_18
+            event_target:gdd_eoc_member_roster_18 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_18 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_19
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_19
+            event_target:gdd_eoc_member_roster_19 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_19 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_20
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_20
+            event_target:gdd_eoc_member_roster_20 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_20 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_21
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_21
+            event_target:gdd_eoc_member_roster_21 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_21 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_22
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_22
+            event_target:gdd_eoc_member_roster_22 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_22 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_23
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_23
+            event_target:gdd_eoc_member_roster_23 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_23 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_24
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_24
+            event_target:gdd_eoc_member_roster_24 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_24 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_25
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_25
+            event_target:gdd_eoc_member_roster_25 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_25 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_26
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_26
+            event_target:gdd_eoc_member_roster_26 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_26 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_27
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_27
+            event_target:gdd_eoc_member_roster_27 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_27 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_28
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_28
+            event_target:gdd_eoc_member_roster_28 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_28 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_29
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_29
+            event_target:gdd_eoc_member_roster_29 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_29 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_30
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_30
+            event_target:gdd_eoc_member_roster_30 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_30 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_31
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_31
+            event_target:gdd_eoc_member_roster_31 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_31 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_32
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_32
+            event_target:gdd_eoc_member_roster_32 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_32 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_33
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_33
+            event_target:gdd_eoc_member_roster_33 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_33 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_34
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_34
+            event_target:gdd_eoc_member_roster_34 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_34 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_35
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_35
+            event_target:gdd_eoc_member_roster_35 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_35 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_36
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_36
+            event_target:gdd_eoc_member_roster_36 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_36 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_37
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_37
+            event_target:gdd_eoc_member_roster_37 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_37 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_38
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_38
+            event_target:gdd_eoc_member_roster_38 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_38 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_39
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_39
+            event_target:gdd_eoc_member_roster_39 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_39 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_40
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_40
+            event_target:gdd_eoc_member_roster_40 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_40 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_41
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_41
+            event_target:gdd_eoc_member_roster_41 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_41 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_42
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_42
+            event_target:gdd_eoc_member_roster_42 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_42 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_43
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_43
+            event_target:gdd_eoc_member_roster_43 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_43 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_44
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_44
+            event_target:gdd_eoc_member_roster_44 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_44 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_45
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_45
+            event_target:gdd_eoc_member_roster_45 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_45 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_46
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_46
+            event_target:gdd_eoc_member_roster_46 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_46 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_47
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_47
+            event_target:gdd_eoc_member_roster_47 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_47 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_48
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_48
+            event_target:gdd_eoc_member_roster_48 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_48 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_49
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_49
+            event_target:gdd_eoc_member_roster_49 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_49 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_50
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_50
+            event_target:gdd_eoc_member_roster_50 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_50 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_51
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_51
+            event_target:gdd_eoc_member_roster_51 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_51 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_52
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_52
+            event_target:gdd_eoc_member_roster_52 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_52 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_53
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_53
+            event_target:gdd_eoc_member_roster_53 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_53 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_54
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_54
+            event_target:gdd_eoc_member_roster_54 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_54 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_55
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_55
+            event_target:gdd_eoc_member_roster_55 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_55 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_56
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_56
+            event_target:gdd_eoc_member_roster_56 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_56 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_57
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_57
+            event_target:gdd_eoc_member_roster_57 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_57 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_58
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_58
+            event_target:gdd_eoc_member_roster_58 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_58 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_59
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_59
+            event_target:gdd_eoc_member_roster_59 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_59 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_60
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_60
+            event_target:gdd_eoc_member_roster_60 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_60 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_61
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_61
+            event_target:gdd_eoc_member_roster_61 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_61 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_62
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_62
+            event_target:gdd_eoc_member_roster_62 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_62 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_63
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_63
+            event_target:gdd_eoc_member_roster_63 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_63 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_64
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_64
+            event_target:gdd_eoc_member_roster_64 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_64 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.slot_65
+        trigger = {
+            has_saved_global_event_target = gdd_eoc_member_roster_65
+            event_target:gdd_eoc_member_roster_65 = {
+                exists = yes
+                has_country_flag = zhx_member
+                NOT = { tag = YAN }
+                NOT = { has_country_flag = zhx_tianzi }
+            }
+        }
+        event_target:gdd_eoc_member_roster_65 = {
+            zhx_remove_tianxia_member = yes
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.121.cancel
+    }
+}
+
+
+# Event A for the dynamic six-seat great-feudatory test.
+country_event = {
+    id = gdd_celestial_test.122
+    title = gdd_celestial_test.122.t
+    desc = gdd_celestial_test.122.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+    }
+
+    immediate = {
+        hidden_effect = {
+            CZH = {
+                zhx_rebuild_six_great_feudatory_cache = yes
+                zhx_build_gui_roster = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.122.a
+        custom_tooltip = gdd_celestial_test.122.a.tt
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.123 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.122.b
+        trigger = {
+            hidden_trigger = {
+                CZH = {
+                    NOT = {
+                        check_variable = {
+                            which = gdd_six_great_feudatory_count
+                            value = 6
+                        }
+                    }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.122.b.tt
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.124 }
+        }
+    }
+}
+
+# Event B removes one current non-principal great feudatory while preserving
+# that country's Zhou membership.
+country_event = {
+    id = gdd_celestial_test.123
+    title = gdd_celestial_test.123.t
+    desc = gdd_celestial_test.123.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+    }
+
+    option = {
+        name = gdd_celestial_test.123.slot_01
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_great_feudatory_roster_01
+                event_target:gdd_eoc_great_feudatory_roster_01 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    has_country_flag = zhx_major_feudatory
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.123.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_great_feudatory_roster_01 = {
+                zhx_remove_major_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.123.slot_02
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_great_feudatory_roster_02
+                event_target:gdd_eoc_great_feudatory_roster_02 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    has_country_flag = zhx_major_feudatory
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.123.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_great_feudatory_roster_02 = {
+                zhx_remove_major_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.123.slot_03
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_great_feudatory_roster_03
+                event_target:gdd_eoc_great_feudatory_roster_03 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    has_country_flag = zhx_major_feudatory
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.123.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_great_feudatory_roster_03 = {
+                zhx_remove_major_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.123.slot_04
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_great_feudatory_roster_04
+                event_target:gdd_eoc_great_feudatory_roster_04 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    has_country_flag = zhx_major_feudatory
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.123.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_great_feudatory_roster_04 = {
+                zhx_remove_major_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.123.slot_05
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_great_feudatory_roster_05
+                event_target:gdd_eoc_great_feudatory_roster_05 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    has_country_flag = zhx_major_feudatory
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.123.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_great_feudatory_roster_05 = {
+                zhx_remove_major_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.123.slot_06
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_great_feudatory_roster_06
+                event_target:gdd_eoc_great_feudatory_roster_06 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    has_country_flag = zhx_major_feudatory
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.123.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_great_feudatory_roster_06 = {
+                zhx_remove_major_feudatory = yes
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    option = {
+        name = gdd_celestial_test.123.cancel
+    }
+}
+
+# Event C promotes one ordinary Zhou member into a vacant great-feudatory seat.
+country_event = {
+    id = gdd_celestial_test.124
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_01
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_01
+                event_target:gdd_eoc_member_roster_01 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_01 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_02
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_02
+                event_target:gdd_eoc_member_roster_02 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_02 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_03
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_03
+                event_target:gdd_eoc_member_roster_03 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_03 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_04
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_04
+                event_target:gdd_eoc_member_roster_04 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_04 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_05
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_05
+                event_target:gdd_eoc_member_roster_05 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_05 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_06
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_06
+                event_target:gdd_eoc_member_roster_06 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_06 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_07
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.125 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+
+
+# Remaining pages of Event C. Each page contains at most six live roster
+# entries, keeping the event window compact and preventing unresolved targets
+# from flooding the interface.
+country_event = {
+    id = gdd_celestial_test.125
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_07
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_07
+                event_target:gdd_eoc_member_roster_07 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_07 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_08
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_08
+                event_target:gdd_eoc_member_roster_08 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_08 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_09
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_09
+                event_target:gdd_eoc_member_roster_09 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_09 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_10
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_10
+                event_target:gdd_eoc_member_roster_10 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_10 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_11
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_11
+                event_target:gdd_eoc_member_roster_11 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_11 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_12
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_12
+                event_target:gdd_eoc_member_roster_12 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_12 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.124 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_13
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.126 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.126
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_13
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_13
+                event_target:gdd_eoc_member_roster_13 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_13 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_14
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_14
+                event_target:gdd_eoc_member_roster_14 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_14 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_15
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_15
+                event_target:gdd_eoc_member_roster_15 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_15 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_16
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_16
+                event_target:gdd_eoc_member_roster_16 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_16 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_17
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_17
+                event_target:gdd_eoc_member_roster_17 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_17 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_18
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_18
+                event_target:gdd_eoc_member_roster_18 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_18 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.125 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_19
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.127 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.127
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_19
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_19
+                event_target:gdd_eoc_member_roster_19 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_19 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_20
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_20
+                event_target:gdd_eoc_member_roster_20 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_20 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_21
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_21
+                event_target:gdd_eoc_member_roster_21 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_21 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_22
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_22
+                event_target:gdd_eoc_member_roster_22 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_22 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_23
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_23
+                event_target:gdd_eoc_member_roster_23 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_23 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_24
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_24
+                event_target:gdd_eoc_member_roster_24 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_24 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.126 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_25
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.128 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.128
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_25
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_25
+                event_target:gdd_eoc_member_roster_25 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_25 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_26
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_26
+                event_target:gdd_eoc_member_roster_26 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_26 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_27
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_27
+                event_target:gdd_eoc_member_roster_27 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_27 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_28
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_28
+                event_target:gdd_eoc_member_roster_28 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_28 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_29
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_29
+                event_target:gdd_eoc_member_roster_29 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_29 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_30
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_30
+                event_target:gdd_eoc_member_roster_30 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_30 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.127 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_31
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.129 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.129
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_31
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_31
+                event_target:gdd_eoc_member_roster_31 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_31 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_32
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_32
+                event_target:gdd_eoc_member_roster_32 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_32 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_33
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_33
+                event_target:gdd_eoc_member_roster_33 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_33 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_34
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_34
+                event_target:gdd_eoc_member_roster_34 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_34 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_35
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_35
+                event_target:gdd_eoc_member_roster_35 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_35 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_36
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_36
+                event_target:gdd_eoc_member_roster_36 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_36 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.128 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_37
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.130 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.130
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_37
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_37
+                event_target:gdd_eoc_member_roster_37 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_37 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_38
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_38
+                event_target:gdd_eoc_member_roster_38 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_38 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_39
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_39
+                event_target:gdd_eoc_member_roster_39 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_39 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_40
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_40
+                event_target:gdd_eoc_member_roster_40 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_40 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_41
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_41
+                event_target:gdd_eoc_member_roster_41 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_41 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_42
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_42
+                event_target:gdd_eoc_member_roster_42 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_42 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.129 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_43
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.131 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.131
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_43
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_43
+                event_target:gdd_eoc_member_roster_43 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_43 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_44
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_44
+                event_target:gdd_eoc_member_roster_44 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_44 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_45
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_45
+                event_target:gdd_eoc_member_roster_45 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_45 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_46
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_46
+                event_target:gdd_eoc_member_roster_46 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_46 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_47
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_47
+                event_target:gdd_eoc_member_roster_47 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_47 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_48
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_48
+                event_target:gdd_eoc_member_roster_48 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_48 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.130 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_49
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.132 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.132
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_49
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_49
+                event_target:gdd_eoc_member_roster_49 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_49 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_50
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_50
+                event_target:gdd_eoc_member_roster_50 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_50 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_51
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_51
+                event_target:gdd_eoc_member_roster_51 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_51 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_52
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_52
+                event_target:gdd_eoc_member_roster_52 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_52 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_53
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_53
+                event_target:gdd_eoc_member_roster_53 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_53 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_54
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_54
+                event_target:gdd_eoc_member_roster_54 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_54 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.131 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_55
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.133 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.133
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_55
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_55
+                event_target:gdd_eoc_member_roster_55 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_55 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_56
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_56
+                event_target:gdd_eoc_member_roster_56 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_56 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_57
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_57
+                event_target:gdd_eoc_member_roster_57 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_57 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_58
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_58
+                event_target:gdd_eoc_member_roster_58 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_58 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_59
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_59
+                event_target:gdd_eoc_member_roster_59 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_59 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_60
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_60
+                event_target:gdd_eoc_member_roster_60 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_60 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.132 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.next_page
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_61
+            }
+        }
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.134 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
+country_event = {
+    id = gdd_celestial_test.134
+    title = gdd_celestial_test.124.t
+    desc = gdd_celestial_test.124.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+
+    trigger = {
+        tag = YAN
+        CZH = {
+            NOT = {
+                check_variable = {
+                    which = gdd_six_great_feudatory_count
+                    value = 6
+                }
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_61
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_61
+                event_target:gdd_eoc_member_roster_61 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_61 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_62
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_62
+                event_target:gdd_eoc_member_roster_62 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_62 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_63
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_63
+                event_target:gdd_eoc_member_roster_63 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_63 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_64
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_64
+                event_target:gdd_eoc_member_roster_64 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_64 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.slot_65
+        trigger = {
+            hidden_trigger = {
+                has_saved_global_event_target = gdd_eoc_member_roster_65
+                event_target:gdd_eoc_member_roster_65 = {
+                    exists = yes
+                    has_country_flag = zhx_member
+                    NOT = { has_country_flag = zhx_major_feudatory }
+                    NOT = { tag = YAN }
+                    NOT = { has_country_flag = zhx_tianzi }
+                }
+            }
+        }
+        custom_tooltip = gdd_celestial_test.124.effect_tt
+        hidden_effect = {
+            event_target:gdd_eoc_member_roster_65 = {
+                zhx_promote_six_great_feudatory = yes
+            }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.previous_page
+        hidden_effect = {
+            country_event = { id = gdd_celestial_test.133 }
+        }
+    }
+
+    option = {
+        name = gdd_celestial_test.124.cancel
+    }
+}
+
 # Event A: choose which part of the Emperor of China interface to test.
 country_event = {
     id = gdd_celestial_test.1

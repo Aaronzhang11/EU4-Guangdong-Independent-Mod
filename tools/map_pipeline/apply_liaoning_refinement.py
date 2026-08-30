@@ -179,9 +179,10 @@ def update_lists():
 def history_text(pid, data):
     name, _, _, _, goods, dev, culture, fort = data
     owner = OWNER_BY_ID[pid]
+    religion = "nestorian" if owner == "LIO" else "confucianism"
     lines = [
         f"# {pid} - {name}", "", f"owner = {owner}", f"controller = {owner}", f"add_core = {owner}",
-        f"culture = {culture}", "religion = confucianism", f'capital = "{name}"',
+        f"culture = {culture}", f"religion = {religion}", f'capital = "{name}"',
         f"trade_goods = {goods}", f"base_tax = {dev[0]}", f"base_production = {dev[1]}",
         f"base_manpower = {dev[2]}", "is_city = yes",
     ]

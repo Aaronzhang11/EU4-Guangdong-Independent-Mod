@@ -1,0 +1,9 @@
+# B71 one-province Xing polity.
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = gdd_yan
+capital = 5220
+fixed_capital = 5220

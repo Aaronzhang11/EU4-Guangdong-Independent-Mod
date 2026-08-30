@@ -1,14 +1,14 @@
-#2694 - East Gangwon
+# 2694 - Gangneung - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
-religion = confucianism
-capital = "mlu–" 	# Gangneung
+culture = gdd_samhan
+religion = mahayana
+capital = "Gangneung"# Gangneung
 trade_goods = fish
 hre = no
-base_tax = 1
-base_production = 1
-base_manpower = 1
+base_tax = 3
+base_production = 3
+base_manpower = 2
 is_city = yes
 add_core = KOR
 discovered_by = chinese

@@ -3,9 +3,8 @@
 owner = NZA
 controller = NZA
 add_core = NZA
-add_core = CDL
 culture = yi
-religion = animism
+religion = buddhism
 capital = "Mengmian"
 trade_goods = tea
 base_tax = 2

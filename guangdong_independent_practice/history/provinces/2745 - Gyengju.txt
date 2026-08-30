@@ -1,13 +1,13 @@
-#2744 - Gyeongsang
+# 2745 - Busan - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
-religion = confucianism
-capital = "†^ÞT" 	# Gyeongju
+culture = gdd_samhan
+religion = mahayana
+capital = "Busan"# Gyeongju
 trade_goods = tea
 hre = no
-base_tax = 5
-base_production = 5
+base_tax = 4
+base_production = 4
 base_manpower = 2
 is_city = yes
 center_of_trade = 2 # GDD_B48_TRADE_CENTER_REBALANCE

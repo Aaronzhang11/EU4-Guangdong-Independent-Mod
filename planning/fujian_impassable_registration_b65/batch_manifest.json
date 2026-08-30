@@ -1,0 +1,75 @@
+{
+  "batch": "B65_fujian_impassable_registration",
+  "marker": "GDD_B65_FUJIAN_IMPASSABLE_REGISTRATION",
+  "status": "implemented",
+  "bitmap_geometry_source": "user_drawn_canonical_pixels",
+  "bitmap_pixels_changed": 0,
+  "connectivity_policy": {
+    "5378": "浙闽山脉保留用户绘制的多段山体，不进行人工连线",
+    "5379": "武夷山保持单一连通山体"
+  },
+  "backup": "/Users/xinanyapiao/eu4mod/EU4-Guangdong-Independent-Mod/planning/fujian_impassable_registration_b65/pre_b65_provinces.bmp",
+  "canonical_bitmap_sha256": "a02825fbc189ec5083e0c3f4a51b1faf3edf37991ad291e2db00d4fd895db50e",
+  "features": {
+    "5378": {
+      "name": "浙闽山脉",
+      "rgb": [
+        64,
+        130,
+        53
+      ],
+      "pixels": 385,
+      "bbox": [
+        4631,
+        912,
+        4694,
+        999
+      ],
+      "components": [
+        166,
+        166,
+        53
+      ],
+      "component_policy": "intentional_disconnected_mountain_segments"
+    },
+    "5379": {
+      "name": "武夷山",
+      "rgb": [
+        16,
+        71,
+        7
+      ],
+      "pixels": 114,
+      "bbox": [
+        4614,
+        963,
+        4629,
+        991
+      ],
+      "components": [
+        114
+      ],
+      "component_policy": "single_connected_mountain_body"
+    }
+  },
+  "consumers": {
+    "definition": [
+      5378,
+      5379
+    ],
+    "max_provinces": 5380,
+    "climate_impassable": [
+      5378,
+      5379
+    ],
+    "terrain_mountain_override": [
+      5378,
+      5379
+    ],
+    "continent_asia": [
+      5378,
+      5379
+    ],
+    "localisation_source": "gdd_b19_fujian_map_readable_utf8.txt"
+  }
+}

@@ -3,9 +3,8 @@
 owner = MDL
 controller = MDL
 add_core = MDL
-add_core = CDL
 culture = bai
-religion = buddhism
+religion = vajrayana
 capital = "Lijiang"
 trade_goods = tea
 base_tax = 3

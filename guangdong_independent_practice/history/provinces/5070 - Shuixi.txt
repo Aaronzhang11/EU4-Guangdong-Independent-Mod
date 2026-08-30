@@ -1,9 +1,8 @@
 owner = YEL
 controller = YEL
-add_core = CYI
 add_core = YEL
 culture = yi
-religion = animism
+religion = buddhism
 capital = "Shuixi"
 trade_goods = iron
 base_tax = 3

@@ -22,6 +22,7 @@ gdd_has_active_proxy_decree_trigger = {
 }
 
 gdd_proxy_decree_base_trigger = {
+    gdd_celestial_action_authorized_trigger = yes
     event_target:EmperorOfChina = {
         exists = yes
         is_emperor_of_china = yes
@@ -32,6 +33,7 @@ gdd_proxy_decree_base_trigger = {
 }
 
 gdd_proxy_celestial_reform_base_trigger = {
+    gdd_celestial_action_authorized_trigger = yes
     event_target:EmperorOfChina = {
         exists = yes
         is_emperor_of_china = yes

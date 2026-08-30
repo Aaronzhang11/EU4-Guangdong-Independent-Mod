@@ -1,8 +1,6 @@
 # 674 - Guizhu
 owner = GYA
 controller = GYA
-add_core = CYI
-add_core = CDL
 add_core = GYA
 culture = gdd_shu
 religion = animism

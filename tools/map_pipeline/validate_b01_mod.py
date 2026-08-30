@@ -47,6 +47,8 @@ from build_b01_mod import (
     HUAI_SEA_IDS,
     POSITION_DATA,
     PREPARED_IDS,
+    RETIRED_PROVINCE_COLORS,
+    RETIRED_PROVINCE_IDS,
     find_named_block,
     validate_classic_bmp_header,
 )
@@ -69,6 +71,23 @@ def approved_cultures() -> dict[int, str]:
 
 
 APPROVED_CULTURES = approved_cultures()
+
+
+# Terminal religious geography remains authoritative; these assertions ensure
+# older map-refinement replays cannot silently restore their superseded faiths.
+EXPECTED_REPLAY_RELIGIONS = {
+    2748: "buddhism",
+    5094: "buddhism",
+    5095: "buddhism",
+    4945: "animism",
+    4996: "animism",
+    5316: "animism",
+    4960: "animism",
+    5201: "animism",
+    5203: "animism",
+    664: "animism",
+    5210: "animism",
+}
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -184,7 +203,6 @@ EXPECTED_AREAS = {
     5045: "chengzhou_area",
     5046: "chengzhou_area",
     4967: "chengzhou_area",
-    692: "hebei_zhangwei_area",
     5047: "hebei_zhangwei_area",
     5048: "hebei_zhangwei_area",
     5049: "hebei_zhangwei_area",
@@ -293,7 +311,6 @@ EXPECTED_TERRAIN = {
     5045: "farmlands",
     5046: "farmlands",
     4967: "hills",
-    692: "farmlands",
     5047: "farmlands",
     5048: "hills",
     5049: "farmlands",
@@ -386,7 +403,6 @@ EXPECTED_HISTORY = {
     5045: ("MNG", (3, 4, 2), "grain", "gdd_zhongyuan"),
     5046: ("MNG", (3, 3, 2), "chinaware", "gdd_zhongyuan"),
     4967: ("MNG", (3, 3, 2), "iron", "gdd_zhongyuan"),
-    692: ("MNG", (4, 4, 2), "grain", "gdd_zhongyuan"),
     5047: ("MNG", (4, 4, 2), "grain", "gdd_songwei"),
     5048: ("MNG", (5, 5, 2), "iron", "gdd_zhongyuan"),
     5049: ("MNG", (3, 4, 1), "livestock", "gdd_songwei"),
@@ -458,7 +474,7 @@ HUNAN_HISTORY = {
     2174: ("MNG", (4, 4, 5), "gold", "gdd_chu", "confucianism"),
     4982: ("MNG", (7, 8, 4), "tea", "gdd_chu", "confucianism"),
     4983: ("MNG", (3, 3, 4), "livestock", "gdd_chu", "confucianism"),
-    4996: ("MNG", (2, 4, 4), "grain", "miao", "confucianism"),
+    4996: ("MNG", (2, 4, 4), "grain", "miao", "animism"),
     4997: ("MNG", (4, 4, 4), "naval_supplies", "gdd_chu", "confucianism"),
     4998: ("MNG", (4, 5, 3), "chinaware", "gdd_chu", "confucianism"),
     4999: ("MNG", (3, 3, 5), "livestock", "miao", "animism"),
@@ -734,7 +750,9 @@ def validate_map(
     map_dir = mod_root / "map"
     definitions, color_to_id = parse_definitions(map_dir / "definition.csv")
     configured_ids = tuple(
-        int(province["game_id"]) for province in config["provinces"]
+        int(province["game_id"])
+        for province in config["provinces"]
+        if int(province["game_id"]) not in RETIRED_PROVINCE_IDS
     )
     audited_ids = (
         IMPLEMENTED_IDS + JIANGXI_IDS + HUNAN_IDS
@@ -752,6 +770,8 @@ def validate_map(
         )
     for province in config["provinces"]:
         province_id = int(province["game_id"])
+        if province_id in RETIRED_PROVINCE_IDS:
+            continue
         expected = (
             tuple(int(value) for value in province["rgb"]),
             str(province["name_en"]),
@@ -806,9 +826,30 @@ def validate_map(
             f"changed pixels, found {changed_pixels}"
         )
 
+    retired_pixels: dict[int, int] = {}
+    for province_id, colour in RETIRED_PROVINCE_COLORS.items():
+        pixels = int(
+            np.all(
+                province_map == np.array(colour, dtype=np.uint8),
+                axis=2,
+            ).sum()
+        )
+        if pixels:
+            raise ValueError(
+                f"provinces.bmp: retired province {province_id} has {pixels} pixels"
+            )
+        retired_pixels[province_id] = 0
+    for province_id in (5017, 5019):
+        if province_id in definitions:
+            raise ValueError(
+                f"definition.csv: retired custom province {province_id} is exposed"
+            )
+
     province_stats: dict[int, dict[str, object]] = {}
     for province in config["provinces"]:
         province_id = int(province["game_id"])
+        if province_id in RETIRED_PROVINCE_IDS:
+            continue
         color = np.array(province["rgb"], dtype=np.uint8)
         mask = np.all(province_map == color, axis=2)
         pixels = int(mask.sum())
@@ -922,6 +963,14 @@ def validate_map(
         prepared_pixels[province_id] = pixels
 
     positions = (map_dir / "positions.txt").read_text(encoding="cp1252")
+    for province_id in RETIRED_PROVINCE_IDS:
+        if re.search(
+            rf"(?m)^[ \t]*{province_id}[ \t]*=[ \t]*\{{",
+            positions,
+        ):
+            raise ValueError(
+                f"positions.txt: retired province {province_id} still has a block"
+            )
     port_seas = {
         int(province_id): int(sea_id)
         for province_id, sea_id in config["port_seas"].items()
@@ -1190,6 +1239,7 @@ def validate_map(
         "navigable_water_positions": navigable_water_positions,
         "taiwan_terrain_palette_counts": terrain_counts,
         "prepared_pixels": prepared_pixels,
+        "retired_pixels": retired_pixels,
         "provinces_sha256": sha256_file(provinces_path),
     }
 
@@ -1367,6 +1417,72 @@ def validate_memberships(vanilla_root: Path, mod_root: Path) -> None:
             raise ValueError(f"Chengdu trade company lacks {province_id}")
 
 
+def validate_retired_provinces(mod_root: Path) -> None:
+    history_directory = mod_root / "history/provinces"
+    retired_history_ids = {
+        int(match.group(1))
+        for path in history_directory.iterdir()
+        if path.is_file()
+        and (match := re.match(r"^(\d+)\s*-", path.name)) is not None
+        and int(match.group(1)) in RETIRED_PROVINCE_IDS
+    }
+    if retired_history_ids:
+        raise ValueError(
+            "history/provinces: retired histories remain for "
+            f"{sorted(retired_history_ids)}"
+        )
+
+    membership_paths = (
+        mod_root / "map/default.map",
+        mod_root / "map/area.txt",
+        mod_root / "map/continent.txt",
+        mod_root / "map/climate.txt",
+        mod_root / "map/terrain.txt",
+        mod_root / "map/trade_winds.txt",
+        mod_root / "common/tradenodes/00_tradenodes.txt",
+        mod_root / "common/trade_companies/00_trade_companies.txt",
+    )
+    for path in membership_paths:
+        tokens = set(numeric_tokens(path.read_text(encoding="cp1252")))
+        stale = tokens & set(RETIRED_PROVINCE_IDS)
+        if stale:
+            raise ValueError(
+                f"{path.relative_to(mod_root)}: retired gameplay IDs "
+                f"{sorted(stale)} remain"
+            )
+
+    adjacency_path = mod_root / "map/adjacencies.csv"
+    with adjacency_path.open(encoding="cp1252", newline="") as handle:
+        for line_number, row in enumerate(csv.reader(handle, delimiter=";"), 1):
+            if len(row) < 4 or row[0] == "From":
+                continue
+            gameplay_columns = (row[0], row[1], row[3])
+            stale = {
+                int(value)
+                for value in gameplay_columns
+                if value.lstrip("-").isdigit()
+                and int(value) in RETIRED_PROVINCE_IDS
+            }
+            if stale:
+                raise ValueError(
+                    f"map/adjacencies.csv:{line_number}: retired gameplay IDs "
+                    f"{sorted(stale)} remain"
+                )
+
+
+def validate_replay_religions(mod_root: Path) -> None:
+    for province_id, expected_religion in EXPECTED_REPLAY_RELIGIONS.items():
+        path = history_path(mod_root, province_id)
+        actual_religion = initial_history_value(
+            path.read_text(encoding="cp1252"), "religion"
+        )
+        if actual_religion != expected_religion:
+            raise ValueError(
+                f"{path.name}: religion {actual_religion}, "
+                f"expected {expected_religion}"
+            )
+
+
 def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
     development: dict[int, tuple[int, int, int]] = {}
     for province_id, (owner, expected_dev, goods, culture) in EXPECTED_HISTORY.items():
@@ -1388,8 +1504,13 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
             expected_core = "LIL" if province_id == 4945 else "GDD"
             if f"add_core = {expected_core}" not in text:
                 raise ValueError(f"{path.name}: missing {expected_core} core")
-            if initial_history_value(text, "religion") != "confucianism":
-                raise ValueError(f"{path.name}: religion must be confucianism")
+            expected_religion = EXPECTED_REPLAY_RELIGIONS.get(
+                province_id, "confucianism"
+            )
+            if initial_history_value(text, "religion") != expected_religion:
+                raise ValueError(
+                    f"{path.name}: religion must be {expected_religion}"
+                )
             if initial_history_value(text, "is_city") != "yes":
                 raise ValueError(f"{path.name}: must be a city")
         development[province_id] = actual_dev
@@ -1427,9 +1548,9 @@ def validate_histories(mod_root: Path) -> dict[int, tuple[int, int, int]]:
         sum(development[province_id][index] for province_id in HENAN_ALL_IDS)
         for index in range(3)
     )
-    if henan_totals != (89, 97, 43):
+    if henan_totals != (85, 93, 41):
         raise ValueError(
-            f"Henan development is {henan_totals}, expected (89, 97, 43)"
+            f"Henan development is {henan_totals}, expected (85, 93, 41)"
         )
     centers = {}
     for province_id in HENAN_ALL_IDS:
@@ -2124,6 +2245,8 @@ def main() -> None:
         validate_braces(path)
 
     map_report = validate_map(vanilla_root, mod_root, config)
+    validate_retired_provinces(mod_root)
+    validate_replay_religions(mod_root)
     validate_memberships(vanilla_root, mod_root)
     development = validate_histories(mod_root)
     validate_taiwan_mountain_history(mod_root)

@@ -1,5 +1,11 @@
 spriteTypes = {
 	spriteType = {
+		name = "GFX_zhx_tianxia_topbar_button"
+		texturefile = "gfx/interface/zhx_tianxia_topbar_button.tga"
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
 		name = "GFX_zhx_tianxia_bg"
 		texturefile = "gfx/interface/zhx_tianxia_bg.tga"
 		loadType = "INGAME"

@@ -1,0 +1,31 @@
+# Maintained, developer-only Great Debate preview harness.
+# Only the console events and save-gated debug catalog may call these triggers;
+# production on-actions and ordinary GUI paths must not.
+
+zhx_debug_can_prepare_debate_preview = {
+    zhx_is_tianzi = yes
+    has_global_flag = zhx_council_initialised_v1
+    has_saved_global_event_target = zhx_tianzi
+    event_target:zhx_tianzi = { tag = ROOT }
+    NOT = { zhx_tianxia_council_is_busy = yes }
+    NOT = { has_country_flag = zhx_council_pending_ritual_breakdown }
+    NOT = { has_country_flag = zhx_council_deadline_scheduled }
+    NOT = { has_country_flag = zhx_council_result_ready }
+}
+
+zhx_debug_can_cleanup_debate_preview = {
+    zhx_debug_can_prepare_debate_preview = yes
+    has_country_flag = zhx_debug_debate_preview_active
+}
+
+zhx_debug_can_prepare_ritual_breakdown_preview = {
+    zhx_is_tianzi = yes
+    has_global_flag = zhx_council_initialised_v1
+    has_saved_global_event_target = zhx_tianzi
+    event_target:zhx_tianzi = { tag = ROOT }
+    NOT = { zhx_tianxia_council_is_busy = yes }
+    NOT = { has_country_flag = zhx_council_pending_ritual_breakdown }
+    NOT = { has_country_flag = zhx_council_deadline_scheduled }
+    NOT = { has_country_flag = zhx_council_result_ready }
+    NOT = { has_country_modifier = zhx_ritual_breakdown_incident_cooldown }
+}

@@ -1,0 +1,385 @@
+# Dynamic text for the player-only yearly practice tier receipt.
+
+defined_text = {
+    name = GetZhxDoctrineReceiptSchool
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_ru
+        trigger = { has_country_flag = zhx_doctrine_ru }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_fa
+        trigger = { has_country_flag = zhx_doctrine_fa }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_mo
+        trigger = { has_country_flag = zhx_doctrine_mo }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_dao
+        trigger = { has_country_flag = zhx_doctrine_dao }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_bing
+        trigger = { has_country_flag = zhx_doctrine_bing }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_zongheng
+        trigger = { has_country_flag = zhx_doctrine_zongheng }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_school_unknown
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrineReceiptOldTier
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_exemplary
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_old_tier
+                value = 3
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_flourishing
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_old_tier
+                value = 2
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_established
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_old_tier
+                value = 1
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_hollow
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrineReceiptNewTier
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_exemplary
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_new_tier
+                value = 3
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_flourishing
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_new_tier
+                value = 2
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_established
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_receipt_new_tier
+                value = 1
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_receipt_tier_hollow
+        trigger = { always = yes }
+    }
+}
+
+# The compact religion-page hover is assembled from seven deterministic slots:
+# one signed raw total, three positive rows, three negative rows, and an empty
+# state. Cached flags are written by the same authoritative calculator as the
+# yearly settlement, so only factors which actually contributed are rendered.
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverTotal
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_total_positive
+        trigger = {
+            check_variable = {
+                which = zhx_doctrine_ledger_estimated_delta
+                value = 1
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_total_negative
+        trigger = {
+            NOT = {
+                check_variable = {
+                    which = zhx_doctrine_ledger_estimated_delta
+                    value = 0
+                }
+            }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_total_zero
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverPositiveOne
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_defender
+        trigger = { has_country_flag = zhx_doctrine_hover_mo_defender }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_peace
+        trigger = { has_country_flag = zhx_doctrine_hover_mo_peace }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_ru_positive_1
+        trigger = {
+            has_country_flag = zhx_doctrine_ru
+            has_country_flag = zhx_doctrine_hover_positive_1
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_fa_positive_1
+        trigger = {
+            has_country_flag = zhx_doctrine_fa
+            has_country_flag = zhx_doctrine_hover_positive_1
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_dao_positive_1
+        trigger = {
+            has_country_flag = zhx_doctrine_dao
+            has_country_flag = zhx_doctrine_hover_positive_1
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_bing_positive_1
+        trigger = {
+            has_country_flag = zhx_doctrine_bing
+            has_country_flag = zhx_doctrine_hover_positive_1
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_zongheng_positive_1
+        trigger = {
+            has_country_flag = zhx_doctrine_zongheng
+            has_country_flag = zhx_doctrine_hover_positive_1
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverPositiveTwo
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_hover_ru_positive_2
+        trigger = { has_country_flag = zhx_doctrine_ru has_country_flag = zhx_doctrine_hover_positive_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_fa_positive_2
+        trigger = { has_country_flag = zhx_doctrine_fa has_country_flag = zhx_doctrine_hover_positive_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_positive_2
+        trigger = { has_country_flag = zhx_doctrine_mo has_country_flag = zhx_doctrine_hover_positive_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_dao_positive_2
+        trigger = { has_country_flag = zhx_doctrine_dao has_country_flag = zhx_doctrine_hover_positive_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_bing_positive_2
+        trigger = { has_country_flag = zhx_doctrine_bing has_country_flag = zhx_doctrine_hover_positive_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_zongheng_positive_2
+        trigger = { has_country_flag = zhx_doctrine_zongheng has_country_flag = zhx_doctrine_hover_positive_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverPositiveThree
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_hover_ru_positive_3
+        trigger = { has_country_flag = zhx_doctrine_ru has_country_flag = zhx_doctrine_hover_positive_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_fa_positive_3
+        trigger = { has_country_flag = zhx_doctrine_fa has_country_flag = zhx_doctrine_hover_positive_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_positive_3
+        trigger = { has_country_flag = zhx_doctrine_mo has_country_flag = zhx_doctrine_hover_positive_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_dao_positive_3
+        trigger = { has_country_flag = zhx_doctrine_dao has_country_flag = zhx_doctrine_hover_positive_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_bing_positive_3
+        trigger = { has_country_flag = zhx_doctrine_bing has_country_flag = zhx_doctrine_hover_positive_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_zongheng_positive_3
+        trigger = { has_country_flag = zhx_doctrine_zongheng has_country_flag = zhx_doctrine_hover_positive_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverNegativeOne
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_hover_ru_negative_1
+        trigger = { has_country_flag = zhx_doctrine_ru has_country_flag = zhx_doctrine_hover_negative_1 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_fa_negative_1
+        trigger = { has_country_flag = zhx_doctrine_fa has_country_flag = zhx_doctrine_hover_negative_1 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_negative_1
+        trigger = { has_country_flag = zhx_doctrine_mo has_country_flag = zhx_doctrine_hover_negative_1 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_dao_negative_1
+        trigger = { has_country_flag = zhx_doctrine_dao has_country_flag = zhx_doctrine_hover_negative_1 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_bing_negative_1
+        trigger = { has_country_flag = zhx_doctrine_bing has_country_flag = zhx_doctrine_hover_negative_1 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_zongheng_negative_1
+        trigger = { has_country_flag = zhx_doctrine_zongheng has_country_flag = zhx_doctrine_hover_negative_1 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverNegativeTwo
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_hover_ru_negative_2
+        trigger = { has_country_flag = zhx_doctrine_ru has_country_flag = zhx_doctrine_hover_negative_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_fa_negative_2
+        trigger = { has_country_flag = zhx_doctrine_fa has_country_flag = zhx_doctrine_hover_negative_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_negative_2
+        trigger = { has_country_flag = zhx_doctrine_mo has_country_flag = zhx_doctrine_hover_negative_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_dao_negative_2
+        trigger = { has_country_flag = zhx_doctrine_dao has_country_flag = zhx_doctrine_hover_negative_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_bing_negative_2
+        trigger = { has_country_flag = zhx_doctrine_bing has_country_flag = zhx_doctrine_hover_negative_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_zongheng_negative_2
+        trigger = { has_country_flag = zhx_doctrine_zongheng has_country_flag = zhx_doctrine_hover_negative_2 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverNegativeThree
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_hover_ru_negative_3
+        trigger = { has_country_flag = zhx_doctrine_ru has_country_flag = zhx_doctrine_hover_negative_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_fa_negative_3
+        trigger = { has_country_flag = zhx_doctrine_fa has_country_flag = zhx_doctrine_hover_negative_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_mo_negative_3
+        trigger = { has_country_flag = zhx_doctrine_mo has_country_flag = zhx_doctrine_hover_negative_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_bing_negative_3
+        trigger = { has_country_flag = zhx_doctrine_bing has_country_flag = zhx_doctrine_hover_negative_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_hover_zongheng_negative_3
+        trigger = { has_country_flag = zhx_doctrine_zongheng has_country_flag = zhx_doctrine_hover_negative_3 }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}
+
+defined_text = {
+    name = GetZhxDoctrinePracticeHoverEmptyState
+    random = no
+
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_empty
+        trigger = {
+            NOT = { has_country_flag = zhx_doctrine_hover_positive_1 }
+            NOT = { has_country_flag = zhx_doctrine_hover_positive_2 }
+            NOT = { has_country_flag = zhx_doctrine_hover_positive_3 }
+            NOT = { has_country_flag = zhx_doctrine_hover_negative_1 }
+            NOT = { has_country_flag = zhx_doctrine_hover_negative_2 }
+            NOT = { has_country_flag = zhx_doctrine_hover_negative_3 }
+            NOT = { has_country_flag = zhx_doctrine_hover_mo_defender }
+            NOT = { has_country_flag = zhx_doctrine_hover_mo_peace }
+        }
+    }
+    text = {
+        localisation_key = zhx_doctrine_practice_hover_blank
+        trigger = { always = yes }
+    }
+}

@@ -78,9 +78,9 @@ P = (
     Province(2133, "德格", "Dege", "ganzi_area", (84,121,199), (118,126,240), (4367,861), "paper", (3,4,2), "kham", "tibetan", "vajrayana"),
     Province(2135, "壤塘", "Rangtang", "ganzi_area", (169,224,79), (118,130,80), (4386,850), "wool", (1,2,2), "kham", "tibetan", "vajrayana"),
     Province(5093, "理塘", "Lithang", "ganzi_area", (199,56,186), (199,56,186), (4368,917), "livestock", (2,3,2), "kham", "tibetan", "vajrayana"),
-    Province(2748, "嶲州", "Xizhou", "liangshan_area", (94,224,198), (80,32,128), (4420,943), "grain", (4,4,3), "liangshan", "yi", "animism", 0, True),
-    Province(5094, "会理", "Huili", "liangshan_area", (199,135,70), (199,135,70), (4438,960), "copper", (3,4,2), "liangshan", "yi", "animism"),
-    Province(5095, "盐井", "Yanjing", "liangshan_area", (97,63,224), (97,63,224), (4397,958), "salt", (2,2,2), "liangshan", "yi", "animism"),
+    Province(2748, "嶲州", "Xizhou", "liangshan_area", (94,224,198), (80,32,128), (4420,943), "grain", (4,4,3), "liangshan", "yi", "buddhism", 0, True),
+    Province(5094, "会理", "Huili", "liangshan_area", (199,135,70), (199,135,70), (4438,960), "copper", (3,4,2), "liangshan", "yi", "buddhism"),
+    Province(5095, "盐井", "Yanjing", "liangshan_area", (97,63,224), (97,63,224), (4397,958), "salt", (2,2,2), "liangshan", "yi", "buddhism"),
 )
 
 AREA_NAMES = {
@@ -253,7 +253,7 @@ def update_areas_and_region() -> None:
 def history_text(province: Province) -> str:
     if province.polity in {"shu", "ba"}:
         owner = "MNG"
-        cores = ("MNG", "CXI", "SHU")
+        cores = ("MNG", "SHU")
         late = """\n1644.10.1 = { owner = CXI controller = CXI }\n1655.1.1 = { discovered_by = SPA }\n1659.7.1 = { owner = QNG controller = QNG }\n1673.12.1 = { controller = CZH }\n1680.1.1 = { controller = QNG }\n"""
     elif province.polity == "kham":
         owner = "KAM"
@@ -261,11 +261,11 @@ def history_text(province: Province) -> str:
         late = "\n1709.1.1 = { discovered_by = SPA }\n1776.1.1 = { owner = QNG controller = QNG add_core = QNG }\n"
     elif province.polity == "liangshan":
         owner = "MNG"
-        cores = ("MNG", "CYI", "CDL", "CXI")
+        cores = ("MNG",)
         late = "\n1644.10.1 = { owner = CXI controller = CXI }\n1655.1.1 = { discovered_by = SPA }\n1662.4.1 = { owner = CZH controller = CZH add_core = CZH }\n1681.10.1 = { owner = QNG controller = QNG add_core = QNG }\n"
     else:
         owner = "MNG"
-        cores = ("MNG", "CXI")
+        cores = ("MNG",)
         late = "\n1644.10.1 = { owner = CXI controller = CXI }\n1646.12.1 = { owner = QNG controller = QNG add_core = QNG }\n1673.12.1 = { controller = CZH }\n1681.10.1 = { controller = QNG }\n"
     lines = [
         f"# {province.province_id} - {province.english}", "", f"owner = {owner}",

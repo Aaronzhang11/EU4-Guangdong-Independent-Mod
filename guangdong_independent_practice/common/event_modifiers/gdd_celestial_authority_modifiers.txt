@@ -1,0 +1,268 @@
+# Hidden binary-weight modifiers for the -100.0..100.0 authority balance.
+# Whole-number and tenth-point entries reproduce every supported value exactly
+# while avoiding hundreds of one-off modifier definitions.
+
+gdd_authority_balance_zero = {
+    trade_efficiency = 0.10
+    stability_cost_modifier = -0.10
+}
+
+gdd_central_authority_emperor_bit_001 = {
+    land_forcelimit_modifier = 0.01
+    global_tax_modifier = 0.005
+    vassal_income = 0.005
+}
+gdd_central_authority_member_bit_001 = {
+    land_forcelimit_modifier = -0.001
+    ae_impact = 0.0025
+}
+gdd_feudatory_prestige_major_bit_001 = {
+    land_forcelimit_modifier = 0.005
+    land_morale = 0.001
+    ae_impact = -0.001
+}
+gdd_feudatory_prestige_member_bit_001 = {
+    nobles_loyalty_modifier = 0.001
+}
+gdd_feudatory_prestige_emperor_bit_001 = {
+    land_forcelimit_modifier = -0.005
+    global_manpower_modifier = -0.005
+}
+
+gdd_central_authority_emperor_bit_002 = {
+    land_forcelimit_modifier = 0.02
+    global_tax_modifier = 0.01
+    vassal_income = 0.01
+}
+gdd_central_authority_member_bit_002 = {
+    land_forcelimit_modifier = -0.002
+    ae_impact = 0.005
+}
+gdd_feudatory_prestige_major_bit_002 = {
+    land_forcelimit_modifier = 0.01
+    land_morale = 0.002
+    ae_impact = -0.002
+}
+gdd_feudatory_prestige_member_bit_002 = {
+    nobles_loyalty_modifier = 0.002
+}
+gdd_feudatory_prestige_emperor_bit_002 = {
+    land_forcelimit_modifier = -0.01
+    global_manpower_modifier = -0.01
+}
+
+gdd_central_authority_emperor_bit_004 = {
+    land_forcelimit_modifier = 0.04
+    global_tax_modifier = 0.02
+    vassal_income = 0.02
+}
+gdd_central_authority_member_bit_004 = {
+    land_forcelimit_modifier = -0.004
+    ae_impact = 0.01
+}
+gdd_feudatory_prestige_major_bit_004 = {
+    land_forcelimit_modifier = 0.02
+    land_morale = 0.004
+    ae_impact = -0.004
+}
+gdd_feudatory_prestige_member_bit_004 = {
+    nobles_loyalty_modifier = 0.004
+}
+gdd_feudatory_prestige_emperor_bit_004 = {
+    land_forcelimit_modifier = -0.02
+    global_manpower_modifier = -0.02
+}
+
+gdd_central_authority_emperor_bit_008 = {
+    land_forcelimit_modifier = 0.08
+    global_tax_modifier = 0.04
+    vassal_income = 0.04
+}
+gdd_central_authority_member_bit_008 = {
+    land_forcelimit_modifier = -0.008
+    ae_impact = 0.02
+}
+gdd_feudatory_prestige_major_bit_008 = {
+    land_forcelimit_modifier = 0.04
+    land_morale = 0.008
+    ae_impact = -0.008
+}
+gdd_feudatory_prestige_member_bit_008 = {
+    nobles_loyalty_modifier = 0.008
+}
+gdd_feudatory_prestige_emperor_bit_008 = {
+    land_forcelimit_modifier = -0.04
+    global_manpower_modifier = -0.04
+}
+
+gdd_central_authority_emperor_bit_016 = {
+    land_forcelimit_modifier = 0.16
+    global_tax_modifier = 0.08
+    vassal_income = 0.08
+}
+gdd_central_authority_member_bit_016 = {
+    land_forcelimit_modifier = -0.016
+    ae_impact = 0.04
+}
+gdd_feudatory_prestige_major_bit_016 = {
+    land_forcelimit_modifier = 0.08
+    land_morale = 0.016
+    ae_impact = -0.016
+}
+gdd_feudatory_prestige_member_bit_016 = {
+    nobles_loyalty_modifier = 0.016
+}
+gdd_feudatory_prestige_emperor_bit_016 = {
+    land_forcelimit_modifier = -0.08
+    global_manpower_modifier = -0.08
+}
+
+gdd_central_authority_emperor_bit_032 = {
+    land_forcelimit_modifier = 0.32
+    global_tax_modifier = 0.16
+    vassal_income = 0.16
+}
+gdd_central_authority_member_bit_032 = {
+    land_forcelimit_modifier = -0.032
+    ae_impact = 0.08
+}
+gdd_feudatory_prestige_major_bit_032 = {
+    land_forcelimit_modifier = 0.16
+    land_morale = 0.032
+    ae_impact = -0.032
+}
+gdd_feudatory_prestige_member_bit_032 = {
+    nobles_loyalty_modifier = 0.032
+}
+gdd_feudatory_prestige_emperor_bit_032 = {
+    land_forcelimit_modifier = -0.16
+    global_manpower_modifier = -0.16
+}
+
+gdd_central_authority_emperor_bit_064 = {
+    land_forcelimit_modifier = 0.64
+    global_tax_modifier = 0.32
+    vassal_income = 0.32
+}
+gdd_central_authority_member_bit_064 = {
+    land_forcelimit_modifier = -0.064
+    ae_impact = 0.16
+}
+gdd_feudatory_prestige_major_bit_064 = {
+    land_forcelimit_modifier = 0.32
+    land_morale = 0.064
+    ae_impact = -0.064
+}
+gdd_feudatory_prestige_member_bit_064 = {
+    nobles_loyalty_modifier = 0.064
+}
+gdd_feudatory_prestige_emperor_bit_064 = {
+    land_forcelimit_modifier = -0.32
+    global_manpower_modifier = -0.32
+}
+
+# Fractional binary weights. These extend the same linear formulas to one
+# decimal place while the meter's centre value remains a whole number.
+gdd_central_authority_emperor_tenth_bit_001 = {
+    land_forcelimit_modifier = 0.001
+    global_tax_modifier = 0.0005
+    vassal_income = 0.0005
+}
+
+gdd_central_authority_member_tenth_bit_001 = {
+    land_forcelimit_modifier = -0.0001
+    ae_impact = 0.00025
+}
+
+gdd_feudatory_prestige_major_tenth_bit_001 = {
+    land_forcelimit_modifier = 0.0005
+    land_morale = 0.0001
+    ae_impact = -0.0001
+}
+
+gdd_feudatory_prestige_member_tenth_bit_001 = {
+    nobles_loyalty_modifier = 0.0001
+}
+
+gdd_feudatory_prestige_emperor_tenth_bit_001 = {
+    land_forcelimit_modifier = -0.0005
+    global_manpower_modifier = -0.0005
+}
+
+gdd_central_authority_emperor_tenth_bit_002 = {
+    land_forcelimit_modifier = 0.002
+    global_tax_modifier = 0.001
+    vassal_income = 0.001
+}
+
+gdd_central_authority_member_tenth_bit_002 = {
+    land_forcelimit_modifier = -0.0002
+    ae_impact = 0.0005
+}
+
+gdd_feudatory_prestige_major_tenth_bit_002 = {
+    land_forcelimit_modifier = 0.001
+    land_morale = 0.0002
+    ae_impact = -0.0002
+}
+
+gdd_feudatory_prestige_member_tenth_bit_002 = {
+    nobles_loyalty_modifier = 0.0002
+}
+
+gdd_feudatory_prestige_emperor_tenth_bit_002 = {
+    land_forcelimit_modifier = -0.001
+    global_manpower_modifier = -0.001
+}
+
+gdd_central_authority_emperor_tenth_bit_004 = {
+    land_forcelimit_modifier = 0.004
+    global_tax_modifier = 0.002
+    vassal_income = 0.002
+}
+
+gdd_central_authority_member_tenth_bit_004 = {
+    land_forcelimit_modifier = -0.0004
+    ae_impact = 0.001
+}
+
+gdd_feudatory_prestige_major_tenth_bit_004 = {
+    land_forcelimit_modifier = 0.002
+    land_morale = 0.0004
+    ae_impact = -0.0004
+}
+
+gdd_feudatory_prestige_member_tenth_bit_004 = {
+    nobles_loyalty_modifier = 0.0004
+}
+
+gdd_feudatory_prestige_emperor_tenth_bit_004 = {
+    land_forcelimit_modifier = -0.002
+    global_manpower_modifier = -0.002
+}
+
+gdd_central_authority_emperor_tenth_bit_008 = {
+    land_forcelimit_modifier = 0.008
+    global_tax_modifier = 0.004
+    vassal_income = 0.004
+}
+
+gdd_central_authority_member_tenth_bit_008 = {
+    land_forcelimit_modifier = -0.0008
+    ae_impact = 0.002
+}
+
+gdd_feudatory_prestige_major_tenth_bit_008 = {
+    land_forcelimit_modifier = 0.004
+    land_morale = 0.0008
+    ae_impact = -0.0008
+}
+
+gdd_feudatory_prestige_member_tenth_bit_008 = {
+    nobles_loyalty_modifier = 0.0008
+}
+
+gdd_feudatory_prestige_emperor_tenth_bit_008 = {
+    land_forcelimit_modifier = -0.004
+    global_manpower_modifier = -0.004
+}

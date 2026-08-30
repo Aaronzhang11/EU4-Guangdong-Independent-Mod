@@ -1,14 +1,14 @@
-#4228 - Naju
+# 4228 - Naju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
-religion = confucianism
-capital = "WÞT" 	# Naju
+culture = gdd_samhan
+religion = mahayana
+capital = "Naju"# Naju
 trade_goods = paper 	# And Silk
 hre = no
-base_tax = 3
-base_production = 3
-base_manpower = 2
+base_tax = 5
+base_production = 4
+base_manpower = 3
 is_city = yes
 add_core = KOR
 discovered_by = chinese

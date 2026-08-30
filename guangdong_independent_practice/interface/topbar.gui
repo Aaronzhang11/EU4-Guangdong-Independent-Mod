@@ -1,0 +1,3552 @@
+guiTypes = {
+
+	windowType = {
+		name = "topbar"
+		backGround=""
+		position = { x=0 y=-1 }
+		size = { x=2048 y=100 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = yes
+
+		show_position = { x = 0 y = -1 }
+		hide_position = { x = 0 y = -165 }
+		animation_type = "decelerated"
+		animation_time = 600
+
+
+		iconType = {
+			name = "brown_bg"
+			spriteType ="GFX_brown_bg"
+			position = { x= 676 y = 20 }
+			alwaystransparent = yes
+		}
+
+
+		iconType =
+		{
+			name ="topbar_1"
+			spriteType = "GFX_remove"
+			position = { x= 99512 y = -1 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="topbar_2"
+			spriteType = "GFX_remove"
+			position = { x= 991024 y = -1 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="topbar_3"
+			spriteType = "GFX_remove"
+			position = { x= 991532 y = -1 }
+			Orientation = "UPPER_LEFT"
+		}
+
+
+
+
+
+		iconType =
+		{
+			name ="topbar_upper_left_bg"
+			spriteType = "GFX_topbar_bg"
+			position = { x= 0 y = 0 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="topbar_upper_left_bg4"
+			spriteType = "GFX_topbar_banner"
+			position = { x= 70 y = 40 }
+			Orientation = "UPPER_LEFT"
+
+		}
+
+		iconType = {
+			name = "government_reforms_button_base"
+			quadTextureSprite ="GFX_government_reforms_button_base"
+			position = { x= 93 y = 104 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		
+		
+		guiButtonType = {
+			name = "player_shield"
+			quadTextureSprite ="GFX_shield_fancy"
+			position = { x= -5 y = 2 }
+			Orientation = "UPPER_LEFT"
+			tooltip = ""
+			tooltipText =""
+			delayedTooltipText = ""
+			shortcut = "F1"
+		}
+
+		iconType = {
+			name = "player_shield_glow"
+			quadTextureSprite ="GFX_shield_fancy_great_power_glow"
+			position = { x= -5 y = 2 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		guiButtonType = {
+			name = "open_build_interface_button"
+			position = { x = 6 y = 109 }
+			quadTextureSprite ="GFX_open_build_interface"
+			tooltip = ""
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonFont = "Main_14_black"
+			clicksound = macro_build
+			hint_tag = "hint_macrobuild"
+			shortcut = "b"
+		}
+
+		iconType = {
+			name = "great_power_button_base"
+			quadTextureSprite ="GFX_great_power_button_base"
+			position = { x= 111 y = 80 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		guiButtonType = {
+			name = "great_power_button"
+			position = { x = 115 y = 84 }
+			quadTextureSprite ="GFX_great_power_button"
+			buttonFont = "Main_14_black"
+			clicksound = macro_build
+			shortcut = "Shift+G"
+		}
+
+
+		iconType = {
+			name = "government_reforms_progress"
+			position = { x = 100 y = 110 }
+			quadTextureSprite ="GFX_government_reforms_progress"
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		guiButtonType = {
+			name = "government_reforms_button"
+			position = { x = 100 y = 110 }
+			quadTextureSprite ="GFX_government_reforms_button"
+			buttonFont = "Main_14_black"
+			clicksound = macro_build
+		}
+
+	######### top bar portraits ###########
+
+
+		guiButtonType =
+		{
+			name ="icon_merchant"
+			quadTextureSprite = "GFX_icon_merchant"
+			position = { x= 739 y = 9 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_merchant"
+		}
+
+		guiButtonType =
+		{
+			name ="icon_settler"
+			quadTextureSprite = "GFX_icon_settler"
+			position = { x= 780 y = 9 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_colonist"
+		}
+
+
+		guiButtonType =
+		{
+			name ="icon_diplomat"
+			quadTextureSprite = "GFX_icon_diplomat"
+			position = { x= 821 y = 9 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_diplomat"
+		}
+
+		guiButtonType =
+		{
+			name ="icon_missionary"
+			quadTextureSprite = "GFX_icon_missionary"
+			position = { x= 862 y = 9 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_missionary"
+		}
+
+	##########################################
+
+		iconType =
+		{
+			name ="topbar_upper_left_bg2"
+			spriteType = "GFX_topbar_portrait_value_bg"
+			position = { x= 731 y = 30 }
+			Orientation = "UPPER_LEFT"
+		}
+
+	#############  portrait values #############
+
+		instantTextBoxType = {
+			name = "text_merchants"
+			position = { x = 732 y = 34 }
+			textureFile = ""
+			font = "ToolTip_Font"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			font = "vic_18"
+			maxWidth = 42
+			maxHeight = 32
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "text_settlers"
+			position = { x = 773 y = 34 }
+			textureFile = ""
+			font = "ToolTip_Font"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			font = "vic_18"
+			maxWidth = 42
+			maxHeight = 32
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "text_diplomats"
+			position = { x = 814 y = 34 }
+			textureFile = ""
+			font = "ToolTip_Font"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			font = "vic_18"
+			maxWidth = 42
+			maxHeight = 32
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "text_missionaries"
+			position = { x = 855 y = 34 }
+			textureFile = ""
+			font = "ToolTip_Font"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			font = "vic_18"
+			maxWidth = 42
+			maxHeight = 32
+			format = centre
+		}
+
+
+	###########  top bar icons and values #############
+
+		iconType =
+		{
+			name ="icon_gold"
+			spriteType = "GFX_icon_gold_strip"
+			position = { x= 146 y = 10 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_ducats"
+		}
+		instantTextBoxType = {
+			name = "text_gold"
+			position = { x = 152 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 60
+			maxHeight = 32
+			format = right
+		}
+
+		iconType =
+		{
+			name ="icon_manpower"
+			spriteType = "GFX_icon_manpower"
+			position = { x= 228 y = 11 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_manpower"
+		}
+		instantTextBoxType = {
+			name = "text_manpower"
+			position = { x = 248 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 50
+			maxHeight = 32
+			format = right
+		}
+
+
+		iconType =
+		{
+			name ="icon_sailors"
+			spriteType = "GFX_icon_sailors"
+			position = { x= 311 y = 14 }
+			Orientation = "UPPER_LEFT"
+		}
+		instantTextBoxType = {
+			name = "text_sailors"
+			position = { x = 331 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 50
+			maxHeight = 32
+			format = right
+		}
+
+
+		iconType =
+		{
+			name ="icon_stability"
+			spriteType = "GFX_icon_stability"
+			position = { x= 394 y = 10 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_stability"
+		}
+		instantTextBoxType = {
+			name = "text_stability"
+			position = { x = 405 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+
+
+
+
+		iconType =
+		{
+			name ="icon_prestige"
+			spriteType = "GFX_icon_prestige"
+			position = { x= 524 y = 10 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_prestige"
+		}
+		instantTextBoxType = {
+			name = "text_prestige"
+			position = { x = 536 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "100"
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+		iconType =
+		{
+			name ="icon_dev"
+			spriteType = "GFX_icon_legitimacy"
+			position = { x= 588 y = 10 }
+			Orientation = "UPPER_LEFT"
+			frame = 3
+			hint_tag = "hint_legitimacy"
+		}
+		instantTextBoxType = {
+			name = "text_dev"
+			position = { x = 605 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "100"
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+		iconType =
+		{
+			name ="icon_meritocracy"
+			spriteType = "GFX_icon_legitimacy"
+			position = { x= 588 y = 10 }
+			Orientation = "UPPER_LEFT"
+			frame = 5
+			hint_tag = "hint_meritocracy"
+		}
+		instantTextBoxType = {
+			name = "text_meritocracy"
+			position = { x = 605 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "100"
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+
+		iconType =
+		{
+			name ="icon_leg"
+			spriteType = "GFX_icon_legitimacy"
+			position = { x= 590 y = 10 }
+			Orientation = "UPPER_LEFT"
+			frame = 1
+			hint_tag = "hint_legitimacy"
+		}
+		instantTextBoxType = {
+			name = "text_leg"
+			position = { x = 605 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "100"
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+		iconType =
+		{
+			name ="icon_rep"
+			spriteType = "GFX_icon_legitimacy"
+			position = { x= 590 y = 10 }
+			Orientation = "UPPER_LEFT"
+			frame = 2
+			hint_tag = "hint_republican"
+		}
+		instantTextBoxType = {
+			name = "text_rep"
+			position = { x = 606 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "100"
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+		iconType =
+		{
+			name ="icon_unity"
+			spriteType = "GFX_icon_legitimacy"
+			position = { x= 590 y = 10 }
+			Orientation = "UPPER_LEFT"
+			frame = 4
+		}
+		instantTextBoxType = {
+			name = "text_unity"
+			position = { x = 606 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "100"
+			maxWidth = 40
+			maxHeight = 32
+			format = right
+		}
+
+		windowType = {
+			name = "powerprojection_topbar"
+			backGround=""
+			position = { x = 148 y = 0 }
+			size = { x=100 y=100 }
+			moveable = 0
+			dontRender = ""
+			horizontalBorder= ""
+			verticalBorder= ""
+			fullScreen = no
+
+				iconType =
+				{
+					name ="topbar_liberty_overlay"
+					spriteType = "GFX_topbar_liberty_overlay"
+					position = { x= 491 y = -1 }
+					Orientation = "UPPER_LEFT"
+				}
+
+				iconType =
+				{
+					name ="icon_powerprojection"
+					spriteType = "GFX_icon_powerprojection"
+					position = { x= 518 y = 10 }
+					Orientation = "UPPER_LEFT"
+					hint_tag = "hint_powerprojection"
+				}
+
+				instantTextBoxType = {
+					name = "text_powerprojection"
+					position = { x = 527 y = 13 }
+					textureFile = ""
+					font = "vic_18"
+					borderSize = {x = 4 y = 4}
+					text = ""
+					maxWidth = 40
+					maxHeight = 32
+					format = right
+				}
+
+		}
+
+		windowType = {
+			name = "liberty_desire_topbar"
+			backGround=""
+			position = { x = 148 y = 0 }
+			size = { x=100 y=100 }
+			moveable = 0
+			dontRender = ""
+			horizontalBorder= ""
+			verticalBorder= ""
+			fullScreen = no
+
+				iconType =
+				{
+					name ="topbar_liberty_overlay"
+					spriteType = "GFX_topbar_liberty_overlay"
+					position = { x= 491 y = -1 }
+					Orientation = "UPPER_LEFT"
+				}
+
+				iconType =
+				{
+					name ="topbar_liberty_icon"
+					spriteType = "GFX_liberty_icon"
+					position = { x= 512 y = 10 }
+					Orientation = "UPPER_LEFT"
+				}
+
+				instantTextBoxType =
+				{
+					name = "topbar_liberty_value"
+					position = { x = 527 y = 13 }
+					textureFile = ""
+					font = "vic_18"
+					borderSize = {x = 4 y = 4}
+					text = "100"
+					maxWidth = 40
+					maxHeight = 32
+					format = right
+				}
+
+		}
+	#######################################
+
+
+
+
+
+
+
+
+
+	############### Power mechanics for a country ################
+
+
+
+
+		iconType =
+		{
+			name ="icon_corruption"
+			spriteType = "GFX_icon_corruption_small"
+			position = { x= 458 y = 11 }
+			Orientation = "UPPER_LEFT"
+		}
+		instantTextBoxType = {
+			name = "text_corruption"
+			position = { x = 463 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 46
+			maxHeight = 32
+			format = right
+		}
+
+		instantTextBoxType = {
+			name = "text_ADM"
+			position = { x = 520 y = 52 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "5"
+			maxWidth = 36
+			maxHeight = 32
+			format = left
+		}
+		iconType = {
+			name ="icon_ADM"
+			spriteType = "GFX_icon_powers_administrative"
+			position = { x= 498 y = 49 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_adm"
+		}
+
+
+		instantTextBoxType = {
+			name = "text_DIP"
+			position = { x = 581 y = 52 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "5"
+			maxWidth = 36
+			maxHeight = 32
+			format = left
+		}
+		iconType = {
+			name ="icon_DIP"
+			spriteType = "GFX_icon_powers_diplomatic"
+			position = { x= 558 y = 49 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_dip"
+		}
+
+		instantTextBoxType = {
+			name = "text_MIL"
+			position = { x = 639 y = 52 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "5"
+			maxWidth = 36
+			maxHeight = 32
+			format = left
+		}
+		iconType = {
+			name = "icon_MIL"
+			spriteType ="GFX_icon_powers_military"
+			position = { x= 616 y = 49 }
+			Orientation = "UPPER_LEFT"
+			hint_tag = "hint_mil"
+		}
+
+		iconType = {
+			name = "button_base"
+			spriteType ="GFX_age_frame_addon"
+			position = { x= 690 y = 30 }
+			alwaystransparent = yes
+		}
+
+		guiButtonType = {
+			name = "current_age_button"
+			position = { x = 722 y = 32 }
+			quadTextureSprite ="GFX_age_button"
+			clicksound = macro_build
+			shortcut = "Shift+A"
+		}
+
+		guiButtonType = {
+			name = "age_icon"
+			spriteType ="GFX_icon_age_s"
+			position = { x= 705 y = 47 }
+			frame = 1
+		}
+
+		instantTextBoxType = {
+			name = "age_title"
+			position = { x = 740 y = 52 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "AgeText"
+			maxWidth = 160
+			maxHeight = 32
+			format = left
+			alwaystransparent = yes
+		}
+
+
+
+
+
+
+	#################################################
+
+
+
+		instantTextBoxType = {
+			name = "PlayerNationText"
+			position = { x = 151 y = 50 }
+			textureFile = ""
+			font = "vic_22"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 340
+			maxHeight = 32
+			fixedsize = yes
+		}
+
+
+	############### DATE PANEL ###################
+
+
+
+
+
+		windowType = {
+			name = "pause_window"
+			backGround=""
+			position = { x=-203 y= 100 }
+			size = { x=406 y=70 }
+			dontRender = ""
+			horizontalBorder= ""
+			verticalBorder= ""
+			fullScreen = no
+			moveable = 0
+			Orientation = "CENTER_UP"
+
+			iconType ={
+				name ="pause_banner"
+				spriteType = "GFX_pause_banner"
+				position = { x = 0 y = -15 }
+				Orientation = "UPPER_LEFT"
+			}
+
+			#Needs localisation change
+			instantTextBoxType = {
+				name = "pause_banner_text"
+				position = { x = 140 y = 9 }
+				textureFile = ""
+				font = "vic_22"
+				borderSize = {x = 4 y = 4}
+				text = "CORE_PAUSED"
+				maxWidth = 120
+				maxHeight = 32
+				format = center
+			}
+		}
+
+		# Zhou/Tianxia HUD entry. This is independent from the native hardcoded
+		# Celestial Empire button and must never replace its dragon emblem.
+		windowType = {
+			name = "zhx_tianxia_topbar_window"
+			orientation = "LOWER_RIGHT"
+			scripted = yes
+
+			guiButtonType = {
+				name = "zhx_tianxia_open_button"
+				# Preserve the old text button's right edge and vertical centre while
+				# changing its 87x32 footprint to the approved 52x52 round control.
+				position = { x = -330 y = -205 }
+				quadTextureSprite = "GFX_zhx_tianxia_topbar_button"
+				clicksound = click
+				scripted = yes
+			}
+		}
+
+		# The Zhou/Tianxia panel is a child of the always-present topbar, so the
+		# lower-right button can open it directly from the map without another view.
+		windowType = {
+			name = "zhx_tianxia_window"
+			backGround = "zhx_gui_drag_surface"
+			# Nested CENTER anchors against the full-screen topbar root. The offset
+			# centers the established 980x990 canvas at the supported UI scale.
+			position = { x = -490 y = -55 }
+			size = { x = 980 y = 990 }
+			# This is deliberately a floating child window. Clicking it raises it
+			# above the native country-view tabs, then the player can drag it freely.
+			moveable = 1
+			click_to_front = yes
+			dontRender = ""
+			horizontalBorder = ""
+			verticalBorder = ""
+			fullScreen = no
+			Orientation = "CENTER"
+			scripted = yes
+
+			guiButtonType = {
+				name = "zhx_gui_drag_surface"
+				quadTextureSprite = "GFX_zhx_tianxia_drag_surface"
+				position = { x = 0 y = 0 }
+				tooltip = ""
+				tooltipText = ""
+				delayedTooltipText = ""
+			}
+
+			# The visible artwork is not the WindowType background. Clausewitz snaps
+			# background controls to (0, 0), which would offset every visual slot.
+			iconType = {
+				name = "zhx_gui_background"
+				spriteType = "GFX_zhx_tianxia_bg"
+				position = { x = 40 y = 20 }
+				alwaystransparent = yes
+			}
+
+			# Zhou/Tianxia presentation. This scripted child is gated as one unit by
+			# common/custom_gui/zhx_tianxia_gui.txt.
+			instantTextBoxType = {
+				name = "zhx_gui_title"
+				position = { x = 40 y = 56 }
+				font = "vic_29"
+				borderSize = { x = 4 y = 4 }
+				text = "ZHX_GUI_TITLE"
+				maxWidth = 900
+				maxHeight = 32
+				format = centre
+			}
+
+			# Upper-left panel: Tianzi and authority.
+			instantTextBoxType = {
+				name = "zhx_gui_tianzi_header"
+				position = { x = 88 y = 132 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 0 }
+				text = "ZHX_GUI_TIANZI_HEADER"
+				maxWidth = 220
+				maxHeight = 32
+				format = centre
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_tianzi_shield"
+				quadTextureSprite = "GFX_shield_thin"
+				position = { x = 88 y = 160 }
+				clicksound = click
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_tianzi_name"
+				position = { x = 166 y = 166 }
+				font = "vic_22"
+				borderSize = { x = 2 y = 2 }
+				text = ""
+				maxWidth = 145
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_authority_value"
+				position = { x = 123 y = 204 }
+				font = "vic_22"
+				borderSize = { x = 2 y = 2 }
+				text = ""
+				maxWidth = 190
+				maxHeight = 30
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_authority_explanation"
+				position = { x = 80 y = 236 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = "ZHX_GUI_AUTHORITY_EXPLANATION"
+				maxWidth = 236
+				maxHeight = 35
+				format = centre
+				fixedsize = yes
+			}
+
+			# Upper-centre panel: current order tier and progress proxy.
+			instantTextBoxType = {
+				name = "zhx_gui_order_header"
+				position = { x = 364 y = 132 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 0 }
+				text = "ZHX_GUI_ORDER_HEADER"
+				maxWidth = 252
+				maxHeight = 32
+				format = centre
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_order_ordered"
+				position = { x = 365 y = 166 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 250
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_order_stable"
+				position = { x = 365 y = 166 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 250
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_order_balanced"
+				position = { x = 365 y = 166 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 250
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_order_fractured"
+				position = { x = 365 y = 166 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 250
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_order_collapsed"
+				position = { x = 365 y = 166 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 250
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m100"
+				spriteType = "GFX_zhx_ritual_bar_m100"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m090"
+				spriteType = "GFX_zhx_ritual_bar_m090"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m080"
+				spriteType = "GFX_zhx_ritual_bar_m080"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m070"
+				spriteType = "GFX_zhx_ritual_bar_m070"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m060"
+				spriteType = "GFX_zhx_ritual_bar_m060"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m050"
+				spriteType = "GFX_zhx_ritual_bar_m050"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m040"
+				spriteType = "GFX_zhx_ritual_bar_m040"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m030"
+				spriteType = "GFX_zhx_ritual_bar_m030"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m020"
+				spriteType = "GFX_zhx_ritual_bar_m020"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_m010"
+				spriteType = "GFX_zhx_ritual_bar_m010"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_zero"
+				spriteType = "GFX_zhx_ritual_bar_zero"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p010"
+				spriteType = "GFX_zhx_ritual_bar_p010"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p020"
+				spriteType = "GFX_zhx_ritual_bar_p020"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p030"
+				spriteType = "GFX_zhx_ritual_bar_p030"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p040"
+				spriteType = "GFX_zhx_ritual_bar_p040"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p050"
+				spriteType = "GFX_zhx_ritual_bar_p050"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p060"
+				spriteType = "GFX_zhx_ritual_bar_p060"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p070"
+				spriteType = "GFX_zhx_ritual_bar_p070"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p080"
+				spriteType = "GFX_zhx_ritual_bar_p080"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p090"
+				spriteType = "GFX_zhx_ritual_bar_p090"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			iconType = {
+				name = "zhx_gui_bar_p100"
+				spriteType = "GFX_zhx_ritual_bar_p100"
+				position = { x = 390 y = 207 }
+				scripted = yes
+			}
+
+			# The bar above has 21 visual buckets; this explanatory sentence stays
+			# tied to the five gameplay tiers so visual precision does not multiply effects.
+			instantTextBoxType = {
+				name = "zhx_gui_effect_ordered"
+				position = { x = 354 y = 236 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 272
+				maxHeight = 36
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_effect_stable"
+				position = { x = 354 y = 236 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 272
+				maxHeight = 36
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_effect_balanced"
+				position = { x = 354 y = 236 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 272
+				maxHeight = 36
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_effect_fractured"
+				position = { x = 354 y = 236 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 272
+				maxHeight = 36
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_effect_collapsed"
+				position = { x = 354 y = 236 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 272
+				maxHeight = 36
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			# Upper-right panel: member count and the current viewer's role.
+			instantTextBoxType = {
+				name = "zhx_gui_members_header"
+				position = { x = 672 y = 132 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 0 }
+				text = "ZHX_GUI_MEMBERS_HEADER"
+				maxWidth = 220
+				maxHeight = 32
+				format = centre
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_member_count"
+				position = { x = 665 y = 169 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 234
+				maxHeight = 26
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_player_merit"
+				position = { x = 665 y = 205 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 234
+				maxHeight = 26
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_player_tianzi"
+				position = { x = 665 y = 205 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 234
+				maxHeight = 26
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_player_observer"
+				position = { x = 665 y = 205 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 234
+				maxHeight = 26
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_members_explanation"
+				position = { x = 665 y = 238 }
+				font = "vic_18"
+				borderSize = { x = 3 y = 3 }
+				text = "ZHX_GUI_MEMBERS_EXPLANATION"
+				maxWidth = 234
+				maxHeight = 34
+				format = centre
+				fixedsize = yes
+			}
+
+			# Lower-left panel: incident status and explanation.
+			instantTextBoxType = {
+				name = "zhx_gui_council_header"
+				position = { x = 95 y = 302 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 0 }
+				text = "ZHX_GUI_COUNCIL_HEADER"
+				maxWidth = 358
+				maxHeight = 32
+				format = centre
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_ritual"
+				position = { x = 95 y = 338 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 358
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_idle"
+				position = { x = 95 y = 338 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 358
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_ritual_description"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				borderSize = { x = 5 y = 5 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 30
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_idle_description"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				borderSize = { x = 5 y = 5 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 60
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_footer"
+				position = { x = 82 y = 480 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = "ZHX_GUI_COUNCIL_FOOTER"
+				maxWidth = 384
+				maxHeight = 22
+				format = centre
+				fixedsize = yes
+			}
+
+			# Lower-right panel: Tianxia Great Debate. Reforms and decrees belong
+			# to the separate Mandate view; this council panel reads international
+			# orthodoxy and can only invoke the debate event state machine.
+			instantTextBoxType = {
+				name = "zhx_gui_debate_header"
+				position = { x = 527 y = 302 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 0 }
+				text = "ZHX_GUI_DEBATE_HEADER"
+				maxWidth = 358
+				maxHeight = 32
+				format = centre
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_none"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_ru"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_fa"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_mo"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_dao"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_bing"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_zongheng"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_orthodoxy_plural"
+				position = { x = 514 y = 331 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 28
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_ru_fa"
+				position = { x = 82 y = 338 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_ru_mo"
+				position = { x = 82 y = 338 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_fa_mo"
+				position = { x = 82 y = 338 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate"
+				position = { x = 82 y = 338 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 384
+				maxHeight = 26
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_debate_resolving"
+				position = { x = 82 y = 338 }
+				font = "vic_22"
+				text = ""
+				maxWidth = 376
+				maxHeight = 22
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_ru" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_fa" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_mo" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_dao" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_bing" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_a_zongheng" position = { x = 82 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_ru" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_fa" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_mo" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_dao" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_bing" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+			instantTextBoxType = { name = "zhx_gui_council_candidate_b_zongheng" position = { x = 273 y = 365 } font = "vic_18" text = "" maxWidth = 185 maxHeight = 22 format = centre scripted = yes }
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts"
+				position = { x = 82 y = 392 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_settled"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_ready"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_status_waiting"
+				position = { x = 514 y = 365 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 32
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts_ru_fa"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts_ru_mo"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_counts_fa_mo"
+				position = { x = 82 y = 370 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_description_idle"
+				position = { x = 514 y = 414 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 4 }
+				text = ""
+				maxWidth = 384
+				maxHeight = 30
+				format = centre
+				fixedsize = yes
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_ru"
+				position = { x = 514 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_fa"
+				position = { x = 578 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_mo"
+				position = { x = 642 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_dao"
+				position = { x = 706 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_bing"
+				position = { x = 770 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+			instantTextBoxType = {
+				name = "zhx_gui_debate_petition_zongheng"
+				position = { x = 834 y = 405 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 60
+				maxHeight = 20
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_none"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_a"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 22
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_b"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 22
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_ru"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_fa"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_mo"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_plural"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_support"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_oppose"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_abstain"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			instantTextBoxType = {
+				name = "zhx_gui_council_vote_observer"
+				position = { x = 82 y = 418 }
+				font = "vic_18"
+				text = ""
+				maxWidth = 384
+				maxHeight = 24
+				format = centre
+				scripted = yes
+			}
+
+			# Centred fallback button when the viewer cannot convene a debate.
+			guiButtonType = {
+				name = "zhx_gui_debate_review_button_solo"
+				position = { x = 653 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_review_button_petition_split"
+				position = { x = 589 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_petition_button"
+				position = { x = 716 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_PETITION_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			# When the Tianzi has two eligible proposals, split the row between
+			# a read-only rules button and the state-changing convene action.
+			guiButtonType = {
+				name = "zhx_gui_debate_review_button_split"
+				position = { x = 589 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_REVIEW_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_debate_convene_button"
+				position = { x = 716 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_CONVENE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			# During the one-year ballot, Tianxia polities may revise their vote.
+			# Pair-specific buttons overlap by design; custom_gui potentials expose
+			# exactly one first candidate, one second candidate and plurality.
+			guiButtonType = {
+				name = "zhx_gui_council_vote_ru_a_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_RU_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_fa_a_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_fa_b_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_FA_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_mo_b_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_MO_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = { name = "zhx_gui_council_vote_mo_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_MO_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_dao_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_DAO_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_bing_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_BING_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_zongheng_a_button" position = { x = 102 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_ZONGHENG_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_ru_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_RU_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_dao_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_DAO_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_bing_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_BING_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+			guiButtonType = { name = "zhx_gui_council_vote_zongheng_b_button" position = { x = 221 y = 449 } quadTextureSprite = "GFX_standard_button_105" buttonText = "ZHX_GUI_DEBATE_VOTE_ZONGHENG_BUTTON" buttonFont = "vic_18" clicksound = decision scripted = yes }
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_plural_button"
+				position = { x = 340 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_DEBATE_VOTE_PLURAL_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_support_button"
+				position = { x = 102 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_SUPPORT_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_oppose_button"
+				position = { x = 221 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_OPPOSE_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_council_vote_abstain_button"
+				position = { x = 340 y = 449 }
+				quadTextureSprite = "GFX_standard_button_105"
+				buttonText = "ZHX_GUI_COUNCIL_VOTE_ABSTAIN_BUTTON"
+				buttonFont = "vic_18"
+				clicksound = decision
+				scripted = yes
+			}
+
+			# Full-width roster panel. The generated shield controls remain direct
+			# children of the scripted Zhou window.
+			instantTextBoxType = {
+				name = "zhx_gui_roster_header"
+				position = { x = 95 y = 532 }
+				font = "vic_18"
+				borderSize = { x = 4 y = 0 }
+				text = "ZHX_GUI_ROSTER_HEADER"
+				maxWidth = 790
+				maxHeight = 32
+				format = centre
+			}
+
+			# ZHX_ROSTER_SHIELDS_BEGIN
+			guiButtonType = {
+				name = "zhx_gui_member_shield_01"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_02"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_03"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_04"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_05"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_06"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_07"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_08"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_09"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_10"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_11"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_12"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_13"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_14"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_15"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_16"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_17"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_18"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_19"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_20"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_21"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_22"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_23"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_24"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 575 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_25"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_26"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_27"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_28"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_29"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_30"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_31"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_32"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_33"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_34"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_35"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_36"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_37"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_38"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_39"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_40"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_41"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_42"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_43"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_44"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_45"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_46"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_47"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_48"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 608 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_49"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_50"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_51"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_52"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_53"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_54"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_55"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_56"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_57"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_58"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_59"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_60"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_61"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_62"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_63"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_64"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_65"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_66"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_67"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_68"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_69"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_70"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_71"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_72"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 641 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_73"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_74"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_75"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_76"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_77"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_78"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_79"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_80"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_81"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_82"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_83"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_84"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_85"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_86"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_87"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_88"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_89"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_90"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_91"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_92"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_93"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_94"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_95"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_96"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 674 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_97"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_98"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_99"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_100"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_101"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_102"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_103"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_104"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_105"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_106"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_107"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_108"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_109"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_110"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_111"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_112"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_113"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_114"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_115"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_116"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_117"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_118"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_119"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_120"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 707 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_121"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_122"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_123"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_124"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_125"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_126"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_127"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_128"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_129"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_130"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_131"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_132"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_133"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_134"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_135"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_136"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_137"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_138"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_139"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_140"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_141"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_142"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_143"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_144"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 740 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_145"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_146"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_147"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_148"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_149"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_150"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_151"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_152"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_153"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_154"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_155"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_156"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_157"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_158"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_159"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_160"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_161"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_162"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_163"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_164"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_165"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_166"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_167"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_168"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 773 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_169"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_170"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_171"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_172"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_173"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_174"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_175"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_176"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_177"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 355 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_178"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 389 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_179"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 423 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_180"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 457 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_181"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 491 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_182"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 525 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_183"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 559 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_184"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 593 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_185"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 627 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_186"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 661 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_187"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 695 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_188"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 729 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_189"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 763 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_190"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 797 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_191"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 831 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_192"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 865 y = 806 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_193"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 83 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_194"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 117 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_195"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 151 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_196"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 185 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_197"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 219 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_198"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 253 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_199"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 287 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+
+			guiButtonType = {
+				name = "zhx_gui_member_shield_200"
+				quadTextureSprite = "GFX_shield_small"
+				position = { x = 321 y = 839 }
+				clicksound = click
+				scripted = yes
+			}
+			# ZHX_ROSTER_SHIELDS_END
+
+			# Keep the scripted close below the native top HUD.  At the supported UI
+			# scale y=43 is visually correct but its hitbox is intercepted by the HUD.
+			# Escape uses the same action, so closing the overlay never reopens it.
+			guiButtonType = {
+				name = "zhx_gui_close_button"
+				position = { x = 900 y = 80 }
+				quadTextureSprite = "GFX_closebutton2"
+				tooltip = ""
+				tooltipText = ""
+				delayedTooltipText = ""
+				buttonFont = "vic_18"
+				clicksound = close_window
+				shortcut = "ESCAPE"
+				scripted = yes
+			}
+		}
+	} ### end of "topbar"
+
+	windowType = {
+		name = "alerts_parent"
+		backGround=""
+		position = { x=0 y=-1 }
+		size = { x=2048 y=100 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = yes
+
+		show_position = { x = 0 y = -1 }
+		hide_position = { x = 0 y = -165 }
+		animation_type = "decelerated"
+		animation_time = 600
+	}
+
+	windowType = {
+		name = "hotkey_assign_parent"
+		backGround=""
+		position = { x=-202 y=-38 }
+		size = { x=404 y=76 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		orientation = "CENTER"
+
+		iconType = {
+			name ="assign_hotkey_pick_button_hint"
+			spriteType = "GFX_nation_designer_hint_bg"
+			position = { x= 0 y = 0 }
+		}
+		instantTextBoxType = {
+			name = "assign_hotkey_pick_button_hint_text"
+			position = { x = 40 y = 27 }
+			font = "vic_22"
+			text = "PICK_HOTKEY_BUTTON_HINT"
+			maxWidth = 320
+			maxHeight = 60
+			format = centre
+		}
+	}
+}

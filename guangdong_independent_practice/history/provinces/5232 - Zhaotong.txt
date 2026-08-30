@@ -3,9 +3,8 @@
 owner = LSH
 controller = LSH
 add_core = LSH
-add_core = CDL
 culture = yi
-religion = animism
+religion = buddhism
 capital = "Wumeng"
 trade_goods = livestock
 base_tax = 2

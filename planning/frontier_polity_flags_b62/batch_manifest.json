@@ -1,0 +1,312 @@
+{
+  "batch": "B62",
+  "policy": "vanilla-style frontier, external, and Shang-heritage heraldry",
+  "references": {
+    "style": [
+      "EU4 1.37.5 vanilla flags",
+      "Celestial empire on which the sun never sets (Workshop 1728520255)"
+    ],
+    "goryeo": "tools/assets/frontier_flags/goryeo_phoenix_reference.png (user supplied)",
+    "tangut_xia": "U+17D32 / Li Fanwen dictionary no. 0071",
+    "mongolian_dali": "ᠳᠠᠯᠢ; HarfBuzz-shaped Noto Sans Mongolian fixed mask",
+    "manchu_helan": "ᡥᡝᠯᠠᠨ; phonetic Helan rendering shaped with HarfBuzz, framed after vanilla MJZ/MHX flags",
+    "liao": "B57 Khitan Large Script U+E23D / ninefold-seal U+F012 asset",
+    "ongud_cross": "Yuan-period Inner Mongolian Church of the East epitaphs with cross-on-lotus imagery",
+    "dunhuang_banner": "British Museum 1919,0101,0.120; 9th-century Cave 17 silk banner construction",
+    "nanzhao": "899 Nanzhao Tuzhuan; Acuoye Guanyin as dynastic foundation image",
+    "yi_wordmarks": "ꆀꃅ (Nimu, vernacular Liangshan) and ꑳꆅ (Yi-na, researched Yelang reading); fixed Noto Sans Yi masks",
+    "shang_inscriptions": "箕 oracle pictograph; 竹侯 oracle/bronze clan emblem; Middle Shang Wuzhong dagger compound clan inscription"
+  },
+  "flags": {
+    "AMD": {
+      "name": "安多果洛",
+      "culture": "tibetan",
+      "motif": "snow_peak",
+      "bg": "633b73",
+      "ink": "f2e7cf",
+      "accent": "d89b35",
+      "reason": "雪山、日轮与高原紫，表现果洛部落和安多高地。",
+      "field": "quartered"
+    },
+    "BD2": {
+      "name": "巴氐",
+      "culture": "gdd_diqiang",
+      "motif": "ram",
+      "bg": "355f68",
+      "ink": "ead8b4",
+      "accent": "ba6236",
+      "reason": "盘羊角与山口，强调氐羌山地联盟。",
+      "field": "serrated"
+    },
+    "BMY": {
+      "name": "白马弥药",
+      "culture": "gdd_diqiang",
+      "motif": "tangut_xia",
+      "bg": "f0bd32",
+      "ink": "17140f",
+      "accent": "a62f2b",
+      "reason": "党项弥药政权以西夏文“𗴲”（夏，U+17D32）为国徽，使用西夏常见的金、黑、赤强对比。",
+      "field": "tangut"
+    },
+    "CZM": {
+      "name": "辰州苗蛮",
+      "culture": "miao",
+      "motif": "bronze_drum",
+      "bg": "7d294f",
+      "ink": "e8c36a",
+      "accent": "50a79a",
+      "reason": "八芒铜鼓纹与苗疆织锦色。",
+      "field": "textile_roundel"
+    },
+    "DCH": {
+      "name": "宕昌",
+      "culture": "gdd_diqiang",
+      "motif": "mountain_fort",
+      "bg": "704b2f",
+      "ink": "e5d2a0",
+      "accent": "9f3c32",
+      "reason": "层山上的石寨，表现宕昌羌的谷地堡寨。",
+      "field": "chevron"
+    },
+    "DZH": {
+      "name": "邓至",
+      "culture": "gdd_diqiang",
+      "motif": "twin_peaks",
+      "bg": "4b6476",
+      "ink": "e6dfc5",
+      "accent": "d27b38",
+      "reason": "双峰夹日，取邓至位于岷山交通孔道之意。",
+      "field": "split"
+    },
+    "GUZ": {
+      "name": "孤竹",
+      "culture": "gdd_dongyi",
+      "motif": "shang_zhu",
+      "bg": "5b4934",
+      "ink": "d8b65d",
+      "accent": "324f4b",
+      "reason": "殷墟卜辞称孤竹为“竹侯”，故直接以商代两枝垂叶的“竹”族徽为中央徽记。",
+      "field": "shang_inscription"
+    },
+    "HLD": {
+      "name": "曷懒",
+      "culture": "manchu",
+      "motif": "manchu_helan",
+      "bg": "24513f",
+      "ink": "f0cf5a",
+      "accent": "132f27",
+      "reason": "仿原版建州、海西女真旗的框式构图，以竖排满文“ᡥᡝᠯᠠᠨ”（Helan／曷懒）取代猎鹰图腾。",
+      "field": "manchu_frame"
+    },
+    "HLI": {
+      "name": "黎",
+      "culture": "gdd_qiongli",
+      "motif": "sun_waves",
+      "bg": "173c57",
+      "ink": "e8b843",
+      "accent": "63a96a",
+      "reason": "黎锦式日轮、海浪与五指山色带。",
+      "field": "horizontal"
+    },
+    "HZH": {
+      "name": "河州回回",
+      "culture": "gdd_long",
+      "motif": "caravan_star",
+      "bg": "245348",
+      "ink": "ead9a5",
+      "accent": "b66a38",
+      "reason": "八角星、河桥与商路门廊，表现河州回回的河湟商贸共同体。",
+      "field": "arched"
+    },
+    "JRG": {
+      "name": "嘉绒",
+      "culture": "tibetan",
+      "motif": "stone_tower",
+      "bg": "753b34",
+      "ink": "e5d5b4",
+      "accent": "4e7580",
+      "reason": "嘉绒碉楼立于横断山地。",
+      "field": "quartered"
+    },
+    "JIZ": {
+      "name": "箕氏朝鲜",
+      "culture": "korean",
+      "motif": "shang_ji",
+      "bg": "2f5b66",
+      "ink": "e8daa4",
+      "accent": "a9753e",
+      "reason": "以商代甲骨文“箕”的簸箕格纹象形替代现代楷书“箕”，强调箕氏殷商遗绪。",
+      "field": "shang_inscription"
+    },
+    "LIL": {
+      "name": "俚寮",
+      "culture": "gdd_zhuang",
+      "motif": "bronze_drum",
+      "bg": "315d4c",
+      "ink": "dfbd63",
+      "accent": "ad4e35",
+      "reason": "岭南铜鼓与红土色，替代无图案的临时旗。",
+      "field": "textile_roundel"
+    },
+    "LIO": {
+      "name": "辽",
+      "culture": "gdd_khitan",
+      "motif": "khitan_seal_original",
+      "bg": "b89748",
+      "ink": "273036",
+      "accent": "273036",
+      "reason": "恢复 B57 原旗：使用契丹大字九叠篆官印字形，研究资料将其视为可能表示辽或契丹国家专称的字符。",
+      "field": "legacy_exact"
+    },
+    "LSH": {
+      "name": "凉山",
+      "culture": "yi",
+      "motif": "yi_liangshan_wordmark",
+      "bg": "171b21",
+      "ink": "e0b342",
+      "accent": "ae3534",
+      "reason": "以凉山本地自称“ꆀꃅ”（Nimu）为竖排彝文徽记，保留彝族传统黑、赤、金强对比色。",
+      "field": "vertical"
+    },
+    "MDL": {
+      "name": "蒙古大理",
+      "culture": "bai",
+      "motif": "mongolian_dali",
+      "bg": "ffffff",
+      "ink": "000000",
+      "accent": "000000",
+      "reason": "纯白旗面中央竖书黑色传统蒙古文“ᠳᠠᠯᠢ”（Dali／大理），以蒙古统治身份覆盖旧塔湖纹样。",
+      "field": "plain_exact"
+    },
+    "NUN": {
+      "name": "侬",
+      "culture": "gdd_zhuang",
+      "motif": "drum_spear",
+      "bg": "285d52",
+      "ink": "e6c36b",
+      "accent": "b53d32",
+      "reason": "铜鼓配交叉长矛，表现侬氏边寨军事联盟。",
+      "field": "saltire"
+    },
+    "NZA": {
+      "name": "南诏",
+      "culture": "yi",
+      "motif": "nanzhao_guanyin",
+      "bg": "6e2934",
+      "ink": "edc45b",
+      "accent": "2d5754",
+      "reason": "以《南诏图传》的阿嵯耶观音为核心，配合莲座与护国光轮，取代泛化的日鸟图腾。",
+      "field": "sun_disc"
+    },
+    "SHZ": {
+      "name": "沙州",
+      "culture": "oirats",
+      "motif": "dunhuang_banner",
+      "bg": "80532d",
+      "ink": "edcf87",
+      "accent": "27777a",
+      "reason": "按敦煌藏经洞九世纪丝绸幡的三角旗首、窄幅画心、侧带与尾旒重构沙州徽记。",
+      "field": "plain"
+    },
+    "TZZ": {
+      "name": "田州",
+      "culture": "gdd_zhuang",
+      "motif": "mountain_fort",
+      "bg": "4e6d35",
+      "ink": "e8d28c",
+      "accent": "a34833",
+      "reason": "右江山寨与铜鼓色，强调土司堡寨。",
+      "field": "bordered"
+    },
+    "WDU": {
+      "name": "武都",
+      "culture": "gdd_diqiang",
+      "motif": "river_peak",
+      "bg": "37566b",
+      "ink": "e6d7ae",
+      "accent": "4ea6a1",
+      "reason": "白龙江穿行山谷，构成武都的地理徽记。",
+      "field": "river"
+    },
+    "WGS": {
+      "name": "汪古罗斯",
+      "culture": "mongol",
+      "motif": "ongud_nestorian_cross",
+      "bg": "285c79",
+      "ink": "e3c36d",
+      "accent": "d9e3df",
+      "reason": "使用元代内蒙古景教墓志常见的莲台十字，直接对应汪古部十三至十四世纪景教传统。",
+      "field": "roundel"
+    },
+    "WLM": {
+      "name": "武陵蛮",
+      "culture": "miao",
+      "motif": "sun_bird",
+      "bg": "294f43",
+      "ink": "e0bd58",
+      "accent": "b84545",
+      "reason": "武陵山神鸟与织锦菱纹。",
+      "field": "sun_disc"
+    },
+    "WUZ": {
+      "name": "无终",
+      "culture": "gdd_dongyi",
+      "motif": "shang_wuzhong",
+      "bg": "c58c42",
+      "ink": "20272a",
+      "accent": "eee0b7",
+      "reason": "依据中商无终戈的双字族氏铭文，以舞人形“無”和结绳终止形组合成高辨识度商式族徽。",
+      "field": "shang_inscription"
+    },
+    "WXG": {
+      "name": "武兴",
+      "culture": "gdd_diqiang",
+      "motif": "mountain_gate",
+      "bg": "4e6550",
+      "ink": "e3d5ad",
+      "accent": "ad5638",
+      "reason": "三峰与关门，表现汉水上游山地要塞。",
+      "field": "chevron"
+    },
+    "WXM": {
+      "name": "五溪苗蛮",
+      "culture": "miao",
+      "motif": "five_streams",
+      "bg": "216c68",
+      "ink": "e6c15d",
+      "accent": "173e66",
+      "reason": "五道曲水织成苗锦式连续纹。",
+      "field": "textile"
+    },
+    "YEL": {
+      "name": "夜郎",
+      "culture": "yi",
+      "motif": "yi_yelang_wordmark",
+      "bg": "4b2768",
+      "ink": "ebc24f",
+      "accent": "58a07a",
+      "reason": "采用彝语研究所释“yi-na”音形的规范彝文“ꑳꆅ”竖排，并以紫、金、绿保留夜郎的西南青铜感。",
+      "field": "roundel"
+    },
+    "ZHI": {
+      "name": "枳",
+      "culture": "miao",
+      "motif": "river_fort",
+      "bg": "74315d",
+      "ink": "ead39a",
+      "accent": "4fa69a",
+      "reason": "江峡、城门和巴地织纹组合。",
+      "field": "horizontal"
+    },
+    "KOR": {
+      "name": "高丽",
+      "culture": "gdd_samhan",
+      "motif": "goryeo_phoenix",
+      "bg": "f8d98d",
+      "ink": "202229",
+      "accent": "426764",
+      "reason": "直接采用用户参考图中的凤凰主体，以高丽青瓷绿、朱红和绢黄金构成宫廷纹样。",
+      "field": "reference"
+    }
+  }
+}

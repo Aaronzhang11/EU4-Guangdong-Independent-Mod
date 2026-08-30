@@ -2,10 +2,9 @@
 
 owner = YEL
 controller = YEL
-add_core = CDL
 add_core = YEL
 culture = yi
-religion = animism
+religion = buddhism
 capital = "Mangbu"
 trade_goods = iron
 base_tax = 1

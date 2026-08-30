@@ -732,9 +732,9 @@ province;red;green;blue;x;x
 731;232;86;64;Ninguta;x
 732;104;88;128;Hamheung;x
 733;232;90;192;Hwangju;x
-734;104;92;255;Gangwon;x
+734;104;92;255;Wonju;x
 735;153;134;173;Hanseong;x
-736;217;164;164;Sangju;x
+736;217;164;164;Gyeongju;x
 737;233;98;128;Jeonju;x
 738;105;100;192;Taiwan;x
 739;233;102;255;Kashgar;x
@@ -2692,7 +2692,7 @@ province;red;green;blue;x;x
 2691;216;58;34;Kediri;x
 2692;216;67;201;Madura;x
 2693;104;16;91;Lombok;x
-2694;136;210;148;East Gangwon;x
+2694;136;210;148;Gangneung;x
 2695;107;66;100;East Timor;x
 2696;181;45;81;Yamdena;x
 2697;163;70;58;Tondo;x
@@ -2740,10 +2740,10 @@ province;red;green;blue;x;x
 2739;152;83;186;Kirikiriroa;x
 2740;249;177;179;Borneo;x
 2741;138;58;45;Jeju;x
-2742;162;64;128;Yukjin;x
+2742;162;64;128;Six Garrisons;x
 2743;209;139;185;Gyeongseong;x
 2744;122;48;97;Nyeongbyeon;x
-2745;134;53;105;West Gyeongsang;x
+2745;134;53;105;Busan;x
 2746;213;38;84;Vidin;x
 2747;106;186;80;Khara Narin Ula;x
 2748;80;32;128;Xizhou;x
@@ -4008,8 +4008,8 @@ province;red;green;blue;x;x
 4007;100;14;107;RNW;
 4008;100;14;108;RNW;
 4009;100;14;109;RNW;
-4010;100;14;110;RNW;
-4011;100;14;111;RNW;
+4010;100;14;110;Weishan Lake;x
+4011;100;14;111;Chaohu Lake;x
 4012;100;14;112;RNW;
 4013;100;14;113;RNW;
 4014;100;14;114;RNW;
@@ -4228,7 +4228,7 @@ province;red;green;blue;x;x
 4227;105;96;64;Daegu;x
 4228;195;44;140;Naju;x
 4229;188;200;56;Chungju;x
-4230;158;186;44;Suwon;x
+4230;158;186;44;Sangju;x
 4231;231;184;20;Haeju;x
 4232;145;81;35;Ganggye;x
 4233;31;182;184;Bahai Sea;x
@@ -5099,7 +5099,7 @@ province;red;green;blue;x;x
 5213;92;222;161;Zunhua;x
 5218;6;97;9;Yizhou;x
 5219;26;197;241;Jizhou;x
-5220;75;16;90;Shunde;x
+5220;75;16;90;Xingtai;x
 5221;167;208;144;Guangping;x
 5222;126;25;141;Zhigu;x
 5223;84;33;209;Cangzhou;x
@@ -5201,8 +5201,8 @@ province;red;green;blue;x;x
 5307;171;163;193;Lintao;x
 5308;219;0;220;Gongchang;x
 5309;0;211;220;Wudu;x
-5310;37;173;211;Nanling West;x
-5311;198;52;122;Nanling East;x
+5310;48;63;86;Nanling West;x
+5311;118;0;175;Nanling East;x
 5312;233;147;191;Yongshun;x
 5313;50;42;134;Baojing;x
 5314;123;193;77;Yuanzhou Hunan;x
@@ -5245,3 +5245,21 @@ province;red;green;blue;x;x
 5351;62;177;143;Weizhou;x
 5352;196;101;70;Longmen;x
 5353;88;137;207;Xingzhou;x
+5354;87;9;10;Dabie Mountains;x
+5355;27;57;174;Mount Tai;x
+5356;150;138;167;Gilju;x
+5357;223;166;203;Dancheon;x
+5358;82;68;103;Jangjin;x
+5359;128;112;149;Guseong;x
+5360;161;119;148;Wonsan;x
+5361;146;197;180;Ryongcheon;x
+5362;164;223;174;Yangdeok;x
+5363;58;166;20;Tongcheon;x
+5364;200;32;152;Gaeseong;x
+5365;35;23;195;Jinju;x
+5375;224;180;209;Rangrim Mountains;x
+5376;84;175;101;Taebaek Mountains;x
+5377;24;11;27;Jiulian Mountains;x
+5378;64;130;53;Zhe-Min Mountains;x
+5379;16;71;7;Wuyi Mountains;x
+5380;22;50;31;Huangshan;x

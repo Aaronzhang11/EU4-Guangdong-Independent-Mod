@@ -56,9 +56,9 @@ from apply_b43_chunqiu_polities import (  # noqa: E402
 
 
 CREATED_VASSAL_TAGS = ("EGU", "QVN", "ZHU")
-VASSAL_TAGS = (*CREATED_VASSAL_TAGS, "CSA")
+VASSAL_TAGS = (*CREATED_VASSAL_TAGS, "CSA", "ACG")
 AFFECTED_TAGS = ("CHC", *VASSAL_TAGS)
-EXPECTED_DEVELOPMENT = {"CHC": 105, "EGU": 27, "QVN": 8, "ZHU": 6, "CSA": 39}
+EXPECTED_DEVELOPMENT = {"CHC": 105, "EGU": 27, "QVN": 8, "ZHU": 6, "CSA": 39, "ACG": 4}
 LOCALISATION = {"EGU": "鄂", "QVN": "权", "ZHU": "州"}
 CHU_CAPITAL = 2172
 TAG_MARKER_BEGIN = "# GDD_B52_CHU_VASSALS_BEGIN"
@@ -230,8 +230,8 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
             else COUNTRY_HISTORY / str(POLITIES[tag]["history"])
         )
         history = read_text(history_path)
-        if initial_value(history, "add_government_reform") != "gdd_local_fiefdom_reform":
-            raise ValueError(f"{tag}: must use the existing local-fiefdom reform")
+        if initial_value(history, "add_government_reform") != "feudalism_reform":
+            raise ValueError(f"{tag}: must use ordinary feudalism")
     if read_text(DIPLOMACY) != diplomacy_text():
         raise ValueError("B52 starting-vassal diplomacy drifted")
 
@@ -244,7 +244,7 @@ def validate(vanilla_root: Path, dependency_roots: tuple[Path, ...]) -> dict[str
 
     return {
         "batch": "B52_chu_vassals",
-        "design": "Chu direct realm plus E, Quan, Zhou and Changsha as starting vassals",
+        "design": "Chu direct realm plus E, Quan, Zhou, Changsha and Ancheng as starting vassals",
         "chu_capital": {"province_id": CHU_CAPITAL, "name": "Jiangling"},
         "countries": stats,
         "vassals": {tag: "CHC" for tag in VASSAL_TAGS},

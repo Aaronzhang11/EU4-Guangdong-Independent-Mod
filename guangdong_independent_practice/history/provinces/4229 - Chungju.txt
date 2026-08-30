@@ -1,14 +1,14 @@
-#4229 - Chungju
+# 4229 - Chungju - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
-religion = confucianism
-capital = "àVÞT" 	# Chungju
+culture = gdd_samhan
+religion = mahayana
+capital = "Chungju"# Chungju
 trade_goods = cotton
 hre = no
-base_tax = 3
-base_production = 2
-base_manpower = 1
+base_tax = 4
+base_production = 3
+base_manpower = 3
 is_city = yes
 add_core = KOR
 add_local_autonomy = 35

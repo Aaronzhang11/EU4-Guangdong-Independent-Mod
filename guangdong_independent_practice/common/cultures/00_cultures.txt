@@ -47210,294 +47210,415 @@ korean_g = {
   graphical_culture = asiangfx
   korean = {
     primary = KOR
+
+    # Culture-specific Chinese dynasty and personal names.
     dynasty_names = {
-      "Ng" 	# Yi
-      "ãs" 	# Wang
-      "—ë" 	# Kim
-      "4g" 	# Pak
-      "3u" 	# Shin
-      "ãR" 	# Song
-      "!Ö" 	# Chae
-      "‹Y" 	# Gang
-      "—ê" 	# Jeong
-      ".V" 	# Jang
-      "9S" 	# Yun
-      "Èó" 	# Han
-      "*m" 	# Hong
-      "Ûg" 	# Yu
-      "GY" 	# Ki
-      "T" 	# Choi
-      ">ç" 	# Ga
-      "Bh" 	# Gye
-      "ÿö" 	# Go
-      "W" 	# Na
-      "bS" 	# Noh
-      "éN" 	# Woo
-      "˝ê" 	# Do
-      "jg" 	# Du
-      "Xo" 	# Ban
-      "lö" 	# Ma
-      "ıï" 	# Min
-      "áe" 	# Mun
-      "êV" 	# Seo
-      "YR" 	# Son
-      "àl" 	# Sim
-      "âR" 	# An
-      "Åh" 	# Yang
-      "4T" 	# O
-      "hQ" 	# Jeon
-      "Zi" 	# Cho
-      "Hñ" 	# Jin
-      "≥l" 	# Ha
-      "*m" 	# Hong
-      "∏ã" 	# Heo
-      "Ìê" 	# Kwak
-      "óg" 	# Lim
-      "CQ" 	# Won
-      "Cg" 	# Kwon
-      "ƒû" 	# Hwang
-      "Ùà" 	# Bae
-      "Ûw" 	# Seok
-      "πe" 	# Bang
-      "„N" 	# Dae
-      "of" 	# Gyeong
-      "WS" 	# Nam
-      "€v" 	# Sung
-      "ãv" 	# Baek
+      "ïr"
+      "GY"
+      "Ng"
+      "—ë"
+      "4g"
+      "T"
+      "—ê"
+      "9S"
+      "‹Y"
+      "uç"
+      "ãR"
+      ".V"
+      "Èó"
+      "8m"
+      "Ûg"
+      "3u"
     }
+
     male_names = {
-      "Vpÿ)‹" 	# Hongwi
-      "Ht" 	# Yu
-      "Df" 	# Gwang
-      "Z" 	# Hyeol
-      "ï9" 	# Yung
-      "?`" 	# Yeok
-      "¸S" 	# Ho
-      "ÿS" 	# Hwan
-      "f" 	# Yeon
-      "Ús" 	# Hon
-      "'P" 	# Jong
-      "YR" 	# Sun
-      "f" 	# Yun
-      "f" 	# Geum
-      "Xy" 	# San
-      "ús" 	# Gong
-      "*f" 	# Byeon
-      "ãTèy" 	# Myeongbok
-      "0fî^" 	# Ha-eung
-      "†W" 	# Un
-      "Xê" 	# Gu
-      "±R" 	# Seon
-      ">f" 	# Hyeon
-      "FQ" 	# Cho
-      "ÒÇ" 	# Yeong
-      "•n" 	# Bu
-      "x^" 	# Haeng
-      "1Ñ" 	# Hwon
-      "∑^" 	# Kang
-      "cR" 	# Ji
-      ",x" 	# Rip
-      "çQPy" 	# Jae-u
-      "bôü" 	# Seong-ryong
-      "ÂÇiï" 	# Yakyong
-      "ŒNÉ" 	# Jongmu
-      "N8l" 	# Se-young
-      "VÀz" 	# Hong-rip
-      "∑V˙W" 	# Deokgi
-      "áe¿y" 	# Munsu
-      "ôqëN" 	# Hee-woon
-      "ÃR|è" 	# Busik
-      "æçên" 	# Jiwon
-      "IQVy" 	# Gwangjo
-      "‘SÇ" 	# Sukju
-      "VSê" 	# Hongdo
-      "ôüèy" 	# Yong-bok
-      "˜^i`" 	# Jong-un
-      "ckôq" 	# Chung-hee
-      "ÒÇûR" 	# Yeong-sil
-      "AQÍN" 	# Yun-ui
-      "ãT∞e" 	# Myung-shin
-      "«ëim" 	# Chae-ho
-      "POGï" 	# Chwa-jin
-      "”lôq" 	# Honghi
-      "…yôq" 	# Byong-hi
-      "…n" 	# Hwang
-      "…T¯v" 	# Jae-sang
-      "æ^·O" 	# Yu-sin
-      "CQóR" 	# Wonjong
-      "óR^t" 	# Jong-seo
-      "ï%f" 	# Jangchun
-      "É±R" 	# Museon
-      "T&å" 	# Sung-gyeom
-      "bZf" 	# Seungman
-      "Ç„Å" 	# Sun-sin
-      "fim" 	# Chang-ho
-      "'YGS" 	# Dae-seung
-      "(W!ï" 	# Jae-suk
-      "'Y(u" 	# Dae-yong
-      "øNzy" 	# Eok-gi
-      "ˆeOe" 	# Si-min
-      "Øê^ç" 	# Gam-chan
-      "‡V.s" 	# Chung-heon
-      "Nt" 	# U
-      "êæ|" 	# Tong-jeon
-      "¡NÑU" 	# In-seon
-      "IQ´p" 	# Gwanghyeon
-      "GW" 	# Gyun
-      "h" 	# Yul
-      "O" 	# Wi
-      "˚N" 	# Im
-      "˙^" 	# Geon
-      "Zm" 	# Jun
-      "Fz" 	# Mok
-      "Rï" 	# Il
-      ",P" 	# Tak
+      "Ñs"
+      "∆Q"
+      "Py"
+      "∫y"
+      "Nt"
+      "-f"
+      "Fz"
+      "ìv"
+      "mf"
+      "1f"
+      "„s"
+      "üt"
+      "‚ã"
+      "ôò"
+      "wi"
+      "„O"
+      "if"
+      "f"
+      "CQ"
+      "‡V"
+      "kR"
+      "¡N"
+      "IN"
+      "b"
+      "ÑsPy"
+      "Ñs∆Q"
+      "Ñs„s"
+      "Ñsüt"
+      "Ñs1f"
+      "Ñsmf"
+      "Ñsìv"
+      "Ñsf"
+      "Ñsb"
+      "Ñs¡N"
+      "ÑsIN"
+      "Ñs‡V"
+      "ÑskR"
+      "Ñs2ç"
+      "Ñsf"
+      "Ñs∑V"
+      "ÑsCQ"
+      "ÑsóR"
+      "ÑsåT"
+      "∆QPy"
+      "∆QÑs"
+      "∆Q„s"
+      "∆Qüt"
+      "∆Q1f"
+      "∆Qmf"
+      "∆Qìv"
+      "∆Qf"
+      "∆Qb"
+      "∆Q¡N"
+      "∆QIN"
+      "∆Q‡V"
+      "∆QkR"
+      "∆Q2ç"
+      "∆Qf"
+      "∆Q∑V"
+      "∆QCQ"
+      "∆QóR"
+      "∆QåT"
+      "Py∆Q"
+      "PyÑs"
+      "Py„s"
+      "Pyüt"
+      "Py1f"
+      "Pymf"
+      "Pyìv"
+      "Pyf"
+      "Pyb"
+      "Py¡N"
+      "PyIN"
+      "Py‡V"
+      "PykR"
+      "Py2ç"
+      "Pyf"
+      "Py∑V"
+      "PyCQ"
+      "PyóR"
+      "PyåT"
+      "-fPy"
+      "-f∆Q"
+      "-fÑs"
+      "-f„s"
+      "-füt"
+      "-f1f"
+      "-fmf"
+      "-fìv"
+      "-ff"
+      "-fb"
+      "-f¡N"
+      "-fIN"
+      "-f‡V"
+      "-fkR"
+      "-f2ç"
+      "-ff"
+      "-f∑V"
+      "-fCQ"
+      "-fóR"
+      "-fåT"
+      "ofPy"
+      "of∆Q"
+      "ofÑs"
+      "of„s"
+      "ofüt"
+      "of1f"
+      "ofmf"
+      "ofìv"
+      "off"
+      "ofb"
+      "of¡N"
+      "ofIN"
+      "of‡V"
+      "ofkR"
+      "of2ç"
+      "off"
+      "of∑V"
+      "ofCQ"
+      "ofóR"
+      "ofåT"
+      "bPy"
+      "b∆Q"
+      "bÑs"
+      "b„s"
+      "büt"
+      "b1f"
+      "bmf"
+      "bìv"
+      "bf"
+      "b¡N"
+      "bIN"
+      "b‡V"
+      "bkR"
+      "b2ç"
+      "bf"
+      "b∑V"
+      "bCQ"
+      "bóR"
+      "båT"
+      "‡VPy"
+      "‡V∆Q"
+      "‡VÑs"
+      "‡V„s"
+      "‡Vüt"
+      "‡V1f"
+      "‡Vmf"
+      "‡Vìv"
+      "‡Vf"
+      "‡Vb"
+      "‡V¡N"
+      "‡VIN"
+      "‡VkR"
+      "‡V2ç"
+      "‡Vf"
+      "‡V∑V"
+      "‡VCQ"
+      "‡VóR"
+      "‡VåT"
+      "kRPy"
+      "kR∆Q"
+      "kRÑs"
+      "kR„s"
+      "kRüt"
+      "kR1f"
+      "kRmf"
+      "kRìv"
+      "kRf"
+      "kRb"
+      "kR¡N"
+      "kRIN"
+      "kR‡V"
+      "kR2ç"
+      "kRf"
+      "kR∑V"
+      "kRCQ"
+      "kRóR"
+      "kRåT"
+      "¡NPy"
+      "¡N∆Q"
+      "¡NÑs"
+      "¡N„s"
+      "¡Nüt"
+      "¡N1f"
+      "¡Nmf"
+      "¡Nìv"
+      "¡Nf"
+      "¡Nb"
+      "¡NIN"
+      "¡N‡V"
+      "¡NkR"
+      "¡N2ç"
+      "¡Nf"
+      "¡N∑V"
+      "¡NCQ"
+      "¡NóR"
+      "¡NåT"
+      "INPy"
+      "IN∆Q"
+      "INÑs"
+      "IN„s"
+      "INüt"
+      "IN1f"
+      "INmf"
+      "INìv"
+      "INf"
+      "INb"
+      "IN¡N"
+      "IN‡V"
+      "INkR"
+      "IN2ç"
+      "INf"
+      "IN∑V"
+      "INCQ"
+      "INóR"
+      "INåT"
+      "áePy"
+      "áe∆Q"
+      "áeÑs"
+      "áe„s"
+      "áeüt"
+      "áe1f"
+      "áemf"
+      "áeìv"
+      "áef"
+      "áeb"
+      "áe¡N"
+      "áeIN"
+      "áe‡V"
+      "áekR"
+      "áe2ç"
+      "áef"
+      "áe∑V"
+      "áeCQ"
+      "áeóR"
+      "áeåT"
+      "fkPy"
+      "fk∆Q"
+      "fkÑs"
+      "fk„s"
+      "fküt"
+      "fk1f"
+      "fkmf"
+      "fkìv"
+      "fkf"
+      "fkb"
+      "fk¡N"
+      "fkIN"
+      "fk‡V"
+      "fkkR"
+      "fk2ç"
+      "fkf"
+      "fk∑V"
+      "fkCQ"
+      "fkóR"
+      "fkåT"
     }
+
     female_names = {
-      "1rYó" 	# Ae-jung
-      "≈ñ3t" 	# Areum
-      "<VZ" 	# Bit-na
-      "ùRÒÇ" 	# Bo-young
-      "ùR…b" 	# Bora
-      "iVCQ" 	# Chae-won
-      "iVÒÇ" 	# Chae-young
-      "Nxôq" 	# Cho-hee
-      "%f±Ç" 	# Chun-hwa
-      "%fPR" 	# Chun-ja
-      "Yôq" 	# Da-hee
-      "Y2ç" 	# Da-hyun
-      "˝êôq" 	# Do-hee
-      "i`≈ñ" 	# Eun-ah
-      "i`Ëñ" 	# Eun-bi
-      "i`f" 	# Eun-byul
-      "i`iV" 	# Eun-chae
-      "ˆî≥l" 	# Eun-ha
-      "i`ôq" 	# Eun-hee
-      "i`‡`" 	# Eun-hye
-      "i`zf" 	# Eun-ji
-      "i`Õs" 	# Eun-jin
-      "i`ôR" 	# Eun-ju
-      "i`vf" 	# Eun-jung
-      "i`of" 	# Eun-kyung
-      "i`é" 	# Eun-mi
-      "i`—m" 	# Eun-sook
-      "i`m" 	# Eun-suh
-      "i`ÒÇ" 	# Eun-young
-      "sO¡N" 	# Ga-in
-      "sOÒÇ" 	# Ga-young
-      "NYâÉ" 	# Gyuri
-      "wÉi`" 	# Ha-eun
-      "wÉZ" 	# Hana
-      "galV" 	# Hye-bin
-      "ga¡N" 	# Hye-in
-      "gaPR" 	# Hye-ja
-      "gaÕs" 	# Hye-jin
-      "gaç" 	# Hye-jung
-      "gavf" 	# Hye-kyung
-      "gaé" 	# Hye-mi
-      "ga3t" 	# Hye-rim
-      "ga¿y" 	# Hye-su
-      "gaáe" 	# Hye-won
-      "kR‡s" 	# Hyo-joo
-      "kR≤s" 	# Hyo-rin
-      "Îl≈ñ" 	# Hyun-a
-      "Îlvf" 	# Hyun-kyung
-      "Îlé" 	# Hyun-mi
-      "Îl—m" 	# Hyun-sook
-      "¡Nga" 	# In-hye
-      "¡N—m" 	# In-sook
-      "¡Nzò" 	# In-sun
-      "PRà" 	# Ja-kyung
-      "(Wi`" 	# Jae-eun
-      "ï N" 	# Jang-geum
-      "7ÖáÖ" 	# Jang-mi
-      "çPR" 	# Jeong-ja
-      "zf1r" 	# Ji-ae
-      "zfi`" 	# Ji-eun
-      "zfga" 	# Ji-hye
-      "zfçY" 	# Ji-yeon
-      "zfÒÇ" 	# Ji-young
-      "zfZ" 	# Jina
-      "wO" 	# Jin-yi
-      "ç≈ñ" 	# Jung-ah
-      "ç—m" 	# Jung-sook
-      "çØu" 	# Jung-soon
-      "vf≈ñ" 	# Kyung-ah
-      "vfôq" 	# Kyung-hee
-      "vfNS" 	# Kyung-hwa
-      "vfPR" 	# Kyung-ja
-      "vfâs" 	# Kyung-ok
-      "vf—m" 	# Kyung-sook
-      "é‡`" 	# Mi-hee
-      "éPR" 	# Mi-ja
-      "éç" 	# Mi-jung
-      "é¨N" 	# Mi-kyung
-      "épQ" 	# Mi-ran
-      "é—m" 	# Mi-sook
-      "éçY" 	# Mi-yeon
-      "éÒÇ" 	# Mi-young
-      "éôq" 	# Min-hee
-      "ézf" 	# Min-ji
-      "üs˜^" 	# Min-jung
-      "üsÍu" 	# Min-seo
-      "Oe≈ñ" 	# Mina
-      "fNS" 	# Myung-hwa
-      "fâs" 	# Myung-ok
-      "f—m" 	# Myung-sook
-      "fzò" 	# Myung-soon
-      "ZÒÇ" 	# Na-young
-      "ZZ" 	# Nana
-      "åvT" 	# Nari
-      "bSKN" 	# Noo-ri
-      "Sé" 	# Sang-mi
-      "NlV" 	# Se-bin
-      ".t2ç" 	# Seo-hyeon
-      ".tçY" 	# Seo-yeon
-      ".t∏Ç" 	# Seo-yun
-      "Çôq" 	# Seol-hee
-      "ÑUâs" 	# Seon-ok
-      "bPR" 	# Seong-ja
-      "f≈ñ" 	# Seung-ah
-      "·O‡`" 	# Shin-hye
-      "◊ãçY" 	# Si-yeon
-      ".tÏY" 	# So-hee
-      ".t2ç" 	# So-hyun
-      ".tõZ" 	# So-won
-      ".t!`" 	# So-yi
-      ".tÒÇ" 	# So-young
-      "¿y≈ñ" 	# Soo-ah
-      "¿yôq" 	# Soo-hee
-      "—mPR" 	# Sook-ja
-      "—môq" 	# Soon-hee
-      "zòPR" 	# Soon-ja
-      ".t…b" 	# Sora
-      ".té" 	# Su-mi
-      "ÑUôq" 	# Sun-hee
-      "ÑUNS" 	# Sun-hwa
-      "ÑUé" 	# Sun-mi
-      "ÑUâs" 	# Sun-ok
-      "‹wé" 	# Sung-mi
-      "‹w—m" 	# Sung-sook
-      "zÇi`" 	# Ye-eun
-      "zÇzf" 	# Ye-ji
-      "zÇÕs" 	# Ye-jin
-      "zÇ3t" 	# Ye-rin
-      "zÇÍu" 	# Ye-seo
-      "zÇCQ" 	# Ye-won
-      "KNÕs" 	# Yeo-jin
-      "AQπq" 	# Yeon-hee
-      "KNvf" 	# Yi-kyung
-      "jtvf" 	# Yoo-kyung
-      "‘gZ" 	# Yoo-na
-      "AQôq" 	# Yoon-hee
-      "AQ—m" 	# Yoon-sook
-      "ÒÇ1r" 	# Young-ae
-      "ÒÇôq" 	# Young-hee
-      "ÒÇPR" 	# Young-ja
-      "ÒÇé" 	# Young-mi
-      "ÒÇ—m" 	# Young-sook
-      "•R)R" 	# Yu-ri
-      "‘gé" 	# Yumi
+      "çÏY"
+      "le‡`"
+      "—mÍN"
+      "¡Nπs"
+      "öRzò"
+      "-f‡`"
+      "Ôzle"
+      "áeöR"
+      "¡NLf"
+      "f1W"
+      "åTle"
+      "∑V‡`"
+      "ç‡`"
+      "çÍN"
+      "çπs"
+      "çzò"
+      "ç¡N"
+      "çle"
+      "çöR"
+      "çLf"
+      "ç1W"
+      "çåT"
+      "ç∑V"
+      "leÏY"
+      "leÍN"
+      "leπs"
+      "lezò"
+      "le¡N"
+      "leöR"
+      "leLf"
+      "le1W"
+      "leåT"
+      "le∑V"
+      "—mÏY"
+      "—m‡`"
+      "—mπs"
+      "—mzò"
+      "—m¡N"
+      "—mle"
+      "—möR"
+      "—mLf"
+      "—m1W"
+      "—måT"
+      "—m∑V"
+      "¡NÏY"
+      "¡N‡`"
+      "¡NÍN"
+      "¡Nzò"
+      "¡Nle"
+      "¡NöR"
+      "¡N1W"
+      "¡NåT"
+      "¡N∑V"
+      "öRÏY"
+      "öR‡`"
+      "öRÍN"
+      "öRπs"
+      "öR¡N"
+      "öRle"
+      "öRLf"
+      "öR1W"
+      "öRåT"
+      "öR∑V"
+      "-fÏY"
+      "-fÍN"
+      "-fπs"
+      "-fzò"
+      "-f¡N"
+      "-fle"
+      "-föR"
+      "-fLf"
+      "-f1W"
+      "-fåT"
+      "-f∑V"
+      "ÔzÏY"
+      "Ôz‡`"
+      "ÔzÍN"
+      "Ôzπs"
+      "Ôzzò"
+      "Ôz¡N"
+      "ÔzöR"
+      "ÔzLf"
+      "Ôz1W"
+      "ÔzåT"
+      "Ôz∑V"
+      "áeÏY"
+      "áe‡`"
+      "áeÍN"
+      "áeπs"
+      "áezò"
+      "áe¡N"
+      "áele"
+      "áeLf"
+      "áe1W"
+      "áeåT"
+      "áe∑V"
+      "fÏY"
+      "f‡`"
+      "fÍN"
+      "fπs"
+      "fzò"
+      "f¡N"
+      "fle"
+      "föR"
+      "fLf"
+      "fåT"
+      "f∑V"
+      "åTÏY"
+      "åT‡`"
+      "åTÍN"
+      "åTπs"
+      "åTzò"
+      "åT¡N"
+      "åTöR"
+      "åTLf"
+      "åT1W"
+      "åT∑V"
+      "∑VÏY"
+      "∑VÍN"
+      "∑Vπs"
+      "∑Vzò"
+      "∑V¡N"
+      "∑Vle"
+      "∑VöR"
+      "∑VLf"
+      "∑V1W"
+      "∑VåT"
+      "‡`ÏY"
     }
   }
 
@@ -65890,102 +66011,413 @@ evenks = {
       local_has_banners = yes
     }
     primary = MJZ
+
+    # Culture-specific Chinese dynasty and personal names.
     dynasty_names = {
-      "1r∞e…âW" 	# Aisin Gioro
-      "åRúò" 	# Wanyan
-      "ˆSkç±ê…b" 	# Yehe Nara
-      "LN…b±ê…b" 	# Ula Nara
-      "lösO»TáU" 	# Magiya Hala
-      "ÆîjyÑy" 	# Niohuru
-      "kçÇÃë" 	# Heseri
-      "‹tSsO" 	# Guwalgiya
-      "mOsO" 	# Tunggiya
-      "»TTX" 	# Hata
-      "âè—S" 	# Hoifa
-      "Œë∫N" 	# Yeren
-      "LNvQ<h" 	# Udige
+      "1r∞e…âW"
+      "ˆSkç±ê…b"
+      "LN…b±ê…b"
+      "âè—S±ê…b"
+      "åRúò"
+      "‹tSsO"
+      "ÃRﬂR"
+      "kçÇÃë"
+      "mOsO"
+      "ÀujyÑy"
+      "ÇFzÑy"
+      "0tuW"
+      "lösO"
+      "°e5gÃë"
     }
+
     male_names = {
-      "^ì^ÃëÕñzò" 	# Bukuri Yongson
-      "!ïùRPü«r‰S" 	# Sibeoci Fiyanggu
-      "˝êcwmRyrFz" 	# Dudu Mengtemu
-      "áv*YÅg" 	# Huang Taiji
-      "ÑsËp" 	# Hiowan Yei
-      "‰wõy" 	# In Jen
-      "VÜS" 	# Hung Li
-      "ôò0t" 	# Yong Yan
-      "˚eÅR" 	# Min Ning
-      "EQÑU" 	# Cungsan
-      "•YW" 	# Tolo
-      "èy·n" 	# Fuman
-      "…âfâR" 	# Giocangga
-      "TXKQN" 	# Taksi
-      "™RS»Tdç" 	# Nurhachi
-      "YSnà" 	# Dorgon
-      "jå<h" 	# Hooge
-      "èy4N" 	# Fulin
-      "·QﬂR" 	# Fanca
-      "jå<hS" 	# Hoogle
-      "‰wIy" 	# Yinzhi
-      "‰wKy" 	# Yinreng
-      "‰wµy" 	# Yinti
-      "„NÑU" 	# Daisan
-      "?ñÙTl" 	# Abatai
-      "?ñNm<h" 	# Ajige
-      "YŒî" 	# Dodo
-      "‰wey" 	# Yinxiang
-      "‰w©y" 	# Yinsi
-      "‰wüy" 	# Yintang
-      "Vˆe" 	# Hongshi
-      "V<f" 	# Hongzhou
-      "8l*t" 	# Yongqi
-      "?ñKQ`S" 	# Akjan
-      "?ñfV" 	# Ayan
-      "SNÜ" 	# Baohu
-      "bµî" 	# Chengjun
-      "YSNm∑V" 	# Dorgide
-      "ùòÚT" 	# Eje
-      "i`Ha3u" 	# Encehen
-      "9çõè" 	# Fisin
-      "èyÑy" 	# Fulu
-      "u«R" 	# Ganyong
-      "uªw" 	# Ganzhan
-      "NNπR" 	# Hurong
-      "Nb^ÑU" 	# Jabsan
-      "NbKQ9N" 	# Jakdan
-      "PN<y" 	# Leli
-      "PNÍN" 	# Liyi
-      "ÜñâR" 	# Lung
-      "®XS9h" 	# Mergen
-      "Fz˝êÃë" 	# Muduri
-      "Fz—ë" 	# Mujin
-      "°eÃë" 	# Oori
-      "LRÍè" 	# Radi
-      "TX“R·n" 	# Talman
-      "-PåT" 	# Wehe
-      "6wãV" 	# Yelu
-      "8l8ê" 	# Yongyi
-      "‡z<h" 	# Zhanhung
-      "ck%t" 	# Zhenghu
-      "ckcÉ" 	# Zhengrong
-      "ÚNb" 	# Zhongcheng
-      "ÚNØu" 	# Zhongchun
-      "ÚNïW" 	# Zhongho
-      "ÚN%t" 	# Zhonghu
-      "ÚNÚs" 	# Zhonghung
-      "ÚN&å" 	# Zongqian
-      "ÚN.s" 	# Zhongxian
-      "ÚNÕñ" 	# Zhongyong
-      "ÚN”k" 	# Zhongyu
+      "mRyrFz"
+      "EQÑU"
+      "TXKQN"
+      "™RS»Tdç"
+      "ÇS»TPü"
+      "âÒÇ"
+      "„NÑU"
+      "MñOe"
+      "ÀÉ‰SSl"
+      "áv8YÅg"
+      "YSnà"
+      "YŒî"
+      "jåJh"
+      "èy4N"
+      "ÑsËp"
+      "‰w€y"
+      "VÜS"
+      "MñNmJh"
+      "Mñwm"
+      "MñPü"
+      "MñÑU"
+      "Mñl"
+      "Mñ˛V"
+      "MñÑy"
+      "Mñ›O"
+      "Mñ%f"
+      "Mñ5ç"
+      "Mñèy"
+      "MñÅR"
+      "MñâR"
+      "Mñb"
+      "Mñ∑V"
+      "Mñóg"
+      "MñÜñ"
+      "Mñf"
+      "MñhQ"
+      "Mñzò"
+      "Mñey"
+      "ÙTwm"
+      "ÙTPü"
+      "ÙTÑU"
+      "ÙTl"
+      "ÙT˛V"
+      "ÙTÑy"
+      "ÙT›O"
+      "ÙT%f"
+      "ÙT5ç"
+      "ÙTèy"
+      "ÙTÅR"
+      "ÙTâR"
+      "ÙTb"
+      "ÙT∑V"
+      "ÙTóg"
+      "ÙTÜñ"
+      "ÙTf"
+      "ÙThQ"
+      "ÙTzò"
+      "ÙTey"
+      "ZSwm"
+      "ZSPü"
+      "ZSÑU"
+      "ZSl"
+      "ZS˛V"
+      "ZSÑy"
+      "ZS›O"
+      "ZS%f"
+      "ZS5ç"
+      "ZSèy"
+      "ZSÅR"
+      "ZSâR"
+      "ZSb"
+      "ZS∑V"
+      "ZSóg"
+      "ZSÜñ"
+      "ZSf"
+      "ZShQ"
+      "ZSzò"
+      "ZSey"
+      "^wm"
+      "^Pü"
+      "^ÑU"
+      "^l"
+      "^˛V"
+      "^Ñy"
+      "^›O"
+      "^%f"
+      "^5ç"
+      "^èy"
+      "^ÅR"
+      "^âR"
+      "^b"
+      "^∑V"
+      "^óg"
+      "^Üñ"
+      "^f"
+      "^hQ"
+      "^zò"
+      "^ey"
+      "Ziwm"
+      "ZiPü"
+      "ZiÑU"
+      "Zil"
+      "Zi˛V"
+      "ZiÑy"
+      "Zi›O"
+      "Zi%f"
+      "Zi5ç"
+      "Zièy"
+      "ZiÅR"
+      "ZiâR"
+      "Zib"
+      "Zi∑V"
+      "Zióg"
+      "ZiÜñ"
+      "Zif"
+      "ZihQ"
+      "Zizò"
+      "Ziey"
+      "Ywm"
+      "YPü"
+      "YÑU"
+      "Yl"
+      "Y˛V"
+      "YÑy"
+      "Y›O"
+      "Y%f"
+      "Y5ç"
+      "Yèy"
+      "YÅR"
+      "YâR"
+      "Yb"
+      "Y∑V"
+      "Yóg"
+      "YÜñ"
+      "Yf"
+      "YhQ"
+      "Yzò"
+      "Yey"
+      "ùòwm"
+      "ùòPü"
+      "ùòÑU"
+      "ùòl"
+      "ùò˛V"
+      "ùòÑy"
+      "ùò›O"
+      "ùò%f"
+      "ùò5ç"
+      "ùòèy"
+      "ùòÅR"
+      "ùòâR"
+      "ùòb"
+      "ùò∑V"
+      "ùòóg"
+      "ùòÜñ"
+      "ùòf"
+      "ùòhQ"
+      "ùòzò"
+      "ùòey"
+      "9çwm"
+      "9çPü"
+      "9çÑU"
+      "9çl"
+      "9ç˛V"
+      "9çÑy"
+      "9ç›O"
+      "9ç%f"
+      "9ç5ç"
+      "9çèy"
+      "9çÅR"
+      "9çâR"
+      "9çb"
+      "9ç∑V"
+      "9çóg"
+      "9çÜñ"
+      "9çf"
+      "9çhQ"
+      "9çzò"
+      "9çey"
+      "ÃRwm"
+      "ÃRPü"
+      "ÃRÑU"
+      "ÃRl"
+      "ÃR˛V"
+      "ÃRÑy"
+      "ÃR›O"
+      "ÃR%f"
+      "ÃR5ç"
+      "ÃRèy"
+      "ÃRÅR"
+      "ÃRâR"
+      "ÃRb"
+      "ÃR∑V"
+      "ÃRóg"
+      "ÃRÜñ"
+      "ÃRf"
+      "ÃRhQ"
+      "ÃRzò"
+      "ÃRey"
+      "iÑwm"
+      "iÑPü"
+      "iÑÑU"
+      "iÑl"
+      "iÑ˛V"
+      "iÑÑy"
+      "iÑ›O"
+      "iÑ%f"
+      "iÑ5ç"
+      "iÑèy"
+      "iÑÅR"
+      "iÑâR"
+      "iÑb"
+      "iÑ∑V"
+      "iÑóg"
+      "iÑÜñ"
+      "iÑf"
+      "iÑhQ"
+      "iÑzò"
+      "iÑey"
+      "»Twm"
+      "»TPü"
+      "»TÑU"
+      "»Tl"
+      "»T˛V"
+      "»TÑy"
+      "»T›O"
+      "»T%f"
+      "»T5ç"
+      "»Tèy"
+      "»TÅR"
+      "»TâR"
+      "»Tb"
+      "»T∑V"
+      "»Tóg"
+      "»TÜñ"
+      "»Tf"
+      "»ThQ"
+      "»Tzò"
+      "»Tey"
+      "åTwm"
+      "åTPü"
+      "åTÑU"
+      "åTl"
+      "åT˛V"
+      "åTÑy"
+      "åT›O"
+      "åT%f"
+      "åT5ç"
+      "åTèy"
+      "åTÅR"
+      "åTâR"
+      "åTb"
+      "åT∑V"
+      "åTóg"
+      "åTÜñ"
+      "åTf"
+      "åThQ"
     }
+
     female_names = {
-      "¨Ç" 	# Fen
-      "ÌO" 	# Jian
-      ")n" 	# Wen
-      "åTYó" 	# Hejing
-      "åT	V" 	# Hejia
-      "åTkR" 	# Hexiao
-      "Ñ^Yó" 	# Zhuangjing
+      "NÂT"
+      "MñÙT•N"
+      "ÚTÚT"
+      "^(g^l"
+      "wmpQ‡s"
+      "mR‰S"
+      "nà„N"
+      "ÙTyrõs"
+      "MñÙTl"
+      "ÅR‰STX"
+      "ÒÇJh"
+      "LNëN‡s"
+      "NÙT•N"
+      "N(g^l"
+      "N‰S"
+      "NpQ‡s"
+      "N„N"
+      "NZ"
+      "Nèy"
+      "Nâs"
+      "N‡s"
+      "NJhJh"
+      "NëN"
+      "MñÂT"
+      "Mñ(g^l"
+      "Mñ‰S"
+      "MñpQ‡s"
+      "Mñ„N"
+      "MñZ"
+      "Mñèy"
+      "Mñâs"
+      "Mñ‡s"
+      "MñJhJh"
+      "MñëN"
+      "^ÂT"
+      "^ÙT•N"
+      "^‰S"
+      "^pQ‡s"
+      "^„N"
+      "^Z"
+      "^èy"
+      "^âs"
+      "^‡s"
+      "^JhJh"
+      "^ëN"
+      "mRÂT"
+      "mRÙT•N"
+      "mR(g^l"
+      "mRpQ‡s"
+      "mR„N"
+      "mRZ"
+      "mRèy"
+      "mRâs"
+      "mR‡s"
+      "mRJhJh"
+      "mRëN"
+      "ÚTÂT"
+      "ÚTÙT•N"
+      "ÚT(g^l"
+      "ÚT‰S"
+      "ÚTpQ‡s"
+      "ÚT„N"
+      "ÚTZ"
+      "ÚTèy"
+      "ÚTâs"
+      "ÚT‡s"
+      "ÚTJhJh"
+      "ÚTëN"
+      "wmÂT"
+      "wmÙT•N"
+      "wm(g^l"
+      "wm‰S"
+      "wm„N"
+      "wmZ"
+      "wmèy"
+      "wmâs"
+      "wm‡s"
+      "wmJhJh"
+      "wmëN"
+      "nàÂT"
+      "nàÙT•N"
+      "nà(g^l"
+      "nà‰S"
+      "nàpQ‡s"
+      "nàZ"
+      "nàèy"
+      "nàâs"
+      "nà‡s"
+      "nàJhJh"
+      "nàëN"
+      "ÅRÂT"
+      "ÅRÙT•N"
+      "ÅR(g^l"
+      "ÅR‰S"
+      "ÅRpQ‡s"
+      "ÅR„N"
+      "ÅRZ"
+      "ÅRèy"
+      "ÅRâs"
+      "ÅR‡s"
+      "ÅRJhJh"
+      "ÅRëN"
+      "ÒÇÂT"
+      "ÒÇÙT•N"
+      "ÒÇ(g^l"
+      "ÒÇ‰S"
+      "ÒÇpQ‡s"
+      "ÒÇ„N"
+      "ÒÇZ"
+      "ÒÇèy"
+      "ÒÇâs"
+      "ÒÇ‡s"
+      "ÒÇJhJh"
+      "ÒÇëN"
+      "LNÂT"
+      "LNÙT•N"
+      "LN(g^l"
+      "LN‰S"
+      "LNpQ‡s"
+      "LN„N"
+      "LNZ"
+      "LNèy"
+      "LNâs"
+      "LN‡s"
+      "LNJhJh"
+      "LNëN"
+      "(ÑÂT"
+      "(ÑÙT•N"
     }
   }
   dynasty_names = {

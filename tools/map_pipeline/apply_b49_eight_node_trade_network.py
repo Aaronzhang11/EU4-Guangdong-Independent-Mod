@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+import heapq
 import importlib.util
 import json
 from pathlib import Path
@@ -85,7 +86,7 @@ NODE_LABELS = {
     "canton": "百越",
     "huguang": "荆楚",
     "chengdu": "巴蜀",
-    "yungui": "滇夜郎",
+    "yungui": "夜郎",
     "xian": "秦陇",
     "zhongyuan": "河济",
     "beijing": "幽燕",
@@ -130,6 +131,12 @@ TRADE_COMPANY_BY_NODE = {
     "xian": "trade_company_xian",
     "zhongyuan": "trade_company_zhongyuan",
     "beijing": "trade_company_north_china",
+}
+
+# 夜郎的节点与特许公司均使用裸地名；其余地区继续保留能够区分
+# 地图区域和公司组织的后缀。
+TRADE_COMPANY_LABEL_OVERRIDES = {
+    "yungui": ("夜郎", "夜郎"),
 }
 
 EXTERNAL_COMPANY_BY_NODE = {
@@ -505,6 +512,96 @@ def node_routes(text: str) -> dict[str, tuple[str, ...]]:
     return result
 
 
+def node_definition_order_violations(text: str) -> list[tuple[str, str, int, int]]:
+    """Return routes whose target block appears before their source block.
+
+    EU4 requires every outgoing target to be defined later in the trade-node
+    file.  A graph can be acyclic and still violate that parser requirement,
+    so this is deliberately checked separately from ``assert_acyclic``.
+    """
+    blocks = list(top_blocks(text))
+    order = {name: index for index, (name, *_rest) in enumerate(blocks)}
+    if len(order) != len(blocks):
+        raise ValueError("Trade-node file contains duplicate top-level node names")
+    routes = node_routes(text)
+    missing = {
+        target
+        for targets in routes.values()
+        for target in targets
+        if target not in order
+    }
+    if missing:
+        raise ValueError(f"Trade routes target missing nodes: {sorted(missing)}")
+    return [
+        (source, target, order[source], order[target])
+        for source, targets in routes.items()
+        for target in targets
+        if order[source] >= order[target]
+    ]
+
+
+def assert_node_definition_order(text: str) -> None:
+    violations = node_definition_order_violations(text)
+    if violations:
+        rendered = ", ".join(
+            f"{source}->{target} ({source_index}>={target_index})"
+            for source, target, source_index, target_index in violations
+        )
+        raise ValueError(f"Trade-node source-before-target order violations: {rendered}")
+
+
+def topologically_order_trade_nodes(text: str) -> str:
+    """Stably order complete node blocks so every source precedes its targets."""
+    blocks = list(top_blocks(text))
+    if not blocks:
+        return text
+    names = [name for name, *_rest in blocks]
+    if len(set(names)) != len(names):
+        raise ValueError("Trade-node file contains duplicate top-level node names")
+    original_index = {name: index for index, name in enumerate(names)}
+    block_by_name = {name: block for name, _start, _end, block in blocks}
+    routes = node_routes(text)
+    missing = {
+        target
+        for targets in routes.values()
+        for target in targets
+        if target not in original_index
+    }
+    if missing:
+        raise ValueError(f"Trade routes target missing nodes: {sorted(missing)}")
+
+    outgoing = {name: set(routes.get(name, ())) for name in names}
+    indegree = {name: 0 for name in names}
+    for targets in outgoing.values():
+        for target in targets:
+            indegree[target] += 1
+
+    ready = [
+        (original_index[name], name)
+        for name in names
+        if indegree[name] == 0
+    ]
+    heapq.heapify(ready)
+    ordered: list[str] = []
+    while ready:
+        _index, source = heapq.heappop(ready)
+        ordered.append(source)
+        for target in sorted(outgoing[source], key=original_index.__getitem__):
+            indegree[target] -= 1
+            if indegree[target] == 0:
+                heapq.heappush(ready, (original_index[target], target))
+    if len(ordered) != len(names):
+        cyclic = [name for name in names if indegree[name] > 0]
+        raise ValueError(f"Trade route cycle prevents node ordering: {cyclic}")
+
+    prefix = text[:blocks[0][1]]
+    suffix = text[blocks[-1][2]:]
+    reordered = prefix + "\n".join(block_by_name[name].rstrip() for name in ordered)
+    reordered += suffix if suffix else "\n"
+    assert_node_definition_order(reordered)
+    return reordered
+
+
 def opening_history_values(path: Path) -> tuple[int, int]:
     text = path.read_text(encoding="cp1252")
     dated = re.search(r"(?m)^\s*\d+\.\d+\.\d+\s*=\s*\{", text)
@@ -571,8 +668,11 @@ def write_localisation() -> None:
         # The raw company key labels the charter region in the map mode; the
         # GDD key names the actual trade-company organisation. Both consumers
         # must be localized or one of the two screens falls back to English.
-        lines.append(f' {company}:0 "{value}特许贸易区"')
-        lines.append(f' GDD_TRADE_COMPANY_{node.upper()}:0 "{value}贸易公司"')
+        company_region, company_name = TRADE_COMPANY_LABEL_OVERRIDES.get(
+            node, (f"{value}特许贸易区", f"{value}贸易公司")
+        )
+        lines.append(f' {company}:0 "{company_region}"')
+        lines.append(f' GDD_TRADE_COMPANY_{node.upper()}:0 "{company_name}"')
     SOURCE.write_text("\n".join(lines) + "\n", encoding="utf-8-sig")
     encoder = load_encoder()
     encoder.encode_file(SOURCE, TARGET)
@@ -652,6 +752,7 @@ def validate(mod_root: Path = MOD) -> dict[str, object]:
         if re.search(r"(?m)^\s*end\s*=\s*yes\s*$", block):
             raise ValueError(f"{node} must not be an end node")
     assert_acyclic(routes)
+    assert_node_definition_order(text)
 
     histories = history_index(mod_root)
     development = {}
@@ -679,10 +780,13 @@ def validate(mod_root: Path = MOD) -> dict[str, object]:
     source_text = source.read_text(encoding="utf-8-sig")
     for node, label in NODE_LABELS.items():
         company = TRADE_COMPANY_BY_NODE[node]
+        company_region, company_name = TRADE_COMPANY_LABEL_OVERRIDES.get(
+            node, (f"{label}特许贸易区", f"{label}贸易公司")
+        )
         required_lines = (
             f' {node}:0 "{label}"',
-            f' {company}:0 "{label}特许贸易区"',
-            f' GDD_TRADE_COMPANY_{node.upper()}:0 "{label}贸易公司"',
+            f' {company}:0 "{company_region}"',
+            f' GDD_TRADE_COMPANY_{node.upper()}:0 "{company_name}"',
         )
         missing_lines = [line for line in required_lines if line not in source_text]
         if missing_lines:
@@ -734,6 +838,7 @@ def update_trade_nodes() -> dict[str, int]:
     for (node, target_node), (path, control) in EXTERNAL_ROUTES.items():
         text = upsert_external_route(text, node, target_node, path, control)
 
+    text = topologically_order_trade_nodes(text)
     TRADE_NODES.write_text(text.rstrip() + "\n", encoding="cp1252")
     return before
 

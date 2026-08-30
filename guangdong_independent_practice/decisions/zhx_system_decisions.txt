@@ -4,11 +4,7 @@ country_decisions = {
 
         potential = {
             has_global_flag = zhx_system_initialised_v3
-            OR = {
-                zhx_is_tianxia_polity = yes
-                china_superregion = { has_discovered = ROOT }
-                far_east_superregion = { has_discovered = ROOT }
-            }
+            zhx_can_see_tianxia_gui = yes
         }
 
         allow = {
@@ -16,8 +12,8 @@ country_decisions = {
         }
 
         effect = {
-            # 决议页本身是 1.37.5 官方支持的 scripted-GUI 根节点。
-            # 这里只切换显示状态，不再占用原版中华帝国/天命窗口。
+            # 这是右下角顶栏按钮以外的备用入口；这里只切换显示状态，
+            # 不占用原版中华帝国、神罗、教廷等硬编码界面。
             set_country_flag = zhx_tianxia_gui_visible
             zhx_build_gui_roster = yes
         }
@@ -32,14 +28,7 @@ country_decisions = {
 
         potential = {
             has_global_flag = zhx_system_initialised_v3
-            OR = {
-                china_superregion = {
-                    has_discovered = ROOT
-                }
-                far_east_superregion = {
-                    has_discovered = ROOT
-                }
-            }
+            zhx_can_see_tianxia_gui = yes
         }
 
         provinces_to_highlight = {
@@ -197,9 +186,10 @@ country_decisions = {
             ai = no
             has_global_flag = zhx_system_initialised_v6
             zhx_is_tianxia_member = yes
-            NOT = { has_country_flag = zhx_incident_vote_support }
+            NOT = { has_country_flag = zhx_council_vote_a }
             event_target:zhx_tianzi = {
-                has_country_flag = zhx_ritual_breakdown_incident_active
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_kind_ritual_breakdown
             }
         }
 
@@ -208,7 +198,7 @@ country_decisions = {
         effect = {
             custom_tooltip = zhx_system.21.a.tt
             hidden_effect = {
-                zhx_cast_ritual_breakdown_support_vote = yes
+                zhx_cast_tianxia_council_vote_a = yes
             }
         }
 
@@ -222,9 +212,10 @@ country_decisions = {
             ai = no
             has_global_flag = zhx_system_initialised_v6
             zhx_is_tianxia_member = yes
-            NOT = { has_country_flag = zhx_incident_vote_oppose }
+            NOT = { has_country_flag = zhx_council_vote_b }
             event_target:zhx_tianzi = {
-                has_country_flag = zhx_ritual_breakdown_incident_active
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_kind_ritual_breakdown
             }
         }
 
@@ -233,7 +224,7 @@ country_decisions = {
         effect = {
             custom_tooltip = zhx_system.21.c.tt
             hidden_effect = {
-                zhx_cast_ritual_breakdown_oppose_vote = yes
+                zhx_cast_tianxia_council_vote_b = yes
             }
         }
 
@@ -247,9 +238,10 @@ country_decisions = {
             ai = no
             has_global_flag = zhx_system_initialised_v6
             zhx_is_tianxia_member = yes
-            NOT = { has_country_flag = zhx_incident_vote_abstain }
+            NOT = { has_country_flag = zhx_council_vote_c }
             event_target:zhx_tianzi = {
-                has_country_flag = zhx_ritual_breakdown_incident_active
+                has_country_flag = zhx_council_phase_ballot_open
+                has_country_flag = zhx_council_kind_ritual_breakdown
             }
         }
 
@@ -258,79 +250,11 @@ country_decisions = {
         effect = {
             custom_tooltip = zhx_system.21.b.tt
             hidden_effect = {
-                zhx_cast_ritual_breakdown_abstain_vote = yes
+                zhx_cast_tianxia_council_vote_c = yes
             }
         }
 
         ai_will_do = { factor = 0 }
     }
 
-    # Debug-only stepping controls for visually checking all five GUI/effect
-    # tiers. Each click refreshes the presentation immediately.
-    zhx_debug_increase_ritual_harmony = {
-        major = no
-
-        potential = {
-            ai = no
-            has_global_flag = zhx_system_initialised_v4
-        }
-
-        allow = { always = yes }
-
-        effect = {
-            event_target:zhx_tianzi = {
-                change_variable = {
-                    which = zhx_ritual_authority
-                    value = 10
-                }
-                zhx_clamp_ritual_authority = yes
-                zhx_refresh_ritual_order = yes
-            }
-        }
-
-        ai_will_do = { factor = 0 }
-    }
-
-    zhx_debug_decrease_ritual_harmony = {
-        major = no
-
-        potential = {
-            ai = no
-            has_global_flag = zhx_system_initialised_v4
-        }
-
-        allow = { always = yes }
-
-        effect = {
-            event_target:zhx_tianzi = {
-                change_variable = {
-                    which = zhx_ritual_authority
-                    value = -10
-                }
-                zhx_clamp_ritual_authority = yes
-                zhx_refresh_ritual_order = yes
-            }
-        }
-
-        ai_will_do = { factor = 0 }
-    }
-
-    zhx_debug_run_yearly_ritual_tick = {
-        major = no
-
-        potential = {
-            ai = no
-            has_global_flag = zhx_system_initialised_v4
-        }
-
-        allow = { always = yes }
-
-        effect = {
-            event_target:zhx_tianzi = {
-                zhx_yearly_ritual_authority_tick = yes
-            }
-        }
-
-        ai_will_do = { factor = 0 }
-    }
 }

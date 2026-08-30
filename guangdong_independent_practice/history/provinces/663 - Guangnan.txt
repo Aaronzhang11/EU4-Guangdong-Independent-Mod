@@ -2,7 +2,6 @@
 
 owner = NUN
 controller = NUN
-add_core = CDL
 add_core = NUN
 culture = gdd_zhuang
 religion = animism

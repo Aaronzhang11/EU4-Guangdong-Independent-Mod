@@ -1,0 +1,227 @@
+namespace = zhx_opening_school
+
+# Fresh-campaign projection of the authoritative 1444 mapping in
+# planning/religion_opening_schools/opening_schools_manifest.json.
+# This event assigns state, not adoption: opening doctrines receive neither
+# the adoption bonus nor the ten-year doctrine-change cooldown.
+country_event = {
+    id = zhx_opening_school.1
+    title = zhx_doctrine.90.t
+    desc = zhx_doctrine.90.d
+    picture = RELIGIOUS_CONVERSION_eventPicture
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = CZH
+        exists = yes
+        NOT = { has_global_flag = zhx_opening_schools_initialised }
+    }
+
+    immediate = {
+        every_country = {
+            limit = {
+                exists = yes
+                religion = confucianism
+                NOT = { has_country_flag = zhx_opening_school_initialised }
+                OR = {
+                    tag = ACG
+                    tag = CAG
+                    tag = CHN
+                    tag = CZH
+                    tag = GUO
+                    tag = HNG
+                    tag = JIZ
+                    tag = LCH
+                    tag = LUU
+                    tag = NCH
+                    tag = SUI
+                    tag = WVG
+                    tag = XU2
+                    tag = ZHG
+                    tag = GUN
+                    tag = QIN
+                    tag = SHU
+                    tag = WEI
+                    tag = YUE
+                    tag = ZNG
+                    tag = CCH
+                    tag = CDE
+                    tag = CZC
+                    tag = GUZ
+                    tag = HUA
+                    tag = HYA
+                    tag = JJG
+                    tag = LIU
+                    tag = SNG
+                    tag = WHU
+                    tag = WUZ
+                    tag = ZHU
+                    tag = BAA
+                    tag = CHC
+                    tag = CSA
+                    tag = DIA
+                    tag = MIN
+                    tag = TSF
+                    tag = WDU
+                    tag = WXG
+                    tag = YPG
+                    tag = DAE
+                    tag = DQU
+                    tag = EGU
+                    tag = HAK
+                    tag = QIC
+                    tag = QWO
+                    tag = WUU
+                    tag = XNG
+                    tag = YAN
+                    tag = YOU
+                    tag = ZHA
+                    tag = CAI
+                    tag = GDD
+                    tag = GON
+                    tag = GUI
+                    tag = HYM
+                    tag = JUU
+                    tag = LUO
+                    tag = OUE
+                    tag = QSH
+                    tag = QVN
+                    tag = SHE
+                    tag = ZHO
+                    tag = ZSH
+                }
+            }
+
+            zhx_clear_doctrine_flags = yes
+            if = {
+                limit = {
+                    OR = {
+                        tag = ACG
+                        tag = CAG
+                        tag = CHN
+                        tag = CZH
+                        tag = GUO
+                        tag = HNG
+                        tag = JIZ
+                        tag = LCH
+                        tag = LUU
+                        tag = NCH
+                        tag = SUI
+                        tag = WVG
+                        tag = XU2
+                        tag = ZHG
+                    }
+                }
+                set_country_flag = zhx_doctrine_ru
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        tag = GUN
+                        tag = QIN
+                        tag = SHU
+                        tag = WEI
+                        tag = YUE
+                        tag = ZNG
+                    }
+                }
+                set_country_flag = zhx_doctrine_fa
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        tag = CCH
+                        tag = CDE
+                        tag = CZC
+                        tag = GUZ
+                        tag = HUA
+                        tag = HYA
+                        tag = JJG
+                        tag = LIU
+                        tag = SNG
+                        tag = WHU
+                        tag = WUZ
+                        tag = ZHU
+                    }
+                }
+                set_country_flag = zhx_doctrine_mo
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        tag = BAA
+                        tag = CHC
+                        tag = CSA
+                        tag = DIA
+                        tag = MIN
+                        tag = TSF
+                        tag = WDU
+                        tag = WXG
+                        tag = YPG
+                    }
+                }
+                set_country_flag = zhx_doctrine_dao
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        tag = DAE
+                        tag = DQU
+                        tag = EGU
+                        tag = HAK
+                        tag = QIC
+                        tag = QWO
+                        tag = WUU
+                        tag = XNG
+                        tag = YAN
+                        tag = YOU
+                        tag = ZHA
+                    }
+                }
+                set_country_flag = zhx_doctrine_bing
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        tag = CAI
+                        tag = GDD
+                        tag = GON
+                        tag = GUI
+                        tag = HYM
+                        tag = JUU
+                        tag = LUO
+                        tag = OUE
+                        tag = QSH
+                        tag = QVN
+                        tag = SHE
+                        tag = ZHO
+                        tag = ZSH
+                    }
+                }
+                set_country_flag = zhx_doctrine_zongheng
+            }
+
+            set_variable = {
+                which = zhx_doctrine_practice
+                value = 25
+            }
+            set_variable = {
+                which = zhx_doctrine_last_delta
+                value = 0
+            }
+            set_country_flag = zhx_doctrine_practice_initialised
+            set_country_flag = zhx_opening_school_initialised
+            # Opening practice starts exactly on the established threshold;
+            # apply its gameplay tier immediately instead of waiting for the
+            # first January pulse.
+            zhx_refresh_doctrine_tier = yes
+            zhx_prepare_doctrine_ledger = yes
+            country_event = { id = zhx_doctrine.91 }
+        }
+
+        set_global_flag = zhx_opening_schools_initialised
+    }
+
+    option = { name = OK }
+}

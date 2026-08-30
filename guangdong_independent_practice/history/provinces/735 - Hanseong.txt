@@ -1,14 +1,14 @@
-#735 - Hanseong
+# 735 - Hanseong - GDD_B59_KOREA_30_PROVINCES_SEVEN_AREAS
 owner = KOR
 controller = KOR
-culture = korean
-religion = confucianism
-capital = "IlÎW" 	# Hanseong
+culture = gdd_samhan
+religion = mahayana
+capital = "Hanseong"# Hanseong
 trade_goods = paper
 hre = no
-base_tax = 9
-base_production = 10
-base_manpower = 6
+base_tax = 8
+base_production = 7
+base_manpower = 3
 is_city = yes
 center_of_trade = 1 # GDD_B48_TRADE_CENTER_REBALANCE
 add_core = KOR

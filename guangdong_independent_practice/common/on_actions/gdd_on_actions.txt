@@ -3,6 +3,7 @@ on_startup = {
         gdd_startup.1
         gdd_heir.1
         gdd_celestial_test.100
+        gdd_korea.1 # GDD_B60_KOREA_FOUR_POLITIES
     }
 
     # Grant Guangdong's two founding estate privileges exactly once per campaign.
@@ -21,6 +22,8 @@ on_startup = {
     }
 }
 
+# The scheduled five-year checker handles normal 1444 starts. The treaty check
+# is also called monthly for old saves and console date jumps.
 on_monthly_pulse = {
     events = {
         gdd_treaty.100

@@ -1,0 +1,101 @@
+country_decisions = {
+    # Player-only test control for the independent -100..100 authority meter.
+    # It is deliberately repeatable and has no cost, cooldown or requirements
+    # beyond belonging to the temporary test country YAN.
+    gdd_test_central_authority_balance = {
+        major = yes
+
+        potential = {
+            tag = YAN
+        }
+
+        allow = {
+            always = yes
+        }
+
+        effect = {
+            country_event = { id = gdd_celestial_test.120 }
+        }
+
+        ai_will_do = {
+            factor = 0
+        }
+    }
+
+    # The Zhou Son of Heaven receives the same unconditional test control as
+    # YAN, but through a separate decision so both entries remain explicit.
+    gdd_test_central_authority_balance_tianzi = {
+        major = yes
+
+        potential = {
+            tag = CZH
+        }
+
+        allow = {
+            always = yes
+        }
+
+        effect = {
+            country_event = { id = gdd_celestial_test.120 }
+        }
+
+        ai_will_do = {
+            factor = 0
+        }
+    }
+
+    # Player-only dynamic-roster test. The menu is rebuilt immediately before
+    # the event opens, so every option points at a current Zhou member rather
+    # than at a hard-coded country tag.
+    gdd_test_remove_tianxia_member = {
+        major = yes
+
+        potential = {
+            tag = YAN
+        }
+
+        allow = {
+            always = yes
+        }
+
+        effect = {
+            CZH = {
+                zhx_build_gui_roster = yes
+            }
+            country_event = { id = gdd_celestial_test.121 }
+        }
+
+        ai_will_do = {
+            factor = 0
+        }
+    }
+
+    # Dynamic great-feudatory roster test. Event A branches to removal or
+    # promotion and rebuilds all caches before presenting live country slots.
+    gdd_test_manage_six_great_feudatories = {
+        major = yes
+
+        potential = {
+            tag = YAN
+        }
+
+        allow = {
+            always = yes
+        }
+
+        effect = {
+            hidden_effect = {
+                CZH = {
+                    zhx_rebuild_six_great_feudatory_cache = yes
+                    zhx_build_gui_roster = yes
+                }
+                country_event = { id = gdd_celestial_test.122 }
+            }
+        }
+
+        ai_will_do = {
+            factor = 0
+        }
+    }
+
+}

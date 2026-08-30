@@ -3,7 +3,6 @@
 owner = DZH
 controller = DZH
 add_core = DZH
-add_core = CXI
 culture = gdd_diqiang
 religion = vajrayana
 capital = "Nanping"

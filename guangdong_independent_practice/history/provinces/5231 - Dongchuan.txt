@@ -2,10 +2,9 @@
 
 owner = DIA
 controller = DIA
-add_core = CDL
 add_core = DIA
 culture = yi
-religion = animism
+religion = buddhism
 capital = "Dongchuan"
 trade_goods = copper
 base_tax = 1

@@ -1,0 +1,10 @@
+# Parameterised strict-majority check shared by all 21 reform conditions.
+gdd_reform_vote_majority_trigger = {
+    custom_trigger_tooltip = {
+        tooltip = GDD_REFORM_VOTE_MAJORITY_TRIGGER_TT
+        check_variable = {
+            which = $support_twice_variable$
+            which = gdd_reform_vote_total_dev_plus_one
+        }
+    }
+}

@@ -1,0 +1,50 @@
+spriteTypes = {
+	# Reuse the vanilla Imperial Diet selection frame as a scalable, transparent
+	# gold frame. Its native corner ornaments match the rest of the EoC artwork
+	# and avoid baking another imitation border into the grouped-panel overlay.
+	corneredTileSpriteType = {
+		name = "GFX_gdd_eoc_reform_frame"
+		size = { x = 58 y = 45 }
+		texturefile = "gfx/interface/imperial_diet_reforms/imperial_reform_selected_frame.dds"
+		borderSize = { x = 16 y = 16 }
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_bg_authority"
+		texturefile = "gfx/interface/gdd_eoc_bg_authority_wide.tga"
+		transparencecheck = no
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_reform_groups"
+		texturefile = "gfx/interface/gdd_eoc_reform_groups.tga"
+		transparencecheck = no
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_decree_button_compact"
+		texturefile = "gfx/interface/gdd_eoc_decree_button_compact.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_authority_track"
+		texturefile = "gfx/interface/gdd_eoc_authority_track.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_authority_marker"
+		# Exact black-and-gold value plaque used by the Muslim piety meter.
+		texturefile = "gfx/interface/war_overview_indicator.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_feudatory_prestige_icon"
+		texturefile = "gfx/interface/gdd_eoc_feudatory_prestige_icon.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_gdd_eoc_central_authority_icon"
+		texturefile = "gfx/interface/gdd_eoc_central_authority_icon.tga"
+		loadType = "INGAME"
+	}
+}
